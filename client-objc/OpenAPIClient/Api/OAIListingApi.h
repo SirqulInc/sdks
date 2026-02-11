@@ -29,7 +29,6 @@ extern NSInteger kOAIListingApiMissingParamErrorCode;
 /// Create Listing
 /// Creates a listing.
 ///
-/// @param version 
 /// @param accountId the user&#39;s account ID
 /// @param name the name of the listing
 /// @param filterIds comma separated list of filter IDs (optional)
@@ -48,8 +47,7 @@ extern NSInteger kOAIListingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIListingFullResponse*
--(NSURLSessionTask*) createListingWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createListingWithAccountId: (NSNumber*) accountId
     name: (NSString*) name
     filterIds: (NSString*) filterIds
     _description: (NSString*) _description
@@ -69,15 +67,13 @@ extern NSInteger kOAIListingApiMissingParamErrorCode;
 /// Delete Listing
 /// Delete a listing.
 ///
-/// @param version 
 /// @param accountId the id of the logged in user
 /// @param listingId the id of the listing to delete
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteListingWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteListingWithAccountId: (NSNumber*) accountId
     listingId: (NSNumber*) listingId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -85,21 +81,18 @@ extern NSInteger kOAIListingApiMissingParamErrorCode;
 /// Get Listing
 /// Get a listing by id.
 ///
-/// @param version 
 /// @param listingId the id of the listing to get
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIListingFullResponse*
--(NSURLSessionTask*) getListingWithVersion: (NSNumber*) version
-    listingId: (NSNumber*) listingId
+-(NSURLSessionTask*) getListingWithListingId: (NSNumber*) listingId
     completionHandler: (void (^)(OAIListingFullResponse* output, NSError* error)) handler;
 
 
 /// Search Listings
 /// Search for event listings from the start time to end time
 ///
-/// @param version 
 /// @param accountId the account id of the user (optional)
 /// @param keyword search the event name and description for this keyword (optional)
 /// @param start the record to begin the return set on (optional) (default to @0)
@@ -119,8 +112,7 @@ extern NSInteger kOAIListingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIListingResponse>*
--(NSURLSessionTask*) searchListingWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchListingWithAccountId: (NSNumber*) accountId
     keyword: (NSString*) keyword
     start: (NSNumber*) start
     limit: (NSNumber*) limit
@@ -141,7 +133,6 @@ extern NSInteger kOAIListingApiMissingParamErrorCode;
 /// Summary Listing
 /// Search for a list of summary listings from the start time up to 8 days out.
 ///
-/// @param version 
 /// @param accountId the account id of the user (optional)
 /// @param startDate the start date to search from (optional)
 /// @param categoryIds the list of categories to search on (optional)
@@ -151,8 +142,7 @@ extern NSInteger kOAIListingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIListingGroupResponse>*
--(NSURLSessionTask*) summaryListingWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) summaryListingWithAccountId: (NSNumber*) accountId
     startDate: (NSNumber*) startDate
     categoryIds: (NSString*) categoryIds
     daysToInclude: (NSNumber*) daysToInclude
@@ -163,7 +153,6 @@ extern NSInteger kOAIListingApiMissingParamErrorCode;
 /// Update Listing
 /// Updates a listing.
 ///
-/// @param version 
 /// @param accountId the user&#39;s account ID
 /// @param listingId the listing to update
 /// @param filterIds comma separated list of filter IDs (optional)
@@ -183,8 +172,7 @@ extern NSInteger kOAIListingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIListingFullResponse*
--(NSURLSessionTask*) updateListingWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateListingWithAccountId: (NSNumber*) accountId
     listingId: (NSNumber*) listingId
     filterIds: (NSString*) filterIds
     name: (NSString*) name

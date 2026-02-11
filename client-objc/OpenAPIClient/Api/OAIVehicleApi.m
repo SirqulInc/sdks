@@ -52,29 +52,15 @@ NSInteger kOAIVehicleApiMissingParamErrorCode = 234513;
 ///
 /// Create Vehicle
 /// Create new vehicle
-///  @param version  
-///
 ///  @param vehicle A JSON representation of cargo type. ```json {   \"name\": \"Truck\",   \"vehicleType\": { \"id\": 1 },   \"hub\": { \"id\": 1 } } ```  
 ///
 ///  @param body  (optional)
 ///
 ///  @returns OAIVehicle*
 ///
--(NSURLSessionTask*) createVehicleWithVersion: (NSNumber*) version
-    vehicle: (NSString*) vehicle
+-(NSURLSessionTask*) createVehicleWithVehicle: (NSString*) vehicle
     body: (OAIVehicle*) body
     completionHandler: (void (^)(OAIVehicle* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVehicleApiErrorDomain code:kOAIVehicleApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'vehicle' is set
     if (vehicle == nil) {
         NSParameterAssert(vehicle);
@@ -86,12 +72,9 @@ NSInteger kOAIVehicleApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vehicle"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vehicle"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (vehicle != nil) {
@@ -141,26 +124,12 @@ NSInteger kOAIVehicleApiMissingParamErrorCode = 234513;
 ///
 /// Delete Vehicle
 /// Delete an existing vehicle
-///  @param version  
-///
 ///  @param _id The id of the vehicle to delete 
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) deleteVehicleWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) deleteVehicleWithId: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVehicleApiErrorDomain code:kOAIVehicleApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -172,12 +141,9 @@ NSInteger kOAIVehicleApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vehicle/{id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vehicle/{id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -226,26 +192,12 @@ NSInteger kOAIVehicleApiMissingParamErrorCode = 234513;
 ///
 /// Get Vehicle
 /// Get an existing vehicle
-///  @param version  
-///
 ///  @param _id The id of the vehicle requested 
 ///
 ///  @returns OAIVehicle*
 ///
--(NSURLSessionTask*) getVehicleWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) getVehicleWithId: (NSNumber*) _id
     completionHandler: (void (^)(OAIVehicle* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVehicleApiErrorDomain code:kOAIVehicleApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -257,12 +209,9 @@ NSInteger kOAIVehicleApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vehicle/{id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vehicle/{id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -311,8 +260,6 @@ NSInteger kOAIVehicleApiMissingParamErrorCode = 234513;
 ///
 /// Search Vehicle
 /// Search for vehicles
-///  @param version  
-///
 ///  @param hubId Filter by service hub 
 ///
 ///  @param sortField The field to sort by 
@@ -329,8 +276,7 @@ NSInteger kOAIVehicleApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIVehicle>*
 ///
--(NSURLSessionTask*) searchVehicleWithVersion: (NSNumber*) version
-    hubId: (NSNumber*) hubId
+-(NSURLSessionTask*) searchVehicleWithHubId: (NSNumber*) hubId
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
@@ -338,17 +284,6 @@ NSInteger kOAIVehicleApiMissingParamErrorCode = 234513;
     activeOnly: (NSNumber*) activeOnly
     keyword: (NSString*) keyword
     completionHandler: (void (^)(NSArray<OAIVehicle>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVehicleApiErrorDomain code:kOAIVehicleApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'hubId' is set
     if (hubId == nil) {
         NSParameterAssert(hubId);
@@ -415,12 +350,9 @@ NSInteger kOAIVehicleApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vehicle"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vehicle"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (hubId != nil) {
@@ -487,8 +419,6 @@ NSInteger kOAIVehicleApiMissingParamErrorCode = 234513;
 ///
 /// Update Vehicle
 /// Update an existing vehicle
-///  @param version  
-///
 ///  @param _id The id of the vehicle to update 
 ///
 ///  @param vehicle A JSON representation of cargo type, for example: ```json {   \"name\": \"Truck\",   \"vehicleType\": { \"id\": 1 },   \"hub\": { \"id\": 1 } } ```  
@@ -497,22 +427,10 @@ NSInteger kOAIVehicleApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIVehicle*
 ///
--(NSURLSessionTask*) updateVehicleWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) updateVehicleWithId: (NSNumber*) _id
     vehicle: (NSString*) vehicle
     body: (OAIVehicle*) body
     completionHandler: (void (^)(OAIVehicle* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVehicleApiErrorDomain code:kOAIVehicleApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -535,12 +453,9 @@ NSInteger kOAIVehicleApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vehicle/{id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vehicle/{id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }

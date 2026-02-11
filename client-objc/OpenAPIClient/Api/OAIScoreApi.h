@@ -26,7 +26,6 @@ extern NSInteger kOAIScoreApiMissingParamErrorCode;
 /// Create Score
 /// Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via  a list of {@link MessageResponse}.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param appKey The game application key to save the score for.
 /// @param points The score
@@ -41,8 +40,7 @@ extern NSInteger kOAIScoreApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIScoreResponse*
--(NSURLSessionTask*) createScoreWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createScoreWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     points: (NSNumber*) points
     missionId: (NSNumber*) missionId
@@ -58,7 +56,6 @@ extern NSInteger kOAIScoreApiMissingParamErrorCode;
 /// Get Score
 /// Get the high score for an item.  Pass in the full path IDs for the score.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param appKey The game application key to get the level for.
 /// @param missionId The missionId to score for, null if not playing mission. (optional)
@@ -72,8 +69,7 @@ extern NSInteger kOAIScoreApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIScoreResponse*
--(NSURLSessionTask*) getScoreWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getScoreWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     missionId: (NSNumber*) missionId
     gameId: (NSNumber*) gameId
@@ -88,7 +84,6 @@ extern NSInteger kOAIScoreApiMissingParamErrorCode;
 /// Search Score
 /// Search the scores for an item.  Pass in the full path IDs for the scores.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param appKey The game application key to get the level for.
 /// @param missionId The missionId to score for, null if not playing mission. (optional)
@@ -100,8 +95,7 @@ extern NSInteger kOAIScoreApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIScoreResponse>*
--(NSURLSessionTask*) searchScoresWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchScoresWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     missionId: (NSNumber*) missionId
     gameId: (NSNumber*) gameId

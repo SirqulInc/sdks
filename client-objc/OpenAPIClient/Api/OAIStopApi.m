@@ -52,26 +52,12 @@ NSInteger kOAIStopApiMissingParamErrorCode = 234513;
 ///
 /// Get Stop
 /// Get an existing stop
-///  @param version  
-///
 ///  @param _id the id of the stop to get 
 ///
 ///  @returns OAIStop*
 ///
--(NSURLSessionTask*) getStopWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) getStopWithId: (NSNumber*) _id
     completionHandler: (void (^)(OAIStop* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIStopApiErrorDomain code:kOAIStopApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -83,12 +69,9 @@ NSInteger kOAIStopApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/stop/{id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/stop/{id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -137,29 +120,15 @@ NSInteger kOAIStopApiMissingParamErrorCode = 234513;
 ///
 /// Update Stop
 /// Update an existing stop
-///  @param version  
-///
 ///  @param _id the id of the stop to update 
 ///
 ///  @param body  (optional)
 ///
 ///  @returns OAIStop*
 ///
--(NSURLSessionTask*) updateStopWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) updateStopWithId: (NSNumber*) _id
     body: (OAIStop*) body
     completionHandler: (void (^)(OAIStop* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIStopApiErrorDomain code:kOAIStopApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -171,12 +140,9 @@ NSInteger kOAIStopApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/stop/{id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/stop/{id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }

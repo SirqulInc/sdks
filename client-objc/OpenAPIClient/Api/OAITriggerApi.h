@@ -27,7 +27,6 @@ extern NSInteger kOAITriggerApiMissingParamErrorCode;
 /// Create Trigger
 /// Create a trigger
 ///
-/// @param version 
 /// @param accountId The logged in user
 /// @param name The name of the trigger
 /// @param appKey The application to target (optional)
@@ -45,8 +44,7 @@ extern NSInteger kOAITriggerApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAITriggerResponse*
--(NSURLSessionTask*) createTriggerWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createTriggerWithAccountId: (NSNumber*) accountId
     name: (NSString*) name
     appKey: (NSString*) appKey
     groupingId: (NSString*) groupingId
@@ -65,15 +63,13 @@ extern NSInteger kOAITriggerApiMissingParamErrorCode;
 /// Delete Trigger
 /// Mark a trigger as deleted.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param triggerId The id of the trigger to delete.
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteTriggerWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteTriggerWithAccountId: (NSNumber*) accountId
     triggerId: (NSNumber*) triggerId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -81,15 +77,13 @@ extern NSInteger kOAITriggerApiMissingParamErrorCode;
 /// Get Trigger
 /// Get a trigger
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param triggerId The id of the Trigger to return.
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAITriggerResponse*
--(NSURLSessionTask*) getTriggerWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getTriggerWithAccountId: (NSNumber*) accountId
     triggerId: (NSNumber*) triggerId
     completionHandler: (void (^)(OAITriggerResponse* output, NSError* error)) handler;
 
@@ -97,7 +91,6 @@ extern NSInteger kOAITriggerApiMissingParamErrorCode;
 /// Search Triggers
 /// Search for triggers
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param groupingId Filter results by a grouping identifier defined by the client (optional)
 /// @param filter A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers  (optional) (default to @"MINE")
@@ -114,8 +107,7 @@ extern NSInteger kOAITriggerApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAITriggerResponse>*
--(NSURLSessionTask*) searchTriggersWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchTriggersWithAccountId: (NSNumber*) accountId
     groupingId: (NSString*) groupingId
     filter: (NSString*) filter
     statuses: (NSString*) statuses
@@ -133,7 +125,6 @@ extern NSInteger kOAITriggerApiMissingParamErrorCode;
 /// Update Trigger
 /// Update a trigger
 ///
-/// @param version 
 /// @param triggerId The trigger to update
 /// @param accountId The logged in user
 /// @param name The name of the trigger (optional)
@@ -152,8 +143,7 @@ extern NSInteger kOAITriggerApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAITriggerResponse*
--(NSURLSessionTask*) updateTriggerWithVersion: (NSNumber*) version
-    triggerId: (NSNumber*) triggerId
+-(NSURLSessionTask*) updateTriggerWithTriggerId: (NSNumber*) triggerId
     accountId: (NSNumber*) accountId
     name: (NSString*) name
     appKey: (NSString*) appKey

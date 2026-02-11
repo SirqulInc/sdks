@@ -27,7 +27,6 @@ extern NSInteger kOAILeaderboardApiMissingParamErrorCode;
 /// Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
 /// Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
 ///
-/// @param version 
 /// @param accountId The account id of the user creating the leaderboard. (optional)
 /// @param appKey The application key (optional)
 /// @param rankType a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (optional)
@@ -45,8 +44,7 @@ extern NSInteger kOAILeaderboardApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAILeaderboardResponse*
--(NSURLSessionTask*) createLeaderboardWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createLeaderboardWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     rankType: (NSString*) rankType
     leaderboardMode: (NSString*) leaderboardMode
@@ -65,15 +63,13 @@ extern NSInteger kOAILeaderboardApiMissingParamErrorCode;
 /// Delete the Leader Board
 /// Removes a leader board id.
 ///
-/// @param version 
 /// @param leaderboardId The leaderboard id to delete.
 /// @param accountId The account id of the user making the request. (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteLeaderboardWithVersion: (NSNumber*) version
-    leaderboardId: (NSNumber*) leaderboardId
+-(NSURLSessionTask*) deleteLeaderboardWithLeaderboardId: (NSNumber*) leaderboardId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -81,7 +77,6 @@ extern NSInteger kOAILeaderboardApiMissingParamErrorCode;
 /// Read a leaderboard by id and retrieve the matching ranking list
 /// Read a leaderboard by id and retrieve the matching ranking list
 ///
-/// @param version 
 /// @param leaderboardId The leaderboard id.
 /// @param accountId A valid account. (optional)
 /// @param includeFullRankingList set to true if need to return the leaderboard&#39;s full ranking list (optional)
@@ -89,8 +84,7 @@ extern NSInteger kOAILeaderboardApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAILeaderboardResponse*
--(NSURLSessionTask*) getLeaderboardWithVersion: (NSNumber*) version
-    leaderboardId: (NSNumber*) leaderboardId
+-(NSURLSessionTask*) getLeaderboardWithLeaderboardId: (NSNumber*) leaderboardId
     accountId: (NSNumber*) accountId
     includeFullRankingList: (NSNumber*) includeFullRankingList
     completionHandler: (void (^)(OAILeaderboardResponse* output, NSError* error)) handler;
@@ -99,7 +93,6 @@ extern NSInteger kOAILeaderboardApiMissingParamErrorCode;
 /// Search leaderboard and retrieve the matching ranking list
 /// Search leaderboard and retrieve the matching ranking list
 ///
-/// @param version 
 /// @param accountId The account id of the user requesting the search. (optional)
 /// @param appKey The application key. (optional)
 /// @param globalOnly only include global leaderboards (this overrides the appKey filter) (optional)
@@ -116,8 +109,7 @@ extern NSInteger kOAILeaderboardApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAILeaderboardResponse*
--(NSURLSessionTask*) searchLeaderboardsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchLeaderboardsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     globalOnly: (NSNumber*) globalOnly
     keyword: (NSString*) keyword
@@ -135,7 +127,6 @@ extern NSInteger kOAILeaderboardApiMissingParamErrorCode;
 /// Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
 /// Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
 ///
-/// @param version 
 /// @param leaderboardId The leaderboard id to update.
 /// @param accountId The account id of the user updating the leaderboard. (optional)
 /// @param appKey The application key (optional)
@@ -155,8 +146,7 @@ extern NSInteger kOAILeaderboardApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAILeaderboardResponse*
--(NSURLSessionTask*) updateLeaderboardWithVersion: (NSNumber*) version
-    leaderboardId: (NSNumber*) leaderboardId
+-(NSURLSessionTask*) updateLeaderboardWithLeaderboardId: (NSNumber*) leaderboardId
     accountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     rankType: (NSString*) rankType

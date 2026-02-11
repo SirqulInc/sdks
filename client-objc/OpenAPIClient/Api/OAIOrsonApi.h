@@ -36,7 +36,6 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 /// Add Movie
 /// Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param movieName Movie Name
 /// @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -48,8 +47,7 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrsonAiAddMovieResponse*
--(NSURLSessionTask*) addMovieWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) addMovieWithAccountId: (NSNumber*) accountId
     movieName: (NSString*) movieName
     thirdPartyAccountId: (NSString*) thirdPartyAccountId
     tags: (NSString*) tags
@@ -62,7 +60,6 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 /// Search Docs
 /// Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param doc Doc
 /// @param returnTopics Return Topics (optional)
@@ -72,8 +69,7 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrsonAiProtoResponse*
--(NSURLSessionTask*) aiDocsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) aiDocsWithAccountId: (NSNumber*) accountId
     doc: (NSString*) doc
     returnTopics: (NSNumber*) returnTopics
     limit: (NSNumber*) limit
@@ -84,7 +80,6 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 /// Find images
 /// Returns a list of URIs of images that match the text.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param text Text
 /// @param parseFlag Parse Flag (optional)
@@ -94,8 +89,7 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrsonAiProtoResponse*
--(NSURLSessionTask*) aiFindImagesWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) aiFindImagesWithAccountId: (NSNumber*) accountId
     text: (NSString*) text
     parseFlag: (NSString*) parseFlag
     fetchFlag: (NSString*) fetchFlag
@@ -106,7 +100,6 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 /// Search Tags
 /// Search the tags column of user provided tags using this endpoint.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param tags Tags
 /// @param conditional Conditional (optional)
@@ -116,8 +109,7 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrsonAiProtoResponse*
--(NSURLSessionTask*) aiTagsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) aiTagsWithAccountId: (NSNumber*) accountId
     tags: (NSString*) tags
     conditional: (NSString*) conditional
     limit: (NSNumber*) limit
@@ -128,7 +120,6 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 /// Search Text
 /// Search the movie text column of movie text using this endpoint.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param terms Terms
 /// @param conditional Conditional (optional)
@@ -138,8 +129,7 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrsonAiProtoResponse*
--(NSURLSessionTask*) aiTextWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) aiTextWithAccountId: (NSNumber*) accountId
     terms: (NSString*) terms
     conditional: (NSString*) conditional
     limit: (NSNumber*) limit
@@ -150,7 +140,6 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 /// Batch Analysis
 /// Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
 /// @param limit The number of topics to return (optional)
@@ -162,8 +151,7 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrsonAiBatchResponse*
--(NSURLSessionTask*) batchWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) batchWithAccountId: (NSNumber*) accountId
     thirdPartyAccountId: (NSString*) thirdPartyAccountId
     limit: (NSNumber*) limit
     operations: (NSString*) operations
@@ -176,15 +164,13 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 /// Creates an instant episode
 /// Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param data Request Data String
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrsonEpisodeResponse*
--(NSURLSessionTask*) createInstantEpisodeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createInstantEpisodeWithAccountId: (NSNumber*) accountId
     data: (NSString*) data
     completionHandler: (void (^)(OAIOrsonEpisodeResponse* output, NSError* error)) handler;
 
@@ -192,7 +178,6 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 /// Create VoiceCanvas images
 /// Create VoiceCanvas images for provided text, file upload, or file URL
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param dimensions Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot;
 /// @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -206,8 +191,7 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrsonAiVoiceCanvasResponse*
--(NSURLSessionTask*) createVoiceCanvasWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createVoiceCanvasWithAccountId: (NSNumber*) accountId
     dimensions: (NSString*) dimensions
     thirdPartyAccountId: (NSString*) thirdPartyAccountId
     text: (NSString*) text
@@ -222,7 +206,6 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 /// Detect emotions
 /// Detects emotions in an audio or video recording.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
 /// @param file An uploaded recording to analyze (Currently limited to 10MB) (optional)
@@ -232,8 +215,7 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrsonAiEmotionsResponse*
--(NSURLSessionTask*) emotionWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) emotionWithAccountId: (NSNumber*) accountId
     thirdPartyAccountId: (NSString*) thirdPartyAccountId
     file: (NSURL*) file
     url: (NSString*) url
@@ -244,15 +226,13 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 /// Get Add Movie Result
 /// Get the result of an in progress Add Movie request from an earlier POST.
 ///
-/// @param version 
 /// @param requestId Orson Request Id
 /// @param accountId Sirqul Account Id
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrsonAiAddMovieResponse*
--(NSURLSessionTask*) getAddMovieResultWithVersion: (NSNumber*) version
-    requestId: (NSString*) requestId
+-(NSURLSessionTask*) getAddMovieResultWithRequestId: (NSString*) requestId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIOrsonAiAddMovieResponse* output, NSError* error)) handler;
 
@@ -260,15 +240,13 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 /// Get Batch Analysis Results
 /// Gets the completed Video Batch results, if done, or an error or status update if not.
 ///
-/// @param version 
 /// @param requestId Orson Request Id
 /// @param accountId Sirqul Account Id
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrsonAiBatchResponse*
--(NSURLSessionTask*) getBatchWithVersion: (NSNumber*) version
-    requestId: (NSString*) requestId
+-(NSURLSessionTask*) getBatchWithRequestId: (NSString*) requestId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIOrsonAiBatchResponse* output, NSError* error)) handler;
 
@@ -276,15 +254,13 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 /// Get Emotion Results
 /// Checks the Emotion analysis and returns in progress, results, or error.
 ///
-/// @param version 
 /// @param requestId Orson Request Id
 /// @param accountId Sirqul Account Id
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrsonAiEmotionsResponse*
--(NSURLSessionTask*) getEmotionWithVersion: (NSNumber*) version
-    requestId: (NSString*) requestId
+-(NSURLSessionTask*) getEmotionWithRequestId: (NSString*) requestId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIOrsonAiEmotionsResponse* output, NSError* error)) handler;
 
@@ -292,15 +268,13 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 /// Check episode status
 /// Gets a summary of the episode's status, including any renders.
 ///
-/// @param version 
 /// @param episodeId Episode ID
 /// @param accountId Sirqul Account Id
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrsonEpisodeResponse*
--(NSURLSessionTask*) getEpisodeStatusWithVersion: (NSNumber*) version
-    episodeId: (NSNumber*) episodeId
+-(NSURLSessionTask*) getEpisodeStatusWithEpisodeId: (NSNumber*) episodeId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIOrsonEpisodeResponse* output, NSError* error)) handler;
 
@@ -308,15 +282,13 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 /// Check episode status
 /// Gets a summary of the episode's status, including any renders.
 ///
-/// @param version 
 /// @param renderId Render ID
 /// @param accountId Sirqul Account Id
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrsonRenderResponse*
--(NSURLSessionTask*) getRenderStatusWithVersion: (NSNumber*) version
-    renderId: (NSString*) renderId
+-(NSURLSessionTask*) getRenderStatusWithRenderId: (NSString*) renderId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIOrsonRenderResponse* output, NSError* error)) handler;
 
@@ -324,15 +296,13 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 /// Get Speach to Text Result
 /// The results of the video transcription and optional translation.
 ///
-/// @param version 
 /// @param requestId Orson Request Id
 /// @param accountId Sirqul Account Id
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrsonAiSTTResponse*
--(NSURLSessionTask*) getSTTWithVersion: (NSNumber*) version
-    requestId: (NSString*) requestId
+-(NSURLSessionTask*) getSTTWithRequestId: (NSString*) requestId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIOrsonAiSTTResponse* output, NSError* error)) handler;
 
@@ -340,15 +310,13 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 /// Get Text to Speach Result
 /// Check the status of an in progress Text-to-Speech call or download the result.
 ///
-/// @param version 
 /// @param requestId Orson Request Id
 /// @param accountId Sirqul Account Id
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrsonAiTTSResponse*
--(NSURLSessionTask*) getTTSWithVersion: (NSNumber*) version
-    requestId: (NSString*) requestId
+-(NSURLSessionTask*) getTTSWithRequestId: (NSString*) requestId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIOrsonAiTTSResponse* output, NSError* error)) handler;
 
@@ -356,15 +324,13 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 /// Get TechTune Results
 /// Get a result or continue waiting for a pending request for TechTune analysis.
 ///
-/// @param version 
 /// @param requestId Orson Request Id
 /// @param accountId Sirqul Account Id
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrsonAiTechTuneResponse*
--(NSURLSessionTask*) getTechTuneWithVersion: (NSNumber*) version
-    requestId: (NSString*) requestId
+-(NSURLSessionTask*) getTechTuneWithRequestId: (NSString*) requestId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIOrsonAiTechTuneResponse* output, NSError* error)) handler;
 
@@ -372,15 +338,13 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 /// Get Topics
 /// Get the result of an in progress Topics Analysis from an earlier POST.
 ///
-/// @param version 
 /// @param requestId Orson Request Id
 /// @param accountId Sirqul Account Id
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrsonAiTopicsResponse*
--(NSURLSessionTask*) getTopicsWithVersion: (NSNumber*) version
-    requestId: (NSString*) requestId
+-(NSURLSessionTask*) getTopicsWithRequestId: (NSString*) requestId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIOrsonAiTopicsResponse* output, NSError* error)) handler;
 
@@ -388,15 +352,13 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 /// Get VoiceCanvas images
 /// Get a result or continue waiting for a pending request for VoiceCanvas Images.
 ///
-/// @param version 
 /// @param requestId Orson Request Id
 /// @param accountId Sirqul Account Id
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrsonAiVoiceCanvasResponse*
--(NSURLSessionTask*) getVoiceCanvasWithVersion: (NSNumber*) version
-    requestId: (NSString*) requestId
+-(NSURLSessionTask*) getVoiceCanvasWithRequestId: (NSString*) requestId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIOrsonAiVoiceCanvasResponse* output, NSError* error)) handler;
 
@@ -404,15 +366,13 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 /// Starts a StoryStitch video render
 /// Starts a StoryStitch video render to produce your final video, returning the status details.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param data Request Data String
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrsonRenderResponse*
--(NSURLSessionTask*) startVideoRenderWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) startVideoRenderWithAccountId: (NSNumber*) accountId
     data: (NSString*) data
     completionHandler: (void (^)(OAIOrsonRenderResponse* output, NSError* error)) handler;
 
@@ -420,7 +380,6 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 /// Speach to Text
 /// Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
 /// @param sourceLanguage Source Language (optional)
@@ -432,8 +391,7 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrsonAiSTTResponse*
--(NSURLSessionTask*) sttWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) sttWithAccountId: (NSNumber*) accountId
     thirdPartyAccountId: (NSString*) thirdPartyAccountId
     sourceLanguage: (NSString*) sourceLanguage
     targetLanguage: (NSString*) targetLanguage
@@ -446,7 +404,6 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 /// Summarize Topics
 /// Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
 /// @param doc The text to get topics for. (optional)
@@ -459,8 +416,7 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrsonAiTopicsResponse*
--(NSURLSessionTask*) summarizeTopicsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) summarizeTopicsWithAccountId: (NSNumber*) accountId
     thirdPartyAccountId: (NSString*) thirdPartyAccountId
     doc: (NSString*) doc
     file: (NSURL*) file
@@ -474,7 +430,6 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 /// Detect Technical Issues
 /// Analyses a movie file to detect technical issues, such as too few people in frame.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param numFacesExpected Number of expected faces
 /// @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -485,8 +440,7 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrsonAiTechTuneResponse*
--(NSURLSessionTask*) techTuneWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) techTuneWithAccountId: (NSNumber*) accountId
     numFacesExpected: (NSNumber*) numFacesExpected
     thirdPartyAccountId: (NSString*) thirdPartyAccountId
     file: (NSURL*) file
@@ -498,7 +452,6 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 /// Text to Speach
 /// Creates an audio file for the given text, with the option of language and voice selection.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param text Text
 /// @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -509,8 +462,7 @@ extern NSInteger kOAIOrsonApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrsonAiTTSResponse*
--(NSURLSessionTask*) ttsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) ttsWithAccountId: (NSNumber*) accountId
     text: (NSString*) text
     thirdPartyAccountId: (NSString*) thirdPartyAccountId
     language: (NSString*) language

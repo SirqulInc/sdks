@@ -26,15 +26,13 @@ extern NSInteger kOAIVehicleTypeApiMissingParamErrorCode;
 /// Create Vehicle Type
 /// Create a new vehicle type
 ///
-/// @param version 
 /// @param vehicleType A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;width\&quot;: 100,   \&quot;height\&quot;: 200,   \&quot;depth\&quot;: 200,   \&quot;maxWeight\&quot;: 5000,   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; 
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIVehicleType*
--(NSURLSessionTask*) createVehicleTypeWithVersion: (NSNumber*) version
-    vehicleType: (NSString*) vehicleType
+-(NSURLSessionTask*) createVehicleTypeWithVehicleType: (NSString*) vehicleType
     body: (OAIVehicleType*) body
     completionHandler: (void (^)(OAIVehicleType* output, NSError* error)) handler;
 
@@ -42,35 +40,30 @@ extern NSInteger kOAIVehicleTypeApiMissingParamErrorCode;
 /// Delete Vehicle Type
 /// Delete a vehicle type
 ///
-/// @param version 
 /// @param vehicleTypeId The id of the requested vehicle type
 /// 
 ///  code:0 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) deleteVehicleTypeWithVersion: (NSNumber*) version
-    vehicleTypeId: (NSNumber*) vehicleTypeId
+-(NSURLSessionTask*) deleteVehicleTypeWithVehicleTypeId: (NSNumber*) vehicleTypeId
     completionHandler: (void (^)(NSError* error)) handler;
 
 
 /// Get Vehicle Type
 /// Get a vehicle type
 ///
-/// @param version 
 /// @param vehicleTypeId The id of the requested vehicle type
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIVehicleType*
--(NSURLSessionTask*) getVehicleTypeWithVersion: (NSNumber*) version
-    vehicleTypeId: (NSNumber*) vehicleTypeId
+-(NSURLSessionTask*) getVehicleTypeWithVehicleTypeId: (NSNumber*) vehicleTypeId
     completionHandler: (void (^)(OAIVehicleType* output, NSError* error)) handler;
 
 
 /// Search Vehicle Type
 /// Search for types of vehicles
 ///
-/// @param version 
 /// @param sortField The field to sort by (default to @"id")
 /// @param descending Determines whether the sorted list is in descending or ascending order (default to @(NO))
 /// @param start The start index for pagination (default to @0)
@@ -82,8 +75,7 @@ extern NSInteger kOAIVehicleTypeApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIVehicleType>*
--(NSURLSessionTask*) searchVehicleTypesWithVersion: (NSNumber*) version
-    sortField: (NSString*) sortField
+-(NSURLSessionTask*) searchVehicleTypesWithSortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
     limit: (NSNumber*) limit
@@ -96,7 +88,6 @@ extern NSInteger kOAIVehicleTypeApiMissingParamErrorCode;
 /// Update Vehicle Type
 /// Update a vehicle type
 ///
-/// @param version 
 /// @param vehicleTypeId The id of the vehicle type to update
 /// @param vehicleType The new data for the vehicle type to update to. A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;width\&quot;: 100,   \&quot;height\&quot;: 200,   \&quot;depth\&quot;: 200,   \&quot;maxWeight\&quot;: 5000,   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; 
 /// @param body  (optional)
@@ -104,8 +95,7 @@ extern NSInteger kOAIVehicleTypeApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIVehicleType*
--(NSURLSessionTask*) updateVehicleTypeWithVersion: (NSNumber*) version
-    vehicleTypeId: (NSNumber*) vehicleTypeId
+-(NSURLSessionTask*) updateVehicleTypeWithVehicleTypeId: (NSNumber*) vehicleTypeId
     vehicleType: (NSString*) vehicleType
     body: (OAIVehicleType*) body
     completionHandler: (void (^)(OAIVehicleType* output, NSError* error)) handler;

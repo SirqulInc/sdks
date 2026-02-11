@@ -53,8 +53,6 @@ NSInteger kOAIWordApiMissingParamErrorCode = 234513;
 ///
 /// Create Word
 /// Create a word by the given params.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param word The text of the word. 
@@ -75,8 +73,7 @@ NSInteger kOAIWordApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIWordzWordResponse*
 ///
--(NSURLSessionTask*) createWordWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createWordWithAccountId: (NSNumber*) accountId
     word: (NSString*) word
     definition: (NSString*) definition
     active: (NSNumber*) active
@@ -86,17 +83,6 @@ NSInteger kOAIWordApiMissingParamErrorCode = 234513;
     ticketType: (NSString*) ticketType
     points: (NSNumber*) points
     completionHandler: (void (^)(OAIWordzWordResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIWordApiErrorDomain code:kOAIWordApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -163,12 +149,9 @@ NSInteger kOAIWordApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/game/word/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/game/word/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -241,29 +224,15 @@ NSInteger kOAIWordApiMissingParamErrorCode = 234513;
 ///
 /// Delete Word
 /// Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
-///  @param version  
-///
 ///  @param wordId The id of the word to delete. 
 ///
 ///  @param accountId The account vor validating permission 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteWordWithVersion: (NSNumber*) version
-    wordId: (NSNumber*) wordId
+-(NSURLSessionTask*) deleteWordWithWordId: (NSNumber*) wordId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIWordApiErrorDomain code:kOAIWordApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'wordId' is set
     if (wordId == nil) {
         NSParameterAssert(wordId);
@@ -286,12 +255,9 @@ NSInteger kOAIWordApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/game/word/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/game/word/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (wordId != nil) {
@@ -343,29 +309,15 @@ NSInteger kOAIWordApiMissingParamErrorCode = 234513;
 ///
 /// Get Word
 /// Get a word by the given id.
-///  @param version  
-///
 ///  @param wordId The id of the word to get. 
 ///
 ///  @param accountId The logged in user. 
 ///
 ///  @returns OAIWordzWordResponse*
 ///
--(NSURLSessionTask*) getWordWithVersion: (NSNumber*) version
-    wordId: (NSNumber*) wordId
+-(NSURLSessionTask*) getWordWithWordId: (NSNumber*) wordId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIWordzWordResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIWordApiErrorDomain code:kOAIWordApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'wordId' is set
     if (wordId == nil) {
         NSParameterAssert(wordId);
@@ -388,12 +340,9 @@ NSInteger kOAIWordApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/game/word/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/game/word/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (wordId != nil) {
@@ -445,8 +394,6 @@ NSInteger kOAIWordApiMissingParamErrorCode = 234513;
 ///
 /// Search Words
 /// Search for words by the given params.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param sortField The column to sort the search on 
@@ -463,8 +410,7 @@ NSInteger kOAIWordApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIWordzWordResponse>*
 ///
--(NSURLSessionTask*) getWordsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getWordsWithAccountId: (NSNumber*) accountId
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     activeOnly: (NSNumber*) activeOnly
@@ -472,17 +418,6 @@ NSInteger kOAIWordApiMissingParamErrorCode = 234513;
     limit: (NSNumber*) limit
     keyword: (NSString*) keyword
     completionHandler: (void (^)(NSArray<OAIWordzWordResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIWordApiErrorDomain code:kOAIWordApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -549,12 +484,9 @@ NSInteger kOAIWordApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/game/word/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/game/word/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -621,8 +553,6 @@ NSInteger kOAIWordApiMissingParamErrorCode = 234513;
 ///
 /// Update Word
 /// Update a word by the given params.
-///  @param version  
-///
 ///  @param wordId The id of the word to update. 
 ///
 ///  @param accountId The logged in user. 
@@ -645,8 +575,7 @@ NSInteger kOAIWordApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIWordzWordResponse*
 ///
--(NSURLSessionTask*) updateWordWithVersion: (NSNumber*) version
-    wordId: (NSNumber*) wordId
+-(NSURLSessionTask*) updateWordWithWordId: (NSNumber*) wordId
     accountId: (NSNumber*) accountId
     ticketCount: (NSNumber*) ticketCount
     wordText: (NSString*) wordText
@@ -657,17 +586,6 @@ NSInteger kOAIWordApiMissingParamErrorCode = 234513;
     ticketType: (NSString*) ticketType
     points: (NSNumber*) points
     completionHandler: (void (^)(OAIWordzWordResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIWordApiErrorDomain code:kOAIWordApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'wordId' is set
     if (wordId == nil) {
         NSParameterAssert(wordId);
@@ -701,12 +619,9 @@ NSInteger kOAIWordApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/game/word/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/game/word/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (wordId != nil) {

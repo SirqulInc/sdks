@@ -52,8 +52,6 @@ NSInteger kOAIPathingApiMissingParamErrorCode = 234513;
 ///
 /// Calculate Path
 /// Calculates the shortest path from point to point on a grid
-///  @param version  
-///
 ///  @param data the data to with start, end point and exclusion points 
 ///
 ///  @param units the system of measurement for directions: {METRIC, IMPERIAL} 
@@ -64,23 +62,11 @@ NSInteger kOAIPathingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIPathingResponse*
 ///
--(NSURLSessionTask*) computePathWithVersion: (NSNumber*) version
-    data: (NSString*) data
+-(NSURLSessionTask*) computePathWithData: (NSString*) data
     units: (NSString*) units
     reducePath: (NSNumber*) reducePath
     directions: (NSNumber*) directions
     completionHandler: (void (^)(OAIPathingResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIPathingApiErrorDomain code:kOAIPathingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'data' is set
     if (data == nil) {
         NSParameterAssert(data);
@@ -125,12 +111,9 @@ NSInteger kOAIPathingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/pathing/compute"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/pathing/compute"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (data != nil) {

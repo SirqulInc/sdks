@@ -32,7 +32,6 @@ extern NSInteger kOAITrackingApiMissingParamErrorCode;
 /// Create Batch Tracking
 /// Batch create tracking legs
 ///
-/// @param version 
 /// @param data JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60; 
 /// @param deviceId the device id (deviceId or accountId required) (optional)
 /// @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -44,8 +43,7 @@ extern NSInteger kOAITrackingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAILeg>*
--(NSURLSessionTask*) batchSaveTrackingWithVersion: (NSNumber*) version
-    data: (NSString*) data
+-(NSURLSessionTask*) batchSaveTrackingWithData: (NSString*) data
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     generateAccounts: (NSNumber*) generateAccounts
@@ -58,7 +56,6 @@ extern NSInteger kOAITrackingApiMissingParamErrorCode;
 /// Get Predicted Locations
 /// Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
 ///
-/// @param version 
 /// @param accountId The account id of the customer
 /// @param latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
 /// @param longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -72,8 +69,7 @@ extern NSInteger kOAITrackingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPredictedLocationResponse*
--(NSURLSessionTask*) getPredictedLocationsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getPredictedLocationsWithAccountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     dateCheck: (NSNumber*) dateCheck
@@ -88,7 +84,6 @@ extern NSInteger kOAITrackingApiMissingParamErrorCode;
 /// Get Tracking Path
 /// Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
 ///
-/// @param version 
 /// @param accountId The account id of the customer
 /// @param startStepId The stepId to begin from
 /// @param endStepId The stepId to end with
@@ -96,8 +91,7 @@ extern NSInteger kOAITrackingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIStepResponse>*
--(NSURLSessionTask*) getPredictedPathWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getPredictedPathWithAccountId: (NSNumber*) accountId
     startStepId: (NSNumber*) startStepId
     endStepId: (NSNumber*) endStepId
     completionHandler: (void (^)(NSArray<OAIStepResponse>* output, NSError* error)) handler;
@@ -106,7 +100,6 @@ extern NSInteger kOAITrackingApiMissingParamErrorCode;
 /// Search Preferred Locations
 /// Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
 ///
-/// @param version 
 /// @param accountId The account id of the customer
 /// @param latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
 /// @param longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -122,8 +115,7 @@ extern NSInteger kOAITrackingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIPreferredLocationResponse>*
--(NSURLSessionTask*) getPreferredLocationsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getPreferredLocationsWithAccountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     dateCheck: (NSNumber*) dateCheck
@@ -140,7 +132,6 @@ extern NSInteger kOAITrackingApiMissingParamErrorCode;
 /// Search Tracking
 /// Retrieve tracking data to be able to show where a user has been.
 ///
-/// @param version 
 /// @param deviceId the device id (deviceId or accountId required) (optional)
 /// @param accountId the account id of the user (deviceId or accountId required) (optional)
 /// @param ownerId the account id of the person the user wants to tracking data for (optional)
@@ -153,8 +144,7 @@ extern NSInteger kOAITrackingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAILegResponse>*
--(NSURLSessionTask*) getTrackingLegsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) getTrackingLegsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     ownerId: (NSNumber*) ownerId
     trackingDeviceId: (NSString*) trackingDeviceId
@@ -168,7 +158,6 @@ extern NSInteger kOAITrackingApiMissingParamErrorCode;
 /// Create Tracking Leg
 /// Send tracking points to be able to generate pathing data
 ///
-/// @param version 
 /// @param startLat the latitude of the first point
 /// @param startLng the longitude of the first point
 /// @param startDate the start date (in UTC milliseconds) of the first point
@@ -185,8 +174,7 @@ extern NSInteger kOAITrackingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) saveTrackingLegWithVersion: (NSNumber*) version
-    startLat: (NSNumber*) startLat
+-(NSURLSessionTask*) saveTrackingLegWithStartLat: (NSNumber*) startLat
     startLng: (NSNumber*) startLng
     startDate: (NSNumber*) startDate
     endLat: (NSNumber*) endLat
@@ -204,7 +192,6 @@ extern NSInteger kOAITrackingApiMissingParamErrorCode;
 /// Create Tracking Step
 /// Send tracking points to be able to generate pathing data
 ///
-/// @param version 
 /// @param legId the leg to add the step to
 /// @param startLat the latitude of the first point
 /// @param startLng the longitude of the first point
@@ -220,8 +207,7 @@ extern NSInteger kOAITrackingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) saveTrackingStepWithVersion: (NSNumber*) version
-    legId: (NSNumber*) legId
+-(NSURLSessionTask*) saveTrackingStepWithLegId: (NSNumber*) legId
     startLat: (NSNumber*) startLat
     startLng: (NSNumber*) startLng
     startDate: (NSNumber*) startDate
@@ -238,7 +224,6 @@ extern NSInteger kOAITrackingApiMissingParamErrorCode;
 /// List Tracking
 /// Search for all accounts that have tracking legs data by the given constraints.
 ///
-/// @param version 
 /// @param accountId The account id of the user
 /// @param keyword Used for LIKE search of first or last name on the acocunt (optional)
 /// @param startDate Range to begin in UTC milliseconds (optional)
@@ -257,8 +242,7 @@ extern NSInteger kOAITrackingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIAccountMiniResponse>*
--(NSURLSessionTask*) searchAccountsWithTrackingLegsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchAccountsWithTrackingLegsWithAccountId: (NSNumber*) accountId
     keyword: (NSString*) keyword
     startDate: (NSNumber*) startDate
     endDate: (NSNumber*) endDate
@@ -278,7 +262,6 @@ extern NSInteger kOAITrackingApiMissingParamErrorCode;
 /// Search Tracking (Billable)
 /// Retrieve tracking data for billable/account scoped queries.
 ///
-/// @param version 
 /// @param accountId The account id to search tracking for
 /// @param appKey The application key
 /// @param trackingDeviceId The id of the tracking device (optional)
@@ -291,8 +274,7 @@ extern NSInteger kOAITrackingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAILegResponse>*
--(NSURLSessionTask*) searchTrackingLegsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchTrackingLegsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     trackingDeviceId: (NSString*) trackingDeviceId
     startDate: (NSNumber*) startDate

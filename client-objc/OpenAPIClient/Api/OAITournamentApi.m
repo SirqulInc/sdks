@@ -54,8 +54,6 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
 ///
 /// Create Tournament
 /// Create a tournament.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param appKey The appKey the tournament is created for. 
@@ -128,8 +126,7 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAITournamentResponse*
 ///
--(NSURLSessionTask*) createTournamentWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createTournamentWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     title: (NSString*) title
     costToPlay: (NSNumber*) costToPlay
@@ -165,17 +162,6 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
     winnerTag: (NSString*) winnerTag
     tieTag: (NSString*) tieTag
     completionHandler: (void (^)(OAITournamentResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITournamentApiErrorDomain code:kOAITournamentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -231,12 +217,9 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/tournament/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/tournament/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -387,29 +370,15 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
 ///
 /// Delete Tournament
 /// Delete a tournament.
-///  @param version  
-///
 ///  @param accountId the id of the logged in user 
 ///
 ///  @param missionId the id of the mission to delete 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteTournamentWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteTournamentWithAccountId: (NSNumber*) accountId
     missionId: (NSNumber*) missionId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITournamentApiErrorDomain code:kOAITournamentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -432,12 +401,9 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/tournament/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/tournament/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -489,8 +455,6 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
 ///
 /// Get Tournament
 /// Get a tournament.
-///  @param version  
-///
 ///  @param accountId The id of the logged in user 
 ///
 ///  @param missionId The id of the mission to return (either missionId or joinCode is required) (optional)
@@ -503,24 +467,12 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAITournamentResponse*
 ///
--(NSURLSessionTask*) getTournamentWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getTournamentWithAccountId: (NSNumber*) accountId
     missionId: (NSNumber*) missionId
     joinCode: (NSString*) joinCode
     includeScores: (NSString*) includeScores
     objectPreviewSize: (NSNumber*) objectPreviewSize
     completionHandler: (void (^)(OAITournamentResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITournamentApiErrorDomain code:kOAITournamentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -532,12 +484,9 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/tournament/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/tournament/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -598,8 +547,6 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
 ///
 /// Search Tournament Objects
 /// Search on game objects of tournaments
-///  @param version  
-///
 ///  @param accountId the account ID 
 ///
 ///  @param gameLevelId the game level id to filter results by 
@@ -614,25 +561,13 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) searchObjectsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchObjectsWithAccountId: (NSNumber*) accountId
     gameLevelId: (NSNumber*) gameLevelId
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITournamentApiErrorDomain code:kOAITournamentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -655,12 +590,9 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/tournament/object/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/tournament/object/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -724,8 +656,6 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
 ///
 /// Search Tournament Rounds
 /// Search for the user's tournament games.
-///  @param version  
-///
 ///  @param accountId the account ID 
 ///
 ///  @param appKey the application key 
@@ -744,8 +674,7 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) searchRoundsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchRoundsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     status: (NSString*) status
     missionType: (NSString*) missionType
@@ -754,17 +683,6 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITournamentApiErrorDomain code:kOAITournamentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -787,12 +705,9 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/tournament/round/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/tournament/round/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -862,8 +777,6 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
 ///
 /// Search Tournaments
 /// Search for tournaments
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param appKey The application key 
@@ -890,8 +803,7 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIMissionShortResponse*
 ///
--(NSURLSessionTask*) searchTournamentsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchTournamentsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     keyword: (NSString*) keyword
     subType: (NSString*) subType
@@ -904,17 +816,6 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(OAIMissionShortResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITournamentApiErrorDomain code:kOAITournamentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -937,12 +838,9 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/tournament/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/tournament/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1024,8 +922,6 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
 ///
 /// Submit Tournament Score
 /// Submit an array of scores for a tournament match. 
-///  @param version  
-///
 ///  @param accountId The logged in user account ID. 
 ///
 ///  @param appKey The application key. 
@@ -1042,8 +938,7 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) submitTournamentScoreWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) submitTournamentScoreWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     missionId: (NSNumber*) missionId
     gameId: (NSNumber*) gameId
@@ -1051,17 +946,6 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
     scores: (NSString*) scores
     gameLevelId: (NSNumber*) gameLevelId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITournamentApiErrorDomain code:kOAITournamentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1128,12 +1012,9 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/tournament/score"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/tournament/score"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1200,8 +1081,6 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
 ///
 /// Submit a vote for a multi-stage album tournament.
 /// Submit a vote for a multi-stage album tournament.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param appKey The application to target 
@@ -1216,25 +1095,13 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) submitTournamentVoteWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) submitTournamentVoteWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     missionId: (NSNumber*) missionId
     gameObjectId: (NSNumber*) gameObjectId
     deviceId: (NSString*) deviceId
     checkIfDeviceAlreadyVoted: (NSNumber*) checkIfDeviceAlreadyVoted
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITournamentApiErrorDomain code:kOAITournamentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1279,12 +1146,9 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/tournament/vote"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/tournament/vote"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -1348,8 +1212,6 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
 ///
 /// Substitute Tournament Player
 /// Service to replace the user's opponent in the current level - pack - mission with an AI account.
-///  @param version  
-///
 ///  @param accountId the id of the logged in user 
 ///
 ///  @param missionId the id of the mission 
@@ -1360,23 +1222,11 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) substituteTournamentPlayerWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) substituteTournamentPlayerWithAccountId: (NSNumber*) accountId
     missionId: (NSNumber*) missionId
     packId: (NSNumber*) packId
     gameLevelId: (NSNumber*) gameLevelId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITournamentApiErrorDomain code:kOAITournamentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1421,12 +1271,9 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/tournament/substitute"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/tournament/substitute"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1484,8 +1331,6 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
 ///
 /// Update Tournament
 /// Update a tournament.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param missionId The mission/tournament to update 
@@ -1556,8 +1401,7 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAITournamentResponse*
 ///
--(NSURLSessionTask*) updateTournamentWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateTournamentWithAccountId: (NSNumber*) accountId
     missionId: (NSNumber*) missionId
     title: (NSString*) title
     subType: (NSString*) subType
@@ -1592,17 +1436,6 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
     winnerTag: (NSString*) winnerTag
     tieTag: (NSString*) tieTag
     completionHandler: (void (^)(OAITournamentResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITournamentApiErrorDomain code:kOAITournamentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1625,12 +1458,9 @@ NSInteger kOAITournamentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/tournament/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/tournament/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

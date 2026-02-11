@@ -57,8 +57,6 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
 ///
 /// Create Notification Template
 /// Create a notification template. Developers will only be able to create notification templates for their own applications.
-///  @param version  
-///
 ///  @param accountId The account ID of the user. 
 ///
 ///  @param conduit Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION. 
@@ -75,8 +73,7 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAINotificationTemplateResponse*
 ///
--(NSURLSessionTask*) createNotificationTemplateWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createNotificationTemplateWithAccountId: (NSNumber*) accountId
     conduit: (NSString*) conduit
     title: (NSString*) title
     body: (NSString*) body
@@ -84,17 +81,6 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
     event: (NSString*) event
     tags: (NSString*) tags
     completionHandler: (void (^)(OAINotificationTemplateResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAINotificationApiErrorDomain code:kOAINotificationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -139,12 +125,9 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/notification/template/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/notification/template/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -211,8 +194,6 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
 ///
 /// Create or update blocked notification settings
 /// Create or update blocked notification settings
-///  @param version  
-///
 ///  @param appKey The application key 
 ///
 ///  @param data batch data payload (application specific) 
@@ -221,22 +202,10 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIBlockedNotificationResponse*
 ///
--(NSURLSessionTask*) createOrUpdateBlockedNotificationsWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) createOrUpdateBlockedNotificationsWithAppKey: (NSString*) appKey
     data: (NSString*) data
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIBlockedNotificationResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAINotificationApiErrorDomain code:kOAINotificationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'appKey' is set
     if (appKey == nil) {
         NSParameterAssert(appKey);
@@ -259,12 +228,9 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/notification/blocked/batch"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/notification/blocked/batch"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -319,29 +285,15 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
 ///
 /// Delete Notification Template
 /// Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
-///  @param version  
-///
 ///  @param accountId the account id of the user 
 ///
 ///  @param notificationTemplateId the id of the notification template to delete 
 ///
 ///  @returns OAINotificationTemplateResponse*
 ///
--(NSURLSessionTask*) deleteNotificationTemplateWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteNotificationTemplateWithAccountId: (NSNumber*) accountId
     notificationTemplateId: (NSNumber*) notificationTemplateId
     completionHandler: (void (^)(OAINotificationTemplateResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAINotificationApiErrorDomain code:kOAINotificationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -364,12 +316,9 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/notification/template/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/notification/template/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -421,29 +370,15 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
 ///
 /// Get Notification Template
 /// Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
-///  @param version  
-///
 ///  @param accountId the id of the account 
 ///
 ///  @param notificationTemplateId the id of the notification template to get 
 ///
 ///  @returns OAINotificationTemplateResponse*
 ///
--(NSURLSessionTask*) getNotificationTemplateWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getNotificationTemplateWithAccountId: (NSNumber*) accountId
     notificationTemplateId: (NSNumber*) notificationTemplateId
     completionHandler: (void (^)(OAINotificationTemplateResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAINotificationApiErrorDomain code:kOAINotificationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -466,12 +401,9 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/notification/template/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/notification/template/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -523,8 +455,6 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
 ///
 /// Get Notifications
 /// Get a list of notifications for a user. If the \"markAsRead\" parameter is set to true, the returned notifications will be marked as \"read\" after the response has been sent. By default, read messages will not be returned, so to see read messages, set \"returnReadMessages\" to true.
-///  @param version  
-///
 ///  @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
 ///
 ///  @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -569,8 +499,7 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAINotificationMessageListResponse*
 ///
--(NSURLSessionTask*) getNotificationsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) getNotificationsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     connectionAccountId: (NSNumber*) connectionAccountId
     appKey: (NSString*) appKey
@@ -592,23 +521,9 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(OAINotificationMessageListResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAINotificationApiErrorDomain code:kOAINotificationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/notification/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/notification/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -717,8 +632,6 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
 ///
 /// Register Notification Token
 /// Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
-///  @param version  
-///
 ///  @param token A token that is generated by the device to sign requests for the notification service providers 
 ///
 ///  @param pushType The type of push notification. Possible values include: APNS, GCM 
@@ -741,8 +654,7 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) registerNotificationTokenWithVersion: (NSNumber*) version
-    token: (NSString*) token
+-(NSURLSessionTask*) registerNotificationTokenWithToken: (NSString*) token
     pushType: (NSString*) pushType
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -753,17 +665,6 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAINotificationApiErrorDomain code:kOAINotificationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'token' is set
     if (token == nil) {
         NSParameterAssert(token);
@@ -786,12 +687,9 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/notification/token"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/notification/token"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -867,8 +765,6 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
 ///
 /// Search on the user's blocked notification settings
 /// Search on the user's blocked notification settings
-///  @param version  
-///
 ///  @param appKey The application key 
 ///
 ///  @param accountId the account id of the user (optional)
@@ -895,8 +791,7 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIBlockedNotificationResponse*
 ///
--(NSURLSessionTask*) searchBlockedNotificationsWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) searchBlockedNotificationsWithAppKey: (NSString*) appKey
     accountId: (NSNumber*) accountId
     searchTags: (NSString*) searchTags
     events: (NSString*) events
@@ -909,17 +804,6 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(OAIBlockedNotificationResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAINotificationApiErrorDomain code:kOAINotificationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'appKey' is set
     if (appKey == nil) {
         NSParameterAssert(appKey);
@@ -931,12 +815,9 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/notification/blocked/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/notification/blocked/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1018,8 +899,6 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
 ///
 /// Search Notification Templates
 /// Search for notification templates on owned applications.
-///  @param version  
-///
 ///  @param accountId The account ID of the user. 
 ///
 ///  @param sortField Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name ('global' templates will not have an application and will be returned last if 'descending' is set to false. 
@@ -1044,8 +923,7 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAINotificationTemplateResponse*
 ///
--(NSURLSessionTask*) searchNotificationTemplateWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchNotificationTemplateWithAccountId: (NSNumber*) accountId
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
@@ -1057,17 +935,6 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
     reservedOnly: (NSNumber*) reservedOnly
     keyword: (NSString*) keyword
     completionHandler: (void (^)(OAINotificationTemplateResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAINotificationApiErrorDomain code:kOAINotificationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1123,12 +990,9 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/notification/template/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/notification/template/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1207,8 +1071,6 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
 ///
 /// Search for Recipients
 /// Search for application users to send notifications.
-///  @param version  
-///
 ///  @param sortField The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME} 
 ///
 ///  @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
@@ -1237,8 +1099,7 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAINotificationRecipientResponse>*
 ///
--(NSURLSessionTask*) searchRecipientsWithVersion: (NSNumber*) version
-    sortField: (NSString*) sortField
+-(NSURLSessionTask*) searchRecipientsWithSortField: (NSString*) sortField
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
@@ -1252,17 +1113,6 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSArray<OAINotificationRecipientResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAINotificationApiErrorDomain code:kOAINotificationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'sortField' is set
     if (sortField == nil) {
         NSParameterAssert(sortField);
@@ -1274,12 +1124,9 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/notification/recipient/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/notification/recipient/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -1364,8 +1211,6 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
 ///
 /// Search for Recipients (Counts/Grouped)
 /// Search for application users to send notifications (count/grouped variant).
-///  @param version  
-///
 ///  @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
 ///
 ///  @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1392,8 +1237,7 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAINotificationRecipientResponseListResponse*
 ///
--(NSURLSessionTask*) searchRecipientsCountWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) searchRecipientsCountWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     conduit: (NSString*) conduit
@@ -1406,23 +1250,9 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(OAINotificationRecipientResponseListResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAINotificationApiErrorDomain code:kOAINotificationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/notification/recipient/search/count"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/notification/recipient/search/count"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -1504,8 +1334,6 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
 ///
 /// Send Batch Notifications
 /// Send notifications to all users of an application. Only someone with permissions to the application can do this.
-///  @param version  
-///
 ///  @param accountId The account id of the application owner/manager 
 ///
 ///  @param appKey The application key for updating an existing application 
@@ -1526,8 +1354,7 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) sendBatchNotificationsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) sendBatchNotificationsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     customMessage: (NSString*) customMessage
     conduit: (NSString*) conduit
@@ -1537,17 +1364,6 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
     parentId: (NSNumber*) parentId
     parentType: (NSString*) parentType
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAINotificationApiErrorDomain code:kOAINotificationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1581,12 +1397,9 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/notification/batch"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/notification/batch"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1659,8 +1472,6 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
 ///
 /// Send Custom Notifications
 /// Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
-///  @param version  
-///
 ///  @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
 ///
 ///  @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1699,8 +1510,7 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) sendCustomNotificationsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) sendCustomNotificationsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     receiverAccountIds: (NSString*) receiverAccountIds
     includeFriendGroup: (NSNumber*) includeFriendGroup
@@ -1719,23 +1529,9 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAINotificationApiErrorDomain code:kOAINotificationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/notification/custom"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/notification/custom"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -1835,8 +1631,6 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
 ///
 /// Update Notification Template
 /// Update a notification template. Developers will only be able to update notification templates for their own applications.
-///  @param version  
-///
 ///  @param accountId The account ID of the user. 
 ///
 ///  @param notificationTemplateId The notification template ID to update. 
@@ -1849,24 +1643,12 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAINotificationTemplateResponse*
 ///
--(NSURLSessionTask*) updateNotificationTemplateWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateNotificationTemplateWithAccountId: (NSNumber*) accountId
     notificationTemplateId: (NSNumber*) notificationTemplateId
     title: (NSString*) title
     body: (NSString*) body
     tags: (NSString*) tags
     completionHandler: (void (^)(OAINotificationTemplateResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAINotificationApiErrorDomain code:kOAINotificationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1889,12 +1671,9 @@ NSInteger kOAINotificationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/notification/template/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/notification/template/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

@@ -30,7 +30,6 @@ extern NSInteger kOAIAchievementApiMissingParamErrorCode;
 /// Searches an Achievement Tier
 /// Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 ///
-/// @param version 
 /// @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
 /// @param accountId the account id of the user (deviceId or accountId required) (optional)
 /// @param appKey the application key (optional)
@@ -46,8 +45,7 @@ extern NSInteger kOAIAchievementApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAchievementTierResponse*
--(NSURLSessionTask*) apiVersionAchievementTierSearchPostWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) achievementTierSearchPostWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     keyword: (NSString*) keyword
@@ -64,7 +62,6 @@ extern NSInteger kOAIAchievementApiMissingParamErrorCode;
 /// Create Achievement
 /// Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 ///
-/// @param version 
 /// @param appKey the application key the achievement is for
 /// @param title the title of the achievement (255 character limit)
 /// @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
@@ -82,8 +79,7 @@ extern NSInteger kOAIAchievementApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAchievementResponse*
--(NSURLSessionTask*) createAchievementWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) createAchievementWithAppKey: (NSString*) appKey
     title: (NSString*) title
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -102,7 +98,6 @@ extern NSInteger kOAIAchievementApiMissingParamErrorCode;
 /// Create Achievement Tier
 /// Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 ///
-/// @param version 
 /// @param achievementId the achievement id for adding a new tier
 /// @param scoreAllInstances score all instances
 /// @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
@@ -121,8 +116,7 @@ extern NSInteger kOAIAchievementApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAchievementTierResponse*
--(NSURLSessionTask*) createAchievementTierWithVersion: (NSNumber*) version
-    achievementId: (NSNumber*) achievementId
+-(NSURLSessionTask*) createAchievementTierWithAchievementId: (NSNumber*) achievementId
     scoreAllInstances: (NSNumber*) scoreAllInstances
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -142,15 +136,13 @@ extern NSInteger kOAIAchievementApiMissingParamErrorCode;
 /// Delete Achievement
 /// Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
 ///
-/// @param version 
 /// @param achievementId The ID of the achievement
 /// @param accountId the account id of the user (deviceId or accountId required) (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteAchievementWithVersion: (NSNumber*) version
-    achievementId: (NSNumber*) achievementId
+-(NSURLSessionTask*) deleteAchievementWithAchievementId: (NSNumber*) achievementId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -158,15 +150,13 @@ extern NSInteger kOAIAchievementApiMissingParamErrorCode;
 /// Delete Achievement Tier
 /// Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
 ///
-/// @param version 
 /// @param achievementTierId the achievement id for deletion
 /// @param accountId the account id of the user (deviceId or accountId required). (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteAchievementTierWithVersion: (NSNumber*) version
-    achievementTierId: (NSNumber*) achievementTierId
+-(NSURLSessionTask*) deleteAchievementTierWithAchievementTierId: (NSNumber*) achievementTierId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -174,7 +164,6 @@ extern NSInteger kOAIAchievementApiMissingParamErrorCode;
 /// Get Achievement
 /// Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 ///
-/// @param version 
 /// @param achievementId The ID of the achievement
 /// @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
 /// @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -183,8 +172,7 @@ extern NSInteger kOAIAchievementApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAchievementTierResponse*
--(NSURLSessionTask*) getAchievementWithVersion: (NSNumber*) version
-    achievementId: (NSNumber*) achievementId
+-(NSURLSessionTask*) getAchievementWithAchievementId: (NSNumber*) achievementId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     achievementType: (NSString*) achievementType
@@ -194,15 +182,13 @@ extern NSInteger kOAIAchievementApiMissingParamErrorCode;
 /// Gets an achievement tier
 /// Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
 ///
-/// @param version 
 /// @param accountId the account id of the user (deviceId or accountId required)
 /// @param achievementTierId the achievement tier id that is being retrieved
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAchievementTierResponse*
--(NSURLSessionTask*) getAchievementTierWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getAchievementTierWithAccountId: (NSNumber*) accountId
     achievementTierId: (NSNumber*) achievementTierId
     completionHandler: (void (^)(OAIAchievementTierResponse* output, NSError* error)) handler;
 
@@ -210,7 +196,6 @@ extern NSInteger kOAIAchievementApiMissingParamErrorCode;
 /// Get Achievement Progress
 /// Gets a list of user achievements.
 ///
-/// @param version 
 /// @param returnNulls determines whether to return null fields in the response (default to @(YES))
 /// @param appKey the application key for filtering results by application
 /// @param includeUndiscovered determines whether to return achievements that the user has not discovered yet (default to @(YES))
@@ -226,8 +211,7 @@ extern NSInteger kOAIAchievementApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIAchievementProgressResponse>*
--(NSURLSessionTask*) getUserAchievementsWithVersion: (NSNumber*) version
-    returnNulls: (NSNumber*) returnNulls
+-(NSURLSessionTask*) getUserAchievementsWithReturnNulls: (NSNumber*) returnNulls
     appKey: (NSString*) appKey
     includeUndiscovered: (NSNumber*) includeUndiscovered
     deviceId: (NSString*) deviceId
@@ -244,21 +228,18 @@ extern NSInteger kOAIAchievementApiMissingParamErrorCode;
 /// List Achievement Tags
 /// List achievement tags by application
 ///
-/// @param version 
 /// @param appKey filter results by application key (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) listAchievementTagsWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) listAchievementTagsWithAppKey: (NSString*) appKey
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
 
 /// List Achievements
 /// List achievements by billable.
 ///
-/// @param version 
 /// @param sortField the field to sort by. See AchievementApiMap
 /// @param descending determines whether the sorted list is in descending or ascending order
 /// @param start the start index for pagination
@@ -274,8 +255,7 @@ extern NSInteger kOAIAchievementApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIAchievementShortResponse>*
--(NSURLSessionTask*) listAchievementsWithVersion: (NSNumber*) version
-    sortField: (NSString*) sortField
+-(NSURLSessionTask*) listAchievementsWithSortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
     limit: (NSNumber*) limit
@@ -292,7 +272,6 @@ extern NSInteger kOAIAchievementApiMissingParamErrorCode;
 /// Search Achievements
 /// Searches achievements by application for consumers.
 ///
-/// @param version 
 /// @param appKey the application key
 /// @param sortField the field to sort by. See AchievementApiMap (default to @"TITLE")
 /// @param descending determines whether the sorted list is in descending or ascending order (default to @(NO))
@@ -309,8 +288,7 @@ extern NSInteger kOAIAchievementApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIAchievementShortResponse>*
--(NSURLSessionTask*) searchAchievementsWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) searchAchievementsWithAppKey: (NSString*) appKey
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     includeTiers: (NSNumber*) includeTiers
@@ -328,7 +306,6 @@ extern NSInteger kOAIAchievementApiMissingParamErrorCode;
 /// Update Achievement
 /// Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 ///
-/// @param version 
 /// @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
 /// @param accountId the account id of the user (deviceId or accountId required) (optional)
 /// @param achievementId the achievement ID for updating an existing achievement (optional)
@@ -348,8 +325,7 @@ extern NSInteger kOAIAchievementApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAchievementResponse*
--(NSURLSessionTask*) updateAchievementWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) updateAchievementWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     achievementId: (NSNumber*) achievementId
     analyticsTag: (NSString*) analyticsTag
@@ -370,7 +346,6 @@ extern NSInteger kOAIAchievementApiMissingParamErrorCode;
 /// Update Achievement Tier
 /// Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 ///
-/// @param version 
 /// @param achievementTierId the achievement tier id for updating
 /// @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
 /// @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -389,8 +364,7 @@ extern NSInteger kOAIAchievementApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAchievementTierResponse*
--(NSURLSessionTask*) updateAchievementTierWithVersion: (NSNumber*) version
-    achievementTierId: (NSNumber*) achievementTierId
+-(NSURLSessionTask*) updateAchievementTierWithAchievementTierId: (NSNumber*) achievementTierId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     icon: (NSURL*) icon
@@ -410,7 +384,6 @@ extern NSInteger kOAIAchievementApiMissingParamErrorCode;
 /// Update Achievement Progress
 /// Update user achievement progress.
 ///
-/// @param version 
 /// @param accountId the account id of the user
 /// @param achievementId the achievement id (achievementId or tag required) (optional)
 /// @param tag the analytic tag to identify an achievement (achievementId or tag required) (optional)
@@ -423,8 +396,7 @@ extern NSInteger kOAIAchievementApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) updateUserAchievementWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateUserAchievementWithAccountId: (NSNumber*) accountId
     achievementId: (NSNumber*) achievementId
     tag: (NSString*) tag
     customId: (NSNumber*) customId

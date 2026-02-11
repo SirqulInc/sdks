@@ -27,7 +27,6 @@ extern NSInteger kOAIWordApiMissingParamErrorCode;
 /// Create Word
 /// Create a word by the given params.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param word The text of the word.
 /// @param definition The definition of the word.
@@ -41,8 +40,7 @@ extern NSInteger kOAIWordApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIWordzWordResponse*
--(NSURLSessionTask*) createWordWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createWordWithAccountId: (NSNumber*) accountId
     word: (NSString*) word
     definition: (NSString*) definition
     active: (NSNumber*) active
@@ -57,15 +55,13 @@ extern NSInteger kOAIWordApiMissingParamErrorCode;
 /// Delete Word
 /// Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
 ///
-/// @param version 
 /// @param wordId The id of the word to delete.
 /// @param accountId The account vor validating permission
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteWordWithVersion: (NSNumber*) version
-    wordId: (NSNumber*) wordId
+-(NSURLSessionTask*) deleteWordWithWordId: (NSNumber*) wordId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -73,15 +69,13 @@ extern NSInteger kOAIWordApiMissingParamErrorCode;
 /// Get Word
 /// Get a word by the given id.
 ///
-/// @param version 
 /// @param wordId The id of the word to get.
 /// @param accountId The logged in user.
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIWordzWordResponse*
--(NSURLSessionTask*) getWordWithVersion: (NSNumber*) version
-    wordId: (NSNumber*) wordId
+-(NSURLSessionTask*) getWordWithWordId: (NSNumber*) wordId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIWordzWordResponse* output, NSError* error)) handler;
 
@@ -89,7 +83,6 @@ extern NSInteger kOAIWordApiMissingParamErrorCode;
 /// Search Words
 /// Search for words by the given params.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param sortField The column to sort the search on (default to @"id")
 /// @param descending The order to return the search results (default to @(NO))
@@ -101,8 +94,7 @@ extern NSInteger kOAIWordApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIWordzWordResponse>*
--(NSURLSessionTask*) getWordsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getWordsWithAccountId: (NSNumber*) accountId
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     activeOnly: (NSNumber*) activeOnly
@@ -115,7 +107,6 @@ extern NSInteger kOAIWordApiMissingParamErrorCode;
 /// Update Word
 /// Update a word by the given params.
 ///
-/// @param version 
 /// @param wordId The id of the word to update.
 /// @param accountId The logged in user.
 /// @param ticketCount The number of tickets to reward (default to @0)
@@ -130,8 +121,7 @@ extern NSInteger kOAIWordApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIWordzWordResponse*
--(NSURLSessionTask*) updateWordWithVersion: (NSNumber*) version
-    wordId: (NSNumber*) wordId
+-(NSURLSessionTask*) updateWordWithWordId: (NSNumber*) wordId
     accountId: (NSNumber*) accountId
     ticketCount: (NSNumber*) ticketCount
     wordText: (NSString*) wordText

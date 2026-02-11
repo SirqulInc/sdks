@@ -53,8 +53,6 @@ NSInteger kOAIApplicationConfigApiMissingParamErrorCode = 234513;
 ///
 /// Create AppConfig
 /// Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won't be created.
-///  @param version  
-///
 ///  @param accountId The account ID of the user 
 ///
 ///  @param appKey The application key that the newly created applicationConfig will be associated to 
@@ -71,8 +69,7 @@ NSInteger kOAIApplicationConfigApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIApplicationConfigResponse*
 ///
--(NSURLSessionTask*) createApplicationConfigWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createApplicationConfigWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     configVersion: (NSString*) configVersion
     assetId: (NSNumber*) assetId
@@ -80,17 +77,6 @@ NSInteger kOAIApplicationConfigApiMissingParamErrorCode = 234513;
     retailerLocationId: (NSNumber*) retailerLocationId
     udid: (NSString*) udid
     completionHandler: (void (^)(OAIApplicationConfigResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIApplicationConfigApiErrorDomain code:kOAIApplicationConfigApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -135,12 +121,9 @@ NSInteger kOAIApplicationConfigApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/appconfig/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/appconfig/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -207,29 +190,15 @@ NSInteger kOAIApplicationConfigApiMissingParamErrorCode = 234513;
 ///
 /// Delete AppConfig
 /// Mark the application configuration for deletion.
-///  @param version  
-///
 ///  @param accountId The account ID of the user 
 ///
 ///  @param configId The config ID of the application configuration to delete 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteApplicationConfigWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteApplicationConfigWithAccountId: (NSNumber*) accountId
     configId: (NSNumber*) configId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIApplicationConfigApiErrorDomain code:kOAIApplicationConfigApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -252,12 +221,9 @@ NSInteger kOAIApplicationConfigApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/appconfig/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/appconfig/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -309,29 +275,15 @@ NSInteger kOAIApplicationConfigApiMissingParamErrorCode = 234513;
 ///
 /// Get AppConfig
 /// Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
-///  @param version  
-///
 ///  @param accountId The account ID of the user 
 ///
 ///  @param configId The config ID of the application configuration 
 ///
 ///  @returns OAIApplicationConfigResponse*
 ///
--(NSURLSessionTask*) getApplicationConfigWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getApplicationConfigWithAccountId: (NSNumber*) accountId
     configId: (NSNumber*) configId
     completionHandler: (void (^)(OAIApplicationConfigResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIApplicationConfigApiErrorDomain code:kOAIApplicationConfigApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -354,12 +306,9 @@ NSInteger kOAIApplicationConfigApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/appconfig/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/appconfig/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -411,8 +360,6 @@ NSInteger kOAIApplicationConfigApiMissingParamErrorCode = 234513;
 ///
 /// Get AppConfig by Version
 /// Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
-///  @param version  
-///
 ///  @param appKey The application key 
 ///
 ///  @param configVersion The version of the application configuration 
@@ -427,25 +374,13 @@ NSInteger kOAIApplicationConfigApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIApplicationConfigResponse*
 ///
--(NSURLSessionTask*) getApplicationConfigByConfigVersionWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) getApplicationConfigByConfigVersionWithAppKey: (NSString*) appKey
     configVersion: (NSString*) configVersion
     retailerId: (NSNumber*) retailerId
     retailerLocationId: (NSNumber*) retailerLocationId
     udid: (NSString*) udid
     allowOlderVersions: (NSNumber*) allowOlderVersions
     completionHandler: (void (^)(OAIApplicationConfigResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIApplicationConfigApiErrorDomain code:kOAIApplicationConfigApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'appKey' is set
     if (appKey == nil) {
         NSParameterAssert(appKey);
@@ -468,12 +403,9 @@ NSInteger kOAIApplicationConfigApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/appconfig/getbyversion"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/appconfig/getbyversion"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (appKey != nil) {
@@ -537,8 +469,6 @@ NSInteger kOAIApplicationConfigApiMissingParamErrorCode = 234513;
 ///
 /// Search AppConfigs
 /// Gets all versions of application configurations in a particular app by the given appKey.
-///  @param version  
-///
 ///  @param accountId The account ID of the user 
 ///
 ///  @param appKey The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only) (optional)
@@ -561,8 +491,7 @@ NSInteger kOAIApplicationConfigApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIApplicationConfigResponse>*
 ///
--(NSURLSessionTask*) searchApplicationConfigWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchApplicationConfigWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     retailerId: (NSNumber*) retailerId
     retailerLocationId: (NSNumber*) retailerLocationId
@@ -573,17 +502,6 @@ NSInteger kOAIApplicationConfigApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSArray<OAIApplicationConfigResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIApplicationConfigApiErrorDomain code:kOAIApplicationConfigApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -595,12 +513,9 @@ NSInteger kOAIApplicationConfigApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/appconfig/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/appconfig/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -676,8 +591,6 @@ NSInteger kOAIApplicationConfigApiMissingParamErrorCode = 234513;
 ///
 /// Update AppConfig
 /// pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won't be updated.
-///  @param version  
-///
 ///  @param accountId The account ID of the user 
 ///
 ///  @param configId The config ID of the application configuration to update 
@@ -696,8 +609,7 @@ NSInteger kOAIApplicationConfigApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIApplicationConfigResponse*
 ///
--(NSURLSessionTask*) updateApplicationConfigWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateApplicationConfigWithAccountId: (NSNumber*) accountId
     configId: (NSNumber*) configId
     appKey: (NSString*) appKey
     configVersion: (NSString*) configVersion
@@ -706,17 +618,6 @@ NSInteger kOAIApplicationConfigApiMissingParamErrorCode = 234513;
     retailerLocationId: (NSNumber*) retailerLocationId
     udid: (NSString*) udid
     completionHandler: (void (^)(OAIApplicationConfigResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIApplicationConfigApiErrorDomain code:kOAIApplicationConfigApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -739,12 +640,9 @@ NSInteger kOAIApplicationConfigApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/appconfig/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/appconfig/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

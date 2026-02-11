@@ -53,8 +53,6 @@ NSInteger kOAIPostalCodeApiMissingParamErrorCode = 234513;
 ///
 /// Create Postal Code
 /// Create a Postal Code
-///  @param version  
-///
 ///  @param accountId the id of the logged in user 
 ///
 ///  @param code the postal code 
@@ -71,8 +69,7 @@ NSInteger kOAIPostalCodeApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIPostalCodeResponse*
 ///
--(NSURLSessionTask*) createPostalCodeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createPostalCodeWithAccountId: (NSNumber*) accountId
     code: (NSString*) code
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
@@ -80,17 +77,6 @@ NSInteger kOAIPostalCodeApiMissingParamErrorCode = 234513;
     city: (NSString*) city
     active: (NSNumber*) active
     completionHandler: (void (^)(OAIPostalCodeResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIPostalCodeApiErrorDomain code:kOAIPostalCodeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -135,12 +121,9 @@ NSInteger kOAIPostalCodeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/postalCode/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/postalCode/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -207,29 +190,15 @@ NSInteger kOAIPostalCodeApiMissingParamErrorCode = 234513;
 ///
 /// Delete Postal Code
 /// Delete a Postal Code
-///  @param version  
-///
 ///  @param accountId the id of the logged in user 
 ///
 ///  @param postalCodeId the id of the postal code to delete 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deletePostalCodeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deletePostalCodeWithAccountId: (NSNumber*) accountId
     postalCodeId: (NSNumber*) postalCodeId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIPostalCodeApiErrorDomain code:kOAIPostalCodeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -252,12 +221,9 @@ NSInteger kOAIPostalCodeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/postalCode/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/postalCode/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -309,26 +275,12 @@ NSInteger kOAIPostalCodeApiMissingParamErrorCode = 234513;
 ///
 /// Get Postal Code
 /// Get a Postal Code
-///  @param version  
-///
 ///  @param postalCodeId the id of the postal code to get 
 ///
 ///  @returns OAIPostalCodeResponse*
 ///
--(NSURLSessionTask*) getPostalCodeWithVersion: (NSNumber*) version
-    postalCodeId: (NSNumber*) postalCodeId
+-(NSURLSessionTask*) getPostalCodeWithPostalCodeId: (NSNumber*) postalCodeId
     completionHandler: (void (^)(OAIPostalCodeResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIPostalCodeApiErrorDomain code:kOAIPostalCodeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'postalCodeId' is set
     if (postalCodeId == nil) {
         NSParameterAssert(postalCodeId);
@@ -340,12 +292,9 @@ NSInteger kOAIPostalCodeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/postalCode/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/postalCode/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (postalCodeId != nil) {
@@ -394,8 +343,6 @@ NSInteger kOAIPostalCodeApiMissingParamErrorCode = 234513;
 ///
 /// Search Postal Codes
 /// Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
-///  @param version  
-///
 ///  @param sortField the field to sort the results on 
 ///
 ///  @param descending whether to order results in ascending or descending order 
@@ -414,8 +361,7 @@ NSInteger kOAIPostalCodeApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIPostalCodeResponse>*
 ///
--(NSURLSessionTask*) getPostalCodesWithVersion: (NSNumber*) version
-    sortField: (NSString*) sortField
+-(NSURLSessionTask*) getPostalCodesWithSortField: (NSString*) sortField
     descending: (NSNumber*) descending
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
@@ -424,17 +370,6 @@ NSInteger kOAIPostalCodeApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSArray<OAIPostalCodeResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIPostalCodeApiErrorDomain code:kOAIPostalCodeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'sortField' is set
     if (sortField == nil) {
         NSParameterAssert(sortField);
@@ -457,12 +392,9 @@ NSInteger kOAIPostalCodeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/postalCode/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/postalCode/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (latitude != nil) {
@@ -532,8 +464,6 @@ NSInteger kOAIPostalCodeApiMissingParamErrorCode = 234513;
 ///
 /// Update Postal Code
 /// Update a Postal Code
-///  @param version  
-///
 ///  @param accountId the id of the logged in user 
 ///
 ///  @param postalCodeId the id of the postal code to update 
@@ -552,8 +482,7 @@ NSInteger kOAIPostalCodeApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIPostalCodeResponse*
 ///
--(NSURLSessionTask*) updatePostalCodeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updatePostalCodeWithAccountId: (NSNumber*) accountId
     postalCodeId: (NSNumber*) postalCodeId
     code: (NSString*) code
     latitude: (NSNumber*) latitude
@@ -562,17 +491,6 @@ NSInteger kOAIPostalCodeApiMissingParamErrorCode = 234513;
     city: (NSString*) city
     active: (NSNumber*) active
     completionHandler: (void (^)(OAIPostalCodeResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIPostalCodeApiErrorDomain code:kOAIPostalCodeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -595,12 +513,9 @@ NSInteger kOAIPostalCodeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/postalCode/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/postalCode/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

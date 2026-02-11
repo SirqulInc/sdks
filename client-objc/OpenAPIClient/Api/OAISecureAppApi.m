@@ -54,8 +54,6 @@ NSInteger kOAISecureAppApiMissingParamErrorCode = 234513;
 ///
 /// Create Secure Application
 /// Create a secure application record.
-///  @param version  
-///
 ///  @param accountId The unique id of the user making the request 
 ///
 ///  @param appKey The application to secure 
@@ -78,8 +76,7 @@ NSInteger kOAISecureAppApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) createSecureApplicationWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createSecureApplicationWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     keyCert: (NSURL*) keyCert
     trustStore: (NSURL*) trustStore
@@ -90,17 +87,6 @@ NSInteger kOAISecureAppApiMissingParamErrorCode = 234513;
     biometricPosition: (NSString*) biometricPosition
     biometricPosition2: (NSString*) biometricPosition2
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAISecureAppApiErrorDomain code:kOAISecureAppApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -167,12 +153,9 @@ NSInteger kOAISecureAppApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/secure/application/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/secure/application/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -248,29 +231,15 @@ NSInteger kOAISecureAppApiMissingParamErrorCode = 234513;
 ///
 /// Delete Secure Application
 /// Delete a secure application record.
-///  @param version  
-///
 ///  @param accountId The unique id of the user making the request 
 ///
 ///  @param appKey The application to secure 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteSecureApplicationWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteSecureApplicationWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAISecureAppApiErrorDomain code:kOAISecureAppApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -293,12 +262,9 @@ NSInteger kOAISecureAppApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/secure/application/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/secure/application/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -350,8 +316,6 @@ NSInteger kOAISecureAppApiMissingParamErrorCode = 234513;
 ///
 /// Login Clear
 /// Login via Clear.me. Creates a new account if logging in for the first time.
-///  @param version  
-///
 ///  @param appKey The application making the request, defines what type and position is required to make a secure login the request. 
 ///
 ///  @param biometricFile The data file used to perform authentication 
@@ -372,8 +336,7 @@ NSInteger kOAISecureAppApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIProfileResponse*
 ///
--(NSURLSessionTask*) loginSecureWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) loginSecureWithAppKey: (NSString*) appKey
     biometricFile: (NSURL*) biometricFile
     deviceId: (NSString*) deviceId
     biometricFile2: (NSURL*) biometricFile2
@@ -383,17 +346,6 @@ NSInteger kOAISecureAppApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIProfileResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAISecureAppApiErrorDomain code:kOAISecureAppApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'appKey' is set
     if (appKey == nil) {
         NSParameterAssert(appKey);
@@ -416,12 +368,9 @@ NSInteger kOAISecureAppApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/secure/login"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/secure/login"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -494,26 +443,12 @@ NSInteger kOAISecureAppApiMissingParamErrorCode = 234513;
 ///
 /// Purchase Clear
 /// Purchase via Clear.me. Creates a new account if purchasing for the first time.
-///  @param version  
-///
 ///  @param body The payment request object 
 ///
 ///  @returns OAIProfileResponse*
 ///
--(NSURLSessionTask*) purchaseSecureWithVersion: (NSNumber*) version
-    body: (OAIPaymentRequest*) body
+-(NSURLSessionTask*) purchaseSecureWithBody: (OAIPaymentRequest*) body
     completionHandler: (void (^)(OAIProfileResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAISecureAppApiErrorDomain code:kOAISecureAppApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'body' is set
     if (body == nil) {
         NSParameterAssert(body);
@@ -525,12 +460,9 @@ NSInteger kOAISecureAppApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/secure/purchase"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/secure/purchase"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
@@ -577,29 +509,15 @@ NSInteger kOAISecureAppApiMissingParamErrorCode = 234513;
 ///
 /// Rest Secure Application
 /// Reset a secure application client.
-///  @param version  
-///
 ///  @param accountId The unique id of the user making the request 
 ///
 ///  @param appKey The application to secure 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) resetSecureWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) resetSecureWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAISecureAppApiErrorDomain code:kOAISecureAppApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -622,12 +540,9 @@ NSInteger kOAISecureAppApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/secure/application/reset"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/secure/application/reset"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -679,8 +594,6 @@ NSInteger kOAISecureAppApiMissingParamErrorCode = 234513;
 ///
 /// Update Secure Application
 /// Update a secure application record.
-///  @param version  
-///
 ///  @param accountId The unique id of the user making the request 
 ///
 ///  @param appKey The application to secure 
@@ -703,8 +616,7 @@ NSInteger kOAISecureAppApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) updateSecureApplicationWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateSecureApplicationWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     active: (NSNumber*) active
     keyCert: (NSURL*) keyCert
@@ -715,17 +627,6 @@ NSInteger kOAISecureAppApiMissingParamErrorCode = 234513;
     biometricPosition: (NSString*) biometricPosition
     biometricPosition2: (NSString*) biometricPosition2
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAISecureAppApiErrorDomain code:kOAISecureAppApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -748,12 +649,9 @@ NSInteger kOAISecureAppApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/secure/application/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/secure/application/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

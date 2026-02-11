@@ -32,7 +32,6 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 /// Search Accounts by Location
 /// Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts.
 ///
-/// @param version 
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
 /// @param q Deprecated - legacy query parameter (optional)
@@ -71,8 +70,7 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIUserLocationSearchResponse*
--(NSURLSessionTask*) accountLocationSearchWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) accountLocationSearchWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     q: (NSString*) q
     keyword: (NSString*) keyword
@@ -112,7 +110,6 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 /// Block Account
 /// Moves or removes an account into the user's blocked group.
 ///
-/// @param version 
 /// @param accountIdBeingBlocked The id of the account to be blocked/unblocked
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -124,8 +121,7 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) blockAccountWithVersion: (NSNumber*) version
-    accountIdBeingBlocked: (NSNumber*) accountIdBeingBlocked
+-(NSURLSessionTask*) blockAccountWithAccountIdBeingBlocked: (NSNumber*) accountIdBeingBlocked
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     blockFlagValue: (NSNumber*) blockFlagValue
@@ -138,7 +134,6 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 /// Create Account
 /// Create a new account by role.
 ///
-/// @param version 
 /// @param username The access token to authenticate with (ex: username)
 /// @param password The secret to authenticate with (ex: password)
 /// @param name The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName (optional)
@@ -215,8 +210,7 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAccountLoginResponse*
--(NSURLSessionTask*) createAccountWithVersion: (NSNumber*) version
-    username: (NSString*) username
+-(NSURLSessionTask*) createAccountWithUsername: (NSString*) username
     password: (NSString*) password
     name: (NSString*) name
     prefixName: (NSString*) prefixName
@@ -294,7 +288,6 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 /// Update Account
 /// Edit the user's profile information
 ///
-/// @param version 
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
 /// @param connectionAccountId The account id used to edit another person&#39;s account (optional)
@@ -381,8 +374,7 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIProfileInfoResponse*
--(NSURLSessionTask*) editAccountWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) editAccountWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     connectionAccountId: (NSNumber*) connectionAccountId
     role: (NSString*) role
@@ -470,7 +462,6 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 /// Update Username and Email
 /// Update account's own username and/or emailAddress
 ///
-/// @param version 
 /// @param deviceId The device id (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
 /// @param emailAddress the user&#39;s contact email address (NOT the username) which is also used for email validation (optional)
@@ -479,8 +470,7 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) editUsernameWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) editUsernameWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     emailAddress: (NSString*) emailAddress
     username: (NSString*) username
@@ -490,7 +480,6 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 /// Get Account
 /// Gets a user's account profile. Application settings and account settings will also be returned for the owner of the account.
 ///
-/// @param version 
 /// @param returnNulls Return Nulls (optional) (default to @(NO))
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -507,8 +496,7 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIProfileResponse*
--(NSURLSessionTask*) getAccountWithVersion: (NSNumber*) version
-    returnNulls: (NSNumber*) returnNulls
+-(NSURLSessionTask*) getAccountWithReturnNulls: (NSNumber*) returnNulls
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     connectionAccountEmail: (NSString*) connectionAccountEmail
@@ -526,7 +514,6 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 /// Get Profile Assets
 /// Get a list of assets a person has ever uploaded. Filters the list based on parameters.
 ///
-/// @param version 
 /// @param returnNulls Determines whether to return null fields in the response (optional) (default to @(NO))
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -545,8 +532,7 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAssetListResponse*
--(NSURLSessionTask*) getProfileAssetsWithVersion: (NSNumber*) version
-    returnNulls: (NSNumber*) returnNulls
+-(NSURLSessionTask*) getProfileAssetsWithReturnNulls: (NSNumber*) returnNulls
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     ownerId: (NSNumber*) ownerId
@@ -566,7 +552,6 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 /// Search Accounts
 /// Gets a user's account profile and their referral List.
 ///
-/// @param version 
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
 /// @param appKey The application key (optional)
 /// @param retrieveType one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it&#39;s parents, recursively - GET_ALL will get all of the above (optional)
@@ -582,8 +567,7 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) getReferralListWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getReferralListWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     retrieveType: (NSString*) retrieveType
     levelLimit: (NSNumber*) levelLimit
@@ -600,7 +584,6 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 /// Get Account Settings
 /// Get the account settings for a user
 ///
-/// @param version 
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
 /// @param latitude The current latitude of the user (optional)
@@ -609,8 +592,7 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIUserSettingsResponse*
--(NSURLSessionTask*) getSettingsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) getSettingsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
@@ -620,7 +602,6 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 /// Login as Account
 /// A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now.
 ///
-/// @param version 
 /// @param accessToken 
 /// @param appKey 
 /// @param deviceId  (optional)
@@ -636,8 +617,7 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIProfileResponse*
--(NSURLSessionTask*) loginDelegateWithVersion: (NSNumber*) version
-    accessToken: (NSString*) accessToken
+-(NSURLSessionTask*) loginDelegateWithAccessToken: (NSString*) accessToken
     appKey: (NSString*) appKey
     deviceId: (NSString*) deviceId
     accessTokenSecret: (NSString*) accessTokenSecret
@@ -654,7 +634,6 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 /// Login Account
 /// General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}
 ///
-/// @param version 
 /// @param accessToken The access token to authenticate with (ex: username or fb token)
 /// @param networkUID The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE  (default to @"USERNAME")
 /// @param appKey The application key
@@ -672,8 +651,7 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIProfileResponse*
--(NSURLSessionTask*) loginGeneralWithVersion: (NSNumber*) version
-    accessToken: (NSString*) accessToken
+-(NSURLSessionTask*) loginGeneralWithAccessToken: (NSString*) accessToken
     networkUID: (NSString*) networkUID
     appKey: (NSString*) appKey
     deviceId: (NSString*) deviceId
@@ -692,7 +670,6 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 /// Login Account (Username)
 /// Login to system with an account
 ///
-/// @param version 
 /// @param username the user&#39;s email address they used to sign-up
 /// @param password the password
 /// @param deviceId the device id (optional)
@@ -707,8 +684,7 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIProfileResponse*
--(NSURLSessionTask*) loginUsernameWithVersion: (NSNumber*) version
-    username: (NSString*) username
+-(NSURLSessionTask*) loginUsernameWithUsername: (NSString*) username
     password: (NSString*) password
     deviceId: (NSString*) deviceId
     latitude: (NSNumber*) latitude
@@ -724,7 +700,6 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 /// Logout Account
 /// Cleans up the users data for logging out.
 ///
-/// @param version 
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param deviceIdType Device Id Type (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -734,8 +709,7 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) logoutWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) logoutWithDeviceId: (NSString*) deviceId
     deviceIdType: (NSString*) deviceIdType
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
@@ -746,7 +720,6 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 /// Merge Account
 /// Merges the analytics, achievements, leaderboards of two accounts.
 ///
-/// @param version 
 /// @param mergeAccountId The id of the account to being merged
 /// @param appKey The application key
 /// @param deviceId The device id (deviceId or accountId required) (optional)
@@ -755,8 +728,7 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) mergeAccountWithVersion: (NSNumber*) version
-    mergeAccountId: (NSNumber*) mergeAccountId
+-(NSURLSessionTask*) mergeAccountWithMergeAccountId: (NSNumber*) mergeAccountId
     appKey: (NSString*) appKey
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -766,7 +738,6 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 /// Update Password
 /// Update the account password.
 ///
-/// @param version 
 /// @param accountId The account to update
 /// @param oldPassword The current password, used to validate access
 /// @param varNewPassword The new password to set, cannot be empty
@@ -775,8 +746,7 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) passwordChangeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) passwordChangeWithAccountId: (NSNumber*) accountId
     oldPassword: (NSString*) oldPassword
     varNewPassword: (NSString*) varNewPassword
     confirmPassword: (NSString*) confirmPassword
@@ -786,7 +756,6 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 /// Reset Password
 /// Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token.
 ///
-/// @param version 
 /// @param token The token associated with the account to update, good for 24 hours
 /// @param password The new password to set, cannot be empty
 /// @param confirm The new password to confirm, must match newPassword
@@ -794,8 +763,7 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) passwordResetWithVersion: (NSNumber*) version
-    token: (NSString*) token
+-(NSURLSessionTask*) passwordResetWithToken: (NSString*) token
     password: (NSString*) password
     confirm: (NSString*) confirm
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
@@ -804,7 +772,6 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 /// Request Password Reset
 /// Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours.
 ///
-/// @param version 
 /// @param email The email/username of the account
 /// @param from this is the sender email (optional) (default to @"Sirqul")
 /// @param domain this is the domain (like dev.sirqul.com) used to generate the password reset link (optional)
@@ -814,8 +781,7 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) requestPasswordResetWithVersion: (NSNumber*) version
-    email: (NSString*) email
+-(NSURLSessionTask*) requestPasswordResetWithEmail: (NSString*) email
     from: (NSString*) from
     domain: (NSString*) domain
     subUrl: (NSString*) subUrl
@@ -826,21 +792,18 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 /// Send Validation Request
 /// Send an email to validate a user's account.
 ///
-/// @param version 
 /// @param accountId The account id of the user
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) requestValidateAccountWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) requestValidateAccountWithAccountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
 
 /// Search Accounts
 /// Search for account profiles.
 ///
-/// @param version 
 /// @param accountId The id of the account requesting
 /// @param appKey The application key
 /// @param keyword The keyword for for querying the account (optional)
@@ -863,8 +826,7 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIProfileResponse>*
--(NSURLSessionTask*) searchAccountsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchAccountsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     keyword: (NSString*) keyword
     latitude: (NSNumber*) latitude
@@ -888,7 +850,6 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 /// Login Account (Encrypted Username)
 /// ogin with encrypted user-name and password.
 ///
-/// @param version 
 /// @param username The user&#39;s encrypted email address they used to sign-up
 /// @param password The encrypted password
 /// @param gameType The application key
@@ -902,8 +863,7 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIProfileResponse*
--(NSURLSessionTask*) secureLoginWithVersion: (NSNumber*) version
-    username: (NSString*) username
+-(NSURLSessionTask*) secureLoginWithUsername: (NSString*) username
     password: (NSString*) password
     gameType: (NSString*) gameType
     deviceId: (NSString*) deviceId
@@ -918,7 +878,6 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 /// Create Account (Encrypted Username)
 /// Create a new account by role (with encrypted user-name and password)
 ///
-/// @param version 
 /// @param deviceId The device id
 /// @param username The encrypted email of the user, this is what will be used when they login
 /// @param password The encrypted password of the user
@@ -984,8 +943,7 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIProfileInfoResponse*
--(NSURLSessionTask*) secureSignupWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) secureSignupWithDeviceId: (NSString*) deviceId
     username: (NSString*) username
     password: (NSString*) password
     name: (NSString*) name
@@ -1052,7 +1010,6 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 /// Save Match Token
 /// Save user's match token to be used for profile match making
 ///
-/// @param version 
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
 /// @param matchToken A string of numbers (optional)
@@ -1064,8 +1021,7 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) setMatchTokenWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) setMatchTokenWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     matchToken: (NSString*) matchToken
     gameType: (NSString*) gameType
@@ -1078,7 +1034,6 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 /// Update Account Active Status
 /// Activate or deactivate an account (requires appropriate permissions).
 ///
-/// @param version 
 /// @param accountId the account id of the user (deviceId or accountId required)
 /// @param connectionAccountId The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead)
 /// @param active true will activate the user and false will deactivate
@@ -1088,8 +1043,7 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) updateActveStatusWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateActveStatusWithAccountId: (NSNumber*) accountId
     connectionAccountId: (NSNumber*) connectionAccountId
     active: (NSNumber*) active
     deviceId: (NSString*) deviceId
@@ -1100,7 +1054,6 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 /// Update Location
 /// Update the account location
 ///
-/// @param version 
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
 /// @param latitude The current latitude of the user (optional)
@@ -1110,8 +1063,7 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) updateLocationWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) updateLocationWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
@@ -1122,7 +1074,6 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 /// Update Account Settings
 /// Update the account settings for a user
 ///
-/// @param version 
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
 /// @param blockedNotifications The notifications to be blocked (optional)
@@ -1139,8 +1090,7 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIUserSettingsResponse*
--(NSURLSessionTask*) updateSettingsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) updateSettingsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     blockedNotifications: (NSString*) blockedNotifications
     suggestionMethod: (NSString*) suggestionMethod
@@ -1158,28 +1108,24 @@ extern NSInteger kOAIAccountApiMissingParamErrorCode;
 /// Save Validation Status
 /// Validate the account's email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token.
 ///
-/// @param version 
 /// @param token The token associated with the account to update, good for 24 hours
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAccountLoginResponse*
--(NSURLSessionTask*) validateAccountSignupWithVersion: (NSNumber*) version
-    token: (NSString*) token
+-(NSURLSessionTask*) validateAccountSignupWithToken: (NSString*) token
     completionHandler: (void (^)(OAIAccountLoginResponse* output, NSError* error)) handler;
 
 
 /// Validate Password Reset Token
 /// Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password.
 ///
-/// @param version 
 /// @param token The token associated with the account to update, good for 24 hours
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) validatePasswordResetWithVersion: (NSNumber*) version
-    token: (NSString*) token
+-(NSURLSessionTask*) validatePasswordResetWithToken: (NSString*) token
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
 

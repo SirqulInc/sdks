@@ -26,21 +26,18 @@ extern NSInteger kOAIDisbursementApiMissingParamErrorCode;
 /// Check Disbursements
 /// Checks the status of a captured disbrusement to see if it has been settled.
 ///
-/// @param version 
 /// @param disbursementId the ID of the disbursement being checked on
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIDisbursementResponse*
--(NSURLSessionTask*) checkDisbursementsWithVersion: (NSNumber*) version
-    disbursementId: (NSNumber*) disbursementId
+-(NSURLSessionTask*) checkDisbursementsWithDisbursementId: (NSNumber*) disbursementId
     completionHandler: (void (^)(OAIDisbursementResponse* output, NSError* error)) handler;
 
 
 /// Create Disbursement
 /// Creates a Disbursement for sending money to a retailer
 ///
-/// @param version 
 /// @param accountId the ID of the logging in user (must be an EXECUTIVE account)
 /// @param receiverAccountId the ID of the account receiving the disbursement
 /// @param originalSenderAccountId the ID of the original sender account
@@ -55,8 +52,7 @@ extern NSInteger kOAIDisbursementApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIDisbursementResponse*
--(NSURLSessionTask*) createDisbursementWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createDisbursementWithAccountId: (NSNumber*) accountId
     receiverAccountId: (NSNumber*) receiverAccountId
     originalSenderAccountId: (NSNumber*) originalSenderAccountId
     amount: (NSNumber*) amount
@@ -72,15 +68,13 @@ extern NSInteger kOAIDisbursementApiMissingParamErrorCode;
 /// Get Disbursement
 /// Get Disbursement details
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param disbursementId the id of the disbursement
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIDisbursementResponse*
--(NSURLSessionTask*) getDisbursementWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getDisbursementWithAccountId: (NSNumber*) accountId
     disbursementId: (NSNumber*) disbursementId
     completionHandler: (void (^)(OAIDisbursementResponse* output, NSError* error)) handler;
 
@@ -88,7 +82,6 @@ extern NSInteger kOAIDisbursementApiMissingParamErrorCode;
 /// Search Disbursements
 /// Search Disbursements
 ///
-/// @param version 
 /// @param accountId the id of the logged in user
 /// @param receiverAccountId filter results by the id of the account receiving the disbursement (optional)
 /// @param statuses comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED (optional)
@@ -103,8 +96,7 @@ extern NSInteger kOAIDisbursementApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIDisbursementResponse>*
--(NSURLSessionTask*) searchDisbursementsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchDisbursementsWithAccountId: (NSNumber*) accountId
     receiverAccountId: (NSNumber*) receiverAccountId
     statuses: (NSString*) statuses
     providers: (NSString*) providers
@@ -120,7 +112,6 @@ extern NSInteger kOAIDisbursementApiMissingParamErrorCode;
 /// Update Disbursement
 /// Update Disbursement
 ///
-/// @param version 
 /// @param accountId the id of the logged in user
 /// @param disbursementId the id of the disbursement being updated
 /// @param amount the disbursement dollar amount being updated (optional)
@@ -135,8 +126,7 @@ extern NSInteger kOAIDisbursementApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIDisbursementResponse*
--(NSURLSessionTask*) updateDisbursementWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateDisbursementWithAccountId: (NSNumber*) accountId
     disbursementId: (NSNumber*) disbursementId
     amount: (NSNumber*) amount
     provider: (NSString*) provider

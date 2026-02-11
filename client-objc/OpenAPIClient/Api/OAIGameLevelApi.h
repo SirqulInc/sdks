@@ -30,7 +30,6 @@ extern NSInteger kOAIGameLevelApiMissingParamErrorCode;
 /// Create Game Level
 /// Create a game level. Currently does NOT support game objects.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param name The name of the level.
 /// @param gameData The game level data: xml, json, or other text based format.
@@ -61,8 +60,7 @@ extern NSInteger kOAIGameLevelApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIGameLevelResponse*
--(NSURLSessionTask*) createGameLevelWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createGameLevelWithAccountId: (NSNumber*) accountId
     name: (NSString*) name
     gameData: (NSString*) gameData
     gameDataSuffix: (NSString*) gameDataSuffix
@@ -94,15 +92,13 @@ extern NSInteger kOAIGameLevelApiMissingParamErrorCode;
 /// Delete Game Level
 /// Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param levelId The id of the level to return.
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteGameLevelWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteGameLevelWithAccountId: (NSNumber*) accountId
     levelId: (NSNumber*) levelId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -110,7 +106,6 @@ extern NSInteger kOAIGameLevelApiMissingParamErrorCode;
 /// Get Game Level
 /// Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param levelId The id of the level to return.
 /// @param includeGameData If true include the game level data, otherwise don&#39;t. default is false. (optional)
@@ -118,8 +113,7 @@ extern NSInteger kOAIGameLevelApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIGameLevelResponse*
--(NSURLSessionTask*) getGameLevelWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getGameLevelWithAccountId: (NSNumber*) accountId
     levelId: (NSNumber*) levelId
     includeGameData: (NSNumber*) includeGameData
     completionHandler: (void (^)(OAIGameLevelResponse* output, NSError* error)) handler;
@@ -128,7 +122,6 @@ extern NSInteger kOAIGameLevelApiMissingParamErrorCode;
 /// Search Game Levels
 /// Get a list of levels for an application, just those the account has permissions to view.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param appKey the application key
 /// @param keyword Match the keyword to the owner name or level name. (optional)
@@ -143,8 +136,7 @@ extern NSInteger kOAIGameLevelApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIGameLevelListResponse*
--(NSURLSessionTask*) getGameLevelsByApplicationWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getGameLevelsByApplicationWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     keyword: (NSString*) keyword
     sortField: (NSString*) sortField
@@ -160,7 +152,6 @@ extern NSInteger kOAIGameLevelApiMissingParamErrorCode;
 /// Search Game Level by Billable Entity
 /// Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
 ///
-/// @param version 
 /// @param accountId The account id of the user
 /// @param appKey the application key (optional)
 /// @param keyword The keyword used to search (optional)
@@ -173,8 +164,7 @@ extern NSInteger kOAIGameLevelApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIGameLevelResponse*
--(NSURLSessionTask*) getGameLevelsByBillableEntityWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getGameLevelsByBillableEntityWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     keyword: (NSString*) keyword
     sortField: (NSString*) sortField
@@ -188,15 +178,13 @@ extern NSInteger kOAIGameLevelApiMissingParamErrorCode;
 /// Get Level Questions
 /// Get questions within a level.
 ///
-/// @param version 
 /// @param levelId the id of the level to get questions from
 /// @param accountId the id of the logged in user
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIQuestionResponse*
--(NSURLSessionTask*) getQuestionsInLevelWithVersion: (NSNumber*) version
-    levelId: (NSNumber*) levelId
+-(NSURLSessionTask*) getQuestionsInLevelWithLevelId: (NSNumber*) levelId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIQuestionResponse* output, NSError* error)) handler;
 
@@ -204,15 +192,13 @@ extern NSInteger kOAIGameLevelApiMissingParamErrorCode;
 /// Get Level Words
 /// Get words within a level.
 ///
-/// @param version 
 /// @param levelId the id of the level to get words for
 /// @param accountId the id of the logged in user
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIWordzWordResponse*
--(NSURLSessionTask*) getWordsInLevelWithVersion: (NSNumber*) version
-    levelId: (NSNumber*) levelId
+-(NSURLSessionTask*) getWordsInLevelWithLevelId: (NSNumber*) levelId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIWordzWordResponse* output, NSError* error)) handler;
 
@@ -220,7 +206,6 @@ extern NSInteger kOAIGameLevelApiMissingParamErrorCode;
 /// Update Game Level
 /// Update a game level. Currently does NOT support game objects.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param levelId If update then include the level Id.
 /// @param appKey The game application key to save the level for. (optional)
@@ -252,8 +237,7 @@ extern NSInteger kOAIGameLevelApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIGameLevelResponse*
--(NSURLSessionTask*) updateGameLevelWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateGameLevelWithAccountId: (NSNumber*) accountId
     levelId: (NSNumber*) levelId
     appKey: (NSString*) appKey
     name: (NSString*) name
@@ -286,7 +270,6 @@ extern NSInteger kOAIGameLevelApiMissingParamErrorCode;
 /// Update Level Questions
 /// Updates a level with question game objects.
 ///
-/// @param version 
 /// @param levelId the id of the level to update questions on
 /// @param accountId the id of the logged in user
 /// @param questionIds the IDs of the questions to update
@@ -294,8 +277,7 @@ extern NSInteger kOAIGameLevelApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) updateQuestionsInLevelWithVersion: (NSNumber*) version
-    levelId: (NSNumber*) levelId
+-(NSURLSessionTask*) updateQuestionsInLevelWithLevelId: (NSNumber*) levelId
     accountId: (NSNumber*) accountId
     questionIds: (NSString*) questionIds
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
@@ -304,7 +286,6 @@ extern NSInteger kOAIGameLevelApiMissingParamErrorCode;
 /// Update Level Words
 /// Updates a level with word game objects.
 ///
-/// @param version 
 /// @param levelId the id of the level to update words for
 /// @param accountId the id of the logged in user
 /// @param wordIds the ids of the words to update for the level
@@ -312,8 +293,7 @@ extern NSInteger kOAIGameLevelApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) updateWordsInLevelWithVersion: (NSNumber*) version
-    levelId: (NSNumber*) levelId
+-(NSURLSessionTask*) updateWordsInLevelWithLevelId: (NSNumber*) levelId
     accountId: (NSNumber*) accountId
     wordIds: (NSString*) wordIds
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;

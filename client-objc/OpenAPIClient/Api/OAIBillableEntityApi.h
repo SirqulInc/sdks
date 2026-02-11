@@ -27,7 +27,6 @@ extern NSInteger kOAIBillableEntityApiMissingParamErrorCode;
 /// Create Billable
 /// reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
 ///
-/// @param version 
 /// @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
 /// @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
 /// @param name The name of the entity responsible for billing  (optional)
@@ -44,8 +43,7 @@ extern NSInteger kOAIBillableEntityApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIBillableEntityResponse*
--(NSURLSessionTask*) createBillableEntityWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) createBillableEntityWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     name: (NSString*) name
     streetAddress: (NSString*) streetAddress
@@ -63,15 +61,13 @@ extern NSInteger kOAIBillableEntityApiMissingParamErrorCode;
 /// Delete Billable
 /// Mark the billable as deleted
 ///
-/// @param version 
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account used to perform the delete, must have rights to edit the billable entity. (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteBillableEntityWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) deleteBillableEntityWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -79,7 +75,6 @@ extern NSInteger kOAIBillableEntityApiMissingParamErrorCode;
 /// Get Billable
 /// Used to determine the associated BillableEntity of an account
 ///
-/// @param version 
 /// @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
 /// @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
 /// @param includeCounts Determines whether to include the retailer dash board counts into the response (optional) (default to @(NO))
@@ -88,8 +83,7 @@ extern NSInteger kOAIBillableEntityApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIBillableEntityResponse*
--(NSURLSessionTask*) getBillableEntityWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) getBillableEntityWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     includeCounts: (NSNumber*) includeCounts
     includePayments: (NSNumber*) includePayments
@@ -99,7 +93,6 @@ extern NSInteger kOAIBillableEntityApiMissingParamErrorCode;
 /// Update Billable
 /// Updates the billable record for an account
 ///
-/// @param version 
 /// @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
 /// @param accountId The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity. (optional)
 /// @param name The name of the entity responsible for billing  (optional)
@@ -116,8 +109,7 @@ extern NSInteger kOAIBillableEntityApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIBillableEntityResponse*
--(NSURLSessionTask*) updateBillableEntityWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) updateBillableEntityWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     name: (NSString*) name
     streetAddress: (NSString*) streetAddress

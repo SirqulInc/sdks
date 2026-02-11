@@ -52,8 +52,6 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
 ///
 /// Create Field
 /// Add a field to a specific object.  The field name should be camel   case with the first letter lower case, for example: myFieldName.  Duplicate   field names are not allowed.   The field name cannot be any of the following   reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE,   BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE,   CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE,   CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP,   CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE,   DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE,   DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE,   ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4,   FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY,   HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE,   INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER,   INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT,   LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG,   LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT,   MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND,   MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC,   ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION,   PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES,   REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN,   REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE,   SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION,   SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT,   SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT,   TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED,   UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY,   VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH,   ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW.     The following field names are reserved (cannot be used directly) and are automatically   included during object creation: ID, OBJECTID, CREATED, UPDATED, DELETED.   Additionally the field names must start with a letter or number.
-///  @param version  
-///
 ///  @param accountId The account id of the logged in user 
 ///
 ///  @param appKey The application key for updating an existing application 
@@ -66,24 +64,12 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIObjectStoreResponse*
 ///
--(NSURLSessionTask*) addFieldWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) addFieldWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     objectName: (NSString*) objectName
     fieldName: (NSString*) fieldName
     fieldType: (NSString*) fieldType
     completionHandler: (void (^)(OAIObjectStoreResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIObjectStoreApiErrorDomain code:kOAIObjectStoreApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -139,12 +125,9 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/object/field/add"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/object/field/add"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -205,8 +188,6 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
 ///
 /// Create Data
 /// Create a record for the specified object.  If the object does not exist then a new one will be created prior to inserting the record.  If any of the fields included does not exist for the object then they are added to the object. 
-///  @param version  
-///
 ///  @param objectName the name of the object to create data for 
 ///
 ///  @param accountId the account id (optional)
@@ -215,22 +196,10 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIObjectStoreResponse*
 ///
--(NSURLSessionTask*) createDataWithVersion: (NSNumber*) version
-    objectName: (NSString*) objectName
+-(NSURLSessionTask*) createDataWithObjectName: (NSString*) objectName
     accountId: (NSNumber*) accountId
     body: (NSString*) body
     completionHandler: (void (^)(OAIObjectStoreResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIObjectStoreApiErrorDomain code:kOAIObjectStoreApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'objectName' is set
     if (objectName == nil) {
         NSParameterAssert(objectName);
@@ -242,12 +211,9 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/object/data/{objectName}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/object/data/{objectName}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (objectName != nil) {
         pathParams[@"objectName"] = objectName;
     }
@@ -300,8 +266,6 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
 ///
 /// Create Object
 /// Create an Object Store table.  By default tables will have the columns: id, created, updated, deleted.  Names og objects should be camel case with the first letter capitalized, for example: MyTableName.   Duplicate object names are not allowed.   The object name cannot be any of the following reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE, BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE, CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE, CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP, CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE, DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE, DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE, ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4, FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY, HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE, INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER, INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT, LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG, LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT, MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND, MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC, ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION, PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES, REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN, REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE, SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION, SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT, SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT, TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED, UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY, VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH, ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW. 
-///  @param version  
-///
 ///  @param accountId The account id of the logged in user 
 ///
 ///  @param appKey The application key for updating an existing application 
@@ -310,22 +274,10 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIObjectStoreResponse*
 ///
--(NSURLSessionTask*) createObjectWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createObjectWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     objectName: (NSString*) objectName
     completionHandler: (void (^)(OAIObjectStoreResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIObjectStoreApiErrorDomain code:kOAIObjectStoreApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -359,12 +311,9 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/object/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/object/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -419,8 +368,6 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
 ///
 /// Delete Data
 /// Delete a record for the specified object. Cannot be undone so use only when abolutely sure.
-///  @param version  
-///
 ///  @param objectName The name of the object to search upon 
 ///
 ///  @param objectId objectId The id of the record to return 
@@ -429,22 +376,10 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIObjectStoreResponse*
 ///
--(NSURLSessionTask*) deleteDataWithVersion: (NSNumber*) version
-    objectName: (NSString*) objectName
+-(NSURLSessionTask*) deleteDataWithObjectName: (NSString*) objectName
     objectId: (NSString*) objectId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIObjectStoreResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIObjectStoreApiErrorDomain code:kOAIObjectStoreApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'objectName' is set
     if (objectName == nil) {
         NSParameterAssert(objectName);
@@ -467,12 +402,9 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/object/data/{objectName}/{objectId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/object/data/{objectName}/{objectId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (objectName != nil) {
         pathParams[@"objectName"] = objectName;
     }
@@ -527,8 +459,6 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
 ///
 /// Delete Field
 /// Delete a field from an object.  This will remove the field, indexes,   and foreign keys associated with the field.   The following field names   are reserved and cannot be removed from the object: ID, OBJECTID, CREATED,   UPDATED, DELETED
-///  @param version  
-///
 ///  @param accountId The account id of the logged in user 
 ///
 ///  @param appKey The application key for updating an existing application 
@@ -539,23 +469,11 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIObjectStoreResponse*
 ///
--(NSURLSessionTask*) deleteFieldWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteFieldWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     objectName: (NSString*) objectName
     fieldName: (NSString*) fieldName
     completionHandler: (void (^)(OAIObjectStoreResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIObjectStoreApiErrorDomain code:kOAIObjectStoreApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -600,12 +518,9 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/object/field/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/object/field/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -663,8 +578,6 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
 ///
 /// Delete Object
 /// Delete and Object in the store.  This will delete the table and clean up and foreign keys referencing it. Cannot be undone so use only when abolutely sure.
-///  @param version  
-///
 ///  @param accountId the id of the logged in user 
 ///
 ///  @param appKey the application key 
@@ -673,22 +586,10 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIObjectStoreResponse*
 ///
--(NSURLSessionTask*) deleteObjectWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteObjectWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     objectName: (NSString*) objectName
     completionHandler: (void (^)(OAIObjectStoreResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIObjectStoreApiErrorDomain code:kOAIObjectStoreApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -722,12 +623,9 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/object/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/object/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -782,8 +680,6 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
 ///
 /// Get Data
 /// Get a specific record from a specified object.
-///  @param version  
-///
 ///  @param objectName The name of the object to search upon 
 ///
 ///  @param objectId objectId The id of the record to return 
@@ -794,23 +690,11 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIObjectStoreResponse*
 ///
--(NSURLSessionTask*) getDataWithVersion: (NSNumber*) version
-    objectName: (NSString*) objectName
+-(NSURLSessionTask*) getDataWithObjectName: (NSString*) objectName
     objectId: (NSString*) objectId
     accountId: (NSNumber*) accountId
     include: (NSString*) include
     completionHandler: (void (^)(OAIObjectStoreResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIObjectStoreApiErrorDomain code:kOAIObjectStoreApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'objectName' is set
     if (objectName == nil) {
         NSParameterAssert(objectName);
@@ -833,12 +717,9 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/object/data/{objectName}/{objectId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/object/data/{objectName}/{objectId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (objectName != nil) {
         pathParams[@"objectName"] = objectName;
     }
@@ -896,8 +777,6 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
 ///
 /// Get Object
 /// Get the definition of an Object. Returns all field names, types, and current size. The types supported are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY.
-///  @param version  
-///
 ///  @param accountId The account id of the logged in user 
 ///
 ///  @param appKey The application key for updating an existing application 
@@ -906,22 +785,10 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIObjectStoreResponse*
 ///
--(NSURLSessionTask*) getObjectWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getObjectWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     objectName: (NSString*) objectName
     completionHandler: (void (^)(OAIObjectStoreResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIObjectStoreApiErrorDomain code:kOAIObjectStoreApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -955,12 +822,9 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/object/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/object/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1015,8 +879,6 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
 ///
 /// Search Data
 /// Search for records given the specified criteria.  The criteria is a defined set of json values used to build a query
-///  @param version  
-///
 ///  @param objectName The name of the object to search upon 
 ///
 ///  @param count If true just return the record count of the search. False (default) will return the actual records 
@@ -1035,8 +897,7 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIObjectStoreResponse*
 ///
--(NSURLSessionTask*) searchDataWithVersion: (NSNumber*) version
-    objectName: (NSString*) objectName
+-(NSURLSessionTask*) searchDataWithObjectName: (NSString*) objectName
     count: (NSNumber*) count
     start: (NSNumber*) start
     limit: (NSNumber*) limit
@@ -1045,17 +906,6 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
     order: (NSString*) order
     include: (NSString*) include
     completionHandler: (void (^)(OAIObjectStoreResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIObjectStoreApiErrorDomain code:kOAIObjectStoreApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'objectName' is set
     if (objectName == nil) {
         NSParameterAssert(objectName);
@@ -1100,12 +950,9 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/object/data/{objectName}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/object/data/{objectName}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (objectName != nil) {
         pathParams[@"objectName"] = objectName;
     }
@@ -1175,8 +1022,6 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
 ///
 /// Search Objects
 /// Search for Objects and return the list of names found.  Use this in conjunction with the object get service to present the current data model defined.
-///  @param version  
-///
 ///  @param accountId The account id of the logged in user 
 ///
 ///  @param appKey The application key for updating an existing application 
@@ -1189,24 +1034,12 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIObjectStoreResponse*
 ///
--(NSURLSessionTask*) searchObjectWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchObjectWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     keyword: (NSString*) keyword
     completionHandler: (void (^)(OAIObjectStoreResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIObjectStoreApiErrorDomain code:kOAIObjectStoreApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1251,12 +1084,9 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/object/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/object/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1317,8 +1147,6 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
 ///
 /// Update Data
 /// Update a record for the specified object.  If the object does not exist the request will be rejected, use the data create service for the first entry. If any of the fields included does not exist for the object then they are added to the object.
-///  @param version  
-///
 ///  @param objectName The name of the object to search upon 
 ///
 ///  @param objectId objectId The id of the record to return 
@@ -1329,23 +1157,11 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIObjectStoreResponse*
 ///
--(NSURLSessionTask*) updateDataWithVersion: (NSNumber*) version
-    objectName: (NSString*) objectName
+-(NSURLSessionTask*) updateDataWithObjectName: (NSString*) objectName
     objectId: (NSString*) objectId
     accountId: (NSNumber*) accountId
     body: (NSString*) body
     completionHandler: (void (^)(OAIObjectStoreResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIObjectStoreApiErrorDomain code:kOAIObjectStoreApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'objectName' is set
     if (objectName == nil) {
         NSParameterAssert(objectName);
@@ -1368,12 +1184,9 @@ NSInteger kOAIObjectStoreApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/object/data/{objectName}/{objectId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/object/data/{objectName}/{objectId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (objectName != nil) {
         pathParams[@"objectName"] = objectName;
     }

@@ -52,26 +52,12 @@ NSInteger kOAIDisbursementApiMissingParamErrorCode = 234513;
 ///
 /// Check Disbursements
 /// Checks the status of a captured disbrusement to see if it has been settled.
-///  @param version  
-///
 ///  @param disbursementId the ID of the disbursement being checked on 
 ///
 ///  @returns OAIDisbursementResponse*
 ///
--(NSURLSessionTask*) checkDisbursementsWithVersion: (NSNumber*) version
-    disbursementId: (NSNumber*) disbursementId
+-(NSURLSessionTask*) checkDisbursementsWithDisbursementId: (NSNumber*) disbursementId
     completionHandler: (void (^)(OAIDisbursementResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIDisbursementApiErrorDomain code:kOAIDisbursementApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'disbursementId' is set
     if (disbursementId == nil) {
         NSParameterAssert(disbursementId);
@@ -83,12 +69,9 @@ NSInteger kOAIDisbursementApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/disbursement/check"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/disbursement/check"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (disbursementId != nil) {
@@ -137,8 +120,6 @@ NSInteger kOAIDisbursementApiMissingParamErrorCode = 234513;
 ///
 /// Create Disbursement
 /// Creates a Disbursement for sending money to a retailer
-///  @param version  
-///
 ///  @param accountId the ID of the logging in user (must be an EXECUTIVE account) 
 ///
 ///  @param receiverAccountId the ID of the account receiving the disbursement 
@@ -161,8 +142,7 @@ NSInteger kOAIDisbursementApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIDisbursementResponse*
 ///
--(NSURLSessionTask*) createDisbursementWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createDisbursementWithAccountId: (NSNumber*) accountId
     receiverAccountId: (NSNumber*) receiverAccountId
     originalSenderAccountId: (NSNumber*) originalSenderAccountId
     amount: (NSNumber*) amount
@@ -173,17 +153,6 @@ NSInteger kOAIDisbursementApiMissingParamErrorCode = 234513;
     externalId: (NSString*) externalId
     introspectionParams: (NSString*) introspectionParams
     completionHandler: (void (^)(OAIDisbursementResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIDisbursementApiErrorDomain code:kOAIDisbursementApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -239,12 +208,9 @@ NSInteger kOAIDisbursementApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/disbursement/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/disbursement/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -320,29 +286,15 @@ NSInteger kOAIDisbursementApiMissingParamErrorCode = 234513;
 ///
 /// Get Disbursement
 /// Get Disbursement details
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param disbursementId the id of the disbursement 
 ///
 ///  @returns OAIDisbursementResponse*
 ///
--(NSURLSessionTask*) getDisbursementWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getDisbursementWithAccountId: (NSNumber*) accountId
     disbursementId: (NSNumber*) disbursementId
     completionHandler: (void (^)(OAIDisbursementResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIDisbursementApiErrorDomain code:kOAIDisbursementApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -365,12 +317,9 @@ NSInteger kOAIDisbursementApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/disbursement/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/disbursement/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -422,8 +371,6 @@ NSInteger kOAIDisbursementApiMissingParamErrorCode = 234513;
 ///
 /// Search Disbursements
 /// Search Disbursements
-///  @param version  
-///
 ///  @param accountId the id of the logged in user 
 ///
 ///  @param receiverAccountId filter results by the id of the account receiving the disbursement (optional)
@@ -446,8 +393,7 @@ NSInteger kOAIDisbursementApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIDisbursementResponse>*
 ///
--(NSURLSessionTask*) searchDisbursementsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchDisbursementsWithAccountId: (NSNumber*) accountId
     receiverAccountId: (NSNumber*) receiverAccountId
     statuses: (NSString*) statuses
     providers: (NSString*) providers
@@ -458,17 +404,6 @@ NSInteger kOAIDisbursementApiMissingParamErrorCode = 234513;
     activeOnly: (NSNumber*) activeOnly
     externalId: (NSString*) externalId
     completionHandler: (void (^)(NSArray<OAIDisbursementResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIDisbursementApiErrorDomain code:kOAIDisbursementApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -480,12 +415,9 @@ NSInteger kOAIDisbursementApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/disbursement/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/disbursement/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -561,8 +493,6 @@ NSInteger kOAIDisbursementApiMissingParamErrorCode = 234513;
 ///
 /// Update Disbursement
 /// Update Disbursement
-///  @param version  
-///
 ///  @param accountId the id of the logged in user 
 ///
 ///  @param disbursementId the id of the disbursement being updated 
@@ -585,8 +515,7 @@ NSInteger kOAIDisbursementApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIDisbursementResponse*
 ///
--(NSURLSessionTask*) updateDisbursementWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateDisbursementWithAccountId: (NSNumber*) accountId
     disbursementId: (NSNumber*) disbursementId
     amount: (NSNumber*) amount
     provider: (NSString*) provider
@@ -597,17 +526,6 @@ NSInteger kOAIDisbursementApiMissingParamErrorCode = 234513;
     retry: (NSNumber*) retry
     introspectionParams: (NSString*) introspectionParams
     completionHandler: (void (^)(OAIDisbursementResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIDisbursementApiErrorDomain code:kOAIDisbursementApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -630,12 +548,9 @@ NSInteger kOAIDisbursementApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/disbursement/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/disbursement/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

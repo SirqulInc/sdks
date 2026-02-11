@@ -53,8 +53,6 @@ NSInteger kOAIUserPermissionsApiMissingParamErrorCode = 234513;
 ///
 /// Add User
 /// Adds a user to a permissionable object.
-///  @param version  
-///
 ///  @param permissionableType the permissionable type of the object 
 ///
 ///  @param permissionableId the id of the permissionable object 
@@ -91,8 +89,7 @@ NSInteger kOAIUserPermissionsApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) addUsersToPermissionableWithVersion: (NSNumber*) version
-    permissionableType: (NSString*) permissionableType
+-(NSURLSessionTask*) addUsersToPermissionableWithPermissionableType: (NSString*) permissionableType
     permissionableId: (NSNumber*) permissionableId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -110,17 +107,6 @@ NSInteger kOAIUserPermissionsApiMissingParamErrorCode = 234513;
     longitude: (NSNumber*) longitude
     audienceIds: (NSString*) audienceIds
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIUserPermissionsApiErrorDomain code:kOAIUserPermissionsApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'permissionableType' is set
     if (permissionableType == nil) {
         NSParameterAssert(permissionableType);
@@ -143,12 +129,9 @@ NSInteger kOAIUserPermissionsApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/consumer/permissions/add"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/consumer/permissions/add"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -245,8 +228,6 @@ NSInteger kOAIUserPermissionsApiMissingParamErrorCode = 234513;
 ///
 /// Approve Permissionable
 /// Sets the approval status of a permissionable object.
-///  @param version  
-///
 ///  @param permissionableType The permissionable type of the object 
 ///
 ///  @param permissionableId The id of the permissionable object 
@@ -259,24 +240,12 @@ NSInteger kOAIUserPermissionsApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) approvePermissionableWithVersion: (NSNumber*) version
-    permissionableType: (NSString*) permissionableType
+-(NSURLSessionTask*) approvePermissionableWithPermissionableType: (NSString*) permissionableType
     permissionableId: (NSNumber*) permissionableId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     approvalStatus: (NSString*) approvalStatus
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIUserPermissionsApiErrorDomain code:kOAIUserPermissionsApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'permissionableType' is set
     if (permissionableType == nil) {
         NSParameterAssert(permissionableType);
@@ -299,12 +268,9 @@ NSInteger kOAIUserPermissionsApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/permissionable/approve"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/permissionable/approve"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -365,8 +331,6 @@ NSInteger kOAIUserPermissionsApiMissingParamErrorCode = 234513;
 ///
 /// Leave
 /// Used when the user wants to leave from someone else's permissionable object
-///  @param version  
-///
 ///  @param permissionableType the permissionable type PermissionableType 
 ///
 ///  @param permissionableId the id of the permissionable object 
@@ -381,25 +345,13 @@ NSInteger kOAIUserPermissionsApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) leaveFromPermissionableWithVersion: (NSNumber*) version
-    permissionableType: (NSString*) permissionableType
+-(NSURLSessionTask*) leaveFromPermissionableWithPermissionableType: (NSString*) permissionableType
     permissionableId: (NSNumber*) permissionableId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIUserPermissionsApiErrorDomain code:kOAIUserPermissionsApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'permissionableType' is set
     if (permissionableType == nil) {
         NSParameterAssert(permissionableType);
@@ -422,12 +374,9 @@ NSInteger kOAIUserPermissionsApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/consumer/permissions/leave"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/consumer/permissions/leave"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -491,8 +440,6 @@ NSInteger kOAIUserPermissionsApiMissingParamErrorCode = 234513;
 ///
 /// Remove User
 /// Used to remove someone (assuming they have permission) from a permissionable object
-///  @param version  
-///
 ///  @param permissionableType the permissionable type of the object 
 ///
 ///  @param permissionableId the id of the permissionable object 
@@ -517,8 +464,7 @@ NSInteger kOAIUserPermissionsApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) removeUsersFromPermissionableWithVersion: (NSNumber*) version
-    permissionableType: (NSString*) permissionableType
+-(NSURLSessionTask*) removeUsersFromPermissionableWithPermissionableType: (NSString*) permissionableType
     permissionableId: (NSNumber*) permissionableId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -530,17 +476,6 @@ NSInteger kOAIUserPermissionsApiMissingParamErrorCode = 234513;
     longitude: (NSNumber*) longitude
     audienceIds: (NSString*) audienceIds
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIUserPermissionsApiErrorDomain code:kOAIUserPermissionsApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'permissionableType' is set
     if (permissionableType == nil) {
         NSParameterAssert(permissionableType);
@@ -563,12 +498,9 @@ NSInteger kOAIUserPermissionsApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/consumer/permissions/remove"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/consumer/permissions/remove"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -647,8 +579,6 @@ NSInteger kOAIUserPermissionsApiMissingParamErrorCode = 234513;
 ///
 /// Search Permissionables
 /// Search on UserPermissions
-///  @param version  
-///
 ///  @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
 ///
 ///  @param accountId The account ID of the user (deviceId or accountId required) (optional)
@@ -677,8 +607,7 @@ NSInteger kOAIUserPermissionsApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIUserPermissionsResponse>*
 ///
--(NSURLSessionTask*) searchPermissionablesWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) searchPermissionablesWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     connectionAccountId: (NSNumber*) connectionAccountId
     connectionAccountIds: (NSString*) connectionAccountIds
@@ -692,23 +621,9 @@ NSInteger kOAIUserPermissionsApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSArray<OAIUserPermissionsResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIUserPermissionsApiErrorDomain code:kOAIUserPermissionsApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/permissions/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/permissions/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -793,8 +708,6 @@ NSInteger kOAIUserPermissionsApiMissingParamErrorCode = 234513;
 ///
 /// Search Permissionables by Distnace
 /// Search on UserPermissions by distance
-///  @param version  
-///
 ///  @param latitude The latitude of the current account 
 ///
 ///  @param longitude The longitude of the current account 
@@ -825,8 +738,7 @@ NSInteger kOAIUserPermissionsApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIUserPermissionsResponse>*
 ///
--(NSURLSessionTask*) searchPermissionablesFollowingDistanceWithVersion: (NSNumber*) version
-    latitude: (NSNumber*) latitude
+-(NSURLSessionTask*) searchPermissionablesFollowingDistanceWithLatitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -841,17 +753,6 @@ NSInteger kOAIUserPermissionsApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSArray<OAIUserPermissionsResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIUserPermissionsApiErrorDomain code:kOAIUserPermissionsApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'latitude' is set
     if (latitude == nil) {
         NSParameterAssert(latitude);
@@ -874,12 +775,9 @@ NSInteger kOAIUserPermissionsApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/permissions/distancesearch"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/permissions/distancesearch"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {

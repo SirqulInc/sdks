@@ -28,7 +28,6 @@ extern NSInteger kOAISecureAppApiMissingParamErrorCode;
 /// Create Secure Application
 /// Create a secure application record.
 ///
-/// @param version 
 /// @param accountId The unique id of the user making the request
 /// @param appKey The application to secure
 /// @param keyCert 
@@ -43,8 +42,7 @@ extern NSInteger kOAISecureAppApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) createSecureApplicationWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createSecureApplicationWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     keyCert: (NSURL*) keyCert
     trustStore: (NSURL*) trustStore
@@ -60,15 +58,13 @@ extern NSInteger kOAISecureAppApiMissingParamErrorCode;
 /// Delete Secure Application
 /// Delete a secure application record.
 ///
-/// @param version 
 /// @param accountId The unique id of the user making the request
 /// @param appKey The application to secure
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteSecureApplicationWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteSecureApplicationWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -76,7 +72,6 @@ extern NSInteger kOAISecureAppApiMissingParamErrorCode;
 /// Login Clear
 /// Login via Clear.me. Creates a new account if logging in for the first time.
 ///
-/// @param version 
 /// @param appKey The application making the request, defines what type and position is required to make a secure login the request.
 /// @param biometricFile The data file used to perform authentication
 /// @param deviceId The unique id of the device making the request (optional)
@@ -90,8 +85,7 @@ extern NSInteger kOAISecureAppApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIProfileResponse*
--(NSURLSessionTask*) loginSecureWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) loginSecureWithAppKey: (NSString*) appKey
     biometricFile: (NSURL*) biometricFile
     deviceId: (NSString*) deviceId
     biometricFile2: (NSURL*) biometricFile2
@@ -106,29 +100,25 @@ extern NSInteger kOAISecureAppApiMissingParamErrorCode;
 /// Purchase Clear
 /// Purchase via Clear.me. Creates a new account if purchasing for the first time.
 ///
-/// @param version 
 /// @param body The payment request object
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIProfileResponse*
--(NSURLSessionTask*) purchaseSecureWithVersion: (NSNumber*) version
-    body: (OAIPaymentRequest*) body
+-(NSURLSessionTask*) purchaseSecureWithBody: (OAIPaymentRequest*) body
     completionHandler: (void (^)(OAIProfileResponse* output, NSError* error)) handler;
 
 
 /// Rest Secure Application
 /// Reset a secure application client.
 ///
-/// @param version 
 /// @param accountId The unique id of the user making the request
 /// @param appKey The application to secure
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) resetSecureWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) resetSecureWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -136,7 +126,6 @@ extern NSInteger kOAISecureAppApiMissingParamErrorCode;
 /// Update Secure Application
 /// Update a secure application record.
 ///
-/// @param version 
 /// @param accountId The unique id of the user making the request
 /// @param appKey The application to secure
 /// @param active  (optional)
@@ -151,8 +140,7 @@ extern NSInteger kOAISecureAppApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) updateSecureApplicationWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateSecureApplicationWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     active: (NSNumber*) active
     keyCert: (NSURL*) keyCert

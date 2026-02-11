@@ -54,8 +54,6 @@ NSInteger kOAIThemeDescriptorApiMissingParamErrorCode = 234513;
 ///
 /// Create/Update Theme
 /// Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
-///  @param version  
-///
 ///  @param publicRead determines whether the theme's participants have read permissions 
 ///
 ///  @param publicWrite determines whether the theme's participants have write permissions 
@@ -112,8 +110,7 @@ NSInteger kOAIThemeDescriptorApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIThemeDescriptorResponse*
 ///
--(NSURLSessionTask*) addOrUpdateThemeDescriptorWithVersion: (NSNumber*) version
-    publicRead: (NSNumber*) publicRead
+-(NSURLSessionTask*) addOrUpdateThemeDescriptorWithPublicRead: (NSNumber*) publicRead
     publicWrite: (NSNumber*) publicWrite
     publicDelete: (NSNumber*) publicDelete
     publicAdd: (NSNumber*) publicAdd
@@ -141,17 +138,6 @@ NSInteger kOAIThemeDescriptorApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIThemeDescriptorResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIThemeDescriptorApiErrorDomain code:kOAIThemeDescriptorApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'publicRead' is set
     if (publicRead == nil) {
         NSParameterAssert(publicRead);
@@ -229,12 +215,9 @@ NSInteger kOAIThemeDescriptorApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/consumer/theme"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/consumer/theme"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -361,8 +344,6 @@ NSInteger kOAIThemeDescriptorApiMissingParamErrorCode = 234513;
 ///
 /// Get Theme
 /// Gets a theme.
-///  @param version  
-///
 ///  @param themeDescriptorId the theme id 
 ///
 ///  @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -377,25 +358,13 @@ NSInteger kOAIThemeDescriptorApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIPurchaseItemListResponse*
 ///
--(NSURLSessionTask*) getThemeDescriptorWithVersion: (NSNumber*) version
-    themeDescriptorId: (NSNumber*) themeDescriptorId
+-(NSURLSessionTask*) getThemeDescriptorWithThemeDescriptorId: (NSNumber*) themeDescriptorId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     gameType: (NSString*) gameType
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIPurchaseItemListResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIThemeDescriptorApiErrorDomain code:kOAIThemeDescriptorApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'themeDescriptorId' is set
     if (themeDescriptorId == nil) {
         NSParameterAssert(themeDescriptorId);
@@ -407,12 +376,9 @@ NSInteger kOAIThemeDescriptorApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/consumer/theme/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/consumer/theme/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -476,8 +442,6 @@ NSInteger kOAIThemeDescriptorApiMissingParamErrorCode = 234513;
 ///
 /// Search Themes
 /// Searches for themes.
-///  @param version  
-///
 ///  @param filter a comma separated list of Ownership 
 ///
 ///  @param sortField the field to sort by. See ThemeDescriptorApiMap 
@@ -516,8 +480,7 @@ NSInteger kOAIThemeDescriptorApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIPurchaseItemListResponse*
 ///
--(NSURLSessionTask*) getThemeDescriptorsWithVersion: (NSNumber*) version
-    filter: (NSString*) filter
+-(NSURLSessionTask*) getThemeDescriptorsWithFilter: (NSString*) filter
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
@@ -536,17 +499,6 @@ NSInteger kOAIThemeDescriptorApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIPurchaseItemListResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIThemeDescriptorApiErrorDomain code:kOAIThemeDescriptorApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'filter' is set
     if (filter == nil) {
         NSParameterAssert(filter);
@@ -602,12 +554,9 @@ NSInteger kOAIThemeDescriptorApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/consumer/theme/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/consumer/theme/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -707,8 +656,6 @@ NSInteger kOAIThemeDescriptorApiMissingParamErrorCode = 234513;
 ///
 /// Delete Theme
 /// Removes a theme.
-///  @param version  
-///
 ///  @param themeDescriptorId the theme id to remove 
 ///
 ///  @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
@@ -723,25 +670,13 @@ NSInteger kOAIThemeDescriptorApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) removeThemeDescriptorWithVersion: (NSNumber*) version
-    themeDescriptorId: (NSNumber*) themeDescriptorId
+-(NSURLSessionTask*) removeThemeDescriptorWithThemeDescriptorId: (NSNumber*) themeDescriptorId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     gameType: (NSString*) gameType
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIThemeDescriptorApiErrorDomain code:kOAIThemeDescriptorApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'themeDescriptorId' is set
     if (themeDescriptorId == nil) {
         NSParameterAssert(themeDescriptorId);
@@ -753,12 +688,9 @@ NSInteger kOAIThemeDescriptorApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/consumer/theme/remove"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/consumer/theme/remove"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {

@@ -29,7 +29,6 @@ extern NSInteger kOAIAlbumApiMissingParamErrorCode;
 /// Create Album
 /// Create an Album.
 ///
-/// @param version 
 /// @param title the title of the album
 /// @param coverAssetNullable determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image
 /// @param includeCoverInAssetList determines whether the cover image should be added to the album asset list
@@ -80,8 +79,7 @@ extern NSInteger kOAIAlbumApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISearchResponse*
--(NSURLSessionTask*) addAlbumCollectionWithVersion: (NSNumber*) version
-    title: (NSString*) title
+-(NSURLSessionTask*) addAlbumCollectionWithTitle: (NSString*) title
     coverAssetNullable: (NSNumber*) coverAssetNullable
     includeCoverInAssetList: (NSNumber*) includeCoverInAssetList
     publicRead: (NSNumber*) publicRead
@@ -133,7 +131,6 @@ extern NSInteger kOAIAlbumApiMissingParamErrorCode;
 /// Add Album Users
 /// Add users to an album as participants.
 ///
-/// @param version 
 /// @param albumId the album ID
 /// @param includeFriendGroup determines whether to include all friends as participants
 /// @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -148,8 +145,7 @@ extern NSInteger kOAIAlbumApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) addAlbumUsersWithVersion: (NSNumber*) version
-    albumId: (NSNumber*) albumId
+-(NSURLSessionTask*) addAlbumUsersWithAlbumId: (NSNumber*) albumId
     includeFriendGroup: (NSNumber*) includeFriendGroup
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -165,7 +161,6 @@ extern NSInteger kOAIAlbumApiMissingParamErrorCode;
 /// Approve Album
 /// Sets the approval status of an Album.
 ///
-/// @param version 
 /// @param albumId The ID of the album
 /// @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
 /// @param accountId The account ID of the user (deviceId or accountId required) (optional)
@@ -175,8 +170,7 @@ extern NSInteger kOAIAlbumApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) approveAlbumWithVersion: (NSNumber*) version
-    albumId: (NSNumber*) albumId
+-(NSURLSessionTask*) approveAlbumWithAlbumId: (NSNumber*) albumId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     approvalStatus: (NSString*) approvalStatus
@@ -187,7 +181,6 @@ extern NSInteger kOAIAlbumApiMissingParamErrorCode;
 ///  Get Album
 /// Get an Album.
 ///
-/// @param version 
 /// @param returnNulls This parameter is deprecated.
 /// @param albumId the album to look up
 /// @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -201,8 +194,7 @@ extern NSInteger kOAIAlbumApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAlbumFullResponse*
--(NSURLSessionTask*) getAlbumCollectionWithVersion: (NSNumber*) version
-    returnNulls: (NSNumber*) returnNulls
+-(NSURLSessionTask*) getAlbumCollectionWithReturnNulls: (NSNumber*) returnNulls
     albumId: (NSNumber*) albumId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -217,7 +209,6 @@ extern NSInteger kOAIAlbumApiMissingParamErrorCode;
 /// Leave Album
 ///  Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
 ///
-/// @param version 
 /// @param albumId the album ID
 /// @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
 /// @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -225,8 +216,7 @@ extern NSInteger kOAIAlbumApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) leaveAlbumWithVersion: (NSNumber*) version
-    albumId: (NSNumber*) albumId
+-(NSURLSessionTask*) leaveAlbumWithAlbumId: (NSNumber*) albumId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
@@ -235,7 +225,6 @@ extern NSInteger kOAIAlbumApiMissingParamErrorCode;
 /// Delete Album
 /// Deletes an Album
 ///
-/// @param version 
 /// @param albumId the album ID to delete
 /// @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
 /// @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -243,8 +232,7 @@ extern NSInteger kOAIAlbumApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) removeAlbumWithVersion: (NSNumber*) version
-    albumId: (NSNumber*) albumId
+-(NSURLSessionTask*) removeAlbumWithAlbumId: (NSNumber*) albumId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
@@ -253,7 +241,6 @@ extern NSInteger kOAIAlbumApiMissingParamErrorCode;
 /// Remove Album Users
 /// Remove participants of an album.
 ///
-/// @param version 
 /// @param albumId the album ID
 /// @param removeFriendGroup remove friend group
 /// @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -264,8 +251,7 @@ extern NSInteger kOAIAlbumApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) removeAlbumUsersWithVersion: (NSNumber*) version
-    albumId: (NSNumber*) albumId
+-(NSURLSessionTask*) removeAlbumUsersWithAlbumId: (NSNumber*) albumId
     removeFriendGroup: (NSNumber*) removeFriendGroup
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -277,7 +263,6 @@ extern NSInteger kOAIAlbumApiMissingParamErrorCode;
 /// Search Albums
 /// Searches on Albums.
 ///
-/// @param version 
 /// @param filter a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. 
 /// @param albumTypeId id of custom albumType
 /// @param subType filter albums with this album sub type
@@ -342,8 +327,7 @@ extern NSInteger kOAIAlbumApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIAlbumFullResponse>*
--(NSURLSessionTask*) searchAlbumsWithVersion: (NSNumber*) version
-    filter: (NSString*) filter
+-(NSURLSessionTask*) searchAlbumsWithFilter: (NSString*) filter
     albumTypeId: (NSNumber*) albumTypeId
     subType: (NSString*) subType
     includeInactive: (NSNumber*) includeInactive
@@ -409,7 +393,6 @@ extern NSInteger kOAIAlbumApiMissingParamErrorCode;
 /// Update Album
 /// Update an Album.
 ///
-/// @param version 
 /// @param albumId the ID of the album to update
 /// @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
 /// @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -459,8 +442,7 @@ extern NSInteger kOAIAlbumApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAlbumResponse*
--(NSURLSessionTask*) updateAlbumCollectionWithVersion: (NSNumber*) version
-    albumId: (NSNumber*) albumId
+-(NSURLSessionTask*) updateAlbumCollectionWithAlbumId: (NSNumber*) albumId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     assetsToAdd: (NSString*) assetsToAdd

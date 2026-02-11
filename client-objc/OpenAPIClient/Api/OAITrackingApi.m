@@ -58,8 +58,6 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
 ///
 /// Create Batch Tracking
 /// Batch create tracking legs
-///  @param version  
-///
 ///  @param data JSON array of tracking legs ```json [   \"distance\": \"0.08\",   \"duration\": \"10000\",   \"startLatitude\": \"47.614603\",   \"startLongitude\": \"-122.350518\",   \"endLatitude\": \"47.614384\",   \"endLongitude\": \"-122.349161\",   \"startDate\": \"1361924010000\",   \"endDate\": \"1361924020000\",   \"steps\": [     {       \"distance\": \"0.03\",       \"duration\": \"5000\",       \"startLat\": \"47.614603\",       \"startLng\": \"-122.350518\",       \"startDate\": \"1361924010000\",       \"endLat\": \"47.614941\",       \"endLng\": \"-122.350062\",       \"endDate\": \"1361924015000\"     },{       \"distance\": \"0.05\",       \"duration\": \"5000\",       \"startLat\": \"47.614941\",       \"startLng\": \"-122.350062\",       \"startDate\": \"1361924015000\",       \"endLat\": \"47.614384\",       \"endLng\": \"-122.349161\",       \"endDate\": \"1361924020000\"     }   ] ] ```  
 ///
 ///  @param deviceId the device id (deviceId or accountId required) (optional)
@@ -76,8 +74,7 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAILeg>*
 ///
--(NSURLSessionTask*) batchSaveTrackingWithVersion: (NSNumber*) version
-    data: (NSString*) data
+-(NSURLSessionTask*) batchSaveTrackingWithData: (NSString*) data
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     generateAccounts: (NSNumber*) generateAccounts
@@ -85,17 +82,6 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
     defaultTag: (NSString*) defaultTag
     slaveUID: (NSString*) slaveUID
     completionHandler: (void (^)(NSArray<OAILeg>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITrackingApiErrorDomain code:kOAITrackingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'data' is set
     if (data == nil) {
         NSParameterAssert(data);
@@ -107,12 +93,9 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/tracking/batch/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/tracking/batch/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -179,8 +162,6 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
 ///
 /// Get Predicted Locations
 /// Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
-///  @param version  
-///
 ///  @param accountId The account id of the customer 
 ///
 ///  @param latitude latitude to return a more likely result set based on the user's current location (optional)
@@ -201,8 +182,7 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIPredictedLocationResponse*
 ///
--(NSURLSessionTask*) getPredictedLocationsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getPredictedLocationsWithAccountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     dateCheck: (NSNumber*) dateCheck
@@ -212,17 +192,6 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
     searchRange: (NSNumber*) searchRange
     sortOrder: (NSString*) sortOrder
     completionHandler: (void (^)(OAIPredictedLocationResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITrackingApiErrorDomain code:kOAITrackingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -234,12 +203,9 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/tracking/predicted/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/tracking/predicted/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -312,8 +278,6 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
 ///
 /// Get Tracking Path
 /// Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
-///  @param version  
-///
 ///  @param accountId The account id of the customer 
 ///
 ///  @param startStepId The stepId to begin from 
@@ -322,22 +286,10 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIStepResponse>*
 ///
--(NSURLSessionTask*) getPredictedPathWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getPredictedPathWithAccountId: (NSNumber*) accountId
     startStepId: (NSNumber*) startStepId
     endStepId: (NSNumber*) endStepId
     completionHandler: (void (^)(NSArray<OAIStepResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITrackingApiErrorDomain code:kOAITrackingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -371,12 +323,9 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/tracking/path/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/tracking/path/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -431,8 +380,6 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
 ///
 /// Search Preferred Locations
 /// Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
-///  @param version  
-///
 ///  @param accountId The account id of the customer 
 ///
 ///  @param latitude latitude to return a more likely result set based on the user's current location (optional)
@@ -457,8 +404,7 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIPreferredLocationResponse>*
 ///
--(NSURLSessionTask*) getPreferredLocationsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getPreferredLocationsWithAccountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     dateCheck: (NSNumber*) dateCheck
@@ -470,17 +416,6 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
     searchRange: (NSNumber*) searchRange
     distanceUnit: (NSString*) distanceUnit
     completionHandler: (void (^)(NSArray<OAIPreferredLocationResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITrackingApiErrorDomain code:kOAITrackingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -492,12 +427,9 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/tracking/preferred/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/tracking/preferred/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -576,8 +508,6 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
 ///
 /// Search Tracking
 /// Retrieve tracking data to be able to show where a user has been.
-///  @param version  
-///
 ///  @param deviceId the device id (deviceId or accountId required) (optional)
 ///
 ///  @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -596,8 +526,7 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAILegResponse>*
 ///
--(NSURLSessionTask*) getTrackingLegsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) getTrackingLegsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     ownerId: (NSNumber*) ownerId
     trackingDeviceId: (NSString*) trackingDeviceId
@@ -606,23 +535,9 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
     tags: (NSString*) tags
     getLastPoint: (NSNumber*) getLastPoint
     completionHandler: (void (^)(NSArray<OAILegResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITrackingApiErrorDomain code:kOAITrackingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/tracking/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/tracking/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -692,8 +607,6 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
 ///
 /// Create Tracking Leg
 /// Send tracking points to be able to generate pathing data
-///  @param version  
-///
 ///  @param startLat the latitude of the first point 
 ///
 ///  @param startLng the longitude of the first point 
@@ -720,8 +633,7 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) saveTrackingLegWithVersion: (NSNumber*) version
-    startLat: (NSNumber*) startLat
+-(NSURLSessionTask*) saveTrackingLegWithStartLat: (NSNumber*) startLat
     startLng: (NSNumber*) startLng
     startDate: (NSNumber*) startDate
     endLat: (NSNumber*) endLat
@@ -734,17 +646,6 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
     steps: (NSString*) steps
     tags: (NSString*) tags
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITrackingApiErrorDomain code:kOAITrackingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'startLat' is set
     if (startLat == nil) {
         NSParameterAssert(startLat);
@@ -811,12 +712,9 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/tracking/leg/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/tracking/leg/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -898,8 +796,6 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
 ///
 /// Create Tracking Step
 /// Send tracking points to be able to generate pathing data
-///  @param version  
-///
 ///  @param legId the leg to add the step to 
 ///
 ///  @param startLat the latitude of the first point 
@@ -924,8 +820,7 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) saveTrackingStepWithVersion: (NSNumber*) version
-    legId: (NSNumber*) legId
+-(NSURLSessionTask*) saveTrackingStepWithLegId: (NSNumber*) legId
     startLat: (NSNumber*) startLat
     startLng: (NSNumber*) startLng
     startDate: (NSNumber*) startDate
@@ -937,17 +832,6 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
     distance: (NSNumber*) distance
     duration: (NSNumber*) duration
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITrackingApiErrorDomain code:kOAITrackingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'legId' is set
     if (legId == nil) {
         NSParameterAssert(legId);
@@ -1025,12 +909,9 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/tracking/step/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/tracking/step/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -1109,8 +990,6 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
 ///
 /// List Tracking
 /// Search for all accounts that have tracking legs data by the given constraints.
-///  @param version  
-///
 ///  @param accountId The account id of the user 
 ///
 ///  @param keyword Used for LIKE search of first or last name on the acocunt (optional)
@@ -1141,8 +1020,7 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIAccountMiniResponse>*
 ///
--(NSURLSessionTask*) searchAccountsWithTrackingLegsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchAccountsWithTrackingLegsWithAccountId: (NSNumber*) accountId
     keyword: (NSString*) keyword
     startDate: (NSNumber*) startDate
     endDate: (NSNumber*) endDate
@@ -1157,17 +1035,6 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
     limit: (NSNumber*) limit
     activeOnly: (NSNumber*) activeOnly
     completionHandler: (void (^)(NSArray<OAIAccountMiniResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITrackingApiErrorDomain code:kOAITrackingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1179,12 +1046,9 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/tracking/list"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/tracking/list"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1272,8 +1136,6 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
 ///
 /// Search Tracking (Billable)
 /// Retrieve tracking data for billable/account scoped queries.
-///  @param version  
-///
 ///  @param accountId The account id to search tracking for 
 ///
 ///  @param appKey The application key 
@@ -1292,8 +1154,7 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAILegResponse>*
 ///
--(NSURLSessionTask*) searchTrackingLegsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchTrackingLegsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     trackingDeviceId: (NSString*) trackingDeviceId
     startDate: (NSNumber*) startDate
@@ -1302,17 +1163,6 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSArray<OAILegResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITrackingApiErrorDomain code:kOAITrackingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1335,12 +1185,9 @@ NSInteger kOAITrackingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/tracking/searchByBillable"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/tracking/searchByBillable"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

@@ -28,7 +28,6 @@ extern NSInteger kOAIContestApiMissingParamErrorCode;
 /// Create or Update Contest
 /// Creates or updates a contest.
 ///
-/// @param version 
 /// @param publicRead determines whether the contest&#39;s participants has read permissions
 /// @param publicWrite determines whether the contest&#39;s participants has write permissions
 /// @param publicDelete determines whether the contest&#39;s participants has delete permissions
@@ -58,8 +57,7 @@ extern NSInteger kOAIContestApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAlbumContestResponse*
--(NSURLSessionTask*) addOrUpdateAlbumContestWithVersion: (NSNumber*) version
-    publicRead: (NSNumber*) publicRead
+-(NSURLSessionTask*) addOrUpdateAlbumContestWithPublicRead: (NSNumber*) publicRead
     publicWrite: (NSNumber*) publicWrite
     publicDelete: (NSNumber*) publicDelete
     publicAdd: (NSNumber*) publicAdd
@@ -90,7 +88,6 @@ extern NSInteger kOAIContestApiMissingParamErrorCode;
 /// Approve Contest
 /// Sets the approval status of a contest.
 ///
-/// @param version 
 /// @param albumContestId The ID of the album contest
 /// @param approvalStatus The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}
 /// @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -99,8 +96,7 @@ extern NSInteger kOAIContestApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) approveAlbumContestWithVersion: (NSNumber*) version
-    albumContestId: (NSNumber*) albumContestId
+-(NSURLSessionTask*) approveAlbumContestWithAlbumContestId: (NSNumber*) albumContestId
     approvalStatus: (NSString*) approvalStatus
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -110,7 +106,6 @@ extern NSInteger kOAIContestApiMissingParamErrorCode;
 /// Delete Contest
 /// Deletes a contest.
 ///
-/// @param version 
 /// @param albumContestId the album contest ID
 /// @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
 /// @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -120,8 +115,7 @@ extern NSInteger kOAIContestApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteContestWithVersion: (NSNumber*) version
-    albumContestId: (NSNumber*) albumContestId
+-(NSURLSessionTask*) deleteContestWithAlbumContestId: (NSNumber*) albumContestId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
@@ -132,7 +126,6 @@ extern NSInteger kOAIContestApiMissingParamErrorCode;
 /// Get Contest
 /// Gets the contest object including the likes and notes
 ///
-/// @param version 
 /// @param albumContestId the album contest ID
 /// @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
 /// @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -142,8 +135,7 @@ extern NSInteger kOAIContestApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAlbumContestResponse*
--(NSURLSessionTask*) getAlbumContestWithVersion: (NSNumber*) version
-    albumContestId: (NSNumber*) albumContestId
+-(NSURLSessionTask*) getAlbumContestWithAlbumContestId: (NSNumber*) albumContestId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
@@ -154,7 +146,6 @@ extern NSInteger kOAIContestApiMissingParamErrorCode;
 /// Search Contests
 /// Searches on contests.
 ///
-/// @param version 
 /// @param filter a comma separated list of Ownership
 /// @param sortField the field to sort by. See AlbumContestApiMap
 /// @param descending determines whether the sorted list is in descending or ascending order
@@ -178,8 +169,7 @@ extern NSInteger kOAIContestApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAlbumContestListResponse*
--(NSURLSessionTask*) getAlbumContestsWithVersion: (NSNumber*) version
-    filter: (NSString*) filter
+-(NSURLSessionTask*) getAlbumContestsWithFilter: (NSString*) filter
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
@@ -204,7 +194,6 @@ extern NSInteger kOAIContestApiMissingParamErrorCode;
 /// Vote on Contest
 /// Vote on a collection in a contest.
 ///
-/// @param version 
 /// @param albumContestId the album contest ID
 /// @param albumId the ID of the album to vote on
 /// @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -216,8 +205,7 @@ extern NSInteger kOAIContestApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAlbumContestResponse*
--(NSURLSessionTask*) voteOnAlbumContestWithVersion: (NSNumber*) version
-    albumContestId: (NSNumber*) albumContestId
+-(NSURLSessionTask*) voteOnAlbumContestWithAlbumContestId: (NSNumber*) albumContestId
     albumId: (NSNumber*) albumId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId

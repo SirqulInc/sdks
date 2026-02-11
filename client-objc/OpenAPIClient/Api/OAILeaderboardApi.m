@@ -53,8 +53,6 @@ NSInteger kOAILeaderboardApiMissingParamErrorCode = 234513;
 ///
 /// Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
 /// Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-///  @param version  
-///
 ///  @param accountId The account id of the user creating the leaderboard. (optional)
 ///
 ///  @param appKey The application key (optional)
@@ -83,8 +81,7 @@ NSInteger kOAILeaderboardApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAILeaderboardResponse*
 ///
--(NSURLSessionTask*) createLeaderboardWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createLeaderboardWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     rankType: (NSString*) rankType
     leaderboardMode: (NSString*) leaderboardMode
@@ -98,23 +95,9 @@ NSInteger kOAILeaderboardApiMissingParamErrorCode = 234513;
     _description: (NSString*) _description
     metaData: (NSString*) metaData
     completionHandler: (void (^)(OAILeaderboardResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAILeaderboardApiErrorDomain code:kOAILeaderboardApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/leaderboard/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/leaderboard/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -199,29 +182,15 @@ NSInteger kOAILeaderboardApiMissingParamErrorCode = 234513;
 ///
 /// Delete the Leader Board
 /// Removes a leader board id.
-///  @param version  
-///
 ///  @param leaderboardId The leaderboard id to delete. 
 ///
 ///  @param accountId The account id of the user making the request. (optional)
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteLeaderboardWithVersion: (NSNumber*) version
-    leaderboardId: (NSNumber*) leaderboardId
+-(NSURLSessionTask*) deleteLeaderboardWithLeaderboardId: (NSNumber*) leaderboardId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAILeaderboardApiErrorDomain code:kOAILeaderboardApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'leaderboardId' is set
     if (leaderboardId == nil) {
         NSParameterAssert(leaderboardId);
@@ -233,12 +202,9 @@ NSInteger kOAILeaderboardApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/leaderboard/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/leaderboard/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -290,8 +256,6 @@ NSInteger kOAILeaderboardApiMissingParamErrorCode = 234513;
 ///
 /// Read a leaderboard by id and retrieve the matching ranking list
 /// Read a leaderboard by id and retrieve the matching ranking list
-///  @param version  
-///
 ///  @param leaderboardId The leaderboard id. 
 ///
 ///  @param accountId A valid account. (optional)
@@ -300,22 +264,10 @@ NSInteger kOAILeaderboardApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAILeaderboardResponse*
 ///
--(NSURLSessionTask*) getLeaderboardWithVersion: (NSNumber*) version
-    leaderboardId: (NSNumber*) leaderboardId
+-(NSURLSessionTask*) getLeaderboardWithLeaderboardId: (NSNumber*) leaderboardId
     accountId: (NSNumber*) accountId
     includeFullRankingList: (NSNumber*) includeFullRankingList
     completionHandler: (void (^)(OAILeaderboardResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAILeaderboardApiErrorDomain code:kOAILeaderboardApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'leaderboardId' is set
     if (leaderboardId == nil) {
         NSParameterAssert(leaderboardId);
@@ -327,12 +279,9 @@ NSInteger kOAILeaderboardApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/leaderboard/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/leaderboard/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -387,8 +336,6 @@ NSInteger kOAILeaderboardApiMissingParamErrorCode = 234513;
 ///
 /// Search leaderboard and retrieve the matching ranking list
 /// Search leaderboard and retrieve the matching ranking list
-///  @param version  
-///
 ///  @param accountId The account id of the user requesting the search. (optional)
 ///
 ///  @param appKey The application key. (optional)
@@ -415,8 +362,7 @@ NSInteger kOAILeaderboardApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAILeaderboardResponse*
 ///
--(NSURLSessionTask*) searchLeaderboardsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchLeaderboardsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     globalOnly: (NSNumber*) globalOnly
     keyword: (NSString*) keyword
@@ -429,23 +375,9 @@ NSInteger kOAILeaderboardApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(OAILeaderboardResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAILeaderboardApiErrorDomain code:kOAILeaderboardApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/leaderboard/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/leaderboard/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -527,8 +459,6 @@ NSInteger kOAILeaderboardApiMissingParamErrorCode = 234513;
 ///
 /// Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
 /// Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-///  @param version  
-///
 ///  @param leaderboardId The leaderboard id to update. 
 ///
 ///  @param accountId The account id of the user updating the leaderboard. (optional)
@@ -561,8 +491,7 @@ NSInteger kOAILeaderboardApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAILeaderboardResponse*
 ///
--(NSURLSessionTask*) updateLeaderboardWithVersion: (NSNumber*) version
-    leaderboardId: (NSNumber*) leaderboardId
+-(NSURLSessionTask*) updateLeaderboardWithLeaderboardId: (NSNumber*) leaderboardId
     accountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     rankType: (NSString*) rankType
@@ -578,17 +507,6 @@ NSInteger kOAILeaderboardApiMissingParamErrorCode = 234513;
     _description: (NSString*) _description
     metaData: (NSString*) metaData
     completionHandler: (void (^)(OAILeaderboardResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAILeaderboardApiErrorDomain code:kOAILeaderboardApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'leaderboardId' is set
     if (leaderboardId == nil) {
         NSParameterAssert(leaderboardId);
@@ -600,12 +518,9 @@ NSInteger kOAILeaderboardApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/leaderboard/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/leaderboard/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

@@ -27,7 +27,6 @@ extern NSInteger kOAIScheduledNotificationApiMissingParamErrorCode;
 /// Create Scheduled Notification
 /// This endpoint creates a Scheduled Notification message that can be configured to process and send periodically at set time periods
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param name The name of the scheduled notification
 /// @param type The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages
@@ -66,8 +65,7 @@ extern NSInteger kOAIScheduledNotificationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIScheduledNotificationFullResponse*
--(NSURLSessionTask*) createScheduledNotificationWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createScheduledNotificationWithAccountId: (NSNumber*) accountId
     name: (NSString*) name
     type: (NSString*) type
     message: (NSString*) message
@@ -107,7 +105,6 @@ extern NSInteger kOAIScheduledNotificationApiMissingParamErrorCode;
 /// Delete Scheduled Notification
 /// This endpoint deletes a Scheduled Notification. Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using the UserPermissionsApi.
 ///
-/// @param version 
 /// @param accountId the id of the logged in user
 /// @param scheduledNotificationId the id of the scheduled notification to delete
 /// @param deleteByGroupingId If set to true, also deletes Scheduled Notifications under the same account with the same groupingId. (optional)
@@ -115,8 +112,7 @@ extern NSInteger kOAIScheduledNotificationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIScheduledNotificationFullResponse*
--(NSURLSessionTask*) deleteScheduledNotificationWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteScheduledNotificationWithAccountId: (NSNumber*) accountId
     scheduledNotificationId: (NSNumber*) scheduledNotificationId
     deleteByGroupingId: (NSNumber*) deleteByGroupingId
     completionHandler: (void (^)(OAIScheduledNotificationFullResponse* output, NSError* error)) handler;
@@ -125,15 +121,13 @@ extern NSInteger kOAIScheduledNotificationApiMissingParamErrorCode;
 /// Get Scheduled Notification
 /// Get a ScheduledNotification
 ///
-/// @param version 
 /// @param accountId the id of the account logged in
 /// @param scheduledNotificationId the id of the scheduled notification to get
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIScheduledNotificationFullResponse*
--(NSURLSessionTask*) getScheduledNotificationWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getScheduledNotificationWithAccountId: (NSNumber*) accountId
     scheduledNotificationId: (NSNumber*) scheduledNotificationId
     completionHandler: (void (^)(OAIScheduledNotificationFullResponse* output, NSError* error)) handler;
 
@@ -141,7 +135,6 @@ extern NSInteger kOAIScheduledNotificationApiMissingParamErrorCode;
 /// Generate Schedule Notifications
 /// Use a report to identify events that are starting soon and then create a scheduled notification to push a message to matching users.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param appKey The application to target
 /// @param reportName The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail
@@ -154,8 +147,7 @@ extern NSInteger kOAIScheduledNotificationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) scheduleNotificationListingsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) scheduleNotificationListingsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     reportName: (NSString*) reportName
     message: (NSString*) message
@@ -169,7 +161,6 @@ extern NSInteger kOAIScheduledNotificationApiMissingParamErrorCode;
 /// Search Scheduled Notifications
 /// This endpoint searches on Scheduled Notifications. If a scheduled notification was created with the visibility parameter set to PUBLIC, then anyone can search on it if the filter parameter includes the PUBLIC value. PRIVATE visibility means that it can only be searched on by the owner or if it has been shared to the user using the UserPermissionsApi.  In addition, if a PUBLIC Scheduled Notification was created for an application that requires content approval (using the publicContentApproval parameter), then an administrator of the application needs to approve it before it can be search on by other users. Before this happens, it is in a PENDING state, and only the original creator or the owner of the application can search and see it. Also, only the owner of the application can use the UserPermissionsApi to approve or reject it. Scheduled notifications that have been rejected are only visible to the original creators.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param groupingId Filter results by a grouping identifier defined by the client (optional)
 /// @param audienceId Filter results by audience (optional)
@@ -194,8 +185,7 @@ extern NSInteger kOAIScheduledNotificationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIScheduledNotificationFullResponse*
--(NSURLSessionTask*) searchScheduledNotificationsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchScheduledNotificationsWithAccountId: (NSNumber*) accountId
     groupingId: (NSString*) groupingId
     audienceId: (NSNumber*) audienceId
     filter: (NSString*) filter
@@ -221,7 +211,6 @@ extern NSInteger kOAIScheduledNotificationApiMissingParamErrorCode;
 /// Update Scheduled Notification
 /// This endpoint updates a Scheduled Notification message that can be configured to process and send periodically at set time periods. Please see createScheduledNotification for more details.  Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using theUserPermissionsApi.
 ///
-/// @param version 
 /// @param scheduledNotificationId The id of scheduled notification to update
 /// @param accountId The logged in user.
 /// @param name The name of the scheduled notification (optional)
@@ -264,8 +253,7 @@ extern NSInteger kOAIScheduledNotificationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIScheduledNotificationFullResponse*
--(NSURLSessionTask*) updateScheduledNotificationWithVersion: (NSNumber*) version
-    scheduledNotificationId: (NSNumber*) scheduledNotificationId
+-(NSURLSessionTask*) updateScheduledNotificationWithScheduledNotificationId: (NSNumber*) scheduledNotificationId
     accountId: (NSNumber*) accountId
     name: (NSString*) name
     type: (NSString*) type

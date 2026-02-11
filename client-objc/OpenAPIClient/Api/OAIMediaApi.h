@@ -27,7 +27,6 @@ extern NSInteger kOAIMediaApiMissingParamErrorCode;
 /// Create Media
 /// Create a media offering.
 ///
-/// @param version 
 /// @param accountId The account id of the logged in user
 /// @param title The title (255 char limit)
 /// @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}
@@ -89,8 +88,7 @@ extern NSInteger kOAIMediaApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIMediaOfferResponse*
--(NSURLSessionTask*) createMediaWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createMediaWithAccountId: (NSNumber*) accountId
     title: (NSString*) title
     barcodeType: (NSString*) barcodeType
     noExpiration: (NSNumber*) noExpiration
@@ -153,15 +151,13 @@ extern NSInteger kOAIMediaApiMissingParamErrorCode;
 /// Delete Media
 /// Delete a media offering that the user has permissions to.
 ///
-/// @param version 
 /// @param accountId the id of the logged in user
 /// @param mediaId the ID of the media to delete
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteMediaWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteMediaWithAccountId: (NSNumber*) accountId
     mediaId: (NSNumber*) mediaId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -169,15 +165,13 @@ extern NSInteger kOAIMediaApiMissingParamErrorCode;
 /// Media Get
 /// Get a media offering.
 ///
-/// @param version 
 /// @param accountId the id of the logged in user
 /// @param mediaId the id of the media to get
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIMediaOfferResponse*
--(NSURLSessionTask*) getMediaWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getMediaWithAccountId: (NSNumber*) accountId
     mediaId: (NSNumber*) mediaId
     completionHandler: (void (^)(OAIMediaOfferResponse* output, NSError* error)) handler;
 
@@ -185,7 +179,6 @@ extern NSInteger kOAIMediaApiMissingParamErrorCode;
 /// Search Media
 /// Searches on events that the account has access to.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param activeOnly Return only active results
 /// @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE
@@ -199,8 +192,7 @@ extern NSInteger kOAIMediaApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIMediaOfferResponse>*
--(NSURLSessionTask*) searchMediaWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchMediaWithAccountId: (NSNumber*) accountId
     activeOnly: (NSNumber*) activeOnly
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
@@ -215,7 +207,6 @@ extern NSInteger kOAIMediaApiMissingParamErrorCode;
 /// Update Media
 /// Update a media offering.
 ///
-/// @param version 
 /// @param accountId The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)
 /// @param mediaId 
 /// @param retailerLocationIds Comma separated list of retailer location ids. This will assign the offer to these retailer locations. (optional)
@@ -279,8 +270,7 @@ extern NSInteger kOAIMediaApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIMediaOfferResponse*
--(NSURLSessionTask*) updateMediaWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateMediaWithAccountId: (NSNumber*) accountId
     mediaId: (NSNumber*) mediaId
     retailerLocationIds: (NSString*) retailerLocationIds
     offerLocations: (NSString*) offerLocations

@@ -52,29 +52,15 @@ NSInteger kOAIStripeApiMissingParamErrorCode = 234513;
 ///
 /// Create Stripe Checkout Session
 /// Create a Stripe checkout session
-///  @param version  
-///
 ///  @param appKey Sirqul Application Key 
 ///
 ///  @param stripeParameters Stripe Parameters 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) createStripeCheckoutSessionWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) createStripeCheckoutSessionWithAppKey: (NSString*) appKey
     stripeParameters: (NSString*) stripeParameters
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIStripeApiErrorDomain code:kOAIStripeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'appKey' is set
     if (appKey == nil) {
         NSParameterAssert(appKey);
@@ -97,12 +83,9 @@ NSInteger kOAIStripeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/stripe/checkout/session/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/stripe/checkout/session/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (appKey != nil) {

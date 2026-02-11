@@ -27,7 +27,6 @@ extern NSInteger kOAIMissionInviteApiMissingParamErrorCode;
 /// Create Mission Invite
 /// Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
 ///
-/// @param version 
 /// @param deviceId the device id (deviceId or accountId required). (optional)
 /// @param accountId the account id of the user (deviceId or accountId required). (optional)
 /// @param missionId The mission to find the invite for. (optional)
@@ -37,8 +36,7 @@ extern NSInteger kOAIMissionInviteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIMissionResponse*
--(NSURLSessionTask*) createMissionInviteWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) createMissionInviteWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     missionId: (NSNumber*) missionId
     joinCode: (NSString*) joinCode
@@ -49,7 +47,6 @@ extern NSInteger kOAIMissionInviteApiMissingParamErrorCode;
 /// Delete Mission Invite
 /// Update the mission invite status to quit.
 ///
-/// @param version 
 /// @param deviceId the device id (deviceId or accountId required). (optional)
 /// @param accountId the account id of the user (deviceId or accountId required). (optional)
 /// @param missionId The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -59,8 +56,7 @@ extern NSInteger kOAIMissionInviteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteMissionInviteWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) deleteMissionInviteWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     missionId: (NSNumber*) missionId
     missionInviteId: (NSNumber*) missionInviteId
@@ -71,7 +67,6 @@ extern NSInteger kOAIMissionInviteApiMissingParamErrorCode;
 /// Get Mission Invite
 /// Get the mission invite. An account can only be invited to a mission one time.
 ///
-/// @param version 
 /// @param deviceId the device id (deviceId or accountId required). (optional)
 /// @param accountId the account id of the user (deviceId or accountId required). (optional)
 /// @param missionId The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -82,8 +77,7 @@ extern NSInteger kOAIMissionInviteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIMissionResponse*
--(NSURLSessionTask*) getMissionInviteWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) getMissionInviteWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     missionId: (NSNumber*) missionId
     missionInviteId: (NSNumber*) missionInviteId
@@ -95,7 +89,6 @@ extern NSInteger kOAIMissionInviteApiMissingParamErrorCode;
 /// Search Mission Invites
 /// Get a list of mission invites that the account has.
 ///
-/// @param version 
 /// @param deviceId the device id (deviceId or accountId required). (optional)
 /// @param accountId the account id of the user (deviceId or accountId required). (optional)
 /// @param appKey the app to retrieve the data for, use your application key. (optional)
@@ -113,8 +106,7 @@ extern NSInteger kOAIMissionInviteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIMissionResponse>*
--(NSURLSessionTask*) searchMissionInvitesWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) searchMissionInvitesWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     appVersion: (NSString*) appVersion
@@ -133,7 +125,6 @@ extern NSInteger kOAIMissionInviteApiMissingParamErrorCode;
 /// Update Mission Invite
 /// Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
 ///
-/// @param version 
 /// @param deviceId the device id (deviceId or accountId required). (optional)
 /// @param accountId the account id of the user (deviceId or accountId required). (optional)
 /// @param appKey the application key (optional)
@@ -149,8 +140,7 @@ extern NSInteger kOAIMissionInviteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIMissionResponse*
--(NSURLSessionTask*) updateMissionInviteWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) updateMissionInviteWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     missionId: (NSNumber*) missionId

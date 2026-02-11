@@ -26,7 +26,6 @@ extern NSInteger kOAIWeatherApiMissingParamErrorCode;
 /// Search Weather
 /// Search the weather forcast for the next 5 days
 ///
-/// @param version 
 /// @param regionId Region Id (optional)
 /// @param latitude Latitude (optional)
 /// @param longitude Longitude (optional)
@@ -35,8 +34,7 @@ extern NSInteger kOAIWeatherApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIWeatherResponse*
--(NSURLSessionTask*) searchWeatherWithVersion: (NSNumber*) version
-    regionId: (NSNumber*) regionId
+-(NSURLSessionTask*) searchWeatherWithRegionId: (NSNumber*) regionId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     timezoneOffset: (NSNumber*) timezoneOffset

@@ -27,7 +27,6 @@ extern NSInteger kOAIRetailerLocationApiMissingParamErrorCode;
 /// Create Retailer Location (Consumer)
 /// Creates a location record for an application that can support crowd sourced locations.
 ///
-/// @param version 
 /// @param appKey the application key
 /// @param name The name of the retailer location
 /// @param deviceId The device id (deviceId or accountId required) (optional)
@@ -61,8 +60,7 @@ extern NSInteger kOAIRetailerLocationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRetailerLocationResponse*
--(NSURLSessionTask*) createRetailerLocationConsumerWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) createRetailerLocationConsumerWithAppKey: (NSString*) appKey
     name: (NSString*) name
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -97,7 +95,6 @@ extern NSInteger kOAIRetailerLocationApiMissingParamErrorCode;
 /// Create Retailer Location
 /// Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
 ///
-/// @param version 
 /// @param retailerId The ID of the retailer
 /// @param name The name of the retailer location
 /// @param streetAddress The street address of the retailer location
@@ -141,8 +138,7 @@ extern NSInteger kOAIRetailerLocationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRetailerLocationResponse*
--(NSURLSessionTask*) createRetailerLocationsWithVersion: (NSNumber*) version
-    retailerId: (NSNumber*) retailerId
+-(NSURLSessionTask*) createRetailerLocationsWithRetailerId: (NSNumber*) retailerId
     name: (NSString*) name
     streetAddress: (NSString*) streetAddress
     city: (NSString*) city
@@ -187,7 +183,6 @@ extern NSInteger kOAIRetailerLocationApiMissingParamErrorCode;
 /// Delete Retailer Location
 /// Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
 ///
-/// @param version 
 /// @param deviceId the device id (optional)
 /// @param accountId the id of the logged in user (optional)
 /// @param retailerLocationId the id of the retailer location to delete (optional)
@@ -195,8 +190,7 @@ extern NSInteger kOAIRetailerLocationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteRetailerLocationWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) deleteRetailerLocationWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     retailerLocationId: (NSNumber*) retailerLocationId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
@@ -205,7 +199,6 @@ extern NSInteger kOAIRetailerLocationApiMissingParamErrorCode;
 /// Get Retailer Location
 /// Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
 ///
-/// @param version 
 /// @param retailerLocationId The ID of the retailer location
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -214,8 +207,7 @@ extern NSInteger kOAIRetailerLocationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRetailerLocationResponse*
--(NSURLSessionTask*) getRetailerLocationWithVersion: (NSNumber*) version
-    retailerLocationId: (NSNumber*) retailerLocationId
+-(NSURLSessionTask*) getRetailerLocationWithRetailerLocationId: (NSNumber*) retailerLocationId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     retailerLocationToken: (NSString*) retailerLocationToken
@@ -225,7 +217,6 @@ extern NSInteger kOAIRetailerLocationApiMissingParamErrorCode;
 /// Get Retailer Location (Consumer)
 /// Gets the details of a retailer location as a consumer.
 ///
-/// @param version 
 /// @param retailerLocationId The retailer location id
 /// @param deviceId The device id for returning account information (i.e. favorites) (optional)
 /// @param accountId The account id for returning account information (i.e. favorites) (optional)
@@ -233,8 +224,7 @@ extern NSInteger kOAIRetailerLocationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRetailerLocationResponse*
--(NSURLSessionTask*) getRetailerLocationConsumerWithVersion: (NSNumber*) version
-    retailerLocationId: (NSNumber*) retailerLocationId
+-(NSURLSessionTask*) getRetailerLocationConsumerWithRetailerLocationId: (NSNumber*) retailerLocationId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIRetailerLocationResponse* output, NSError* error)) handler;
@@ -243,7 +233,6 @@ extern NSInteger kOAIRetailerLocationApiMissingParamErrorCode;
 /// Distance Search Retailer Locations (Indexed)
 /// Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
 ///
-/// @param version 
 /// @param latitude The latitude to center the search on
 /// @param longitude The longitude to center the search on
 /// @param searchRange The search range in the distanceUnit specified; default is MILES.
@@ -282,8 +271,7 @@ extern NSInteger kOAIRetailerLocationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIRetailerLocationResponse>*
--(NSURLSessionTask*) indexedRetailerLocationDistanceSearchWithVersion: (NSNumber*) version
-    latitude: (NSNumber*) latitude
+-(NSURLSessionTask*) indexedRetailerLocationDistanceSearchWithLatitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     searchRange: (NSNumber*) searchRange
     start: (NSNumber*) start
@@ -323,7 +311,6 @@ extern NSInteger kOAIRetailerLocationApiMissingParamErrorCode;
 /// Keyword Search Retailer Locations (Indexed)
 /// Retailer location (faster) indexed search. This searches all retailer locations.
 ///
-/// @param version 
 /// @param accountId The account id of the user (optional)
 /// @param start The start index for pagination (optional)
 /// @param limit The limit for pagination (optional)
@@ -356,8 +343,7 @@ extern NSInteger kOAIRetailerLocationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIRetailerLocationResponse>*
--(NSURLSessionTask*) indexedRetailerLocationSearchWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) indexedRetailerLocationSearchWithAccountId: (NSNumber*) accountId
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     hasOffers: (NSNumber*) hasOffers
@@ -391,7 +377,6 @@ extern NSInteger kOAIRetailerLocationApiMissingParamErrorCode;
 /// Search Retailer Locations (Owned)
 /// Searches on retailer locations that the account has access to.
 ///
-/// @param version 
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
 /// @param q This parameter is deprecated. (optional)
@@ -421,8 +406,7 @@ extern NSInteger kOAIRetailerLocationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIRetailerLocationResponse>*
--(NSURLSessionTask*) searchRetailerLocationsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) searchRetailerLocationsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     q: (NSString*) q
     keyword: (NSString*) keyword
@@ -453,7 +437,6 @@ extern NSInteger kOAIRetailerLocationApiMissingParamErrorCode;
 /// Update Retailer Location
 /// Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
 ///
-/// @param version 
 /// @param retailerLocationId The ID of the retailer location
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -499,8 +482,7 @@ extern NSInteger kOAIRetailerLocationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRetailerLocationResponse*
--(NSURLSessionTask*) updateRetailerLocationsWithVersion: (NSNumber*) version
-    retailerLocationId: (NSNumber*) retailerLocationId
+-(NSURLSessionTask*) updateRetailerLocationsWithRetailerLocationId: (NSNumber*) retailerLocationId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     name: (NSString*) name

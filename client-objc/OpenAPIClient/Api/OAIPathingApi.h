@@ -26,7 +26,6 @@ extern NSInteger kOAIPathingApiMissingParamErrorCode;
 /// Calculate Path
 /// Calculates the shortest path from point to point on a grid
 ///
-/// @param version 
 /// @param data the data to with start, end point and exclusion points
 /// @param units the system of measurement for directions: {METRIC, IMPERIAL}
 /// @param reducePath determines whether to reduce the path to go in diagonal lines
@@ -35,8 +34,7 @@ extern NSInteger kOAIPathingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPathingResponse*
--(NSURLSessionTask*) computePathWithVersion: (NSNumber*) version
-    data: (NSString*) data
+-(NSURLSessionTask*) computePathWithData: (NSString*) data
     units: (NSString*) units
     reducePath: (NSNumber*) reducePath
     directions: (NSNumber*) directions

@@ -28,15 +28,13 @@ extern NSInteger kOAICreativeApiMissingParamErrorCode;
 /// Add Preview
 /// Enable this ad for preview for this account.
 ///
-/// @param version 
 /// @param accountId the id of the account
 /// @param creativeId The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied.
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) addPreviewWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) addPreviewWithAccountId: (NSNumber*) accountId
     creativeId: (NSNumber*) creativeId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -44,7 +42,6 @@ extern NSInteger kOAICreativeApiMissingParamErrorCode;
 /// Find Missions
 /// Get a set of ad filtered by the parameters provided.
 ///
-/// @param version 
 /// @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
 /// @param randomize return a random set of results, default is true. If false returns in nature order.
 /// @param targetedAdsOnly return only ads targets to the specific app, no global ads.
@@ -65,8 +62,7 @@ extern NSInteger kOAICreativeApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIMissionResponse>*
--(NSURLSessionTask*) adsFindWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) adsFindWithAppKey: (NSString*) appKey
     randomize: (NSNumber*) randomize
     targetedAdsOnly: (NSNumber*) targetedAdsOnly
     type: (NSString*) type
@@ -88,7 +84,6 @@ extern NSInteger kOAICreativeApiMissingParamErrorCode;
 /// Create Creative
 /// Create a creative
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param name The name of the level.
 /// @param active If true set the game level as active. Default is false.
@@ -108,8 +103,7 @@ extern NSInteger kOAICreativeApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAICreativeResponse*
--(NSURLSessionTask*) createCreativeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createCreativeWithAccountId: (NSNumber*) accountId
     name: (NSString*) name
     active: (NSNumber*) active
     waitForAsset: (NSNumber*) waitForAsset
@@ -130,15 +124,13 @@ extern NSInteger kOAICreativeApiMissingParamErrorCode;
 /// Delete Creative
 /// Delete a creative
 ///
-/// @param version 
 /// @param accountId the id of the logged in user
 /// @param creativeId the id of the creative to delete
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteCreativeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteCreativeWithAccountId: (NSNumber*) accountId
     creativeId: (NSNumber*) creativeId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -146,15 +138,13 @@ extern NSInteger kOAICreativeApiMissingParamErrorCode;
 /// Get Creative
 /// Get a creative
 ///
-/// @param version 
 /// @param accountId the id of the logged in user
 /// @param creativeId the ID of the creative to get
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAICreativeResponse*
--(NSURLSessionTask*) getCreativeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getCreativeWithAccountId: (NSNumber*) accountId
     creativeId: (NSNumber*) creativeId
     completionHandler: (void (^)(OAICreativeResponse* output, NSError* error)) handler;
 
@@ -162,7 +152,6 @@ extern NSInteger kOAICreativeApiMissingParamErrorCode;
 /// Search Creatives
 /// Get a list of levels for an application, just those the account has permissions to view.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param appKey the application key
 /// @param start Start the result set at some index.
@@ -173,8 +162,7 @@ extern NSInteger kOAICreativeApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAICreativeResponse>*
--(NSURLSessionTask*) getCreativesByApplicationWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getCreativesByApplicationWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     start: (NSNumber*) start
     limit: (NSNumber*) limit
@@ -186,15 +174,13 @@ extern NSInteger kOAICreativeApiMissingParamErrorCode;
 /// Remove Preview
 /// Remove this ad for preview for this account.
 ///
-/// @param version 
 /// @param accountId the ID of the logged in user
 /// @param creativeId the ID of the creative to remove preview
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) removePreviewWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) removePreviewWithAccountId: (NSNumber*) accountId
     creativeId: (NSNumber*) creativeId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -202,7 +188,6 @@ extern NSInteger kOAICreativeApiMissingParamErrorCode;
 /// Update Creative
 /// Update a creative
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param creativeId the creative Id to upate.
 /// @param name The name of the level. (optional)
@@ -221,8 +206,7 @@ extern NSInteger kOAICreativeApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAICreativeResponse*
--(NSURLSessionTask*) updateCreativeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateCreativeWithAccountId: (NSNumber*) accountId
     creativeId: (NSNumber*) creativeId
     name: (NSString*) name
     _description: (NSString*) _description

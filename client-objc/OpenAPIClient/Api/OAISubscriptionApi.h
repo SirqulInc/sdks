@@ -29,7 +29,6 @@ extern NSInteger kOAISubscriptionApiMissingParamErrorCode;
 /// Create Subscription
 /// Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
 ///
-/// @param version 
 /// @param accountId The account used to perform the create, must be the responsible manager
 /// @param planId The plan to subscribe to, if null use default plan (optional)
 /// @param promoCode Set a promo code for a discount. (optional)
@@ -37,8 +36,7 @@ extern NSInteger kOAISubscriptionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISubscriptionResponse*
--(NSURLSessionTask*) createSubscriptionWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createSubscriptionWithAccountId: (NSNumber*) accountId
     planId: (NSNumber*) planId
     promoCode: (NSString*) promoCode
     completionHandler: (void (^)(OAISubscriptionResponse* output, NSError* error)) handler;
@@ -47,57 +45,49 @@ extern NSInteger kOAISubscriptionApiMissingParamErrorCode;
 /// Delete Subscription
 /// Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
 ///
-/// @param version 
 /// @param accountId The account used to perform the delete, must be the responsible manager
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteSubscriptionWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteSubscriptionWithAccountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
 
 /// Get Subscription
 /// Use the accountId to determine the associated BillableEntity.  Then get the subscription.
 ///
-/// @param version 
 /// @param accountId The account used to perform the lookup
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISubscriptionResponse*
--(NSURLSessionTask*) getSubscriptionWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getSubscriptionWithAccountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISubscriptionResponse* output, NSError* error)) handler;
 
 
 /// Get Subscription Plan
 /// Get the matched subscription plan
 ///
-/// @param version 
 /// @param planId The ID of the plan to get
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISubscriptionPlanResponse*
--(NSURLSessionTask*) getSubscriptionPlanWithVersion: (NSNumber*) version
-    planId: (NSNumber*) planId
+-(NSURLSessionTask*) getSubscriptionPlanWithPlanId: (NSNumber*) planId
     completionHandler: (void (^)(OAISubscriptionPlanResponse* output, NSError* error)) handler;
 
 
 /// List Subscription Plans
 /// Get the matched subscription plan
 ///
-/// @param version 
 /// @param visible Include visible only (true), hidden only (false), or all (null) (optional)
 /// @param role The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAISubscriptionPlanResponse>*
--(NSURLSessionTask*) getSubscriptionPlansWithVersion: (NSNumber*) version
-    visible: (NSNumber*) visible
+-(NSURLSessionTask*) getSubscriptionPlansWithVisible: (NSNumber*) visible
     role: (NSString*) role
     completionHandler: (void (^)(NSArray<OAISubscriptionPlanResponse>* output, NSError* error)) handler;
 
@@ -105,7 +95,6 @@ extern NSInteger kOAISubscriptionApiMissingParamErrorCode;
 /// Get Subscription Usage
 /// Use the accountId to determine the associated BillableEntity.  Then get the application usage.
 ///
-/// @param version 
 /// @param accountId The account used to perform the lookup
 /// @param applicationId Get for just 1 application instead of the BillableEntity (optional)
 /// @param start The start time frame (optional)
@@ -114,8 +103,7 @@ extern NSInteger kOAISubscriptionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIApplicationUsageResponse*
--(NSURLSessionTask*) getSubscriptionUsageWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getSubscriptionUsageWithAccountId: (NSNumber*) accountId
     applicationId: (NSNumber*) applicationId
     start: (NSNumber*) start
     end: (NSNumber*) end
@@ -125,7 +113,6 @@ extern NSInteger kOAISubscriptionApiMissingParamErrorCode;
 /// Update Subscription
 /// Updates the subscription for the billable entity for an account
 ///
-/// @param version 
 /// @param accountId The account used to perform the update, must be the responsible manager
 /// @param planId The plan to subscribe to (optional)
 /// @param promoCode Set a promo code for a discount. (optional)
@@ -134,8 +121,7 @@ extern NSInteger kOAISubscriptionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISubscriptionResponse*
--(NSURLSessionTask*) updateSubscriptionWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateSubscriptionWithAccountId: (NSNumber*) accountId
     planId: (NSNumber*) planId
     promoCode: (NSString*) promoCode
     active: (NSNumber*) active

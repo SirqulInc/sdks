@@ -26,63 +26,54 @@ extern NSInteger kOAIShipmentApiMissingParamErrorCode;
 /// Cancel Shipment
 /// Remove shipment from route
 ///
-/// @param version 
 /// @param _id the id of the shipment to cancel
 /// 
 ///  code:0 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) cancelShipmentWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) cancelShipmentWithId: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler;
 
 
 /// Create Shipment
 /// Create new shipment
 ///
-/// @param version 
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIShipment*
--(NSURLSessionTask*) createShipmentWithVersion: (NSNumber*) version
-    body: (OAIShipment*) body
+-(NSURLSessionTask*) createShipmentWithBody: (OAIShipment*) body
     completionHandler: (void (^)(OAIShipment* output, NSError* error)) handler;
 
 
 /// Delete Shipment
 /// Delete an existing shipment
 ///
-/// @param version 
 /// @param _id the id of the shipment to delete
 /// 
 ///  code:0 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) deleteShipmentWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) deleteShipmentWithId: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler;
 
 
 /// Get Shipment
 /// Get an existing shipment
 ///
-/// @param version 
 /// @param _id the id of the shipment to get
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIShipment*
--(NSURLSessionTask*) getShipmentWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) getShipmentWithId: (NSNumber*) _id
     completionHandler: (void (^)(OAIShipment* output, NSError* error)) handler;
 
 
 /// Search Shipments
 /// Search for shipments
 ///
-/// @param version 
 /// @param sortField The field to sort by
 /// @param descending Determines whether the sorted list is in descending or ascending order
 /// @param start The start index for pagination
@@ -95,8 +86,7 @@ extern NSInteger kOAIShipmentApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIShipment>*
--(NSURLSessionTask*) searchShipmentsWithVersion: (NSNumber*) version
-    sortField: (NSString*) sortField
+-(NSURLSessionTask*) searchShipmentsWithSortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
     limit: (NSNumber*) limit
@@ -110,15 +100,13 @@ extern NSInteger kOAIShipmentApiMissingParamErrorCode;
 /// Update Shipment
 /// Update an existing shipment
 ///
-/// @param version 
 /// @param _id the id of the shipment to update
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIShipment*
--(NSURLSessionTask*) updateShipmentWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) updateShipmentWithId: (NSNumber*) _id
     body: (OAIShipment*) body
     completionHandler: (void (^)(OAIShipment* output, NSError* error)) handler;
 
@@ -126,15 +114,13 @@ extern NSInteger kOAIShipmentApiMissingParamErrorCode;
 /// Uupdate Shipment Status
 /// Update status of an existing shipment
 ///
-/// @param version 
 /// @param _id the id of the shipment to update status
 /// @param body  (optional)
 /// 
 ///  code:0 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) updateShipmentStatusWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) updateShipmentStatusWithId: (NSNumber*) _id
     body: (NSDictionary<NSString*, NSNumber*>*) body
     completionHandler: (void (^)(NSError* error)) handler;
 

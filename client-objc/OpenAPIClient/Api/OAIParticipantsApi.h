@@ -26,7 +26,6 @@ extern NSInteger kOAIParticipantsApiMissingParamErrorCode;
 /// Process All Participant Feeds
 /// Processes all supported participant feeds.
 ///
-/// @param version 
 /// @param accountId The account id of the user
 /// @param appKey The application key used to identify the application (optional)
 /// @param useShortNameAsID Whether to use short name as the participant ID (optional)
@@ -34,8 +33,7 @@ extern NSInteger kOAIParticipantsApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) processAllParticipantsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) processAllParticipantsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     useShortNameAsID: (NSNumber*) useShortNameAsID
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
@@ -44,7 +42,6 @@ extern NSInteger kOAIParticipantsApiMissingParamErrorCode;
 /// Process Participants Feed
 /// Processes a participant feed or uploaded file for a specific league.
 ///
-/// @param version 
 /// @param accountId The account id of the user
 /// @param league The league identifier to process
 /// @param appKey The application key used to identify the application (optional)
@@ -54,8 +51,7 @@ extern NSInteger kOAIParticipantsApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) processParticipantsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) processParticipantsWithAccountId: (NSNumber*) accountId
     league: (NSString*) league
     appKey: (NSString*) appKey
     useShortNameAsID: (NSNumber*) useShortNameAsID

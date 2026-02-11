@@ -51,8 +51,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Create following
 /// Create following.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param vatomParameters Vatom Parameters 
@@ -61,22 +59,10 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) createFollowingWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createFollowingWithAccountId: (NSNumber*) accountId
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -99,12 +85,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/me/rels/following/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/me/rels/following/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -159,8 +142,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Create Vatom Space
 /// Create a Vatom space.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -171,23 +152,11 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) createSpaceWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createSpaceWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -221,12 +190,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/spaces/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/spaces/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -284,8 +250,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Create Vatom Event
 /// Create a Vatom event.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -296,23 +260,11 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) createVatomEventWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createVatomEventWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -346,12 +298,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/events/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/events/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -409,8 +358,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Delete following
 /// Delete following.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param vatomRelsKey Vatom Rels Key 
@@ -419,22 +366,10 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) deleteFollowingWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteFollowingWithAccountId: (NSNumber*) accountId
     vatomRelsKey: (NSString*) vatomRelsKey
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -457,12 +392,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/me/rels/following/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/me/rels/following/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -517,8 +449,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Reset All Points Balance
 /// Reset All Points Balance.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -529,23 +459,11 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) deletePointsBalanceWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deletePointsBalanceWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomCampaignId: (NSString*) vatomCampaignId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -579,12 +497,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/campaign/points/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/campaign/points/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -642,8 +557,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Delete Vatom Space
 /// Delete a Vatom space.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -654,23 +567,11 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) deleteSpaceWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteSpaceWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomSpaceId: (NSString*) vatomSpaceId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -704,12 +605,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/spaces/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/spaces/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -767,8 +665,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Delete Vatom Event
 /// Delete a Vatom event.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -779,23 +675,11 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) deleteVatomEventWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteVatomEventWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomEventId: (NSString*) vatomEventId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -829,12 +713,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/events/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/events/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -892,8 +773,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Delete Vatom NFT
 /// Delete Vatom NFT
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param vatomId Vatom NFT Id 
@@ -902,22 +781,10 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) deleteVatomNFTWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteVatomNFTWithAccountId: (NSNumber*) accountId
     vatomId: (NSString*) vatomId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -940,12 +807,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/vatoms/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/vatoms/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1000,8 +864,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Execute Action on NFT
 /// Execute Action on NFT.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param vatomId Vatom NFT Id 
@@ -1012,23 +874,11 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) executeActionOnNFTWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) executeActionOnNFTWithAccountId: (NSNumber*) accountId
     vatomId: (NSString*) vatomId
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1062,12 +912,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/vatoms/execute-action"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/vatoms/execute-action"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1125,8 +972,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Search Vatom Geo Map
 /// Search Vatom Geo Map
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param vatomParameters Vatom Parameters 
@@ -1135,22 +980,10 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) geomapSearchWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) geomapSearchWithAccountId: (NSNumber*) accountId
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1173,12 +1006,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/vatoms/geo-map/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/vatoms/geo-map/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1233,8 +1063,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Get Vatom Business Behaviors
 /// Gets the behaviors of a business.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -1243,22 +1071,10 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) getBusinessBehaviorsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getBusinessBehaviorsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1281,12 +1097,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/behaviors"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/behaviors"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1341,8 +1154,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Get the coins for a Business
 /// Get the coins for a Businesss.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -1351,22 +1162,10 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) getBusinessCoinsBalanceWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getBusinessCoinsBalanceWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1389,12 +1188,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/coins/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/coins/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1449,29 +1245,15 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Get the user business ids
 /// Get the business ids the logged in user has access to.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param returnRawResponse Return raw response (optional)
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) getBusinessIdsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getBusinessIdsWithAccountId: (NSNumber*) accountId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1483,12 +1265,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/me/businesses"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/me/businesses"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1540,8 +1319,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Get Vatom Business Info
 /// Gets the business info tied to this account.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -1552,23 +1329,11 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) getBusinessInfoWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getBusinessInfoWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1591,12 +1356,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1654,8 +1416,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Get Vatom Business Users
 /// Gets the users of a business.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -1664,22 +1424,10 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) getBusinessUsersWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getBusinessUsersWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1702,12 +1450,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/users"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/users"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1762,8 +1507,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Get Campaign Group Entities
 /// Get campaign group entities.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -1774,23 +1517,11 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) getCampaignGroupEntitiesWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getCampaignGroupEntitiesWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomCampaignId: (NSString*) vatomCampaignId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1824,12 +1555,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/campaign-groups/entities"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/campaign-groups/entities"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1887,8 +1615,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Get Campaign Group Rules
 /// Get campaign group rules.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -1899,23 +1625,11 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) getCampaignGroupRulesWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getCampaignGroupRulesWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomCampaignId: (NSString*) vatomCampaignId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1949,12 +1663,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/campaign-groups/rules"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/campaign-groups/rules"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -2012,8 +1723,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Get Campaign Group Stats
 /// Get campaign group stats.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -2024,23 +1733,11 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) getCampaignGroupStatsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getCampaignGroupStatsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomCampaignId: (NSString*) vatomCampaignId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -2074,12 +1771,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/campaign-groups/stats"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/campaign-groups/stats"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -2137,8 +1831,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Get Campaign Info
 /// Gets the info on a campaign.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -2149,23 +1841,11 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) getCampaignInfoWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getCampaignInfoWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomCampaignId: (NSString*) vatomCampaignId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -2199,12 +1879,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/campaign-groups/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/campaign-groups/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -2262,8 +1939,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Get Vatom Event Guest List
 /// Gets the guest list of an event.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -2274,23 +1949,11 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) getEventGuestListWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getEventGuestListWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomEventId: (NSString*) vatomEventId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -2324,12 +1987,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/events/guests/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/events/guests/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -2387,8 +2047,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Get Vatom User's Inventory
 /// Gets the logged in user's Vatom Inventory.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param vatomParameters Vatom Parameters 
@@ -2397,22 +2055,10 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) getInventoryWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getInventoryWithAccountId: (NSNumber*) accountId
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -2435,12 +2081,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/me/inventory"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/me/inventory"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -2495,29 +2138,15 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Get following
 /// Get following.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param returnRawResponse Return raw response (optional)
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) getMyFollowingWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getMyFollowingWithAccountId: (NSNumber*) accountId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -2529,12 +2158,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/me/rels/following"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/me/rels/following"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -2586,8 +2212,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Get Points Balance
 /// Gets the points balance of a Vatom user.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param vatomUserId Vatom User Id 
@@ -2598,23 +2222,11 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) getPointsBalanceWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getPointsBalanceWithAccountId: (NSNumber*) accountId
     vatomUserId: (NSString*) vatomUserId
     vatomCampaignId: (NSString*) vatomCampaignId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -2648,12 +2260,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/u/campaign/points/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/u/campaign/points/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -2711,8 +2320,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Get Points Balance as Business
 /// Gets the points balance of a Vatom user.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -2725,24 +2332,12 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) getPointsBalanceAsBusinessWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getPointsBalanceAsBusinessWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomUserId: (NSString*) vatomUserId
     vatomCampaignId: (NSString*) vatomCampaignId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -2787,12 +2382,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/campaign/u/points/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/campaign/u/points/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -2853,8 +2445,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Get Vatom Space
 /// Gets the details of a space.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -2865,23 +2455,11 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) getSpaceWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getSpaceWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomSpaceId: (NSString*) vatomSpaceId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -2915,12 +2493,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/spaces/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/spaces/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -2978,8 +2553,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Get the coins for a user (as a Business)
 /// Get the coins for a user (as a Business).
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param vatomUserId Vatom User Id 
@@ -2990,23 +2563,11 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) getUserCoinsAsBusinessWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getUserCoinsAsBusinessWithAccountId: (NSNumber*) accountId
     vatomUserId: (NSString*) vatomUserId
     appKey: (NSString*) appKey
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -3040,12 +2601,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/users/coins/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/users/coins/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -3103,8 +2661,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Gets the coins balance for a Vatom User
 /// Gets the coins balance for a Vatom User.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param vatomUserId Vatom User Id 
@@ -3115,23 +2671,11 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) getUserCoinsBalanceWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getUserCoinsBalanceWithAccountId: (NSNumber*) accountId
     vatomUserId: (NSString*) vatomUserId
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -3154,12 +2698,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/u/coins/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/u/coins/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -3217,8 +2758,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Get user followers
 /// Get user followers.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param vatomUserId Vatom User Id 
@@ -3227,22 +2766,10 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) getUserFollowersWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getUserFollowersWithAccountId: (NSNumber*) accountId
     vatomUserId: (NSString*) vatomUserId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -3265,12 +2792,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/users/rels/followers"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/users/rels/followers"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -3325,8 +2849,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Get user following
 /// Get user following.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param vatomUserId Vatom User Id 
@@ -3335,22 +2857,10 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) getUserFollowingWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getUserFollowingWithAccountId: (NSNumber*) accountId
     vatomUserId: (NSString*) vatomUserId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -3373,12 +2883,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/users/rels/following"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/users/rels/following"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -3433,8 +2940,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Get User Info
 /// Get a User's Info.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param vatomUserId Vatom User Id 
@@ -3443,22 +2948,10 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) getUserInfoWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getUserInfoWithAccountId: (NSNumber*) accountId
     vatomUserId: (NSString*) vatomUserId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -3481,12 +2974,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/user/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/user/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -3541,29 +3031,15 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Get Vatom User Profile
 /// Gets the logged in user's profile in Vatom.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param returnRawResponse Return raw response (optional)
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) getUserProfileWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getUserProfileWithAccountId: (NSNumber*) accountId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -3575,12 +3051,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/me/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/me/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -3632,8 +3105,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Get Vatom Event
 /// Gets the details of a event.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -3644,23 +3115,11 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) getVatomEventWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getVatomEventWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomEventId: (NSString*) vatomEventId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -3694,12 +3153,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/events/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/events/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -3757,8 +3213,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Get Vatom NFT Details
 /// Get Vatom NFT Details
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param vatomId Vatom NFT Id 
@@ -3767,22 +3221,10 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) getVatomNFTWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getVatomNFTWithAccountId: (NSNumber*) accountId
     vatomId: (NSString*) vatomId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -3805,12 +3247,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/vatoms/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/vatoms/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -3865,8 +3304,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// List Vatom Communities
 /// Gets the communities tied to a business.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -3877,23 +3314,11 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) listCommunitiesWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) listCommunitiesWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -3916,12 +3341,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/communities/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/communities/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -3979,8 +3401,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// List Vatom Events
 /// Gets the events tied to a business.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -3991,23 +3411,11 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) listEventsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) listEventsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -4030,12 +3438,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/events/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/events/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -4093,8 +3498,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// List Vatom Spaces
 /// Gets the spaces tied to a business.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -4105,23 +3508,11 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) listSpacesWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) listSpacesWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -4144,12 +3535,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/spaces/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/spaces/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -4207,8 +3595,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// List Coin Transactions for a Vatom User
 /// Gets the logged in user's Vatom coin transactions.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param vatomUserId Vatom User Id 
@@ -4219,23 +3605,11 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) listUserCoinTransactionsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) listUserCoinTransactionsWithAccountId: (NSNumber*) accountId
     vatomUserId: (NSString*) vatomUserId
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -4258,12 +3632,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/u/coins/txns/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/u/coins/txns/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -4321,8 +3692,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// List coin transactions for a user (as a Business)
 /// List coin transactions for a user (as a Business).
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param vatomUserId Vatom User Id 
@@ -4335,24 +3704,12 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) listUserCoinTransactionsAsBusinessWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) listUserCoinTransactionsAsBusinessWithAccountId: (NSNumber*) accountId
     vatomUserId: (NSString*) vatomUserId
     appKey: (NSString*) appKey
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -4386,12 +3743,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/users/coins/txns/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/users/coins/txns/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -4452,8 +3806,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Perform Action on NFT
 /// Perform Action on NFT.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param vatomId Vatom NFT Id 
@@ -4466,24 +3818,12 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) performActionOnNFTWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) performActionOnNFTWithAccountId: (NSNumber*) accountId
     vatomId: (NSString*) vatomId
     vatomAction: (NSString*) vatomAction
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -4528,12 +3868,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/me/vatoms/actions"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/me/vatoms/actions"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -4594,8 +3931,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Redeem NFT
 /// Redeem an NFT.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -4606,23 +3941,11 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) redeemNFTWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) redeemNFTWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -4656,12 +3979,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/redemptions"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/redemptions"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -4719,8 +4039,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Redeem the coins for a user (as a Business)
 /// Redeem the coins for a user (as a Business).
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param vatomUserId Vatom User Id 
@@ -4733,24 +4051,12 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) redeemUserCoinsAsBusinessWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) redeemUserCoinsAsBusinessWithAccountId: (NSNumber*) accountId
     vatomUserId: (NSString*) vatomUserId
     appKey: (NSString*) appKey
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -4795,12 +4101,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/users/coins/redeem"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/users/coins/redeem"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -4861,8 +4164,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Search for Vatom Businesses
 /// Searches for Vatom businesses.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param vatomParameters Vatom Parameters (optional)
@@ -4871,22 +4172,10 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) searchBusinessesWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchBusinessesWithAccountId: (NSNumber*) accountId
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -4898,12 +4187,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -4958,8 +4244,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Search Campaign Groups
 /// Search campaign groups.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -4968,22 +4252,10 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) searchCampaignGroupsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchCampaignGroupsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -5006,12 +4278,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/campaign-groups/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/campaign-groups/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -5066,29 +4335,15 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Search User Identities
 /// Search User Identities.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param returnRawResponse Return raw response (optional)
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) searchIdentitiesWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchIdentitiesWithAccountId: (NSNumber*) accountId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -5100,12 +4355,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/me/identities/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/me/identities/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -5157,8 +4409,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Search Vatom User's Inventory
 /// Searches the logged in user's Vatom Inventory.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param vatomParameters Vatom Parameters (optional)
@@ -5167,22 +4417,10 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) searchInventoryWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchInventoryWithAccountId: (NSNumber*) accountId
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -5194,12 +4432,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/user-inventory/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/user-inventory/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -5254,8 +4489,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Send NFT
 /// Send an NFT.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -5268,24 +4501,12 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) sendNFTWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) sendNFTWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomCampaignId: (NSString*) vatomCampaignId
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -5330,12 +4551,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/campaigns/send"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/campaigns/send"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -5396,8 +4614,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Set Points Balance as Business
 /// Sets the points balance of a Vatom user.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -5412,25 +4628,13 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) setPointsBalanceAsBusinessWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) setPointsBalanceAsBusinessWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomUserId: (NSString*) vatomUserId
     vatomCampaignId: (NSString*) vatomCampaignId
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -5486,12 +4690,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/campaign/u/points/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/campaign/u/points/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -5555,8 +4756,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Transfer coins from Vatom Users
 /// Transfer coins from Vatom Users.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param vatomUserId Vatom User Id 
@@ -5567,23 +4766,11 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) transferUserCoinsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) transferUserCoinsWithAccountId: (NSNumber*) accountId
     vatomUserId: (NSString*) vatomUserId
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -5617,12 +4804,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/u/coins/transfer"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/u/coins/transfer"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -5680,8 +4864,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Fund coins for a Business
 /// Fund/update coins for a Businesss.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -5692,23 +4874,11 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) updateBusinessCoinsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateBusinessCoinsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -5742,12 +4912,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/coins/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/coins/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -5805,8 +4972,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Update Vatom Event Guest List
 /// Update the guest list of an event.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -5819,24 +4984,12 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) updateEventGuestListWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateEventGuestListWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomEventId: (NSString*) vatomEventId
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -5881,12 +5034,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/events/guests/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/events/guests/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -5947,8 +5097,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Update Vatom Space
 /// Update a Vatom space.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -5961,24 +5109,12 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) updateSpaceWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateSpaceWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomSpaceId: (NSString*) vatomSpaceId
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -6023,12 +5159,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/spaces/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/spaces/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -6089,8 +5222,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Update the coins for a user (as a Business)
 /// Update the coins for a user (as a Business).
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param vatomUserId Vatom User Id 
@@ -6103,24 +5234,12 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) updateUserCoinsAsBusinessWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateUserCoinsAsBusinessWithAccountId: (NSNumber*) accountId
     vatomUserId: (NSString*) vatomUserId
     appKey: (NSString*) appKey
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -6165,12 +5284,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/users/coins/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/users/coins/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -6231,8 +5347,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Update Vatom User Profile
 /// Gets the logged in user's profile in Vatom.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param vatomParameters Vatom Parameters 
@@ -6241,22 +5355,10 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) updateUserProfileWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateUserProfileWithAccountId: (NSNumber*) accountId
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -6279,12 +5381,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/me/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/me/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -6339,8 +5438,6 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 /// Update Vatom Event
 /// Update a Vatom event.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param appKey Sirqul Application Key 
@@ -6353,24 +5450,12 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) updateVatomEventWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateVatomEventWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomEventId: (NSString*) vatomEventId
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIVatomApiErrorDomain code:kOAIVatomApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -6415,12 +5500,9 @@ NSInteger kOAIVatomApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/vatom/b/events/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/vatom/b/events/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

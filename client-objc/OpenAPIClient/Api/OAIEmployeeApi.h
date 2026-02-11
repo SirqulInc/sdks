@@ -27,7 +27,6 @@ extern NSInteger kOAIEmployeeApiMissingParamErrorCode;
 /// Assign Employee
 /// Assign An existing account to be an employee
 ///
-/// @param version 
 /// @param accountId The account id of the logged in user
 /// @param managerAccountId The account id of the manager to assign under
 /// @param employeeAccountId The account id of the user to be assigned as employee
@@ -36,8 +35,7 @@ extern NSInteger kOAIEmployeeApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIEmployeeResponse*
--(NSURLSessionTask*) assignEmployeeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) assignEmployeeWithAccountId: (NSNumber*) accountId
     managerAccountId: (NSNumber*) managerAccountId
     employeeAccountId: (NSNumber*) employeeAccountId
     role: (NSString*) role
@@ -47,7 +45,6 @@ extern NSInteger kOAIEmployeeApiMissingParamErrorCode;
 /// Assign Employee to Location
 /// Assign or unassign the account to a retailer location.
 ///
-/// @param version 
 /// @param accountId The account id of the logged in user
 /// @param retailerLocationId The retailer location to apply the change to
 /// @param employeeAccountId The account id of the user to apply the change to (optional)
@@ -56,8 +53,7 @@ extern NSInteger kOAIEmployeeApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) assignToLocationEmployeeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) assignToLocationEmployeeWithAccountId: (NSNumber*) accountId
     retailerLocationId: (NSNumber*) retailerLocationId
     employeeAccountId: (NSNumber*) employeeAccountId
     assign: (NSNumber*) assign
@@ -67,7 +63,6 @@ extern NSInteger kOAIEmployeeApiMissingParamErrorCode;
 /// Create Employee
 /// Create a new account record with the provided information.
 ///
-/// @param version 
 /// @param accountId The account id of the logged in user
 /// @param managerAccountId The account id of the manager to assign under
 /// @param username The username/email for the new user. This must be unique across the entire the system.
@@ -102,8 +97,7 @@ extern NSInteger kOAIEmployeeApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIEmployeeResponse*
--(NSURLSessionTask*) createEmployeeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createEmployeeWithAccountId: (NSNumber*) accountId
     managerAccountId: (NSNumber*) managerAccountId
     username: (NSString*) username
     password: (NSString*) password
@@ -139,15 +133,13 @@ extern NSInteger kOAIEmployeeApiMissingParamErrorCode;
 /// Delete Employee
 /// Set the deleted date field which marks the record as deleted.
 ///
-/// @param version 
 /// @param accountId the id of the logged in user
 /// @param employeeAccountId the id of the employee to delete
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteEmployeeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteEmployeeWithAccountId: (NSNumber*) accountId
     employeeAccountId: (NSNumber*) employeeAccountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -155,7 +147,6 @@ extern NSInteger kOAIEmployeeApiMissingParamErrorCode;
 /// Get Employee
 /// Get the account record for the account id provided.
 ///
-/// @param version 
 /// @param accountId the id of logged in user
 /// @param employeeAccountId the id of the employee account to get
 /// @param settingsAppKey Determines whether to return the application settings for the employee for a particular application (optional)
@@ -163,8 +154,7 @@ extern NSInteger kOAIEmployeeApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIEmployeeResponse*
--(NSURLSessionTask*) getEmployeeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getEmployeeWithAccountId: (NSNumber*) accountId
     employeeAccountId: (NSNumber*) employeeAccountId
     settingsAppKey: (NSString*) settingsAppKey
     completionHandler: (void (^)(OAIEmployeeResponse* output, NSError* error)) handler;
@@ -173,7 +163,6 @@ extern NSInteger kOAIEmployeeApiMissingParamErrorCode;
 /// Search Employees
 /// Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
 ///
-/// @param version 
 /// @param accountId The account id of the logged in user
 /// @param role The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles. (optional)
 /// @param retailerId Filters employees by retailer (optional)
@@ -195,8 +184,7 @@ extern NSInteger kOAIEmployeeApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIEmployeeResponse>*
--(NSURLSessionTask*) searchEmployeesWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchEmployeesWithAccountId: (NSNumber*) accountId
     role: (NSString*) role
     retailerId: (NSNumber*) retailerId
     retailerLocationId: (NSNumber*) retailerLocationId
@@ -219,15 +207,13 @@ extern NSInteger kOAIEmployeeApiMissingParamErrorCode;
 /// Unassign Employee
 /// Unassign An existing account to be an employee
 ///
-/// @param version 
 /// @param accountId The account id of the logged in user
 /// @param employeeAccountId The account id of the user to be unassigned
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIEmployeeResponse*
--(NSURLSessionTask*) unassignEmployeeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) unassignEmployeeWithAccountId: (NSNumber*) accountId
     employeeAccountId: (NSNumber*) employeeAccountId
     completionHandler: (void (^)(OAIEmployeeResponse* output, NSError* error)) handler;
 
@@ -235,7 +221,6 @@ extern NSInteger kOAIEmployeeApiMissingParamErrorCode;
 /// Update Employee
 /// Update the account record with the provided information.
 ///
-/// @param version 
 /// @param accountId The account id of the logged in user
 /// @param employeeAccountId the id of the employee account
 /// @param managerAccountId The account id of the manager to assign under (optional)
@@ -270,8 +255,7 @@ extern NSInteger kOAIEmployeeApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIEmployeeResponse*
--(NSURLSessionTask*) updateEmployeeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateEmployeeWithAccountId: (NSNumber*) accountId
     employeeAccountId: (NSNumber*) employeeAccountId
     managerAccountId: (NSNumber*) managerAccountId
     name: (NSString*) name

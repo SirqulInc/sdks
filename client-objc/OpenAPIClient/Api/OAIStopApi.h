@@ -26,29 +26,25 @@ extern NSInteger kOAIStopApiMissingParamErrorCode;
 /// Get Stop
 /// Get an existing stop
 ///
-/// @param version 
 /// @param _id the id of the stop to get
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIStop*
--(NSURLSessionTask*) getStopWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) getStopWithId: (NSNumber*) _id
     completionHandler: (void (^)(OAIStop* output, NSError* error)) handler;
 
 
 /// Update Stop
 /// Update an existing stop
 ///
-/// @param version 
 /// @param _id the id of the stop to update
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIStop*
--(NSURLSessionTask*) updateStopWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) updateStopWithId: (NSNumber*) _id
     body: (OAIStop*) body
     completionHandler: (void (^)(OAIStop* output, NSError* error)) handler;
 

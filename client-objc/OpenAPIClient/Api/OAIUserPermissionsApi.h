@@ -27,7 +27,6 @@ extern NSInteger kOAIUserPermissionsApiMissingParamErrorCode;
 /// Add User
 /// Adds a user to a permissionable object.
 ///
-/// @param version 
 /// @param permissionableType the permissionable type of the object
 /// @param permissionableId the id of the permissionable object
 /// @param deviceId the device id (deviceId or accountId required) (optional)
@@ -49,8 +48,7 @@ extern NSInteger kOAIUserPermissionsApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) addUsersToPermissionableWithVersion: (NSNumber*) version
-    permissionableType: (NSString*) permissionableType
+-(NSURLSessionTask*) addUsersToPermissionableWithPermissionableType: (NSString*) permissionableType
     permissionableId: (NSNumber*) permissionableId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -73,7 +71,6 @@ extern NSInteger kOAIUserPermissionsApiMissingParamErrorCode;
 /// Approve Permissionable
 /// Sets the approval status of a permissionable object.
 ///
-/// @param version 
 /// @param permissionableType The permissionable type of the object
 /// @param permissionableId The id of the permissionable object
 /// @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -83,8 +80,7 @@ extern NSInteger kOAIUserPermissionsApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) approvePermissionableWithVersion: (NSNumber*) version
-    permissionableType: (NSString*) permissionableType
+-(NSURLSessionTask*) approvePermissionableWithPermissionableType: (NSString*) permissionableType
     permissionableId: (NSNumber*) permissionableId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -95,7 +91,6 @@ extern NSInteger kOAIUserPermissionsApiMissingParamErrorCode;
 /// Leave
 /// Used when the user wants to leave from someone else's permissionable object
 ///
-/// @param version 
 /// @param permissionableType the permissionable type PermissionableType
 /// @param permissionableId the id of the permissionable object
 /// @param deviceId the device id (deviceId or accountId required) (optional)
@@ -106,8 +101,7 @@ extern NSInteger kOAIUserPermissionsApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) leaveFromPermissionableWithVersion: (NSNumber*) version
-    permissionableType: (NSString*) permissionableType
+-(NSURLSessionTask*) leaveFromPermissionableWithPermissionableType: (NSString*) permissionableType
     permissionableId: (NSNumber*) permissionableId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -119,7 +113,6 @@ extern NSInteger kOAIUserPermissionsApiMissingParamErrorCode;
 /// Remove User
 /// Used to remove someone (assuming they have permission) from a permissionable object
 ///
-/// @param version 
 /// @param permissionableType the permissionable type of the object
 /// @param permissionableId the id of the permissionable object
 /// @param deviceId the device id (deviceId or accountId required) (optional)
@@ -135,8 +128,7 @@ extern NSInteger kOAIUserPermissionsApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) removeUsersFromPermissionableWithVersion: (NSNumber*) version
-    permissionableType: (NSString*) permissionableType
+-(NSURLSessionTask*) removeUsersFromPermissionableWithPermissionableType: (NSString*) permissionableType
     permissionableId: (NSNumber*) permissionableId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -153,7 +145,6 @@ extern NSInteger kOAIUserPermissionsApiMissingParamErrorCode;
 /// Search Permissionables
 /// Search on UserPermissions
 ///
-/// @param version 
 /// @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
 /// @param accountId The account ID of the user (deviceId or accountId required) (optional)
 /// @param connectionAccountId Filter results for a specific user account (optional)
@@ -171,8 +162,7 @@ extern NSInteger kOAIUserPermissionsApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIUserPermissionsResponse>*
--(NSURLSessionTask*) searchPermissionablesWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) searchPermissionablesWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     connectionAccountId: (NSNumber*) connectionAccountId
     connectionAccountIds: (NSString*) connectionAccountIds
@@ -191,7 +181,6 @@ extern NSInteger kOAIUserPermissionsApiMissingParamErrorCode;
 /// Search Permissionables by Distnace
 /// Search on UserPermissions by distance
 ///
-/// @param version 
 /// @param latitude The latitude of the current account
 /// @param longitude The longitude of the current account
 /// @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -210,8 +199,7 @@ extern NSInteger kOAIUserPermissionsApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIUserPermissionsResponse>*
--(NSURLSessionTask*) searchPermissionablesFollowingDistanceWithVersion: (NSNumber*) version
-    latitude: (NSNumber*) latitude
+-(NSURLSessionTask*) searchPermissionablesFollowingDistanceWithLatitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId

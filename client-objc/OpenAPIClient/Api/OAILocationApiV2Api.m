@@ -53,32 +53,15 @@ NSInteger kOAILocationApiV2ApiMissingParamErrorCode = 234513;
 ///
 /// Create new location
 /// Create a new location from a real object location.
-///  @param version  
-///
 ///  @param body  (optional)
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) createLocationV2WithVersion: (NSNumber*) version
-    body: (OAILocation*) body
+-(NSURLSessionTask*) createLocationV2WithBody: (OAILocation*) body
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAILocationApiV2ApiErrorDomain code:kOAILocationApiV2ApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/location"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/location"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
@@ -125,29 +108,15 @@ NSInteger kOAILocationApiV2ApiMissingParamErrorCode = 234513;
 ///
 /// Update an existing location
 /// Update an existing location
-///  @param version  
-///
 ///  @param _id the id of the location to update 
 ///
 ///  @param body  (optional)
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) updateLocationV2WithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) updateLocationV2WithId: (NSNumber*) _id
     body: (OAILocation*) body
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAILocationApiV2ApiErrorDomain code:kOAILocationApiV2ApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -159,12 +128,9 @@ NSInteger kOAILocationApiV2ApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/location/{id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/location/{id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }

@@ -58,8 +58,6 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 /// Update Offer Locations
 /// Batch update offer locations.
-///  @param version  
-///
 ///  @param data JSON string in the following format: ```json [{   \"offerLocationId\": 1705,   \"latitude\": 54.0,   \"longitude\": -122.0,   \"altitude\": 1.0,   \"locationDetail\": \"floor 1\",   \"locationDescription\": \"behind the Coke sign\" }, {   \"offerLocationId\": 1704,   \"latitude\": 54.1,   \"longitude\": -122.1 }] ```  
 ///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
@@ -68,22 +66,10 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) batchUpdateOfferLocationsWithVersion: (NSNumber*) version
-    data: (NSString*) data
+-(NSURLSessionTask*) batchUpdateOfferLocationsWithData: (NSString*) data
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOfferApiErrorDomain code:kOAIOfferApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'data' is set
     if (data == nil) {
         NSParameterAssert(data);
@@ -95,12 +81,9 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/retailer/offer/location/batchUpdate"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/retailer/offer/location/batchUpdate"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -155,8 +138,6 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 /// Create Offer
 /// Create an offer and assign it to the provided retailer locations.
-///  @param version  
-///
 ///  @param includeOfferLocations If true return all the offer locations associated with the offer 
 ///
 ///  @param title The title (255 char limit) 
@@ -331,8 +312,7 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIRetailerOfferResponse*
 ///
--(NSURLSessionTask*) createOfferWithVersion: (NSNumber*) version
-    includeOfferLocations: (NSNumber*) includeOfferLocations
+-(NSURLSessionTask*) createOfferWithIncludeOfferLocations: (NSNumber*) includeOfferLocations
     title: (NSString*) title
     barcodeType: (NSString*) barcodeType
     noExpiration: (NSNumber*) noExpiration
@@ -419,17 +399,6 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
     availability: (NSString*) availability
     availabilitySummary: (NSString*) availabilitySummary
     completionHandler: (void (^)(OAIRetailerOfferResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOfferApiErrorDomain code:kOAIOfferApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'includeOfferLocations' is set
     if (includeOfferLocations == nil) {
         NSParameterAssert(includeOfferLocations);
@@ -606,12 +575,9 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/retailer/offer/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/retailer/offer/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -915,8 +881,6 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 /// Delete Offer
 /// Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
-///  @param version  
-///
 ///  @param offerId The ID of the offer to be deleted 
 ///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
@@ -925,22 +889,10 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteOfferWithVersion: (NSNumber*) version
-    offerId: (NSNumber*) offerId
+-(NSURLSessionTask*) deleteOfferWithOfferId: (NSNumber*) offerId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOfferApiErrorDomain code:kOAIOfferApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'offerId' is set
     if (offerId == nil) {
         NSParameterAssert(offerId);
@@ -952,12 +904,9 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/retailer/offer/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/retailer/offer/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -1012,8 +961,6 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 /// Delete Offer Location
 /// Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
-///  @param version  
-///
 ///  @param offerLocationId The ID of the offer location to be deleted 
 ///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
@@ -1022,22 +969,10 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteOfferLocationWithVersion: (NSNumber*) version
-    offerLocationId: (NSNumber*) offerLocationId
+-(NSURLSessionTask*) deleteOfferLocationWithOfferLocationId: (NSNumber*) offerLocationId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOfferApiErrorDomain code:kOAIOfferApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'offerLocationId' is set
     if (offerLocationId == nil) {
         NSParameterAssert(offerLocationId);
@@ -1049,12 +984,9 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/retailer/offer/location/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/retailer/offer/location/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -1109,8 +1041,6 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 /// Get Offer
 /// Gets the details of an offer that the user has access to.
-///  @param version  
-///
 ///  @param offerId The id of the offer 
 ///
 ///  @param includeOfferLocations  
@@ -1121,23 +1051,11 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIRetailerOfferResponse*
 ///
--(NSURLSessionTask*) getOfferWithVersion: (NSNumber*) version
-    offerId: (NSNumber*) offerId
+-(NSURLSessionTask*) getOfferWithOfferId: (NSNumber*) offerId
     includeOfferLocations: (NSNumber*) includeOfferLocations
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIRetailerOfferResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOfferApiErrorDomain code:kOAIOfferApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'offerId' is set
     if (offerId == nil) {
         NSParameterAssert(offerId);
@@ -1160,12 +1078,9 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/retailer/offer/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/retailer/offer/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -1223,8 +1138,6 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 /// Get Offer
 /// Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
-///  @param version  
-///
 ///  @param deviceId The device id for returning account information (i.e. favorites) (optional)
 ///
 ///  @param accountId The account id for returning account information (i.e. favorites) (optional)
@@ -1247,8 +1160,7 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIOfferResponse*
 ///
--(NSURLSessionTask*) getOfferDetailsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) getOfferDetailsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     offerId: (NSNumber*) offerId
     offerLocationId: (NSNumber*) offerLocationId
@@ -1259,23 +1171,9 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
     includeRetailerLocations: (NSNumber*) includeRetailerLocations
     includeChildOffers: (NSNumber*) includeChildOffers
     completionHandler: (void (^)(OAIOfferResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOfferApiErrorDomain code:kOAIOfferApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/offer/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/offer/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -1351,8 +1249,6 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 /// Get Offers (Counts)
 /// Gets the offer list counts.
-///  @param version  
-///
 ///  @param latitude The latitude of where the search will center at 
 ///
 ///  @param longitude The longitude of where the search will center at 
@@ -1363,23 +1259,11 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIListCountResponse*
 ///
--(NSURLSessionTask*) getOfferListCountsWithVersion: (NSNumber*) version
-    latitude: (NSNumber*) latitude
+-(NSURLSessionTask*) getOfferListCountsWithLatitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     searchRange: (NSNumber*) searchRange
     distanceUnit: (NSString*) distanceUnit
     completionHandler: (void (^)(OAIListCountResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOfferApiErrorDomain code:kOAIOfferApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'latitude' is set
     if (latitude == nil) {
         NSParameterAssert(latitude);
@@ -1402,12 +1286,9 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/offer/lists/count"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/offer/lists/count"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (latitude != nil) {
@@ -1465,35 +1346,18 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 /// Get Offer Location
 /// Gets the offer location by offer location id or udid (of a device)
-///  @param version  
-///
 ///  @param offerLocationId the id of the offer location to get (optional)
 ///
 ///  @param udid the UDID of the device (optional)
 ///
 ///  @returns OAIOfferShortResponse*
 ///
--(NSURLSessionTask*) getOfferLocationWithVersion: (NSNumber*) version
-    offerLocationId: (NSNumber*) offerLocationId
+-(NSURLSessionTask*) getOfferLocationWithOfferLocationId: (NSNumber*) offerLocationId
     udid: (NSString*) udid
     completionHandler: (void (^)(OAIOfferShortResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOfferApiErrorDomain code:kOAIOfferApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/offer/location/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/offer/location/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (offerLocationId != nil) {
@@ -1545,8 +1409,6 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 /// Search Offer Locations
 /// Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
-///  @param version  
-///
 ///  @param sortField The column to sort the results on. Default is \"TITLE\", which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} 
 ///
 ///  @param descending The order to return the results. Default is false, which will return the results in ascending order. 
@@ -1589,8 +1451,7 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIOfferShortResponse>*
 ///
--(NSURLSessionTask*) getOfferLocationsForRetailersWithVersion: (NSNumber*) version
-    sortField: (NSString*) sortField
+-(NSURLSessionTask*) getOfferLocationsForRetailersWithSortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
     limit: (NSNumber*) limit
@@ -1611,17 +1472,6 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
     needsNotificationSent: (NSNumber*) needsNotificationSent
     lastNotificationSent: (NSNumber*) lastNotificationSent
     completionHandler: (void (^)(NSArray<OAIOfferShortResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOfferApiErrorDomain code:kOAIOfferApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'sortField' is set
     if (sortField == nil) {
         NSParameterAssert(sortField);
@@ -1688,12 +1538,9 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/retailer/offer/location/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/retailer/offer/location/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -1799,8 +1646,6 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 /// Search Offers
 /// Searches on offers that the account has access to.
-///  @param version  
-///
 ///  @param offerVisibility  
 ///
 ///  @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY 
@@ -1865,8 +1710,7 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIOfferResponse>*
 ///
--(NSURLSessionTask*) getOffersForRetailersWithVersion: (NSNumber*) version
-    offerVisibility: (NSString*) offerVisibility
+-(NSURLSessionTask*) getOffersForRetailersWithOfferVisibility: (NSString*) offerVisibility
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
@@ -1898,17 +1742,6 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
     needsNotificationSent: (NSNumber*) needsNotificationSent
     lastNotificationSent: (NSNumber*) lastNotificationSent
     completionHandler: (void (^)(NSArray<OAIOfferResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOfferApiErrorDomain code:kOAIOfferApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'offerVisibility' is set
     if (offerVisibility == nil) {
         NSParameterAssert(offerVisibility);
@@ -2019,12 +1852,9 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/retailer/offer/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/retailer/offer/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -2163,8 +1993,6 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 /// Update Offer Transaction
 /// Redeems an offer.
-///  @param version  
-///
 ///  @param offerTransactionId the OfferTransaction ID of the transaction being redeemed 
 ///
 ///  @param status the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed 
@@ -2177,24 +2005,12 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) redeemOfferTransactionWithVersion: (NSNumber*) version
-    offerTransactionId: (NSNumber*) offerTransactionId
+-(NSURLSessionTask*) redeemOfferTransactionWithOfferTransactionId: (NSNumber*) offerTransactionId
     status: (NSNumber*) status
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     offerLocationId: (NSNumber*) offerLocationId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOfferApiErrorDomain code:kOAIOfferApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'offerTransactionId' is set
     if (offerTransactionId == nil) {
         NSParameterAssert(offerTransactionId);
@@ -2217,12 +2033,9 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/retailer/offer/transaction/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/retailer/offer/transaction/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -2283,8 +2096,6 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 /// Search Offer Transactions
 /// Searches on offer transactions for offers that the account has access to.
-///  @param version  
-///
 ///  @param sortField Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} 
 ///
 ///  @param descending Determines whether the results are in descending order 
@@ -2335,8 +2146,7 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIOfferTransactionResponse>*
 ///
--(NSURLSessionTask*) searchOfferTransactionsForRetailersWithVersion: (NSNumber*) version
-    sortField: (NSString*) sortField
+-(NSURLSessionTask*) searchOfferTransactionsForRetailersWithSortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
     limit: (NSNumber*) limit
@@ -2361,17 +2171,6 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
     i: (NSNumber*) i
     l: (NSNumber*) l
     completionHandler: (void (^)(NSArray<OAIOfferTransactionResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOfferApiErrorDomain code:kOAIOfferApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'sortField' is set
     if (sortField == nil) {
         NSParameterAssert(sortField);
@@ -2427,12 +2226,9 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/retailer/offer/transaction/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/retailer/offer/transaction/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -2550,8 +2346,6 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 /// Search Offers
 /// Searches for offers as a consumer.
-///  @param version  
-///
 ///  @param latitude The latitude of where the search will center at 
 ///
 ///  @param longitude The longitude of where the search will center at 
@@ -2616,8 +2410,7 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIOfferListResponse*
 ///
--(NSURLSessionTask*) searchOffersForConsumerWithVersion: (NSNumber*) version
-    latitude: (NSNumber*) latitude
+-(NSURLSessionTask*) searchOffersForConsumerWithLatitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     recommendationType: (NSString*) recommendationType
     locationId: (NSNumber*) locationId
@@ -2649,17 +2442,6 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
     searchExpression: (NSString*) searchExpression
     groupBy: (NSString*) groupBy
     completionHandler: (void (^)(OAIOfferListResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOfferApiErrorDomain code:kOAIOfferApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'latitude' is set
     if (latitude == nil) {
         NSParameterAssert(latitude);
@@ -2748,12 +2530,9 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/offer/lists"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/offer/lists"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (appKey != nil) {
@@ -2892,35 +2671,18 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 /// Get Offers (Top)
 /// Gets the top active offers.
-///  @param version  
-///
 ///  @param start The index into the record set to start with. Default is 0. (optional, default to @0)
 ///
 ///  @param limit The total number of record to return. Default id 20. (optional, default to @20)
 ///
 ///  @returns OAIOfferListResponse*
 ///
--(NSURLSessionTask*) topOfferTransactionsWithVersion: (NSNumber*) version
-    start: (NSNumber*) start
+-(NSURLSessionTask*) topOfferTransactionsWithStart: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(OAIOfferListResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOfferApiErrorDomain code:kOAIOfferApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/offer/top"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/offer/top"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (start != nil) {
@@ -2972,8 +2734,6 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 /// Update Offer
 /// Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
-///  @param version  
-///
 ///  @param offerId The offer to update 
 ///
 ///  @param includeOfferLocations If true return all the offer locations associated with the offer 
@@ -3150,8 +2910,7 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIRetailerOfferResponse*
 ///
--(NSURLSessionTask*) updateOfferWithVersion: (NSNumber*) version
-    offerId: (NSNumber*) offerId
+-(NSURLSessionTask*) updateOfferWithOfferId: (NSNumber*) offerId
     includeOfferLocations: (NSNumber*) includeOfferLocations
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -3239,17 +2998,6 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
     availability: (NSString*) availability
     availabilitySummary: (NSString*) availabilitySummary
     completionHandler: (void (^)(OAIRetailerOfferResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOfferApiErrorDomain code:kOAIOfferApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'offerId' is set
     if (offerId == nil) {
         NSParameterAssert(offerId);
@@ -3272,12 +3020,9 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/retailer/offer/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/retailer/offer/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -3584,8 +3329,6 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 /// Activate Offer
 /// Sets the activated date on offers. This will make offers visible for consumers.
-///  @param version  
-///
 ///  @param offerIds Comma separated list of offer ids 
 ///
 ///  @param active Determines whether to make the offer active as well 
@@ -3596,23 +3339,11 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) updateOfferStatusWithVersion: (NSNumber*) version
-    offerIds: (NSString*) offerIds
+-(NSURLSessionTask*) updateOfferStatusWithOfferIds: (NSString*) offerIds
     active: (NSNumber*) active
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOfferApiErrorDomain code:kOAIOfferApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'offerIds' is set
     if (offerIds == nil) {
         NSParameterAssert(offerIds);
@@ -3635,12 +3366,9 @@ NSInteger kOAIOfferApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/retailer/offer/status"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/retailer/offer/status"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {

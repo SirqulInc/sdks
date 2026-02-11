@@ -27,7 +27,6 @@ extern NSInteger kOAIFacebookApiMissingParamErrorCode;
 /// Get Facebook Token
 /// Gets a user's Facebook token.
 ///
-/// @param version 
 /// @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
 /// @param accountId the account id of the user (deviceId or accountId required) (optional)
 /// @param latitude used to update the user&#39;s current location (optional)
@@ -36,8 +35,7 @@ extern NSInteger kOAIFacebookApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAITokenResponse*
--(NSURLSessionTask*) getTokenWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) getTokenWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
@@ -47,7 +45,6 @@ extern NSInteger kOAIFacebookApiMissingParamErrorCode;
 /// Post to Facebook
 /// Make Facebook posts on behalf of the user.
 ///
-/// @param version 
 /// @param event the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}
 /// @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
 /// @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -62,8 +59,7 @@ extern NSInteger kOAIFacebookApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) graphInterfaceWithVersion: (NSNumber*) version
-    event: (NSString*) event
+-(NSURLSessionTask*) graphInterfaceWithEvent: (NSString*) event
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     permissionableType: (NSString*) permissionableType

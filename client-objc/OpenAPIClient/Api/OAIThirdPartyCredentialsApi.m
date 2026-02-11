@@ -56,8 +56,6 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
 ///
 /// Create Credential
 /// This endpoint creates a third-party login for a Sirqul account. A third party login is a way for external systems (Third Party Networks) to link their own user accounts with a Sirqul account.   The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user's third-party login credentials for the user with the same thirdPartyId and networkUID combination.    The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
-///  @param version  
-///
 ///  @param thirdPartyId the third party user account id 
 ///
 ///  @param thirdPartyToken the access token to authenticate with (ex: username or fb token or phone number) 
@@ -94,8 +92,7 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIProfileResponse*
 ///
--(NSURLSessionTask*) createCredentialWithVersion: (NSNumber*) version
-    thirdPartyId: (NSString*) thirdPartyId
+-(NSURLSessionTask*) createCredentialWithThirdPartyId: (NSString*) thirdPartyId
     thirdPartyToken: (NSString*) thirdPartyToken
     networkUID: (NSString*) networkUID
     appKey: (NSString*) appKey
@@ -113,17 +110,6 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
     audienceIdsToAdd: (NSString*) audienceIdsToAdd
     audienceIdsToRemove: (NSString*) audienceIdsToRemove
     completionHandler: (void (^)(OAIProfileResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIThirdPartyCredentialsApiErrorDomain code:kOAIThirdPartyCredentialsApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'thirdPartyId' is set
     if (thirdPartyId == nil) {
         NSParameterAssert(thirdPartyId);
@@ -168,12 +154,9 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/thirdparty/credential/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/thirdparty/credential/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -270,8 +253,6 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
 ///
 /// Create Network
 /// Creates a custom third party network.
-///  @param version  
-///
 ///  @param accountId The account id making the request 
 ///
 ///  @param name The name of the network 
@@ -308,8 +289,7 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIThirdPartyNetworkResponse*
 ///
--(NSURLSessionTask*) createNetworkWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createNetworkWithAccountId: (NSNumber*) accountId
     name: (NSString*) name
     enableIntrospection: (NSNumber*) enableIntrospection
     _description: (NSString*) _description
@@ -327,17 +307,6 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
     oauthSecretKey: (NSString*) oauthSecretKey
     body: (NSString*) body
     completionHandler: (void (^)(OAIThirdPartyNetworkResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIThirdPartyCredentialsApiErrorDomain code:kOAIThirdPartyCredentialsApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -371,12 +340,9 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/thirdparty/network/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/thirdparty/network/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -471,8 +437,6 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
 ///
 /// Delete Credential
 /// Delete a third party network on a Sirqul account.
-///  @param version  
-///
 ///  @param accountId The account id of the user 
 ///
 ///  @param networkUID The third party network identifier 
@@ -483,23 +447,11 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteCredentialWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteCredentialWithAccountId: (NSNumber*) accountId
     networkUID: (NSString*) networkUID
     thirdPartyId: (NSString*) thirdPartyId
     appKey: (NSString*) appKey
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIThirdPartyCredentialsApiErrorDomain code:kOAIThirdPartyCredentialsApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -544,12 +496,9 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/thirdparty/credential/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/thirdparty/credential/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -607,29 +556,15 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
 ///
 /// Delete Network
 /// Marks a custom third party network as deleted. Only the network owners and managers have access to this.
-///  @param version  
-///
 ///  @param accountId the id of the logged in user 
 ///
 ///  @param networkUID The unique identifier for the third party network defined by Sirqul 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteNetworkWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteNetworkWithAccountId: (NSNumber*) accountId
     networkUID: (NSString*) networkUID
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIThirdPartyCredentialsApiErrorDomain code:kOAIThirdPartyCredentialsApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -652,12 +587,9 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/thirdparty/network/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/thirdparty/network/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -709,8 +641,6 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
 ///
 /// Get Credential
 /// Gets the account information given a third party token.
-///  @param version  
-///
 ///  @param networkUID the access provider to authenticate against 
 ///
 ///  @param appKey the application key 
@@ -743,8 +673,7 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIProfileResponse*
 ///
--(NSURLSessionTask*) getCredentialWithVersion: (NSNumber*) version
-    networkUID: (NSString*) networkUID
+-(NSURLSessionTask*) getCredentialWithNetworkUID: (NSString*) networkUID
     appKey: (NSString*) appKey
     accountId: (NSNumber*) accountId
     deviceId: (NSString*) deviceId
@@ -760,17 +689,6 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
     audienceIdsToRemove: (NSString*) audienceIdsToRemove
     referralAccountId: (NSNumber*) referralAccountId
     completionHandler: (void (^)(OAIProfileResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIThirdPartyCredentialsApiErrorDomain code:kOAIThirdPartyCredentialsApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'networkUID' is set
     if (networkUID == nil) {
         NSParameterAssert(networkUID);
@@ -793,12 +711,9 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/thirdparty/credential/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/thirdparty/credential/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -889,29 +804,15 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
 ///
 /// Get Network
 /// Get the details of a third party network. Only the network owners and managers have access to this.
-///  @param version  
-///
 ///  @param accountId The account id making the request 
 ///
 ///  @param networkUID The unique identifier for the third party network defined by Sirqul 
 ///
 ///  @returns OAIThirdPartyNetworkResponse*
 ///
--(NSURLSessionTask*) getNetworkWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getNetworkWithAccountId: (NSNumber*) accountId
     networkUID: (NSString*) networkUID
     completionHandler: (void (^)(OAIThirdPartyNetworkResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIThirdPartyCredentialsApiErrorDomain code:kOAIThirdPartyCredentialsApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -934,12 +835,9 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/thirdparty/network/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/thirdparty/network/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -991,8 +889,6 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
 ///
 /// Search Credentials
 /// Search on a user's linked third party networks.
-///  @param version  
-///
 ///  @param accountId The account id of the user 
 ///
 ///  @param keyword The keyword used to search on the third party name and network string (optional)
@@ -1007,25 +903,13 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIThirdPartyCredentialResponse>*
 ///
--(NSURLSessionTask*) searchCredentialsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchCredentialsWithAccountId: (NSNumber*) accountId
     keyword: (NSString*) keyword
     networkUID: (NSString*) networkUID
     descending: (NSNumber*) descending
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSArray<OAIThirdPartyCredentialResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIThirdPartyCredentialsApiErrorDomain code:kOAIThirdPartyCredentialsApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1037,12 +921,9 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/thirdparty/credential/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/thirdparty/credential/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1106,8 +987,6 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
 ///
 /// Search Networks
 /// Search on supported third party networks and custom networks from external users.
-///  @param version  
-///
 ///  @param accountId The account id making the request 
 ///
 ///  @param sortField The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME 
@@ -1126,8 +1005,7 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIThirdPartyNetworkShortResponse>*
 ///
--(NSURLSessionTask*) searchNetworksWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchNetworksWithAccountId: (NSNumber*) accountId
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
@@ -1136,17 +1014,6 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
     keyword: (NSString*) keyword
     filterBillable: (NSNumber*) filterBillable
     completionHandler: (void (^)(NSArray<OAIThirdPartyNetworkShortResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIThirdPartyCredentialsApiErrorDomain code:kOAIThirdPartyCredentialsApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1213,12 +1080,9 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/thirdparty/network/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/thirdparty/network/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1288,8 +1152,6 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
 ///
 /// Send MFA Challenge
 /// Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
-///  @param version  
-///
 ///  @param networkUID the third party network provider that has MFA enabled 
 ///
 ///  @param appKey the application key 
@@ -1302,24 +1164,12 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) sendMFAChallengeWithVersion: (NSNumber*) version
-    networkUID: (NSString*) networkUID
+-(NSURLSessionTask*) sendMFAChallengeWithNetworkUID: (NSString*) networkUID
     appKey: (NSString*) appKey
     thirdPartyToken: (NSString*) thirdPartyToken
     thirdPartyCredentialId: (NSNumber*) thirdPartyCredentialId
     deviceId: (NSString*) deviceId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIThirdPartyCredentialsApiErrorDomain code:kOAIThirdPartyCredentialsApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'networkUID' is set
     if (networkUID == nil) {
         NSParameterAssert(networkUID);
@@ -1342,12 +1192,9 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/thirdparty/credential/mfa/send"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/thirdparty/credential/mfa/send"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (thirdPartyToken != nil) {
@@ -1408,8 +1255,6 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
 ///
 /// Update Credential
 /// Updates a third-party login for an account.
-///  @param version  
-///
 ///  @param networkUID the access provider to authenticate against 
 ///
 ///  @param thirdPartyId the third party user account id 
@@ -1430,8 +1275,7 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIProfileResponse*
 ///
--(NSURLSessionTask*) updateCredentialWithVersion: (NSNumber*) version
-    networkUID: (NSString*) networkUID
+-(NSURLSessionTask*) updateCredentialWithNetworkUID: (NSString*) networkUID
     thirdPartyId: (NSString*) thirdPartyId
     appKey: (NSString*) appKey
     deviceId: (NSString*) deviceId
@@ -1441,17 +1285,6 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
     metaData: (NSString*) metaData
     thirdPartyRefreshToken: (NSString*) thirdPartyRefreshToken
     completionHandler: (void (^)(OAIProfileResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIThirdPartyCredentialsApiErrorDomain code:kOAIThirdPartyCredentialsApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'networkUID' is set
     if (networkUID == nil) {
         NSParameterAssert(networkUID);
@@ -1485,12 +1318,9 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/thirdparty/credential/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/thirdparty/credential/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -1563,8 +1393,6 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
 ///
 /// Update Network
 /// Updates a custom third party network. Only the network owners and managers have access to this.
-///  @param version  
-///
 ///  @param accountId The account id making the request 
 ///
 ///  @param networkUID The unique identifier for the third party network defined by Sirqul 
@@ -1603,8 +1431,7 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIThirdPartyNetworkResponse*
 ///
--(NSURLSessionTask*) updateNetworkWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateNetworkWithAccountId: (NSNumber*) accountId
     networkUID: (NSString*) networkUID
     name: (NSString*) name
     _description: (NSString*) _description
@@ -1623,17 +1450,6 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
     oauthSecretKey: (NSString*) oauthSecretKey
     body: (NSString*) body
     completionHandler: (void (^)(OAIThirdPartyNetworkResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIThirdPartyCredentialsApiErrorDomain code:kOAIThirdPartyCredentialsApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1656,12 +1472,9 @@ NSInteger kOAIThirdPartyCredentialsApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/thirdparty/network/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/thirdparty/network/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

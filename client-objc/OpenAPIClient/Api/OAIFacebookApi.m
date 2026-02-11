@@ -53,8 +53,6 @@ NSInteger kOAIFacebookApiMissingParamErrorCode = 234513;
 ///
 /// Get Facebook Token
 /// Gets a user's Facebook token.
-///  @param version  
-///
 ///  @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
 ///
 ///  @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -65,29 +63,14 @@ NSInteger kOAIFacebookApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAITokenResponse*
 ///
--(NSURLSessionTask*) getTokenWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) getTokenWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAITokenResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIFacebookApiErrorDomain code:kOAIFacebookApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/facebook/getfbtoken"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/facebook/getfbtoken"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -145,8 +128,6 @@ NSInteger kOAIFacebookApiMissingParamErrorCode = 234513;
 ///
 /// Post to Facebook
 /// Make Facebook posts on behalf of the user.
-///  @param version  
-///
 ///  @param event the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED} 
 ///
 ///  @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
@@ -169,8 +150,7 @@ NSInteger kOAIFacebookApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) graphInterfaceWithVersion: (NSNumber*) version
-    event: (NSString*) event
+-(NSURLSessionTask*) graphInterfaceWithEvent: (NSString*) event
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     permissionableType: (NSString*) permissionableType
@@ -181,17 +161,6 @@ NSInteger kOAIFacebookApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIFacebookApiErrorDomain code:kOAIFacebookApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'event' is set
     if (event == nil) {
         NSParameterAssert(event);
@@ -203,12 +172,9 @@ NSInteger kOAIFacebookApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/facebook/graph"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/facebook/graph"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {

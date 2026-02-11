@@ -52,8 +52,6 @@ NSInteger kOAITwilioApiMissingParamErrorCode = 234513;
 ///
 /// Buy Offer by SMS
 /// Recieve an SMS payload from Twillio to purchase an offer.
-///  @param version  
-///
 ///  @param appKey the application key 
 ///
 ///  @param body the message of the text 
@@ -64,23 +62,11 @@ NSInteger kOAITwilioApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAITwiMLResponse*
 ///
--(NSURLSessionTask*) smsBuyOfferWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) smsBuyOfferWithAppKey: (NSString*) appKey
     body: (NSString*) body
     from: (NSString*) from
     currencyType: (NSString*) currencyType
     completionHandler: (void (^)(OAITwiMLResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITwilioApiErrorDomain code:kOAITwilioApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'appKey' is set
     if (appKey == nil) {
         NSParameterAssert(appKey);
@@ -125,12 +111,9 @@ NSInteger kOAITwilioApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/sms/buyoffer/{appKey}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/sms/buyoffer/{appKey}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (appKey != nil) {
         pathParams[@"appKey"] = appKey;
     }

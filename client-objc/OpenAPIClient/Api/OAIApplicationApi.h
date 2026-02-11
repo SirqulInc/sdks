@@ -31,7 +31,6 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 /// Create Application
 /// Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
 ///
-/// @param version 
 /// @param appName The name of the application
 /// @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -115,8 +114,7 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIApplicationResponse*
--(NSURLSessionTask*) createApplicationWithVersion: (NSNumber*) version
-    appName: (NSString*) appName
+-(NSURLSessionTask*) createApplicationWithAppName: (NSString*) appName
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     about: (NSString*) about
@@ -201,7 +199,6 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 /// Create Ad Placement
 /// Creates a new ad placement for an application.
 ///
-/// @param version 
 /// @param appKey The appKey of the application the ad placement is for
 /// @param size The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM
 /// @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -217,8 +214,7 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPlacementResponse*
--(NSURLSessionTask*) createApplicationPlacementWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) createApplicationPlacementWithAppKey: (NSString*) appKey
     size: (NSString*) size
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -235,15 +231,13 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 /// Delete Application
 /// Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
 ///
-/// @param version 
 /// @param accountId The account used to perform the delete, must have rights to edit the application. (optional)
 /// @param appKey The key of the application to be deleted (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteApplicationWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteApplicationWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -251,7 +245,6 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 /// Delete Ad Placement
 /// Deletes an ad placement for an application.
 ///
-/// @param version 
 /// @param placementId The id of the placement to delete, the user must have rights to the application the ad placement is for
 /// @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -259,8 +252,7 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPlacementResponse*
--(NSURLSessionTask*) deleteApplicationPlacementWithVersion: (NSNumber*) version
-    placementId: (NSNumber*) placementId
+-(NSURLSessionTask*) deleteApplicationPlacementWithPlacementId: (NSNumber*) placementId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIPlacementResponse* output, NSError* error)) handler;
@@ -269,15 +261,13 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 /// Get Application
 /// Get a specific application by appKey
 ///
-/// @param version 
 /// @param appKey The key of the application (optional)
 /// @param applicationId Application Id (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIApplicationResponse*
--(NSURLSessionTask*) getApplicationWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) getApplicationWithAppKey: (NSString*) appKey
     applicationId: (NSNumber*) applicationId
     completionHandler: (void (^)(OAIApplicationResponse* output, NSError* error)) handler;
 
@@ -285,7 +275,6 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 /// Get Ad Placement
 /// Get details of an ad placement
 ///
-/// @param version 
 /// @param placementId The id of the placement
 /// @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -293,8 +282,7 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPlacementResponse*
--(NSURLSessionTask*) getApplicationPlacementWithVersion: (NSNumber*) version
-    placementId: (NSNumber*) placementId
+-(NSURLSessionTask*) getApplicationPlacementWithPlacementId: (NSNumber*) placementId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIPlacementResponse* output, NSError* error)) handler;
@@ -303,19 +291,17 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 /// Get API versions
 /// Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
 ///
-/// @param version 
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) getApplicationVersionsWithVersion: (NSNumber*) version
-    completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
+-(NSURLSessionTask*) getApplicationVersionsWithCompletionHandler: 
+    (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
 
 /// Search Application Users
 /// Get a list of users per application
 ///
-/// @param version 
 /// @param appKey The application key
 /// @param q Q (optional)
 /// @param keyword The keyword used to search (optional)
@@ -328,8 +314,7 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAccountListResponse*
--(NSURLSessionTask*) getUniqueUsersByAppWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) getUniqueUsersByAppWithAppKey: (NSString*) appKey
     q: (NSString*) q
     keyword: (NSString*) keyword
     since: (NSNumber*) since
@@ -343,7 +328,6 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 /// List Applications
 /// List active applications matching the criteria (as a consumer)
 ///
-/// @param version 
 /// @param accountId The account id of the application owner/manager (optional)
 /// @param q Q (optional)
 /// @param keyword The keyword used to search for title, about, and description fields (optional)
@@ -368,8 +352,7 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIApplicationShortResponse>*
--(NSURLSessionTask*) listApplicationsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) listApplicationsWithAccountId: (NSNumber*) accountId
     q: (NSString*) q
     keyword: (NSString*) keyword
     platforms: (NSString*) platforms
@@ -395,7 +378,6 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 /// Search for Ad Placements
 /// Searches placements for an application.
 ///
-/// @param version 
 /// @param appKey The key of the application
 /// @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -405,8 +387,7 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIPlacementResponse>*
--(NSURLSessionTask*) searchApplicationPlacementWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) searchApplicationPlacementWithAppKey: (NSString*) appKey
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     start: (NSNumber*) start
@@ -417,7 +398,6 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 /// Search for Application Settings
 /// Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
 ///
-/// @param version 
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
 /// @param connectionAccountId The account id used to view another person&#39;s account (optional)
@@ -430,8 +410,7 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIApplicationSettingsResponse*
--(NSURLSessionTask*) searchApplicationSettingsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) searchApplicationSettingsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     connectionAccountId: (NSNumber*) connectionAccountId
     keyword: (NSString*) keyword
@@ -445,7 +424,6 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 /// Search Applications
 /// Search for applications matching the criteria that the logged in user has access to
 ///
-/// @param version 
 /// @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
 /// @param latitude The location of the device (optional)
@@ -466,8 +444,7 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIApplicationResponse>*
--(NSURLSessionTask*) searchApplicationsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) searchApplicationsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
@@ -489,7 +466,6 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 /// Update Application
 /// Update an application record
 ///
-/// @param version 
 /// @param appKey The application key for updating an existing application
 /// @param appName The name of the application
 /// @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -574,8 +550,7 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIApplicationResponse*
--(NSURLSessionTask*) updateApplicationWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) updateApplicationWithAppKey: (NSString*) appKey
     appName: (NSString*) appName
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -661,7 +636,6 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 /// Change Appliation Status
 /// Set the application's active flag to true/false. This effectively activates or deactivates the application.
 ///
-/// @param version 
 /// @param accountId The account used to perform the delete, must have rights to edit the application.
 /// @param appKey The key of the application to be deleted
 /// @param active If true then set to active, false otherwise
@@ -669,8 +643,7 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) updateApplicationActiveWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateApplicationActiveWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     active: (NSNumber*) active
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
@@ -679,7 +652,6 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 /// Update Ad Placement
 /// Updates an ad placement for an application.
 ///
-/// @param version 
 /// @param placementId The id of the placement to update, the user must have rights to the application the ad placement is for
 /// @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -695,8 +667,7 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPlacementResponse*
--(NSURLSessionTask*) updateApplicationPlacementWithVersion: (NSNumber*) version
-    placementId: (NSNumber*) placementId
+-(NSURLSessionTask*) updateApplicationPlacementWithPlacementId: (NSNumber*) placementId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     name: (NSString*) name
@@ -713,7 +684,6 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 /// Create Application Certificate
 /// Uploads a certificate for an application that the user has access to.
 ///
-/// @param version 
 /// @param appKey The key of the application
 /// @param deviceId Device Id (optional)
 /// @param accountId The account used to perform the delete, must have rights to edit the application. (optional)
@@ -722,8 +692,7 @@ extern NSInteger kOAIApplicationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) uploadApplicationCertificateWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) uploadApplicationCertificateWithAppKey: (NSString*) appKey
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     certificate: (NSURL*) certificate

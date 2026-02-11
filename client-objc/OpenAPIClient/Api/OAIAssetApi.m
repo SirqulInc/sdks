@@ -55,26 +55,12 @@ NSInteger kOAIAssetApiMissingParamErrorCode = 234513;
 ///
 /// Download Asset
 /// Downloads an asset from the server for assets that have been uploaded to the server.
-///  @param version  
-///
 ///  @param filename the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId} 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) assetDownloadWithVersion: (NSNumber*) version
-    filename: (NSString*) filename
+-(NSURLSessionTask*) assetDownloadWithFilename: (NSString*) filename
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAssetApiErrorDomain code:kOAIAssetApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'filename' is set
     if (filename == nil) {
         NSParameterAssert(filename);
@@ -86,12 +72,9 @@ NSInteger kOAIAssetApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/asset/download/{filename}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/asset/download/{filename}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (filename != nil) {
         pathParams[@"filename"] = filename;
     }
@@ -140,8 +123,6 @@ NSInteger kOAIAssetApiMissingParamErrorCode = 234513;
 ///
 /// Convert Offer to Creative
 /// Converts an offer image + text into a creative image.
-///  @param version  
-///
 ///  @param offerId offer id used for inserting offer text/flavor 
 ///
 ///  @param adSize the ad size used for selecting a format for the creative image 
@@ -158,8 +139,7 @@ NSInteger kOAIAssetApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAssetShortResponse*
 ///
--(NSURLSessionTask*) assetMorphWithVersion: (NSNumber*) version
-    offerId: (NSNumber*) offerId
+-(NSURLSessionTask*) assetMorphWithOfferId: (NSNumber*) offerId
     adSize: (NSString*) adSize
     creativeId: (NSNumber*) creativeId
     width: (NSNumber*) width
@@ -167,17 +147,6 @@ NSInteger kOAIAssetApiMissingParamErrorCode = 234513;
     backgroundSize: (NSString*) backgroundSize
     template: (NSString*) template
     completionHandler: (void (^)(OAIAssetShortResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAssetApiErrorDomain code:kOAIAssetApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'offerId' is set
     if (offerId == nil) {
         NSParameterAssert(offerId);
@@ -200,12 +169,9 @@ NSInteger kOAIAssetApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/asset/morph"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/asset/morph"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (offerId != nil) {
@@ -272,8 +238,6 @@ NSInteger kOAIAssetApiMissingParamErrorCode = 234513;
 ///
 /// Create Asset
 /// Uploads an asset to server and returns an asset id which can be used to assign to various objects.
-///  @param version  
-///
 ///  @param returnNulls to return nulls (optional)
 ///
 ///  @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -344,8 +308,7 @@ NSInteger kOAIAssetApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAssetResponse*
 ///
--(NSURLSessionTask*) createAssetWithVersion: (NSNumber*) version
-    returnNulls: (NSNumber*) returnNulls
+-(NSURLSessionTask*) createAssetWithReturnNulls: (NSNumber*) returnNulls
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     albumId: (NSNumber*) albumId
@@ -380,23 +343,9 @@ NSInteger kOAIAssetApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIAssetResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAssetApiErrorDomain code:kOAIAssetApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/asset/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/asset/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (returnNulls != nil) {
@@ -544,8 +493,6 @@ NSInteger kOAIAssetApiMissingParamErrorCode = 234513;
 ///
 /// Delete Asset
 /// Delete an asset.
-///  @param version  
-///
 ///  @param assetId the id of the asset to delete 
 ///
 ///  @param deviceId the device id (deviceId or accountId required) (optional)
@@ -558,24 +505,12 @@ NSInteger kOAIAssetApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteAssetWithVersion: (NSNumber*) version
-    assetId: (NSString*) assetId
+-(NSURLSessionTask*) deleteAssetWithAssetId: (NSString*) assetId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAssetApiErrorDomain code:kOAIAssetApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'assetId' is set
     if (assetId == nil) {
         NSParameterAssert(assetId);
@@ -587,12 +522,9 @@ NSInteger kOAIAssetApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/asset/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/asset/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -653,8 +585,6 @@ NSInteger kOAIAssetApiMissingParamErrorCode = 234513;
 ///
 /// Get Asset
 /// Gets the full asset response including attached likes and notes.
-///  @param version  
-///
 ///  @param assetId the asset ID 
 ///
 ///  @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -665,23 +595,11 @@ NSInteger kOAIAssetApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAssetFullResponse*
 ///
--(NSURLSessionTask*) getAssetWithVersion: (NSNumber*) version
-    assetId: (NSNumber*) assetId
+-(NSURLSessionTask*) getAssetWithAssetId: (NSNumber*) assetId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     noteDescending: (NSNumber*) noteDescending
     completionHandler: (void (^)(OAIAssetFullResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAssetApiErrorDomain code:kOAIAssetApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'assetId' is set
     if (assetId == nil) {
         NSParameterAssert(assetId);
@@ -693,12 +611,9 @@ NSInteger kOAIAssetApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/asset/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/asset/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -756,8 +671,6 @@ NSInteger kOAIAssetApiMissingParamErrorCode = 234513;
 ///
 /// Remove Asset from Collection
 /// Remove assets from collections
-///  @param version  
-///
 ///  @param assetId the id of the asset to remove 
 ///
 ///  @param deviceId the device id (deviceId or accountId required) (optional)
@@ -776,8 +689,7 @@ NSInteger kOAIAssetApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) removeAssetWithVersion: (NSNumber*) version
-    assetId: (NSString*) assetId
+-(NSURLSessionTask*) removeAssetWithAssetId: (NSString*) assetId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     albumId: (NSNumber*) albumId
@@ -786,17 +698,6 @@ NSInteger kOAIAssetApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAssetApiErrorDomain code:kOAIAssetApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'assetId' is set
     if (assetId == nil) {
         NSParameterAssert(assetId);
@@ -808,12 +709,9 @@ NSInteger kOAIAssetApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/asset/remove"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/asset/remove"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -883,8 +781,6 @@ NSInteger kOAIAssetApiMissingParamErrorCode = 234513;
 ///
 /// Search Assets
 /// Searches for assets
-///  @param version  
-///
 ///  @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
 ///
 ///  @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -935,8 +831,7 @@ NSInteger kOAIAssetApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIAssetResponse>*
 ///
--(NSURLSessionTask*) searchAssetsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) searchAssetsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     albumIds: (NSString*) albumIds
     assetIds: (NSString*) assetIds
@@ -961,23 +856,9 @@ NSInteger kOAIAssetApiMissingParamErrorCode = 234513;
     approvalStatus: (NSString*) approvalStatus
     assignedAccountId: (NSNumber*) assignedAccountId
     completionHandler: (void (^)(NSArray<OAIAssetResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAssetApiErrorDomain code:kOAIAssetApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/asset/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/asset/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -1095,8 +976,6 @@ NSInteger kOAIAssetApiMissingParamErrorCode = 234513;
 ///
 /// Update Asset
 /// Updates an asset's meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
-///  @param version  
-///
 ///  @param assetId the ID of the asset to update 
 ///
 ///  @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -1161,8 +1040,7 @@ NSInteger kOAIAssetApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) updateAssetWithVersion: (NSNumber*) version
-    assetId: (NSNumber*) assetId
+-(NSURLSessionTask*) updateAssetWithAssetId: (NSNumber*) assetId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     albumId: (NSNumber*) albumId
@@ -1194,17 +1072,6 @@ NSInteger kOAIAssetApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAssetApiErrorDomain code:kOAIAssetApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'assetId' is set
     if (assetId == nil) {
         NSParameterAssert(assetId);
@@ -1216,12 +1083,9 @@ NSInteger kOAIAssetApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/asset/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/asset/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {

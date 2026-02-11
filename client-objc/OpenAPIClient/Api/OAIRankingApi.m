@@ -53,8 +53,6 @@ NSInteger kOAIRankingApiMissingParamErrorCode = 234513;
 ///
 /// Search Historical Rankings
 /// Get historical leaderboard rankings by time-frame.
-///  @param version  
-///
 ///  @param appKey the application key for filtering results by application 
 ///
 ///  @param rankType the rank type to return 
@@ -77,8 +75,7 @@ NSInteger kOAIRankingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIRankFullResponse*
 ///
--(NSURLSessionTask*) getHistoricalRankingsWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) getHistoricalRankingsWithAppKey: (NSString*) appKey
     rankType: (NSString*) rankType
     startDate: (NSNumber*) startDate
     endDate: (NSNumber*) endDate
@@ -89,17 +86,6 @@ NSInteger kOAIRankingApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(OAIRankFullResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRankingApiErrorDomain code:kOAIRankingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'appKey' is set
     if (appKey == nil) {
         NSParameterAssert(appKey);
@@ -144,12 +130,9 @@ NSInteger kOAIRankingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/ranking/historical/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/ranking/historical/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -225,8 +208,6 @@ NSInteger kOAIRankingApiMissingParamErrorCode = 234513;
 ///
 /// Search Rankings
 /// Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
-///  @param version  
-///
 ///  @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
 ///
 ///  @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -265,8 +246,7 @@ NSInteger kOAIRankingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIRankFullResponse*
 ///
--(NSURLSessionTask*) getRankingsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) getRankingsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     gameType: (NSString*) gameType
     appKey: (NSString*) appKey
@@ -285,23 +265,9 @@ NSInteger kOAIRankingApiMissingParamErrorCode = 234513;
     l: (NSNumber*) l
     limit: (NSNumber*) limit
     completionHandler: (void (^)(OAIRankFullResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRankingApiErrorDomain code:kOAIRankingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/ranking/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/ranking/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -401,8 +367,6 @@ NSInteger kOAIRankingApiMissingParamErrorCode = 234513;
 ///
 /// Get Personal Rankings
 /// Returns the user's ranks for one or more rank types and modes.
-///  @param version  
-///
 ///  @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
 ///
 ///  @param accountId the account id of the user (optional)
@@ -427,8 +391,7 @@ NSInteger kOAIRankingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSObject*
 ///
--(NSURLSessionTask*) getUserRankWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) getUserRankWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     rankType: (NSString*) rankType
@@ -440,23 +403,9 @@ NSInteger kOAIRankingApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRankingApiErrorDomain code:kOAIRankingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/ranking/personal/ranks"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/ranking/personal/ranks"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -535,8 +484,6 @@ NSInteger kOAIRankingApiMissingParamErrorCode = 234513;
 ///
 /// Override User Rank
 /// Allows an admin of an application to override a user's scores for a leaderboard.
-///  @param version  
-///
 ///  @param accountId the logged in user's account id (must have permissions to manage data for the application) 
 ///
 ///  @param ownerAccountId the end user's account id to override 
@@ -583,8 +530,7 @@ NSInteger kOAIRankingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) overrideUserRankWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) overrideUserRankWithAccountId: (NSNumber*) accountId
     ownerAccountId: (NSNumber*) ownerAccountId
     appKey: (NSString*) appKey
     rankType: (NSString*) rankType
@@ -607,17 +553,6 @@ NSInteger kOAIRankingApiMissingParamErrorCode = 234513;
     startDate: (NSNumber*) startDate
     endDate: (NSNumber*) endDate
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRankingApiErrorDomain code:kOAIRankingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -662,12 +597,9 @@ NSInteger kOAIRankingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/ranking/override"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/ranking/override"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -779,8 +711,6 @@ NSInteger kOAIRankingApiMissingParamErrorCode = 234513;
 ///
 /// Update Ranking
 /// Update the rank value 
-///  @param version  
-///
 ///  @param accountId the account id of the user 
 ///
 ///  @param appKey the application key for filtering results by application 
@@ -803,8 +733,7 @@ NSInteger kOAIRankingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) updateRankingsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateRankingsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     rankType: (NSString*) rankType
     increment: (NSNumber*) increment
@@ -815,17 +744,6 @@ NSInteger kOAIRankingApiMissingParamErrorCode = 234513;
     updateGlobal: (NSNumber*) updateGlobal
     createLeaderboard: (NSNumber*) createLeaderboard
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRankingApiErrorDomain code:kOAIRankingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -859,12 +777,9 @@ NSInteger kOAIRankingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/ranking/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/ranking/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

@@ -56,8 +56,6 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
 ///
 /// Searches an Achievement Tier
 /// Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-///  @param version  
-///
 ///  @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
 ///
 ///  @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -82,8 +80,7 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAchievementTierResponse*
 ///
--(NSURLSessionTask*) apiVersionAchievementTierSearchPostWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) achievementTierSearchPostWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     keyword: (NSString*) keyword
@@ -95,23 +92,9 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(OAIAchievementTierResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAchievementApiErrorDomain code:kOAIAchievementApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/achievement/tier/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/achievement/tier/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -190,8 +173,6 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
 ///
 /// Create Achievement
 /// Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-///  @param version  
-///
 ///  @param appKey the application key the achievement is for 
 ///
 ///  @param title the title of the achievement (255 character limit) 
@@ -220,8 +201,7 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAchievementResponse*
 ///
--(NSURLSessionTask*) createAchievementWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) createAchievementWithAppKey: (NSString*) appKey
     title: (NSString*) title
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -235,17 +215,6 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
     active: (NSNumber*) active
     triggerDefinition: (NSString*) triggerDefinition
     completionHandler: (void (^)(OAIAchievementResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAchievementApiErrorDomain code:kOAIAchievementApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'appKey' is set
     if (appKey == nil) {
         NSParameterAssert(appKey);
@@ -268,12 +237,9 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/achievement/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/achievement/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -358,8 +324,6 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
 ///
 /// Create Achievement Tier
 /// Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-///  @param version  
-///
 ///  @param achievementId the achievement id for adding a new tier 
 ///
 ///  @param scoreAllInstances score all instances 
@@ -390,8 +354,7 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAchievementTierResponse*
 ///
--(NSURLSessionTask*) createAchievementTierWithVersion: (NSNumber*) version
-    achievementId: (NSNumber*) achievementId
+-(NSURLSessionTask*) createAchievementTierWithAchievementId: (NSNumber*) achievementId
     scoreAllInstances: (NSNumber*) scoreAllInstances
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -406,17 +369,6 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
     gameLevelId: (NSNumber*) gameLevelId
     gameObjectId: (NSNumber*) gameObjectId
     completionHandler: (void (^)(OAIAchievementTierResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAchievementApiErrorDomain code:kOAIAchievementApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'achievementId' is set
     if (achievementId == nil) {
         NSParameterAssert(achievementId);
@@ -439,12 +391,9 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/achievement/tier/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/achievement/tier/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -532,29 +481,15 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
 ///
 /// Delete Achievement
 /// Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
-///  @param version  
-///
 ///  @param achievementId The ID of the achievement 
 ///
 ///  @param accountId the account id of the user (deviceId or accountId required) (optional)
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteAchievementWithVersion: (NSNumber*) version
-    achievementId: (NSNumber*) achievementId
+-(NSURLSessionTask*) deleteAchievementWithAchievementId: (NSNumber*) achievementId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAchievementApiErrorDomain code:kOAIAchievementApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'achievementId' is set
     if (achievementId == nil) {
         NSParameterAssert(achievementId);
@@ -566,12 +501,9 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/achievement/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/achievement/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -623,29 +555,15 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
 ///
 /// Delete Achievement Tier
 /// Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
-///  @param version  
-///
 ///  @param achievementTierId the achievement id for deletion 
 ///
 ///  @param accountId the account id of the user (deviceId or accountId required). (optional)
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteAchievementTierWithVersion: (NSNumber*) version
-    achievementTierId: (NSNumber*) achievementTierId
+-(NSURLSessionTask*) deleteAchievementTierWithAchievementTierId: (NSNumber*) achievementTierId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAchievementApiErrorDomain code:kOAIAchievementApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'achievementTierId' is set
     if (achievementTierId == nil) {
         NSParameterAssert(achievementTierId);
@@ -657,12 +575,9 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/achievement/tier/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/achievement/tier/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -714,8 +629,6 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
 ///
 /// Get Achievement
 /// Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-///  @param version  
-///
 ///  @param achievementId The ID of the achievement 
 ///
 ///  @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
@@ -726,23 +639,11 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAchievementTierResponse*
 ///
--(NSURLSessionTask*) getAchievementWithVersion: (NSNumber*) version
-    achievementId: (NSNumber*) achievementId
+-(NSURLSessionTask*) getAchievementWithAchievementId: (NSNumber*) achievementId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     achievementType: (NSString*) achievementType
     completionHandler: (void (^)(OAIAchievementTierResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAchievementApiErrorDomain code:kOAIAchievementApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'achievementId' is set
     if (achievementId == nil) {
         NSParameterAssert(achievementId);
@@ -754,12 +655,9 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/achievement/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/achievement/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -817,29 +715,15 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
 ///
 /// Gets an achievement tier
 /// Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
-///  @param version  
-///
 ///  @param accountId the account id of the user (deviceId or accountId required) 
 ///
 ///  @param achievementTierId the achievement tier id that is being retrieved 
 ///
 ///  @returns OAIAchievementTierResponse*
 ///
--(NSURLSessionTask*) getAchievementTierWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getAchievementTierWithAccountId: (NSNumber*) accountId
     achievementTierId: (NSNumber*) achievementTierId
     completionHandler: (void (^)(OAIAchievementTierResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAchievementApiErrorDomain code:kOAIAchievementApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -862,12 +746,9 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/achievement/tier/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/achievement/tier/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -919,8 +800,6 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
 ///
 /// Get Achievement Progress
 /// Gets a list of user achievements.
-///  @param version  
-///
 ///  @param returnNulls determines whether to return null fields in the response 
 ///
 ///  @param appKey the application key for filtering results by application 
@@ -945,8 +824,7 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIAchievementProgressResponse>*
 ///
--(NSURLSessionTask*) getUserAchievementsWithVersion: (NSNumber*) version
-    returnNulls: (NSNumber*) returnNulls
+-(NSURLSessionTask*) getUserAchievementsWithReturnNulls: (NSNumber*) returnNulls
     appKey: (NSString*) appKey
     includeUndiscovered: (NSNumber*) includeUndiscovered
     deviceId: (NSString*) deviceId
@@ -958,17 +836,6 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(NSArray<OAIAchievementProgressResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAchievementApiErrorDomain code:kOAIAchievementApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'returnNulls' is set
     if (returnNulls == nil) {
         NSParameterAssert(returnNulls);
@@ -1002,12 +869,9 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/achievement/progress/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/achievement/progress/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (returnNulls != nil) {
@@ -1086,32 +950,15 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
 ///
 /// List Achievement Tags
 /// List achievement tags by application
-///  @param version  
-///
 ///  @param appKey filter results by application key (optional)
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) listAchievementTagsWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) listAchievementTagsWithAppKey: (NSString*) appKey
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAchievementApiErrorDomain code:kOAIAchievementApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/achievement/tag/list"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/achievement/tag/list"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (appKey != nil) {
@@ -1160,8 +1007,6 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
 ///
 /// List Achievements
 /// List achievements by billable.
-///  @param version  
-///
 ///  @param sortField the field to sort by. See AchievementApiMap 
 ///
 ///  @param descending determines whether the sorted list is in descending or ascending order 
@@ -1186,8 +1031,7 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIAchievementShortResponse>*
 ///
--(NSURLSessionTask*) listAchievementsWithVersion: (NSNumber*) version
-    sortField: (NSString*) sortField
+-(NSURLSessionTask*) listAchievementsWithSortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
     limit: (NSNumber*) limit
@@ -1199,17 +1043,6 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
     achievementType: (NSString*) achievementType
     rankType: (NSString*) rankType
     completionHandler: (void (^)(NSArray<OAIAchievementShortResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAchievementApiErrorDomain code:kOAIAchievementApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'sortField' is set
     if (sortField == nil) {
         NSParameterAssert(sortField);
@@ -1265,12 +1098,9 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/achievement/list"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/achievement/list"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -1349,8 +1179,6 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
 ///
 /// Search Achievements
 /// Searches achievements by application for consumers.
-///  @param version  
-///
 ///  @param appKey the application key 
 ///
 ///  @param sortField the field to sort by. See AchievementApiMap 
@@ -1377,8 +1205,7 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIAchievementShortResponse>*
 ///
--(NSURLSessionTask*) searchAchievementsWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) searchAchievementsWithAppKey: (NSString*) appKey
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     includeTiers: (NSNumber*) includeTiers
@@ -1391,17 +1218,6 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
     achievementType: (NSString*) achievementType
     rankType: (NSString*) rankType
     completionHandler: (void (^)(NSArray<OAIAchievementShortResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAchievementApiErrorDomain code:kOAIAchievementApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'appKey' is set
     if (appKey == nil) {
         NSParameterAssert(appKey);
@@ -1479,12 +1295,9 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/achievement/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/achievement/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -1566,8 +1379,6 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
 ///
 /// Update Achievement
 /// Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-///  @param version  
-///
 ///  @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
 ///
 ///  @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1600,8 +1411,7 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAchievementResponse*
 ///
--(NSURLSessionTask*) updateAchievementWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) updateAchievementWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     achievementId: (NSNumber*) achievementId
     analyticsTag: (NSString*) analyticsTag
@@ -1617,23 +1427,9 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
     active: (NSNumber*) active
     triggerDefinition: (NSString*) triggerDefinition
     completionHandler: (void (^)(OAIAchievementResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAchievementApiErrorDomain code:kOAIAchievementApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/achievement/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/achievement/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -1724,8 +1520,6 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
 ///
 /// Update Achievement Tier
 /// Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-///  @param version  
-///
 ///  @param achievementTierId the achievement tier id for updating 
 ///
 ///  @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
@@ -1756,8 +1550,7 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAchievementTierResponse*
 ///
--(NSURLSessionTask*) updateAchievementTierWithVersion: (NSNumber*) version
-    achievementTierId: (NSNumber*) achievementTierId
+-(NSURLSessionTask*) updateAchievementTierWithAchievementTierId: (NSNumber*) achievementTierId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     icon: (NSURL*) icon
@@ -1772,17 +1565,6 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
     gameObjectId: (NSNumber*) gameObjectId
     scoreAllInstances: (NSNumber*) scoreAllInstances
     completionHandler: (void (^)(OAIAchievementTierResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAchievementApiErrorDomain code:kOAIAchievementApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'achievementTierId' is set
     if (achievementTierId == nil) {
         NSParameterAssert(achievementTierId);
@@ -1794,12 +1576,9 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/achievement/tier/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/achievement/tier/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -1887,8 +1666,6 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
 ///
 /// Update Achievement Progress
 /// Update user achievement progress.
-///  @param version  
-///
 ///  @param accountId the account id of the user 
 ///
 ///  @param achievementId the achievement id (achievementId or tag required) (optional)
@@ -1907,8 +1684,7 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) updateUserAchievementWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateUserAchievementWithAccountId: (NSNumber*) accountId
     achievementId: (NSNumber*) achievementId
     tag: (NSString*) tag
     customId: (NSNumber*) customId
@@ -1917,17 +1693,6 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
     endDate: (NSNumber*) endDate
     returnProgress: (NSNumber*) returnProgress
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAchievementApiErrorDomain code:kOAIAchievementApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1939,12 +1704,9 @@ NSInteger kOAIAchievementApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/achievement/progress/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/achievement/progress/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

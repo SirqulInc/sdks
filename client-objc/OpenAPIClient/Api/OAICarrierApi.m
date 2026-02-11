@@ -52,8 +52,6 @@ NSInteger kOAICarrierApiMissingParamErrorCode = 234513;
 ///
 /// Search Carriers
 /// Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
-///  @param version  
-///
 ///  @param keyword The keyword to search on (optional)
 ///
 ///  @param descending Determines whether the sorted list is in descending or ascending order (optional, default to @(NO))
@@ -66,30 +64,15 @@ NSInteger kOAICarrierApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAICellCarrierResponse>*
 ///
--(NSURLSessionTask*) searchCarriersWithVersion: (NSNumber*) version
-    keyword: (NSString*) keyword
+-(NSURLSessionTask*) searchCarriersWithKeyword: (NSString*) keyword
     descending: (NSNumber*) descending
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     activeOnly: (NSNumber*) activeOnly
     completionHandler: (void (^)(NSArray<OAICellCarrierResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAICarrierApiErrorDomain code:kOAICarrierApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/carrier/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/carrier/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (keyword != nil) {

@@ -53,8 +53,6 @@ NSInteger kOAIBidApiMissingParamErrorCode = 234513;
 ///
 /// Create Bid
 /// Creates a bid on a biddable object
-///  @param version  
-///
 ///  @param biddableType A biddable object type. Possible values include: CREATIVE (ads). 
 ///
 ///  @param biddableId The id of the biddable object 
@@ -73,8 +71,7 @@ NSInteger kOAIBidApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIBidResponse*
 ///
--(NSURLSessionTask*) createBidWithVersion: (NSNumber*) version
-    biddableType: (NSString*) biddableType
+-(NSURLSessionTask*) createBidWithBiddableType: (NSString*) biddableType
     biddableId: (NSNumber*) biddableId
     amountPerView: (NSNumber*) amountPerView
     amountPerAction: (NSNumber*) amountPerAction
@@ -83,17 +80,6 @@ NSInteger kOAIBidApiMissingParamErrorCode = 234513;
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIBidResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIBidApiErrorDomain code:kOAIBidApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'biddableType' is set
     if (biddableType == nil) {
         NSParameterAssert(biddableType);
@@ -160,12 +146,9 @@ NSInteger kOAIBidApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/bid/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/bid/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -235,8 +218,6 @@ NSInteger kOAIBidApiMissingParamErrorCode = 234513;
 ///
 /// Delete Bid
 /// Deleted a bid on a biddable object
-///  @param version  
-///
 ///  @param bidId The bid id 
 ///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
@@ -245,22 +226,10 @@ NSInteger kOAIBidApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteBidWithVersion: (NSNumber*) version
-    bidId: (NSNumber*) bidId
+-(NSURLSessionTask*) deleteBidWithBidId: (NSNumber*) bidId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIBidApiErrorDomain code:kOAIBidApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'bidId' is set
     if (bidId == nil) {
         NSParameterAssert(bidId);
@@ -272,12 +241,9 @@ NSInteger kOAIBidApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/bid/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/bid/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -332,8 +298,6 @@ NSInteger kOAIBidApiMissingParamErrorCode = 234513;
 ///
 /// Get Bid
 /// Get the bid details of a biddable object
-///  @param version  
-///
 ///  @param bidId The bid id 
 ///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
@@ -342,22 +306,10 @@ NSInteger kOAIBidApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIBidResponse*
 ///
--(NSURLSessionTask*) getBidWithVersion: (NSNumber*) version
-    bidId: (NSNumber*) bidId
+-(NSURLSessionTask*) getBidWithBidId: (NSNumber*) bidId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIBidResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIBidApiErrorDomain code:kOAIBidApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'bidId' is set
     if (bidId == nil) {
         NSParameterAssert(bidId);
@@ -369,12 +321,9 @@ NSInteger kOAIBidApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/bid/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/bid/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -429,8 +378,6 @@ NSInteger kOAIBidApiMissingParamErrorCode = 234513;
 ///
 /// Update Bid
 /// Updates a bid on a biddable object
-///  @param version  
-///
 ///  @param bidId The bid id 
 ///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
@@ -447,8 +394,7 @@ NSInteger kOAIBidApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIBidResponse*
 ///
--(NSURLSessionTask*) updateBidWithVersion: (NSNumber*) version
-    bidId: (NSNumber*) bidId
+-(NSURLSessionTask*) updateBidWithBidId: (NSNumber*) bidId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     amountPerView: (NSNumber*) amountPerView
@@ -456,17 +402,6 @@ NSInteger kOAIBidApiMissingParamErrorCode = 234513;
     budgetAmount: (NSNumber*) budgetAmount
     budgetSchedule: (NSString*) budgetSchedule
     completionHandler: (void (^)(OAIBidResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIBidApiErrorDomain code:kOAIBidApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'bidId' is set
     if (bidId == nil) {
         NSParameterAssert(bidId);
@@ -478,12 +413,9 @@ NSInteger kOAIBidApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/bid/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/bid/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {

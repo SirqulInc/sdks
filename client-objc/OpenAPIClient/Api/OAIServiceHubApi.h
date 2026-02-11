@@ -26,57 +26,49 @@ extern NSInteger kOAIServiceHubApiMissingParamErrorCode;
 /// Create Service Hub
 /// Create new service hub
 ///
-/// @param version 
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIServiceHub*
--(NSURLSessionTask*) createServiceHubWithVersion: (NSNumber*) version
-    body: (OAIServiceHub*) body
+-(NSURLSessionTask*) createServiceHubWithBody: (OAIServiceHub*) body
     completionHandler: (void (^)(OAIServiceHub* output, NSError* error)) handler;
 
 
 /// Delete Service Hub
 /// Delete an existing service hub
 ///
-/// @param version 
 /// @param _id the id of the service hub to delete
 /// 
 ///  code:0 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) deleteServiceHubWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) deleteServiceHubWithId: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler;
 
 
 /// Get Service Hub
 /// Get an existing service hub
 ///
-/// @param version 
 /// @param _id the id of the service hub to get
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return NSObject*
--(NSURLSessionTask*) getServiceHubWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) getServiceHubWithId: (NSNumber*) _id
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 
 
 /// Update Service Hub
 /// Update an existing service hub
 ///
-/// @param version 
 /// @param _id the id of the service hub
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIServiceHub*
--(NSURLSessionTask*) postServiceHubWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) postServiceHubWithId: (NSNumber*) _id
     body: (OAIServiceHub*) body
     completionHandler: (void (^)(OAIServiceHub* output, NSError* error)) handler;
 
@@ -84,15 +76,13 @@ extern NSInteger kOAIServiceHubApiMissingParamErrorCode;
 /// Update Service Hub
 /// Update an existing service hub
 ///
-/// @param version 
 /// @param _id the id of the service hub
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIServiceHub*
--(NSURLSessionTask*) putServiceHubWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) putServiceHubWithId: (NSNumber*) _id
     body: (OAIServiceHub*) body
     completionHandler: (void (^)(OAIServiceHub* output, NSError* error)) handler;
 
@@ -100,7 +90,6 @@ extern NSInteger kOAIServiceHubApiMissingParamErrorCode;
 /// Search Service Hubs
 /// Search for service hubs.
 ///
-/// @param version 
 /// @param sortField The field to sort by
 /// @param descending Determines whether the sorted list is in descending or ascending order
 /// @param start The start index for pagination
@@ -112,8 +101,7 @@ extern NSInteger kOAIServiceHubApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIServiceHub>*
--(NSURLSessionTask*) searchServiceHubsWithVersion: (NSNumber*) version
-    sortField: (NSString*) sortField
+-(NSURLSessionTask*) searchServiceHubsWithSortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
     limit: (NSNumber*) limit

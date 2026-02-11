@@ -29,7 +29,6 @@ extern NSInteger kOAIFavoriteApiMissingParamErrorCode;
 /// Create Favorite
 /// Adds an offer, offer location, retailer location, or category to your favorites.
 ///
-/// @param version 
 /// @param favoritableId The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}
 /// @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM}
 /// @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
@@ -40,8 +39,7 @@ extern NSInteger kOAIFavoriteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIWrappedResponse*
--(NSURLSessionTask*) addFavoriteWithVersion: (NSNumber*) version
-    favoritableId: (NSNumber*) favoritableId
+-(NSURLSessionTask*) addFavoriteWithFavoritableId: (NSNumber*) favoritableId
     favoritableType: (NSString*) favoritableType
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -53,7 +51,6 @@ extern NSInteger kOAIFavoriteApiMissingParamErrorCode;
 /// Delete Favorite
 /// Removes a favorited item from the user's favorites list.
 ///
-/// @param version 
 /// @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
 /// @param accountId The account ID of the user (deviceId or accountId required) (optional)
 /// @param favoriteId The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead) (optional)
@@ -63,8 +60,7 @@ extern NSInteger kOAIFavoriteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteFavoriteWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) deleteFavoriteWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     favoriteId: (NSNumber*) favoriteId
     favoritableId: (NSNumber*) favoritableId
@@ -75,7 +71,6 @@ extern NSInteger kOAIFavoriteApiMissingParamErrorCode;
 /// Get Favorite
 /// Retrieves a single favorited item.
 ///
-/// @param version 
 /// @param favoriteId The ID of the favorite reference record
 /// @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
 /// @param accountId The account ID of the user (deviceId or accountId required) (optional)
@@ -85,8 +80,7 @@ extern NSInteger kOAIFavoriteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIWrappedResponse*
--(NSURLSessionTask*) getFavoriteWithVersion: (NSNumber*) version
-    favoriteId: (NSNumber*) favoriteId
+-(NSURLSessionTask*) getFavoriteWithFavoriteId: (NSNumber*) favoriteId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
@@ -97,7 +91,6 @@ extern NSInteger kOAIFavoriteApiMissingParamErrorCode;
 /// Search Favorites
 /// Searches on the user's favorites.
 ///
-/// @param version 
 /// @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
 /// @param sortField Determines what to sort the results by {CREATED, UPDATED, DISPLAY}
 /// @param descending Determines whether the results are in descending order
@@ -116,8 +109,7 @@ extern NSInteger kOAIFavoriteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISearchResponse*
--(NSURLSessionTask*) searchFavoritesWithVersion: (NSNumber*) version
-    favoritableType: (NSString*) favoritableType
+-(NSURLSessionTask*) searchFavoritesWithFavoritableType: (NSString*) favoritableType
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
@@ -137,7 +129,6 @@ extern NSInteger kOAIFavoriteApiMissingParamErrorCode;
 /// Who has Favorited
 /// Searches for everyone that has favorited an item
 ///
-/// @param version 
 /// @param favoritableId The ID of the favoritableType to search on
 /// @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
 /// @param start The start index for pagination
@@ -151,8 +142,7 @@ extern NSInteger kOAIFavoriteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIAccountResponse>*
--(NSURLSessionTask*) whoHasFavoritedWithVersion: (NSNumber*) version
-    favoritableId: (NSNumber*) favoritableId
+-(NSURLSessionTask*) whoHasFavoritedWithFavoritableId: (NSNumber*) favoritableId
     favoritableType: (NSString*) favoritableType
     start: (NSNumber*) start
     limit: (NSNumber*) limit

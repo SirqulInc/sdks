@@ -27,7 +27,6 @@ extern NSInteger kOAICSVImportApiMissingParamErrorCode;
 /// Detail Status
 /// 
 ///
-/// @param version 
 /// @param accountId the id of the logged in user
 /// @param batchId the id of the batch
 /// @param responseGroup The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL
@@ -37,8 +36,7 @@ extern NSInteger kOAICSVImportApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) getStatusCSVWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getStatusCSVWithAccountId: (NSNumber*) accountId
     batchId: (NSNumber*) batchId
     responseGroup: (NSString*) responseGroup
     start: (NSNumber*) start
@@ -49,7 +47,6 @@ extern NSInteger kOAICSVImportApiMissingParamErrorCode;
 /// Search Status
 /// Retrieves batches for a user.
 ///
-/// @param version 
 /// @param accountId the id of the account
 /// @param start the start of the pagination
 /// @param limit the limit of the pagination
@@ -57,8 +54,7 @@ extern NSInteger kOAICSVImportApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAICsvImportResponse*
--(NSURLSessionTask*) listStatusCSVWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) listStatusCSVWithAccountId: (NSNumber*) accountId
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(OAICsvImportResponse* output, NSError* error)) handler;
@@ -67,15 +63,13 @@ extern NSInteger kOAICSVImportApiMissingParamErrorCode;
 /// Batch Status
 /// Checks status of batch upload.
 ///
-/// @param version 
 /// @param accountId the id of the account
 /// @param batchId the id of the batch to get its status
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAICsvImportResponse*
--(NSURLSessionTask*) statusCSVWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) statusCSVWithAccountId: (NSNumber*) accountId
     batchId: (NSNumber*) batchId
     completionHandler: (void (^)(OAICsvImportResponse* output, NSError* error)) handler;
 
@@ -83,7 +77,6 @@ extern NSInteger kOAICSVImportApiMissingParamErrorCode;
 /// Upload CSV
 /// Uploads a CSV import file.
 ///
-/// @param version 
 /// @param accountId the id of the account
 /// @param uploadType the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS
 /// @param importFile the import file to reference
@@ -93,8 +86,7 @@ extern NSInteger kOAICSVImportApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAICsvImportResponse*
--(NSURLSessionTask*) uploadCSVWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) uploadCSVWithAccountId: (NSNumber*) accountId
     uploadType: (NSString*) uploadType
     importFile: (NSURL*) importFile
     fileFormat: (NSString*) fileFormat

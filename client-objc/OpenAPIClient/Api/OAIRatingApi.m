@@ -54,8 +54,6 @@ NSInteger kOAIRatingApiMissingParamErrorCode = 234513;
 ///
 /// Create Rating
 /// This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
-///  @param version  
-///
 ///  @param ratableType The ratable object type {RETAILER_LOCATION} 
 ///
 ///  @param ratableId The id of the ratable object 
@@ -80,8 +78,7 @@ NSInteger kOAIRatingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIRatingResponse*
 ///
--(NSURLSessionTask*) createRatingWithVersion: (NSNumber*) version
-    ratableType: (NSString*) ratableType
+-(NSURLSessionTask*) createRatingWithRatableType: (NSString*) ratableType
     ratableId: (NSNumber*) ratableId
     ratingValue: (NSNumber*) ratingValue
     deviceId: (NSString*) deviceId
@@ -93,17 +90,6 @@ NSInteger kOAIRatingApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIRatingResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRatingApiErrorDomain code:kOAIRatingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'ratableType' is set
     if (ratableType == nil) {
         NSParameterAssert(ratableType);
@@ -137,12 +123,9 @@ NSInteger kOAIRatingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/rating/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/rating/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -221,8 +204,6 @@ NSInteger kOAIRatingApiMissingParamErrorCode = 234513;
 ///
 /// Delete Rating
 /// Sets a rating as deleted.
-///  @param version  
-///
 ///  @param ratingId The ID of the rating to delete 
 ///
 ///  @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -231,22 +212,10 @@ NSInteger kOAIRatingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteRatingWithVersion: (NSNumber*) version
-    ratingId: (NSNumber*) ratingId
+-(NSURLSessionTask*) deleteRatingWithRatingId: (NSNumber*) ratingId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRatingApiErrorDomain code:kOAIRatingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'ratingId' is set
     if (ratingId == nil) {
         NSParameterAssert(ratingId);
@@ -258,12 +227,9 @@ NSInteger kOAIRatingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/rating/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/rating/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -318,8 +284,6 @@ NSInteger kOAIRatingApiMissingParamErrorCode = 234513;
 ///
 /// Search Location Rating Indexes
 /// Search for retailer locations by averages near you.
-///  @param version  
-///
 ///  @param categoryIds Comma separated list of category ids to filter the results by (optional)
 ///
 ///  @param keyword The keyword used to search (optional)
@@ -356,8 +320,7 @@ NSInteger kOAIRatingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIRatingIndexResponse>*
 ///
--(NSURLSessionTask*) searchLocationRatingIndexesWithVersion: (NSNumber*) version
-    categoryIds: (NSString*) categoryIds
+-(NSURLSessionTask*) searchLocationRatingIndexesWithCategoryIds: (NSString*) categoryIds
     keyword: (NSString*) keyword
     locationType: (NSString*) locationType
     sortField: (NSString*) sortField
@@ -375,23 +338,9 @@ NSInteger kOAIRatingApiMissingParamErrorCode = 234513;
     returnCategories: (NSNumber*) returnCategories
     returnFilters: (NSNumber*) returnFilters
     completionHandler: (void (^)(NSArray<OAIRatingIndexResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRatingApiErrorDomain code:kOAIRatingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/location/rating/index/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/location/rating/index/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (categoryIds != nil) {
@@ -488,8 +437,6 @@ NSInteger kOAIRatingApiMissingParamErrorCode = 234513;
 ///
 /// Search Rating Indexes
 /// Search for ratable items by averages.
-///  @param version  
-///
 ///  @param ratableType Filter results by a ratable type {RETAILER_LOCATION} 
 ///
 ///  @param ratableIds Comma separated list of ratable ids to filter the resuts by (optional)
@@ -518,8 +465,7 @@ NSInteger kOAIRatingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIRatingIndexResponse>*
 ///
--(NSURLSessionTask*) searchRatingIndexesWithVersion: (NSNumber*) version
-    ratableType: (NSString*) ratableType
+-(NSURLSessionTask*) searchRatingIndexesWithRatableType: (NSString*) ratableType
     ratableIds: (NSString*) ratableIds
     categoryIds: (NSString*) categoryIds
     secondaryType: (NSString*) secondaryType
@@ -533,17 +479,6 @@ NSInteger kOAIRatingApiMissingParamErrorCode = 234513;
     returnRatable: (NSNumber*) returnRatable
     returnOverallRating: (NSNumber*) returnOverallRating
     completionHandler: (void (^)(NSArray<OAIRatingIndexResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRatingApiErrorDomain code:kOAIRatingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'ratableType' is set
     if (ratableType == nil) {
         NSParameterAssert(ratableType);
@@ -555,12 +490,9 @@ NSInteger kOAIRatingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/rating/index/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/rating/index/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (ratableType != nil) {
@@ -645,8 +577,6 @@ NSInteger kOAIRatingApiMissingParamErrorCode = 234513;
 ///
 /// Search Ratings
 /// Search for ratings on a ratable object.
-///  @param version  
-///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
 ///
 ///  @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -671,8 +601,7 @@ NSInteger kOAIRatingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIRatingResponse>*
 ///
--(NSURLSessionTask*) searchRatingsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) searchRatingsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     filterAccountId: (NSNumber*) filterAccountId
     ratableType: (NSString*) ratableType
@@ -684,23 +613,9 @@ NSInteger kOAIRatingApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSArray<OAIRatingResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRatingApiErrorDomain code:kOAIRatingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/rating/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/rating/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -779,8 +694,6 @@ NSInteger kOAIRatingApiMissingParamErrorCode = 234513;
 ///
 /// Update Rating
 /// Update an existing rating. Only the creator of the rating have permission to update.
-///  @param version  
-///
 ///  @param ratingId The id of the rating (Note: this is not the ratable object id) 
 ///
 ///  @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -803,8 +716,7 @@ NSInteger kOAIRatingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIRatingResponse*
 ///
--(NSURLSessionTask*) updateRatingWithVersion: (NSNumber*) version
-    ratingId: (NSNumber*) ratingId
+-(NSURLSessionTask*) updateRatingWithRatingId: (NSNumber*) ratingId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     ratingValue: (NSNumber*) ratingValue
@@ -815,17 +727,6 @@ NSInteger kOAIRatingApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIRatingResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRatingApiErrorDomain code:kOAIRatingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'ratingId' is set
     if (ratingId == nil) {
         NSParameterAssert(ratingId);
@@ -837,12 +738,9 @@ NSInteger kOAIRatingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/rating/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/rating/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {

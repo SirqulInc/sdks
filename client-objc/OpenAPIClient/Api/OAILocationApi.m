@@ -56,8 +56,6 @@ NSInteger kOAILocationApiMissingParamErrorCode = 234513;
 ///
 /// Create Trilateration Data with File
 /// Creates trilateration samples for a source device (i.e. a router).
-///  @param version  
-///
 ///  @param udid The unique identifier of the source device 
 ///
 ///  @param sourceTime The current timestamp of the source device (optional)
@@ -70,24 +68,12 @@ NSInteger kOAILocationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) cacheTrilaterationDataWithVersion: (NSNumber*) version
-    udid: (NSString*) udid
+-(NSURLSessionTask*) cacheTrilaterationDataWithUdid: (NSString*) udid
     sourceTime: (NSNumber*) sourceTime
     minimumSampleSize: (NSNumber*) minimumSampleSize
     data: (NSString*) data
     dataFile: (NSURL*) dataFile
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAILocationApiErrorDomain code:kOAILocationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'udid' is set
     if (udid == nil) {
         NSParameterAssert(udid);
@@ -99,12 +85,9 @@ NSInteger kOAILocationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/location/trilaterate/cache"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/location/trilaterate/cache"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (udid != nil) {
@@ -165,32 +148,15 @@ NSInteger kOAILocationApiMissingParamErrorCode = 234513;
 ///
 /// Create Trilateration Data with Rest
 /// Creates trilateration samples for a source device (i.e. a router).
-///  @param version  
-///
 ///  @param body  (optional)
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) cacheTrilaterationDataGzipWithVersion: (NSNumber*) version
-    body: (OAITrilatCacheRequest*) body
+-(NSURLSessionTask*) cacheTrilaterationDataGzipWithBody: (OAITrilatCacheRequest*) body
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAILocationApiErrorDomain code:kOAILocationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/location/trilaterate/cache/submit"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/location/trilaterate/cache/submit"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
@@ -237,32 +203,15 @@ NSInteger kOAILocationApiMissingParamErrorCode = 234513;
 ///
 /// Get Location by IP
 /// Get location information based on an IP address.
-///  @param version  
-///
 ///  @param ip the ip address of the client device (optional)
 ///
 ///  @returns OAICoordsResponse*
 ///
--(NSURLSessionTask*) getLocationByIpWithVersion: (NSNumber*) version
-    ip: (NSString*) ip
+-(NSURLSessionTask*) getLocationByIpWithIp: (NSString*) ip
     completionHandler: (void (^)(OAICoordsResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAILocationApiErrorDomain code:kOAILocationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/location/ip"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/location/ip"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (ip != nil) {
@@ -311,8 +260,6 @@ NSInteger kOAILocationApiMissingParamErrorCode = 234513;
 ///
 /// Get Location by Trilateration
 /// Send in device data and calculate a position based on signal strengths.
-///  @param version  
-///
 ///  @param accountId The account making the request, if provided the last know location will be updated (optional)
 ///
 ///  @param latitude The known GPS latitude to compare to the calculated version (optional)
@@ -325,30 +272,15 @@ NSInteger kOAILocationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIGeoPointResponse*
 ///
--(NSURLSessionTask*) getLocationByTrilaterationWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getLocationByTrilaterationWithAccountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     data: (NSString*) data
     responseFilters: (NSString*) responseFilters
     completionHandler: (void (^)(OAIGeoPointResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAILocationApiErrorDomain code:kOAILocationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/location/trilaterate"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/location/trilaterate"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -409,8 +341,6 @@ NSInteger kOAILocationApiMissingParamErrorCode = 234513;
 ///
 /// Search Regions or Postal Codes
 /// Searches geographic locations by proximity via address or keyword.
-///  @param version  
-///
 ///  @param deviceId the device id (optional)
 ///
 ///  @param accountId the account id (optional)
@@ -451,8 +381,7 @@ NSInteger kOAILocationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAILocationSearchResponse*
 ///
--(NSURLSessionTask*) getLocationsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) getLocationsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     currentlatitude: (NSNumber*) currentlatitude
     currentlongitude: (NSNumber*) currentlongitude
@@ -472,23 +401,9 @@ NSInteger kOAILocationApiMissingParamErrorCode = 234513;
     l: (NSNumber*) l
     limit: (NSNumber*) limit
     completionHandler: (void (^)(OAILocationSearchResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAILocationApiErrorDomain code:kOAILocationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/location/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/location/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {

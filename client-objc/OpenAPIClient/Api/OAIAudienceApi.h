@@ -31,7 +31,6 @@ extern NSInteger kOAIAudienceApiMissingParamErrorCode;
 /// Create Audience
 /// Create a user defined audience.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param name The name of the audience
 /// @param _description The description of the audience (optional)
@@ -65,8 +64,7 @@ extern NSInteger kOAIAudienceApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAudienceResponse*
--(NSURLSessionTask*) createAudienceWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createAudienceWithAccountId: (NSNumber*) accountId
     name: (NSString*) name
     _description: (NSString*) _description
     searchTags: (NSString*) searchTags
@@ -101,15 +99,13 @@ extern NSInteger kOAIAudienceApiMissingParamErrorCode;
 /// Delete Audience
 /// Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param audienceId The id of the audience to delete.
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteAudienceWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteAudienceWithAccountId: (NSNumber*) accountId
     audienceId: (NSNumber*) audienceId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -117,19 +113,17 @@ extern NSInteger kOAIAudienceApiMissingParamErrorCode;
 /// Get Age Groups
 /// Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
 ///
-/// @param version 
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIAgeGroupResponse>*
--(NSURLSessionTask*) getAgeGroupsWithVersion: (NSNumber*) version
-    completionHandler: (void (^)(NSArray<OAIAgeGroupResponse>* output, NSError* error)) handler;
+-(NSURLSessionTask*) getAgeGroupsWithCompletionHandler: 
+    (void (^)(NSArray<OAIAgeGroupResponse>* output, NSError* error)) handler;
 
 
 /// Get Audience
 /// Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param audienceId The id of the audience to return.
 /// @param appKey The application key (optional). If provided, results may be scoped to this application. (optional)
@@ -140,8 +134,7 @@ extern NSInteger kOAIAudienceApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAudienceResponse*
--(NSURLSessionTask*) getAudienceWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getAudienceWithAccountId: (NSNumber*) accountId
     audienceId: (NSNumber*) audienceId
     appKey: (NSString*) appKey
     returnAccountCount: (NSNumber*) returnAccountCount
@@ -153,7 +146,6 @@ extern NSInteger kOAIAudienceApiMissingParamErrorCode;
 /// Search Audiences
 /// Get the list audiences owned by the account
 ///
-/// @param version 
 /// @param accountId The logged in user. (optional)
 /// @param albumIds Comma separated list of album IDs to filter results with (optional)
 /// @param keyword The keyword used to search (optional)
@@ -177,8 +169,7 @@ extern NSInteger kOAIAudienceApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAISearchResponse>*
--(NSURLSessionTask*) getAudienceListWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getAudienceListWithAccountId: (NSNumber*) accountId
     albumIds: (NSString*) albumIds
     keyword: (NSString*) keyword
     keywordFields: (NSString*) keywordFields
@@ -203,41 +194,36 @@ extern NSInteger kOAIAudienceApiMissingParamErrorCode;
 /// Get Devices
 /// Gets the list of available devices that can be selected by consumers and retailers.
 ///
-/// @param version 
 /// @param includeInactive If true return inactive record as well. default is false.
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIAudienceDeviceResponse>*
--(NSURLSessionTask*) getDevicesWithVersion: (NSNumber*) version
-    includeInactive: (NSNumber*) includeInactive
+-(NSURLSessionTask*) getDevicesWithIncludeInactive: (NSNumber*) includeInactive
     completionHandler: (void (^)(NSArray<OAIAudienceDeviceResponse>* output, NSError* error)) handler;
 
 
 /// Get Experiences
 /// Gets the list of available experiences that can be selected by consumers and retailers.
 ///
-/// @param version 
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) getExperiencesWithVersion: (NSNumber*) version
-    completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
+-(NSURLSessionTask*) getExperiencesWithCompletionHandler: 
+    (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
 
 /// Get GroupedAudiences
 /// Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param audienceGroupingId The audience grouping id to return.
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAudienceResponse*
--(NSURLSessionTask*) getGroupedAudiencesWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getGroupedAudiencesWithAccountId: (NSNumber*) accountId
     audienceGroupingId: (NSString*) audienceGroupingId
     completionHandler: (void (^)(OAIAudienceResponse* output, NSError* error)) handler;
 
@@ -245,7 +231,6 @@ extern NSInteger kOAIAudienceApiMissingParamErrorCode;
 /// List Suggestions by Audience
 /// List either Missions or Offers that the user matches the assigned audience.
 ///
-/// @param version 
 /// @param accountId The account to match offers for.
 /// @param limit the limit of the index
 /// @param suggestionType the type of suggestion
@@ -253,8 +238,7 @@ extern NSInteger kOAIAudienceApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOfferListResponse*
--(NSURLSessionTask*) listByAccountWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) listByAccountWithAccountId: (NSNumber*) accountId
     limit: (NSNumber*) limit
     suggestionType: (NSString*) suggestionType
     completionHandler: (void (^)(OAIOfferListResponse* output, NSError* error)) handler;
@@ -263,7 +247,6 @@ extern NSInteger kOAIAudienceApiMissingParamErrorCode;
 /// List Offers by Audience
 /// Get a list of offer locations based on audience information provided.
 ///
-/// @param version 
 /// @param limit this is the limit of the index
 /// @param gender this is the gender to list offers by (optional)
 /// @param age this is the age to list offers by (optional)
@@ -274,8 +257,7 @@ extern NSInteger kOAIAudienceApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOfferListResponse*
--(NSURLSessionTask*) listByAudienceWithVersion: (NSNumber*) version
-    limit: (NSNumber*) limit
+-(NSURLSessionTask*) listByAudienceWithLimit: (NSNumber*) limit
     gender: (NSString*) gender
     age: (NSNumber*) age
     categoryIds: (NSString*) categoryIds
@@ -287,7 +269,6 @@ extern NSInteger kOAIAudienceApiMissingParamErrorCode;
 /// List Sent Suggestions 
 /// Return list of recent trigger suggestions that have been sent to the user.
 ///
-/// @param version 
 /// @param accountId The account to match offers for.
 /// @param timeframe The timeframe in seconds of the latest suggestions
 /// @param suggestionType The type of trigger suggestions to return
@@ -295,8 +276,7 @@ extern NSInteger kOAIAudienceApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOfferListResponse*
--(NSURLSessionTask*) listLastestByAccountWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) listLastestByAccountWithAccountId: (NSNumber*) accountId
     timeframe: (NSNumber*) timeframe
     suggestionType: (NSString*) suggestionType
     completionHandler: (void (^)(OAIOfferListResponse* output, NSError* error)) handler;
@@ -305,7 +285,6 @@ extern NSInteger kOAIAudienceApiMissingParamErrorCode;
 /// Send Suggestions
 /// Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
 ///
-/// @param version 
 /// @param accountId The account to match offers for.
 /// @param latitude the latitude
 /// @param longitude the longitude
@@ -313,8 +292,7 @@ extern NSInteger kOAIAudienceApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) sendByAccountWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) sendByAccountWithAccountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
@@ -323,7 +301,6 @@ extern NSInteger kOAIAudienceApiMissingParamErrorCode;
 /// Update Audience
 /// Update a user defined audience.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param audienceId The id of the audience to update.
 /// @param name The name of the audience (optional)
@@ -359,8 +336,7 @@ extern NSInteger kOAIAudienceApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAudienceResponse*
--(NSURLSessionTask*) updateAudienceWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateAudienceWithAccountId: (NSNumber*) accountId
     audienceId: (NSNumber*) audienceId
     name: (NSString*) name
     _description: (NSString*) _description

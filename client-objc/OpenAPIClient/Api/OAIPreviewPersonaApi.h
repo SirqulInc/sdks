@@ -27,7 +27,6 @@ extern NSInteger kOAIPreviewPersonaApiMissingParamErrorCode;
 /// Create Persona
 /// Creates a new persona. If the given params are null those attributes will be override by null.
 ///
-/// @param version 
 /// @param accountId the account ID of the user
 /// @param title the title of the persona
 /// @param previewAccounts the accounts that are able to preview from this persona (optional)
@@ -41,8 +40,7 @@ extern NSInteger kOAIPreviewPersonaApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPreviewPersonaResponse*
--(NSURLSessionTask*) createPersonaWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createPersonaWithAccountId: (NSNumber*) accountId
     title: (NSString*) title
     previewAccounts: (NSString*) previewAccounts
     date: (NSNumber*) date
@@ -57,15 +55,13 @@ extern NSInteger kOAIPreviewPersonaApiMissingParamErrorCode;
 /// Delete Persona
 /// Mark the persona for deletion.
 ///
-/// @param version 
 /// @param accountId the account id of the user
 /// @param personaId the id of the persona to delete
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deletePersonaWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deletePersonaWithAccountId: (NSNumber*) accountId
     personaId: (NSNumber*) personaId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -73,15 +69,13 @@ extern NSInteger kOAIPreviewPersonaApiMissingParamErrorCode;
 /// Get Persona
 /// Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned.
 ///
-/// @param version 
 /// @param accountId the account ID of the user
 /// @param personaId the persona ID of the persona
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPreviewPersonaResponse*
--(NSURLSessionTask*) getPersonaListWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getPersonaListWithAccountId: (NSNumber*) accountId
     personaId: (NSNumber*) personaId
     completionHandler: (void (^)(OAIPreviewPersonaResponse* output, NSError* error)) handler;
 
@@ -89,7 +83,6 @@ extern NSInteger kOAIPreviewPersonaApiMissingParamErrorCode;
 /// Search Personas
 /// Search for persona that the account owns by the given account ID.
 ///
-/// @param version 
 /// @param accountId the account ID of the user
 /// @param start the start index for pagination
 /// @param limit the limit for pagination (There is a hard limit of 100)
@@ -97,8 +90,7 @@ extern NSInteger kOAIPreviewPersonaApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPreviewPersonaResponse*
--(NSURLSessionTask*) searchPersonaWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchPersonaWithAccountId: (NSNumber*) accountId
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(OAIPreviewPersonaResponse* output, NSError* error)) handler;
@@ -107,7 +99,6 @@ extern NSInteger kOAIPreviewPersonaApiMissingParamErrorCode;
 /// Update Persona
 /// Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored.
 ///
-/// @param version 
 /// @param accountId the account ID of the user
 /// @param personaId the persona ID of the persona to update
 /// @param title the title of the persona (optional)
@@ -123,8 +114,7 @@ extern NSInteger kOAIPreviewPersonaApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPreviewPersonaResponse*
--(NSURLSessionTask*) updatePersonaWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updatePersonaWithAccountId: (NSNumber*) accountId
     personaId: (NSNumber*) personaId
     title: (NSString*) title
     previewAccounts: (NSString*) previewAccounts

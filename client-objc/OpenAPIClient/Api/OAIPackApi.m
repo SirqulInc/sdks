@@ -53,8 +53,6 @@ NSInteger kOAIPackApiMissingParamErrorCode = 234513;
 ///
 /// Create Pack
 /// Create a pack.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param title The title of the pack 
@@ -105,8 +103,7 @@ NSInteger kOAIPackApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIPackResponse*
 ///
--(NSURLSessionTask*) createPackWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createPackWithAccountId: (NSNumber*) accountId
     title: (NSString*) title
     packOrder: (NSNumber*) packOrder
     price: (NSNumber*) price
@@ -131,17 +128,6 @@ NSInteger kOAIPackApiMissingParamErrorCode = 234513;
     ticketType: (NSString*) ticketType
     points: (NSNumber*) points
     completionHandler: (void (^)(OAIPackResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIPackApiErrorDomain code:kOAIPackApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -219,12 +205,9 @@ NSInteger kOAIPackApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/pack/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/pack/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -342,29 +325,15 @@ NSInteger kOAIPackApiMissingParamErrorCode = 234513;
 ///
 /// Delete Pack
 /// Delete a pack.
-///  @param version  
-///
 ///  @param accountId the id of the logged in user 
 ///
 ///  @param packId the id of the pack to delete 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deletePackWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deletePackWithAccountId: (NSNumber*) accountId
     packId: (NSNumber*) packId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIPackApiErrorDomain code:kOAIPackApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -387,12 +356,9 @@ NSInteger kOAIPackApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/pack/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/pack/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -444,8 +410,6 @@ NSInteger kOAIPackApiMissingParamErrorCode = 234513;
 ///
 /// Get Pack
 /// Get a pack.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param packId The id of the pack to return. 
@@ -454,22 +418,10 @@ NSInteger kOAIPackApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIPackResponse*
 ///
--(NSURLSessionTask*) getPackWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getPackWithAccountId: (NSNumber*) accountId
     packId: (NSNumber*) packId
     includeGameData: (NSNumber*) includeGameData
     completionHandler: (void (^)(OAIPackResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIPackApiErrorDomain code:kOAIPackApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -503,12 +455,9 @@ NSInteger kOAIPackApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/pack/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/pack/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -563,8 +512,6 @@ NSInteger kOAIPackApiMissingParamErrorCode = 234513;
 ///
 /// Search Packs
 /// Search on packs.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param sortField The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED 
@@ -587,8 +534,7 @@ NSInteger kOAIPackApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIPackResponse>*
 ///
--(NSURLSessionTask*) searchPacksWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchPacksWithAccountId: (NSNumber*) accountId
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     keyword: (NSString*) keyword
@@ -599,17 +545,6 @@ NSInteger kOAIPackApiMissingParamErrorCode = 234513;
     includeInactive: (NSNumber*) includeInactive
     appKey: (NSString*) appKey
     completionHandler: (void (^)(NSArray<OAIPackResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIPackApiErrorDomain code:kOAIPackApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -643,12 +578,9 @@ NSInteger kOAIPackApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/pack/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/pack/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -724,8 +656,6 @@ NSInteger kOAIPackApiMissingParamErrorCode = 234513;
 ///
 /// Update Pack
 /// Update a pack.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param packId The id of the pack to update. 
@@ -778,8 +708,7 @@ NSInteger kOAIPackApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIPackResponse*
 ///
--(NSURLSessionTask*) updatePackWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updatePackWithAccountId: (NSNumber*) accountId
     packId: (NSNumber*) packId
     allocateTickets: (NSNumber*) allocateTickets
     ticketCount: (NSNumber*) ticketCount
@@ -805,17 +734,6 @@ NSInteger kOAIPackApiMissingParamErrorCode = 234513;
     ticketType: (NSString*) ticketType
     points: (NSNumber*) points
     completionHandler: (void (^)(OAIPackResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIPackApiErrorDomain code:kOAIPackApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -860,12 +778,9 @@ NSInteger kOAIPackApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/pack/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/pack/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

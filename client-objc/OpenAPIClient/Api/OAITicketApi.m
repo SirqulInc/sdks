@@ -56,8 +56,6 @@ NSInteger kOAITicketApiMissingParamErrorCode = 234513;
 ///
 /// Get Ticket Count
 /// Gets the ticket count.
-///  @param version  
-///
 ///  @param deviceId the id of the device that owns the tickets (optional)
 ///
 ///  @param accountId the id of the account that owns the tickets (optional)
@@ -70,30 +68,15 @@ NSInteger kOAITicketApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAICountResponse*
 ///
--(NSURLSessionTask*) getTicketCountWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) getTicketCountWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     gameType: (NSString*) gameType
     appKey: (NSString*) appKey
     ticketType: (NSString*) ticketType
     completionHandler: (void (^)(OAICountResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITicketApiErrorDomain code:kOAITicketApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/ticket/count"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/ticket/count"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -154,8 +137,6 @@ NSInteger kOAITicketApiMissingParamErrorCode = 234513;
 ///
 /// Get Ticket List
 /// Gets the list of tickets.
-///  @param version  
-///
 ///  @param deviceId the id of the device that owns the tickets (optional)
 ///
 ///  @param accountId the id of the account that owns the tickets (optional)
@@ -176,8 +157,7 @@ NSInteger kOAITicketApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAITicketListResponse*
 ///
--(NSURLSessionTask*) getTicketListWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) getTicketListWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     ticketObjectType: (NSString*) ticketObjectType
     actionType: (NSString*) actionType
@@ -187,23 +167,9 @@ NSInteger kOAITicketApiMissingParamErrorCode = 234513;
     gameType: (NSString*) gameType
     appKey: (NSString*) appKey
     completionHandler: (void (^)(OAITicketListResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITicketApiErrorDomain code:kOAITicketApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/ticket/getList"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/ticket/getList"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -276,8 +242,6 @@ NSInteger kOAITicketApiMissingParamErrorCode = 234513;
 ///
 /// Gift Tickets
 /// Gift tickets to another user.
-///  @param version  
-///
 ///  @param receiverAccountId the id of the account receiving the tickets 
 ///
 ///  @param ticketId the id of the tickets 
@@ -296,8 +260,7 @@ NSInteger kOAITicketApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) giftPurchaseWithVersion: (NSNumber*) version
-    receiverAccountId: (NSNumber*) receiverAccountId
+-(NSURLSessionTask*) giftPurchaseWithReceiverAccountId: (NSNumber*) receiverAccountId
     ticketId: (NSNumber*) ticketId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -306,17 +269,6 @@ NSInteger kOAITicketApiMissingParamErrorCode = 234513;
     gameType: (NSString*) gameType
     appKey: (NSString*) appKey
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITicketApiErrorDomain code:kOAITicketApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'receiverAccountId' is set
     if (receiverAccountId == nil) {
         NSParameterAssert(receiverAccountId);
@@ -339,12 +291,9 @@ NSInteger kOAITicketApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/purchase/gift"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/purchase/gift"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -414,8 +363,6 @@ NSInteger kOAITicketApiMissingParamErrorCode = 234513;
 ///
 /// Save Ticket
 /// Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
-///  @param version  
-///
 ///  @param actionType the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER 
 ///
 ///  @param ticketObjectType the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM 
@@ -454,8 +401,7 @@ NSInteger kOAITicketApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIProfileResponse*
 ///
--(NSURLSessionTask*) saveTicketWithVersion: (NSNumber*) version
-    actionType: (NSString*) actionType
+-(NSURLSessionTask*) saveTicketWithActionType: (NSString*) actionType
     ticketObjectType: (NSString*) ticketObjectType
     returnNulls: (NSNumber*) returnNulls
     deviceId: (NSString*) deviceId
@@ -474,17 +420,6 @@ NSInteger kOAITicketApiMissingParamErrorCode = 234513;
     includeProfileResponse: (NSNumber*) includeProfileResponse
     appVersion: (NSString*) appVersion
     completionHandler: (void (^)(OAIProfileResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITicketApiErrorDomain code:kOAITicketApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'actionType' is set
     if (actionType == nil) {
         NSParameterAssert(actionType);
@@ -507,12 +442,9 @@ NSInteger kOAITicketApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/ticket/save"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/ticket/save"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (returnNulls != nil) {
@@ -612,8 +544,6 @@ NSInteger kOAITicketApiMissingParamErrorCode = 234513;
 ///
 /// Save Ticket with Reciept
 /// Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
-///  @param version  
-///
 ///  @param actionType the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER } 
 ///
 ///  @param ticketObjectType the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM} 
@@ -652,8 +582,7 @@ NSInteger kOAITicketApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIProfileResponse*
 ///
--(NSURLSessionTask*) saveTicketViaFileUploadWithVersion: (NSNumber*) version
-    actionType: (NSString*) actionType
+-(NSURLSessionTask*) saveTicketViaFileUploadWithActionType: (NSString*) actionType
     ticketObjectType: (NSString*) ticketObjectType
     receiptData: (NSURL*) receiptData
     returnNulls: (NSNumber*) returnNulls
@@ -672,17 +601,6 @@ NSInteger kOAITicketApiMissingParamErrorCode = 234513;
     includeProfileResponse: (NSNumber*) includeProfileResponse
     appVersion: (NSString*) appVersion
     completionHandler: (void (^)(OAIProfileResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITicketApiErrorDomain code:kOAITicketApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'actionType' is set
     if (actionType == nil) {
         NSParameterAssert(actionType);
@@ -716,12 +634,9 @@ NSInteger kOAITicketApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/ticket/save/fileUpload"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/ticket/save/fileUpload"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (returnNulls != nil) {
@@ -821,29 +736,13 @@ NSInteger kOAITicketApiMissingParamErrorCode = 234513;
 ///
 /// Get Ticket Offers
 /// Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
-///  @param version  
-///
 ///  @returns OAITicketOfferResponse*
 ///
--(NSURLSessionTask*) ticketOffersWithVersion: (NSNumber*) version
-    completionHandler: (void (^)(OAITicketOfferResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITicketApiErrorDomain code:kOAITicketApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/ticket/ticketoffers"];
+-(NSURLSessionTask*) ticketOffersWithCompletionHandler: 
+    (void (^)(OAITicketOfferResponse* output, NSError* error)) handler {
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/ticket/ticketoffers"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];

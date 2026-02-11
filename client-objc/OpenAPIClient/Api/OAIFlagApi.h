@@ -28,7 +28,6 @@ extern NSInteger kOAIFlagApiMissingParamErrorCode;
 /// Create Flag
 /// Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
 ///
-/// @param version 
 /// @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
 /// @param flagableId The flagable object id
 /// @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -40,8 +39,7 @@ extern NSInteger kOAIFlagApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) createFlagWithVersion: (NSNumber*) version
-    flagableType: (NSString*) flagableType
+-(NSURLSessionTask*) createFlagWithFlagableType: (NSString*) flagableType
     flagableId: (NSNumber*) flagableId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -54,7 +52,6 @@ extern NSInteger kOAIFlagApiMissingParamErrorCode;
 /// Delete Flag
 /// Deletes a flag.
 ///
-/// @param version 
 /// @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
 /// @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
 /// @param itemBeingFlaggedType This parameter is deprecated. (optional)
@@ -65,8 +62,7 @@ extern NSInteger kOAIFlagApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteFlagWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) deleteFlagWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     itemBeingFlaggedType: (NSString*) itemBeingFlaggedType
     itemBeingFlaggedId: (NSNumber*) itemBeingFlaggedId
@@ -78,7 +74,6 @@ extern NSInteger kOAIFlagApiMissingParamErrorCode;
 /// Get Flag
 /// Gets the details on whether the user has flagged a particular flagable object.
 ///
-/// @param version 
 /// @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
 /// @param flagableId The flagable object id
 /// @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -89,8 +84,7 @@ extern NSInteger kOAIFlagApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIFlagResponse*
--(NSURLSessionTask*) getFlagWithVersion: (NSNumber*) version
-    flagableType: (NSString*) flagableType
+-(NSURLSessionTask*) getFlagWithFlagableType: (NSString*) flagableType
     flagableId: (NSNumber*) flagableId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -102,15 +96,13 @@ extern NSInteger kOAIFlagApiMissingParamErrorCode;
 /// Get Flag Threshold
 /// Get the flag threshold value on an object type for a particular application.
 ///
-/// @param version 
 /// @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
 /// @param appKey The application key
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAICountResponse*
--(NSURLSessionTask*) getFlagThresholdWithVersion: (NSNumber*) version
-    itemBeingFlaggedType: (NSString*) itemBeingFlaggedType
+-(NSURLSessionTask*) getFlagThresholdWithItemBeingFlaggedType: (NSString*) itemBeingFlaggedType
     appKey: (NSString*) appKey
     completionHandler: (void (^)(OAICountResponse* output, NSError* error)) handler;
 
@@ -118,7 +110,6 @@ extern NSInteger kOAIFlagApiMissingParamErrorCode;
 /// Update Flag Threshold
 /// Update the flag threshold on an object type for a particular application.
 ///
-/// @param version 
 /// @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
 /// @param threshold The threshold value
 /// @param appKey The application key
@@ -128,8 +119,7 @@ extern NSInteger kOAIFlagApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAICountResponse*
--(NSURLSessionTask*) updateFlagThresholdWithVersion: (NSNumber*) version
-    itemBeingFlaggedType: (NSString*) itemBeingFlaggedType
+-(NSURLSessionTask*) updateFlagThresholdWithItemBeingFlaggedType: (NSString*) itemBeingFlaggedType
     threshold: (NSNumber*) threshold
     appKey: (NSString*) appKey
     deviceId: (NSString*) deviceId

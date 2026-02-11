@@ -26,7 +26,6 @@ extern NSInteger kOAIRetailerV2ApiMissingParamErrorCode;
 /// Get Retailer
 /// Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
 ///
-/// @param version 
 /// @param retailerId the id of the retailer
 /// @param activeOnly whether to return results that are active only or all (default to @(YES))
 /// @param keyword the keyword to search on to get retailer (optional)
@@ -37,8 +36,7 @@ extern NSInteger kOAIRetailerV2ApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) getRetaokilerWithVersion: (NSNumber*) version
-    retailerId: (NSNumber*) retailerId
+-(NSURLSessionTask*) getRetaokilerWithRetailerId: (NSNumber*) retailerId
     activeOnly: (NSNumber*) activeOnly
     keyword: (NSString*) keyword
     sortField: (NSString*) sortField

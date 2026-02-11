@@ -58,8 +58,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Search Accounts by Location
 /// Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts.
-///  @param version  
-///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
 ///
 ///  @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -130,8 +128,7 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIUserLocationSearchResponse*
 ///
--(NSURLSessionTask*) accountLocationSearchWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) accountLocationSearchWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     q: (NSString*) q
     keyword: (NSString*) keyword
@@ -166,23 +163,9 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
     verifiedUserOnly: (NSNumber*) verifiedUserOnly
     contentAdminOnly: (NSNumber*) contentAdminOnly
     completionHandler: (void (^)(OAIUserLocationSearchResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -330,8 +313,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Block Account
 /// Moves or removes an account into the user's blocked group.
-///  @param version  
-///
 ///  @param accountIdBeingBlocked The id of the account to be blocked/unblocked 
 ///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
@@ -348,8 +329,7 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) blockAccountWithVersion: (NSNumber*) version
-    accountIdBeingBlocked: (NSNumber*) accountIdBeingBlocked
+-(NSURLSessionTask*) blockAccountWithAccountIdBeingBlocked: (NSNumber*) accountIdBeingBlocked
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     blockFlagValue: (NSNumber*) blockFlagValue
@@ -357,17 +337,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountIdBeingBlocked' is set
     if (accountIdBeingBlocked == nil) {
         NSParameterAssert(accountIdBeingBlocked);
@@ -379,12 +348,9 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/block"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/block"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -451,8 +417,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Create Account
 /// Create a new account by role.
-///  @param version  
-///
 ///  @param username The access token to authenticate with (ex: username) 
 ///
 ///  @param password The secret to authenticate with (ex: password) 
@@ -599,8 +563,7 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAccountLoginResponse*
 ///
--(NSURLSessionTask*) createAccountWithVersion: (NSNumber*) version
-    username: (NSString*) username
+-(NSURLSessionTask*) createAccountWithUsername: (NSString*) username
     password: (NSString*) password
     name: (NSString*) name
     prefixName: (NSString*) prefixName
@@ -673,17 +636,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
     appNickname: (NSString*) appNickname
     personalAudienceId: (NSNumber*) personalAudienceId
     completionHandler: (void (^)(OAIAccountLoginResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'username' is set
     if (username == nil) {
         NSParameterAssert(username);
@@ -706,12 +658,9 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (name != nil) {
@@ -973,8 +922,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Update Account
 /// Edit the user's profile information
-///  @param version  
-///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
 ///
 ///  @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1141,8 +1088,7 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIProfileInfoResponse*
 ///
--(NSURLSessionTask*) editAccountWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) editAccountWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     connectionAccountId: (NSNumber*) connectionAccountId
     role: (NSString*) role
@@ -1225,23 +1171,9 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
     personalAudienceId: (NSNumber*) personalAudienceId
     nonGuestUsername: (NSString*) nonGuestUsername
     completionHandler: (void (^)(OAIProfileInfoResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/profile/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/profile/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -1533,8 +1465,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Update Username and Email
 /// Update account's own username and/or emailAddress
-///  @param version  
-///
 ///  @param deviceId The device id (optional)
 ///
 ///  @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1545,29 +1475,14 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) editUsernameWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) editUsernameWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     emailAddress: (NSString*) emailAddress
     username: (NSString*) username
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/username/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/username/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -1625,8 +1540,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Get Account
 /// Gets a user's account profile. Application settings and account settings will also be returned for the owner of the account.
-///  @param version  
-///
 ///  @param returnNulls Return Nulls (optional, default to @(NO))
 ///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
@@ -1653,8 +1566,7 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIProfileResponse*
 ///
--(NSURLSessionTask*) getAccountWithVersion: (NSNumber*) version
-    returnNulls: (NSNumber*) returnNulls
+-(NSURLSessionTask*) getAccountWithReturnNulls: (NSNumber*) returnNulls
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     connectionAccountEmail: (NSString*) connectionAccountEmail
@@ -1667,23 +1579,9 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIProfileResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/profile/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/profile/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (returnNulls != nil) {
@@ -1765,8 +1663,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Get Profile Assets
 /// Get a list of assets a person has ever uploaded. Filters the list based on parameters.
-///  @param version  
-///
 ///  @param returnNulls Determines whether to return null fields in the response (optional, default to @(NO))
 ///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
@@ -1797,8 +1693,7 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAssetListResponse*
 ///
--(NSURLSessionTask*) getProfileAssetsWithVersion: (NSNumber*) version
-    returnNulls: (NSNumber*) returnNulls
+-(NSURLSessionTask*) getProfileAssetsWithReturnNulls: (NSNumber*) returnNulls
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     ownerId: (NSNumber*) ownerId
@@ -1813,23 +1708,9 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
     l: (NSNumber*) l
     limit: (NSNumber*) limit
     completionHandler: (void (^)(OAIAssetListResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/profile/assets"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/profile/assets"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (returnNulls != nil) {
@@ -1917,8 +1798,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Search Accounts
 /// Gets a user's account profile and their referral List.
-///  @param version  
-///
 ///  @param accountId The account id of the user (deviceId or accountId required) (optional)
 ///
 ///  @param appKey The application key (optional)
@@ -1943,8 +1822,7 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) getReferralListWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getReferralListWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     retrieveType: (NSString*) retrieveType
     levelLimit: (NSNumber*) levelLimit
@@ -1956,23 +1834,9 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
     childrenListLimit: (NSNumber*) childrenListLimit
     childrenChildren: (NSNumber*) childrenChildren
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/referral/list"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/referral/list"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -2051,8 +1915,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Get Account Settings
 /// Get the account settings for a user
-///  @param version  
-///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
 ///
 ///  @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -2063,29 +1925,14 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIUserSettingsResponse*
 ///
--(NSURLSessionTask*) getSettingsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) getSettingsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIUserSettingsResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/settings/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/settings/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -2143,8 +1990,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Login as Account
 /// A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now.
-///  @param version  
-///
 ///  @param accessToken  
 ///
 ///  @param appKey  
@@ -2169,8 +2014,7 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIProfileResponse*
 ///
--(NSURLSessionTask*) loginDelegateWithVersion: (NSNumber*) version
-    accessToken: (NSString*) accessToken
+-(NSURLSessionTask*) loginDelegateWithAccessToken: (NSString*) accessToken
     appKey: (NSString*) appKey
     deviceId: (NSString*) deviceId
     accessTokenSecret: (NSString*) accessTokenSecret
@@ -2182,17 +2026,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIProfileResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accessToken' is set
     if (accessToken == nil) {
         NSParameterAssert(accessToken);
@@ -2215,12 +2048,9 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/login/delegate"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/login/delegate"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -2299,8 +2129,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Login Account
 /// General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}
-///  @param version  
-///
 ///  @param accessToken The access token to authenticate with (ex: username or fb token) 
 ///
 ///  @param networkUID The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE  
@@ -2329,8 +2157,7 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIProfileResponse*
 ///
--(NSURLSessionTask*) loginGeneralWithVersion: (NSNumber*) version
-    accessToken: (NSString*) accessToken
+-(NSURLSessionTask*) loginGeneralWithAccessToken: (NSString*) accessToken
     networkUID: (NSString*) networkUID
     appKey: (NSString*) appKey
     deviceId: (NSString*) deviceId
@@ -2344,17 +2171,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
     chosenAccountId: (NSNumber*) chosenAccountId
     thirdPartyCredentialId: (NSNumber*) thirdPartyCredentialId
     completionHandler: (void (^)(OAIProfileResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accessToken' is set
     if (accessToken == nil) {
         NSParameterAssert(accessToken);
@@ -2388,12 +2204,9 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/login"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/login"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -2478,8 +2291,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Login Account (Username)
 /// Login to system with an account
-///  @param version  
-///
 ///  @param username the user's email address they used to sign-up 
 ///
 ///  @param password the password 
@@ -2502,8 +2313,7 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIProfileResponse*
 ///
--(NSURLSessionTask*) loginUsernameWithVersion: (NSNumber*) version
-    username: (NSString*) username
+-(NSURLSessionTask*) loginUsernameWithUsername: (NSString*) username
     password: (NSString*) password
     deviceId: (NSString*) deviceId
     latitude: (NSNumber*) latitude
@@ -2514,17 +2324,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
     returnProfile: (NSNumber*) returnProfile
     responseFilters: (NSString*) responseFilters
     completionHandler: (void (^)(OAIProfileResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'username' is set
     if (username == nil) {
         NSParameterAssert(username);
@@ -2547,12 +2346,9 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -2628,8 +2424,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Logout Account
 /// Cleans up the users data for logging out.
-///  @param version  
-///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
 ///
 ///  @param deviceIdType Device Id Type (optional)
@@ -2642,30 +2436,15 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) logoutWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) logoutWithDeviceId: (NSString*) deviceId
     deviceIdType: (NSString*) deviceIdType
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/logout"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/logout"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -2726,8 +2505,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Merge Account
 /// Merges the analytics, achievements, leaderboards of two accounts.
-///  @param version  
-///
 ///  @param mergeAccountId The id of the account to being merged 
 ///
 ///  @param appKey The application key 
@@ -2738,23 +2515,11 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) mergeAccountWithVersion: (NSNumber*) version
-    mergeAccountId: (NSNumber*) mergeAccountId
+-(NSURLSessionTask*) mergeAccountWithMergeAccountId: (NSNumber*) mergeAccountId
     appKey: (NSString*) appKey
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'mergeAccountId' is set
     if (mergeAccountId == nil) {
         NSParameterAssert(mergeAccountId);
@@ -2777,12 +2542,9 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/merge"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/merge"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -2840,8 +2602,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Update Password
 /// Update the account password.
-///  @param version  
-///
 ///  @param accountId The account to update 
 ///
 ///  @param oldPassword The current password, used to validate access 
@@ -2852,23 +2612,11 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) passwordChangeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) passwordChangeWithAccountId: (NSNumber*) accountId
     oldPassword: (NSString*) oldPassword
     varNewPassword: (NSString*) varNewPassword
     confirmPassword: (NSString*) confirmPassword
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -2913,12 +2661,9 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/passwordchange"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/passwordchange"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -2976,8 +2721,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Reset Password
 /// Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token.
-///  @param version  
-///
 ///  @param token The token associated with the account to update, good for 24 hours 
 ///
 ///  @param password The new password to set, cannot be empty 
@@ -2986,22 +2729,10 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) passwordResetWithVersion: (NSNumber*) version
-    token: (NSString*) token
+-(NSURLSessionTask*) passwordResetWithToken: (NSString*) token
     password: (NSString*) password
     confirm: (NSString*) confirm
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'token' is set
     if (token == nil) {
         NSParameterAssert(token);
@@ -3035,12 +2766,9 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/passwordreset"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/passwordreset"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (token != nil) {
@@ -3095,8 +2823,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Request Password Reset
 /// Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours.
-///  @param version  
-///
 ///  @param email The email/username of the account 
 ///
 ///  @param from this is the sender email (optional, default to @"Sirqul")
@@ -3109,24 +2835,12 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) requestPasswordResetWithVersion: (NSNumber*) version
-    email: (NSString*) email
+-(NSURLSessionTask*) requestPasswordResetWithEmail: (NSString*) email
     from: (NSString*) from
     domain: (NSString*) domain
     subUrl: (NSString*) subUrl
     referer: (NSString*) referer
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'email' is set
     if (email == nil) {
         NSParameterAssert(email);
@@ -3138,12 +2852,9 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/requestpasswordreset"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/requestpasswordreset"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (email != nil) {
@@ -3204,26 +2915,12 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Send Validation Request
 /// Send an email to validate a user's account.
-///  @param version  
-///
 ///  @param accountId The account id of the user 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) requestValidateAccountWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) requestValidateAccountWithAccountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -3235,12 +2932,9 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/requestValidateAccount"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/requestValidateAccount"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -3289,8 +2983,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Search Accounts
 /// Search for account profiles.
-///  @param version  
-///
 ///  @param accountId The id of the account requesting 
 ///
 ///  @param appKey The application key 
@@ -3329,8 +3021,7 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIProfileResponse>*
 ///
--(NSURLSessionTask*) searchAccountsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchAccountsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     keyword: (NSString*) keyword
     latitude: (NSNumber*) latitude
@@ -3349,17 +3040,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
     limit: (NSNumber*) limit
     activeOnly: (NSNumber*) activeOnly
     completionHandler: (void (^)(NSArray<OAIProfileResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -3382,12 +3062,9 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/profile/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/profile/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -3487,8 +3164,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Login Account (Encrypted Username)
 /// ogin with encrypted user-name and password.
-///  @param version  
-///
 ///  @param username The user's encrypted email address they used to sign-up 
 ///
 ///  @param password The encrypted password 
@@ -3509,8 +3184,7 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIProfileResponse*
 ///
--(NSURLSessionTask*) secureLoginWithVersion: (NSNumber*) version
-    username: (NSString*) username
+-(NSURLSessionTask*) secureLoginWithUsername: (NSString*) username
     password: (NSString*) password
     gameType: (NSString*) gameType
     deviceId: (NSString*) deviceId
@@ -3520,17 +3194,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
     returnProfile: (NSNumber*) returnProfile
     responseFilters: (NSString*) responseFilters
     completionHandler: (void (^)(OAIProfileResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'username' is set
     if (username == nil) {
         NSParameterAssert(username);
@@ -3564,12 +3227,9 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/login/validate"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/login/validate"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -3642,8 +3302,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Create Account (Encrypted Username)
 /// Create a new account by role (with encrypted user-name and password)
-///  @param version  
-///
 ///  @param deviceId The device id 
 ///
 ///  @param username The encrypted email of the user, this is what will be used when they login 
@@ -3768,8 +3426,7 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIProfileInfoResponse*
 ///
--(NSURLSessionTask*) secureSignupWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) secureSignupWithDeviceId: (NSString*) deviceId
     username: (NSString*) username
     password: (NSString*) password
     name: (NSString*) name
@@ -3831,17 +3488,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
     appVersion: (NSString*) appVersion
     responseType: (NSString*) responseType
     completionHandler: (void (^)(OAIProfileInfoResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'deviceId' is set
     if (deviceId == nil) {
         NSParameterAssert(deviceId);
@@ -3875,12 +3521,9 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/create/validate"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/create/validate"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (name != nil) {
@@ -4109,8 +3752,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Save Match Token
 /// Save user's match token to be used for profile match making
-///  @param version  
-///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
 ///
 ///  @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -4127,8 +3768,7 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) setMatchTokenWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) setMatchTokenWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     matchToken: (NSString*) matchToken
     gameType: (NSString*) gameType
@@ -4136,23 +3776,9 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/consumer/profile/matchToken"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/consumer/profile/matchToken"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -4219,8 +3845,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Update Account Active Status
 /// Activate or deactivate an account (requires appropriate permissions).
-///  @param version  
-///
 ///  @param accountId the account id of the user (deviceId or accountId required) 
 ///
 ///  @param connectionAccountId The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead) 
@@ -4233,24 +3857,12 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) updateActveStatusWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateActveStatusWithAccountId: (NSNumber*) accountId
     connectionAccountId: (NSNumber*) connectionAccountId
     active: (NSNumber*) active
     deviceId: (NSString*) deviceId
     appKey: (NSString*) appKey
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -4284,12 +3896,9 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/active/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/active/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -4350,8 +3959,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Update Location
 /// Update the account location
-///  @param version  
-///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
 ///
 ///  @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -4364,30 +3971,15 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) updateLocationWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) updateLocationWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     clientTime: (NSNumber*) clientTime
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/location/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/location/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -4448,8 +4040,6 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Update Account Settings
 /// Update the account settings for a user
-///  @param version  
-///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
 ///
 ///  @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -4476,8 +4066,7 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIUserSettingsResponse*
 ///
--(NSURLSessionTask*) updateSettingsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) updateSettingsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     blockedNotifications: (NSString*) blockedNotifications
     suggestionMethod: (NSString*) suggestionMethod
@@ -4490,23 +4079,9 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIUserSettingsResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/settings/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/settings/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -4588,26 +4163,12 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Save Validation Status
 /// Validate the account's email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token.
-///  @param version  
-///
 ///  @param token The token associated with the account to update, good for 24 hours 
 ///
 ///  @returns OAIAccountLoginResponse*
 ///
--(NSURLSessionTask*) validateAccountSignupWithVersion: (NSNumber*) version
-    token: (NSString*) token
+-(NSURLSessionTask*) validateAccountSignupWithToken: (NSString*) token
     completionHandler: (void (^)(OAIAccountLoginResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'token' is set
     if (token == nil) {
         NSParameterAssert(token);
@@ -4619,12 +4180,9 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/validateAccountSignup"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/validateAccountSignup"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (token != nil) {
@@ -4673,26 +4231,12 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
 ///
 /// Validate Password Reset Token
 /// Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password.
-///  @param version  
-///
 ///  @param token The token associated with the account to update, good for 24 hours 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) validatePasswordResetWithVersion: (NSNumber*) version
-    token: (NSString*) token
+-(NSURLSessionTask*) validatePasswordResetWithToken: (NSString*) token
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAccountApiErrorDomain code:kOAIAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'token' is set
     if (token == nil) {
         NSParameterAssert(token);
@@ -4704,12 +4248,9 @@ NSInteger kOAIAccountApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/account/validatepasswordreset"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/validatepasswordreset"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (token != nil) {

@@ -53,8 +53,6 @@ NSInteger kOAIAMQPApiMissingParamErrorCode = 234513;
 ///
 /// Create Consumer
 /// Create a connection to an existing amqp queue and register as a consumer.
-///  @param version  
-///
 ///  @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. 
 ///
 ///  @param name The name of the queue to connect to 
@@ -85,8 +83,7 @@ NSInteger kOAIAMQPApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIQueueResponse*
 ///
--(NSURLSessionTask*) consumerCreateWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) consumerCreateWithAppKey: (NSString*) appKey
     name: (NSString*) name
     hostname: (NSString*) hostname
     username: (NSString*) username
@@ -101,17 +98,6 @@ NSInteger kOAIAMQPApiMissingParamErrorCode = 234513;
     workers: (NSNumber*) workers
     useSSL: (NSNumber*) useSSL
     completionHandler: (void (^)(OAIQueueResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAMQPApiErrorDomain code:kOAIAMQPApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'appKey' is set
     if (appKey == nil) {
         NSParameterAssert(appKey);
@@ -178,12 +164,9 @@ NSInteger kOAIAMQPApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/queue/consumer/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/queue/consumer/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -271,8 +254,6 @@ NSInteger kOAIAMQPApiMissingParamErrorCode = 234513;
 ///
 /// Update Consumer
 /// Update an existing amqp queue's data mapping.
-///  @param version  
-///
 ///  @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. 
 ///
 ///  @param queueId The queue to update 
@@ -287,25 +268,13 @@ NSInteger kOAIAMQPApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIQueueResponse*
 ///
--(NSURLSessionTask*) consumerUpdateWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) consumerUpdateWithAppKey: (NSString*) appKey
     queueId: (NSNumber*) queueId
     dataMapping: (NSString*) dataMapping
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     useSSL: (NSNumber*) useSSL
     completionHandler: (void (^)(OAIQueueResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAMQPApiErrorDomain code:kOAIAMQPApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'appKey' is set
     if (appKey == nil) {
         NSParameterAssert(appKey);
@@ -339,12 +308,9 @@ NSInteger kOAIAMQPApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/queue/consumer/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/queue/consumer/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -408,8 +374,6 @@ NSInteger kOAIAMQPApiMissingParamErrorCode = 234513;
 ///
 /// Create Queue
 /// Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
-///  @param version  
-///
 ///  @param appKey The application key unique to each application. 
 ///
 ///  @param name The name of the queue to create 
@@ -436,8 +400,7 @@ NSInteger kOAIAMQPApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIQueueResponse*
 ///
--(NSURLSessionTask*) queueCreateWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) queueCreateWithAppKey: (NSString*) appKey
     name: (NSString*) name
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -450,17 +413,6 @@ NSInteger kOAIAMQPApiMissingParamErrorCode = 234513;
     virtualHost: (NSString*) virtualHost
     useSSL: (NSNumber*) useSSL
     completionHandler: (void (^)(OAIQueueResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAMQPApiErrorDomain code:kOAIAMQPApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'appKey' is set
     if (appKey == nil) {
         NSParameterAssert(appKey);
@@ -483,12 +435,9 @@ NSInteger kOAIAMQPApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/queue/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/queue/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -570,8 +519,6 @@ NSInteger kOAIAMQPApiMissingParamErrorCode = 234513;
 ///
 /// Delete Queue
 /// Delete the stored queue record and close any active connections to the AMQP servers.
-///  @param version  
-///
 ///  @param queueId The id of the queue to find 
 ///
 ///  @param deviceId The client device ID (optional)
@@ -580,22 +527,10 @@ NSInteger kOAIAMQPApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) queueDeleteWithVersion: (NSNumber*) version
-    queueId: (NSNumber*) queueId
+-(NSURLSessionTask*) queueDeleteWithQueueId: (NSNumber*) queueId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAMQPApiErrorDomain code:kOAIAMQPApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'queueId' is set
     if (queueId == nil) {
         NSParameterAssert(queueId);
@@ -607,12 +542,9 @@ NSInteger kOAIAMQPApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/queue/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/queue/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -667,8 +599,6 @@ NSInteger kOAIAMQPApiMissingParamErrorCode = 234513;
 ///
 /// Get Queue
 /// Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-///  @param version  
-///
 ///  @param deviceId The client device ID (optional)
 ///
 ///  @param accountId The logged in user ID (optional)
@@ -685,8 +615,7 @@ NSInteger kOAIAMQPApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIQueueResponse*
 ///
--(NSURLSessionTask*) queueGetWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) queueGetWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     queueId: (NSNumber*) queueId
     appKey: (NSString*) appKey
@@ -694,23 +623,9 @@ NSInteger kOAIAMQPApiMissingParamErrorCode = 234513;
     hostname: (NSString*) hostname
     virtualHost: (NSString*) virtualHost
     completionHandler: (void (^)(OAIQueueResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAMQPApiErrorDomain code:kOAIAMQPApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/queue/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/queue/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -777,8 +692,6 @@ NSInteger kOAIAMQPApiMissingParamErrorCode = 234513;
 ///
 /// Publish Queue
 /// Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-///  @param version  
-///
 ///  @param message The payload to send to the queue 
 ///
 ///  @param queueId The id of the queue to publish to (optional)
@@ -793,25 +706,13 @@ NSInteger kOAIAMQPApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) queuePublishWithVersion: (NSNumber*) version
-    message: (NSString*) message
+-(NSURLSessionTask*) queuePublishWithMessage: (NSString*) message
     queueId: (NSNumber*) queueId
     appKey: (NSString*) appKey
     name: (NSString*) name
     hostname: (NSString*) hostname
     virtualHost: (NSString*) virtualHost
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAMQPApiErrorDomain code:kOAIAMQPApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'message' is set
     if (message == nil) {
         NSParameterAssert(message);
@@ -823,12 +724,9 @@ NSInteger kOAIAMQPApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/queue/publish"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/queue/publish"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (queueId != nil) {
@@ -892,8 +790,6 @@ NSInteger kOAIAMQPApiMissingParamErrorCode = 234513;
 ///
 /// Search Queue
 /// Get the queues setup for the BillableEntity's applications.
-///  @param version  
-///
 ///  @param queueId The id of the queue to find (optional)
 ///
 ///  @param deviceId The client device ID (optional)
@@ -908,31 +804,16 @@ NSInteger kOAIAMQPApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIQueueResponse*
 ///
--(NSURLSessionTask*) queueSearchWithVersion: (NSNumber*) version
-    queueId: (NSNumber*) queueId
+-(NSURLSessionTask*) queueSearchWithQueueId: (NSNumber*) queueId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     name: (NSString*) name
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(OAIQueueResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAMQPApiErrorDomain code:kOAIAMQPApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/queue/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/queue/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (queueId != nil) {
@@ -996,8 +877,6 @@ NSInteger kOAIAMQPApiMissingParamErrorCode = 234513;
 ///
 /// Update Queue
 /// Update the basic AMQP queue.
-///  @param version  
-///
 ///  @param queueId The id of the queue to update 
 ///
 ///  @param deviceId The client deviceID (optional)
@@ -1024,8 +903,7 @@ NSInteger kOAIAMQPApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIQueueResponse*
 ///
--(NSURLSessionTask*) queueUpdateWithVersion: (NSNumber*) version
-    queueId: (NSNumber*) queueId
+-(NSURLSessionTask*) queueUpdateWithQueueId: (NSNumber*) queueId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
@@ -1038,17 +916,6 @@ NSInteger kOAIAMQPApiMissingParamErrorCode = 234513;
     virtualHost: (NSString*) virtualHost
     useSSL: (NSNumber*) useSSL
     completionHandler: (void (^)(OAIQueueResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAMQPApiErrorDomain code:kOAIAMQPApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'queueId' is set
     if (queueId == nil) {
         NSParameterAssert(queueId);
@@ -1060,12 +927,9 @@ NSInteger kOAIAMQPApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/queue/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/queue/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {

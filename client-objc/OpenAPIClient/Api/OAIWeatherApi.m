@@ -52,8 +52,6 @@ NSInteger kOAIWeatherApiMissingParamErrorCode = 234513;
 ///
 /// Search Weather
 /// Search the weather forcast for the next 5 days
-///  @param version  
-///
 ///  @param regionId Region Id (optional)
 ///
 ///  @param latitude Latitude (optional)
@@ -64,29 +62,14 @@ NSInteger kOAIWeatherApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIWeatherResponse*
 ///
--(NSURLSessionTask*) searchWeatherWithVersion: (NSNumber*) version
-    regionId: (NSNumber*) regionId
+-(NSURLSessionTask*) searchWeatherWithRegionId: (NSNumber*) regionId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     timezoneOffset: (NSNumber*) timezoneOffset
     completionHandler: (void (^)(OAIWeatherResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIWeatherApiErrorDomain code:kOAIWeatherApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/weather/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/weather/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (regionId != nil) {

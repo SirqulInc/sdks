@@ -52,8 +52,6 @@ NSInteger kOAIRetailerV2ApiMissingParamErrorCode = 234513;
 ///
 /// Get Retailer
 /// Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-///  @param version  
-///
 ///  @param retailerId the id of the retailer 
 ///
 ///  @param activeOnly whether to return results that are active only or all 
@@ -68,25 +66,13 @@ NSInteger kOAIRetailerV2ApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) getRetaokilerWithVersion: (NSNumber*) version
-    retailerId: (NSNumber*) retailerId
+-(NSURLSessionTask*) getRetaokilerWithRetailerId: (NSNumber*) retailerId
     activeOnly: (NSNumber*) activeOnly
     keyword: (NSString*) keyword
     sortField: (NSString*) sortField
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRetailerV2ApiErrorDomain code:kOAIRetailerV2ApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'retailerId' is set
     if (retailerId == nil) {
         NSParameterAssert(retailerId);
@@ -109,12 +95,9 @@ NSInteger kOAIRetailerV2ApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/retailer"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/retailer"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (keyword != nil) {

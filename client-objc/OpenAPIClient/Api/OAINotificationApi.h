@@ -31,7 +31,6 @@ extern NSInteger kOAINotificationApiMissingParamErrorCode;
 /// Create Notification Template
 /// Create a notification template. Developers will only be able to create notification templates for their own applications.
 ///
-/// @param version 
 /// @param accountId The account ID of the user.
 /// @param conduit Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.
 /// @param title title of the notification template
@@ -43,8 +42,7 @@ extern NSInteger kOAINotificationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAINotificationTemplateResponse*
--(NSURLSessionTask*) createNotificationTemplateWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createNotificationTemplateWithAccountId: (NSNumber*) accountId
     conduit: (NSString*) conduit
     title: (NSString*) title
     body: (NSString*) body
@@ -57,7 +55,6 @@ extern NSInteger kOAINotificationApiMissingParamErrorCode;
 /// Create or update blocked notification settings
 /// Create or update blocked notification settings
 ///
-/// @param version 
 /// @param appKey The application key
 /// @param data batch data payload (application specific)
 /// @param accountId the account id of the user (optional)
@@ -65,8 +62,7 @@ extern NSInteger kOAINotificationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIBlockedNotificationResponse*
--(NSURLSessionTask*) createOrUpdateBlockedNotificationsWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) createOrUpdateBlockedNotificationsWithAppKey: (NSString*) appKey
     data: (NSString*) data
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIBlockedNotificationResponse* output, NSError* error)) handler;
@@ -75,15 +71,13 @@ extern NSInteger kOAINotificationApiMissingParamErrorCode;
 /// Delete Notification Template
 /// Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
 ///
-/// @param version 
 /// @param accountId the account id of the user
 /// @param notificationTemplateId the id of the notification template to delete
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAINotificationTemplateResponse*
--(NSURLSessionTask*) deleteNotificationTemplateWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteNotificationTemplateWithAccountId: (NSNumber*) accountId
     notificationTemplateId: (NSNumber*) notificationTemplateId
     completionHandler: (void (^)(OAINotificationTemplateResponse* output, NSError* error)) handler;
 
@@ -91,15 +85,13 @@ extern NSInteger kOAINotificationApiMissingParamErrorCode;
 /// Get Notification Template
 /// Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
 ///
-/// @param version 
 /// @param accountId the id of the account
 /// @param notificationTemplateId the id of the notification template to get
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAINotificationTemplateResponse*
--(NSURLSessionTask*) getNotificationTemplateWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getNotificationTemplateWithAccountId: (NSNumber*) accountId
     notificationTemplateId: (NSNumber*) notificationTemplateId
     completionHandler: (void (^)(OAINotificationTemplateResponse* output, NSError* error)) handler;
 
@@ -107,7 +99,6 @@ extern NSInteger kOAINotificationApiMissingParamErrorCode;
 /// Get Notifications
 /// Get a list of notifications for a user. If the \"markAsRead\" parameter is set to true, the returned notifications will be marked as \"read\" after the response has been sent. By default, read messages will not be returned, so to see read messages, set \"returnReadMessages\" to true.
 ///
-/// @param version 
 /// @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
 /// @param accountId the account id of the user (deviceId or accountId required) (optional)
 /// @param connectionAccountId the account id used to view another person&#39;s notifications (optional)
@@ -133,8 +124,7 @@ extern NSInteger kOAINotificationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAINotificationMessageListResponse*
--(NSURLSessionTask*) getNotificationsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) getNotificationsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     connectionAccountId: (NSNumber*) connectionAccountId
     appKey: (NSString*) appKey
@@ -161,7 +151,6 @@ extern NSInteger kOAINotificationApiMissingParamErrorCode;
 /// Register Notification Token
 /// Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
 ///
-/// @param version 
 /// @param token A token that is generated by the device to sign requests for the notification service providers
 /// @param pushType The type of push notification. Possible values include: APNS, GCM
 /// @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -176,8 +165,7 @@ extern NSInteger kOAINotificationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) registerNotificationTokenWithVersion: (NSNumber*) version
-    token: (NSString*) token
+-(NSURLSessionTask*) registerNotificationTokenWithToken: (NSString*) token
     pushType: (NSString*) pushType
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -193,7 +181,6 @@ extern NSInteger kOAINotificationApiMissingParamErrorCode;
 /// Search on the user's blocked notification settings
 /// Search on the user's blocked notification settings
 ///
-/// @param version 
 /// @param appKey The application key
 /// @param accountId the account id of the user (optional)
 /// @param searchTags search tags to filter results (optional)
@@ -210,8 +197,7 @@ extern NSInteger kOAINotificationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIBlockedNotificationResponse*
--(NSURLSessionTask*) searchBlockedNotificationsWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) searchBlockedNotificationsWithAppKey: (NSString*) appKey
     accountId: (NSNumber*) accountId
     searchTags: (NSString*) searchTags
     events: (NSString*) events
@@ -229,7 +215,6 @@ extern NSInteger kOAINotificationApiMissingParamErrorCode;
 /// Search Notification Templates
 /// Search for notification templates on owned applications.
 ///
-/// @param version 
 /// @param accountId The account ID of the user.
 /// @param sortField Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (&#39;global&#39; templates will not have an application and will be returned last if &#39;descending&#39; is set to false.
 /// @param descending Specified whether the results are returned in descending or ascending order.
@@ -245,8 +230,7 @@ extern NSInteger kOAINotificationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAINotificationTemplateResponse*
--(NSURLSessionTask*) searchNotificationTemplateWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchNotificationTemplateWithAccountId: (NSNumber*) accountId
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
@@ -263,7 +247,6 @@ extern NSInteger kOAINotificationApiMissingParamErrorCode;
 /// Search for Recipients
 /// Search for application users to send notifications.
 ///
-/// @param version 
 /// @param sortField The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}
 /// @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
 /// @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -281,8 +264,7 @@ extern NSInteger kOAINotificationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAINotificationRecipientResponse>*
--(NSURLSessionTask*) searchRecipientsWithVersion: (NSNumber*) version
-    sortField: (NSString*) sortField
+-(NSURLSessionTask*) searchRecipientsWithSortField: (NSString*) sortField
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
@@ -301,7 +283,6 @@ extern NSInteger kOAINotificationApiMissingParamErrorCode;
 /// Search for Recipients (Counts/Grouped)
 /// Search for application users to send notifications (count/grouped variant).
 ///
-/// @param version 
 /// @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
 /// @param accountId the account id of the user (deviceId or accountId required) (optional)
 /// @param appKey filters results by application. If this is empty, will return all recipients for all applications that the user has access to. (optional)
@@ -318,8 +299,7 @@ extern NSInteger kOAINotificationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAINotificationRecipientResponseListResponse*
--(NSURLSessionTask*) searchRecipientsCountWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) searchRecipientsCountWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     conduit: (NSString*) conduit
@@ -337,7 +317,6 @@ extern NSInteger kOAINotificationApiMissingParamErrorCode;
 /// Send Batch Notifications
 /// Send notifications to all users of an application. Only someone with permissions to the application can do this.
 ///
-/// @param version 
 /// @param accountId The account id of the application owner/manager
 /// @param appKey The application key for updating an existing application
 /// @param customMessage Message string that will be displayed in on the notification
@@ -351,8 +330,7 @@ extern NSInteger kOAINotificationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) sendBatchNotificationsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) sendBatchNotificationsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     customMessage: (NSString*) customMessage
     conduit: (NSString*) conduit
@@ -367,7 +345,6 @@ extern NSInteger kOAINotificationApiMissingParamErrorCode;
 /// Send Custom Notifications
 /// Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
 ///
-/// @param version 
 /// @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
 /// @param accountId the account id of the user (deviceId or accountId required) (optional)
 /// @param receiverAccountIds comma separated list of account IDs that will receive the notification (optional)
@@ -390,8 +367,7 @@ extern NSInteger kOAINotificationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) sendCustomNotificationsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) sendCustomNotificationsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     receiverAccountIds: (NSString*) receiverAccountIds
     includeFriendGroup: (NSNumber*) includeFriendGroup
@@ -415,7 +391,6 @@ extern NSInteger kOAINotificationApiMissingParamErrorCode;
 /// Update Notification Template
 /// Update a notification template. Developers will only be able to update notification templates for their own applications.
 ///
-/// @param version 
 /// @param accountId The account ID of the user.
 /// @param notificationTemplateId The notification template ID to update.
 /// @param title The title of the message (this would become the subject title for emails). There is a 191 character limit. (optional)
@@ -425,8 +400,7 @@ extern NSInteger kOAINotificationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAINotificationTemplateResponse*
--(NSURLSessionTask*) updateNotificationTemplateWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateNotificationTemplateWithAccountId: (NSNumber*) accountId
     notificationTemplateId: (NSNumber*) notificationTemplateId
     title: (NSString*) title
     body: (NSString*) body

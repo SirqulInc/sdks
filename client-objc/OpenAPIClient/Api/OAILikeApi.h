@@ -27,7 +27,6 @@ extern NSInteger kOAILikeApiMissingParamErrorCode;
 /// Create Like
 /// Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
 ///
-/// @param version 
 /// @param likableType The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
 /// @param likableId The id of the likable object
 /// @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -44,8 +43,7 @@ extern NSInteger kOAILikeApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAILikableResponse*
--(NSURLSessionTask*) registerLikeWithVersion: (NSNumber*) version
-    likableType: (NSString*) likableType
+-(NSURLSessionTask*) registerLikeWithLikableType: (NSString*) likableType
     likableId: (NSNumber*) likableId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -63,7 +61,6 @@ extern NSInteger kOAILikeApiMissingParamErrorCode;
 /// Delete Like
 /// Removes a like. This will make the user \"neutral\".
 ///
-/// @param version 
 /// @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
 /// @param likableId The id of the likable object
 /// @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -74,8 +71,7 @@ extern NSInteger kOAILikeApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAILikableResponse*
--(NSURLSessionTask*) removeLikeWithVersion: (NSNumber*) version
-    likableType: (NSString*) likableType
+-(NSURLSessionTask*) removeLikeWithLikableType: (NSString*) likableType
     likableId: (NSNumber*) likableId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -87,7 +83,6 @@ extern NSInteger kOAILikeApiMissingParamErrorCode;
 /// Search Likes
 /// Search for likes on a likable object.
 ///
-/// @param version 
 /// @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
 /// @param likableId The id of the likable object
 /// @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -103,8 +98,7 @@ extern NSInteger kOAILikeApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISearchResponse*
--(NSURLSessionTask*) searchLikesWithVersion: (NSNumber*) version
-    likableType: (NSString*) likableType
+-(NSURLSessionTask*) searchLikesWithLikableType: (NSString*) likableType
     likableId: (NSNumber*) likableId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId

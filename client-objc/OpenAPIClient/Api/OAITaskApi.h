@@ -27,7 +27,6 @@ extern NSInteger kOAITaskApiMissingParamErrorCode;
 /// Create Task
 /// Create a Task
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param name The name of the task
 /// @param appKey The application to target (optional)
@@ -44,8 +43,7 @@ extern NSInteger kOAITaskApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAITaskResponse*
--(NSURLSessionTask*) createTaskWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createTaskWithAccountId: (NSNumber*) accountId
     name: (NSString*) name
     appKey: (NSString*) appKey
     groupingId: (NSString*) groupingId
@@ -63,15 +61,13 @@ extern NSInteger kOAITaskApiMissingParamErrorCode;
 /// Delete Task
 /// Delete a Task
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param taskId The id of the Task to delete.
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteTaskWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteTaskWithAccountId: (NSNumber*) accountId
     taskId: (NSNumber*) taskId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -79,15 +75,13 @@ extern NSInteger kOAITaskApiMissingParamErrorCode;
 /// Get Task
 /// Get a Task
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param taskId The id of the Task to return.
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAITaskResponse*
--(NSURLSessionTask*) getTaskWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getTaskWithAccountId: (NSNumber*) accountId
     taskId: (NSNumber*) taskId
     completionHandler: (void (^)(OAITaskResponse* output, NSError* error)) handler;
 
@@ -95,7 +89,6 @@ extern NSInteger kOAITaskApiMissingParamErrorCode;
 /// Search Tasks
 /// Search on Tasks
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param groupingId Filter results by a grouping identifier defined by the client (optional)
 /// @param filter A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks  (optional) (default to @"MINE")
@@ -112,8 +105,7 @@ extern NSInteger kOAITaskApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAITaskResponse>*
--(NSURLSessionTask*) searchTasksWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchTasksWithAccountId: (NSNumber*) accountId
     groupingId: (NSString*) groupingId
     filter: (NSString*) filter
     statuses: (NSString*) statuses
@@ -131,7 +123,6 @@ extern NSInteger kOAITaskApiMissingParamErrorCode;
 /// Update Task
 /// Update a Task
 ///
-/// @param version 
 /// @param taskId Task Id
 /// @param accountId The logged in user.
 /// @param name The name of the task (optional)
@@ -149,8 +140,7 @@ extern NSInteger kOAITaskApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAITaskResponse*
--(NSURLSessionTask*) updateTaskWithVersion: (NSNumber*) version
-    taskId: (NSNumber*) taskId
+-(NSURLSessionTask*) updateTaskWithTaskId: (NSNumber*) taskId
     accountId: (NSNumber*) accountId
     name: (NSString*) name
     appKey: (NSString*) appKey

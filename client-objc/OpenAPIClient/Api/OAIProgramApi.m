@@ -52,32 +52,15 @@ NSInteger kOAIProgramApiMissingParamErrorCode = 234513;
 ///
 /// Create Program
 /// Create a new program
-///  @param version  
-///
 ///  @param body  (optional)
 ///
 ///  @returns OAIProgram*
 ///
--(NSURLSessionTask*) createProgramWithVersion: (NSNumber*) version
-    body: (OAIProgram*) body
+-(NSURLSessionTask*) createProgramWithBody: (OAIProgram*) body
     completionHandler: (void (^)(OAIProgram* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIProgramApiErrorDomain code:kOAIProgramApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/program"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/program"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
@@ -124,26 +107,12 @@ NSInteger kOAIProgramApiMissingParamErrorCode = 234513;
 ///
 /// Delete Program
 /// Delete an existing program
-///  @param version  
-///
 ///  @param _id the id of the program 
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) deleteProgramWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) deleteProgramWithId: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIProgramApiErrorDomain code:kOAIProgramApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -155,12 +124,9 @@ NSInteger kOAIProgramApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/program/{id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/program/{id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -209,26 +175,12 @@ NSInteger kOAIProgramApiMissingParamErrorCode = 234513;
 ///
 /// Get Program
 /// Get an existing program
-///  @param version  
-///
 ///  @param _id the id of the program 
 ///
 ///  @returns OAIProgram*
 ///
--(NSURLSessionTask*) getProgramWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) getProgramWithId: (NSNumber*) _id
     completionHandler: (void (^)(OAIProgram* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIProgramApiErrorDomain code:kOAIProgramApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -240,12 +192,9 @@ NSInteger kOAIProgramApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/program/{id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/program/{id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -294,29 +243,15 @@ NSInteger kOAIProgramApiMissingParamErrorCode = 234513;
 ///
 /// Update Program
 /// Update an existing program
-///  @param version  
-///
 ///  @param _id the id of the program 
 ///
 ///  @param body  (optional)
 ///
 ///  @returns OAIProgram*
 ///
--(NSURLSessionTask*) postProgramWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) postProgramWithId: (NSNumber*) _id
     body: (OAIProgram*) body
     completionHandler: (void (^)(OAIProgram* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIProgramApiErrorDomain code:kOAIProgramApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -328,12 +263,9 @@ NSInteger kOAIProgramApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/program/{id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/program/{id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -383,29 +315,15 @@ NSInteger kOAIProgramApiMissingParamErrorCode = 234513;
 ///
 /// Update Program
 /// Update an existing program
-///  @param version  
-///
 ///  @param _id the id of the program 
 ///
 ///  @param body  (optional)
 ///
 ///  @returns OAIProgram*
 ///
--(NSURLSessionTask*) putProgramWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) putProgramWithId: (NSNumber*) _id
     body: (OAIProgram*) body
     completionHandler: (void (^)(OAIProgram* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIProgramApiErrorDomain code:kOAIProgramApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -417,12 +335,9 @@ NSInteger kOAIProgramApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/program/{id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/program/{id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -472,8 +387,6 @@ NSInteger kOAIProgramApiMissingParamErrorCode = 234513;
 ///
 /// Search Programs
 /// Search for programs
-///  @param version  
-///
 ///  @param sortField The field to sort by 
 ///
 ///  @param descending Determines whether the sorted list is in descending or ascending order 
@@ -488,25 +401,13 @@ NSInteger kOAIProgramApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIProgram>*
 ///
--(NSURLSessionTask*) searchProgramsWithVersion: (NSNumber*) version
-    sortField: (NSString*) sortField
+-(NSURLSessionTask*) searchProgramsWithSortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     activeOnly: (NSNumber*) activeOnly
     keyword: (NSString*) keyword
     completionHandler: (void (^)(NSArray<OAIProgram>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIProgramApiErrorDomain code:kOAIProgramApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'sortField' is set
     if (sortField == nil) {
         NSParameterAssert(sortField);
@@ -562,12 +463,9 @@ NSInteger kOAIProgramApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/program"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/program"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (keyword != nil) {

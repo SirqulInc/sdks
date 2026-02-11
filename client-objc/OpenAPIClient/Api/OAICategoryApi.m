@@ -54,8 +54,6 @@ NSInteger kOAICategoryApiMissingParamErrorCode = 234513;
 ///
 /// Search Categories by Distance
 /// Search for categories by distance.
-///  @param version  
-///
 ///  @param accountId The account id of the user (optional)
 ///
 ///  @param keyword The keyword string to search on (optional)
@@ -98,8 +96,7 @@ NSInteger kOAICategoryApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAICategoryResponse>*
 ///
--(NSURLSessionTask*) categoryDistanceSearchWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) categoryDistanceSearchWithAccountId: (NSNumber*) accountId
     keyword: (NSString*) keyword
     appKey: (NSString*) appKey
     categoryIds: (NSString*) categoryIds
@@ -120,23 +117,9 @@ NSInteger kOAICategoryApiMissingParamErrorCode = 234513;
     longitude: (NSNumber*) longitude
     range: (NSNumber*) range
     completionHandler: (void (^)(NSArray<OAICategoryResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAICategoryApiErrorDomain code:kOAICategoryApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/category/distancesearch"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/category/distancesearch"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -242,8 +225,6 @@ NSInteger kOAICategoryApiMissingParamErrorCode = 234513;
 ///
 /// Create Category
 /// Create a new category.
-///  @param version  
-///
 ///  @param accountId The account id of the user (must have permissions to the target application) 
 ///
 ///  @param name The name of the category 
@@ -274,8 +255,7 @@ NSInteger kOAICategoryApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAICategoryTreeResponse*
 ///
--(NSURLSessionTask*) createCategoryWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createCategoryWithAccountId: (NSNumber*) accountId
     name: (NSString*) name
     appKey: (NSString*) appKey
     parentCategoryId: (NSNumber*) parentCategoryId
@@ -290,17 +270,6 @@ NSInteger kOAICategoryApiMissingParamErrorCode = 234513;
     metaData: (NSString*) metaData
     searchTags: (NSString*) searchTags
     completionHandler: (void (^)(OAICategoryTreeResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAICategoryApiErrorDomain code:kOAICategoryApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -323,12 +292,9 @@ NSInteger kOAICategoryApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/category/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/category/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (appKey != nil) {
@@ -416,29 +382,15 @@ NSInteger kOAICategoryApiMissingParamErrorCode = 234513;
 ///
 /// Delete Category
 /// Delete a category.
-///  @param version  
-///
 ///  @param accountId the ID of the account 
 ///
 ///  @param categoryId the ID of the category 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteCategoryWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteCategoryWithAccountId: (NSNumber*) accountId
     categoryId: (NSNumber*) categoryId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAICategoryApiErrorDomain code:kOAICategoryApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -461,12 +413,9 @@ NSInteger kOAICategoryApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/category/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/category/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -518,8 +467,6 @@ NSInteger kOAICategoryApiMissingParamErrorCode = 234513;
 ///
 /// Duplicate Category
 /// Duplicate a category, including all its children.
-///  @param version  
-///
 ///  @param accountId The account id of the user (must have permissions to the target application) 
 ///
 ///  @param categoryId The category ID to duplicate (includes all children) 
@@ -530,23 +477,11 @@ NSInteger kOAICategoryApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAICategoryTreeResponse*
 ///
--(NSURLSessionTask*) duplicateCategoryWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) duplicateCategoryWithAccountId: (NSNumber*) accountId
     categoryId: (NSNumber*) categoryId
     appKey: (NSString*) appKey
     parentCategoryId: (NSNumber*) parentCategoryId
     completionHandler: (void (^)(OAICategoryTreeResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAICategoryApiErrorDomain code:kOAICategoryApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -569,12 +504,9 @@ NSInteger kOAICategoryApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/category/duplicate"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/category/duplicate"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (appKey != nil) {
@@ -632,29 +564,15 @@ NSInteger kOAICategoryApiMissingParamErrorCode = 234513;
 ///
 /// Get Category
 /// Get the details of a specific category. Recursively include all child categories and their children.
-///  @param version  
-///
 ///  @param categoryId the ID of the category 
 ///
 ///  @param returnExternal Determines whether to return extra info about the category's \"Participant\" reference (optional, default to @(YES))
 ///
 ///  @returns OAICategoryTreeResponse*
 ///
--(NSURLSessionTask*) getCategoryWithVersion: (NSNumber*) version
-    categoryId: (NSNumber*) categoryId
+-(NSURLSessionTask*) getCategoryWithCategoryId: (NSNumber*) categoryId
     returnExternal: (NSNumber*) returnExternal
     completionHandler: (void (^)(OAICategoryTreeResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAICategoryApiErrorDomain code:kOAICategoryApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'categoryId' is set
     if (categoryId == nil) {
         NSParameterAssert(categoryId);
@@ -666,12 +584,9 @@ NSInteger kOAICategoryApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/category/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/category/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (categoryId != nil) {
@@ -723,8 +638,6 @@ NSInteger kOAICategoryApiMissingParamErrorCode = 234513;
 ///
 /// Search Categories
 /// Search for categories.
-///  @param version  
-///
 ///  @param accountId The account id of the user (optional)
 ///
 ///  @param keyword The string to search on (optional)
@@ -769,8 +682,7 @@ NSInteger kOAICategoryApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAICategoryResponse>*
 ///
--(NSURLSessionTask*) searchCategoriesWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchCategoriesWithAccountId: (NSNumber*) accountId
     keyword: (NSString*) keyword
     appKey: (NSString*) appKey
     categoryId: (NSString*) categoryId
@@ -792,23 +704,9 @@ NSInteger kOAICategoryApiMissingParamErrorCode = 234513;
     searchDepth: (NSNumber*) searchDepth
     searchMode: (NSString*) searchMode
     completionHandler: (void (^)(NSArray<OAICategoryResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAICategoryApiErrorDomain code:kOAICategoryApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/category/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/category/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -917,8 +815,6 @@ NSInteger kOAICategoryApiMissingParamErrorCode = 234513;
 ///
 /// Update Category
 /// Update a category.
-///  @param version  
-///
 ///  @param accountId The account id of the user 
 ///
 ///  @param categoryId The ID of the category to edit 
@@ -949,8 +845,7 @@ NSInteger kOAICategoryApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAICategoryTreeResponse*
 ///
--(NSURLSessionTask*) updateCategoryWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateCategoryWithAccountId: (NSNumber*) accountId
     categoryId: (NSNumber*) categoryId
     parentCategoryId: (NSNumber*) parentCategoryId
     name: (NSString*) name
@@ -965,17 +860,6 @@ NSInteger kOAICategoryApiMissingParamErrorCode = 234513;
     metaData: (NSString*) metaData
     searchTags: (NSString*) searchTags
     completionHandler: (void (^)(OAICategoryTreeResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAICategoryApiErrorDomain code:kOAICategoryApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -998,12 +882,9 @@ NSInteger kOAICategoryApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/category/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/category/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

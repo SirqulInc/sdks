@@ -52,8 +52,6 @@ NSInteger kOAIWorkflowApiMissingParamErrorCode = 234513;
 ///
 /// Run Workflow
 /// Runs a published executable workflow
-///  @param version  
-///
 ///  @param accountId the account ID of the user 
 ///
 ///  @param workflowId the workflow to run 
@@ -66,24 +64,12 @@ NSInteger kOAIWorkflowApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) runWorkflowWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) runWorkflowWithAccountId: (NSNumber*) accountId
     workflowId: (NSNumber*) workflowId
     skuId: (NSNumber*) skuId
     versionCode: (NSNumber*) versionCode
     parameters: (NSString*) parameters
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIWorkflowApiErrorDomain code:kOAIWorkflowApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -106,12 +92,9 @@ NSInteger kOAIWorkflowApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/workflow/run"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/workflow/run"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

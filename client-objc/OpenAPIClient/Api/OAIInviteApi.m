@@ -54,8 +54,6 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
 ///
 /// Accept Invite
 /// Allows a user to accept an invite. The user could also become the inviter's friend.
-///  @param version  
-///
 ///  @param token the invite token 
 ///
 ///  @param accountId the accountId of the user who is accepting the invite 
@@ -86,8 +84,7 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIConsumerInviteResponse*
 ///
--(NSURLSessionTask*) acceptInviteWithVersion: (NSNumber*) version
-    token: (NSString*) token
+-(NSURLSessionTask*) acceptInviteWithToken: (NSString*) token
     accountId: (NSNumber*) accountId
     albumId: (NSNumber*) albumId
     missionId: (NSNumber*) missionId
@@ -102,17 +99,6 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
     autoFavoriteOfferLocation: (NSNumber*) autoFavoriteOfferLocation
     autoFavoriteRetailerLocation: (NSNumber*) autoFavoriteRetailerLocation
     completionHandler: (void (^)(OAIConsumerInviteResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIInviteApiErrorDomain code:kOAIInviteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'token' is set
     if (token == nil) {
         NSParameterAssert(token);
@@ -135,12 +121,9 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/invite/accept"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/invite/accept"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (token != nil) {
@@ -228,8 +211,6 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
 ///
 /// Invite to Contest
 /// Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
-///  @param version  
-///
 ///  @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
 ///
 ///  @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -246,8 +227,7 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIInviteResponse*
 ///
--(NSURLSessionTask*) albumContestInviteWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) albumContestInviteWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appId: (NSNumber*) appId
     appKey: (NSString*) appKey
@@ -255,23 +235,9 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIInviteResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIInviteApiErrorDomain code:kOAIInviteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/invite/albumContest"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/invite/albumContest"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -338,8 +304,6 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
 ///
 /// Invite to Collection
 /// Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
-///  @param version  
-///
 ///  @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
 ///
 ///  @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -356,8 +320,7 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIInviteResponse*
 ///
--(NSURLSessionTask*) albumInviteWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) albumInviteWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appId: (NSNumber*) appId
     appKey: (NSString*) appKey
@@ -365,23 +328,9 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIInviteResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIInviteApiErrorDomain code:kOAIInviteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/invite/album"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/invite/album"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -448,8 +397,6 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
 ///
 /// Invite to Event
 /// Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
-///  @param version  
-///
 ///  @param accountId the account ID of the user making the share 
 ///
 ///  @param appKey the application key 
@@ -462,24 +409,12 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIInviteResponse*
 ///
--(NSURLSessionTask*) eventInviteWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) eventInviteWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     listingId: (NSNumber*) listingId
     receiverAccountIds: (NSString*) receiverAccountIds
     retailerLocationId: (NSNumber*) retailerLocationId
     completionHandler: (void (^)(OAIInviteResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIInviteApiErrorDomain code:kOAIInviteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -513,12 +448,9 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/invite/event"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/invite/event"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -579,8 +511,6 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
 ///
 /// Invite to Game Level
 /// Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
-///  @param version  
-///
 ///  @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
 ///
 ///  @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -597,8 +527,7 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIInviteResponse*
 ///
--(NSURLSessionTask*) gameInviteWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) gameInviteWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appId: (NSNumber*) appId
     appKey: (NSString*) appKey
@@ -606,23 +535,9 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIInviteResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIInviteApiErrorDomain code:kOAIInviteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/invite/gameLevel"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/invite/gameLevel"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -689,8 +604,6 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
 ///
 /// Get Invite
 /// This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
-///  @param version  
-///
 ///  @param accountId Account ID of the user if they are logged in (optional)
 ///
 ///  @param token the invite token (optional)
@@ -711,8 +624,7 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) getInviteWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getInviteWithAccountId: (NSNumber*) accountId
     token: (NSString*) token
     albumId: (NSNumber*) albumId
     missionId: (NSNumber*) missionId
@@ -722,23 +634,9 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
     retailerLocationId: (NSNumber*) retailerLocationId
     appKey: (NSString*) appKey
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIInviteApiErrorDomain code:kOAIInviteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/invite/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/invite/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -811,8 +709,6 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
 ///
 /// Invite to Mission
 /// Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
-///  @param version  
-///
 ///  @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
 ///
 ///  @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -829,8 +725,7 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIInviteResponse*
 ///
--(NSURLSessionTask*) missionInviteWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) missionInviteWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appId: (NSNumber*) appId
     appKey: (NSString*) appKey
@@ -838,23 +733,9 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIInviteResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIInviteApiErrorDomain code:kOAIInviteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/invite/mission"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/invite/mission"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -921,8 +802,6 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
 ///
 /// Invite to Offer
 /// Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite's list.
-///  @param version  
-///
 ///  @param accountId the account ID of the user making the share 
 ///
 ///  @param appKey the application key 
@@ -931,22 +810,10 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIInviteResponse*
 ///
--(NSURLSessionTask*) offerInviteWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) offerInviteWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     offerId: (NSNumber*) offerId
     completionHandler: (void (^)(OAIInviteResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIInviteApiErrorDomain code:kOAIInviteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -980,12 +847,9 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/invite/offer"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/invite/offer"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1040,8 +904,6 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
 ///
 /// Invite to Offer Location
 /// Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite's list.
-///  @param version  
-///
 ///  @param accountId the account ID of the user making the share 
 ///
 ///  @param appKey the application key 
@@ -1050,22 +912,10 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIInviteResponse*
 ///
--(NSURLSessionTask*) offerLocationInviteWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) offerLocationInviteWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     offerLocationId: (NSNumber*) offerLocationId
     completionHandler: (void (^)(OAIInviteResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIInviteApiErrorDomain code:kOAIInviteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1099,12 +949,9 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/invite/offerLocation"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/invite/offerLocation"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1159,8 +1006,6 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
 ///
 /// Invite to Retailer Location
 /// Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite's list.
-///  @param version  
-///
 ///  @param accountId the account ID of the user making the share 
 ///
 ///  @param appKey the application key 
@@ -1171,23 +1016,11 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIInviteResponse*
 ///
--(NSURLSessionTask*) retailerLocationInviteWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) retailerLocationInviteWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     retailerLocationId: (NSNumber*) retailerLocationId
     albumId: (NSNumber*) albumId
     completionHandler: (void (^)(OAIInviteResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIInviteApiErrorDomain code:kOAIInviteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1221,12 +1054,9 @@ NSInteger kOAIInviteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/invite/retailerLocation"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/invite/retailerLocation"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

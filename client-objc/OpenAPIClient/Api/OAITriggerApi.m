@@ -53,8 +53,6 @@ NSInteger kOAITriggerApiMissingParamErrorCode = 234513;
 ///
 /// Create Trigger
 /// Create a trigger
-///  @param version  
-///
 ///  @param accountId The logged in user 
 ///
 ///  @param name The name of the trigger 
@@ -83,8 +81,7 @@ NSInteger kOAITriggerApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAITriggerResponse*
 ///
--(NSURLSessionTask*) createTriggerWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createTriggerWithAccountId: (NSNumber*) accountId
     name: (NSString*) name
     appKey: (NSString*) appKey
     groupingId: (NSString*) groupingId
@@ -98,17 +95,6 @@ NSInteger kOAITriggerApiMissingParamErrorCode = 234513;
     visibility: (NSString*) visibility
     active: (NSNumber*) active
     completionHandler: (void (^)(OAITriggerResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITriggerApiErrorDomain code:kOAITriggerApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -131,12 +117,9 @@ NSInteger kOAITriggerApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/trigger/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/trigger/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -221,29 +204,15 @@ NSInteger kOAITriggerApiMissingParamErrorCode = 234513;
 ///
 /// Delete Trigger
 /// Mark a trigger as deleted.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param triggerId The id of the trigger to delete. 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteTriggerWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteTriggerWithAccountId: (NSNumber*) accountId
     triggerId: (NSNumber*) triggerId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITriggerApiErrorDomain code:kOAITriggerApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -266,12 +235,9 @@ NSInteger kOAITriggerApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/trigger/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/trigger/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -323,29 +289,15 @@ NSInteger kOAITriggerApiMissingParamErrorCode = 234513;
 ///
 /// Get Trigger
 /// Get a trigger
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param triggerId The id of the Trigger to return. 
 ///
 ///  @returns OAITriggerResponse*
 ///
--(NSURLSessionTask*) getTriggerWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getTriggerWithAccountId: (NSNumber*) accountId
     triggerId: (NSNumber*) triggerId
     completionHandler: (void (^)(OAITriggerResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITriggerApiErrorDomain code:kOAITriggerApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -368,12 +320,9 @@ NSInteger kOAITriggerApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/trigger/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/trigger/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -425,8 +374,6 @@ NSInteger kOAITriggerApiMissingParamErrorCode = 234513;
 ///
 /// Search Triggers
 /// Search for triggers
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param groupingId Filter results by a grouping identifier defined by the client (optional)
@@ -453,8 +400,7 @@ NSInteger kOAITriggerApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAITriggerResponse>*
 ///
--(NSURLSessionTask*) searchTriggersWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchTriggersWithAccountId: (NSNumber*) accountId
     groupingId: (NSString*) groupingId
     filter: (NSString*) filter
     statuses: (NSString*) statuses
@@ -467,17 +413,6 @@ NSInteger kOAITriggerApiMissingParamErrorCode = 234513;
     limit: (NSNumber*) limit
     activeOnly: (NSNumber*) activeOnly
     completionHandler: (void (^)(NSArray<OAITriggerResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITriggerApiErrorDomain code:kOAITriggerApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -489,12 +424,9 @@ NSInteger kOAITriggerApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/trigger/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/trigger/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -576,8 +508,6 @@ NSInteger kOAITriggerApiMissingParamErrorCode = 234513;
 ///
 /// Update Trigger
 /// Update a trigger
-///  @param version  
-///
 ///  @param triggerId The trigger to update 
 ///
 ///  @param accountId The logged in user 
@@ -608,8 +538,7 @@ NSInteger kOAITriggerApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAITriggerResponse*
 ///
--(NSURLSessionTask*) updateTriggerWithVersion: (NSNumber*) version
-    triggerId: (NSNumber*) triggerId
+-(NSURLSessionTask*) updateTriggerWithTriggerId: (NSNumber*) triggerId
     accountId: (NSNumber*) accountId
     name: (NSString*) name
     appKey: (NSString*) appKey
@@ -624,17 +553,6 @@ NSInteger kOAITriggerApiMissingParamErrorCode = 234513;
     visibility: (NSString*) visibility
     active: (NSNumber*) active
     completionHandler: (void (^)(OAITriggerResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITriggerApiErrorDomain code:kOAITriggerApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'triggerId' is set
     if (triggerId == nil) {
         NSParameterAssert(triggerId);
@@ -657,12 +575,9 @@ NSInteger kOAITriggerApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/trigger/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/trigger/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (triggerId != nil) {

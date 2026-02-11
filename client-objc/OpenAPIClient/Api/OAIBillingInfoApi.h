@@ -26,7 +26,6 @@ extern NSInteger kOAIBillingInfoApiMissingParamErrorCode;
 /// Update Payment Method
 /// Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
 ///
-/// @param version 
 /// @param accountId The account used to perform the the request
 /// @param paymentMethodId Payment Method Id (optional)
 /// @param accountName the name of the account (optional)
@@ -54,8 +53,7 @@ extern NSInteger kOAIBillingInfoApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPaymentTypesResponse*
--(NSURLSessionTask*) addPaymentMethodWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) addPaymentMethodWithAccountId: (NSNumber*) accountId
     paymentMethodId: (NSNumber*) paymentMethodId
     accountName: (NSString*) accountName
     firstName: (NSString*) firstName
@@ -84,7 +82,6 @@ extern NSInteger kOAIBillingInfoApiMissingParamErrorCode;
 /// Create Payment Method
 /// Add a new method of payment.
 ///
-/// @param version 
 /// @param accountId The account used to perform the the request
 /// @param accountName Account Name of the credit card user (optional)
 /// @param firstName The first name on the credit card (optional)
@@ -114,8 +111,7 @@ extern NSInteger kOAIBillingInfoApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPaymentTypesResponse*
--(NSURLSessionTask*) createPaymentMethodWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createPaymentMethodWithAccountId: (NSNumber*) accountId
     accountName: (NSString*) accountName
     firstName: (NSString*) firstName
     lastName: (NSString*) lastName
@@ -146,7 +142,6 @@ extern NSInteger kOAIBillingInfoApiMissingParamErrorCode;
 /// Create Smart Contract
 /// Adds a smart contract.
 ///
-/// @param version 
 /// @param accountId The account used to perform the the request
 /// @param tokenName The token name
 /// @param tokenSymbol The token symbol
@@ -155,8 +150,7 @@ extern NSInteger kOAIBillingInfoApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPaymentTypesResponse*
--(NSURLSessionTask*) createSmartContractWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createSmartContractWithAccountId: (NSNumber*) accountId
     tokenName: (NSString*) tokenName
     tokenSymbol: (NSString*) tokenSymbol
     paymentMethodId: (NSNumber*) paymentMethodId
@@ -166,7 +160,6 @@ extern NSInteger kOAIBillingInfoApiMissingParamErrorCode;
 /// Get Crypto Balances
 /// Get the cypto balance details for a user
 ///
-/// @param version 
 /// @param accountId The account used to perform the the request
 /// @param ownerAccountId The account to retreive balances for (optional)
 /// @param paymentMethodId The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
@@ -174,8 +167,7 @@ extern NSInteger kOAIBillingInfoApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPaymentTypesResponse*
--(NSURLSessionTask*) getCryptoBalanceWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getCryptoBalanceWithAccountId: (NSNumber*) accountId
     ownerAccountId: (NSNumber*) ownerAccountId
     paymentMethodId: (NSNumber*) paymentMethodId
     completionHandler: (void (^)(OAIPaymentTypesResponse* output, NSError* error)) handler;
@@ -184,7 +176,6 @@ extern NSInteger kOAIBillingInfoApiMissingParamErrorCode;
 /// Get Payment Method
 /// Get the details of the user's payment method or their current default method of payment
 ///
-/// @param version 
 /// @param accountId The account used to perform the the request
 /// @param paymentMethodId The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
 /// @param getCurrentBalance Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this) (optional)
@@ -192,8 +183,7 @@ extern NSInteger kOAIBillingInfoApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPaymentTypesResponse*
--(NSURLSessionTask*) getPaymentMethodWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getPaymentMethodWithAccountId: (NSNumber*) accountId
     paymentMethodId: (NSNumber*) paymentMethodId
     getCurrentBalance: (NSNumber*) getCurrentBalance
     completionHandler: (void (^)(OAIPaymentTypesResponse* output, NSError* error)) handler;
@@ -202,7 +192,6 @@ extern NSInteger kOAIBillingInfoApiMissingParamErrorCode;
 /// Search Payment Methods
 /// Search the payment methods of an account
 ///
-/// @param version 
 /// @param accountId Account Id to search on
 /// @param provider Provider to search on (optional) (default to @"AUTHORIZE_NET")
 /// @param type the type to search on (optional)
@@ -215,8 +204,7 @@ extern NSInteger kOAIBillingInfoApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPaymentTypesResponse*
--(NSURLSessionTask*) searchPaymentMethodWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchPaymentMethodWithAccountId: (NSNumber*) accountId
     provider: (NSString*) provider
     type: (NSString*) type
     keyword: (NSString*) keyword

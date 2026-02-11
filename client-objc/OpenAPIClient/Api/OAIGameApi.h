@@ -27,7 +27,6 @@ extern NSInteger kOAIGameApiMissingParamErrorCode;
 /// Create a Game
 /// Create a Game.
 ///
-/// @param version 
 /// @param accountId The logged in user. (optional)
 /// @param appKey The game application key to save the level for. (optional)
 /// @param title Title of the game. (optional)
@@ -39,8 +38,7 @@ extern NSInteger kOAIGameApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIGameResponse*
--(NSURLSessionTask*) createGameWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createGameWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     title: (NSString*) title
     _description: (NSString*) _description
@@ -53,15 +51,13 @@ extern NSInteger kOAIGameApiMissingParamErrorCode;
 /// Delete a Game
 /// Delete a game.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param gameId the updating game&#39;s id.
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteGameWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteGameWithAccountId: (NSNumber*) accountId
     gameId: (NSNumber*) gameId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -69,7 +65,6 @@ extern NSInteger kOAIGameApiMissingParamErrorCode;
 /// Get a Game by id
 /// Get a Game by id.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param gameId the updating game&#39;s id.
 /// @param includeGameData If true include the game level data, otherwise don&#39;t. default is false. (optional)
@@ -77,8 +72,7 @@ extern NSInteger kOAIGameApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIGameResponse*
--(NSURLSessionTask*) getGameWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getGameWithAccountId: (NSNumber*) accountId
     gameId: (NSNumber*) gameId
     includeGameData: (NSNumber*) includeGameData
     completionHandler: (void (^)(OAIGameResponse* output, NSError* error)) handler;
@@ -87,7 +81,6 @@ extern NSInteger kOAIGameApiMissingParamErrorCode;
 /// Search a Game
 /// Get a list of games for an application, just those the account has permissions to view.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param appKey the application key
 /// @param start Start the result set at some index.
@@ -100,8 +93,7 @@ extern NSInteger kOAIGameApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIGameResponse*
--(NSURLSessionTask*) searchGamesWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchGamesWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     start: (NSNumber*) start
     limit: (NSNumber*) limit
@@ -115,7 +107,6 @@ extern NSInteger kOAIGameApiMissingParamErrorCode;
 /// Update a Game
 /// Update a Game
 ///
-/// @param version 
 /// @param accountId The logged in user. (optional)
 /// @param gameId the updating game&#39;s id (optional)
 /// @param appKey The game application key to save the level for. (optional)
@@ -128,8 +119,7 @@ extern NSInteger kOAIGameApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIGameResponse*
--(NSURLSessionTask*) updateGameWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateGameWithAccountId: (NSNumber*) accountId
     gameId: (NSNumber*) gameId
     appKey: (NSString*) appKey
     title: (NSString*) title

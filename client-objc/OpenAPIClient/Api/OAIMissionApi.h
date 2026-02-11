@@ -28,7 +28,6 @@ extern NSInteger kOAIMissionApiMissingParamErrorCode;
 /// Create Mission
 /// Create a user defined mission.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param title The title of the mission
 /// @param _description The description of the mission (optional)
@@ -59,8 +58,7 @@ extern NSInteger kOAIMissionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIMissionResponse*
--(NSURLSessionTask*) createMissionWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createMissionWithAccountId: (NSNumber*) accountId
     title: (NSString*) title
     _description: (NSString*) _description
     subType: (NSString*) subType
@@ -92,15 +90,13 @@ extern NSInteger kOAIMissionApiMissingParamErrorCode;
 /// Delete Mission
 /// Delete a mission.
 ///
-/// @param version 
 /// @param accountId the id of the logged in user
 /// @param missionId the id of the mission to delete
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteMissionWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteMissionWithAccountId: (NSNumber*) accountId
     missionId: (NSNumber*) missionId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -108,7 +104,6 @@ extern NSInteger kOAIMissionApiMissingParamErrorCode;
 /// Find Missions
 /// Get a set of ad filtered by the parameters provided.
 ///
-/// @param version 
 /// @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
 /// @param suffix The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip (optional)
 /// @param type The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix. (optional)
@@ -132,8 +127,7 @@ extern NSInteger kOAIMissionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIMissionResponse*
--(NSURLSessionTask*) findMissionsWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) findMissionsWithAppKey: (NSString*) appKey
     suffix: (NSString*) suffix
     type: (NSString*) type
     accountId: (NSNumber*) accountId
@@ -158,7 +152,6 @@ extern NSInteger kOAIMissionApiMissingParamErrorCode;
 /// Get Mission
 /// Get a mission.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param missionId The id of the mission to return.
 /// @param returnCreative Return creatives associated with the mission when true (optional)
@@ -166,8 +159,7 @@ extern NSInteger kOAIMissionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIMissionResponse*
--(NSURLSessionTask*) getMissionWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getMissionWithAccountId: (NSNumber*) accountId
     missionId: (NSNumber*) missionId
     returnCreative: (NSNumber*) returnCreative
     completionHandler: (void (^)(OAIMissionResponse* output, NSError* error)) handler;
@@ -176,7 +168,6 @@ extern NSInteger kOAIMissionApiMissingParamErrorCode;
 /// Import Mission
 /// Create a mission using a source item such as an offer location.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param latitude The current location of the requesting device
 /// @param longitude The current location of the requesting device
@@ -189,8 +180,7 @@ extern NSInteger kOAIMissionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) importMissionWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) importMissionWithAccountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     appKey: (NSString*) appKey
@@ -204,7 +194,6 @@ extern NSInteger kOAIMissionApiMissingParamErrorCode;
 /// Search Mission Formats
 /// Searches on pre-defined mission formats
 ///
-/// @param version 
 /// @param start The starting index in the result set to return. Default is 0.
 /// @param limit The total number of records to return. Default is 20.
 /// @param activeOnly Determines whether to return only active results. Default is false.
@@ -212,8 +201,7 @@ extern NSInteger kOAIMissionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIMissionFormatResponse>*
--(NSURLSessionTask*) searchMissionFormatsWithVersion: (NSNumber*) version
-    start: (NSNumber*) start
+-(NSURLSessionTask*) searchMissionFormatsWithStart: (NSNumber*) start
     limit: (NSNumber*) limit
     activeOnly: (NSNumber*) activeOnly
     completionHandler: (void (^)(NSArray<OAIMissionFormatResponse>* output, NSError* error)) handler;
@@ -222,7 +210,6 @@ extern NSInteger kOAIMissionApiMissingParamErrorCode;
 /// Search Missions
 /// Get the list missions available to the account.  
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param keyword Filter by keyword (optional)
 /// @param subType Custom string client apps can use for searching/filtering missions (optional)
@@ -238,8 +225,7 @@ extern NSInteger kOAIMissionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIMissionResponse>*
--(NSURLSessionTask*) searchMissionsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchMissionsWithAccountId: (NSNumber*) accountId
     keyword: (NSString*) keyword
     subType: (NSString*) subType
     start: (NSNumber*) start
@@ -256,7 +242,6 @@ extern NSInteger kOAIMissionApiMissingParamErrorCode;
 /// Search Missions by Billable Entity
 /// Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param keyword Filter by keyword (optional)
 /// @param start The index into the record set to start with. Default is 0. (optional)
@@ -271,8 +256,7 @@ extern NSInteger kOAIMissionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIMissionResponse>*
--(NSURLSessionTask*) searchMissionsByBillableEntityWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchMissionsByBillableEntityWithAccountId: (NSNumber*) accountId
     keyword: (NSString*) keyword
     start: (NSNumber*) start
     limit: (NSNumber*) limit
@@ -288,7 +272,6 @@ extern NSInteger kOAIMissionApiMissingParamErrorCode;
 /// Update Mission
 /// Update a mission.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param missionId The id of the mission to update.
 /// @param title The title of the mission (optional)
@@ -318,8 +301,7 @@ extern NSInteger kOAIMissionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIMissionResponse*
--(NSURLSessionTask*) updateMissionWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateMissionWithAccountId: (NSNumber*) accountId
     missionId: (NSNumber*) missionId
     title: (NSString*) title
     _description: (NSString*) _description

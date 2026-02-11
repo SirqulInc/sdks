@@ -28,7 +28,6 @@ extern NSInteger kOAIOptimizeApiMissingParamErrorCode;
 /// Get Optimization Result
 /// Get the results of the import batch.
 ///
-/// @param version 
 /// @param batchID The batchID for getting the import status of.
 /// @param start The start index for pagination
 /// @param limit The limit for pagination
@@ -36,8 +35,7 @@ extern NSInteger kOAIOptimizeApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSDictionary<OAIShipmentOrder>*
--(NSURLSessionTask*) getOptimizationResultWithVersion: (NSNumber*) version
-    batchID: (NSString*) batchID
+-(NSURLSessionTask*) getOptimizationResultWithBatchID: (NSString*) batchID
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSDictionary<OAIShipmentOrder>* output, NSError* error)) handler;
@@ -46,14 +44,12 @@ extern NSInteger kOAIOptimizeApiMissingParamErrorCode;
 /// Request Optimization
 /// Request and upload of shipment orders and create ShipmentImportBatch for optimization.
 ///
-/// @param version 
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIImportStatuses*
--(NSURLSessionTask*) requestOptimizationWithVersion: (NSNumber*) version
-    body: (OAIOrders*) body
+-(NSURLSessionTask*) requestOptimizationWithBody: (OAIOrders*) body
     completionHandler: (void (^)(OAIImportStatuses* output, NSError* error)) handler;
 
 

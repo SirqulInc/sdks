@@ -27,29 +27,25 @@ extern NSInteger kOAILocationApiV2ApiMissingParamErrorCode;
 /// Create new location
 /// Create a new location from a real object location.
 ///
-/// @param version 
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) createLocationV2WithVersion: (NSNumber*) version
-    body: (OAILocation*) body
+-(NSURLSessionTask*) createLocationV2WithBody: (OAILocation*) body
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
 
 /// Update an existing location
 /// Update an existing location
 ///
-/// @param version 
 /// @param _id the id of the location to update
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) updateLocationV2WithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) updateLocationV2WithId: (NSNumber*) _id
     body: (OAILocation*) body
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 

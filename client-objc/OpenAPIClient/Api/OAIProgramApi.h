@@ -26,57 +26,49 @@ extern NSInteger kOAIProgramApiMissingParamErrorCode;
 /// Create Program
 /// Create a new program
 ///
-/// @param version 
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIProgram*
--(NSURLSessionTask*) createProgramWithVersion: (NSNumber*) version
-    body: (OAIProgram*) body
+-(NSURLSessionTask*) createProgramWithBody: (OAIProgram*) body
     completionHandler: (void (^)(OAIProgram* output, NSError* error)) handler;
 
 
 /// Delete Program
 /// Delete an existing program
 ///
-/// @param version 
 /// @param _id the id of the program
 /// 
 ///  code:0 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) deleteProgramWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) deleteProgramWithId: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler;
 
 
 /// Get Program
 /// Get an existing program
 ///
-/// @param version 
 /// @param _id the id of the program
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIProgram*
--(NSURLSessionTask*) getProgramWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) getProgramWithId: (NSNumber*) _id
     completionHandler: (void (^)(OAIProgram* output, NSError* error)) handler;
 
 
 /// Update Program
 /// Update an existing program
 ///
-/// @param version 
 /// @param _id the id of the program
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIProgram*
--(NSURLSessionTask*) postProgramWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) postProgramWithId: (NSNumber*) _id
     body: (OAIProgram*) body
     completionHandler: (void (^)(OAIProgram* output, NSError* error)) handler;
 
@@ -84,15 +76,13 @@ extern NSInteger kOAIProgramApiMissingParamErrorCode;
 /// Update Program
 /// Update an existing program
 ///
-/// @param version 
 /// @param _id the id of the program
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIProgram*
--(NSURLSessionTask*) putProgramWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) putProgramWithId: (NSNumber*) _id
     body: (OAIProgram*) body
     completionHandler: (void (^)(OAIProgram* output, NSError* error)) handler;
 
@@ -100,7 +90,6 @@ extern NSInteger kOAIProgramApiMissingParamErrorCode;
 /// Search Programs
 /// Search for programs
 ///
-/// @param version 
 /// @param sortField The field to sort by
 /// @param descending Determines whether the sorted list is in descending or ascending order
 /// @param start The start index for pagination
@@ -111,8 +100,7 @@ extern NSInteger kOAIProgramApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIProgram>*
--(NSURLSessionTask*) searchProgramsWithVersion: (NSNumber*) version
-    sortField: (NSString*) sortField
+-(NSURLSessionTask*) searchProgramsWithSortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
     limit: (NSNumber*) limit

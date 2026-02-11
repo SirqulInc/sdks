@@ -30,7 +30,6 @@ extern NSInteger kOAITicketApiMissingParamErrorCode;
 /// Get Ticket Count
 /// Gets the ticket count.
 ///
-/// @param version 
 /// @param deviceId the id of the device that owns the tickets (optional)
 /// @param accountId the id of the account that owns the tickets (optional)
 /// @param gameType this is deprecated. (optional)
@@ -40,8 +39,7 @@ extern NSInteger kOAITicketApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAICountResponse*
--(NSURLSessionTask*) getTicketCountWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) getTicketCountWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     gameType: (NSString*) gameType
     appKey: (NSString*) appKey
@@ -52,7 +50,6 @@ extern NSInteger kOAITicketApiMissingParamErrorCode;
 /// Get Ticket List
 /// Gets the list of tickets.
 ///
-/// @param version 
 /// @param deviceId the id of the device that owns the tickets (optional)
 /// @param accountId the id of the account that owns the tickets (optional)
 /// @param ticketObjectType comma separated list of TicketObjectType (optional)
@@ -66,8 +63,7 @@ extern NSInteger kOAITicketApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAITicketListResponse*
--(NSURLSessionTask*) getTicketListWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) getTicketListWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     ticketObjectType: (NSString*) ticketObjectType
     actionType: (NSString*) actionType
@@ -82,7 +78,6 @@ extern NSInteger kOAITicketApiMissingParamErrorCode;
 /// Gift Tickets
 /// Gift tickets to another user.
 ///
-/// @param version 
 /// @param receiverAccountId the id of the account receiving the tickets
 /// @param ticketId the id of the tickets
 /// @param deviceId the id of the device (optional)
@@ -95,8 +90,7 @@ extern NSInteger kOAITicketApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) giftPurchaseWithVersion: (NSNumber*) version
-    receiverAccountId: (NSNumber*) receiverAccountId
+-(NSURLSessionTask*) giftPurchaseWithReceiverAccountId: (NSNumber*) receiverAccountId
     ticketId: (NSNumber*) ticketId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -110,7 +104,6 @@ extern NSInteger kOAITicketApiMissingParamErrorCode;
 /// Save Ticket
 /// Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
 ///
-/// @param version 
 /// @param actionType the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER
 /// @param ticketObjectType the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM
 /// @param returnNulls whether to return nulls or not (optional)
@@ -133,8 +126,7 @@ extern NSInteger kOAITicketApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIProfileResponse*
--(NSURLSessionTask*) saveTicketWithVersion: (NSNumber*) version
-    actionType: (NSString*) actionType
+-(NSURLSessionTask*) saveTicketWithActionType: (NSString*) actionType
     ticketObjectType: (NSString*) ticketObjectType
     returnNulls: (NSNumber*) returnNulls
     deviceId: (NSString*) deviceId
@@ -158,7 +150,6 @@ extern NSInteger kOAITicketApiMissingParamErrorCode;
 /// Save Ticket with Reciept
 /// Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
 ///
-/// @param version 
 /// @param actionType the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }
 /// @param ticketObjectType the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM}
 /// @param receiptData the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format.
@@ -181,8 +172,7 @@ extern NSInteger kOAITicketApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIProfileResponse*
--(NSURLSessionTask*) saveTicketViaFileUploadWithVersion: (NSNumber*) version
-    actionType: (NSString*) actionType
+-(NSURLSessionTask*) saveTicketViaFileUploadWithActionType: (NSString*) actionType
     ticketObjectType: (NSString*) ticketObjectType
     receiptData: (NSURL*) receiptData
     returnNulls: (NSNumber*) returnNulls
@@ -206,13 +196,12 @@ extern NSInteger kOAITicketApiMissingParamErrorCode;
 /// Get Ticket Offers
 /// Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
 ///
-/// @param version 
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAITicketOfferResponse*
--(NSURLSessionTask*) ticketOffersWithVersion: (NSNumber*) version
-    completionHandler: (void (^)(OAITicketOfferResponse* output, NSError* error)) handler;
+-(NSURLSessionTask*) ticketOffersWithCompletionHandler: 
+    (void (^)(OAITicketOfferResponse* output, NSError* error)) handler;
 
 
 

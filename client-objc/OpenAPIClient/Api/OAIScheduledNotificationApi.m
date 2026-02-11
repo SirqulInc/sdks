@@ -53,8 +53,6 @@ NSInteger kOAIScheduledNotificationApiMissingParamErrorCode = 234513;
 ///
 /// Create Scheduled Notification
 /// This endpoint creates a Scheduled Notification message that can be configured to process and send periodically at set time periods
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param name The name of the scheduled notification 
@@ -125,8 +123,7 @@ NSInteger kOAIScheduledNotificationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIScheduledNotificationFullResponse*
 ///
--(NSURLSessionTask*) createScheduledNotificationWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createScheduledNotificationWithAccountId: (NSNumber*) accountId
     name: (NSString*) name
     type: (NSString*) type
     message: (NSString*) message
@@ -161,17 +158,6 @@ NSInteger kOAIScheduledNotificationApiMissingParamErrorCode = 234513;
     deepLinkURI: (NSString*) deepLinkURI
     sendToAll: (NSNumber*) sendToAll
     completionHandler: (void (^)(OAIScheduledNotificationFullResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIScheduledNotificationApiErrorDomain code:kOAIScheduledNotificationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -216,12 +202,9 @@ NSInteger kOAIScheduledNotificationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/notification/schedule/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/notification/schedule/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -369,8 +352,6 @@ NSInteger kOAIScheduledNotificationApiMissingParamErrorCode = 234513;
 ///
 /// Delete Scheduled Notification
 /// This endpoint deletes a Scheduled Notification. Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using the UserPermissionsApi.
-///  @param version  
-///
 ///  @param accountId the id of the logged in user 
 ///
 ///  @param scheduledNotificationId the id of the scheduled notification to delete 
@@ -379,22 +360,10 @@ NSInteger kOAIScheduledNotificationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIScheduledNotificationFullResponse*
 ///
--(NSURLSessionTask*) deleteScheduledNotificationWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteScheduledNotificationWithAccountId: (NSNumber*) accountId
     scheduledNotificationId: (NSNumber*) scheduledNotificationId
     deleteByGroupingId: (NSNumber*) deleteByGroupingId
     completionHandler: (void (^)(OAIScheduledNotificationFullResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIScheduledNotificationApiErrorDomain code:kOAIScheduledNotificationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -417,12 +386,9 @@ NSInteger kOAIScheduledNotificationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/notification/schedule/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/notification/schedule/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -477,29 +443,15 @@ NSInteger kOAIScheduledNotificationApiMissingParamErrorCode = 234513;
 ///
 /// Get Scheduled Notification
 /// Get a ScheduledNotification
-///  @param version  
-///
 ///  @param accountId the id of the account logged in 
 ///
 ///  @param scheduledNotificationId the id of the scheduled notification to get 
 ///
 ///  @returns OAIScheduledNotificationFullResponse*
 ///
--(NSURLSessionTask*) getScheduledNotificationWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getScheduledNotificationWithAccountId: (NSNumber*) accountId
     scheduledNotificationId: (NSNumber*) scheduledNotificationId
     completionHandler: (void (^)(OAIScheduledNotificationFullResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIScheduledNotificationApiErrorDomain code:kOAIScheduledNotificationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -522,12 +474,9 @@ NSInteger kOAIScheduledNotificationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/notification/schedule/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/notification/schedule/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -579,8 +528,6 @@ NSInteger kOAIScheduledNotificationApiMissingParamErrorCode = 234513;
 ///
 /// Generate Schedule Notifications
 /// Use a report to identify events that are starting soon and then create a scheduled notification to push a message to matching users.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param appKey The application to target 
@@ -599,8 +546,7 @@ NSInteger kOAIScheduledNotificationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) scheduleNotificationListingsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) scheduleNotificationListingsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     reportName: (NSString*) reportName
     message: (NSString*) message
@@ -609,17 +555,6 @@ NSInteger kOAIScheduledNotificationApiMissingParamErrorCode = 234513;
     reportParams: (NSString*) reportParams
     type: (NSString*) type
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIScheduledNotificationApiErrorDomain code:kOAIScheduledNotificationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -686,12 +621,9 @@ NSInteger kOAIScheduledNotificationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/notification/schedule/generate"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/notification/schedule/generate"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -761,8 +693,6 @@ NSInteger kOAIScheduledNotificationApiMissingParamErrorCode = 234513;
 ///
 /// Search Scheduled Notifications
 /// This endpoint searches on Scheduled Notifications. If a scheduled notification was created with the visibility parameter set to PUBLIC, then anyone can search on it if the filter parameter includes the PUBLIC value. PRIVATE visibility means that it can only be searched on by the owner or if it has been shared to the user using the UserPermissionsApi.  In addition, if a PUBLIC Scheduled Notification was created for an application that requires content approval (using the publicContentApproval parameter), then an administrator of the application needs to approve it before it can be search on by other users. Before this happens, it is in a PENDING state, and only the original creator or the owner of the application can search and see it. Also, only the owner of the application can use the UserPermissionsApi to approve or reject it. Scheduled notifications that have been rejected are only visible to the original creators.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param groupingId Filter results by a grouping identifier defined by the client (optional)
@@ -805,8 +735,7 @@ NSInteger kOAIScheduledNotificationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIScheduledNotificationFullResponse*
 ///
--(NSURLSessionTask*) searchScheduledNotificationsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchScheduledNotificationsWithAccountId: (NSNumber*) accountId
     groupingId: (NSString*) groupingId
     audienceId: (NSNumber*) audienceId
     filter: (NSString*) filter
@@ -827,17 +756,6 @@ NSInteger kOAIScheduledNotificationApiMissingParamErrorCode = 234513;
     groupByGroupingId: (NSNumber*) groupByGroupingId
     returnAudienceAccountCount: (NSNumber*) returnAudienceAccountCount
     completionHandler: (void (^)(OAIScheduledNotificationFullResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIScheduledNotificationApiErrorDomain code:kOAIScheduledNotificationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -849,12 +767,9 @@ NSInteger kOAIScheduledNotificationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/notification/schedule/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/notification/schedule/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -960,8 +875,6 @@ NSInteger kOAIScheduledNotificationApiMissingParamErrorCode = 234513;
 ///
 /// Update Scheduled Notification
 /// This endpoint updates a Scheduled Notification message that can be configured to process and send periodically at set time periods. Please see createScheduledNotification for more details.  Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using theUserPermissionsApi.
-///  @param version  
-///
 ///  @param scheduledNotificationId The id of scheduled notification to update 
 ///
 ///  @param accountId The logged in user. 
@@ -1040,8 +953,7 @@ NSInteger kOAIScheduledNotificationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIScheduledNotificationFullResponse*
 ///
--(NSURLSessionTask*) updateScheduledNotificationWithVersion: (NSNumber*) version
-    scheduledNotificationId: (NSNumber*) scheduledNotificationId
+-(NSURLSessionTask*) updateScheduledNotificationWithScheduledNotificationId: (NSNumber*) scheduledNotificationId
     accountId: (NSNumber*) accountId
     name: (NSString*) name
     type: (NSString*) type
@@ -1080,17 +992,6 @@ NSInteger kOAIScheduledNotificationApiMissingParamErrorCode = 234513;
     deepLinkURI: (NSString*) deepLinkURI
     sendToAll: (NSNumber*) sendToAll
     completionHandler: (void (^)(OAIScheduledNotificationFullResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIScheduledNotificationApiErrorDomain code:kOAIScheduledNotificationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'scheduledNotificationId' is set
     if (scheduledNotificationId == nil) {
         NSParameterAssert(scheduledNotificationId);
@@ -1113,12 +1014,9 @@ NSInteger kOAIScheduledNotificationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/notification/schedule/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/notification/schedule/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (scheduledNotificationId != nil) {

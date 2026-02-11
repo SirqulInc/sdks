@@ -53,8 +53,6 @@ NSInteger kOAILikeApiMissingParamErrorCode = 234513;
 ///
 /// Create Like
 /// Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
-///  @param version  
-///
 ///  @param likableType The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} 
 ///
 ///  @param likableId The id of the likable object 
@@ -81,8 +79,7 @@ NSInteger kOAILikeApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAILikableResponse*
 ///
--(NSURLSessionTask*) registerLikeWithVersion: (NSNumber*) version
-    likableType: (NSString*) likableType
+-(NSURLSessionTask*) registerLikeWithLikableType: (NSString*) likableType
     likableId: (NSNumber*) likableId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -95,17 +92,6 @@ NSInteger kOAILikeApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAILikableResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAILikeApiErrorDomain code:kOAILikeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'likableType' is set
     if (likableType == nil) {
         NSParameterAssert(likableType);
@@ -128,12 +114,9 @@ NSInteger kOAILikeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/like"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/like"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -215,8 +198,6 @@ NSInteger kOAILikeApiMissingParamErrorCode = 234513;
 ///
 /// Delete Like
 /// Removes a like. This will make the user \"neutral\".
-///  @param version  
-///
 ///  @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} 
 ///
 ///  @param likableId The id of the likable object 
@@ -231,25 +212,13 @@ NSInteger kOAILikeApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAILikableResponse*
 ///
--(NSURLSessionTask*) removeLikeWithVersion: (NSNumber*) version
-    likableType: (NSString*) likableType
+-(NSURLSessionTask*) removeLikeWithLikableType: (NSString*) likableType
     likableId: (NSNumber*) likableId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAILikableResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAILikeApiErrorDomain code:kOAILikeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'likableType' is set
     if (likableType == nil) {
         NSParameterAssert(likableType);
@@ -272,12 +241,9 @@ NSInteger kOAILikeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/like/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/like/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -341,8 +307,6 @@ NSInteger kOAILikeApiMissingParamErrorCode = 234513;
 ///
 /// Search Likes
 /// Search for likes on a likable object.
-///  @param version  
-///
 ///  @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} 
 ///
 ///  @param likableId The id of the likable object 
@@ -367,8 +331,7 @@ NSInteger kOAILikeApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISearchResponse*
 ///
--(NSURLSessionTask*) searchLikesWithVersion: (NSNumber*) version
-    likableType: (NSString*) likableType
+-(NSURLSessionTask*) searchLikesWithLikableType: (NSString*) likableType
     likableId: (NSNumber*) likableId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -380,17 +343,6 @@ NSInteger kOAILikeApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(OAISearchResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAILikeApiErrorDomain code:kOAILikeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'likableType' is set
     if (likableType == nil) {
         NSParameterAssert(likableType);
@@ -413,12 +365,9 @@ NSInteger kOAILikeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/like/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/like/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {

@@ -27,7 +27,6 @@ extern NSInteger kOAIQuestionApiMissingParamErrorCode;
 /// Create Question
 /// Create a question and related answers by the given params.
 ///
-/// @param version 
 /// @param accountId the id of the logged in user
 /// @param question the text of the question
 /// @param answers &#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60; 
@@ -43,8 +42,7 @@ extern NSInteger kOAIQuestionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIQuestionResponse*
--(NSURLSessionTask*) createQuestionWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createQuestionWithAccountId: (NSNumber*) accountId
     question: (NSString*) question
     answers: (NSString*) answers
     active: (NSNumber*) active
@@ -61,15 +59,13 @@ extern NSInteger kOAIQuestionApiMissingParamErrorCode;
 /// Delete Question
 /// Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
 ///
-/// @param version 
 /// @param questionId the id of the question to delete
 /// @param accountId the id of the account that can execute this request
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteQuestionWithVersion: (NSNumber*) version
-    questionId: (NSNumber*) questionId
+-(NSURLSessionTask*) deleteQuestionWithQuestionId: (NSNumber*) questionId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -77,15 +73,13 @@ extern NSInteger kOAIQuestionApiMissingParamErrorCode;
 /// Get Question
 /// Get a question by the given id.
 ///
-/// @param version 
 /// @param questionId the id of the question to get
 /// @param accountId the id of the account that can make this request
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIQuestionResponse*
--(NSURLSessionTask*) getQuestionWithVersion: (NSNumber*) version
-    questionId: (NSNumber*) questionId
+-(NSURLSessionTask*) getQuestionWithQuestionId: (NSNumber*) questionId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIQuestionResponse* output, NSError* error)) handler;
 
@@ -93,7 +87,6 @@ extern NSInteger kOAIQuestionApiMissingParamErrorCode;
 /// Search Questions
 /// Search for questions by the given params.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param sortField The column to sort the search on
 /// @param descending The order to return the search results
@@ -105,8 +98,7 @@ extern NSInteger kOAIQuestionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIQuestionResponse>*
--(NSURLSessionTask*) searchQuestionsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchQuestionsWithAccountId: (NSNumber*) accountId
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     activeOnly: (NSNumber*) activeOnly
@@ -119,7 +111,6 @@ extern NSInteger kOAIQuestionApiMissingParamErrorCode;
 /// Update Question
 /// Update a question and related answers.
 ///
-/// @param version 
 /// @param questionId The id of the question to update.
 /// @param accountId The logged in user.
 /// @param ticketCount The number of tickets to reward
@@ -136,8 +127,7 @@ extern NSInteger kOAIQuestionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIQuestionResponse*
--(NSURLSessionTask*) updateQuestionWithVersion: (NSNumber*) version
-    questionId: (NSNumber*) questionId
+-(NSURLSessionTask*) updateQuestionWithQuestionId: (NSNumber*) questionId
     accountId: (NSNumber*) accountId
     ticketCount: (NSNumber*) ticketCount
     question: (NSString*) question

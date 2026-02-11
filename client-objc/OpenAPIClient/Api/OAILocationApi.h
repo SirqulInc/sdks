@@ -30,7 +30,6 @@ extern NSInteger kOAILocationApiMissingParamErrorCode;
 /// Create Trilateration Data with File
 /// Creates trilateration samples for a source device (i.e. a router).
 ///
-/// @param version 
 /// @param udid The unique identifier of the source device
 /// @param sourceTime The current timestamp of the source device (optional)
 /// @param minimumSampleSize the minimum number of Edysen devices that must be used to be able to trilaterate a device (optional)
@@ -40,8 +39,7 @@ extern NSInteger kOAILocationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) cacheTrilaterationDataWithVersion: (NSNumber*) version
-    udid: (NSString*) udid
+-(NSURLSessionTask*) cacheTrilaterationDataWithUdid: (NSString*) udid
     sourceTime: (NSNumber*) sourceTime
     minimumSampleSize: (NSNumber*) minimumSampleSize
     data: (NSString*) data
@@ -52,35 +50,30 @@ extern NSInteger kOAILocationApiMissingParamErrorCode;
 /// Create Trilateration Data with Rest
 /// Creates trilateration samples for a source device (i.e. a router).
 ///
-/// @param version 
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) cacheTrilaterationDataGzipWithVersion: (NSNumber*) version
-    body: (OAITrilatCacheRequest*) body
+-(NSURLSessionTask*) cacheTrilaterationDataGzipWithBody: (OAITrilatCacheRequest*) body
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
 
 /// Get Location by IP
 /// Get location information based on an IP address.
 ///
-/// @param version 
 /// @param ip the ip address of the client device (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAICoordsResponse*
--(NSURLSessionTask*) getLocationByIpWithVersion: (NSNumber*) version
-    ip: (NSString*) ip
+-(NSURLSessionTask*) getLocationByIpWithIp: (NSString*) ip
     completionHandler: (void (^)(OAICoordsResponse* output, NSError* error)) handler;
 
 
 /// Get Location by Trilateration
 /// Send in device data and calculate a position based on signal strengths.
 ///
-/// @param version 
 /// @param accountId The account making the request, if provided the last know location will be updated (optional)
 /// @param latitude The known GPS latitude to compare to the calculated version (optional)
 /// @param longitude The known GPS longitude to compare to the calculated version (optional)
@@ -90,8 +83,7 @@ extern NSInteger kOAILocationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIGeoPointResponse*
--(NSURLSessionTask*) getLocationByTrilaterationWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getLocationByTrilaterationWithAccountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     data: (NSString*) data
@@ -102,7 +94,6 @@ extern NSInteger kOAILocationApiMissingParamErrorCode;
 /// Search Regions or Postal Codes
 /// Searches geographic locations by proximity via address or keyword.
 ///
-/// @param version 
 /// @param deviceId the device id (optional)
 /// @param accountId the account id (optional)
 /// @param currentlatitude This parameter is deprecated. (optional)
@@ -126,8 +117,7 @@ extern NSInteger kOAILocationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAILocationSearchResponse*
--(NSURLSessionTask*) getLocationsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) getLocationsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     currentlatitude: (NSNumber*) currentlatitude
     currentlongitude: (NSNumber*) currentlongitude

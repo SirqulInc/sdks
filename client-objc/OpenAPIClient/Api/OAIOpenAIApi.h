@@ -26,7 +26,6 @@ extern NSInteger kOAIOpenAIApiMissingParamErrorCode;
 /// Generate images with OpenAI
 /// Generate images with OpenAI.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param postBody Post Body Parameters
 /// @param returnRawResponse Return raw response (optional)
@@ -34,8 +33,7 @@ extern NSInteger kOAIOpenAIApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIWrappedProxyItemResponse*
--(NSURLSessionTask*) imageGenerationWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) imageGenerationWithAccountId: (NSNumber*) accountId
     postBody: (NSString*) postBody
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(OAIWrappedProxyItemResponse* output, NSError* error)) handler;

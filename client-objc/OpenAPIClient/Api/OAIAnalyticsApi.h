@@ -28,7 +28,6 @@ extern NSInteger kOAIAnalyticsApiMissingParamErrorCode;
 /// Get User Activity
 /// Get an activity feed by user.
 ///
-/// @param version 
 /// @param start The start of the pagination
 /// @param limit The limit of the pagination
 /// @param accountId the account id of the user
@@ -36,8 +35,7 @@ extern NSInteger kOAIAnalyticsApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIUserActivityResponse>*
--(NSURLSessionTask*) activitiesWithVersion: (NSNumber*) version
-    start: (NSNumber*) start
+-(NSURLSessionTask*) activitiesWithStart: (NSNumber*) start
     limit: (NSNumber*) limit
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(NSArray<OAIUserActivityResponse>* output, NSError* error)) handler;
@@ -46,7 +44,6 @@ extern NSInteger kOAIAnalyticsApiMissingParamErrorCode;
 /// Get Aggregated Filtered Usage
 /// Query analytics to get data used for nested graphs and charts
 ///
-/// @param version 
 /// @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
 /// @param applicationId This parameter is deprecated. (optional)
@@ -82,8 +79,7 @@ extern NSInteger kOAIAnalyticsApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIChartData*
--(NSURLSessionTask*) aggregatedFilteredUsageWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) aggregatedFilteredUsageWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     applicationId: (NSNumber*) applicationId
     appKey: (NSString*) appKey
@@ -120,7 +116,6 @@ extern NSInteger kOAIAnalyticsApiMissingParamErrorCode;
 /// Get Filtered Usage
 /// Query analytics to get data used for graphs and charts
 ///
-/// @param version 
 /// @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
 /// @param applicationId This parameter is deprecated. (optional)
@@ -164,8 +159,7 @@ extern NSInteger kOAIAnalyticsApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIChartData*
--(NSURLSessionTask*) filteredUsageWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) filteredUsageWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     applicationId: (NSNumber*) applicationId
     appKey: (NSString*) appKey
@@ -210,7 +204,6 @@ extern NSInteger kOAIAnalyticsApiMissingParamErrorCode;
 /// Create Usage Record
 /// Record an analytic record for a known state within the application.
 ///
-/// @param version 
 /// @param tag The tag to apply: the name of the action or thing being logged.
 /// @param deviceId The client deviceID (optional)
 /// @param accountId The logged in user ID (optional)
@@ -246,8 +239,7 @@ extern NSInteger kOAIAnalyticsApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) usageWithVersion: (NSNumber*) version
-    tag: (NSString*) tag
+-(NSURLSessionTask*) usageWithTag: (NSString*) tag
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     applicationId: (NSNumber*) applicationId
@@ -284,7 +276,6 @@ extern NSInteger kOAIAnalyticsApiMissingParamErrorCode;
 /// Create Multiple Usage Records
 /// Sends multiple analytics. Can be used to send in the user's stored usage when they did not have internet access. Should not include more than 100 items per batch.
 ///
-/// @param version 
 /// @param appKey The application key unique to each application.
 /// @param device The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.)
 /// @param data The analytic data AnalyticListResponse
@@ -300,8 +291,7 @@ extern NSInteger kOAIAnalyticsApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) usageBatchWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) usageBatchWithAppKey: (NSString*) appKey
     device: (NSString*) device
     data: (NSString*) data
     deviceId: (NSString*) deviceId

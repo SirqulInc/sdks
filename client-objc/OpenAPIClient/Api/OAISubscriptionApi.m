@@ -55,8 +55,6 @@ NSInteger kOAISubscriptionApiMissingParamErrorCode = 234513;
 ///
 /// Create Subscription
 /// Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
-///  @param version  
-///
 ///  @param accountId The account used to perform the create, must be the responsible manager 
 ///
 ///  @param planId The plan to subscribe to, if null use default plan (optional)
@@ -65,22 +63,10 @@ NSInteger kOAISubscriptionApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISubscriptionResponse*
 ///
--(NSURLSessionTask*) createSubscriptionWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createSubscriptionWithAccountId: (NSNumber*) accountId
     planId: (NSNumber*) planId
     promoCode: (NSString*) promoCode
     completionHandler: (void (^)(OAISubscriptionResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAISubscriptionApiErrorDomain code:kOAISubscriptionApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -92,12 +78,9 @@ NSInteger kOAISubscriptionApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/subscription/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/subscription/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -152,26 +135,12 @@ NSInteger kOAISubscriptionApiMissingParamErrorCode = 234513;
 ///
 /// Delete Subscription
 /// Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
-///  @param version  
-///
 ///  @param accountId The account used to perform the delete, must be the responsible manager 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteSubscriptionWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteSubscriptionWithAccountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAISubscriptionApiErrorDomain code:kOAISubscriptionApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -183,12 +152,9 @@ NSInteger kOAISubscriptionApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/subscription/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/subscription/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -237,26 +203,12 @@ NSInteger kOAISubscriptionApiMissingParamErrorCode = 234513;
 ///
 /// Get Subscription
 /// Use the accountId to determine the associated BillableEntity.  Then get the subscription.
-///  @param version  
-///
 ///  @param accountId The account used to perform the lookup 
 ///
 ///  @returns OAISubscriptionResponse*
 ///
--(NSURLSessionTask*) getSubscriptionWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getSubscriptionWithAccountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISubscriptionResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAISubscriptionApiErrorDomain code:kOAISubscriptionApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -268,12 +220,9 @@ NSInteger kOAISubscriptionApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/subscription/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/subscription/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -322,26 +271,12 @@ NSInteger kOAISubscriptionApiMissingParamErrorCode = 234513;
 ///
 /// Get Subscription Plan
 /// Get the matched subscription plan
-///  @param version  
-///
 ///  @param planId The ID of the plan to get 
 ///
 ///  @returns OAISubscriptionPlanResponse*
 ///
--(NSURLSessionTask*) getSubscriptionPlanWithVersion: (NSNumber*) version
-    planId: (NSNumber*) planId
+-(NSURLSessionTask*) getSubscriptionPlanWithPlanId: (NSNumber*) planId
     completionHandler: (void (^)(OAISubscriptionPlanResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAISubscriptionApiErrorDomain code:kOAISubscriptionApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'planId' is set
     if (planId == nil) {
         NSParameterAssert(planId);
@@ -353,12 +288,9 @@ NSInteger kOAISubscriptionApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/subscription/plan/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/subscription/plan/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (planId != nil) {
@@ -407,35 +339,18 @@ NSInteger kOAISubscriptionApiMissingParamErrorCode = 234513;
 ///
 /// List Subscription Plans
 /// Get the matched subscription plan
-///  @param version  
-///
 ///  @param visible Include visible only (true), hidden only (false), or all (null) (optional)
 ///
 ///  @param role The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER (optional)
 ///
 ///  @returns NSArray<OAISubscriptionPlanResponse>*
 ///
--(NSURLSessionTask*) getSubscriptionPlansWithVersion: (NSNumber*) version
-    visible: (NSNumber*) visible
+-(NSURLSessionTask*) getSubscriptionPlansWithVisible: (NSNumber*) visible
     role: (NSString*) role
     completionHandler: (void (^)(NSArray<OAISubscriptionPlanResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAISubscriptionApiErrorDomain code:kOAISubscriptionApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/subscription/plan/list"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/subscription/plan/list"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (visible != nil) {
@@ -487,8 +402,6 @@ NSInteger kOAISubscriptionApiMissingParamErrorCode = 234513;
 ///
 /// Get Subscription Usage
 /// Use the accountId to determine the associated BillableEntity.  Then get the application usage.
-///  @param version  
-///
 ///  @param accountId The account used to perform the lookup 
 ///
 ///  @param applicationId Get for just 1 application instead of the BillableEntity (optional)
@@ -499,23 +412,11 @@ NSInteger kOAISubscriptionApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIApplicationUsageResponse*
 ///
--(NSURLSessionTask*) getSubscriptionUsageWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getSubscriptionUsageWithAccountId: (NSNumber*) accountId
     applicationId: (NSNumber*) applicationId
     start: (NSNumber*) start
     end: (NSNumber*) end
     completionHandler: (void (^)(OAIApplicationUsageResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAISubscriptionApiErrorDomain code:kOAISubscriptionApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -527,12 +428,9 @@ NSInteger kOAISubscriptionApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/subscription/usage/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/subscription/usage/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -590,8 +488,6 @@ NSInteger kOAISubscriptionApiMissingParamErrorCode = 234513;
 ///
 /// Update Subscription
 /// Updates the subscription for the billable entity for an account
-///  @param version  
-///
 ///  @param accountId The account used to perform the update, must be the responsible manager 
 ///
 ///  @param planId The plan to subscribe to (optional)
@@ -602,23 +498,11 @@ NSInteger kOAISubscriptionApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISubscriptionResponse*
 ///
--(NSURLSessionTask*) updateSubscriptionWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateSubscriptionWithAccountId: (NSNumber*) accountId
     planId: (NSNumber*) planId
     promoCode: (NSString*) promoCode
     active: (NSNumber*) active
     completionHandler: (void (^)(OAISubscriptionResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAISubscriptionApiErrorDomain code:kOAISubscriptionApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -630,12 +514,9 @@ NSInteger kOAISubscriptionApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/subscription/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/subscription/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

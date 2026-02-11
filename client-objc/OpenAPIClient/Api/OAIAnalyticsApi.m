@@ -54,8 +54,6 @@ NSInteger kOAIAnalyticsApiMissingParamErrorCode = 234513;
 ///
 /// Get User Activity
 /// Get an activity feed by user.
-///  @param version  
-///
 ///  @param start The start of the pagination 
 ///
 ///  @param limit The limit of the pagination 
@@ -64,22 +62,10 @@ NSInteger kOAIAnalyticsApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIUserActivityResponse>*
 ///
--(NSURLSessionTask*) activitiesWithVersion: (NSNumber*) version
-    start: (NSNumber*) start
+-(NSURLSessionTask*) activitiesWithStart: (NSNumber*) start
     limit: (NSNumber*) limit
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(NSArray<OAIUserActivityResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAnalyticsApiErrorDomain code:kOAIAnalyticsApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'start' is set
     if (start == nil) {
         NSParameterAssert(start);
@@ -113,12 +99,9 @@ NSInteger kOAIAnalyticsApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/analytics/useractivity"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/analytics/useractivity"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (start != nil) {
@@ -173,8 +156,6 @@ NSInteger kOAIAnalyticsApiMissingParamErrorCode = 234513;
 ///
 /// Get Aggregated Filtered Usage
 /// Query analytics to get data used for nested graphs and charts
-///  @param version  
-///
 ///  @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
 ///
 ///  @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -239,8 +220,7 @@ NSInteger kOAIAnalyticsApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIChartData*
 ///
--(NSURLSessionTask*) aggregatedFilteredUsageWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) aggregatedFilteredUsageWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     applicationId: (NSNumber*) applicationId
     appKey: (NSString*) appKey
@@ -272,23 +252,9 @@ NSInteger kOAIAnalyticsApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIChartData* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAnalyticsApiErrorDomain code:kOAIAnalyticsApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/analytics/aggregatedFilteredUsage"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/analytics/aggregatedFilteredUsage"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -427,8 +393,6 @@ NSInteger kOAIAnalyticsApiMissingParamErrorCode = 234513;
 ///
 /// Get Filtered Usage
 /// Query analytics to get data used for graphs and charts
-///  @param version  
-///
 ///  @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
 ///
 ///  @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -509,8 +473,7 @@ NSInteger kOAIAnalyticsApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIChartData*
 ///
--(NSURLSessionTask*) filteredUsageWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) filteredUsageWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     applicationId: (NSNumber*) applicationId
     appKey: (NSString*) appKey
@@ -550,23 +513,9 @@ NSInteger kOAIAnalyticsApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIChartData* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAnalyticsApiErrorDomain code:kOAIAnalyticsApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/analytics/filteredUsage"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/analytics/filteredUsage"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -729,8 +678,6 @@ NSInteger kOAIAnalyticsApiMissingParamErrorCode = 234513;
 ///
 /// Create Usage Record
 /// Record an analytic record for a known state within the application.
-///  @param version  
-///
 ///  @param tag The tag to apply: the name of the action or thing being logged. 
 ///
 ///  @param deviceId The client deviceID (optional)
@@ -795,8 +742,7 @@ NSInteger kOAIAnalyticsApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) usageWithVersion: (NSNumber*) version
-    tag: (NSString*) tag
+-(NSURLSessionTask*) usageWithTag: (NSString*) tag
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     applicationId: (NSNumber*) applicationId
@@ -828,17 +774,6 @@ NSInteger kOAIAnalyticsApiMissingParamErrorCode = 234513;
     customLong: (NSNumber*) customLong
     customLong2: (NSNumber*) customLong2
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAnalyticsApiErrorDomain code:kOAIAnalyticsApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'tag' is set
     if (tag == nil) {
         NSParameterAssert(tag);
@@ -850,12 +785,9 @@ NSInteger kOAIAnalyticsApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/analytics/usage"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/analytics/usage"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (tag != nil) {
@@ -994,8 +926,6 @@ NSInteger kOAIAnalyticsApiMissingParamErrorCode = 234513;
 ///
 /// Create Multiple Usage Records
 /// Sends multiple analytics. Can be used to send in the user's stored usage when they did not have internet access. Should not include more than 100 items per batch.
-///  @param version  
-///
 ///  @param appKey The application key unique to each application. 
 ///
 ///  @param device The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.) 
@@ -1020,8 +950,7 @@ NSInteger kOAIAnalyticsApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) usageBatchWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) usageBatchWithAppKey: (NSString*) appKey
     device: (NSString*) device
     data: (NSString*) data
     deviceId: (NSString*) deviceId
@@ -1033,17 +962,6 @@ NSInteger kOAIAnalyticsApiMissingParamErrorCode = 234513;
     updateRanking: (NSNumber*) updateRanking
     returnSummaryResponse: (NSNumber*) returnSummaryResponse
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAnalyticsApiErrorDomain code:kOAIAnalyticsApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'appKey' is set
     if (appKey == nil) {
         NSParameterAssert(appKey);
@@ -1077,12 +995,9 @@ NSInteger kOAIAnalyticsApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/analytics/usage/batch"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/analytics/usage/batch"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {

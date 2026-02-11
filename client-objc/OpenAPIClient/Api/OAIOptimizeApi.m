@@ -54,8 +54,6 @@ NSInteger kOAIOptimizeApiMissingParamErrorCode = 234513;
 ///
 /// Get Optimization Result
 /// Get the results of the import batch.
-///  @param version  
-///
 ///  @param batchID The batchID for getting the import status of. 
 ///
 ///  @param start The start index for pagination 
@@ -64,22 +62,10 @@ NSInteger kOAIOptimizeApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSDictionary<OAIShipmentOrder>*
 ///
--(NSURLSessionTask*) getOptimizationResultWithVersion: (NSNumber*) version
-    batchID: (NSString*) batchID
+-(NSURLSessionTask*) getOptimizationResultWithBatchID: (NSString*) batchID
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSDictionary<OAIShipmentOrder>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOptimizeApiErrorDomain code:kOAIOptimizeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'batchID' is set
     if (batchID == nil) {
         NSParameterAssert(batchID);
@@ -113,12 +99,9 @@ NSInteger kOAIOptimizeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/optimize/result/{batchID}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/optimize/result/{batchID}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (batchID != nil) {
         pathParams[@"batchID"] = batchID;
     }
@@ -173,32 +156,15 @@ NSInteger kOAIOptimizeApiMissingParamErrorCode = 234513;
 ///
 /// Request Optimization
 /// Request and upload of shipment orders and create ShipmentImportBatch for optimization.
-///  @param version  
-///
 ///  @param body  (optional)
 ///
 ///  @returns OAIImportStatuses*
 ///
--(NSURLSessionTask*) requestOptimizationWithVersion: (NSNumber*) version
-    body: (OAIOrders*) body
+-(NSURLSessionTask*) requestOptimizationWithBody: (OAIOrders*) body
     completionHandler: (void (^)(OAIImportStatuses* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOptimizeApiErrorDomain code:kOAIOptimizeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/optimize/request"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/optimize/request"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];

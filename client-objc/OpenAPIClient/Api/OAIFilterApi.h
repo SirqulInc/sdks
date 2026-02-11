@@ -28,7 +28,6 @@ extern NSInteger kOAIFilterApiMissingParamErrorCode;
 /// Create Filter
 /// Create a filter
 ///
-/// @param version 
 /// @param accountId The account id of the user (must have permissions to the target application)
 /// @param name The name of the filter
 /// @param appKey The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions) (optional)
@@ -42,8 +41,7 @@ extern NSInteger kOAIFilterApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIFilterTreeResponse*
--(NSURLSessionTask*) createFilterWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createFilterWithAccountId: (NSNumber*) accountId
     name: (NSString*) name
     appKey: (NSString*) appKey
     parentFilterId: (NSNumber*) parentFilterId
@@ -58,15 +56,13 @@ extern NSInteger kOAIFilterApiMissingParamErrorCode;
 /// Delete Filter
 /// Delete a filter.
 ///
-/// @param version 
 /// @param accountId The account id of the user (must have permissions to the filter&#39;s assigned application)
 /// @param filterId The ID of the filter to delete
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteFilterWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteFilterWithAccountId: (NSNumber*) accountId
     filterId: (NSNumber*) filterId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -74,21 +70,18 @@ extern NSInteger kOAIFilterApiMissingParamErrorCode;
 /// Get Filter
 /// Get the details of a specific filter. Recursively include all child filters and their children.
 ///
-/// @param version 
 /// @param filterId the id of the filter to get
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIFilterTreeResponse*
--(NSURLSessionTask*) getFilterWithVersion: (NSNumber*) version
-    filterId: (NSNumber*) filterId
+-(NSURLSessionTask*) getFilterWithFilterId: (NSNumber*) filterId
     completionHandler: (void (^)(OAIFilterTreeResponse* output, NSError* error)) handler;
 
 
 /// Search Filters
 /// Search for filters.
 ///
-/// @param version 
 /// @param accountId The account id of the user (optional)
 /// @param keyword The string to search on (optional)
 /// @param appKey the appKey of the application to retrieve filters for (optional)
@@ -103,8 +96,7 @@ extern NSInteger kOAIFilterApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIFilterResponse>*
--(NSURLSessionTask*) searchFiltersWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchFiltersWithAccountId: (NSNumber*) accountId
     keyword: (NSString*) keyword
     appKey: (NSString*) appKey
     responseGroup: (NSString*) responseGroup
@@ -120,7 +112,6 @@ extern NSInteger kOAIFilterApiMissingParamErrorCode;
 /// Update Filter
 /// Update a filter.
 ///
-/// @param version 
 /// @param accountId The account id of the user
 /// @param filterId The ID of the filter to edit
 /// @param parentFilterId The ID of the parent filter, if not provided then the parent filter will be null (optional)
@@ -134,8 +125,7 @@ extern NSInteger kOAIFilterApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIFilterTreeResponse*
--(NSURLSessionTask*) updateFilterWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateFilterWithAccountId: (NSNumber*) accountId
     filterId: (NSNumber*) filterId
     parentFilterId: (NSNumber*) parentFilterId
     name: (NSString*) name

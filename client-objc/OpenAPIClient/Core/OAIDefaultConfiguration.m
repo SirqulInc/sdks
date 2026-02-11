@@ -28,7 +28,7 @@
 - (instancetype) init {
     self = [super init];
     if (self) {
-        _host = @"http://localhost";
+        _host = @"https://dev.sirqul.com/api/3.18";
         _username = @"";
         _password = @"";
         _accessToken= @"";

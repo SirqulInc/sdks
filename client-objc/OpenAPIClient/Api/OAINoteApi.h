@@ -27,7 +27,6 @@ extern NSInteger kOAINoteApiMissingParamErrorCode;
 /// Batch Note Operation
 /// Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE). 
 ///
-/// @param version 
 /// @param notableId The id of the notable object the batch operation will affect
 /// @param notableType The notable object type (for example ALBUM, ASSET, OFFER, etc.)
 /// @param deviceId The device id (deviceId or accountId required) (optional)
@@ -37,8 +36,7 @@ extern NSInteger kOAINoteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) batchOperationWithVersion: (NSNumber*) version
-    notableId: (NSNumber*) notableId
+-(NSURLSessionTask*) batchOperationWithNotableId: (NSNumber*) notableId
     notableType: (NSString*) notableType
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -49,7 +47,6 @@ extern NSInteger kOAINoteApiMissingParamErrorCode;
 /// Create Note
 /// This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
 ///
-/// @param version 
 /// @param comment The message the user wishes to leave a comment on
 /// @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
 /// @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -96,8 +93,7 @@ extern NSInteger kOAINoteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAINoteResponse*
--(NSURLSessionTask*) createNoteWithVersion: (NSNumber*) version
-    comment: (NSString*) comment
+-(NSURLSessionTask*) createNoteWithComment: (NSString*) comment
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     notableType: (NSString*) notableType
@@ -145,7 +141,6 @@ extern NSInteger kOAINoteApiMissingParamErrorCode;
 /// Delete Note
 /// Sets a comment (note) as deleted.
 ///
-/// @param version 
 /// @param noteId The ID of the note to delete
 /// @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
 /// @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -156,8 +151,7 @@ extern NSInteger kOAINoteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteNoteWithVersion: (NSNumber*) version
-    noteId: (NSNumber*) noteId
+-(NSURLSessionTask*) deleteNoteWithNoteId: (NSNumber*) noteId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
@@ -169,7 +163,6 @@ extern NSInteger kOAINoteApiMissingParamErrorCode;
 /// Get Note
 /// Get for a note based on its Id.
 ///
-/// @param version 
 /// @param noteId the id of the note to get
 /// @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
 /// @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -178,8 +171,7 @@ extern NSInteger kOAINoteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) getNoteWithVersion: (NSNumber*) version
-    noteId: (NSNumber*) noteId
+-(NSURLSessionTask*) getNoteWithNoteId: (NSNumber*) noteId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     returnFullResponse: (NSNumber*) returnFullResponse
@@ -189,7 +181,6 @@ extern NSInteger kOAINoteApiMissingParamErrorCode;
 /// Search Notes
 /// Search for notes on a notable object.
 ///
-/// @param version 
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
 /// @param notableType The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR} (optional)
@@ -211,8 +202,7 @@ extern NSInteger kOAINoteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAINoteResponse>*
--(NSURLSessionTask*) searchNotesWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) searchNotesWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     notableType: (NSString*) notableType
     notableId: (NSNumber*) notableId
@@ -235,7 +225,6 @@ extern NSInteger kOAINoteApiMissingParamErrorCode;
 /// Update Note
 /// Update an existing comment (note). Only the creator of the note have permission to update.
 ///
-/// @param version 
 /// @param noteId The id of the note, used when editing a comment
 /// @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
 /// @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -281,8 +270,7 @@ extern NSInteger kOAINoteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAINoteResponse*
--(NSURLSessionTask*) updateNoteWithVersion: (NSNumber*) version
-    noteId: (NSNumber*) noteId
+-(NSURLSessionTask*) updateNoteWithNoteId: (NSNumber*) noteId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     comment: (NSString*) comment

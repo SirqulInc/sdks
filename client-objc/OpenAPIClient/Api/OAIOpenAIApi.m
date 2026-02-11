@@ -52,8 +52,6 @@ NSInteger kOAIOpenAIApiMissingParamErrorCode = 234513;
 ///
 /// Generate images with OpenAI
 /// Generate images with OpenAI.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param postBody Post Body Parameters 
@@ -62,22 +60,10 @@ NSInteger kOAIOpenAIApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIWrappedProxyItemResponse*
 ///
--(NSURLSessionTask*) imageGenerationWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) imageGenerationWithAccountId: (NSNumber*) accountId
     postBody: (NSString*) postBody
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(OAIWrappedProxyItemResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOpenAIApiErrorDomain code:kOAIOpenAIApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -100,12 +86,9 @@ NSInteger kOAIOpenAIApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/openai/v1/images/generations"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/openai/v1/images/generations"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

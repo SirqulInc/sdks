@@ -57,8 +57,6 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 /// Create Application
 /// Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
-///  @param version  
-///
 ///  @param appName The name of the application 
 ///
 ///  @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -219,8 +217,7 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIApplicationResponse*
 ///
--(NSURLSessionTask*) createApplicationWithVersion: (NSNumber*) version
-    appName: (NSString*) appName
+-(NSURLSessionTask*) createApplicationWithAppName: (NSString*) appName
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     about: (NSString*) about
@@ -300,17 +297,6 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
     twilioSenderPhoneNumber: (NSString*) twilioSenderPhoneNumber
     openAISecretKey: (NSString*) openAISecretKey
     completionHandler: (void (^)(OAIApplicationResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIApplicationApiErrorDomain code:kOAIApplicationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'appName' is set
     if (appName == nil) {
         NSParameterAssert(appName);
@@ -322,12 +308,9 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/application/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/application/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -610,8 +593,6 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 /// Create Ad Placement
 /// Creates a new ad placement for an application.
-///  @param version  
-///
 ///  @param appKey The appKey of the application the ad placement is for 
 ///
 ///  @param size The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM 
@@ -636,8 +617,7 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIPlacementResponse*
 ///
--(NSURLSessionTask*) createApplicationPlacementWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) createApplicationPlacementWithAppKey: (NSString*) appKey
     size: (NSString*) size
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -649,17 +629,6 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
     defaultImageId: (NSNumber*) defaultImageId
     active: (NSNumber*) active
     completionHandler: (void (^)(OAIPlacementResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIApplicationApiErrorDomain code:kOAIApplicationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'appKey' is set
     if (appKey == nil) {
         NSParameterAssert(appKey);
@@ -682,12 +651,9 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/application/placement/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/application/placement/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -766,35 +732,18 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 /// Delete Application
 /// Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
-///  @param version  
-///
 ///  @param accountId The account used to perform the delete, must have rights to edit the application. (optional)
 ///
 ///  @param appKey The key of the application to be deleted (optional)
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteApplicationWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteApplicationWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIApplicationApiErrorDomain code:kOAIApplicationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/application/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/application/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -846,8 +795,6 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 /// Delete Ad Placement
 /// Deletes an ad placement for an application.
-///  @param version  
-///
 ///  @param placementId The id of the placement to delete, the user must have rights to the application the ad placement is for 
 ///
 ///  @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -856,22 +803,10 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIPlacementResponse*
 ///
--(NSURLSessionTask*) deleteApplicationPlacementWithVersion: (NSNumber*) version
-    placementId: (NSNumber*) placementId
+-(NSURLSessionTask*) deleteApplicationPlacementWithPlacementId: (NSNumber*) placementId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIPlacementResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIApplicationApiErrorDomain code:kOAIApplicationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'placementId' is set
     if (placementId == nil) {
         NSParameterAssert(placementId);
@@ -883,12 +818,9 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/application/placement/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/application/placement/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -943,35 +875,18 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 /// Get Application
 /// Get a specific application by appKey
-///  @param version  
-///
 ///  @param appKey The key of the application (optional)
 ///
 ///  @param applicationId Application Id (optional)
 ///
 ///  @returns OAIApplicationResponse*
 ///
--(NSURLSessionTask*) getApplicationWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) getApplicationWithAppKey: (NSString*) appKey
     applicationId: (NSNumber*) applicationId
     completionHandler: (void (^)(OAIApplicationResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIApplicationApiErrorDomain code:kOAIApplicationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/application/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/application/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (appKey != nil) {
@@ -1023,8 +938,6 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 /// Get Ad Placement
 /// Get details of an ad placement
-///  @param version  
-///
 ///  @param placementId The id of the placement 
 ///
 ///  @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -1033,22 +946,10 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIPlacementResponse*
 ///
--(NSURLSessionTask*) getApplicationPlacementWithVersion: (NSNumber*) version
-    placementId: (NSNumber*) placementId
+-(NSURLSessionTask*) getApplicationPlacementWithPlacementId: (NSNumber*) placementId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIPlacementResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIApplicationApiErrorDomain code:kOAIApplicationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'placementId' is set
     if (placementId == nil) {
         NSParameterAssert(placementId);
@@ -1060,12 +961,9 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/application/placement/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/application/placement/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -1120,29 +1018,13 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 /// Get API versions
 /// Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
-///  @param version  
-///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) getApplicationVersionsWithVersion: (NSNumber*) version
-    completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIApplicationApiErrorDomain code:kOAIApplicationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/application/versions"];
+-(NSURLSessionTask*) getApplicationVersionsWithCompletionHandler: 
+    (void (^)(OAISirqulResponse* output, NSError* error)) handler {
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/application/versions"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
@@ -1188,8 +1070,6 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 /// Search Application Users
 /// Get a list of users per application
-///  @param version  
-///
 ///  @param appKey The application key 
 ///
 ///  @param q Q (optional)
@@ -1208,8 +1088,7 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAccountListResponse*
 ///
--(NSURLSessionTask*) getUniqueUsersByAppWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) getUniqueUsersByAppWithAppKey: (NSString*) appKey
     q: (NSString*) q
     keyword: (NSString*) keyword
     since: (NSNumber*) since
@@ -1218,17 +1097,6 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
     l: (NSNumber*) l
     limit: (NSNumber*) limit
     completionHandler: (void (^)(OAIAccountListResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIApplicationApiErrorDomain code:kOAIApplicationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'appKey' is set
     if (appKey == nil) {
         NSParameterAssert(appKey);
@@ -1240,12 +1108,9 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/application/users"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/application/users"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (appKey != nil) {
@@ -1315,8 +1180,6 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 /// List Applications
 /// List active applications matching the criteria (as a consumer)
-///  @param version  
-///
 ///  @param accountId The account id of the application owner/manager (optional)
 ///
 ///  @param q Q (optional)
@@ -1359,8 +1222,7 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIApplicationShortResponse>*
 ///
--(NSURLSessionTask*) listApplicationsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) listApplicationsWithAccountId: (NSNumber*) accountId
     q: (NSString*) q
     keyword: (NSString*) keyword
     platforms: (NSString*) platforms
@@ -1381,23 +1243,9 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
     hasObjectStore: (NSNumber*) hasObjectStore
     activeOnly: (NSNumber*) activeOnly
     completionHandler: (void (^)(NSArray<OAIApplicationShortResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIApplicationApiErrorDomain code:kOAIApplicationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/application/list"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/application/list"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1503,8 +1351,6 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 /// Search for Ad Placements
 /// Searches placements for an application.
-///  @param version  
-///
 ///  @param appKey The key of the application 
 ///
 ///  @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -1517,24 +1363,12 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIPlacementResponse>*
 ///
--(NSURLSessionTask*) searchApplicationPlacementWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) searchApplicationPlacementWithAppKey: (NSString*) appKey
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSArray<OAIPlacementResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIApplicationApiErrorDomain code:kOAIApplicationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'appKey' is set
     if (appKey == nil) {
         NSParameterAssert(appKey);
@@ -1546,12 +1380,9 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/application/placement/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/application/placement/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -1612,8 +1443,6 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 /// Search for Application Settings
 /// Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
-///  @param version  
-///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
 ///
 ///  @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1632,8 +1461,7 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIApplicationSettingsResponse*
 ///
--(NSURLSessionTask*) searchApplicationSettingsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) searchApplicationSettingsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     connectionAccountId: (NSNumber*) connectionAccountId
     keyword: (NSString*) keyword
@@ -1642,23 +1470,9 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(OAIApplicationSettingsResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIApplicationApiErrorDomain code:kOAIApplicationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/application/settings/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/application/settings/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -1728,8 +1542,6 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 /// Search Applications
 /// Search for applications matching the criteria that the logged in user has access to
-///  @param version  
-///
 ///  @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
 ///
 ///  @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1764,8 +1576,7 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIApplicationResponse>*
 ///
--(NSURLSessionTask*) searchApplicationsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) searchApplicationsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
@@ -1782,23 +1593,9 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
     publicNotifications: (NSNumber*) publicNotifications
     activeOnly: (NSNumber*) activeOnly
     completionHandler: (void (^)(NSArray<OAIApplicationResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIApplicationApiErrorDomain code:kOAIApplicationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/application/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/application/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -1892,8 +1689,6 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 /// Update Application
 /// Update an application record
-///  @param version  
-///
 ///  @param appKey The application key for updating an existing application 
 ///
 ///  @param appName The name of the application 
@@ -2056,8 +1851,7 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIApplicationResponse*
 ///
--(NSURLSessionTask*) updateApplicationWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) updateApplicationWithAppKey: (NSString*) appKey
     appName: (NSString*) appName
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -2138,17 +1932,6 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
     twilioSenderPhoneNumber: (NSString*) twilioSenderPhoneNumber
     openAISecretKey: (NSString*) openAISecretKey
     completionHandler: (void (^)(OAIApplicationResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIApplicationApiErrorDomain code:kOAIApplicationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'appKey' is set
     if (appKey == nil) {
         NSParameterAssert(appKey);
@@ -2171,12 +1954,9 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/application/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/application/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -2462,8 +2242,6 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 /// Change Appliation Status
 /// Set the application's active flag to true/false. This effectively activates or deactivates the application.
-///  @param version  
-///
 ///  @param accountId The account used to perform the delete, must have rights to edit the application. 
 ///
 ///  @param appKey The key of the application to be deleted 
@@ -2472,22 +2250,10 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) updateApplicationActiveWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateApplicationActiveWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     active: (NSNumber*) active
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIApplicationApiErrorDomain code:kOAIApplicationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -2521,12 +2287,9 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/application/active"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/application/active"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -2581,8 +2344,6 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 /// Update Ad Placement
 /// Updates an ad placement for an application.
-///  @param version  
-///
 ///  @param placementId The id of the placement to update, the user must have rights to the application the ad placement is for 
 ///
 ///  @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -2607,8 +2368,7 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIPlacementResponse*
 ///
--(NSURLSessionTask*) updateApplicationPlacementWithVersion: (NSNumber*) version
-    placementId: (NSNumber*) placementId
+-(NSURLSessionTask*) updateApplicationPlacementWithPlacementId: (NSNumber*) placementId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     name: (NSString*) name
@@ -2620,17 +2380,6 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
     defaultImageId: (NSNumber*) defaultImageId
     active: (NSNumber*) active
     completionHandler: (void (^)(OAIPlacementResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIApplicationApiErrorDomain code:kOAIApplicationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'placementId' is set
     if (placementId == nil) {
         NSParameterAssert(placementId);
@@ -2642,12 +2391,9 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/application/placement/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/application/placement/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -2726,8 +2472,6 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 /// Create Application Certificate
 /// Uploads a certificate for an application that the user has access to.
-///  @param version  
-///
 ///  @param appKey The key of the application 
 ///
 ///  @param deviceId Device Id (optional)
@@ -2738,23 +2482,11 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) uploadApplicationCertificateWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) uploadApplicationCertificateWithAppKey: (NSString*) appKey
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     certificate: (NSURL*) certificate
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIApplicationApiErrorDomain code:kOAIApplicationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'appKey' is set
     if (appKey == nil) {
         NSParameterAssert(appKey);
@@ -2766,12 +2498,9 @@ NSInteger kOAIApplicationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/application/certificate/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/application/certificate/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {

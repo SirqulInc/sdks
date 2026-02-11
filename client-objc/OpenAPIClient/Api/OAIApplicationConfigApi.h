@@ -27,7 +27,6 @@ extern NSInteger kOAIApplicationConfigApiMissingParamErrorCode;
 /// Create AppConfig
 /// Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won't be created.
 ///
-/// @param version 
 /// @param accountId The account ID of the user
 /// @param appKey The application key that the newly created applicationConfig will be associated to
 /// @param configVersion The application configuration, has to be unique within the application
@@ -39,8 +38,7 @@ extern NSInteger kOAIApplicationConfigApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIApplicationConfigResponse*
--(NSURLSessionTask*) createApplicationConfigWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createApplicationConfigWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     configVersion: (NSString*) configVersion
     assetId: (NSNumber*) assetId
@@ -53,15 +51,13 @@ extern NSInteger kOAIApplicationConfigApiMissingParamErrorCode;
 /// Delete AppConfig
 /// Mark the application configuration for deletion.
 ///
-/// @param version 
 /// @param accountId The account ID of the user
 /// @param configId The config ID of the application configuration to delete
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteApplicationConfigWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteApplicationConfigWithAccountId: (NSNumber*) accountId
     configId: (NSNumber*) configId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -69,15 +65,13 @@ extern NSInteger kOAIApplicationConfigApiMissingParamErrorCode;
 /// Get AppConfig
 /// Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
 ///
-/// @param version 
 /// @param accountId The account ID of the user
 /// @param configId The config ID of the application configuration
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIApplicationConfigResponse*
--(NSURLSessionTask*) getApplicationConfigWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getApplicationConfigWithAccountId: (NSNumber*) accountId
     configId: (NSNumber*) configId
     completionHandler: (void (^)(OAIApplicationConfigResponse* output, NSError* error)) handler;
 
@@ -85,7 +79,6 @@ extern NSInteger kOAIApplicationConfigApiMissingParamErrorCode;
 /// Get AppConfig by Version
 /// Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
 ///
-/// @param version 
 /// @param appKey The application key
 /// @param configVersion The version of the application configuration
 /// @param retailerId Only returns the config that matches the given retailer (optional)
@@ -96,8 +89,7 @@ extern NSInteger kOAIApplicationConfigApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIApplicationConfigResponse*
--(NSURLSessionTask*) getApplicationConfigByConfigVersionWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) getApplicationConfigByConfigVersionWithAppKey: (NSString*) appKey
     configVersion: (NSString*) configVersion
     retailerId: (NSNumber*) retailerId
     retailerLocationId: (NSNumber*) retailerLocationId
@@ -109,7 +101,6 @@ extern NSInteger kOAIApplicationConfigApiMissingParamErrorCode;
 /// Search AppConfigs
 /// Gets all versions of application configurations in a particular app by the given appKey.
 ///
-/// @param version 
 /// @param accountId The account ID of the user
 /// @param appKey The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only) (optional)
 /// @param retailerId Only returns the configs that matches the given retailer (optional)
@@ -124,8 +115,7 @@ extern NSInteger kOAIApplicationConfigApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIApplicationConfigResponse>*
--(NSURLSessionTask*) searchApplicationConfigWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchApplicationConfigWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     retailerId: (NSNumber*) retailerId
     retailerLocationId: (NSNumber*) retailerLocationId
@@ -141,7 +131,6 @@ extern NSInteger kOAIApplicationConfigApiMissingParamErrorCode;
 /// Update AppConfig
 /// pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won't be updated.
 ///
-/// @param version 
 /// @param accountId The account ID of the user
 /// @param configId The config ID of the application configuration to update
 /// @param appKey The application key that the updated applicationConfig will be associated to (optional)
@@ -154,8 +143,7 @@ extern NSInteger kOAIApplicationConfigApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIApplicationConfigResponse*
--(NSURLSessionTask*) updateApplicationConfigWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateApplicationConfigWithAccountId: (NSNumber*) accountId
     configId: (NSNumber*) configId
     appKey: (NSString*) appKey
     configVersion: (NSString*) configVersion

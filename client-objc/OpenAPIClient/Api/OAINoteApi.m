@@ -53,8 +53,6 @@ NSInteger kOAINoteApiMissingParamErrorCode = 234513;
 ///
 /// Batch Note Operation
 /// Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE). 
-///  @param version  
-///
 ///  @param notableId The id of the notable object the batch operation will affect 
 ///
 ///  @param notableType The notable object type (for example ALBUM, ASSET, OFFER, etc.) 
@@ -67,24 +65,12 @@ NSInteger kOAINoteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) batchOperationWithVersion: (NSNumber*) version
-    notableId: (NSNumber*) notableId
+-(NSURLSessionTask*) batchOperationWithNotableId: (NSNumber*) notableId
     notableType: (NSString*) notableType
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     batchOperation: (NSString*) batchOperation
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAINoteApiErrorDomain code:kOAINoteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'notableId' is set
     if (notableId == nil) {
         NSParameterAssert(notableId);
@@ -107,12 +93,9 @@ NSInteger kOAINoteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/note/batch"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/note/batch"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -173,8 +156,6 @@ NSInteger kOAINoteApiMissingParamErrorCode = 234513;
 ///
 /// Create Note
 /// This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
-///  @param version  
-///
 ///  @param comment The message the user wishes to leave a comment on 
 ///
 ///  @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -261,8 +242,7 @@ NSInteger kOAINoteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAINoteResponse*
 ///
--(NSURLSessionTask*) createNoteWithVersion: (NSNumber*) version
-    comment: (NSString*) comment
+-(NSURLSessionTask*) createNoteWithComment: (NSString*) comment
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     notableType: (NSString*) notableType
@@ -305,17 +285,6 @@ NSInteger kOAINoteApiMissingParamErrorCode = 234513;
     assetLatitude: (NSNumber*) assetLatitude
     assetLongitude: (NSNumber*) assetLongitude
     completionHandler: (void (^)(OAINoteResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAINoteApiErrorDomain code:kOAINoteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'comment' is set
     if (comment == nil) {
         NSParameterAssert(comment);
@@ -327,12 +296,9 @@ NSInteger kOAINoteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/note/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/note/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -504,8 +470,6 @@ NSInteger kOAINoteApiMissingParamErrorCode = 234513;
 ///
 /// Delete Note
 /// Sets a comment (note) as deleted.
-///  @param version  
-///
 ///  @param noteId The ID of the note to delete 
 ///
 ///  @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -520,25 +484,13 @@ NSInteger kOAINoteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteNoteWithVersion: (NSNumber*) version
-    noteId: (NSNumber*) noteId
+-(NSURLSessionTask*) deleteNoteWithNoteId: (NSNumber*) noteId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     appKey: (NSString*) appKey
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAINoteApiErrorDomain code:kOAINoteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'noteId' is set
     if (noteId == nil) {
         NSParameterAssert(noteId);
@@ -550,12 +502,9 @@ NSInteger kOAINoteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/note/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/note/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -619,8 +568,6 @@ NSInteger kOAINoteApiMissingParamErrorCode = 234513;
 ///
 /// Get Note
 /// Get for a note based on its Id.
-///  @param version  
-///
 ///  @param noteId the id of the note to get 
 ///
 ///  @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -631,23 +578,11 @@ NSInteger kOAINoteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) getNoteWithVersion: (NSNumber*) version
-    noteId: (NSNumber*) noteId
+-(NSURLSessionTask*) getNoteWithNoteId: (NSNumber*) noteId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     returnFullResponse: (NSNumber*) returnFullResponse
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAINoteApiErrorDomain code:kOAINoteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'noteId' is set
     if (noteId == nil) {
         NSParameterAssert(noteId);
@@ -659,12 +594,9 @@ NSInteger kOAINoteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/note/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/note/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -722,8 +654,6 @@ NSInteger kOAINoteApiMissingParamErrorCode = 234513;
 ///
 /// Search Notes
 /// Search for notes on a notable object.
-///  @param version  
-///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
 ///
 ///  @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -760,8 +690,7 @@ NSInteger kOAINoteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAINoteResponse>*
 ///
--(NSURLSessionTask*) searchNotesWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) searchNotesWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     notableType: (NSString*) notableType
     notableId: (NSNumber*) notableId
@@ -779,23 +708,9 @@ NSInteger kOAINoteApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSArray<OAINoteResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAINoteApiErrorDomain code:kOAINoteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/note/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/note/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -892,8 +807,6 @@ NSInteger kOAINoteApiMissingParamErrorCode = 234513;
 ///
 /// Update Note
 /// Update an existing comment (note). Only the creator of the note have permission to update.
-///  @param version  
-///
 ///  @param noteId The id of the note, used when editing a comment 
 ///
 ///  @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -978,8 +891,7 @@ NSInteger kOAINoteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAINoteResponse*
 ///
--(NSURLSessionTask*) updateNoteWithVersion: (NSNumber*) version
-    noteId: (NSNumber*) noteId
+-(NSURLSessionTask*) updateNoteWithNoteId: (NSNumber*) noteId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     comment: (NSString*) comment
@@ -1021,17 +933,6 @@ NSInteger kOAINoteApiMissingParamErrorCode = 234513;
     assetLatitude: (NSNumber*) assetLatitude
     assetLongitude: (NSNumber*) assetLongitude
     completionHandler: (void (^)(OAINoteResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAINoteApiErrorDomain code:kOAINoteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'noteId' is set
     if (noteId == nil) {
         NSParameterAssert(noteId);
@@ -1043,12 +944,9 @@ NSInteger kOAINoteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/note/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/note/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {

@@ -53,8 +53,6 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
 ///
 /// Create Retailer Location (Consumer)
 /// Creates a location record for an application that can support crowd sourced locations.
-///  @param version  
-///
 ///  @param appKey the application key 
 ///
 ///  @param name The name of the retailer location 
@@ -115,8 +113,7 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIRetailerLocationResponse*
 ///
--(NSURLSessionTask*) createRetailerLocationConsumerWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) createRetailerLocationConsumerWithAppKey: (NSString*) appKey
     name: (NSString*) name
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -146,17 +143,6 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIRetailerLocationResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRetailerLocationApiErrorDomain code:kOAIRetailerLocationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'appKey' is set
     if (appKey == nil) {
         NSParameterAssert(appKey);
@@ -179,12 +165,9 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/location/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/location/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -317,8 +300,6 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
 ///
 /// Create Retailer Location
 /// Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-///  @param version  
-///
 ///  @param retailerId The ID of the retailer 
 ///
 ///  @param name The name of the retailer location 
@@ -399,8 +380,7 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIRetailerLocationResponse*
 ///
--(NSURLSessionTask*) createRetailerLocationsWithVersion: (NSNumber*) version
-    retailerId: (NSNumber*) retailerId
+-(NSURLSessionTask*) createRetailerLocationsWithRetailerId: (NSNumber*) retailerId
     name: (NSString*) name
     streetAddress: (NSString*) streetAddress
     city: (NSString*) city
@@ -440,17 +420,6 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
     responseFormat: (NSString*) responseFormat
     responseIncludes: (NSString*) responseIncludes
     completionHandler: (void (^)(OAIRetailerLocationResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRetailerLocationApiErrorDomain code:kOAIRetailerLocationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'retailerId' is set
     if (retailerId == nil) {
         NSParameterAssert(retailerId);
@@ -517,12 +486,9 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/retailer/location/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/retailer/location/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -685,8 +651,6 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
 ///
 /// Delete Retailer Location
 /// Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
-///  @param version  
-///
 ///  @param deviceId the device id (optional)
 ///
 ///  @param accountId the id of the logged in user (optional)
@@ -695,28 +659,13 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteRetailerLocationWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) deleteRetailerLocationWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     retailerLocationId: (NSNumber*) retailerLocationId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRetailerLocationApiErrorDomain code:kOAIRetailerLocationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/retailer/location/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/retailer/location/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -771,8 +720,6 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
 ///
 /// Get Retailer Location
 /// Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
-///  @param version  
-///
 ///  @param retailerLocationId The ID of the retailer location 
 ///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
@@ -783,23 +730,11 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIRetailerLocationResponse*
 ///
--(NSURLSessionTask*) getRetailerLocationWithVersion: (NSNumber*) version
-    retailerLocationId: (NSNumber*) retailerLocationId
+-(NSURLSessionTask*) getRetailerLocationWithRetailerLocationId: (NSNumber*) retailerLocationId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     retailerLocationToken: (NSString*) retailerLocationToken
     completionHandler: (void (^)(OAIRetailerLocationResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRetailerLocationApiErrorDomain code:kOAIRetailerLocationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'retailerLocationId' is set
     if (retailerLocationId == nil) {
         NSParameterAssert(retailerLocationId);
@@ -811,12 +746,9 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/retailer/location/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/retailer/location/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -874,8 +806,6 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
 ///
 /// Get Retailer Location (Consumer)
 /// Gets the details of a retailer location as a consumer.
-///  @param version  
-///
 ///  @param retailerLocationId The retailer location id 
 ///
 ///  @param deviceId The device id for returning account information (i.e. favorites) (optional)
@@ -884,22 +814,10 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIRetailerLocationResponse*
 ///
--(NSURLSessionTask*) getRetailerLocationConsumerWithVersion: (NSNumber*) version
-    retailerLocationId: (NSNumber*) retailerLocationId
+-(NSURLSessionTask*) getRetailerLocationConsumerWithRetailerLocationId: (NSNumber*) retailerLocationId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIRetailerLocationResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRetailerLocationApiErrorDomain code:kOAIRetailerLocationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'retailerLocationId' is set
     if (retailerLocationId == nil) {
         NSParameterAssert(retailerLocationId);
@@ -911,12 +829,9 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/location/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/location/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -971,8 +886,6 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
 ///
 /// Distance Search Retailer Locations (Indexed)
 /// Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
-///  @param version  
-///
 ///  @param latitude The latitude to center the search on 
 ///
 ///  @param longitude The longitude to center the search on 
@@ -1043,8 +956,7 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIRetailerLocationResponse>*
 ///
--(NSURLSessionTask*) indexedRetailerLocationDistanceSearchWithVersion: (NSNumber*) version
-    latitude: (NSNumber*) latitude
+-(NSURLSessionTask*) indexedRetailerLocationDistanceSearchWithLatitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     searchRange: (NSNumber*) searchRange
     start: (NSNumber*) start
@@ -1079,17 +991,6 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
     includeLiked: (NSNumber*) includeLiked
     includeRating: (NSNumber*) includeRating
     completionHandler: (void (^)(NSArray<OAIRetailerLocationResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRetailerLocationApiErrorDomain code:kOAIRetailerLocationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'latitude' is set
     if (latitude == nil) {
         NSParameterAssert(latitude);
@@ -1145,12 +1046,9 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/retailer/location/idistancesearch"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/retailer/location/idistancesearch"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (latitude != nil) {
@@ -1298,8 +1196,6 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
 ///
 /// Keyword Search Retailer Locations (Indexed)
 /// Retailer location (faster) indexed search. This searches all retailer locations.
-///  @param version  
-///
 ///  @param accountId The account id of the user (optional)
 ///
 ///  @param start The start index for pagination (optional)
@@ -1358,8 +1254,7 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIRetailerLocationResponse>*
 ///
--(NSURLSessionTask*) indexedRetailerLocationSearchWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) indexedRetailerLocationSearchWithAccountId: (NSNumber*) accountId
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     hasOffers: (NSNumber*) hasOffers
@@ -1388,23 +1283,9 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
     includeLiked: (NSNumber*) includeLiked
     includeRating: (NSNumber*) includeRating
     completionHandler: (void (^)(NSArray<OAIRetailerLocationResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRetailerLocationApiErrorDomain code:kOAIRetailerLocationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/retailer/location/isearch"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/retailer/location/isearch"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1534,8 +1415,6 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
 ///
 /// Search Retailer Locations (Owned)
 /// Searches on retailer locations that the account has access to.
-///  @param version  
-///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
 ///
 ///  @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1588,8 +1467,7 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIRetailerLocationResponse>*
 ///
--(NSURLSessionTask*) searchRetailerLocationsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) searchRetailerLocationsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     q: (NSString*) q
     keyword: (NSString*) keyword
@@ -1615,23 +1493,9 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
     includeLiked: (NSNumber*) includeLiked
     includeRating: (NSNumber*) includeRating
     completionHandler: (void (^)(NSArray<OAIRetailerLocationResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRetailerLocationApiErrorDomain code:kOAIRetailerLocationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/retailer/location/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/retailer/location/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -1752,8 +1616,6 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
 ///
 /// Update Retailer Location
 /// Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-///  @param version  
-///
 ///  @param retailerLocationId The ID of the retailer location 
 ///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
@@ -1838,8 +1700,7 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIRetailerLocationResponse*
 ///
--(NSURLSessionTask*) updateRetailerLocationsWithVersion: (NSNumber*) version
-    retailerLocationId: (NSNumber*) retailerLocationId
+-(NSURLSessionTask*) updateRetailerLocationsWithRetailerLocationId: (NSNumber*) retailerLocationId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     name: (NSString*) name
@@ -1881,17 +1742,6 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
     responseFormat: (NSString*) responseFormat
     tags: (NSString*) tags
     completionHandler: (void (^)(OAIRetailerLocationResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRetailerLocationApiErrorDomain code:kOAIRetailerLocationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'retailerLocationId' is set
     if (retailerLocationId == nil) {
         NSParameterAssert(retailerLocationId);
@@ -1903,12 +1753,9 @@ NSInteger kOAIRetailerLocationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/retailer/location/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/retailer/location/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {

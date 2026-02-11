@@ -53,8 +53,6 @@ NSInteger kOAIAppDataApiMissingParamErrorCode = 234513;
 ///
 /// Get App Data
 /// Get the application data structure.  The basic structure is a   node tree, with the root node being a AppResponse.  The response contains   the user's profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.     Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user's   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application.
-///  @param version  
-///
 ///  @param start start the search results at a record. 
 ///
 ///  @param limit limit the search results to some number. 
@@ -107,8 +105,7 @@ NSInteger kOAIAppDataApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAppResponse*
 ///
--(NSURLSessionTask*) getAppDataWithVersion: (NSNumber*) version
-    start: (NSNumber*) start
+-(NSURLSessionTask*) getAppDataWithStart: (NSNumber*) start
     limit: (NSNumber*) limit
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -134,17 +131,6 @@ NSInteger kOAIAppDataApiMissingParamErrorCode = 234513;
     responseGroups: (NSString*) responseGroups
     purchaseType: (NSString*) purchaseType
     completionHandler: (void (^)(OAIAppResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAppDataApiErrorDomain code:kOAIAppDataApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'start' is set
     if (start == nil) {
         NSParameterAssert(start);
@@ -167,12 +153,9 @@ NSInteger kOAIAppDataApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/app/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/app/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -293,8 +276,6 @@ NSInteger kOAIAppDataApiMissingParamErrorCode = 234513;
 ///
 /// Create App Data
 /// Publish the application data structure.  Can be used to save levels   and scores.  It then returns the application data structure.  The basic   structure is a node tree, with the root node being a AppResponse.  The response   contains the user's profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.      Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user's   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application
-///  @param version  
-///
 ///  @param gameType the game to retrieve the data for, use your application key. 
 ///
 ///  @param start start the search results at a record. 
@@ -349,8 +330,7 @@ NSInteger kOAIAppDataApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAppResponse*
 ///
--(NSURLSessionTask*) postAppDataWithVersion: (NSNumber*) version
-    gameType: (NSString*) gameType
+-(NSURLSessionTask*) postAppDataWithGameType: (NSString*) gameType
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     data: (NSString*) data
@@ -377,17 +357,6 @@ NSInteger kOAIAppDataApiMissingParamErrorCode = 234513;
     responseGroups: (NSString*) responseGroups
     purchaseType: (NSString*) purchaseType
     completionHandler: (void (^)(OAIAppResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAppDataApiErrorDomain code:kOAIAppDataApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'gameType' is set
     if (gameType == nil) {
         NSParameterAssert(gameType);
@@ -432,12 +401,9 @@ NSInteger kOAIAppDataApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/app/post"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/app/post"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -561,8 +527,6 @@ NSInteger kOAIAppDataApiMissingParamErrorCode = 234513;
 ///
 /// Regenerate App Data
 /// Regenerate the app data cache for apps
-///  @param version  
-///
 ///  @param accountId the account id of the user (optional)
 ///
 ///  @param appKey process a specific application, if null process all apps with caches (optional)
@@ -573,29 +537,14 @@ NSInteger kOAIAppDataApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) regenAppDataWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) regenAppDataWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     buildVersion: (NSString*) buildVersion
     apiVersion: (NSString*) apiVersion
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAppDataApiErrorDomain code:kOAIAppDataApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/app/regen"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/app/regen"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

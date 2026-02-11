@@ -28,7 +28,6 @@ extern NSInteger kOAICategoryApiMissingParamErrorCode;
 /// Search Categories by Distance
 /// Search for categories by distance.
 ///
-/// @param version 
 /// @param accountId The account id of the user (optional)
 /// @param keyword The keyword string to search on (optional)
 /// @param appKey the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -53,8 +52,7 @@ extern NSInteger kOAICategoryApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAICategoryResponse>*
--(NSURLSessionTask*) categoryDistanceSearchWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) categoryDistanceSearchWithAccountId: (NSNumber*) accountId
     keyword: (NSString*) keyword
     appKey: (NSString*) appKey
     categoryIds: (NSString*) categoryIds
@@ -80,7 +78,6 @@ extern NSInteger kOAICategoryApiMissingParamErrorCode;
 /// Create Category
 /// Create a new category.
 ///
-/// @param version 
 /// @param accountId The account id of the user (must have permissions to the target application)
 /// @param name The name of the category
 /// @param appKey The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions) (optional)
@@ -99,8 +96,7 @@ extern NSInteger kOAICategoryApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAICategoryTreeResponse*
--(NSURLSessionTask*) createCategoryWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createCategoryWithAccountId: (NSNumber*) accountId
     name: (NSString*) name
     appKey: (NSString*) appKey
     parentCategoryId: (NSNumber*) parentCategoryId
@@ -120,15 +116,13 @@ extern NSInteger kOAICategoryApiMissingParamErrorCode;
 /// Delete Category
 /// Delete a category.
 ///
-/// @param version 
 /// @param accountId the ID of the account
 /// @param categoryId the ID of the category
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteCategoryWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteCategoryWithAccountId: (NSNumber*) accountId
     categoryId: (NSNumber*) categoryId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -136,7 +130,6 @@ extern NSInteger kOAICategoryApiMissingParamErrorCode;
 /// Duplicate Category
 /// Duplicate a category, including all its children.
 ///
-/// @param version 
 /// @param accountId The account id of the user (must have permissions to the target application)
 /// @param categoryId The category ID to duplicate (includes all children)
 /// @param appKey The application to assign the new category to, may be different then the application the source category is assigned to (optional)
@@ -145,8 +138,7 @@ extern NSInteger kOAICategoryApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAICategoryTreeResponse*
--(NSURLSessionTask*) duplicateCategoryWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) duplicateCategoryWithAccountId: (NSNumber*) accountId
     categoryId: (NSNumber*) categoryId
     appKey: (NSString*) appKey
     parentCategoryId: (NSNumber*) parentCategoryId
@@ -156,15 +148,13 @@ extern NSInteger kOAICategoryApiMissingParamErrorCode;
 /// Get Category
 /// Get the details of a specific category. Recursively include all child categories and their children.
 ///
-/// @param version 
 /// @param categoryId the ID of the category
 /// @param returnExternal Determines whether to return extra info about the category&#39;s \&quot;Participant\&quot; reference (optional) (default to @(YES))
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAICategoryTreeResponse*
--(NSURLSessionTask*) getCategoryWithVersion: (NSNumber*) version
-    categoryId: (NSNumber*) categoryId
+-(NSURLSessionTask*) getCategoryWithCategoryId: (NSNumber*) categoryId
     returnExternal: (NSNumber*) returnExternal
     completionHandler: (void (^)(OAICategoryTreeResponse* output, NSError* error)) handler;
 
@@ -172,7 +162,6 @@ extern NSInteger kOAICategoryApiMissingParamErrorCode;
 /// Search Categories
 /// Search for categories.
 ///
-/// @param version 
 /// @param accountId The account id of the user (optional)
 /// @param keyword The string to search on (optional)
 /// @param appKey the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -198,8 +187,7 @@ extern NSInteger kOAICategoryApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAICategoryResponse>*
--(NSURLSessionTask*) searchCategoriesWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchCategoriesWithAccountId: (NSNumber*) accountId
     keyword: (NSString*) keyword
     appKey: (NSString*) appKey
     categoryId: (NSString*) categoryId
@@ -226,7 +214,6 @@ extern NSInteger kOAICategoryApiMissingParamErrorCode;
 /// Update Category
 /// Update a category.
 ///
-/// @param version 
 /// @param accountId The account id of the user
 /// @param categoryId The ID of the category to edit
 /// @param parentCategoryId The ID of the parent category, if not provided then the parent category will be null (optional)
@@ -245,8 +232,7 @@ extern NSInteger kOAICategoryApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAICategoryTreeResponse*
--(NSURLSessionTask*) updateCategoryWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateCategoryWithAccountId: (NSNumber*) accountId
     categoryId: (NSNumber*) categoryId
     parentCategoryId: (NSNumber*) parentCategoryId
     name: (NSString*) name

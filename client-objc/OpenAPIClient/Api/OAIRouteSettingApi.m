@@ -52,32 +52,15 @@ NSInteger kOAIRouteSettingApiMissingParamErrorCode = 234513;
 ///
 /// Create Route Setting
 /// Create a new route setting
-///  @param version  
-///
 ///  @param body  (optional)
 ///
 ///  @returns OAIRouteSettings*
 ///
--(NSURLSessionTask*) createRouteSettingsWithVersion: (NSNumber*) version
-    body: (OAIRouteSettings*) body
+-(NSURLSessionTask*) createRouteSettingsWithBody: (OAIRouteSettings*) body
     completionHandler: (void (^)(OAIRouteSettings* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRouteSettingApiErrorDomain code:kOAIRouteSettingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/route/setting"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/route/setting"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
@@ -124,26 +107,12 @@ NSInteger kOAIRouteSettingApiMissingParamErrorCode = 234513;
 ///
 /// Delete Route Setting
 /// Delete an existing route setting
-///  @param version  
-///
 ///  @param routeSettingsId the id of the route setting to delete 
 ///
 ///  @returns NSObject*
 ///
--(NSURLSessionTask*) deleteRouteSettingsWithVersion: (NSNumber*) version
-    routeSettingsId: (NSNumber*) routeSettingsId
+-(NSURLSessionTask*) deleteRouteSettingsWithRouteSettingsId: (NSNumber*) routeSettingsId
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRouteSettingApiErrorDomain code:kOAIRouteSettingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'routeSettingsId' is set
     if (routeSettingsId == nil) {
         NSParameterAssert(routeSettingsId);
@@ -155,12 +124,9 @@ NSInteger kOAIRouteSettingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/route/setting/{routeSettingsId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/route/setting/{routeSettingsId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (routeSettingsId != nil) {
         pathParams[@"routeSettingsId"] = routeSettingsId;
     }
@@ -209,26 +175,12 @@ NSInteger kOAIRouteSettingApiMissingParamErrorCode = 234513;
 ///
 /// Get Route Setting
 /// Get an existing route settings
-///  @param version  
-///
 ///  @param routeSettingsId the id of the route settings to get 
 ///
 ///  @returns OAIRouteSettings*
 ///
--(NSURLSessionTask*) getRouteSettingsWithVersion: (NSNumber*) version
-    routeSettingsId: (NSNumber*) routeSettingsId
+-(NSURLSessionTask*) getRouteSettingsWithRouteSettingsId: (NSNumber*) routeSettingsId
     completionHandler: (void (^)(OAIRouteSettings* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRouteSettingApiErrorDomain code:kOAIRouteSettingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'routeSettingsId' is set
     if (routeSettingsId == nil) {
         NSParameterAssert(routeSettingsId);
@@ -240,12 +192,9 @@ NSInteger kOAIRouteSettingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/route/setting/{routeSettingsId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/route/setting/{routeSettingsId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (routeSettingsId != nil) {
         pathParams[@"routeSettingsId"] = routeSettingsId;
     }
@@ -294,8 +243,6 @@ NSInteger kOAIRouteSettingApiMissingParamErrorCode = 234513;
 ///
 /// Search Route Settings
 /// Search for route settings
-///  @param version  
-///
 ///  @param sortField The field to sort by 
 ///
 ///  @param descending Determines whether the sorted list is in descending or ascending order 
@@ -314,8 +261,7 @@ NSInteger kOAIRouteSettingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIRouteSettings>*
 ///
--(NSURLSessionTask*) searchRouteSettingsWithVersion: (NSNumber*) version
-    sortField: (NSString*) sortField
+-(NSURLSessionTask*) searchRouteSettingsWithSortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
     limit: (NSNumber*) limit
@@ -324,17 +270,6 @@ NSInteger kOAIRouteSettingApiMissingParamErrorCode = 234513;
     programId: (NSNumber*) programId
     keyword: (NSString*) keyword
     completionHandler: (void (^)(NSArray<OAIRouteSettings>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRouteSettingApiErrorDomain code:kOAIRouteSettingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'sortField' is set
     if (sortField == nil) {
         NSParameterAssert(sortField);
@@ -390,12 +325,9 @@ NSInteger kOAIRouteSettingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/route/setting"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/route/setting"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (hubId != nil) {
@@ -465,29 +397,15 @@ NSInteger kOAIRouteSettingApiMissingParamErrorCode = 234513;
 ///
 /// Update Route Setting
 /// Update an existing route setting
-///  @param version  
-///
 ///  @param routeSettingsId the id of the route settings to update 
 ///
 ///  @param body  (optional)
 ///
 ///  @returns OAIRouteSettings*
 ///
--(NSURLSessionTask*) updateRouteSettingsWithVersion: (NSNumber*) version
-    routeSettingsId: (NSNumber*) routeSettingsId
+-(NSURLSessionTask*) updateRouteSettingsWithRouteSettingsId: (NSNumber*) routeSettingsId
     body: (OAIRouteSettings*) body
     completionHandler: (void (^)(OAIRouteSettings* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRouteSettingApiErrorDomain code:kOAIRouteSettingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'routeSettingsId' is set
     if (routeSettingsId == nil) {
         NSParameterAssert(routeSettingsId);
@@ -499,12 +417,9 @@ NSInteger kOAIRouteSettingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/route/setting/{routeSettingsId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/route/setting/{routeSettingsId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (routeSettingsId != nil) {
         pathParams[@"routeSettingsId"] = routeSettingsId;
     }

@@ -503,7 +503,6 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```objc
 
 
-NSNumber* *version = 3.16; // 
 NSString* *appKey = @"appKey_example"; // The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
 NSString* *name = @"name_example"; // The name of the queue to connect to
 NSString* *hostname = @"hostname_example"; // The hostname of the server the queue is hosted on
@@ -522,8 +521,7 @@ NSNumber* *useSSL = @56; // Use SSL (optional)
 OAIAMQPApi *apiInstance = [[OAIAMQPApi alloc] init];
 
 // Create Consumer
-[apiInstance consumerCreateWithVersion:version
-    appKey:appKey
+[apiInstance consumerCreateWithAppKey:appKey
     name:name
     hostname:hostname
     username:username
@@ -550,693 +548,693 @@ OAIAMQPApi *apiInstance = [[OAIAMQPApi alloc] init];
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://dev.sirqul.com/api/3.18*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*OAIAMQPApi* | [**consumerCreate**](docs/OAIAMQPApi.md#consumercreate) | **POST** /api/{version}/queue/consumer/create | Create Consumer
-*OAIAMQPApi* | [**consumerUpdate**](docs/OAIAMQPApi.md#consumerupdate) | **POST** /api/{version}/queue/consumer/update | Update Consumer
-*OAIAMQPApi* | [**queueCreate**](docs/OAIAMQPApi.md#queuecreate) | **POST** /api/{version}/queue/create | Create Queue
-*OAIAMQPApi* | [**queueDelete**](docs/OAIAMQPApi.md#queuedelete) | **POST** /api/{version}/queue/delete | Delete Queue
-*OAIAMQPApi* | [**queueGet**](docs/OAIAMQPApi.md#queueget) | **GET** /api/{version}/queue/get | Get Queue
-*OAIAMQPApi* | [**queuePublish**](docs/OAIAMQPApi.md#queuepublish) | **POST** /api/{version}/queue/publish | Publish Queue
-*OAIAMQPApi* | [**queueSearch**](docs/OAIAMQPApi.md#queuesearch) | **GET** /api/{version}/queue/search | Search Queue
-*OAIAMQPApi* | [**queueUpdate**](docs/OAIAMQPApi.md#queueupdate) | **POST** /api/{version}/queue/update | Update Queue
-*OAIAccountApi* | [**accountLocationSearch**](docs/OAIAccountApi.md#accountlocationsearch) | **GET** /api/{version}/account/search | Search Accounts by Location
-*OAIAccountApi* | [**blockAccount**](docs/OAIAccountApi.md#blockaccount) | **POST** /api/{version}/account/block | Block Account
-*OAIAccountApi* | [**createAccount**](docs/OAIAccountApi.md#createaccount) | **POST** /api/{version}/account/create | Create Account
-*OAIAccountApi* | [**editAccount**](docs/OAIAccountApi.md#editaccount) | **POST** /api/{version}/account/profile/update | Update Account
-*OAIAccountApi* | [**editUsername**](docs/OAIAccountApi.md#editusername) | **POST** /api/{version}/account/username/update | Update Username and Email
-*OAIAccountApi* | [**getAccount**](docs/OAIAccountApi.md#getaccount) | **GET** /api/{version}/account/profile/get | Get Account
-*OAIAccountApi* | [**getProfileAssets**](docs/OAIAccountApi.md#getprofileassets) | **GET** /api/{version}/account/profile/assets | Get Profile Assets
-*OAIAccountApi* | [**getReferralList**](docs/OAIAccountApi.md#getreferrallist) | **GET** /api/{version}/account/referral/list | Search Accounts
-*OAIAccountApi* | [**getSettings**](docs/OAIAccountApi.md#getsettings) | **GET** /api/{version}/account/settings/get | Get Account Settings
-*OAIAccountApi* | [**loginDelegate**](docs/OAIAccountApi.md#logindelegate) | **POST** /api/{version}/account/login/delegate | Login as Account
-*OAIAccountApi* | [**loginGeneral**](docs/OAIAccountApi.md#logingeneral) | **POST** /api/{version}/account/login | Login Account
-*OAIAccountApi* | [**loginUsername**](docs/OAIAccountApi.md#loginusername) | **POST** /api/{version}/account/get | Login Account (Username)
-*OAIAccountApi* | [**logout**](docs/OAIAccountApi.md#logout) | **POST** /api/{version}/account/logout | Logout Account
-*OAIAccountApi* | [**mergeAccount**](docs/OAIAccountApi.md#mergeaccount) | **POST** /api/{version}/account/merge | Merge Account
-*OAIAccountApi* | [**passwordChange**](docs/OAIAccountApi.md#passwordchange) | **POST** /api/{version}/account/passwordchange | Update Password
-*OAIAccountApi* | [**passwordReset**](docs/OAIAccountApi.md#passwordreset) | **POST** /api/{version}/account/passwordreset | Reset Password
-*OAIAccountApi* | [**requestPasswordReset**](docs/OAIAccountApi.md#requestpasswordreset) | **POST** /api/{version}/account/requestpasswordreset | Request Password Reset
-*OAIAccountApi* | [**requestValidateAccount**](docs/OAIAccountApi.md#requestvalidateaccount) | **POST** /api/{version}/account/requestValidateAccount | Send Validation Request
-*OAIAccountApi* | [**searchAccounts**](docs/OAIAccountApi.md#searchaccounts) | **GET** /api/{version}/account/profile/search | Search Accounts
-*OAIAccountApi* | [**secureLogin**](docs/OAIAccountApi.md#securelogin) | **POST** /api/{version}/account/login/validate | Login Account (Encrypted Username)
-*OAIAccountApi* | [**secureSignup**](docs/OAIAccountApi.md#securesignup) | **POST** /api/{version}/account/create/validate | Create Account (Encrypted Username)
-*OAIAccountApi* | [**setMatchToken**](docs/OAIAccountApi.md#setmatchtoken) | **POST** /api/{version}/consumer/profile/matchToken | Save Match Token
-*OAIAccountApi* | [**updateActveStatus**](docs/OAIAccountApi.md#updateactvestatus) | **POST** /api/{version}/account/active/update | Update Account Active Status
-*OAIAccountApi* | [**updateLocation**](docs/OAIAccountApi.md#updatelocation) | **POST** /api/{version}/account/location/update | Update Location
-*OAIAccountApi* | [**updateSettings**](docs/OAIAccountApi.md#updatesettings) | **POST** /api/{version}/account/settings/update | Update Account Settings
-*OAIAccountApi* | [**validateAccountSignup**](docs/OAIAccountApi.md#validateaccountsignup) | **POST** /api/{version}/account/validateAccountSignup | Save Validation Status
-*OAIAccountApi* | [**validatePasswordReset**](docs/OAIAccountApi.md#validatepasswordreset) | **POST** /api/{version}/account/validatepasswordreset | Validate Password Reset Token
-*OAIAchievementApi* | [**apiVersionAchievementTierSearchPost**](docs/OAIAchievementApi.md#apiversionachievementtiersearchpost) | **POST** /api/{version}/achievement/tier/search | Searches an Achievement Tier
-*OAIAchievementApi* | [**createAchievement**](docs/OAIAchievementApi.md#createachievement) | **POST** /api/{version}/achievement/create | Create Achievement
-*OAIAchievementApi* | [**createAchievementTier**](docs/OAIAchievementApi.md#createachievementtier) | **POST** /api/{version}/achievement/tier/create | Create Achievement Tier
-*OAIAchievementApi* | [**deleteAchievement**](docs/OAIAchievementApi.md#deleteachievement) | **POST** /api/{version}/achievement/delete | Delete Achievement
-*OAIAchievementApi* | [**deleteAchievementTier**](docs/OAIAchievementApi.md#deleteachievementtier) | **POST** /api/{version}/achievement/tier/delete | Delete Achievement Tier
-*OAIAchievementApi* | [**getAchievement**](docs/OAIAchievementApi.md#getachievement) | **GET** /api/{version}/achievement/get | Get Achievement
-*OAIAchievementApi* | [**getAchievementTier**](docs/OAIAchievementApi.md#getachievementtier) | **POST** /api/{version}/achievement/tier/get | Gets an achievement tier
-*OAIAchievementApi* | [**getUserAchievements**](docs/OAIAchievementApi.md#getuserachievements) | **GET** /api/{version}/achievement/progress/get | Get Achievement Progress
-*OAIAchievementApi* | [**listAchievementTags**](docs/OAIAchievementApi.md#listachievementtags) | **GET** /api/{version}/achievement/tag/list | List Achievement Tags
-*OAIAchievementApi* | [**listAchievements**](docs/OAIAchievementApi.md#listachievements) | **GET** /api/{version}/achievement/list | List Achievements
-*OAIAchievementApi* | [**searchAchievements**](docs/OAIAchievementApi.md#searchachievements) | **GET** /api/{version}/achievement/search | Search Achievements
-*OAIAchievementApi* | [**updateAchievement**](docs/OAIAchievementApi.md#updateachievement) | **POST** /api/{version}/achievement/update | Update Achievement
-*OAIAchievementApi* | [**updateAchievementTier**](docs/OAIAchievementApi.md#updateachievementtier) | **POST** /api/{version}/achievement/tier/update | Update Achievement Tier
-*OAIAchievementApi* | [**updateUserAchievement**](docs/OAIAchievementApi.md#updateuserachievement) | **POST** /api/{version}/achievement/progress/update | Update Achievement Progress
-*OAIActivityApi* | [**createEntityReference**](docs/OAIActivityApi.md#createentityreference) | **POST** /api/{version}/entity/reference | Create an entity reference.
-*OAIAlbumApi* | [**addAlbumCollection**](docs/OAIAlbumApi.md#addalbumcollection) | **POST** /api/{version}/album/create | Create Album
-*OAIAlbumApi* | [**addAlbumUsers**](docs/OAIAlbumApi.md#addalbumusers) | **POST** /api/{version}/album/user/add | Add Album Users
-*OAIAlbumApi* | [**approveAlbum**](docs/OAIAlbumApi.md#approvealbum) | **POST** /api/{version}/album/approve | Approve Album
-*OAIAlbumApi* | [**getAlbumCollection**](docs/OAIAlbumApi.md#getalbumcollection) | **GET** /api/{version}/album/get |  Get Album
-*OAIAlbumApi* | [**leaveAlbum**](docs/OAIAlbumApi.md#leavealbum) | **POST** /api/{version}/album/user/leave | Leave Album
-*OAIAlbumApi* | [**removeAlbum**](docs/OAIAlbumApi.md#removealbum) | **POST** /api/{version}/album/delete | Delete Album
-*OAIAlbumApi* | [**removeAlbumUsers**](docs/OAIAlbumApi.md#removealbumusers) | **POST** /api/{version}/album/user/delete | Remove Album Users
-*OAIAlbumApi* | [**searchAlbums**](docs/OAIAlbumApi.md#searchalbums) | **GET** /api/{version}/album/search | Search Albums
-*OAIAlbumApi* | [**updateAlbumCollection**](docs/OAIAlbumApi.md#updatealbumcollection) | **POST** /api/{version}/album/update | Update Album
-*OAIAnalyticsApi* | [**activities**](docs/OAIAnalyticsApi.md#activities) | **GET** /api/{version}/analytics/useractivity | Get User Activity
-*OAIAnalyticsApi* | [**aggregatedFilteredUsage**](docs/OAIAnalyticsApi.md#aggregatedfilteredusage) | **GET** /api/{version}/analytics/aggregatedFilteredUsage | Get Aggregated Filtered Usage
-*OAIAnalyticsApi* | [**filteredUsage**](docs/OAIAnalyticsApi.md#filteredusage) | **GET** /api/{version}/analytics/filteredUsage | Get Filtered Usage
-*OAIAnalyticsApi* | [**usage**](docs/OAIAnalyticsApi.md#usage) | **POST** /api/{version}/analytics/usage | Create Usage Record
-*OAIAnalyticsApi* | [**usageBatch**](docs/OAIAnalyticsApi.md#usagebatch) | **POST** /api/{version}/analytics/usage/batch | Create Multiple Usage Records
-*OAIAppDataApi* | [**getAppData**](docs/OAIAppDataApi.md#getappdata) | **GET** /api/{version}/app/get | Get App Data
-*OAIAppDataApi* | [**postAppData**](docs/OAIAppDataApi.md#postappdata) | **POST** /api/{version}/app/post | Create App Data
-*OAIAppDataApi* | [**regenAppData**](docs/OAIAppDataApi.md#regenappdata) | **POST** /api/{version}/app/regen | Regenerate App Data
-*OAIApplicationApi* | [**createApplication**](docs/OAIApplicationApi.md#createapplication) | **POST** /api/{version}/application/create | Create Application
-*OAIApplicationApi* | [**createApplicationPlacement**](docs/OAIApplicationApi.md#createapplicationplacement) | **POST** /api/{version}/application/placement/create | Create Ad Placement
-*OAIApplicationApi* | [**deleteApplication**](docs/OAIApplicationApi.md#deleteapplication) | **POST** /api/{version}/application/delete | Delete Application
-*OAIApplicationApi* | [**deleteApplicationPlacement**](docs/OAIApplicationApi.md#deleteapplicationplacement) | **POST** /api/{version}/application/placement/delete | Delete Ad Placement
-*OAIApplicationApi* | [**getApplication**](docs/OAIApplicationApi.md#getapplication) | **GET** /api/{version}/application/get | Get Application
-*OAIApplicationApi* | [**getApplicationPlacement**](docs/OAIApplicationApi.md#getapplicationplacement) | **GET** /api/{version}/application/placement/get | Get Ad Placement
-*OAIApplicationApi* | [**getApplicationVersions**](docs/OAIApplicationApi.md#getapplicationversions) | **GET** /api/{version}/application/versions | Get API versions
-*OAIApplicationApi* | [**getUniqueUsersByApp**](docs/OAIApplicationApi.md#getuniqueusersbyapp) | **GET** /api/{version}/application/users | Search Application Users
-*OAIApplicationApi* | [**listApplications**](docs/OAIApplicationApi.md#listapplications) | **GET** /api/{version}/application/list | List Applications
-*OAIApplicationApi* | [**searchApplicationPlacement**](docs/OAIApplicationApi.md#searchapplicationplacement) | **GET** /api/{version}/application/placement/search | Search for Ad Placements
-*OAIApplicationApi* | [**searchApplicationSettings**](docs/OAIApplicationApi.md#searchapplicationsettings) | **GET** /api/{version}/application/settings/search | Search for Application Settings
-*OAIApplicationApi* | [**searchApplications**](docs/OAIApplicationApi.md#searchapplications) | **GET** /api/{version}/application/search | Search Applications
-*OAIApplicationApi* | [**updateApplication**](docs/OAIApplicationApi.md#updateapplication) | **POST** /api/{version}/application/update | Update Application
-*OAIApplicationApi* | [**updateApplicationActive**](docs/OAIApplicationApi.md#updateapplicationactive) | **POST** /api/{version}/application/active | Change Appliation Status
-*OAIApplicationApi* | [**updateApplicationPlacement**](docs/OAIApplicationApi.md#updateapplicationplacement) | **POST** /api/{version}/application/placement/update | Update Ad Placement
-*OAIApplicationApi* | [**uploadApplicationCertificate**](docs/OAIApplicationApi.md#uploadapplicationcertificate) | **POST** /api/{version}/application/certificate/create | Create Application Certificate
-*OAIApplicationConfigApi* | [**createApplicationConfig**](docs/OAIApplicationConfigApi.md#createapplicationconfig) | **POST** /api/{version}/appconfig/create | Create AppConfig
-*OAIApplicationConfigApi* | [**deleteApplicationConfig**](docs/OAIApplicationConfigApi.md#deleteapplicationconfig) | **POST** /api/{version}/appconfig/delete | Delete AppConfig
-*OAIApplicationConfigApi* | [**getApplicationConfig**](docs/OAIApplicationConfigApi.md#getapplicationconfig) | **GET** /api/{version}/appconfig/get | Get AppConfig
-*OAIApplicationConfigApi* | [**getApplicationConfigByConfigVersion**](docs/OAIApplicationConfigApi.md#getapplicationconfigbyconfigversion) | **GET** /api/{version}/appconfig/getbyversion | Get AppConfig by Version
-*OAIApplicationConfigApi* | [**searchApplicationConfig**](docs/OAIApplicationConfigApi.md#searchapplicationconfig) | **GET** /api/{version}/appconfig/search | Search AppConfigs
-*OAIApplicationConfigApi* | [**updateApplicationConfig**](docs/OAIApplicationConfigApi.md#updateapplicationconfig) | **POST** /api/{version}/appconfig/update | Update AppConfig
-*OAIAssetApi* | [**assetDownload**](docs/OAIAssetApi.md#assetdownload) | **GET** /api/{version}/asset/download/{filename} | Download Asset
-*OAIAssetApi* | [**assetMorph**](docs/OAIAssetApi.md#assetmorph) | **POST** /api/{version}/asset/morph | Convert Offer to Creative
-*OAIAssetApi* | [**createAsset**](docs/OAIAssetApi.md#createasset) | **POST** /api/{version}/asset/create | Create Asset
-*OAIAssetApi* | [**deleteAsset**](docs/OAIAssetApi.md#deleteasset) | **POST** /api/{version}/asset/delete | Delete Asset
-*OAIAssetApi* | [**getAsset**](docs/OAIAssetApi.md#getasset) | **GET** /api/{version}/asset/get | Get Asset
-*OAIAssetApi* | [**removeAsset**](docs/OAIAssetApi.md#removeasset) | **POST** /api/{version}/asset/remove | Remove Asset from Collection
-*OAIAssetApi* | [**searchAssets**](docs/OAIAssetApi.md#searchassets) | **GET** /api/{version}/asset/search | Search Assets
-*OAIAssetApi* | [**updateAsset**](docs/OAIAssetApi.md#updateasset) | **POST** /api/{version}/asset/update | Update Asset
-*OAIAssignmentApi* | [**assigmentAssigneeAccountSearch**](docs/OAIAssignmentApi.md#assigmentassigneeaccountsearch) | **GET** /api/{version}/assignment/assignee/search | Search Assignment Assignees
-*OAIAssignmentApi* | [**assignmentCreate**](docs/OAIAssignmentApi.md#assignmentcreate) | **POST** /api/{version}/assignment/create | Create Assignment
-*OAIAssignmentApi* | [**assignmentDelete**](docs/OAIAssignmentApi.md#assignmentdelete) | **POST** /api/{version}/assignment/delete | Delete Assignment
-*OAIAssignmentApi* | [**assignmentGet**](docs/OAIAssignmentApi.md#assignmentget) | **GET** /api/{version}/assignment/get | Get Assignment
-*OAIAssignmentApi* | [**assignmentSearch**](docs/OAIAssignmentApi.md#assignmentsearch) | **GET** /api/{version}/assignment/search | Search Assignments
-*OAIAssignmentApi* | [**assignmentStatusCreate**](docs/OAIAssignmentApi.md#assignmentstatuscreate) | **POST** /api/{version}/assignment/status/create | Create Assignment Status
-*OAIAssignmentApi* | [**assignmentStatusDelete**](docs/OAIAssignmentApi.md#assignmentstatusdelete) | **POST** /api/{version}/assignment/status/delete | Deletes Assignment Status
-*OAIAssignmentApi* | [**assignmentStatusGet**](docs/OAIAssignmentApi.md#assignmentstatusget) | **GET** /api/{version}/assignment/status/get | Get Assignment Status
-*OAIAssignmentApi* | [**assignmentStatusSearch**](docs/OAIAssignmentApi.md#assignmentstatussearch) | **GET** /api/{version}/assignment/status/search | Search Assignment Statuses
-*OAIAssignmentApi* | [**assignmentStatusUpdate**](docs/OAIAssignmentApi.md#assignmentstatusupdate) | **POST** /api/{version}/assignment/status/update | Update Assignment Status
-*OAIAssignmentApi* | [**assignmentUpdate**](docs/OAIAssignmentApi.md#assignmentupdate) | **POST** /api/{version}/assignment/update | Update Assignment
-*OAIAudienceApi* | [**createAudience**](docs/OAIAudienceApi.md#createaudience) | **POST** /api/{version}/audience/create | Create Audience
-*OAIAudienceApi* | [**deleteAudience**](docs/OAIAudienceApi.md#deleteaudience) | **POST** /api/{version}/audience/delete | Delete Audience
-*OAIAudienceApi* | [**getAgeGroups**](docs/OAIAudienceApi.md#getagegroups) | **GET** /api/{version}/audience/ageGroups | Get Age Groups
-*OAIAudienceApi* | [**getAudience**](docs/OAIAudienceApi.md#getaudience) | **GET** /api/{version}/audience/get | Get Audience
-*OAIAudienceApi* | [**getAudienceList**](docs/OAIAudienceApi.md#getaudiencelist) | **GET** /api/{version}/audience/search | Search Audiences
-*OAIAudienceApi* | [**getDevices**](docs/OAIAudienceApi.md#getdevices) | **GET** /api/{version}/audience/devices | Get Devices
-*OAIAudienceApi* | [**getExperiences**](docs/OAIAudienceApi.md#getexperiences) | **GET** /api/{version}/audience/experiences | Get Experiences
-*OAIAudienceApi* | [**getGroupedAudiences**](docs/OAIAudienceApi.md#getgroupedaudiences) | **GET** /api/{version}/audience/grouped/get | Get GroupedAudiences
-*OAIAudienceApi* | [**listByAccount**](docs/OAIAudienceApi.md#listbyaccount) | **POST** /api/{version}/audience/suggestion/list | List Suggestions by Audience
-*OAIAudienceApi* | [**listByAudience**](docs/OAIAudienceApi.md#listbyaudience) | **GET** /api/{version}/audience/suggestion/offersByAudience | List Offers by Audience
-*OAIAudienceApi* | [**listLastestByAccount**](docs/OAIAudienceApi.md#listlastestbyaccount) | **GET** /api/{version}/audience/suggestion/latest | List Sent Suggestions 
-*OAIAudienceApi* | [**sendByAccount**](docs/OAIAudienceApi.md#sendbyaccount) | **POST** /api/{version}/audience/suggestion/send | Send Suggestions
-*OAIAudienceApi* | [**updateAudience**](docs/OAIAudienceApi.md#updateaudience) | **POST** /api/{version}/audience/update | Update Audience
-*OAIBidApi* | [**createBid**](docs/OAIBidApi.md#createbid) | **POST** /api/{version}/bid/create | Create Bid
-*OAIBidApi* | [**deleteBid**](docs/OAIBidApi.md#deletebid) | **POST** /api/{version}/bid/delete | Delete Bid
-*OAIBidApi* | [**getBid**](docs/OAIBidApi.md#getbid) | **GET** /api/{version}/bid/get | Get Bid
-*OAIBidApi* | [**updateBid**](docs/OAIBidApi.md#updatebid) | **POST** /api/{version}/bid/update | Update Bid
-*OAIBillableEntityApi* | [**createBillableEntity**](docs/OAIBillableEntityApi.md#createbillableentity) | **POST** /api/{version}/billable/create | Create Billable
-*OAIBillableEntityApi* | [**deleteBillableEntity**](docs/OAIBillableEntityApi.md#deletebillableentity) | **POST** /api/{version}/billable/delete | Delete Billable
-*OAIBillableEntityApi* | [**getBillableEntity**](docs/OAIBillableEntityApi.md#getbillableentity) | **GET** /api/{version}/billable/get | Get Billable
-*OAIBillableEntityApi* | [**updateBillableEntity**](docs/OAIBillableEntityApi.md#updatebillableentity) | **POST** /api/{version}/billable/update | Update Billable
-*OAIBillingInfoApi* | [**addPaymentMethod**](docs/OAIBillingInfoApi.md#addpaymentmethod) | **POST** /api/{version}/billing/update | Update Payment Method
-*OAIBillingInfoApi* | [**createPaymentMethod**](docs/OAIBillingInfoApi.md#createpaymentmethod) | **POST** /api/{version}/billing/create | Create Payment Method
-*OAIBillingInfoApi* | [**createSmartContract**](docs/OAIBillingInfoApi.md#createsmartcontract) | **POST** /api/{version}/billing/crypto/transfer | Create Smart Contract
-*OAIBillingInfoApi* | [**getCryptoBalance**](docs/OAIBillingInfoApi.md#getcryptobalance) | **GET** /api/{version}/billing/crypto/get | Get Crypto Balances
-*OAIBillingInfoApi* | [**getPaymentMethod**](docs/OAIBillingInfoApi.md#getpaymentmethod) | **GET** /api/{version}/billing/get | Get Payment Method
-*OAIBillingInfoApi* | [**searchPaymentMethod**](docs/OAIBillingInfoApi.md#searchpaymentmethod) | **GET** /api/{version}/billing/search | Search Payment Methods
-*OAICSVImportApi* | [**getStatusCSV**](docs/OAICSVImportApi.md#getstatuscsv) | **GET** /api/{version}/csvimport/batch/status/details | Detail Status
-*OAICSVImportApi* | [**listStatusCSV**](docs/OAICSVImportApi.md#liststatuscsv) | **GET** /api/{version}/csvimport/batch/list | Search Status
-*OAICSVImportApi* | [**statusCSV**](docs/OAICSVImportApi.md#statuscsv) | **GET** /api/{version}/csvimport/batch/status | Batch Status
-*OAICSVImportApi* | [**uploadCSV**](docs/OAICSVImportApi.md#uploadcsv) | **POST** /api/{version}/csvimport/upload | Upload CSV
-*OAICargoTypeApi* | [**createCargoType**](docs/OAICargoTypeApi.md#createcargotype) | **POST** /api/{version}/cargo/type | Create Cargo Type
-*OAICargoTypeApi* | [**deleteCargoType**](docs/OAICargoTypeApi.md#deletecargotype) | **DELETE** /api/{version}/cargo/type/{cargoTypeId} | Delete Cargo Type
-*OAICargoTypeApi* | [**getCargoType**](docs/OAICargoTypeApi.md#getcargotype) | **GET** /api/{version}/cargo/type/{cargoTypeId} | Get Cargo Type
-*OAICargoTypeApi* | [**searchCargoTypes**](docs/OAICargoTypeApi.md#searchcargotypes) | **GET** /api/{version}/cargo/type | Search Cargo Type
-*OAICargoTypeApi* | [**updateCargoType**](docs/OAICargoTypeApi.md#updatecargotype) | **PUT** /api/{version}/cargo/type/{cargoTypeId} | Update Cargo Type
-*OAICarrierApi* | [**searchCarriers**](docs/OAICarrierApi.md#searchcarriers) | **GET** /api/{version}/carrier/search | Search Carriers
-*OAICategoryApi* | [**categoryDistanceSearch**](docs/OAICategoryApi.md#categorydistancesearch) | **GET** /api/{version}/category/distancesearch | Search Categories by Distance
-*OAICategoryApi* | [**createCategory**](docs/OAICategoryApi.md#createcategory) | **POST** /api/{version}/category/create | Create Category
-*OAICategoryApi* | [**deleteCategory**](docs/OAICategoryApi.md#deletecategory) | **POST** /api/{version}/category/delete | Delete Category
-*OAICategoryApi* | [**duplicateCategory**](docs/OAICategoryApi.md#duplicatecategory) | **POST** /api/{version}/category/duplicate | Duplicate Category
-*OAICategoryApi* | [**getCategory**](docs/OAICategoryApi.md#getcategory) | **GET** /api/{version}/category/get | Get Category
-*OAICategoryApi* | [**searchCategories**](docs/OAICategoryApi.md#searchcategories) | **GET** /api/{version}/category/search | Search Categories
-*OAICategoryApi* | [**updateCategory**](docs/OAICategoryApi.md#updatecategory) | **POST** /api/{version}/category/update | Update Category
-*OAIConnectionApi* | [**addConnectionToGroup**](docs/OAIConnectionApi.md#addconnectiontogroup) | **POST** /api/{version}/consumer/connection/group/addConnection | Add Connection
-*OAIConnectionApi* | [**addConnectionsToGroup**](docs/OAIConnectionApi.md#addconnectionstogroup) | **POST** /api/{version}/connection/group/addConnections | Add Connections
-*OAIConnectionApi* | [**addSubGroups**](docs/OAIConnectionApi.md#addsubgroups) | **POST** /api/{version}/consumer/connection/group/addSubGroup | Add Connection Groups
-*OAIConnectionApi* | [**createOrUpdateConnection**](docs/OAIConnectionApi.md#createorupdateconnection) | **POST** /api/{version}/consumer/connection/add | Create or Update Connection
-*OAIConnectionApi* | [**createOrUpdateGroup**](docs/OAIConnectionApi.md#createorupdategroup) | **POST** /api/{version}/consumer/connection/group | Create or Update Connection Group
-*OAIConnectionApi* | [**followAccept**](docs/OAIConnectionApi.md#followaccept) | **POST** /api/{version}/consumer/follow/accept | Accept Follow Request
-*OAIConnectionApi* | [**followReject**](docs/OAIConnectionApi.md#followreject) | **POST** /api/{version}/consumer/follow/reject | Reject Follow Request
-*OAIConnectionApi* | [**followRemove**](docs/OAIConnectionApi.md#followremove) | **POST** /api/{version}/consumer/follow/remove | Remove Follower / Unfollow
-*OAIConnectionApi* | [**followRequest**](docs/OAIConnectionApi.md#followrequest) | **POST** /api/{version}/consumer/follow/request | Send Follow Request
-*OAIConnectionApi* | [**friendAccept**](docs/OAIConnectionApi.md#friendaccept) | **POST** /api/{version}/consumer/friend/accept | Accept Friend
-*OAIConnectionApi* | [**friendReject**](docs/OAIConnectionApi.md#friendreject) | **POST** /api/{version}/consumer/friend/reject | Decline Friend
-*OAIConnectionApi* | [**friendRemove**](docs/OAIConnectionApi.md#friendremove) | **POST** /api/{version}/consumer/friend/remove | Delete Friend
-*OAIConnectionApi* | [**friendRequest**](docs/OAIConnectionApi.md#friendrequest) | **POST** /api/{version}/consumer/friend/request | Request Friend
-*OAIConnectionApi* | [**getConnectionSentFriendRequests**](docs/OAIConnectionApi.md#getconnectionsentfriendrequests) | **GET** /api/{version}/consumer/connection/getRequested | Get Sent Friend Requests
-*OAIConnectionApi* | [**getConnections**](docs/OAIConnectionApi.md#getconnections) | **GET** /api/{version}/consumer/connection/get | Search Connections
-*OAIConnectionApi* | [**getGroupDetails**](docs/OAIConnectionApi.md#getgroupdetails) | **GET** /api/{version}/consumer/connection/group/details/get | Get Connection Group
-*OAIConnectionApi* | [**groupSearch**](docs/OAIConnectionApi.md#groupsearch) | **GET** /api/{version}/connection/group/search | Search Connection Groups
-*OAIConnectionApi* | [**removeConnectionFromGroup**](docs/OAIConnectionApi.md#removeconnectionfromgroup) | **POST** /api/{version}/consumer/connection/group/removeConnection | Delete Connection
-*OAIConnectionApi* | [**removeConnectionsFromGroup**](docs/OAIConnectionApi.md#removeconnectionsfromgroup) | **POST** /api/{version}/connection/group/removeConnections | Remove Connections
-*OAIConnectionApi* | [**removeGroup**](docs/OAIConnectionApi.md#removegroup) | **POST** /api/{version}/consumer/connection/group/remove | Delete Connection Group
-*OAIConnectionApi* | [**removeSubGroups**](docs/OAIConnectionApi.md#removesubgroups) | **POST** /api/{version}/consumer/connection/group/removeSubGroup | Remove Connection Groups
-*OAIConnectionApi* | [**searchConnections**](docs/OAIConnectionApi.md#searchconnections) | **GET** /api/{version}/connection/search | Search Possible Connections
-*OAIContestApi* | [**addOrUpdateAlbumContest**](docs/OAIContestApi.md#addorupdatealbumcontest) | **POST** /api/{version}/consumer/album/contest | Create or Update Contest
-*OAIContestApi* | [**approveAlbumContest**](docs/OAIContestApi.md#approvealbumcontest) | **POST** /api/{version}/consumer/album/contest/approve | Approve Contest
-*OAIContestApi* | [**deleteContest**](docs/OAIContestApi.md#deletecontest) | **POST** /api/{version}/consumer/album/contest/remove | Delete Contest
-*OAIContestApi* | [**getAlbumContest**](docs/OAIContestApi.md#getalbumcontest) | **GET** /api/{version}/consumer/album/contest/get | Get Contest
-*OAIContestApi* | [**getAlbumContests**](docs/OAIContestApi.md#getalbumcontests) | **GET** /api/{version}/consumer/album/contest/search | Search Contests
-*OAIContestApi* | [**voteOnAlbumContest**](docs/OAIContestApi.md#voteonalbumcontest) | **POST** /api/{version}/consumer/album/contest/vote | Vote on Contest
-*OAICreativeApi* | [**addPreview**](docs/OAICreativeApi.md#addpreview) | **POST** /api/{version}/creative/addpreview | Add Preview
-*OAICreativeApi* | [**adsFind**](docs/OAICreativeApi.md#adsfind) | **GET** /api/{version}/ads/find | Find Missions
-*OAICreativeApi* | [**createCreative**](docs/OAICreativeApi.md#createcreative) | **POST** /api/{version}/creative/create | Create Creative
-*OAICreativeApi* | [**deleteCreative**](docs/OAICreativeApi.md#deletecreative) | **POST** /api/{version}/creative/delete | Delete Creative
-*OAICreativeApi* | [**getCreative**](docs/OAICreativeApi.md#getcreative) | **GET** /api/{version}/creative/get | Get Creative
-*OAICreativeApi* | [**getCreativesByApplication**](docs/OAICreativeApi.md#getcreativesbyapplication) | **GET** /api/{version}/creative/search | Search Creatives
-*OAICreativeApi* | [**removePreview**](docs/OAICreativeApi.md#removepreview) | **POST** /api/{version}/creative/removepreview | Remove Preview
-*OAICreativeApi* | [**updateCreative**](docs/OAICreativeApi.md#updatecreative) | **POST** /api/{version}/creative/update | Update Creative
-*OAIDependentApi* | [**create**](docs/OAIDependentApi.md#create) | **PUT** /api/{version}/cargo/dependent/{accountId} | Create Dependent
-*OAIDependentApi* | [**getDependents**](docs/OAIDependentApi.md#getdependents) | **GET** /api/{version}/cargo/dependent/{accountId} | Get dependent list of an account
-*OAIDependentApi* | [**removeDependent**](docs/OAIDependentApi.md#removedependent) | **DELETE** /api/{version}/cargo/dependent/{accountId} | Delete Dependent
-*OAIDisbursementApi* | [**checkDisbursements**](docs/OAIDisbursementApi.md#checkdisbursements) | **GET** /api/{version}/disbursement/check | Check Disbursements
-*OAIDisbursementApi* | [**createDisbursement**](docs/OAIDisbursementApi.md#createdisbursement) | **POST** /api/{version}/disbursement/create | Create Disbursement
-*OAIDisbursementApi* | [**getDisbursement**](docs/OAIDisbursementApi.md#getdisbursement) | **GET** /api/{version}/disbursement/get | Get Disbursement
-*OAIDisbursementApi* | [**searchDisbursements**](docs/OAIDisbursementApi.md#searchdisbursements) | **GET** /api/{version}/disbursement/search | Search Disbursements
-*OAIDisbursementApi* | [**updateDisbursement**](docs/OAIDisbursementApi.md#updatedisbursement) | **POST** /api/{version}/disbursement/update | Update Disbursement
-*OAIEmployeeApi* | [**assignEmployee**](docs/OAIEmployeeApi.md#assignemployee) | **POST** /api/{version}/employee/assign | Assign Employee
-*OAIEmployeeApi* | [**assignToLocationEmployee**](docs/OAIEmployeeApi.md#assigntolocationemployee) | **POST** /api/{version}/employee/assignToLocation | Assign Employee to Location
-*OAIEmployeeApi* | [**createEmployee**](docs/OAIEmployeeApi.md#createemployee) | **POST** /api/{version}/employee/create | Create Employee
-*OAIEmployeeApi* | [**deleteEmployee**](docs/OAIEmployeeApi.md#deleteemployee) | **POST** /api/{version}/employee/delete | Delete Employee
-*OAIEmployeeApi* | [**getEmployee**](docs/OAIEmployeeApi.md#getemployee) | **POST** /api/{version}/employee/get | Get Employee
-*OAIEmployeeApi* | [**searchEmployees**](docs/OAIEmployeeApi.md#searchemployees) | **POST** /api/{version}/employee/search | Search Employees
-*OAIEmployeeApi* | [**unassignEmployee**](docs/OAIEmployeeApi.md#unassignemployee) | **POST** /api/{version}/employee/unassign | Unassign Employee
-*OAIEmployeeApi* | [**updateEmployee**](docs/OAIEmployeeApi.md#updateemployee) | **POST** /api/{version}/employee/update | Update Employee
-*OAIEventApi* | [**attendEvent**](docs/OAIEventApi.md#attendevent) | **POST** /api/{version}/event/attend | Attend Event
-*OAIEventApi* | [**createEvent**](docs/OAIEventApi.md#createevent) | **POST** /api/{version}/event/create | Create Event
-*OAIEventApi* | [**deleteEvent**](docs/OAIEventApi.md#deleteevent) | **POST** /api/{version}/event/delete | Delete Event
-*OAIEventApi* | [**getEvent**](docs/OAIEventApi.md#getevent) | **GET** /api/{version}/event/get | Get Event
-*OAIEventApi* | [**searchEventTransactions**](docs/OAIEventApi.md#searcheventtransactions) | **GET** /api/{version}/event/attendance/search | Search Event Attendance
-*OAIEventApi* | [**searchEvents**](docs/OAIEventApi.md#searchevents) | **GET** /api/{version}/event/search | Search Events
-*OAIEventApi* | [**updateEvent**](docs/OAIEventApi.md#updateevent) | **POST** /api/{version}/event/update | Update Event
-*OAIFacebookApi* | [**getToken**](docs/OAIFacebookApi.md#gettoken) | **GET** /api/{version}/facebook/getfbtoken | Get Facebook Token
-*OAIFacebookApi* | [**graphInterface**](docs/OAIFacebookApi.md#graphinterface) | **POST** /api/{version}/facebook/graph | Post to Facebook
-*OAIFavoriteApi* | [**addFavorite**](docs/OAIFavoriteApi.md#addfavorite) | **POST** /api/{version}/favorite/create | Create Favorite
-*OAIFavoriteApi* | [**deleteFavorite**](docs/OAIFavoriteApi.md#deletefavorite) | **POST** /api/{version}/favorite/delete | Delete Favorite
-*OAIFavoriteApi* | [**getFavorite**](docs/OAIFavoriteApi.md#getfavorite) | **GET** /api/{version}/favorite/get | Get Favorite
-*OAIFavoriteApi* | [**searchFavorites**](docs/OAIFavoriteApi.md#searchfavorites) | **GET** /api/{version}/favorite/search | Search Favorites
-*OAIFavoriteApi* | [**whoHasFavorited**](docs/OAIFavoriteApi.md#whohasfavorited) | **GET** /api/{version}/favorite/whois | Who has Favorited
-*OAIFilterApi* | [**createFilter**](docs/OAIFilterApi.md#createfilter) | **POST** /api/{version}/filter/create | Create Filter
-*OAIFilterApi* | [**deleteFilter**](docs/OAIFilterApi.md#deletefilter) | **POST** /api/{version}/filter/delete | Delete Filter
-*OAIFilterApi* | [**getFilter**](docs/OAIFilterApi.md#getfilter) | **GET** /api/{version}/filter/get | Get Filter
-*OAIFilterApi* | [**searchFilters**](docs/OAIFilterApi.md#searchfilters) | **GET** /api/{version}/filter/search | Search Filters
-*OAIFilterApi* | [**updateFilter**](docs/OAIFilterApi.md#updatefilter) | **POST** /api/{version}/filter/update | Update Filter
-*OAIFlagApi* | [**createFlag**](docs/OAIFlagApi.md#createflag) | **POST** /api/{version}/flag/create | Create Flag
-*OAIFlagApi* | [**deleteFlag**](docs/OAIFlagApi.md#deleteflag) | **POST** /api/{version}/flag/delete | Delete Flag
-*OAIFlagApi* | [**getFlag**](docs/OAIFlagApi.md#getflag) | **GET** /api/{version}/flag/get | Get Flag
-*OAIFlagApi* | [**getFlagThreshold**](docs/OAIFlagApi.md#getflagthreshold) | **GET** /api/{version}/flag/threshold/get | Get Flag Threshold
-*OAIFlagApi* | [**updateFlagThreshold**](docs/OAIFlagApi.md#updateflagthreshold) | **POST** /api/{version}/flag/threshold/update | Update Flag Threshold
-*OAIGameApi* | [**createGame**](docs/OAIGameApi.md#creategame) | **POST** /api/{version}/game/create | Create a Game
-*OAIGameApi* | [**deleteGame**](docs/OAIGameApi.md#deletegame) | **POST** /api/{version}/game/delete | Delete a Game
-*OAIGameApi* | [**getGame**](docs/OAIGameApi.md#getgame) | **GET** /api/{version}/game/get | Get a Game by id
-*OAIGameApi* | [**searchGames**](docs/OAIGameApi.md#searchgames) | **GET** /api/{version}/game/search | Search a Game
-*OAIGameApi* | [**updateGame**](docs/OAIGameApi.md#updategame) | **POST** /api/{version}/game/update | Update a Game
-*OAIGameLevelApi* | [**createGameLevel**](docs/OAIGameLevelApi.md#creategamelevel) | **POST** /api/{version}/level/create | Create Game Level
-*OAIGameLevelApi* | [**deleteGameLevel**](docs/OAIGameLevelApi.md#deletegamelevel) | **POST** /api/{version}/level/delete | Delete Game Level
-*OAIGameLevelApi* | [**getGameLevel**](docs/OAIGameLevelApi.md#getgamelevel) | **GET** /api/{version}/level/get | Get Game Level
-*OAIGameLevelApi* | [**getGameLevelsByApplication**](docs/OAIGameLevelApi.md#getgamelevelsbyapplication) | **GET** /api/{version}/level/search | Search Game Levels
-*OAIGameLevelApi* | [**getGameLevelsByBillableEntity**](docs/OAIGameLevelApi.md#getgamelevelsbybillableentity) | **GET** /api/{version}/level/searchByBillableEntity | Search Game Level by Billable Entity
-*OAIGameLevelApi* | [**getQuestionsInLevel**](docs/OAIGameLevelApi.md#getquestionsinlevel) | **GET** /api/{version}/level/questions/get | Get Level Questions
-*OAIGameLevelApi* | [**getWordsInLevel**](docs/OAIGameLevelApi.md#getwordsinlevel) | **GET** /api/{version}/level/words/get | Get Level Words
-*OAIGameLevelApi* | [**updateGameLevel**](docs/OAIGameLevelApi.md#updategamelevel) | **POST** /api/{version}/level/update | Update Game Level
-*OAIGameLevelApi* | [**updateQuestionsInLevel**](docs/OAIGameLevelApi.md#updatequestionsinlevel) | **POST** /api/{version}/level/questions/update | Update Level Questions
-*OAIGameLevelApi* | [**updateWordsInLevel**](docs/OAIGameLevelApi.md#updatewordsinlevel) | **POST** /api/{version}/level/words/update | Update Level Words
-*OAIInviteApi* | [**acceptInvite**](docs/OAIInviteApi.md#acceptinvite) | **POST** /api/{version}/invite/accept | Accept Invite
-*OAIInviteApi* | [**albumContestInvite**](docs/OAIInviteApi.md#albumcontestinvite) | **POST** /api/{version}/invite/albumContest | Invite to Contest
-*OAIInviteApi* | [**albumInvite**](docs/OAIInviteApi.md#albuminvite) | **POST** /api/{version}/invite/album | Invite to Collection
-*OAIInviteApi* | [**eventInvite**](docs/OAIInviteApi.md#eventinvite) | **POST** /api/{version}/invite/event | Invite to Event
-*OAIInviteApi* | [**gameInvite**](docs/OAIInviteApi.md#gameinvite) | **POST** /api/{version}/invite/gameLevel | Invite to Game Level
-*OAIInviteApi* | [**getInvite**](docs/OAIInviteApi.md#getinvite) | **GET** /api/{version}/invite/get | Get Invite
-*OAIInviteApi* | [**missionInvite**](docs/OAIInviteApi.md#missioninvite) | **POST** /api/{version}/invite/mission | Invite to Mission
-*OAIInviteApi* | [**offerInvite**](docs/OAIInviteApi.md#offerinvite) | **POST** /api/{version}/invite/offer | Invite to Offer
-*OAIInviteApi* | [**offerLocationInvite**](docs/OAIInviteApi.md#offerlocationinvite) | **POST** /api/{version}/invite/offerLocation | Invite to Offer Location
-*OAIInviteApi* | [**retailerLocationInvite**](docs/OAIInviteApi.md#retailerlocationinvite) | **POST** /api/{version}/invite/retailerLocation | Invite to Retailer Location
-*OAILeaderboardApi* | [**createLeaderboard**](docs/OAILeaderboardApi.md#createleaderboard) | **POST** /api/{version}/leaderboard/create | Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-*OAILeaderboardApi* | [**deleteLeaderboard**](docs/OAILeaderboardApi.md#deleteleaderboard) | **POST** /api/{version}/leaderboard/delete | Delete the Leader Board
-*OAILeaderboardApi* | [**getLeaderboard**](docs/OAILeaderboardApi.md#getleaderboard) | **GET** /api/{version}/leaderboard/get | Read a leaderboard by id and retrieve the matching ranking list
-*OAILeaderboardApi* | [**searchLeaderboards**](docs/OAILeaderboardApi.md#searchleaderboards) | **GET** /api/{version}/leaderboard/search | Search leaderboard and retrieve the matching ranking list
-*OAILeaderboardApi* | [**updateLeaderboard**](docs/OAILeaderboardApi.md#updateleaderboard) | **POST** /api/{version}/leaderboard/update | Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-*OAILikeApi* | [**registerLike**](docs/OAILikeApi.md#registerlike) | **POST** /api/{version}/like | Create Like
-*OAILikeApi* | [**removeLike**](docs/OAILikeApi.md#removelike) | **POST** /api/{version}/like/delete | Delete Like
-*OAILikeApi* | [**searchLikes**](docs/OAILikeApi.md#searchlikes) | **GET** /api/{version}/like/search | Search Likes
-*OAIListingApi* | [**createListing**](docs/OAIListingApi.md#createlisting) | **POST** /api/{version}/listing/create | Create Listing
-*OAIListingApi* | [**deleteListing**](docs/OAIListingApi.md#deletelisting) | **POST** /api/{version}/listing/delete | Delete Listing
-*OAIListingApi* | [**getListing**](docs/OAIListingApi.md#getlisting) | **GET** /api/{version}/listing/get | Get Listing
-*OAIListingApi* | [**searchListing**](docs/OAIListingApi.md#searchlisting) | **GET** /api/{version}/listing/search | Search Listings
-*OAIListingApi* | [**summaryListing**](docs/OAIListingApi.md#summarylisting) | **GET** /api/{version}/listing/summary | Summary Listing
-*OAIListingApi* | [**updateListing**](docs/OAIListingApi.md#updatelisting) | **POST** /api/{version}/listing/update | Update Listing
-*OAILocationApi* | [**cacheTrilaterationData**](docs/OAILocationApi.md#cachetrilaterationdata) | **POST** /api/{version}/location/trilaterate/cache | Create Trilateration Data with File
-*OAILocationApi* | [**cacheTrilaterationDataGzip**](docs/OAILocationApi.md#cachetrilaterationdatagzip) | **POST** /api/{version}/location/trilaterate/cache/submit | Create Trilateration Data with Rest
-*OAILocationApi* | [**getLocationByIp**](docs/OAILocationApi.md#getlocationbyip) | **GET** /api/{version}/location/ip | Get Location by IP
-*OAILocationApi* | [**getLocationByTrilateration**](docs/OAILocationApi.md#getlocationbytrilateration) | **GET** /api/{version}/account/location/trilaterate | Get Location by Trilateration
-*OAILocationApi* | [**getLocations**](docs/OAILocationApi.md#getlocations) | **GET** /api/{version}/location/search | Search Regions or Postal Codes
-*OAILocationApiV2Api* | [**createLocationV2**](docs/OAILocationApiV2Api.md#createlocationv2) | **POST** /api/{version}/location | Create new location
-*OAILocationApiV2Api* | [**updateLocationV2**](docs/OAILocationApiV2Api.md#updatelocationv2) | **POST** /api/{version}/location/{id} | Update an existing location
-*OAIMediaApi* | [**createMedia**](docs/OAIMediaApi.md#createmedia) | **POST** /api/{version}/media/create | Create Media
-*OAIMediaApi* | [**deleteMedia**](docs/OAIMediaApi.md#deletemedia) | **POST** /api/{version}/media/delete | Delete Media
-*OAIMediaApi* | [**getMedia**](docs/OAIMediaApi.md#getmedia) | **GET** /api/{version}/media/get | Media Get
-*OAIMediaApi* | [**searchMedia**](docs/OAIMediaApi.md#searchmedia) | **GET** /api/{version}/media/search | Search Media
-*OAIMediaApi* | [**updateMedia**](docs/OAIMediaApi.md#updatemedia) | **POST** /api/{version}/media/update | Update Media
-*OAIMissionApi* | [**createMission**](docs/OAIMissionApi.md#createmission) | **POST** /api/{version}/mission/create | Create Mission
-*OAIMissionApi* | [**deleteMission**](docs/OAIMissionApi.md#deletemission) | **POST** /api/{version}/mission/delete | Delete Mission
-*OAIMissionApi* | [**findMissions**](docs/OAIMissionApi.md#findmissions) | **GET** /api/{version}/mission/find | Find Missions
-*OAIMissionApi* | [**getMission**](docs/OAIMissionApi.md#getmission) | **GET** /api/{version}/mission/get | Get Mission
-*OAIMissionApi* | [**importMission**](docs/OAIMissionApi.md#importmission) | **POST** /api/{version}/mission/import | Import Mission
-*OAIMissionApi* | [**searchMissionFormats**](docs/OAIMissionApi.md#searchmissionformats) | **GET** /api/{version}/mission/format/search | Search Mission Formats
-*OAIMissionApi* | [**searchMissions**](docs/OAIMissionApi.md#searchmissions) | **GET** /api/{version}/mission/search | Search Missions
-*OAIMissionApi* | [**searchMissionsByBillableEntity**](docs/OAIMissionApi.md#searchmissionsbybillableentity) | **GET** /api/{version}/mission/searchByBillableEntity | Search Missions by Billable Entity
-*OAIMissionApi* | [**updateMission**](docs/OAIMissionApi.md#updatemission) | **POST** /api/{version}/mission/update | Update Mission
-*OAIMissionInviteApi* | [**createMissionInvite**](docs/OAIMissionInviteApi.md#createmissioninvite) | **POST** /api/{version}/mission/invite/create | Create Mission Invite
-*OAIMissionInviteApi* | [**deleteMissionInvite**](docs/OAIMissionInviteApi.md#deletemissioninvite) | **POST** /api/{version}/mission/invite/delete | Delete Mission Invite
-*OAIMissionInviteApi* | [**getMissionInvite**](docs/OAIMissionInviteApi.md#getmissioninvite) | **GET** /api/{version}/mission/invite/get | Get Mission Invite
-*OAIMissionInviteApi* | [**searchMissionInvites**](docs/OAIMissionInviteApi.md#searchmissioninvites) | **GET** /api/{version}/mission/invite/search | Search Mission Invites
-*OAIMissionInviteApi* | [**updateMissionInvite**](docs/OAIMissionInviteApi.md#updatemissioninvite) | **POST** /api/{version}/mission/invite/update | Update Mission Invite
-*OAINoteApi* | [**batchOperation**](docs/OAINoteApi.md#batchoperation) | **POST** /api/{version}/note/batch | Batch Note Operation
-*OAINoteApi* | [**createNote**](docs/OAINoteApi.md#createnote) | **POST** /api/{version}/note/create | Create Note
-*OAINoteApi* | [**deleteNote**](docs/OAINoteApi.md#deletenote) | **POST** /api/{version}/note/delete | Delete Note
-*OAINoteApi* | [**getNote**](docs/OAINoteApi.md#getnote) | **POST** /api/{version}/note/get | Get Note
-*OAINoteApi* | [**searchNotes**](docs/OAINoteApi.md#searchnotes) | **POST** /api/{version}/note/search | Search Notes
-*OAINoteApi* | [**updateNote**](docs/OAINoteApi.md#updatenote) | **POST** /api/{version}/note/update | Update Note
-*OAINotificationApi* | [**createNotificationTemplate**](docs/OAINotificationApi.md#createnotificationtemplate) | **POST** /api/{version}/notification/template/create | Create Notification Template
-*OAINotificationApi* | [**createOrUpdateBlockedNotifications**](docs/OAINotificationApi.md#createorupdateblockednotifications) | **POST** /api/{version}/notification/blocked/batch | Create or update blocked notification settings
-*OAINotificationApi* | [**deleteNotificationTemplate**](docs/OAINotificationApi.md#deletenotificationtemplate) | **POST** /api/{version}/notification/template/delete | Delete Notification Template
-*OAINotificationApi* | [**getNotificationTemplate**](docs/OAINotificationApi.md#getnotificationtemplate) | **GET** /api/{version}/notification/template/get | Get Notification Template
-*OAINotificationApi* | [**getNotifications**](docs/OAINotificationApi.md#getnotifications) | **GET** /api/{version}/notification/search | Get Notifications
-*OAINotificationApi* | [**registerNotificationToken**](docs/OAINotificationApi.md#registernotificationtoken) | **POST** /api/{version}/notification/token | Register Notification Token
-*OAINotificationApi* | [**searchBlockedNotifications**](docs/OAINotificationApi.md#searchblockednotifications) | **GET** /api/{version}/notification/blocked/search | Search on the user&#39;s blocked notification settings
-*OAINotificationApi* | [**searchNotificationTemplate**](docs/OAINotificationApi.md#searchnotificationtemplate) | **GET** /api/{version}/notification/template/search | Search Notification Templates
-*OAINotificationApi* | [**searchRecipients**](docs/OAINotificationApi.md#searchrecipients) | **GET** /api/{version}/notification/recipient/search | Search for Recipients
-*OAINotificationApi* | [**searchRecipientsCount**](docs/OAINotificationApi.md#searchrecipientscount) | **GET** /api/{version}/notification/recipient/search/count | Search for Recipients (Counts/Grouped)
-*OAINotificationApi* | [**sendBatchNotifications**](docs/OAINotificationApi.md#sendbatchnotifications) | **POST** /api/{version}/notification/batch | Send Batch Notifications
-*OAINotificationApi* | [**sendCustomNotifications**](docs/OAINotificationApi.md#sendcustomnotifications) | **POST** /api/{version}/notification/custom | Send Custom Notifications
-*OAINotificationApi* | [**updateNotificationTemplate**](docs/OAINotificationApi.md#updatenotificationtemplate) | **POST** /api/{version}/notification/template/update | Update Notification Template
-*OAIObjectStoreApi* | [**addField**](docs/OAIObjectStoreApi.md#addfield) | **POST** /api/{version}/object/field/add | Create Field
-*OAIObjectStoreApi* | [**createData**](docs/OAIObjectStoreApi.md#createdata) | **POST** /api/{version}/object/data/{objectName} | Create Data
-*OAIObjectStoreApi* | [**createObject**](docs/OAIObjectStoreApi.md#createobject) | **POST** /api/{version}/object/create | Create Object
-*OAIObjectStoreApi* | [**deleteData**](docs/OAIObjectStoreApi.md#deletedata) | **DELETE** /api/{version}/object/data/{objectName}/{objectId} | Delete Data
-*OAIObjectStoreApi* | [**deleteField**](docs/OAIObjectStoreApi.md#deletefield) | **POST** /api/{version}/object/field/delete | Delete Field
-*OAIObjectStoreApi* | [**deleteObject**](docs/OAIObjectStoreApi.md#deleteobject) | **POST** /api/{version}/object/delete | Delete Object
-*OAIObjectStoreApi* | [**getData**](docs/OAIObjectStoreApi.md#getdata) | **GET** /api/{version}/object/data/{objectName}/{objectId} | Get Data
-*OAIObjectStoreApi* | [**getObject**](docs/OAIObjectStoreApi.md#getobject) | **GET** /api/{version}/object/get | Get Object
-*OAIObjectStoreApi* | [**searchData**](docs/OAIObjectStoreApi.md#searchdata) | **GET** /api/{version}/object/data/{objectName} | Search Data
-*OAIObjectStoreApi* | [**searchObject**](docs/OAIObjectStoreApi.md#searchobject) | **GET** /api/{version}/object/search | Search Objects
-*OAIObjectStoreApi* | [**updateData**](docs/OAIObjectStoreApi.md#updatedata) | **PUT** /api/{version}/object/data/{objectName}/{objectId} | Update Data
-*OAIOfferApi* | [**batchUpdateOfferLocations**](docs/OAIOfferApi.md#batchupdateofferlocations) | **POST** /api/{version}/retailer/offer/location/batchUpdate | Update Offer Locations
-*OAIOfferApi* | [**createOffer**](docs/OAIOfferApi.md#createoffer) | **POST** /api/{version}/retailer/offer/create | Create Offer
-*OAIOfferApi* | [**deleteOffer**](docs/OAIOfferApi.md#deleteoffer) | **POST** /api/{version}/retailer/offer/delete | Delete Offer
-*OAIOfferApi* | [**deleteOfferLocation**](docs/OAIOfferApi.md#deleteofferlocation) | **POST** /api/{version}/retailer/offer/location/delete | Delete Offer Location
-*OAIOfferApi* | [**getOffer**](docs/OAIOfferApi.md#getoffer) | **GET** /api/{version}/retailer/offer/get | Get Offer
-*OAIOfferApi* | [**getOfferDetails**](docs/OAIOfferApi.md#getofferdetails) | **GET** /api/{version}/offer/get | Get Offer
-*OAIOfferApi* | [**getOfferListCounts**](docs/OAIOfferApi.md#getofferlistcounts) | **GET** /api/{version}/offer/lists/count | Get Offers (Counts)
-*OAIOfferApi* | [**getOfferLocation**](docs/OAIOfferApi.md#getofferlocation) | **GET** /api/{version}/offer/location/get | Get Offer Location
-*OAIOfferApi* | [**getOfferLocationsForRetailers**](docs/OAIOfferApi.md#getofferlocationsforretailers) | **GET** /api/{version}/retailer/offer/location/search | Search Offer Locations
-*OAIOfferApi* | [**getOffersForRetailers**](docs/OAIOfferApi.md#getoffersforretailers) | **GET** /api/{version}/retailer/offer/search | Search Offers
-*OAIOfferApi* | [**redeemOfferTransaction**](docs/OAIOfferApi.md#redeemoffertransaction) | **POST** /api/{version}/retailer/offer/transaction/update | Update Offer Transaction
-*OAIOfferApi* | [**searchOfferTransactionsForRetailers**](docs/OAIOfferApi.md#searchoffertransactionsforretailers) | **GET** /api/{version}/retailer/offer/transaction/search | Search Offer Transactions
-*OAIOfferApi* | [**searchOffersForConsumer**](docs/OAIOfferApi.md#searchoffersforconsumer) | **GET** /api/{version}/offer/lists | Search Offers
-*OAIOfferApi* | [**topOfferTransactions**](docs/OAIOfferApi.md#topoffertransactions) | **GET** /api/{version}/offer/top | Get Offers (Top)
-*OAIOfferApi* | [**updateOffer**](docs/OAIOfferApi.md#updateoffer) | **POST** /api/{version}/retailer/offer/update | Update Offer
-*OAIOfferApi* | [**updateOfferStatus**](docs/OAIOfferApi.md#updateofferstatus) | **POST** /api/{version}/retailer/offer/status | Activate Offer
-*OAIOfferStatusApi* | [**createOfferTransactionStatus**](docs/OAIOfferStatusApi.md#createoffertransactionstatus) | **POST** /api/{version}/offer/status/create | Create Offer Status
-*OAIOfferStatusApi* | [**deleteOfferTransactionStatus**](docs/OAIOfferStatusApi.md#deleteoffertransactionstatus) | **POST** /api/{version}/offer/status/delete | Delete Offer Status
-*OAIOfferStatusApi* | [**getOfferTransactionStatus**](docs/OAIOfferStatusApi.md#getoffertransactionstatus) | **GET** /api/{version}/offer/status/get | Get Offer Status
-*OAIOfferStatusApi* | [**searchOfferTransactionStatuses**](docs/OAIOfferStatusApi.md#searchoffertransactionstatuses) | **GET** /api/{version}/offer/status/search | Search Offer Status
-*OAIOfferStatusApi* | [**updateOfferTransactionStatus**](docs/OAIOfferStatusApi.md#updateoffertransactionstatus) | **POST** /api/{version}/offer/status/update | Update Offer Status
-*OAIOpenAIApi* | [**imageGeneration**](docs/OAIOpenAIApi.md#imagegeneration) | **POST** /api/{version}/openai/v1/images/generations | Generate images with OpenAI
-*OAIOptimizeApi* | [**getOptimizationResult**](docs/OAIOptimizeApi.md#getoptimizationresult) | **GET** /api/{version}/optimize/result/{batchID} | Get Optimization Result
-*OAIOptimizeApi* | [**requestOptimization**](docs/OAIOptimizeApi.md#requestoptimization) | **POST** /api/{version}/optimize/request | Request Optimization
-*OAIOrsonApi* | [**addMovie**](docs/OAIOrsonApi.md#addmovie) | **POST** /api/{version}/orson/ai/addMovie | Add Movie
-*OAIOrsonApi* | [**aiDocs**](docs/OAIOrsonApi.md#aidocs) | **GET** /api/{version}/orson/ai/docs | Search Docs
-*OAIOrsonApi* | [**aiFindImages**](docs/OAIOrsonApi.md#aifindimages) | **GET** /api/{version}/orson/ai/img | Find images
-*OAIOrsonApi* | [**aiTags**](docs/OAIOrsonApi.md#aitags) | **GET** /api/{version}/orson/ai/tags | Search Tags
-*OAIOrsonApi* | [**aiText**](docs/OAIOrsonApi.md#aitext) | **GET** /api/{version}/orson/ai/text | Search Text
-*OAIOrsonApi* | [**batch**](docs/OAIOrsonApi.md#batch) | **POST** /api/{version}/orson/ai/batch | Batch Analysis
-*OAIOrsonApi* | [**createInstantEpisode**](docs/OAIOrsonApi.md#createinstantepisode) | **POST** /api/{version}/orson/stories/episodes/instant | Creates an instant episode
-*OAIOrsonApi* | [**createVoiceCanvas**](docs/OAIOrsonApi.md#createvoicecanvas) | **POST** /api/{version}/orson/ai/voiceCanvas | Create VoiceCanvas images
-*OAIOrsonApi* | [**emotion**](docs/OAIOrsonApi.md#emotion) | **POST** /api/{version}/orson/ai/emotion | Detect emotions
-*OAIOrsonApi* | [**getAddMovieResult**](docs/OAIOrsonApi.md#getaddmovieresult) | **GET** /api/{version}/orson/ai/addMovie/{requestId} | Get Add Movie Result
-*OAIOrsonApi* | [**getBatch**](docs/OAIOrsonApi.md#getbatch) | **GET** /api/{version}/orson/ai/batch/{requestId} | Get Batch Analysis Results
-*OAIOrsonApi* | [**getEmotion**](docs/OAIOrsonApi.md#getemotion) | **GET** /api/{version}/orson/ai/emotion/{requestId} | Get Emotion Results
-*OAIOrsonApi* | [**getEpisodeStatus**](docs/OAIOrsonApi.md#getepisodestatus) | **GET** /api/{version}/orson/stories/episodes/{episodeId}/status | Check episode status
-*OAIOrsonApi* | [**getRenderStatus**](docs/OAIOrsonApi.md#getrenderstatus) | **GET** /api/{version}/orson/stories/renders/{renderId}/status | Check episode status
-*OAIOrsonApi* | [**getSTT**](docs/OAIOrsonApi.md#getstt) | **GET** /api/{version}/orson/ai/stt/{requestId} | Get Speach to Text Result
-*OAIOrsonApi* | [**getTTS**](docs/OAIOrsonApi.md#gettts) | **GET** /api/{version}/orson/ai/tts/{requestId} | Get Text to Speach Result
-*OAIOrsonApi* | [**getTechTune**](docs/OAIOrsonApi.md#gettechtune) | **GET** /api/{version}/orson/ai/techTune/{requestId} | Get TechTune Results
-*OAIOrsonApi* | [**getTopics**](docs/OAIOrsonApi.md#gettopics) | **GET** /api/{version}/orson/ai/topics/{requestId} | Get Topics
-*OAIOrsonApi* | [**getVoiceCanvas**](docs/OAIOrsonApi.md#getvoicecanvas) | **GET** /api/{version}/orson/ai/voiceCanvas/{requestId} | Get VoiceCanvas images
-*OAIOrsonApi* | [**startVideoRender**](docs/OAIOrsonApi.md#startvideorender) | **POST** /api/{version}/orson/stories/renders | Starts a StoryStitch video render
-*OAIOrsonApi* | [**stt**](docs/OAIOrsonApi.md#stt) | **POST** /api/{version}/orson/ai/stt | Speach to Text
-*OAIOrsonApi* | [**summarizeTopics**](docs/OAIOrsonApi.md#summarizetopics) | **POST** /api/{version}/orson/ai/topics | Summarize Topics
-*OAIOrsonApi* | [**techTune**](docs/OAIOrsonApi.md#techtune) | **POST** /api/{version}/orson/ai/techTune | Detect Technical Issues
-*OAIOrsonApi* | [**tts**](docs/OAIOrsonApi.md#tts) | **POST** /api/{version}/orson/ai/tts | Text to Speach
-*OAIPackApi* | [**createPack**](docs/OAIPackApi.md#createpack) | **POST** /api/{version}/pack/create | Create Pack
-*OAIPackApi* | [**deletePack**](docs/OAIPackApi.md#deletepack) | **POST** /api/{version}/pack/delete | Delete Pack
-*OAIPackApi* | [**getPack**](docs/OAIPackApi.md#getpack) | **GET** /api/{version}/pack/get | Get Pack
-*OAIPackApi* | [**searchPacks**](docs/OAIPackApi.md#searchpacks) | **GET** /api/{version}/pack/search | Search Packs
-*OAIPackApi* | [**updatePack**](docs/OAIPackApi.md#updatepack) | **POST** /api/{version}/pack/update | Update Pack
-*OAIParticipantsApi* | [**processAllParticipants**](docs/OAIParticipantsApi.md#processallparticipants) | **POST** /api/{version}/participant/process/all | Process All Participant Feeds
-*OAIParticipantsApi* | [**processParticipants**](docs/OAIParticipantsApi.md#processparticipants) | **POST** /api/{version}/participant/process | Process Participants Feed
-*OAIPathingApi* | [**computePath**](docs/OAIPathingApi.md#computepath) | **GET** /api/{version}/pathing/compute | Calculate Path
-*OAIPostalCodeApi* | [**createPostalCode**](docs/OAIPostalCodeApi.md#createpostalcode) | **POST** /api/{version}/postalCode/create | Create Postal Code
-*OAIPostalCodeApi* | [**deletePostalCode**](docs/OAIPostalCodeApi.md#deletepostalcode) | **POST** /api/{version}/postalCode/delete | Delete Postal Code
-*OAIPostalCodeApi* | [**getPostalCode**](docs/OAIPostalCodeApi.md#getpostalcode) | **GET** /api/{version}/postalCode/get | Get Postal Code
-*OAIPostalCodeApi* | [**getPostalCodes**](docs/OAIPostalCodeApi.md#getpostalcodes) | **GET** /api/{version}/postalCode/search | Search Postal Codes
-*OAIPostalCodeApi* | [**updatePostalCode**](docs/OAIPostalCodeApi.md#updatepostalcode) | **POST** /api/{version}/postalCode/update | Update Postal Code
-*OAIPreviewPersonaApi* | [**createPersona**](docs/OAIPreviewPersonaApi.md#createpersona) | **POST** /api/{version}/persona/create | Create Persona
-*OAIPreviewPersonaApi* | [**deletePersona**](docs/OAIPreviewPersonaApi.md#deletepersona) | **POST** /api/{version}/persona/delete | Delete Persona
-*OAIPreviewPersonaApi* | [**getPersonaList**](docs/OAIPreviewPersonaApi.md#getpersonalist) | **GET** /api/{version}/persona/get | Get Persona
-*OAIPreviewPersonaApi* | [**searchPersona**](docs/OAIPreviewPersonaApi.md#searchpersona) | **GET** /api/{version}/persona/search | Search Personas
-*OAIPreviewPersonaApi* | [**updatePersona**](docs/OAIPreviewPersonaApi.md#updatepersona) | **POST** /api/{version}/persona/update | Update Persona
-*OAIProgramApi* | [**createProgram**](docs/OAIProgramApi.md#createprogram) | **POST** /api/{version}/program | Create Program
-*OAIProgramApi* | [**deleteProgram**](docs/OAIProgramApi.md#deleteprogram) | **DELETE** /api/{version}/program/{id} | Delete Program
-*OAIProgramApi* | [**getProgram**](docs/OAIProgramApi.md#getprogram) | **GET** /api/{version}/program/{id} | Get Program
-*OAIProgramApi* | [**postProgram**](docs/OAIProgramApi.md#postprogram) | **POST** /api/{version}/program/{id} | Update Program
-*OAIProgramApi* | [**putProgram**](docs/OAIProgramApi.md#putprogram) | **PUT** /api/{version}/program/{id} | Update Program
-*OAIProgramApi* | [**searchPrograms**](docs/OAIProgramApi.md#searchprograms) | **GET** /api/{version}/program | Search Programs
-*OAIPurchaseItemApi* | [**createPurchaseItem**](docs/OAIPurchaseItemApi.md#createpurchaseitem) | **POST** /api/{version}/purchase/create | Create Purchase
-*OAIPurchaseItemApi* | [**deletePurchaseItem**](docs/OAIPurchaseItemApi.md#deletepurchaseitem) | **POST** /api/{version}/purchase/delete | Delete Purchase
-*OAIPurchaseItemApi* | [**getPurchaseItem**](docs/OAIPurchaseItemApi.md#getpurchaseitem) | **GET** /api/{version}/purchase/get | Get Purchase
-*OAIPurchaseItemApi* | [**searchPurchaseItems**](docs/OAIPurchaseItemApi.md#searchpurchaseitems) | **GET** /api/{version}/purchase/search | Search Purchases
-*OAIPurchaseItemApi* | [**updatePurchaseItem**](docs/OAIPurchaseItemApi.md#updatepurchaseitem) | **POST** /api/{version}/purchase/update | Update Purchase
-*OAIPurchaseOrderApi* | [**createOrder**](docs/OAIPurchaseOrderApi.md#createorder) | **POST** /api/{version}/order/create | Create Order
-*OAIPurchaseOrderApi* | [**deleteOrder**](docs/OAIPurchaseOrderApi.md#deleteorder) | **POST** /api/{version}/order/delete | Delete Order
-*OAIPurchaseOrderApi* | [**getOrder**](docs/OAIPurchaseOrderApi.md#getorder) | **GET** /api/{version}/order/get | Get Order
-*OAIPurchaseOrderApi* | [**previewOrder**](docs/OAIPurchaseOrderApi.md#previeworder) | **POST** /api/{version}/order/preview | Preview Order
-*OAIPurchaseOrderApi* | [**searchOrders**](docs/OAIPurchaseOrderApi.md#searchorders) | **GET** /api/{version}/order/search | Search Orders
-*OAIPurchaseOrderApi* | [**updateOrder**](docs/OAIPurchaseOrderApi.md#updateorder) | **POST** /api/{version}/order/update | Update Order
-*OAIQuestionApi* | [**createQuestion**](docs/OAIQuestionApi.md#createquestion) | **POST** /api/{version}/game/question/create | Create Question
-*OAIQuestionApi* | [**deleteQuestion**](docs/OAIQuestionApi.md#deletequestion) | **POST** /api/{version}/game/question/delete | Delete Question
-*OAIQuestionApi* | [**getQuestion**](docs/OAIQuestionApi.md#getquestion) | **GET** /api/{version}/game/question/get | Get Question
-*OAIQuestionApi* | [**searchQuestions**](docs/OAIQuestionApi.md#searchquestions) | **GET** /api/{version}/game/question/search | Search Questions
-*OAIQuestionApi* | [**updateQuestion**](docs/OAIQuestionApi.md#updatequestion) | **POST** /api/{version}/game/question/update | Update Question
-*OAIRankingApi* | [**getHistoricalRankings**](docs/OAIRankingApi.md#gethistoricalrankings) | **GET** /api/{version}/ranking/historical/search | Search Historical Rankings
-*OAIRankingApi* | [**getRankings**](docs/OAIRankingApi.md#getrankings) | **GET** /api/{version}/ranking/search | Search Rankings
-*OAIRankingApi* | [**getUserRank**](docs/OAIRankingApi.md#getuserrank) | **POST** /api/{version}/ranking/personal/ranks | Get Personal Rankings
-*OAIRankingApi* | [**overrideUserRank**](docs/OAIRankingApi.md#overrideuserrank) | **POST** /api/{version}/ranking/override | Override User Rank
-*OAIRankingApi* | [**updateRankings**](docs/OAIRankingApi.md#updaterankings) | **POST** /api/{version}/ranking/update | Update Ranking
-*OAIRatingApi* | [**createRating**](docs/OAIRatingApi.md#createrating) | **POST** /api/{version}/rating/create | Create Rating
-*OAIRatingApi* | [**deleteRating**](docs/OAIRatingApi.md#deleterating) | **POST** /api/{version}/rating/delete | Delete Rating
-*OAIRatingApi* | [**searchLocationRatingIndexes**](docs/OAIRatingApi.md#searchlocationratingindexes) | **GET** /api/{version}/location/rating/index/search | Search Location Rating Indexes
-*OAIRatingApi* | [**searchRatingIndexes**](docs/OAIRatingApi.md#searchratingindexes) | **GET** /api/{version}/rating/index/search | Search Rating Indexes
-*OAIRatingApi* | [**searchRatings**](docs/OAIRatingApi.md#searchratings) | **GET** /api/{version}/rating/search | Search Ratings
-*OAIRatingApi* | [**updateRating**](docs/OAIRatingApi.md#updaterating) | **POST** /api/{version}/rating/update | Update Rating
-*OAIRegionApi* | [**createRegion**](docs/OAIRegionApi.md#createregion) | **POST** /api/{version}/region/create | Create Region
-*OAIRegionApi* | [**deleteRegion**](docs/OAIRegionApi.md#deleteregion) | **POST** /api/{version}/region/delete | Delete Region
-*OAIRegionApi* | [**getRegion**](docs/OAIRegionApi.md#getregion) | **GET** /api/{version}/region/get | Get Region
-*OAIRegionApi* | [**searchRegions**](docs/OAIRegionApi.md#searchregions) | **GET** /api/{version}/region/search | Search Regions
-*OAIRegionApi* | [**updateRegion**](docs/OAIRegionApi.md#updateregion) | **POST** /api/{version}/region/update | Update Region
-*OAIReportingApi* | [**createBatch**](docs/OAIReportingApi.md#createbatch) | **POST** /api/{version}/report/batch/create | Create Offline Report
-*OAIReportingApi* | [**createRegionLegSummaryBatch**](docs/OAIReportingApi.md#createregionlegsummarybatch) | **POST** /api/{version}/report/region/summary/batch | Create Offline Report
-*OAIReportingApi* | [**deleteBatch**](docs/OAIReportingApi.md#deletebatch) | **POST** /api/{version}/report/batch/delete | Delete Offline Report
-*OAIReportingApi* | [**getReportBatch**](docs/OAIReportingApi.md#getreportbatch) | **GET** /api/{version}/report/batch/get | Get Offline Report
-*OAIReportingApi* | [**runReport**](docs/OAIReportingApi.md#runreport) | **POST** /api/{version}/report/run | Run Report
-*OAIReportingApi* | [**searchBatch**](docs/OAIReportingApi.md#searchbatch) | **GET** /api/{version}/report/batch/search | Search Offline Reports
-*OAIReservationApi* | [**createReservation**](docs/OAIReservationApi.md#createreservation) | **POST** /api/{version}/reservation/create | Create Reservation
-*OAIReservationApi* | [**deleteReservation**](docs/OAIReservationApi.md#deletereservation) | **POST** /api/{version}/reservation/delete | Delete Reservation
-*OAIReservationApi* | [**reservableAvailability**](docs/OAIReservationApi.md#reservableavailability) | **POST** /api/{version}/reservable/availability/update | Update Availability
-*OAIReservationApi* | [**searchAvailability**](docs/OAIReservationApi.md#searchavailability) | **GET** /api/{version}/reservable/availability/search | Search Availability
-*OAIReservationApi* | [**searchReservations**](docs/OAIReservationApi.md#searchreservations) | **GET** /api/{version}/reservation/search | Search Reservations
-*OAIReservationApi* | [**searchSchedule**](docs/OAIReservationApi.md#searchschedule) | **GET** /api/{version}/reservable/schedule/search | Search Schedule
-*OAIRetailerApi* | [**createRetailer**](docs/OAIRetailerApi.md#createretailer) | **POST** /api/{version}/retailer/create | Create Retailer
-*OAIRetailerApi* | [**deleteRetailer**](docs/OAIRetailerApi.md#deleteretailer) | **POST** /api/{version}/retailer/delete | Delete Retailer
-*OAIRetailerApi* | [**getRetailer**](docs/OAIRetailerApi.md#getretailer) | **GET** /api/{version}/retailer/get | Get Retailer
-*OAIRetailerApi* | [**getRetailers**](docs/OAIRetailerApi.md#getretailers) | **GET** /api/{version}/retailer/search | Search Retailers
-*OAIRetailerApi* | [**retailerLoginCheck**](docs/OAIRetailerApi.md#retailerlogincheck) | **POST** /api/{version}/retailer/login | Login Retailer
-*OAIRetailerApi* | [**updateRetailer**](docs/OAIRetailerApi.md#updateretailer) | **POST** /api/{version}/retailer/update | Update Retailer
-*OAIRetailerLocationApi* | [**createRetailerLocationConsumer**](docs/OAIRetailerLocationApi.md#createretailerlocationconsumer) | **POST** /api/{version}/location/create | Create Retailer Location (Consumer)
-*OAIRetailerLocationApi* | [**createRetailerLocations**](docs/OAIRetailerLocationApi.md#createretailerlocations) | **POST** /api/{version}/retailer/location/create | Create Retailer Location
-*OAIRetailerLocationApi* | [**deleteRetailerLocation**](docs/OAIRetailerLocationApi.md#deleteretailerlocation) | **POST** /api/{version}/retailer/location/delete | Delete Retailer Location
-*OAIRetailerLocationApi* | [**getRetailerLocation**](docs/OAIRetailerLocationApi.md#getretailerlocation) | **GET** /api/{version}/retailer/location/get | Get Retailer Location
-*OAIRetailerLocationApi* | [**getRetailerLocationConsumer**](docs/OAIRetailerLocationApi.md#getretailerlocationconsumer) | **GET** /api/{version}/location/get | Get Retailer Location (Consumer)
-*OAIRetailerLocationApi* | [**indexedRetailerLocationDistanceSearch**](docs/OAIRetailerLocationApi.md#indexedretailerlocationdistancesearch) | **GET** /api/{version}/retailer/location/idistancesearch | Distance Search Retailer Locations (Indexed)
-*OAIRetailerLocationApi* | [**indexedRetailerLocationSearch**](docs/OAIRetailerLocationApi.md#indexedretailerlocationsearch) | **GET** /api/{version}/retailer/location/isearch | Keyword Search Retailer Locations (Indexed)
-*OAIRetailerLocationApi* | [**searchRetailerLocations**](docs/OAIRetailerLocationApi.md#searchretailerlocations) | **GET** /api/{version}/retailer/location/search | Search Retailer Locations (Owned)
-*OAIRetailerLocationApi* | [**updateRetailerLocations**](docs/OAIRetailerLocationApi.md#updateretailerlocations) | **POST** /api/{version}/retailer/location/update | Update Retailer Location
-*OAIRetailerV2Api* | [**getRetaokiler**](docs/OAIRetailerV2Api.md#getretaokiler) | **GET** /api/{version}/retailer | Get Retailer
-*OAIRouteApi* | [**approveRoute**](docs/OAIRouteApi.md#approveroute) | **POST** /api/{version}/route/{routeId}/approve | Approve Route
-*OAIRouteApi* | [**copyRoute**](docs/OAIRouteApi.md#copyroute) | **POST** /api/{version}/route/{routeId}/copy | Copy Route
-*OAIRouteApi* | [**createRoute**](docs/OAIRouteApi.md#createroute) | **POST** /api/{version}/route | Create Route
-*OAIRouteApi* | [**createRouteDirections**](docs/OAIRouteApi.md#createroutedirections) | **PUT** /api/{version}/route/{routeId}/directions | Update Route Directions
-*OAIRouteApi* | [**createRoutePolyline**](docs/OAIRouteApi.md#createroutepolyline) | **PUT** /api/{version}/route/{routeId}/polyline | Create Route Polyline
-*OAIRouteApi* | [**deleteRoute**](docs/OAIRouteApi.md#deleteroute) | **DELETE** /api/{version}/route/{routeId} | Delete Route
-*OAIRouteApi* | [**disapproveRoute**](docs/OAIRouteApi.md#disapproveroute) | **POST** /api/{version}/route/{routeId}/disapprove | Disapprove Route
-*OAIRouteApi* | [**getRoute**](docs/OAIRouteApi.md#getroute) | **GET** /api/{version}/route/{routeId} | Get Route
-*OAIRouteApi* | [**getRouteDirections**](docs/OAIRouteApi.md#getroutedirections) | **GET** /api/{version}/route/{routeId}/directions | Get Route Directions
-*OAIRouteApi* | [**getRouteShipments**](docs/OAIRouteApi.md#getrouteshipments) | **GET** /api/{version}/route/{routeId}/shipments | Get Route Shipments
-*OAIRouteApi* | [**getRouteStop**](docs/OAIRouteApi.md#getroutestop) | **GET** /api/{version}/route/{routeId}/stop/{stopId} | Get Route Stop
-*OAIRouteApi* | [**getRouteStops**](docs/OAIRouteApi.md#getroutestops) | **GET** /api/{version}/route/{routeId}/stops | Get Route Stops
-*OAIRouteApi* | [**getShipmentsAtStop**](docs/OAIRouteApi.md#getshipmentsatstop) | **GET** /api/{version}/route/{routeId}/stop/{stopId}/shipments | Get Shipments At Stop
-*OAIRouteApi* | [**optimizeRoute**](docs/OAIRouteApi.md#optimizeroute) | **POST** /api/{version}/route/{routeId}/optimize | Optimize Route
-*OAIRouteApi* | [**removeStop**](docs/OAIRouteApi.md#removestop) | **DELETE** /api/{version}/route/{routeId}/stop/{stopId} | Delete Stop
-*OAIRouteApi* | [**reorderRouteStopsPatch**](docs/OAIRouteApi.md#reorderroutestopspatch) | **PATCH** /api/{version}/route/{routeId}/stops/reorder | Reorder Route Stops
-*OAIRouteApi* | [**reorderRouteStopsPost**](docs/OAIRouteApi.md#reorderroutestopspost) | **POST** /api/{version}/route/{routeId}/stops/reorder | Reorder Route Stops
-*OAIRouteApi* | [**searchRoutes**](docs/OAIRouteApi.md#searchroutes) | **GET** /api/{version}/route | Search Routes
-*OAIRouteApi* | [**setDriver**](docs/OAIRouteApi.md#setdriver) | **POST** /api/{version}/route/{id}/driver/{driverId} | Set Driver
-*OAIRouteApi* | [**updateRoute**](docs/OAIRouteApi.md#updateroute) | **PUT** /api/{version}/route/{routeId} | Update Route
-*OAIRouteApi* | [**updateRouteStop**](docs/OAIRouteApi.md#updateroutestop) | **PUT** /api/{version}/route/{routeId}/stop/{stopId} | Update Route Stop
-*OAIRouteSettingApi* | [**createRouteSettings**](docs/OAIRouteSettingApi.md#createroutesettings) | **POST** /api/{version}/route/setting | Create Route Setting
-*OAIRouteSettingApi* | [**deleteRouteSettings**](docs/OAIRouteSettingApi.md#deleteroutesettings) | **DELETE** /api/{version}/route/setting/{routeSettingsId} | Delete Route Setting
-*OAIRouteSettingApi* | [**getRouteSettings**](docs/OAIRouteSettingApi.md#getroutesettings) | **GET** /api/{version}/route/setting/{routeSettingsId} | Get Route Setting
-*OAIRouteSettingApi* | [**searchRouteSettings**](docs/OAIRouteSettingApi.md#searchroutesettings) | **GET** /api/{version}/route/setting | Search Route Settings
-*OAIRouteSettingApi* | [**updateRouteSettings**](docs/OAIRouteSettingApi.md#updateroutesettings) | **PUT** /api/{version}/route/setting/{routeSettingsId} | Update Route Setting
-*OAIRoutingApi* | [**computeRouting**](docs/OAIRoutingApi.md#computerouting) | **POST** /api/{version}/routing/compute | Compute Route
-*OAIScheduledNotificationApi* | [**createScheduledNotification**](docs/OAIScheduledNotificationApi.md#createschedulednotification) | **POST** /api/{version}/notification/schedule/create | Create Scheduled Notification
-*OAIScheduledNotificationApi* | [**deleteScheduledNotification**](docs/OAIScheduledNotificationApi.md#deleteschedulednotification) | **POST** /api/{version}/notification/schedule/delete | Delete Scheduled Notification
-*OAIScheduledNotificationApi* | [**getScheduledNotification**](docs/OAIScheduledNotificationApi.md#getschedulednotification) | **GET** /api/{version}/notification/schedule/get | Get Scheduled Notification
-*OAIScheduledNotificationApi* | [**scheduleNotificationListings**](docs/OAIScheduledNotificationApi.md#schedulenotificationlistings) | **POST** /api/{version}/notification/schedule/generate | Generate Schedule Notifications
-*OAIScheduledNotificationApi* | [**searchScheduledNotifications**](docs/OAIScheduledNotificationApi.md#searchschedulednotifications) | **GET** /api/{version}/notification/schedule/search | Search Scheduled Notifications
-*OAIScheduledNotificationApi* | [**updateScheduledNotification**](docs/OAIScheduledNotificationApi.md#updateschedulednotification) | **POST** /api/{version}/notification/schedule/update | Update Scheduled Notification
-*OAIScoreApi* | [**createScore**](docs/OAIScoreApi.md#createscore) | **POST** /api/{version}/score/create | Create Score
-*OAIScoreApi* | [**getScore**](docs/OAIScoreApi.md#getscore) | **GET** /api/{version}/score/get | Get Score
-*OAIScoreApi* | [**searchScores**](docs/OAIScoreApi.md#searchscores) | **GET** /api/{version}/score/search | Search Score
-*OAISecureAppApi* | [**createSecureApplication**](docs/OAISecureAppApi.md#createsecureapplication) | **POST** /api/{version}/secure/application/create | Create Secure Application
-*OAISecureAppApi* | [**deleteSecureApplication**](docs/OAISecureAppApi.md#deletesecureapplication) | **POST** /api/{version}/secure/application/delete | Delete Secure Application
-*OAISecureAppApi* | [**loginSecure**](docs/OAISecureAppApi.md#loginsecure) | **POST** /api/{version}/secure/login | Login Clear
-*OAISecureAppApi* | [**purchaseSecure**](docs/OAISecureAppApi.md#purchasesecure) | **POST** /api/{version}/secure/purchase | Purchase Clear
-*OAISecureAppApi* | [**resetSecure**](docs/OAISecureAppApi.md#resetsecure) | **POST** /api/{version}/secure/application/reset | Rest Secure Application
-*OAISecureAppApi* | [**updateSecureApplication**](docs/OAISecureAppApi.md#updatesecureapplication) | **POST** /api/{version}/secure/application/update | Update Secure Application
-*OAIServiceHubApi* | [**createServiceHub**](docs/OAIServiceHubApi.md#createservicehub) | **POST** /api/{version}/hub | Create Service Hub
-*OAIServiceHubApi* | [**deleteServiceHub**](docs/OAIServiceHubApi.md#deleteservicehub) | **DELETE** /api/{version}/hub/{id} | Delete Service Hub
-*OAIServiceHubApi* | [**getServiceHub**](docs/OAIServiceHubApi.md#getservicehub) | **GET** /api/{version}/hub/{id} | Get Service Hub
-*OAIServiceHubApi* | [**postServiceHub**](docs/OAIServiceHubApi.md#postservicehub) | **POST** /api/{version}/hub/{id} | Update Service Hub
-*OAIServiceHubApi* | [**putServiceHub**](docs/OAIServiceHubApi.md#putservicehub) | **PUT** /api/{version}/hub/{id} | Update Service Hub
-*OAIServiceHubApi* | [**searchServiceHubs**](docs/OAIServiceHubApi.md#searchservicehubs) | **GET** /api/{version}/hub | Search Service Hubs
-*OAIShipmentApi* | [**cancelShipment**](docs/OAIShipmentApi.md#cancelshipment) | **POST** /api/{version}/shipment/{id}/cancel | Cancel Shipment
-*OAIShipmentApi* | [**createShipment**](docs/OAIShipmentApi.md#createshipment) | **POST** /api/{version}/shipment | Create Shipment
-*OAIShipmentApi* | [**deleteShipment**](docs/OAIShipmentApi.md#deleteshipment) | **DELETE** /api/{version}/shipment/{id} | Delete Shipment
-*OAIShipmentApi* | [**getShipment**](docs/OAIShipmentApi.md#getshipment) | **GET** /api/{version}/shipment/{id} | Get Shipment
-*OAIShipmentApi* | [**searchShipments**](docs/OAIShipmentApi.md#searchshipments) | **GET** /api/{version}/shipment | Search Shipments
-*OAIShipmentApi* | [**updateShipment**](docs/OAIShipmentApi.md#updateshipment) | **PUT** /api/{version}/shipment/{id} | Update Shipment
-*OAIShipmentApi* | [**updateShipmentStatus**](docs/OAIShipmentApi.md#updateshipmentstatus) | **POST** /api/{version}/shipment/{id}/status | Uupdate Shipment Status
-*OAIShipmentBatchApi* | [**createShipmentBatch**](docs/OAIShipmentBatchApi.md#createshipmentbatch) | **POST** /api/{version}/shipment/batch | Create Shipment Batch
-*OAIShipmentBatchApi* | [**deleteShipmentBatch**](docs/OAIShipmentBatchApi.md#deleteshipmentbatch) | **DELETE** /api/{version}/shipment/batch/{batchId} | Delete Shipment Batch
-*OAIShipmentBatchApi* | [**getShipmentBatch**](docs/OAIShipmentBatchApi.md#getshipmentbatch) | **GET** /api/{version}/shipment/batch/{batchId} | Get Shipment Batch
-*OAIShipmentBatchApi* | [**getShipmentBatchStatus**](docs/OAIShipmentBatchApi.md#getshipmentbatchstatus) | **GET** /api/{version}/shipment/batch/{batchId}/status | Get Shipment Batch Status
-*OAIShipmentBatchApi* | [**searchShipmentBatch**](docs/OAIShipmentBatchApi.md#searchshipmentbatch) | **GET** /api/{version}/shipment/batch | Search Shipment Batch
-*OAISimulationApi* | [**simulation**](docs/OAISimulationApi.md#simulation) | **POST** /api/{version}/simulation/routing | Routing Simulation
-*OAIStopApi* | [**getStop**](docs/OAIStopApi.md#getstop) | **GET** /api/{version}/stop/{id} | Get Stop
-*OAIStopApi* | [**updateStop**](docs/OAIStopApi.md#updatestop) | **PUT** /api/{version}/stop/{id} | Update Stop
-*OAIStripeApi* | [**createStripeCheckoutSession**](docs/OAIStripeApi.md#createstripecheckoutsession) | **POST** /api/{version}/stripe/checkout/session/create | Create Stripe Checkout Session
-*OAISubscriptionApi* | [**createSubscription**](docs/OAISubscriptionApi.md#createsubscription) | **POST** /api/{version}/subscription/create | Create Subscription
-*OAISubscriptionApi* | [**deleteSubscription**](docs/OAISubscriptionApi.md#deletesubscription) | **POST** /api/{version}/subscription/delete | Delete Subscription
-*OAISubscriptionApi* | [**getSubscription**](docs/OAISubscriptionApi.md#getsubscription) | **GET** /api/{version}/subscription/get | Get Subscription
-*OAISubscriptionApi* | [**getSubscriptionPlan**](docs/OAISubscriptionApi.md#getsubscriptionplan) | **GET** /api/{version}/subscription/plan/get | Get Subscription Plan
-*OAISubscriptionApi* | [**getSubscriptionPlans**](docs/OAISubscriptionApi.md#getsubscriptionplans) | **GET** /api/{version}/subscription/plan/list | List Subscription Plans
-*OAISubscriptionApi* | [**getSubscriptionUsage**](docs/OAISubscriptionApi.md#getsubscriptionusage) | **GET** /api/{version}/subscription/usage/get | Get Subscription Usage
-*OAISubscriptionApi* | [**updateSubscription**](docs/OAISubscriptionApi.md#updatesubscription) | **POST** /api/{version}/subscription/update | Update Subscription
-*OAITaskApi* | [**createTask**](docs/OAITaskApi.md#createtask) | **POST** /api/{version}/task/create | Create Task
-*OAITaskApi* | [**deleteTask**](docs/OAITaskApi.md#deletetask) | **POST** /api/{version}/task/delete | Delete Task
-*OAITaskApi* | [**getTask**](docs/OAITaskApi.md#gettask) | **GET** /api/{version}/task/get | Get Task
-*OAITaskApi* | [**searchTasks**](docs/OAITaskApi.md#searchtasks) | **GET** /api/{version}/task/search | Search Tasks
-*OAITaskApi* | [**updateTask**](docs/OAITaskApi.md#updatetask) | **POST** /api/{version}/task/update | Update Task
-*OAITerritoryApi* | [**createTerritory**](docs/OAITerritoryApi.md#createterritory) | **POST** /api/{version}/territory/create | Create Territory
-*OAITerritoryApi* | [**deleteTerritory**](docs/OAITerritoryApi.md#deleteterritory) | **POST** /api/{version}/territory/delete | Delete Territory
-*OAITerritoryApi* | [**getTerritory**](docs/OAITerritoryApi.md#getterritory) | **GET** /api/{version}/territory/get | Get Territory
-*OAITerritoryApi* | [**searchTerritories**](docs/OAITerritoryApi.md#searchterritories) | **GET** /api/{version}/territory/search | Search Territories
-*OAITerritoryApi* | [**updateTerritory**](docs/OAITerritoryApi.md#updateterritory) | **POST** /api/{version}/territory/update | Update Territory
-*OAIThemeDescriptorApi* | [**addOrUpdateThemeDescriptor**](docs/OAIThemeDescriptorApi.md#addorupdatethemedescriptor) | **POST** /api/{version}/consumer/theme | Create/Update Theme
-*OAIThemeDescriptorApi* | [**getThemeDescriptor**](docs/OAIThemeDescriptorApi.md#getthemedescriptor) | **GET** /api/{version}/consumer/theme/get | Get Theme
-*OAIThemeDescriptorApi* | [**getThemeDescriptors**](docs/OAIThemeDescriptorApi.md#getthemedescriptors) | **GET** /api/{version}/consumer/theme/search | Search Themes
-*OAIThemeDescriptorApi* | [**removeThemeDescriptor**](docs/OAIThemeDescriptorApi.md#removethemedescriptor) | **POST** /api/{version}/consumer/theme/remove | Delete Theme
-*OAIThirdPartyCredentialsApi* | [**createCredential**](docs/OAIThirdPartyCredentialsApi.md#createcredential) | **POST** /api/{version}/thirdparty/credential/create | Create Credential
-*OAIThirdPartyCredentialsApi* | [**createNetwork**](docs/OAIThirdPartyCredentialsApi.md#createnetwork) | **POST** /api/{version}/thirdparty/network/create | Create Network
-*OAIThirdPartyCredentialsApi* | [**deleteCredential**](docs/OAIThirdPartyCredentialsApi.md#deletecredential) | **POST** /api/{version}/thirdparty/credential/delete | Delete Credential
-*OAIThirdPartyCredentialsApi* | [**deleteNetwork**](docs/OAIThirdPartyCredentialsApi.md#deletenetwork) | **POST** /api/{version}/thirdparty/network/delete | Delete Network
-*OAIThirdPartyCredentialsApi* | [**getCredential**](docs/OAIThirdPartyCredentialsApi.md#getcredential) | **POST** /api/{version}/thirdparty/credential/get | Get Credential
-*OAIThirdPartyCredentialsApi* | [**getNetwork**](docs/OAIThirdPartyCredentialsApi.md#getnetwork) | **GET** /api/{version}/thirdparty/network/get | Get Network
-*OAIThirdPartyCredentialsApi* | [**searchCredentials**](docs/OAIThirdPartyCredentialsApi.md#searchcredentials) | **GET** /api/{version}/thirdparty/credential/search | Search Credentials
-*OAIThirdPartyCredentialsApi* | [**searchNetworks**](docs/OAIThirdPartyCredentialsApi.md#searchnetworks) | **GET** /api/{version}/thirdparty/network/search | Search Networks
-*OAIThirdPartyCredentialsApi* | [**sendMFAChallenge**](docs/OAIThirdPartyCredentialsApi.md#sendmfachallenge) | **POST** /api/{version}/thirdparty/credential/mfa/send | Send MFA Challenge
-*OAIThirdPartyCredentialsApi* | [**updateCredential**](docs/OAIThirdPartyCredentialsApi.md#updatecredential) | **POST** /api/{version}/thirdparty/credential/update | Update Credential
-*OAIThirdPartyCredentialsApi* | [**updateNetwork**](docs/OAIThirdPartyCredentialsApi.md#updatenetwork) | **POST** /api/{version}/thirdparty/network/update | Update Network
-*OAITicketApi* | [**getTicketCount**](docs/OAITicketApi.md#getticketcount) | **GET** /api/{version}/ticket/count | Get Ticket Count
-*OAITicketApi* | [**getTicketList**](docs/OAITicketApi.md#getticketlist) | **GET** /api/{version}/ticket/getList | Get Ticket List
-*OAITicketApi* | [**giftPurchase**](docs/OAITicketApi.md#giftpurchase) | **POST** /api/{version}/purchase/gift | Gift Tickets
-*OAITicketApi* | [**saveTicket**](docs/OAITicketApi.md#saveticket) | **POST** /api/{version}/ticket/save | Save Ticket
-*OAITicketApi* | [**saveTicketViaFileUpload**](docs/OAITicketApi.md#saveticketviafileupload) | **POST** /api/{version}/ticket/save/fileUpload | Save Ticket with Reciept
-*OAITicketApi* | [**ticketOffers**](docs/OAITicketApi.md#ticketoffers) | **GET** /api/{version}/ticket/ticketoffers | Get Ticket Offers
-*OAITournamentApi* | [**createTournament**](docs/OAITournamentApi.md#createtournament) | **POST** /api/{version}/tournament/create | Create Tournament
-*OAITournamentApi* | [**deleteTournament**](docs/OAITournamentApi.md#deletetournament) | **POST** /api/{version}/tournament/delete | Delete Tournament
-*OAITournamentApi* | [**getTournament**](docs/OAITournamentApi.md#gettournament) | **GET** /api/{version}/tournament/get | Get Tournament
-*OAITournamentApi* | [**searchObjects**](docs/OAITournamentApi.md#searchobjects) | **GET** /api/{version}/tournament/object/search | Search Tournament Objects
-*OAITournamentApi* | [**searchRounds**](docs/OAITournamentApi.md#searchrounds) | **GET** /api/{version}/tournament/round/search | Search Tournament Rounds
-*OAITournamentApi* | [**searchTournaments**](docs/OAITournamentApi.md#searchtournaments) | **GET** /api/{version}/tournament/search | Search Tournaments
-*OAITournamentApi* | [**submitTournamentScore**](docs/OAITournamentApi.md#submittournamentscore) | **POST** /api/{version}/tournament/score | Submit Tournament Score
-*OAITournamentApi* | [**submitTournamentVote**](docs/OAITournamentApi.md#submittournamentvote) | **POST** /api/{version}/tournament/vote | Submit a vote for a multi-stage album tournament.
-*OAITournamentApi* | [**substituteTournamentPlayer**](docs/OAITournamentApi.md#substitutetournamentplayer) | **POST** /api/{version}/tournament/substitute | Substitute Tournament Player
-*OAITournamentApi* | [**updateTournament**](docs/OAITournamentApi.md#updatetournament) | **POST** /api/{version}/tournament/update | Update Tournament
-*OAITrackingApi* | [**batchSaveTracking**](docs/OAITrackingApi.md#batchsavetracking) | **POST** /api/{version}/tracking/batch/create | Create Batch Tracking
-*OAITrackingApi* | [**getPredictedLocations**](docs/OAITrackingApi.md#getpredictedlocations) | **GET** /api/{version}/tracking/predicted/get | Get Predicted Locations
-*OAITrackingApi* | [**getPredictedPath**](docs/OAITrackingApi.md#getpredictedpath) | **GET** /api/{version}/tracking/path/get | Get Tracking Path
-*OAITrackingApi* | [**getPreferredLocations**](docs/OAITrackingApi.md#getpreferredlocations) | **GET** /api/{version}/tracking/preferred/search | Search Preferred Locations
-*OAITrackingApi* | [**getTrackingLegs**](docs/OAITrackingApi.md#gettrackinglegs) | **GET** /api/{version}/tracking/search | Search Tracking
-*OAITrackingApi* | [**saveTrackingLeg**](docs/OAITrackingApi.md#savetrackingleg) | **POST** /api/{version}/tracking/leg/create | Create Tracking Leg
-*OAITrackingApi* | [**saveTrackingStep**](docs/OAITrackingApi.md#savetrackingstep) | **POST** /api/{version}/tracking/step/create | Create Tracking Step
-*OAITrackingApi* | [**searchAccountsWithTrackingLegs**](docs/OAITrackingApi.md#searchaccountswithtrackinglegs) | **GET** /api/{version}/tracking/list | List Tracking
-*OAITrackingApi* | [**searchTrackingLegs**](docs/OAITrackingApi.md#searchtrackinglegs) | **GET** /api/{version}/tracking/searchByBillable | Search Tracking (Billable)
-*OAITriggerApi* | [**createTrigger**](docs/OAITriggerApi.md#createtrigger) | **POST** /api/{version}/trigger/create | Create Trigger
-*OAITriggerApi* | [**deleteTrigger**](docs/OAITriggerApi.md#deletetrigger) | **POST** /api/{version}/trigger/delete | Delete Trigger
-*OAITriggerApi* | [**getTrigger**](docs/OAITriggerApi.md#gettrigger) | **GET** /api/{version}/trigger/get | Get Trigger
-*OAITriggerApi* | [**searchTriggers**](docs/OAITriggerApi.md#searchtriggers) | **GET** /api/{version}/trigger/search | Search Triggers
-*OAITriggerApi* | [**updateTrigger**](docs/OAITriggerApi.md#updatetrigger) | **POST** /api/{version}/trigger/update | Update Trigger
-*OAITripApi* | [**createTrip**](docs/OAITripApi.md#createtrip) | **POST** /api/{version}/trip | Create Trip
-*OAITripApi* | [**delete**](docs/OAITripApi.md#delete) | **DELETE** /api/{version}/trip/{id} | Delete Trip
-*OAITripApi* | [**driveTrip**](docs/OAITripApi.md#drivetrip) | **POST** /api/{version}/trip/{id}/drive | Set Trip Preference Driver
-*OAITripApi* | [**flexibleTrip**](docs/OAITripApi.md#flexibletrip) | **POST** /api/{version}/trip/{id}/flexible | Set Trip Preference Flexible
-*OAITripApi* | [**getTrip**](docs/OAITripApi.md#gettrip) | **GET** /api/{version}/trip/{id} | Get Trip
-*OAITripApi* | [**getTripMatches**](docs/OAITripApi.md#gettripmatches) | **GET** /api/{version}/trip/{id}/match | Get Trip Matches
-*OAITripApi* | [**processTripMatches**](docs/OAITripApi.md#processtripmatches) | **POST** /api/{version}/trip/match/process | Process Trip Matches
-*OAITripApi* | [**ride**](docs/OAITripApi.md#ride) | **POST** /api/{version}/trip/{id}/ride | Set Trip Preference Rider
-*OAITripApi* | [**search**](docs/OAITripApi.md#search) | **GET** /api/{version}/trip | Search Trips
-*OAITripApi* | [**searchTrips**](docs/OAITripApi.md#searchtrips) | **GET** /api/{version}/trip/match | Search Trips
-*OAITripApi* | [**updateLocations**](docs/OAITripApi.md#updatelocations) | **POST** /api/{version}/trip/{id}/locations | Update Trip Locations
-*OAITripApi* | [**updateRecurrenceLocations**](docs/OAITripApi.md#updaterecurrencelocations) | **POST** /api/{version}/trip/{id}/locations/recurrence | Update Recurrence Locations
-*OAITripApi* | [**updateRecurrenceShipments**](docs/OAITripApi.md#updaterecurrenceshipments) | **POST** /api/{version}/trip/{id}/shipments/recurrence | Update Recurrence Shipments
-*OAITripApi* | [**updateShipments**](docs/OAITripApi.md#updateshipments) | **POST** /api/{version}/trip/{id}/shipments | Update Trip Shipments
-*OAITripApi* | [**updateTrip**](docs/OAITripApi.md#updatetrip) | **PUT** /api/{version}/trip/{id} | Update Trip
-*OAITripApi* | [**updateTripNotifications**](docs/OAITripApi.md#updatetripnotifications) | **POST** /api/{version}/trip/notifications | Trip Notifications
-*OAITwilioApi* | [**smsBuyOffer**](docs/OAITwilioApi.md#smsbuyoffer) | **POST** /api/{version}/sms/buyoffer/{appKey} | Buy Offer by SMS
-*OAITwitterApi* | [**authorizeTwitter**](docs/OAITwitterApi.md#authorizetwitter) | **POST** /api/{version}/twitter/authorize | Authorize Twitter
-*OAITwitterApi* | [**loginTwitter**](docs/OAITwitterApi.md#logintwitter) | **POST** /api/{version}/twitter/login | Login Twitter
-*OAIUserPermissionsApi* | [**addUsersToPermissionable**](docs/OAIUserPermissionsApi.md#adduserstopermissionable) | **POST** /api/{version}/consumer/permissions/add | Add User
-*OAIUserPermissionsApi* | [**approvePermissionable**](docs/OAIUserPermissionsApi.md#approvepermissionable) | **POST** /api/{version}/permissionable/approve | Approve Permissionable
-*OAIUserPermissionsApi* | [**leaveFromPermissionable**](docs/OAIUserPermissionsApi.md#leavefrompermissionable) | **POST** /api/{version}/consumer/permissions/leave | Leave
-*OAIUserPermissionsApi* | [**removeUsersFromPermissionable**](docs/OAIUserPermissionsApi.md#removeusersfrompermissionable) | **POST** /api/{version}/consumer/permissions/remove | Remove User
-*OAIUserPermissionsApi* | [**searchPermissionables**](docs/OAIUserPermissionsApi.md#searchpermissionables) | **GET** /api/{version}/permissions/search | Search Permissionables
-*OAIUserPermissionsApi* | [**searchPermissionablesFollowingDistance**](docs/OAIUserPermissionsApi.md#searchpermissionablesfollowingdistance) | **GET** /api/{version}/permissions/distancesearch | Search Permissionables by Distnace
-*OAIVatomApi* | [**createFollowing**](docs/OAIVatomApi.md#createfollowing) | **POST** /api/{version}/vatom/me/rels/following/create | Create following
-*OAIVatomApi* | [**createSpace**](docs/OAIVatomApi.md#createspace) | **POST** /api/{version}/vatom/b/spaces/create | Create Vatom Space
-*OAIVatomApi* | [**createVatomEvent**](docs/OAIVatomApi.md#createvatomevent) | **POST** /api/{version}/vatom/b/events/create | Create Vatom Event
-*OAIVatomApi* | [**deleteFollowing**](docs/OAIVatomApi.md#deletefollowing) | **POST** /api/{version}/vatom/me/rels/following/delete | Delete following
-*OAIVatomApi* | [**deletePointsBalance**](docs/OAIVatomApi.md#deletepointsbalance) | **POST** /api/{version}/vatom/b/campaign/points/delete | Reset All Points Balance
-*OAIVatomApi* | [**deleteSpace**](docs/OAIVatomApi.md#deletespace) | **POST** /api/{version}/vatom/b/spaces/delete | Delete Vatom Space
-*OAIVatomApi* | [**deleteVatomEvent**](docs/OAIVatomApi.md#deletevatomevent) | **POST** /api/{version}/vatom/b/events/delete | Delete Vatom Event
-*OAIVatomApi* | [**deleteVatomNFT**](docs/OAIVatomApi.md#deletevatomnft) | **POST** /api/{version}/vatom/vatoms/delete | Delete Vatom NFT
-*OAIVatomApi* | [**executeActionOnNFT**](docs/OAIVatomApi.md#executeactiononnft) | **POST** /api/{version}/vatom/vatoms/execute-action | Execute Action on NFT
-*OAIVatomApi* | [**geomapSearch**](docs/OAIVatomApi.md#geomapsearch) | **GET** /api/{version}/vatom/vatoms/geo-map/search | Search Vatom Geo Map
-*OAIVatomApi* | [**getBusinessBehaviors**](docs/OAIVatomApi.md#getbusinessbehaviors) | **GET** /api/{version}/vatom/b/behaviors | Get Vatom Business Behaviors
-*OAIVatomApi* | [**getBusinessCoinsBalance**](docs/OAIVatomApi.md#getbusinesscoinsbalance) | **GET** /api/{version}/vatom/b/coins/get | Get the coins for a Business
-*OAIVatomApi* | [**getBusinessIds**](docs/OAIVatomApi.md#getbusinessids) | **GET** /api/{version}/vatom/me/businesses | Get the user business ids
-*OAIVatomApi* | [**getBusinessInfo**](docs/OAIVatomApi.md#getbusinessinfo) | **GET** /api/{version}/vatom/b/get | Get Vatom Business Info
-*OAIVatomApi* | [**getBusinessUsers**](docs/OAIVatomApi.md#getbusinessusers) | **GET** /api/{version}/vatom/b/users | Get Vatom Business Users
-*OAIVatomApi* | [**getCampaignGroupEntities**](docs/OAIVatomApi.md#getcampaigngroupentities) | **GET** /api/{version}/vatom/b/campaign-groups/entities | Get Campaign Group Entities
-*OAIVatomApi* | [**getCampaignGroupRules**](docs/OAIVatomApi.md#getcampaigngrouprules) | **GET** /api/{version}/vatom/b/campaign-groups/rules | Get Campaign Group Rules
-*OAIVatomApi* | [**getCampaignGroupStats**](docs/OAIVatomApi.md#getcampaigngroupstats) | **GET** /api/{version}/vatom/b/campaign-groups/stats | Get Campaign Group Stats
-*OAIVatomApi* | [**getCampaignInfo**](docs/OAIVatomApi.md#getcampaigninfo) | **GET** /api/{version}/vatom/b/campaign-groups/get | Get Campaign Info
-*OAIVatomApi* | [**getEventGuestList**](docs/OAIVatomApi.md#geteventguestlist) | **GET** /api/{version}/vatom/b/events/guests/get | Get Vatom Event Guest List
-*OAIVatomApi* | [**getInventory**](docs/OAIVatomApi.md#getinventory) | **GET** /api/{version}/vatom/me/inventory | Get Vatom User&#39;s Inventory
-*OAIVatomApi* | [**getMyFollowing**](docs/OAIVatomApi.md#getmyfollowing) | **GET** /api/{version}/vatom/me/rels/following | Get following
-*OAIVatomApi* | [**getPointsBalance**](docs/OAIVatomApi.md#getpointsbalance) | **GET** /api/{version}/vatom/u/campaign/points/get | Get Points Balance
-*OAIVatomApi* | [**getPointsBalanceAsBusiness**](docs/OAIVatomApi.md#getpointsbalanceasbusiness) | **GET** /api/{version}/vatom/b/campaign/u/points/get | Get Points Balance as Business
-*OAIVatomApi* | [**getSpace**](docs/OAIVatomApi.md#getspace) | **GET** /api/{version}/vatom/b/spaces/get | Get Vatom Space
-*OAIVatomApi* | [**getUserCoinsAsBusiness**](docs/OAIVatomApi.md#getusercoinsasbusiness) | **GET** /api/{version}/vatom/b/users/coins/get | Get the coins for a user (as a Business)
-*OAIVatomApi* | [**getUserCoinsBalance**](docs/OAIVatomApi.md#getusercoinsbalance) | **GET** /api/{version}/vatom/u/coins/get | Gets the coins balance for a Vatom User
-*OAIVatomApi* | [**getUserFollowers**](docs/OAIVatomApi.md#getuserfollowers) | **GET** /api/{version}/vatom/users/rels/followers | Get user followers
-*OAIVatomApi* | [**getUserFollowing**](docs/OAIVatomApi.md#getuserfollowing) | **GET** /api/{version}/vatom/users/rels/following | Get user following
-*OAIVatomApi* | [**getUserInfo**](docs/OAIVatomApi.md#getuserinfo) | **GET** /api/{version}/vatom/user/get | Get User Info
-*OAIVatomApi* | [**getUserProfile**](docs/OAIVatomApi.md#getuserprofile) | **GET** /api/{version}/vatom/me/get | Get Vatom User Profile
-*OAIVatomApi* | [**getVatomEvent**](docs/OAIVatomApi.md#getvatomevent) | **GET** /api/{version}/vatom/b/events/get | Get Vatom Event
-*OAIVatomApi* | [**getVatomNFT**](docs/OAIVatomApi.md#getvatomnft) | **GET** /api/{version}/vatom/vatoms/get | Get Vatom NFT Details
-*OAIVatomApi* | [**listCommunities**](docs/OAIVatomApi.md#listcommunities) | **GET** /api/{version}/vatom/b/communities/search | List Vatom Communities
-*OAIVatomApi* | [**listEvents**](docs/OAIVatomApi.md#listevents) | **GET** /api/{version}/vatom/b/events/search | List Vatom Events
-*OAIVatomApi* | [**listSpaces**](docs/OAIVatomApi.md#listspaces) | **GET** /api/{version}/vatom/b/spaces/search | List Vatom Spaces
-*OAIVatomApi* | [**listUserCoinTransactions**](docs/OAIVatomApi.md#listusercointransactions) | **GET** /api/{version}/vatom/u/coins/txns/search | List Coin Transactions for a Vatom User
-*OAIVatomApi* | [**listUserCoinTransactionsAsBusiness**](docs/OAIVatomApi.md#listusercointransactionsasbusiness) | **GET** /api/{version}/vatom/b/users/coins/txns/search | List coin transactions for a user (as a Business)
-*OAIVatomApi* | [**performActionOnNFT**](docs/OAIVatomApi.md#performactiononnft) | **POST** /api/{version}/vatom/me/vatoms/actions | Perform Action on NFT
-*OAIVatomApi* | [**redeemNFT**](docs/OAIVatomApi.md#redeemnft) | **POST** /api/{version}/vatom/b/redemptions | Redeem NFT
-*OAIVatomApi* | [**redeemUserCoinsAsBusiness**](docs/OAIVatomApi.md#redeemusercoinsasbusiness) | **POST** /api/{version}/vatom/b/users/coins/redeem | Redeem the coins for a user (as a Business)
-*OAIVatomApi* | [**searchBusinesses**](docs/OAIVatomApi.md#searchbusinesses) | **GET** /api/{version}/vatom/b/search | Search for Vatom Businesses
-*OAIVatomApi* | [**searchCampaignGroups**](docs/OAIVatomApi.md#searchcampaigngroups) | **GET** /api/{version}/vatom/b/campaign-groups/search | Search Campaign Groups
-*OAIVatomApi* | [**searchIdentities**](docs/OAIVatomApi.md#searchidentities) | **GET** /api/{version}/vatom/me/identities/search | Search User Identities
-*OAIVatomApi* | [**searchInventory**](docs/OAIVatomApi.md#searchinventory) | **GET** /api/{version}/vatom/user-inventory/search | Search Vatom User&#39;s Inventory
-*OAIVatomApi* | [**sendNFT**](docs/OAIVatomApi.md#sendnft) | **POST** /api/{version}/vatom/b/campaigns/send | Send NFT
-*OAIVatomApi* | [**setPointsBalanceAsBusiness**](docs/OAIVatomApi.md#setpointsbalanceasbusiness) | **POST** /api/{version}/vatom/b/campaign/u/points/update | Set Points Balance as Business
-*OAIVatomApi* | [**transferUserCoins**](docs/OAIVatomApi.md#transferusercoins) | **POST** /api/{version}/vatom/u/coins/transfer | Transfer coins from Vatom Users
-*OAIVatomApi* | [**updateBusinessCoins**](docs/OAIVatomApi.md#updatebusinesscoins) | **POST** /api/{version}/vatom/b/coins/update | Fund coins for a Business
-*OAIVatomApi* | [**updateEventGuestList**](docs/OAIVatomApi.md#updateeventguestlist) | **POST** /api/{version}/vatom/b/events/guests/update | Update Vatom Event Guest List
-*OAIVatomApi* | [**updateSpace**](docs/OAIVatomApi.md#updatespace) | **POST** /api/{version}/vatom/b/spaces/update | Update Vatom Space
-*OAIVatomApi* | [**updateUserCoinsAsBusiness**](docs/OAIVatomApi.md#updateusercoinsasbusiness) | **POST** /api/{version}/vatom/b/users/coins/update | Update the coins for a user (as a Business)
-*OAIVatomApi* | [**updateUserProfile**](docs/OAIVatomApi.md#updateuserprofile) | **POST** /api/{version}/vatom/me/update | Update Vatom User Profile
-*OAIVatomApi* | [**updateVatomEvent**](docs/OAIVatomApi.md#updatevatomevent) | **POST** /api/{version}/vatom/b/events/update | Update Vatom Event
-*OAIVehicleApi* | [**createVehicle**](docs/OAIVehicleApi.md#createvehicle) | **POST** /api/{version}/vehicle | Create Vehicle
-*OAIVehicleApi* | [**deleteVehicle**](docs/OAIVehicleApi.md#deletevehicle) | **DELETE** /api/{version}/vehicle/{id} | Delete Vehicle
-*OAIVehicleApi* | [**getVehicle**](docs/OAIVehicleApi.md#getvehicle) | **GET** /api/{version}/vehicle/{id} | Get Vehicle
-*OAIVehicleApi* | [**searchVehicle**](docs/OAIVehicleApi.md#searchvehicle) | **GET** /api/{version}/vehicle | Search Vehicle
-*OAIVehicleApi* | [**updateVehicle**](docs/OAIVehicleApi.md#updatevehicle) | **PUT** /api/{version}/vehicle/{id} | Update Vehicle
-*OAIVehicleTypeApi* | [**createVehicleType**](docs/OAIVehicleTypeApi.md#createvehicletype) | **POST** /api/{version}/vehicle/type | Create Vehicle Type
-*OAIVehicleTypeApi* | [**deleteVehicleType**](docs/OAIVehicleTypeApi.md#deletevehicletype) | **DELETE** /api/{version}/vehicle/type/{vehicleTypeId} | Delete Vehicle Type
-*OAIVehicleTypeApi* | [**getVehicleType**](docs/OAIVehicleTypeApi.md#getvehicletype) | **GET** /api/{version}/vehicle/type/{vehicleTypeId} | Get Vehicle Type
-*OAIVehicleTypeApi* | [**searchVehicleTypes**](docs/OAIVehicleTypeApi.md#searchvehicletypes) | **GET** /api/{version}/vehicle/type | Search Vehicle Type
-*OAIVehicleTypeApi* | [**updateVehicleType**](docs/OAIVehicleTypeApi.md#updatevehicletype) | **PUT** /api/{version}/vehicle/type/{vehicleTypeId} | Update Vehicle Type
-*OAIWalletApi* | [**createOfferTransaction**](docs/OAIWalletApi.md#createoffertransaction) | **POST** /api/{version}/wallet/create | Create Wallet Offers
-*OAIWalletApi* | [**deleteOfferTransaction**](docs/OAIWalletApi.md#deleteoffertransaction) | **POST** /api/{version}/wallet/delete | Delete Wallet Offer
-*OAIWalletApi* | [**getOfferTransaction**](docs/OAIWalletApi.md#getoffertransaction) | **GET** /api/{version}/wallet/get | Get Wallet Offer
-*OAIWalletApi* | [**previewOfferTransaction**](docs/OAIWalletApi.md#previewoffertransaction) | **POST** /api/{version}/wallet/preview | Preview Wallet Offers
-*OAIWalletApi* | [**searchOfferTransactions**](docs/OAIWalletApi.md#searchoffertransactions) | **GET** /api/{version}/wallet/search | Search Wallet Offers
-*OAIWalletApi* | [**updateOfferTransaction**](docs/OAIWalletApi.md#updateoffertransaction) | **POST** /api/{version}/wallet/update | Update Wallet Offer
-*OAIWeatherApi* | [**searchWeather**](docs/OAIWeatherApi.md#searchweather) | **GET** /api/{version}/weather/search | Search Weather
-*OAIWordApi* | [**createWord**](docs/OAIWordApi.md#createword) | **POST** /api/{version}/game/word/create | Create Word
-*OAIWordApi* | [**deleteWord**](docs/OAIWordApi.md#deleteword) | **DELETE** /api/{version}/game/word/delete | Delete Word
-*OAIWordApi* | [**getWord**](docs/OAIWordApi.md#getword) | **GET** /api/{version}/game/word/get | Get Word
-*OAIWordApi* | [**getWords**](docs/OAIWordApi.md#getwords) | **GET** /api/{version}/game/word/search | Search Words
-*OAIWordApi* | [**updateWord**](docs/OAIWordApi.md#updateword) | **POST** /api/{version}/game/word/update | Update Word
-*OAIWorkflowApi* | [**runWorkflow**](docs/OAIWorkflowApi.md#runworkflow) | **POST** /api/{version}/workflow/run | Run Workflow
+*OAIAMQPApi* | [**consumerCreate**](docs/OAIAMQPApi.md#consumercreate) | **POST** /queue/consumer/create | Create Consumer
+*OAIAMQPApi* | [**consumerUpdate**](docs/OAIAMQPApi.md#consumerupdate) | **POST** /queue/consumer/update | Update Consumer
+*OAIAMQPApi* | [**queueCreate**](docs/OAIAMQPApi.md#queuecreate) | **POST** /queue/create | Create Queue
+*OAIAMQPApi* | [**queueDelete**](docs/OAIAMQPApi.md#queuedelete) | **POST** /queue/delete | Delete Queue
+*OAIAMQPApi* | [**queueGet**](docs/OAIAMQPApi.md#queueget) | **GET** /queue/get | Get Queue
+*OAIAMQPApi* | [**queuePublish**](docs/OAIAMQPApi.md#queuepublish) | **POST** /queue/publish | Publish Queue
+*OAIAMQPApi* | [**queueSearch**](docs/OAIAMQPApi.md#queuesearch) | **GET** /queue/search | Search Queue
+*OAIAMQPApi* | [**queueUpdate**](docs/OAIAMQPApi.md#queueupdate) | **POST** /queue/update | Update Queue
+*OAIAccountApi* | [**accountLocationSearch**](docs/OAIAccountApi.md#accountlocationsearch) | **GET** /account/search | Search Accounts by Location
+*OAIAccountApi* | [**blockAccount**](docs/OAIAccountApi.md#blockaccount) | **POST** /account/block | Block Account
+*OAIAccountApi* | [**createAccount**](docs/OAIAccountApi.md#createaccount) | **POST** /account/create | Create Account
+*OAIAccountApi* | [**editAccount**](docs/OAIAccountApi.md#editaccount) | **POST** /account/profile/update | Update Account
+*OAIAccountApi* | [**editUsername**](docs/OAIAccountApi.md#editusername) | **POST** /account/username/update | Update Username and Email
+*OAIAccountApi* | [**getAccount**](docs/OAIAccountApi.md#getaccount) | **GET** /account/profile/get | Get Account
+*OAIAccountApi* | [**getProfileAssets**](docs/OAIAccountApi.md#getprofileassets) | **GET** /account/profile/assets | Get Profile Assets
+*OAIAccountApi* | [**getReferralList**](docs/OAIAccountApi.md#getreferrallist) | **GET** /account/referral/list | Search Accounts
+*OAIAccountApi* | [**getSettings**](docs/OAIAccountApi.md#getsettings) | **GET** /account/settings/get | Get Account Settings
+*OAIAccountApi* | [**loginDelegate**](docs/OAIAccountApi.md#logindelegate) | **POST** /account/login/delegate | Login as Account
+*OAIAccountApi* | [**loginGeneral**](docs/OAIAccountApi.md#logingeneral) | **POST** /account/login | Login Account
+*OAIAccountApi* | [**loginUsername**](docs/OAIAccountApi.md#loginusername) | **POST** /account/get | Login Account (Username)
+*OAIAccountApi* | [**logout**](docs/OAIAccountApi.md#logout) | **POST** /account/logout | Logout Account
+*OAIAccountApi* | [**mergeAccount**](docs/OAIAccountApi.md#mergeaccount) | **POST** /account/merge | Merge Account
+*OAIAccountApi* | [**passwordChange**](docs/OAIAccountApi.md#passwordchange) | **POST** /account/passwordchange | Update Password
+*OAIAccountApi* | [**passwordReset**](docs/OAIAccountApi.md#passwordreset) | **POST** /account/passwordreset | Reset Password
+*OAIAccountApi* | [**requestPasswordReset**](docs/OAIAccountApi.md#requestpasswordreset) | **POST** /account/requestpasswordreset | Request Password Reset
+*OAIAccountApi* | [**requestValidateAccount**](docs/OAIAccountApi.md#requestvalidateaccount) | **POST** /account/requestValidateAccount | Send Validation Request
+*OAIAccountApi* | [**searchAccounts**](docs/OAIAccountApi.md#searchaccounts) | **GET** /account/profile/search | Search Accounts
+*OAIAccountApi* | [**secureLogin**](docs/OAIAccountApi.md#securelogin) | **POST** /account/login/validate | Login Account (Encrypted Username)
+*OAIAccountApi* | [**secureSignup**](docs/OAIAccountApi.md#securesignup) | **POST** /account/create/validate | Create Account (Encrypted Username)
+*OAIAccountApi* | [**setMatchToken**](docs/OAIAccountApi.md#setmatchtoken) | **POST** /consumer/profile/matchToken | Save Match Token
+*OAIAccountApi* | [**updateActveStatus**](docs/OAIAccountApi.md#updateactvestatus) | **POST** /account/active/update | Update Account Active Status
+*OAIAccountApi* | [**updateLocation**](docs/OAIAccountApi.md#updatelocation) | **POST** /account/location/update | Update Location
+*OAIAccountApi* | [**updateSettings**](docs/OAIAccountApi.md#updatesettings) | **POST** /account/settings/update | Update Account Settings
+*OAIAccountApi* | [**validateAccountSignup**](docs/OAIAccountApi.md#validateaccountsignup) | **POST** /account/validateAccountSignup | Save Validation Status
+*OAIAccountApi* | [**validatePasswordReset**](docs/OAIAccountApi.md#validatepasswordreset) | **POST** /account/validatepasswordreset | Validate Password Reset Token
+*OAIAchievementApi* | [**achievementTierSearchPost**](docs/OAIAchievementApi.md#achievementtiersearchpost) | **POST** /achievement/tier/search | Searches an Achievement Tier
+*OAIAchievementApi* | [**createAchievement**](docs/OAIAchievementApi.md#createachievement) | **POST** /achievement/create | Create Achievement
+*OAIAchievementApi* | [**createAchievementTier**](docs/OAIAchievementApi.md#createachievementtier) | **POST** /achievement/tier/create | Create Achievement Tier
+*OAIAchievementApi* | [**deleteAchievement**](docs/OAIAchievementApi.md#deleteachievement) | **POST** /achievement/delete | Delete Achievement
+*OAIAchievementApi* | [**deleteAchievementTier**](docs/OAIAchievementApi.md#deleteachievementtier) | **POST** /achievement/tier/delete | Delete Achievement Tier
+*OAIAchievementApi* | [**getAchievement**](docs/OAIAchievementApi.md#getachievement) | **GET** /achievement/get | Get Achievement
+*OAIAchievementApi* | [**getAchievementTier**](docs/OAIAchievementApi.md#getachievementtier) | **POST** /achievement/tier/get | Gets an achievement tier
+*OAIAchievementApi* | [**getUserAchievements**](docs/OAIAchievementApi.md#getuserachievements) | **GET** /achievement/progress/get | Get Achievement Progress
+*OAIAchievementApi* | [**listAchievementTags**](docs/OAIAchievementApi.md#listachievementtags) | **GET** /achievement/tag/list | List Achievement Tags
+*OAIAchievementApi* | [**listAchievements**](docs/OAIAchievementApi.md#listachievements) | **GET** /achievement/list | List Achievements
+*OAIAchievementApi* | [**searchAchievements**](docs/OAIAchievementApi.md#searchachievements) | **GET** /achievement/search | Search Achievements
+*OAIAchievementApi* | [**updateAchievement**](docs/OAIAchievementApi.md#updateachievement) | **POST** /achievement/update | Update Achievement
+*OAIAchievementApi* | [**updateAchievementTier**](docs/OAIAchievementApi.md#updateachievementtier) | **POST** /achievement/tier/update | Update Achievement Tier
+*OAIAchievementApi* | [**updateUserAchievement**](docs/OAIAchievementApi.md#updateuserachievement) | **POST** /achievement/progress/update | Update Achievement Progress
+*OAIActivityApi* | [**createEntityReference**](docs/OAIActivityApi.md#createentityreference) | **POST** /entity/reference | Create an entity reference.
+*OAIAlbumApi* | [**addAlbumCollection**](docs/OAIAlbumApi.md#addalbumcollection) | **POST** /album/create | Create Album
+*OAIAlbumApi* | [**addAlbumUsers**](docs/OAIAlbumApi.md#addalbumusers) | **POST** /album/user/add | Add Album Users
+*OAIAlbumApi* | [**approveAlbum**](docs/OAIAlbumApi.md#approvealbum) | **POST** /album/approve | Approve Album
+*OAIAlbumApi* | [**getAlbumCollection**](docs/OAIAlbumApi.md#getalbumcollection) | **GET** /album/get |  Get Album
+*OAIAlbumApi* | [**leaveAlbum**](docs/OAIAlbumApi.md#leavealbum) | **POST** /album/user/leave | Leave Album
+*OAIAlbumApi* | [**removeAlbum**](docs/OAIAlbumApi.md#removealbum) | **POST** /album/delete | Delete Album
+*OAIAlbumApi* | [**removeAlbumUsers**](docs/OAIAlbumApi.md#removealbumusers) | **POST** /album/user/delete | Remove Album Users
+*OAIAlbumApi* | [**searchAlbums**](docs/OAIAlbumApi.md#searchalbums) | **GET** /album/search | Search Albums
+*OAIAlbumApi* | [**updateAlbumCollection**](docs/OAIAlbumApi.md#updatealbumcollection) | **POST** /album/update | Update Album
+*OAIAnalyticsApi* | [**activities**](docs/OAIAnalyticsApi.md#activities) | **GET** /analytics/useractivity | Get User Activity
+*OAIAnalyticsApi* | [**aggregatedFilteredUsage**](docs/OAIAnalyticsApi.md#aggregatedfilteredusage) | **GET** /analytics/aggregatedFilteredUsage | Get Aggregated Filtered Usage
+*OAIAnalyticsApi* | [**filteredUsage**](docs/OAIAnalyticsApi.md#filteredusage) | **GET** /analytics/filteredUsage | Get Filtered Usage
+*OAIAnalyticsApi* | [**usage**](docs/OAIAnalyticsApi.md#usage) | **POST** /analytics/usage | Create Usage Record
+*OAIAnalyticsApi* | [**usageBatch**](docs/OAIAnalyticsApi.md#usagebatch) | **POST** /analytics/usage/batch | Create Multiple Usage Records
+*OAIAppDataApi* | [**getAppData**](docs/OAIAppDataApi.md#getappdata) | **GET** /app/get | Get App Data
+*OAIAppDataApi* | [**postAppData**](docs/OAIAppDataApi.md#postappdata) | **POST** /app/post | Create App Data
+*OAIAppDataApi* | [**regenAppData**](docs/OAIAppDataApi.md#regenappdata) | **POST** /app/regen | Regenerate App Data
+*OAIApplicationApi* | [**createApplication**](docs/OAIApplicationApi.md#createapplication) | **POST** /application/create | Create Application
+*OAIApplicationApi* | [**createApplicationPlacement**](docs/OAIApplicationApi.md#createapplicationplacement) | **POST** /application/placement/create | Create Ad Placement
+*OAIApplicationApi* | [**deleteApplication**](docs/OAIApplicationApi.md#deleteapplication) | **POST** /application/delete | Delete Application
+*OAIApplicationApi* | [**deleteApplicationPlacement**](docs/OAIApplicationApi.md#deleteapplicationplacement) | **POST** /application/placement/delete | Delete Ad Placement
+*OAIApplicationApi* | [**getApplication**](docs/OAIApplicationApi.md#getapplication) | **GET** /application/get | Get Application
+*OAIApplicationApi* | [**getApplicationPlacement**](docs/OAIApplicationApi.md#getapplicationplacement) | **GET** /application/placement/get | Get Ad Placement
+*OAIApplicationApi* | [**getApplicationVersions**](docs/OAIApplicationApi.md#getapplicationversions) | **GET** /application/versions | Get API versions
+*OAIApplicationApi* | [**getUniqueUsersByApp**](docs/OAIApplicationApi.md#getuniqueusersbyapp) | **GET** /application/users | Search Application Users
+*OAIApplicationApi* | [**listApplications**](docs/OAIApplicationApi.md#listapplications) | **GET** /application/list | List Applications
+*OAIApplicationApi* | [**searchApplicationPlacement**](docs/OAIApplicationApi.md#searchapplicationplacement) | **GET** /application/placement/search | Search for Ad Placements
+*OAIApplicationApi* | [**searchApplicationSettings**](docs/OAIApplicationApi.md#searchapplicationsettings) | **GET** /application/settings/search | Search for Application Settings
+*OAIApplicationApi* | [**searchApplications**](docs/OAIApplicationApi.md#searchapplications) | **GET** /application/search | Search Applications
+*OAIApplicationApi* | [**updateApplication**](docs/OAIApplicationApi.md#updateapplication) | **POST** /application/update | Update Application
+*OAIApplicationApi* | [**updateApplicationActive**](docs/OAIApplicationApi.md#updateapplicationactive) | **POST** /application/active | Change Appliation Status
+*OAIApplicationApi* | [**updateApplicationPlacement**](docs/OAIApplicationApi.md#updateapplicationplacement) | **POST** /application/placement/update | Update Ad Placement
+*OAIApplicationApi* | [**uploadApplicationCertificate**](docs/OAIApplicationApi.md#uploadapplicationcertificate) | **POST** /application/certificate/create | Create Application Certificate
+*OAIApplicationConfigApi* | [**createApplicationConfig**](docs/OAIApplicationConfigApi.md#createapplicationconfig) | **POST** /appconfig/create | Create AppConfig
+*OAIApplicationConfigApi* | [**deleteApplicationConfig**](docs/OAIApplicationConfigApi.md#deleteapplicationconfig) | **POST** /appconfig/delete | Delete AppConfig
+*OAIApplicationConfigApi* | [**getApplicationConfig**](docs/OAIApplicationConfigApi.md#getapplicationconfig) | **GET** /appconfig/get | Get AppConfig
+*OAIApplicationConfigApi* | [**getApplicationConfigByConfigVersion**](docs/OAIApplicationConfigApi.md#getapplicationconfigbyconfigversion) | **GET** /appconfig/getbyversion | Get AppConfig by Version
+*OAIApplicationConfigApi* | [**searchApplicationConfig**](docs/OAIApplicationConfigApi.md#searchapplicationconfig) | **GET** /appconfig/search | Search AppConfigs
+*OAIApplicationConfigApi* | [**updateApplicationConfig**](docs/OAIApplicationConfigApi.md#updateapplicationconfig) | **POST** /appconfig/update | Update AppConfig
+*OAIAssetApi* | [**assetDownload**](docs/OAIAssetApi.md#assetdownload) | **GET** /asset/download/{filename} | Download Asset
+*OAIAssetApi* | [**assetMorph**](docs/OAIAssetApi.md#assetmorph) | **POST** /asset/morph | Convert Offer to Creative
+*OAIAssetApi* | [**createAsset**](docs/OAIAssetApi.md#createasset) | **POST** /asset/create | Create Asset
+*OAIAssetApi* | [**deleteAsset**](docs/OAIAssetApi.md#deleteasset) | **POST** /asset/delete | Delete Asset
+*OAIAssetApi* | [**getAsset**](docs/OAIAssetApi.md#getasset) | **GET** /asset/get | Get Asset
+*OAIAssetApi* | [**removeAsset**](docs/OAIAssetApi.md#removeasset) | **POST** /asset/remove | Remove Asset from Collection
+*OAIAssetApi* | [**searchAssets**](docs/OAIAssetApi.md#searchassets) | **GET** /asset/search | Search Assets
+*OAIAssetApi* | [**updateAsset**](docs/OAIAssetApi.md#updateasset) | **POST** /asset/update | Update Asset
+*OAIAssignmentApi* | [**assigmentAssigneeAccountSearch**](docs/OAIAssignmentApi.md#assigmentassigneeaccountsearch) | **GET** /assignment/assignee/search | Search Assignment Assignees
+*OAIAssignmentApi* | [**assignmentCreate**](docs/OAIAssignmentApi.md#assignmentcreate) | **POST** /assignment/create | Create Assignment
+*OAIAssignmentApi* | [**assignmentDelete**](docs/OAIAssignmentApi.md#assignmentdelete) | **POST** /assignment/delete | Delete Assignment
+*OAIAssignmentApi* | [**assignmentGet**](docs/OAIAssignmentApi.md#assignmentget) | **GET** /assignment/get | Get Assignment
+*OAIAssignmentApi* | [**assignmentSearch**](docs/OAIAssignmentApi.md#assignmentsearch) | **GET** /assignment/search | Search Assignments
+*OAIAssignmentApi* | [**assignmentStatusCreate**](docs/OAIAssignmentApi.md#assignmentstatuscreate) | **POST** /assignment/status/create | Create Assignment Status
+*OAIAssignmentApi* | [**assignmentStatusDelete**](docs/OAIAssignmentApi.md#assignmentstatusdelete) | **POST** /assignment/status/delete | Deletes Assignment Status
+*OAIAssignmentApi* | [**assignmentStatusGet**](docs/OAIAssignmentApi.md#assignmentstatusget) | **GET** /assignment/status/get | Get Assignment Status
+*OAIAssignmentApi* | [**assignmentStatusSearch**](docs/OAIAssignmentApi.md#assignmentstatussearch) | **GET** /assignment/status/search | Search Assignment Statuses
+*OAIAssignmentApi* | [**assignmentStatusUpdate**](docs/OAIAssignmentApi.md#assignmentstatusupdate) | **POST** /assignment/status/update | Update Assignment Status
+*OAIAssignmentApi* | [**assignmentUpdate**](docs/OAIAssignmentApi.md#assignmentupdate) | **POST** /assignment/update | Update Assignment
+*OAIAudienceApi* | [**createAudience**](docs/OAIAudienceApi.md#createaudience) | **POST** /audience/create | Create Audience
+*OAIAudienceApi* | [**deleteAudience**](docs/OAIAudienceApi.md#deleteaudience) | **POST** /audience/delete | Delete Audience
+*OAIAudienceApi* | [**getAgeGroups**](docs/OAIAudienceApi.md#getagegroups) | **GET** /audience/ageGroups | Get Age Groups
+*OAIAudienceApi* | [**getAudience**](docs/OAIAudienceApi.md#getaudience) | **GET** /audience/get | Get Audience
+*OAIAudienceApi* | [**getAudienceList**](docs/OAIAudienceApi.md#getaudiencelist) | **GET** /audience/search | Search Audiences
+*OAIAudienceApi* | [**getDevices**](docs/OAIAudienceApi.md#getdevices) | **GET** /audience/devices | Get Devices
+*OAIAudienceApi* | [**getExperiences**](docs/OAIAudienceApi.md#getexperiences) | **GET** /audience/experiences | Get Experiences
+*OAIAudienceApi* | [**getGroupedAudiences**](docs/OAIAudienceApi.md#getgroupedaudiences) | **GET** /audience/grouped/get | Get GroupedAudiences
+*OAIAudienceApi* | [**listByAccount**](docs/OAIAudienceApi.md#listbyaccount) | **POST** /audience/suggestion/list | List Suggestions by Audience
+*OAIAudienceApi* | [**listByAudience**](docs/OAIAudienceApi.md#listbyaudience) | **GET** /audience/suggestion/offersByAudience | List Offers by Audience
+*OAIAudienceApi* | [**listLastestByAccount**](docs/OAIAudienceApi.md#listlastestbyaccount) | **GET** /audience/suggestion/latest | List Sent Suggestions 
+*OAIAudienceApi* | [**sendByAccount**](docs/OAIAudienceApi.md#sendbyaccount) | **POST** /audience/suggestion/send | Send Suggestions
+*OAIAudienceApi* | [**updateAudience**](docs/OAIAudienceApi.md#updateaudience) | **POST** /audience/update | Update Audience
+*OAIBidApi* | [**createBid**](docs/OAIBidApi.md#createbid) | **POST** /bid/create | Create Bid
+*OAIBidApi* | [**deleteBid**](docs/OAIBidApi.md#deletebid) | **POST** /bid/delete | Delete Bid
+*OAIBidApi* | [**getBid**](docs/OAIBidApi.md#getbid) | **GET** /bid/get | Get Bid
+*OAIBidApi* | [**updateBid**](docs/OAIBidApi.md#updatebid) | **POST** /bid/update | Update Bid
+*OAIBillableEntityApi* | [**createBillableEntity**](docs/OAIBillableEntityApi.md#createbillableentity) | **POST** /billable/create | Create Billable
+*OAIBillableEntityApi* | [**deleteBillableEntity**](docs/OAIBillableEntityApi.md#deletebillableentity) | **POST** /billable/delete | Delete Billable
+*OAIBillableEntityApi* | [**getBillableEntity**](docs/OAIBillableEntityApi.md#getbillableentity) | **GET** /billable/get | Get Billable
+*OAIBillableEntityApi* | [**updateBillableEntity**](docs/OAIBillableEntityApi.md#updatebillableentity) | **POST** /billable/update | Update Billable
+*OAIBillingInfoApi* | [**addPaymentMethod**](docs/OAIBillingInfoApi.md#addpaymentmethod) | **POST** /billing/update | Update Payment Method
+*OAIBillingInfoApi* | [**createPaymentMethod**](docs/OAIBillingInfoApi.md#createpaymentmethod) | **POST** /billing/create | Create Payment Method
+*OAIBillingInfoApi* | [**createSmartContract**](docs/OAIBillingInfoApi.md#createsmartcontract) | **POST** /billing/crypto/transfer | Create Smart Contract
+*OAIBillingInfoApi* | [**getCryptoBalance**](docs/OAIBillingInfoApi.md#getcryptobalance) | **GET** /billing/crypto/get | Get Crypto Balances
+*OAIBillingInfoApi* | [**getPaymentMethod**](docs/OAIBillingInfoApi.md#getpaymentmethod) | **GET** /billing/get | Get Payment Method
+*OAIBillingInfoApi* | [**searchPaymentMethod**](docs/OAIBillingInfoApi.md#searchpaymentmethod) | **GET** /billing/search | Search Payment Methods
+*OAICSVImportApi* | [**getStatusCSV**](docs/OAICSVImportApi.md#getstatuscsv) | **GET** /csvimport/batch/status/details | Detail Status
+*OAICSVImportApi* | [**listStatusCSV**](docs/OAICSVImportApi.md#liststatuscsv) | **GET** /csvimport/batch/list | Search Status
+*OAICSVImportApi* | [**statusCSV**](docs/OAICSVImportApi.md#statuscsv) | **GET** /csvimport/batch/status | Batch Status
+*OAICSVImportApi* | [**uploadCSV**](docs/OAICSVImportApi.md#uploadcsv) | **POST** /csvimport/upload | Upload CSV
+*OAICargoTypeApi* | [**createCargoType**](docs/OAICargoTypeApi.md#createcargotype) | **POST** /cargo/type | Create Cargo Type
+*OAICargoTypeApi* | [**deleteCargoType**](docs/OAICargoTypeApi.md#deletecargotype) | **DELETE** /cargo/type/{cargoTypeId} | Delete Cargo Type
+*OAICargoTypeApi* | [**getCargoType**](docs/OAICargoTypeApi.md#getcargotype) | **GET** /cargo/type/{cargoTypeId} | Get Cargo Type
+*OAICargoTypeApi* | [**searchCargoTypes**](docs/OAICargoTypeApi.md#searchcargotypes) | **GET** /cargo/type | Search Cargo Type
+*OAICargoTypeApi* | [**updateCargoType**](docs/OAICargoTypeApi.md#updatecargotype) | **PUT** /cargo/type/{cargoTypeId} | Update Cargo Type
+*OAICarrierApi* | [**searchCarriers**](docs/OAICarrierApi.md#searchcarriers) | **GET** /carrier/search | Search Carriers
+*OAICategoryApi* | [**categoryDistanceSearch**](docs/OAICategoryApi.md#categorydistancesearch) | **GET** /category/distancesearch | Search Categories by Distance
+*OAICategoryApi* | [**createCategory**](docs/OAICategoryApi.md#createcategory) | **POST** /category/create | Create Category
+*OAICategoryApi* | [**deleteCategory**](docs/OAICategoryApi.md#deletecategory) | **POST** /category/delete | Delete Category
+*OAICategoryApi* | [**duplicateCategory**](docs/OAICategoryApi.md#duplicatecategory) | **POST** /category/duplicate | Duplicate Category
+*OAICategoryApi* | [**getCategory**](docs/OAICategoryApi.md#getcategory) | **GET** /category/get | Get Category
+*OAICategoryApi* | [**searchCategories**](docs/OAICategoryApi.md#searchcategories) | **GET** /category/search | Search Categories
+*OAICategoryApi* | [**updateCategory**](docs/OAICategoryApi.md#updatecategory) | **POST** /category/update | Update Category
+*OAIConnectionApi* | [**addConnectionToGroup**](docs/OAIConnectionApi.md#addconnectiontogroup) | **POST** /consumer/connection/group/addConnection | Add Connection
+*OAIConnectionApi* | [**addConnectionsToGroup**](docs/OAIConnectionApi.md#addconnectionstogroup) | **POST** /connection/group/addConnections | Add Connections
+*OAIConnectionApi* | [**addSubGroups**](docs/OAIConnectionApi.md#addsubgroups) | **POST** /consumer/connection/group/addSubGroup | Add Connection Groups
+*OAIConnectionApi* | [**createOrUpdateConnection**](docs/OAIConnectionApi.md#createorupdateconnection) | **POST** /consumer/connection/add | Create or Update Connection
+*OAIConnectionApi* | [**createOrUpdateGroup**](docs/OAIConnectionApi.md#createorupdategroup) | **POST** /consumer/connection/group | Create or Update Connection Group
+*OAIConnectionApi* | [**followAccept**](docs/OAIConnectionApi.md#followaccept) | **POST** /consumer/follow/accept | Accept Follow Request
+*OAIConnectionApi* | [**followReject**](docs/OAIConnectionApi.md#followreject) | **POST** /consumer/follow/reject | Reject Follow Request
+*OAIConnectionApi* | [**followRemove**](docs/OAIConnectionApi.md#followremove) | **POST** /consumer/follow/remove | Remove Follower / Unfollow
+*OAIConnectionApi* | [**followRequest**](docs/OAIConnectionApi.md#followrequest) | **POST** /consumer/follow/request | Send Follow Request
+*OAIConnectionApi* | [**friendAccept**](docs/OAIConnectionApi.md#friendaccept) | **POST** /consumer/friend/accept | Accept Friend
+*OAIConnectionApi* | [**friendReject**](docs/OAIConnectionApi.md#friendreject) | **POST** /consumer/friend/reject | Decline Friend
+*OAIConnectionApi* | [**friendRemove**](docs/OAIConnectionApi.md#friendremove) | **POST** /consumer/friend/remove | Delete Friend
+*OAIConnectionApi* | [**friendRequest**](docs/OAIConnectionApi.md#friendrequest) | **POST** /consumer/friend/request | Request Friend
+*OAIConnectionApi* | [**getConnectionSentFriendRequests**](docs/OAIConnectionApi.md#getconnectionsentfriendrequests) | **GET** /consumer/connection/getRequested | Get Sent Friend Requests
+*OAIConnectionApi* | [**getConnections**](docs/OAIConnectionApi.md#getconnections) | **GET** /consumer/connection/get | Search Connections
+*OAIConnectionApi* | [**getGroupDetails**](docs/OAIConnectionApi.md#getgroupdetails) | **GET** /consumer/connection/group/details/get | Get Connection Group
+*OAIConnectionApi* | [**groupSearch**](docs/OAIConnectionApi.md#groupsearch) | **GET** /connection/group/search | Search Connection Groups
+*OAIConnectionApi* | [**removeConnectionFromGroup**](docs/OAIConnectionApi.md#removeconnectionfromgroup) | **POST** /consumer/connection/group/removeConnection | Delete Connection
+*OAIConnectionApi* | [**removeConnectionsFromGroup**](docs/OAIConnectionApi.md#removeconnectionsfromgroup) | **POST** /connection/group/removeConnections | Remove Connections
+*OAIConnectionApi* | [**removeGroup**](docs/OAIConnectionApi.md#removegroup) | **POST** /consumer/connection/group/remove | Delete Connection Group
+*OAIConnectionApi* | [**removeSubGroups**](docs/OAIConnectionApi.md#removesubgroups) | **POST** /consumer/connection/group/removeSubGroup | Remove Connection Groups
+*OAIConnectionApi* | [**searchConnections**](docs/OAIConnectionApi.md#searchconnections) | **GET** /connection/search | Search Possible Connections
+*OAIContestApi* | [**addOrUpdateAlbumContest**](docs/OAIContestApi.md#addorupdatealbumcontest) | **POST** /consumer/album/contest | Create or Update Contest
+*OAIContestApi* | [**approveAlbumContest**](docs/OAIContestApi.md#approvealbumcontest) | **POST** /consumer/album/contest/approve | Approve Contest
+*OAIContestApi* | [**deleteContest**](docs/OAIContestApi.md#deletecontest) | **POST** /consumer/album/contest/remove | Delete Contest
+*OAIContestApi* | [**getAlbumContest**](docs/OAIContestApi.md#getalbumcontest) | **GET** /consumer/album/contest/get | Get Contest
+*OAIContestApi* | [**getAlbumContests**](docs/OAIContestApi.md#getalbumcontests) | **GET** /consumer/album/contest/search | Search Contests
+*OAIContestApi* | [**voteOnAlbumContest**](docs/OAIContestApi.md#voteonalbumcontest) | **POST** /consumer/album/contest/vote | Vote on Contest
+*OAICreativeApi* | [**addPreview**](docs/OAICreativeApi.md#addpreview) | **POST** /creative/addpreview | Add Preview
+*OAICreativeApi* | [**adsFind**](docs/OAICreativeApi.md#adsfind) | **GET** /ads/find | Find Missions
+*OAICreativeApi* | [**createCreative**](docs/OAICreativeApi.md#createcreative) | **POST** /creative/create | Create Creative
+*OAICreativeApi* | [**deleteCreative**](docs/OAICreativeApi.md#deletecreative) | **POST** /creative/delete | Delete Creative
+*OAICreativeApi* | [**getCreative**](docs/OAICreativeApi.md#getcreative) | **GET** /creative/get | Get Creative
+*OAICreativeApi* | [**getCreativesByApplication**](docs/OAICreativeApi.md#getcreativesbyapplication) | **GET** /creative/search | Search Creatives
+*OAICreativeApi* | [**removePreview**](docs/OAICreativeApi.md#removepreview) | **POST** /creative/removepreview | Remove Preview
+*OAICreativeApi* | [**updateCreative**](docs/OAICreativeApi.md#updatecreative) | **POST** /creative/update | Update Creative
+*OAIDependentApi* | [**create**](docs/OAIDependentApi.md#create) | **PUT** /cargo/dependent/{accountId} | Create Dependent
+*OAIDependentApi* | [**getDependents**](docs/OAIDependentApi.md#getdependents) | **GET** /cargo/dependent/{accountId} | Get dependent list of an account
+*OAIDependentApi* | [**removeDependent**](docs/OAIDependentApi.md#removedependent) | **DELETE** /cargo/dependent/{accountId} | Delete Dependent
+*OAIDisbursementApi* | [**checkDisbursements**](docs/OAIDisbursementApi.md#checkdisbursements) | **GET** /disbursement/check | Check Disbursements
+*OAIDisbursementApi* | [**createDisbursement**](docs/OAIDisbursementApi.md#createdisbursement) | **POST** /disbursement/create | Create Disbursement
+*OAIDisbursementApi* | [**getDisbursement**](docs/OAIDisbursementApi.md#getdisbursement) | **GET** /disbursement/get | Get Disbursement
+*OAIDisbursementApi* | [**searchDisbursements**](docs/OAIDisbursementApi.md#searchdisbursements) | **GET** /disbursement/search | Search Disbursements
+*OAIDisbursementApi* | [**updateDisbursement**](docs/OAIDisbursementApi.md#updatedisbursement) | **POST** /disbursement/update | Update Disbursement
+*OAIEmployeeApi* | [**assignEmployee**](docs/OAIEmployeeApi.md#assignemployee) | **POST** /employee/assign | Assign Employee
+*OAIEmployeeApi* | [**assignToLocationEmployee**](docs/OAIEmployeeApi.md#assigntolocationemployee) | **POST** /employee/assignToLocation | Assign Employee to Location
+*OAIEmployeeApi* | [**createEmployee**](docs/OAIEmployeeApi.md#createemployee) | **POST** /employee/create | Create Employee
+*OAIEmployeeApi* | [**deleteEmployee**](docs/OAIEmployeeApi.md#deleteemployee) | **POST** /employee/delete | Delete Employee
+*OAIEmployeeApi* | [**getEmployee**](docs/OAIEmployeeApi.md#getemployee) | **POST** /employee/get | Get Employee
+*OAIEmployeeApi* | [**searchEmployees**](docs/OAIEmployeeApi.md#searchemployees) | **POST** /employee/search | Search Employees
+*OAIEmployeeApi* | [**unassignEmployee**](docs/OAIEmployeeApi.md#unassignemployee) | **POST** /employee/unassign | Unassign Employee
+*OAIEmployeeApi* | [**updateEmployee**](docs/OAIEmployeeApi.md#updateemployee) | **POST** /employee/update | Update Employee
+*OAIEventApi* | [**attendEvent**](docs/OAIEventApi.md#attendevent) | **POST** /event/attend | Attend Event
+*OAIEventApi* | [**createEvent**](docs/OAIEventApi.md#createevent) | **POST** /event/create | Create Event
+*OAIEventApi* | [**deleteEvent**](docs/OAIEventApi.md#deleteevent) | **POST** /event/delete | Delete Event
+*OAIEventApi* | [**getEvent**](docs/OAIEventApi.md#getevent) | **GET** /event/get | Get Event
+*OAIEventApi* | [**searchEventTransactions**](docs/OAIEventApi.md#searcheventtransactions) | **GET** /event/attendance/search | Search Event Attendance
+*OAIEventApi* | [**searchEvents**](docs/OAIEventApi.md#searchevents) | **GET** /event/search | Search Events
+*OAIEventApi* | [**updateEvent**](docs/OAIEventApi.md#updateevent) | **POST** /event/update | Update Event
+*OAIFacebookApi* | [**getToken**](docs/OAIFacebookApi.md#gettoken) | **GET** /facebook/getfbtoken | Get Facebook Token
+*OAIFacebookApi* | [**graphInterface**](docs/OAIFacebookApi.md#graphinterface) | **POST** /facebook/graph | Post to Facebook
+*OAIFavoriteApi* | [**addFavorite**](docs/OAIFavoriteApi.md#addfavorite) | **POST** /favorite/create | Create Favorite
+*OAIFavoriteApi* | [**deleteFavorite**](docs/OAIFavoriteApi.md#deletefavorite) | **POST** /favorite/delete | Delete Favorite
+*OAIFavoriteApi* | [**getFavorite**](docs/OAIFavoriteApi.md#getfavorite) | **GET** /favorite/get | Get Favorite
+*OAIFavoriteApi* | [**searchFavorites**](docs/OAIFavoriteApi.md#searchfavorites) | **GET** /favorite/search | Search Favorites
+*OAIFavoriteApi* | [**whoHasFavorited**](docs/OAIFavoriteApi.md#whohasfavorited) | **GET** /favorite/whois | Who has Favorited
+*OAIFilterApi* | [**createFilter**](docs/OAIFilterApi.md#createfilter) | **POST** /filter/create | Create Filter
+*OAIFilterApi* | [**deleteFilter**](docs/OAIFilterApi.md#deletefilter) | **POST** /filter/delete | Delete Filter
+*OAIFilterApi* | [**getFilter**](docs/OAIFilterApi.md#getfilter) | **GET** /filter/get | Get Filter
+*OAIFilterApi* | [**searchFilters**](docs/OAIFilterApi.md#searchfilters) | **GET** /filter/search | Search Filters
+*OAIFilterApi* | [**updateFilter**](docs/OAIFilterApi.md#updatefilter) | **POST** /filter/update | Update Filter
+*OAIFlagApi* | [**createFlag**](docs/OAIFlagApi.md#createflag) | **POST** /flag/create | Create Flag
+*OAIFlagApi* | [**deleteFlag**](docs/OAIFlagApi.md#deleteflag) | **POST** /flag/delete | Delete Flag
+*OAIFlagApi* | [**getFlag**](docs/OAIFlagApi.md#getflag) | **GET** /flag/get | Get Flag
+*OAIFlagApi* | [**getFlagThreshold**](docs/OAIFlagApi.md#getflagthreshold) | **GET** /flag/threshold/get | Get Flag Threshold
+*OAIFlagApi* | [**updateFlagThreshold**](docs/OAIFlagApi.md#updateflagthreshold) | **POST** /flag/threshold/update | Update Flag Threshold
+*OAIGameApi* | [**createGame**](docs/OAIGameApi.md#creategame) | **POST** /game/create | Create a Game
+*OAIGameApi* | [**deleteGame**](docs/OAIGameApi.md#deletegame) | **POST** /game/delete | Delete a Game
+*OAIGameApi* | [**getGame**](docs/OAIGameApi.md#getgame) | **GET** /game/get | Get a Game by id
+*OAIGameApi* | [**searchGames**](docs/OAIGameApi.md#searchgames) | **GET** /game/search | Search a Game
+*OAIGameApi* | [**updateGame**](docs/OAIGameApi.md#updategame) | **POST** /game/update | Update a Game
+*OAIGameLevelApi* | [**createGameLevel**](docs/OAIGameLevelApi.md#creategamelevel) | **POST** /level/create | Create Game Level
+*OAIGameLevelApi* | [**deleteGameLevel**](docs/OAIGameLevelApi.md#deletegamelevel) | **POST** /level/delete | Delete Game Level
+*OAIGameLevelApi* | [**getGameLevel**](docs/OAIGameLevelApi.md#getgamelevel) | **GET** /level/get | Get Game Level
+*OAIGameLevelApi* | [**getGameLevelsByApplication**](docs/OAIGameLevelApi.md#getgamelevelsbyapplication) | **GET** /level/search | Search Game Levels
+*OAIGameLevelApi* | [**getGameLevelsByBillableEntity**](docs/OAIGameLevelApi.md#getgamelevelsbybillableentity) | **GET** /level/searchByBillableEntity | Search Game Level by Billable Entity
+*OAIGameLevelApi* | [**getQuestionsInLevel**](docs/OAIGameLevelApi.md#getquestionsinlevel) | **GET** /level/questions/get | Get Level Questions
+*OAIGameLevelApi* | [**getWordsInLevel**](docs/OAIGameLevelApi.md#getwordsinlevel) | **GET** /level/words/get | Get Level Words
+*OAIGameLevelApi* | [**updateGameLevel**](docs/OAIGameLevelApi.md#updategamelevel) | **POST** /level/update | Update Game Level
+*OAIGameLevelApi* | [**updateQuestionsInLevel**](docs/OAIGameLevelApi.md#updatequestionsinlevel) | **POST** /level/questions/update | Update Level Questions
+*OAIGameLevelApi* | [**updateWordsInLevel**](docs/OAIGameLevelApi.md#updatewordsinlevel) | **POST** /level/words/update | Update Level Words
+*OAIInviteApi* | [**acceptInvite**](docs/OAIInviteApi.md#acceptinvite) | **POST** /invite/accept | Accept Invite
+*OAIInviteApi* | [**albumContestInvite**](docs/OAIInviteApi.md#albumcontestinvite) | **POST** /invite/albumContest | Invite to Contest
+*OAIInviteApi* | [**albumInvite**](docs/OAIInviteApi.md#albuminvite) | **POST** /invite/album | Invite to Collection
+*OAIInviteApi* | [**eventInvite**](docs/OAIInviteApi.md#eventinvite) | **POST** /invite/event | Invite to Event
+*OAIInviteApi* | [**gameInvite**](docs/OAIInviteApi.md#gameinvite) | **POST** /invite/gameLevel | Invite to Game Level
+*OAIInviteApi* | [**getInvite**](docs/OAIInviteApi.md#getinvite) | **GET** /invite/get | Get Invite
+*OAIInviteApi* | [**missionInvite**](docs/OAIInviteApi.md#missioninvite) | **POST** /invite/mission | Invite to Mission
+*OAIInviteApi* | [**offerInvite**](docs/OAIInviteApi.md#offerinvite) | **POST** /invite/offer | Invite to Offer
+*OAIInviteApi* | [**offerLocationInvite**](docs/OAIInviteApi.md#offerlocationinvite) | **POST** /invite/offerLocation | Invite to Offer Location
+*OAIInviteApi* | [**retailerLocationInvite**](docs/OAIInviteApi.md#retailerlocationinvite) | **POST** /invite/retailerLocation | Invite to Retailer Location
+*OAILeaderboardApi* | [**createLeaderboard**](docs/OAILeaderboardApi.md#createleaderboard) | **POST** /leaderboard/create | Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
+*OAILeaderboardApi* | [**deleteLeaderboard**](docs/OAILeaderboardApi.md#deleteleaderboard) | **POST** /leaderboard/delete | Delete the Leader Board
+*OAILeaderboardApi* | [**getLeaderboard**](docs/OAILeaderboardApi.md#getleaderboard) | **GET** /leaderboard/get | Read a leaderboard by id and retrieve the matching ranking list
+*OAILeaderboardApi* | [**searchLeaderboards**](docs/OAILeaderboardApi.md#searchleaderboards) | **GET** /leaderboard/search | Search leaderboard and retrieve the matching ranking list
+*OAILeaderboardApi* | [**updateLeaderboard**](docs/OAILeaderboardApi.md#updateleaderboard) | **POST** /leaderboard/update | Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
+*OAILikeApi* | [**registerLike**](docs/OAILikeApi.md#registerlike) | **POST** /like | Create Like
+*OAILikeApi* | [**removeLike**](docs/OAILikeApi.md#removelike) | **POST** /like/delete | Delete Like
+*OAILikeApi* | [**searchLikes**](docs/OAILikeApi.md#searchlikes) | **GET** /like/search | Search Likes
+*OAIListingApi* | [**createListing**](docs/OAIListingApi.md#createlisting) | **POST** /listing/create | Create Listing
+*OAIListingApi* | [**deleteListing**](docs/OAIListingApi.md#deletelisting) | **POST** /listing/delete | Delete Listing
+*OAIListingApi* | [**getListing**](docs/OAIListingApi.md#getlisting) | **GET** /listing/get | Get Listing
+*OAIListingApi* | [**searchListing**](docs/OAIListingApi.md#searchlisting) | **GET** /listing/search | Search Listings
+*OAIListingApi* | [**summaryListing**](docs/OAIListingApi.md#summarylisting) | **GET** /listing/summary | Summary Listing
+*OAIListingApi* | [**updateListing**](docs/OAIListingApi.md#updatelisting) | **POST** /listing/update | Update Listing
+*OAILocationApi* | [**cacheTrilaterationData**](docs/OAILocationApi.md#cachetrilaterationdata) | **POST** /location/trilaterate/cache | Create Trilateration Data with File
+*OAILocationApi* | [**cacheTrilaterationDataGzip**](docs/OAILocationApi.md#cachetrilaterationdatagzip) | **POST** /location/trilaterate/cache/submit | Create Trilateration Data with Rest
+*OAILocationApi* | [**getLocationByIp**](docs/OAILocationApi.md#getlocationbyip) | **GET** /location/ip | Get Location by IP
+*OAILocationApi* | [**getLocationByTrilateration**](docs/OAILocationApi.md#getlocationbytrilateration) | **GET** /account/location/trilaterate | Get Location by Trilateration
+*OAILocationApi* | [**getLocations**](docs/OAILocationApi.md#getlocations) | **GET** /location/search | Search Regions or Postal Codes
+*OAILocationApiV2Api* | [**createLocationV2**](docs/OAILocationApiV2Api.md#createlocationv2) | **POST** /location | Create new location
+*OAILocationApiV2Api* | [**updateLocationV2**](docs/OAILocationApiV2Api.md#updatelocationv2) | **POST** /location/{id} | Update an existing location
+*OAIMediaApi* | [**createMedia**](docs/OAIMediaApi.md#createmedia) | **POST** /media/create | Create Media
+*OAIMediaApi* | [**deleteMedia**](docs/OAIMediaApi.md#deletemedia) | **POST** /media/delete | Delete Media
+*OAIMediaApi* | [**getMedia**](docs/OAIMediaApi.md#getmedia) | **GET** /media/get | Media Get
+*OAIMediaApi* | [**searchMedia**](docs/OAIMediaApi.md#searchmedia) | **GET** /media/search | Search Media
+*OAIMediaApi* | [**updateMedia**](docs/OAIMediaApi.md#updatemedia) | **POST** /media/update | Update Media
+*OAIMissionApi* | [**createMission**](docs/OAIMissionApi.md#createmission) | **POST** /mission/create | Create Mission
+*OAIMissionApi* | [**deleteMission**](docs/OAIMissionApi.md#deletemission) | **POST** /mission/delete | Delete Mission
+*OAIMissionApi* | [**findMissions**](docs/OAIMissionApi.md#findmissions) | **GET** /mission/find | Find Missions
+*OAIMissionApi* | [**getMission**](docs/OAIMissionApi.md#getmission) | **GET** /mission/get | Get Mission
+*OAIMissionApi* | [**importMission**](docs/OAIMissionApi.md#importmission) | **POST** /mission/import | Import Mission
+*OAIMissionApi* | [**searchMissionFormats**](docs/OAIMissionApi.md#searchmissionformats) | **GET** /mission/format/search | Search Mission Formats
+*OAIMissionApi* | [**searchMissions**](docs/OAIMissionApi.md#searchmissions) | **GET** /mission/search | Search Missions
+*OAIMissionApi* | [**searchMissionsByBillableEntity**](docs/OAIMissionApi.md#searchmissionsbybillableentity) | **GET** /mission/searchByBillableEntity | Search Missions by Billable Entity
+*OAIMissionApi* | [**updateMission**](docs/OAIMissionApi.md#updatemission) | **POST** /mission/update | Update Mission
+*OAIMissionInviteApi* | [**createMissionInvite**](docs/OAIMissionInviteApi.md#createmissioninvite) | **POST** /mission/invite/create | Create Mission Invite
+*OAIMissionInviteApi* | [**deleteMissionInvite**](docs/OAIMissionInviteApi.md#deletemissioninvite) | **POST** /mission/invite/delete | Delete Mission Invite
+*OAIMissionInviteApi* | [**getMissionInvite**](docs/OAIMissionInviteApi.md#getmissioninvite) | **GET** /mission/invite/get | Get Mission Invite
+*OAIMissionInviteApi* | [**searchMissionInvites**](docs/OAIMissionInviteApi.md#searchmissioninvites) | **GET** /mission/invite/search | Search Mission Invites
+*OAIMissionInviteApi* | [**updateMissionInvite**](docs/OAIMissionInviteApi.md#updatemissioninvite) | **POST** /mission/invite/update | Update Mission Invite
+*OAINoteApi* | [**batchOperation**](docs/OAINoteApi.md#batchoperation) | **POST** /note/batch | Batch Note Operation
+*OAINoteApi* | [**createNote**](docs/OAINoteApi.md#createnote) | **POST** /note/create | Create Note
+*OAINoteApi* | [**deleteNote**](docs/OAINoteApi.md#deletenote) | **POST** /note/delete | Delete Note
+*OAINoteApi* | [**getNote**](docs/OAINoteApi.md#getnote) | **POST** /note/get | Get Note
+*OAINoteApi* | [**searchNotes**](docs/OAINoteApi.md#searchnotes) | **POST** /note/search | Search Notes
+*OAINoteApi* | [**updateNote**](docs/OAINoteApi.md#updatenote) | **POST** /note/update | Update Note
+*OAINotificationApi* | [**createNotificationTemplate**](docs/OAINotificationApi.md#createnotificationtemplate) | **POST** /notification/template/create | Create Notification Template
+*OAINotificationApi* | [**createOrUpdateBlockedNotifications**](docs/OAINotificationApi.md#createorupdateblockednotifications) | **POST** /notification/blocked/batch | Create or update blocked notification settings
+*OAINotificationApi* | [**deleteNotificationTemplate**](docs/OAINotificationApi.md#deletenotificationtemplate) | **POST** /notification/template/delete | Delete Notification Template
+*OAINotificationApi* | [**getNotificationTemplate**](docs/OAINotificationApi.md#getnotificationtemplate) | **GET** /notification/template/get | Get Notification Template
+*OAINotificationApi* | [**getNotifications**](docs/OAINotificationApi.md#getnotifications) | **GET** /notification/search | Get Notifications
+*OAINotificationApi* | [**registerNotificationToken**](docs/OAINotificationApi.md#registernotificationtoken) | **POST** /notification/token | Register Notification Token
+*OAINotificationApi* | [**searchBlockedNotifications**](docs/OAINotificationApi.md#searchblockednotifications) | **GET** /notification/blocked/search | Search on the user&#39;s blocked notification settings
+*OAINotificationApi* | [**searchNotificationTemplate**](docs/OAINotificationApi.md#searchnotificationtemplate) | **GET** /notification/template/search | Search Notification Templates
+*OAINotificationApi* | [**searchRecipients**](docs/OAINotificationApi.md#searchrecipients) | **GET** /notification/recipient/search | Search for Recipients
+*OAINotificationApi* | [**searchRecipientsCount**](docs/OAINotificationApi.md#searchrecipientscount) | **GET** /notification/recipient/search/count | Search for Recipients (Counts/Grouped)
+*OAINotificationApi* | [**sendBatchNotifications**](docs/OAINotificationApi.md#sendbatchnotifications) | **POST** /notification/batch | Send Batch Notifications
+*OAINotificationApi* | [**sendCustomNotifications**](docs/OAINotificationApi.md#sendcustomnotifications) | **POST** /notification/custom | Send Custom Notifications
+*OAINotificationApi* | [**updateNotificationTemplate**](docs/OAINotificationApi.md#updatenotificationtemplate) | **POST** /notification/template/update | Update Notification Template
+*OAIObjectStoreApi* | [**addField**](docs/OAIObjectStoreApi.md#addfield) | **POST** /object/field/add | Create Field
+*OAIObjectStoreApi* | [**createData**](docs/OAIObjectStoreApi.md#createdata) | **POST** /object/data/{objectName} | Create Data
+*OAIObjectStoreApi* | [**createObject**](docs/OAIObjectStoreApi.md#createobject) | **POST** /object/create | Create Object
+*OAIObjectStoreApi* | [**deleteData**](docs/OAIObjectStoreApi.md#deletedata) | **DELETE** /object/data/{objectName}/{objectId} | Delete Data
+*OAIObjectStoreApi* | [**deleteField**](docs/OAIObjectStoreApi.md#deletefield) | **POST** /object/field/delete | Delete Field
+*OAIObjectStoreApi* | [**deleteObject**](docs/OAIObjectStoreApi.md#deleteobject) | **POST** /object/delete | Delete Object
+*OAIObjectStoreApi* | [**getData**](docs/OAIObjectStoreApi.md#getdata) | **GET** /object/data/{objectName}/{objectId} | Get Data
+*OAIObjectStoreApi* | [**getObject**](docs/OAIObjectStoreApi.md#getobject) | **GET** /object/get | Get Object
+*OAIObjectStoreApi* | [**searchData**](docs/OAIObjectStoreApi.md#searchdata) | **GET** /object/data/{objectName} | Search Data
+*OAIObjectStoreApi* | [**searchObject**](docs/OAIObjectStoreApi.md#searchobject) | **GET** /object/search | Search Objects
+*OAIObjectStoreApi* | [**updateData**](docs/OAIObjectStoreApi.md#updatedata) | **PUT** /object/data/{objectName}/{objectId} | Update Data
+*OAIOfferApi* | [**batchUpdateOfferLocations**](docs/OAIOfferApi.md#batchupdateofferlocations) | **POST** /retailer/offer/location/batchUpdate | Update Offer Locations
+*OAIOfferApi* | [**createOffer**](docs/OAIOfferApi.md#createoffer) | **POST** /retailer/offer/create | Create Offer
+*OAIOfferApi* | [**deleteOffer**](docs/OAIOfferApi.md#deleteoffer) | **POST** /retailer/offer/delete | Delete Offer
+*OAIOfferApi* | [**deleteOfferLocation**](docs/OAIOfferApi.md#deleteofferlocation) | **POST** /retailer/offer/location/delete | Delete Offer Location
+*OAIOfferApi* | [**getOffer**](docs/OAIOfferApi.md#getoffer) | **GET** /retailer/offer/get | Get Offer
+*OAIOfferApi* | [**getOfferDetails**](docs/OAIOfferApi.md#getofferdetails) | **GET** /offer/get | Get Offer
+*OAIOfferApi* | [**getOfferListCounts**](docs/OAIOfferApi.md#getofferlistcounts) | **GET** /offer/lists/count | Get Offers (Counts)
+*OAIOfferApi* | [**getOfferLocation**](docs/OAIOfferApi.md#getofferlocation) | **GET** /offer/location/get | Get Offer Location
+*OAIOfferApi* | [**getOfferLocationsForRetailers**](docs/OAIOfferApi.md#getofferlocationsforretailers) | **GET** /retailer/offer/location/search | Search Offer Locations
+*OAIOfferApi* | [**getOffersForRetailers**](docs/OAIOfferApi.md#getoffersforretailers) | **GET** /retailer/offer/search | Search Offers
+*OAIOfferApi* | [**redeemOfferTransaction**](docs/OAIOfferApi.md#redeemoffertransaction) | **POST** /retailer/offer/transaction/update | Update Offer Transaction
+*OAIOfferApi* | [**searchOfferTransactionsForRetailers**](docs/OAIOfferApi.md#searchoffertransactionsforretailers) | **GET** /retailer/offer/transaction/search | Search Offer Transactions
+*OAIOfferApi* | [**searchOffersForConsumer**](docs/OAIOfferApi.md#searchoffersforconsumer) | **GET** /offer/lists | Search Offers
+*OAIOfferApi* | [**topOfferTransactions**](docs/OAIOfferApi.md#topoffertransactions) | **GET** /offer/top | Get Offers (Top)
+*OAIOfferApi* | [**updateOffer**](docs/OAIOfferApi.md#updateoffer) | **POST** /retailer/offer/update | Update Offer
+*OAIOfferApi* | [**updateOfferStatus**](docs/OAIOfferApi.md#updateofferstatus) | **POST** /retailer/offer/status | Activate Offer
+*OAIOfferStatusApi* | [**createOfferTransactionStatus**](docs/OAIOfferStatusApi.md#createoffertransactionstatus) | **POST** /offer/status/create | Create Offer Status
+*OAIOfferStatusApi* | [**deleteOfferTransactionStatus**](docs/OAIOfferStatusApi.md#deleteoffertransactionstatus) | **POST** /offer/status/delete | Delete Offer Status
+*OAIOfferStatusApi* | [**getOfferTransactionStatus**](docs/OAIOfferStatusApi.md#getoffertransactionstatus) | **GET** /offer/status/get | Get Offer Status
+*OAIOfferStatusApi* | [**searchOfferTransactionStatuses**](docs/OAIOfferStatusApi.md#searchoffertransactionstatuses) | **GET** /offer/status/search | Search Offer Status
+*OAIOfferStatusApi* | [**updateOfferTransactionStatus**](docs/OAIOfferStatusApi.md#updateoffertransactionstatus) | **POST** /offer/status/update | Update Offer Status
+*OAIOpenAIApi* | [**imageGeneration**](docs/OAIOpenAIApi.md#imagegeneration) | **POST** /openai/v1/images/generations | Generate images with OpenAI
+*OAIOptimizeApi* | [**getOptimizationResult**](docs/OAIOptimizeApi.md#getoptimizationresult) | **GET** /optimize/result/{batchID} | Get Optimization Result
+*OAIOptimizeApi* | [**requestOptimization**](docs/OAIOptimizeApi.md#requestoptimization) | **POST** /optimize/request | Request Optimization
+*OAIOrsonApi* | [**addMovie**](docs/OAIOrsonApi.md#addmovie) | **POST** /orson/ai/addMovie | Add Movie
+*OAIOrsonApi* | [**aiDocs**](docs/OAIOrsonApi.md#aidocs) | **GET** /orson/ai/docs | Search Docs
+*OAIOrsonApi* | [**aiFindImages**](docs/OAIOrsonApi.md#aifindimages) | **GET** /orson/ai/img | Find images
+*OAIOrsonApi* | [**aiTags**](docs/OAIOrsonApi.md#aitags) | **GET** /orson/ai/tags | Search Tags
+*OAIOrsonApi* | [**aiText**](docs/OAIOrsonApi.md#aitext) | **GET** /orson/ai/text | Search Text
+*OAIOrsonApi* | [**batch**](docs/OAIOrsonApi.md#batch) | **POST** /orson/ai/batch | Batch Analysis
+*OAIOrsonApi* | [**createInstantEpisode**](docs/OAIOrsonApi.md#createinstantepisode) | **POST** /orson/stories/episodes/instant | Creates an instant episode
+*OAIOrsonApi* | [**createVoiceCanvas**](docs/OAIOrsonApi.md#createvoicecanvas) | **POST** /orson/ai/voiceCanvas | Create VoiceCanvas images
+*OAIOrsonApi* | [**emotion**](docs/OAIOrsonApi.md#emotion) | **POST** /orson/ai/emotion | Detect emotions
+*OAIOrsonApi* | [**getAddMovieResult**](docs/OAIOrsonApi.md#getaddmovieresult) | **GET** /orson/ai/addMovie/{requestId} | Get Add Movie Result
+*OAIOrsonApi* | [**getBatch**](docs/OAIOrsonApi.md#getbatch) | **GET** /orson/ai/batch/{requestId} | Get Batch Analysis Results
+*OAIOrsonApi* | [**getEmotion**](docs/OAIOrsonApi.md#getemotion) | **GET** /orson/ai/emotion/{requestId} | Get Emotion Results
+*OAIOrsonApi* | [**getEpisodeStatus**](docs/OAIOrsonApi.md#getepisodestatus) | **GET** /orson/stories/episodes/{episodeId}/status | Check episode status
+*OAIOrsonApi* | [**getRenderStatus**](docs/OAIOrsonApi.md#getrenderstatus) | **GET** /orson/stories/renders/{renderId}/status | Check episode status
+*OAIOrsonApi* | [**getSTT**](docs/OAIOrsonApi.md#getstt) | **GET** /orson/ai/stt/{requestId} | Get Speach to Text Result
+*OAIOrsonApi* | [**getTTS**](docs/OAIOrsonApi.md#gettts) | **GET** /orson/ai/tts/{requestId} | Get Text to Speach Result
+*OAIOrsonApi* | [**getTechTune**](docs/OAIOrsonApi.md#gettechtune) | **GET** /orson/ai/techTune/{requestId} | Get TechTune Results
+*OAIOrsonApi* | [**getTopics**](docs/OAIOrsonApi.md#gettopics) | **GET** /orson/ai/topics/{requestId} | Get Topics
+*OAIOrsonApi* | [**getVoiceCanvas**](docs/OAIOrsonApi.md#getvoicecanvas) | **GET** /orson/ai/voiceCanvas/{requestId} | Get VoiceCanvas images
+*OAIOrsonApi* | [**startVideoRender**](docs/OAIOrsonApi.md#startvideorender) | **POST** /orson/stories/renders | Starts a StoryStitch video render
+*OAIOrsonApi* | [**stt**](docs/OAIOrsonApi.md#stt) | **POST** /orson/ai/stt | Speach to Text
+*OAIOrsonApi* | [**summarizeTopics**](docs/OAIOrsonApi.md#summarizetopics) | **POST** /orson/ai/topics | Summarize Topics
+*OAIOrsonApi* | [**techTune**](docs/OAIOrsonApi.md#techtune) | **POST** /orson/ai/techTune | Detect Technical Issues
+*OAIOrsonApi* | [**tts**](docs/OAIOrsonApi.md#tts) | **POST** /orson/ai/tts | Text to Speach
+*OAIPackApi* | [**createPack**](docs/OAIPackApi.md#createpack) | **POST** /pack/create | Create Pack
+*OAIPackApi* | [**deletePack**](docs/OAIPackApi.md#deletepack) | **POST** /pack/delete | Delete Pack
+*OAIPackApi* | [**getPack**](docs/OAIPackApi.md#getpack) | **GET** /pack/get | Get Pack
+*OAIPackApi* | [**searchPacks**](docs/OAIPackApi.md#searchpacks) | **GET** /pack/search | Search Packs
+*OAIPackApi* | [**updatePack**](docs/OAIPackApi.md#updatepack) | **POST** /pack/update | Update Pack
+*OAIParticipantsApi* | [**processAllParticipants**](docs/OAIParticipantsApi.md#processallparticipants) | **POST** /participant/process/all | Process All Participant Feeds
+*OAIParticipantsApi* | [**processParticipants**](docs/OAIParticipantsApi.md#processparticipants) | **POST** /participant/process | Process Participants Feed
+*OAIPathingApi* | [**computePath**](docs/OAIPathingApi.md#computepath) | **GET** /pathing/compute | Calculate Path
+*OAIPostalCodeApi* | [**createPostalCode**](docs/OAIPostalCodeApi.md#createpostalcode) | **POST** /postalCode/create | Create Postal Code
+*OAIPostalCodeApi* | [**deletePostalCode**](docs/OAIPostalCodeApi.md#deletepostalcode) | **POST** /postalCode/delete | Delete Postal Code
+*OAIPostalCodeApi* | [**getPostalCode**](docs/OAIPostalCodeApi.md#getpostalcode) | **GET** /postalCode/get | Get Postal Code
+*OAIPostalCodeApi* | [**getPostalCodes**](docs/OAIPostalCodeApi.md#getpostalcodes) | **GET** /postalCode/search | Search Postal Codes
+*OAIPostalCodeApi* | [**updatePostalCode**](docs/OAIPostalCodeApi.md#updatepostalcode) | **POST** /postalCode/update | Update Postal Code
+*OAIPreviewPersonaApi* | [**createPersona**](docs/OAIPreviewPersonaApi.md#createpersona) | **POST** /persona/create | Create Persona
+*OAIPreviewPersonaApi* | [**deletePersona**](docs/OAIPreviewPersonaApi.md#deletepersona) | **POST** /persona/delete | Delete Persona
+*OAIPreviewPersonaApi* | [**getPersonaList**](docs/OAIPreviewPersonaApi.md#getpersonalist) | **GET** /persona/get | Get Persona
+*OAIPreviewPersonaApi* | [**searchPersona**](docs/OAIPreviewPersonaApi.md#searchpersona) | **GET** /persona/search | Search Personas
+*OAIPreviewPersonaApi* | [**updatePersona**](docs/OAIPreviewPersonaApi.md#updatepersona) | **POST** /persona/update | Update Persona
+*OAIProgramApi* | [**createProgram**](docs/OAIProgramApi.md#createprogram) | **POST** /program | Create Program
+*OAIProgramApi* | [**deleteProgram**](docs/OAIProgramApi.md#deleteprogram) | **DELETE** /program/{id} | Delete Program
+*OAIProgramApi* | [**getProgram**](docs/OAIProgramApi.md#getprogram) | **GET** /program/{id} | Get Program
+*OAIProgramApi* | [**postProgram**](docs/OAIProgramApi.md#postprogram) | **POST** /program/{id} | Update Program
+*OAIProgramApi* | [**putProgram**](docs/OAIProgramApi.md#putprogram) | **PUT** /program/{id} | Update Program
+*OAIProgramApi* | [**searchPrograms**](docs/OAIProgramApi.md#searchprograms) | **GET** /program | Search Programs
+*OAIPurchaseItemApi* | [**createPurchaseItem**](docs/OAIPurchaseItemApi.md#createpurchaseitem) | **POST** /purchase/create | Create Purchase
+*OAIPurchaseItemApi* | [**deletePurchaseItem**](docs/OAIPurchaseItemApi.md#deletepurchaseitem) | **POST** /purchase/delete | Delete Purchase
+*OAIPurchaseItemApi* | [**getPurchaseItem**](docs/OAIPurchaseItemApi.md#getpurchaseitem) | **GET** /purchase/get | Get Purchase
+*OAIPurchaseItemApi* | [**searchPurchaseItems**](docs/OAIPurchaseItemApi.md#searchpurchaseitems) | **GET** /purchase/search | Search Purchases
+*OAIPurchaseItemApi* | [**updatePurchaseItem**](docs/OAIPurchaseItemApi.md#updatepurchaseitem) | **POST** /purchase/update | Update Purchase
+*OAIPurchaseOrderApi* | [**createOrder**](docs/OAIPurchaseOrderApi.md#createorder) | **POST** /order/create | Create Order
+*OAIPurchaseOrderApi* | [**deleteOrder**](docs/OAIPurchaseOrderApi.md#deleteorder) | **POST** /order/delete | Delete Order
+*OAIPurchaseOrderApi* | [**getOrder**](docs/OAIPurchaseOrderApi.md#getorder) | **GET** /order/get | Get Order
+*OAIPurchaseOrderApi* | [**previewOrder**](docs/OAIPurchaseOrderApi.md#previeworder) | **POST** /order/preview | Preview Order
+*OAIPurchaseOrderApi* | [**searchOrders**](docs/OAIPurchaseOrderApi.md#searchorders) | **GET** /order/search | Search Orders
+*OAIPurchaseOrderApi* | [**updateOrder**](docs/OAIPurchaseOrderApi.md#updateorder) | **POST** /order/update | Update Order
+*OAIQuestionApi* | [**createQuestion**](docs/OAIQuestionApi.md#createquestion) | **POST** /game/question/create | Create Question
+*OAIQuestionApi* | [**deleteQuestion**](docs/OAIQuestionApi.md#deletequestion) | **POST** /game/question/delete | Delete Question
+*OAIQuestionApi* | [**getQuestion**](docs/OAIQuestionApi.md#getquestion) | **GET** /game/question/get | Get Question
+*OAIQuestionApi* | [**searchQuestions**](docs/OAIQuestionApi.md#searchquestions) | **GET** /game/question/search | Search Questions
+*OAIQuestionApi* | [**updateQuestion**](docs/OAIQuestionApi.md#updatequestion) | **POST** /game/question/update | Update Question
+*OAIRankingApi* | [**getHistoricalRankings**](docs/OAIRankingApi.md#gethistoricalrankings) | **GET** /ranking/historical/search | Search Historical Rankings
+*OAIRankingApi* | [**getRankings**](docs/OAIRankingApi.md#getrankings) | **GET** /ranking/search | Search Rankings
+*OAIRankingApi* | [**getUserRank**](docs/OAIRankingApi.md#getuserrank) | **POST** /ranking/personal/ranks | Get Personal Rankings
+*OAIRankingApi* | [**overrideUserRank**](docs/OAIRankingApi.md#overrideuserrank) | **POST** /ranking/override | Override User Rank
+*OAIRankingApi* | [**updateRankings**](docs/OAIRankingApi.md#updaterankings) | **POST** /ranking/update | Update Ranking
+*OAIRatingApi* | [**createRating**](docs/OAIRatingApi.md#createrating) | **POST** /rating/create | Create Rating
+*OAIRatingApi* | [**deleteRating**](docs/OAIRatingApi.md#deleterating) | **POST** /rating/delete | Delete Rating
+*OAIRatingApi* | [**searchLocationRatingIndexes**](docs/OAIRatingApi.md#searchlocationratingindexes) | **GET** /location/rating/index/search | Search Location Rating Indexes
+*OAIRatingApi* | [**searchRatingIndexes**](docs/OAIRatingApi.md#searchratingindexes) | **GET** /rating/index/search | Search Rating Indexes
+*OAIRatingApi* | [**searchRatings**](docs/OAIRatingApi.md#searchratings) | **GET** /rating/search | Search Ratings
+*OAIRatingApi* | [**updateRating**](docs/OAIRatingApi.md#updaterating) | **POST** /rating/update | Update Rating
+*OAIRegionApi* | [**createRegion**](docs/OAIRegionApi.md#createregion) | **POST** /region/create | Create Region
+*OAIRegionApi* | [**deleteRegion**](docs/OAIRegionApi.md#deleteregion) | **POST** /region/delete | Delete Region
+*OAIRegionApi* | [**getRegion**](docs/OAIRegionApi.md#getregion) | **GET** /region/get | Get Region
+*OAIRegionApi* | [**searchRegions**](docs/OAIRegionApi.md#searchregions) | **GET** /region/search | Search Regions
+*OAIRegionApi* | [**updateRegion**](docs/OAIRegionApi.md#updateregion) | **POST** /region/update | Update Region
+*OAIReportingApi* | [**createBatch**](docs/OAIReportingApi.md#createbatch) | **POST** /report/batch/create | Create Offline Report
+*OAIReportingApi* | [**createRegionLegSummaryBatch**](docs/OAIReportingApi.md#createregionlegsummarybatch) | **POST** /report/region/summary/batch | Create Offline Report
+*OAIReportingApi* | [**deleteBatch**](docs/OAIReportingApi.md#deletebatch) | **POST** /report/batch/delete | Delete Offline Report
+*OAIReportingApi* | [**getReportBatch**](docs/OAIReportingApi.md#getreportbatch) | **GET** /report/batch/get | Get Offline Report
+*OAIReportingApi* | [**runReport**](docs/OAIReportingApi.md#runreport) | **POST** /report/run | Run Report
+*OAIReportingApi* | [**searchBatch**](docs/OAIReportingApi.md#searchbatch) | **GET** /report/batch/search | Search Offline Reports
+*OAIReservationApi* | [**createReservation**](docs/OAIReservationApi.md#createreservation) | **POST** /reservation/create | Create Reservation
+*OAIReservationApi* | [**deleteReservation**](docs/OAIReservationApi.md#deletereservation) | **POST** /reservation/delete | Delete Reservation
+*OAIReservationApi* | [**reservableAvailability**](docs/OAIReservationApi.md#reservableavailability) | **POST** /reservable/availability/update | Update Availability
+*OAIReservationApi* | [**searchAvailability**](docs/OAIReservationApi.md#searchavailability) | **GET** /reservable/availability/search | Search Availability
+*OAIReservationApi* | [**searchReservations**](docs/OAIReservationApi.md#searchreservations) | **GET** /reservation/search | Search Reservations
+*OAIReservationApi* | [**searchSchedule**](docs/OAIReservationApi.md#searchschedule) | **GET** /reservable/schedule/search | Search Schedule
+*OAIRetailerApi* | [**createRetailer**](docs/OAIRetailerApi.md#createretailer) | **POST** /retailer/create | Create Retailer
+*OAIRetailerApi* | [**deleteRetailer**](docs/OAIRetailerApi.md#deleteretailer) | **POST** /retailer/delete | Delete Retailer
+*OAIRetailerApi* | [**getRetailer**](docs/OAIRetailerApi.md#getretailer) | **GET** /retailer/get | Get Retailer
+*OAIRetailerApi* | [**getRetailers**](docs/OAIRetailerApi.md#getretailers) | **GET** /retailer/search | Search Retailers
+*OAIRetailerApi* | [**retailerLoginCheck**](docs/OAIRetailerApi.md#retailerlogincheck) | **POST** /retailer/login | Login Retailer
+*OAIRetailerApi* | [**updateRetailer**](docs/OAIRetailerApi.md#updateretailer) | **POST** /retailer/update | Update Retailer
+*OAIRetailerLocationApi* | [**createRetailerLocationConsumer**](docs/OAIRetailerLocationApi.md#createretailerlocationconsumer) | **POST** /location/create | Create Retailer Location (Consumer)
+*OAIRetailerLocationApi* | [**createRetailerLocations**](docs/OAIRetailerLocationApi.md#createretailerlocations) | **POST** /retailer/location/create | Create Retailer Location
+*OAIRetailerLocationApi* | [**deleteRetailerLocation**](docs/OAIRetailerLocationApi.md#deleteretailerlocation) | **POST** /retailer/location/delete | Delete Retailer Location
+*OAIRetailerLocationApi* | [**getRetailerLocation**](docs/OAIRetailerLocationApi.md#getretailerlocation) | **GET** /retailer/location/get | Get Retailer Location
+*OAIRetailerLocationApi* | [**getRetailerLocationConsumer**](docs/OAIRetailerLocationApi.md#getretailerlocationconsumer) | **GET** /location/get | Get Retailer Location (Consumer)
+*OAIRetailerLocationApi* | [**indexedRetailerLocationDistanceSearch**](docs/OAIRetailerLocationApi.md#indexedretailerlocationdistancesearch) | **GET** /retailer/location/idistancesearch | Distance Search Retailer Locations (Indexed)
+*OAIRetailerLocationApi* | [**indexedRetailerLocationSearch**](docs/OAIRetailerLocationApi.md#indexedretailerlocationsearch) | **GET** /retailer/location/isearch | Keyword Search Retailer Locations (Indexed)
+*OAIRetailerLocationApi* | [**searchRetailerLocations**](docs/OAIRetailerLocationApi.md#searchretailerlocations) | **GET** /retailer/location/search | Search Retailer Locations (Owned)
+*OAIRetailerLocationApi* | [**updateRetailerLocations**](docs/OAIRetailerLocationApi.md#updateretailerlocations) | **POST** /retailer/location/update | Update Retailer Location
+*OAIRetailerV2Api* | [**getRetaokiler**](docs/OAIRetailerV2Api.md#getretaokiler) | **GET** /retailer | Get Retailer
+*OAIRouteApi* | [**approveRoute**](docs/OAIRouteApi.md#approveroute) | **POST** /route/{routeId}/approve | Approve Route
+*OAIRouteApi* | [**copyRoute**](docs/OAIRouteApi.md#copyroute) | **POST** /route/{routeId}/copy | Copy Route
+*OAIRouteApi* | [**createRoute**](docs/OAIRouteApi.md#createroute) | **POST** /route | Create Route
+*OAIRouteApi* | [**createRouteDirections**](docs/OAIRouteApi.md#createroutedirections) | **PUT** /route/{routeId}/directions | Update Route Directions
+*OAIRouteApi* | [**createRoutePolyline**](docs/OAIRouteApi.md#createroutepolyline) | **PUT** /route/{routeId}/polyline | Create Route Polyline
+*OAIRouteApi* | [**deleteRoute**](docs/OAIRouteApi.md#deleteroute) | **DELETE** /route/{routeId} | Delete Route
+*OAIRouteApi* | [**disapproveRoute**](docs/OAIRouteApi.md#disapproveroute) | **POST** /route/{routeId}/disapprove | Disapprove Route
+*OAIRouteApi* | [**getRoute**](docs/OAIRouteApi.md#getroute) | **GET** /route/{routeId} | Get Route
+*OAIRouteApi* | [**getRouteDirections**](docs/OAIRouteApi.md#getroutedirections) | **GET** /route/{routeId}/directions | Get Route Directions
+*OAIRouteApi* | [**getRouteShipments**](docs/OAIRouteApi.md#getrouteshipments) | **GET** /route/{routeId}/shipments | Get Route Shipments
+*OAIRouteApi* | [**getRouteStop**](docs/OAIRouteApi.md#getroutestop) | **GET** /route/{routeId}/stop/{stopId} | Get Route Stop
+*OAIRouteApi* | [**getRouteStops**](docs/OAIRouteApi.md#getroutestops) | **GET** /route/{routeId}/stops | Get Route Stops
+*OAIRouteApi* | [**getShipmentsAtStop**](docs/OAIRouteApi.md#getshipmentsatstop) | **GET** /route/{routeId}/stop/{stopId}/shipments | Get Shipments At Stop
+*OAIRouteApi* | [**optimizeRoute**](docs/OAIRouteApi.md#optimizeroute) | **POST** /route/{routeId}/optimize | Optimize Route
+*OAIRouteApi* | [**removeStop**](docs/OAIRouteApi.md#removestop) | **DELETE** /route/{routeId}/stop/{stopId} | Delete Stop
+*OAIRouteApi* | [**reorderRouteStopsPatch**](docs/OAIRouteApi.md#reorderroutestopspatch) | **PATCH** /route/{routeId}/stops/reorder | Reorder Route Stops
+*OAIRouteApi* | [**reorderRouteStopsPost**](docs/OAIRouteApi.md#reorderroutestopspost) | **POST** /route/{routeId}/stops/reorder | Reorder Route Stops
+*OAIRouteApi* | [**searchRoutes**](docs/OAIRouteApi.md#searchroutes) | **GET** /route | Search Routes
+*OAIRouteApi* | [**setDriver**](docs/OAIRouteApi.md#setdriver) | **POST** /route/{id}/driver/{driverId} | Set Driver
+*OAIRouteApi* | [**updateRoute**](docs/OAIRouteApi.md#updateroute) | **PUT** /route/{routeId} | Update Route
+*OAIRouteApi* | [**updateRouteStop**](docs/OAIRouteApi.md#updateroutestop) | **PUT** /route/{routeId}/stop/{stopId} | Update Route Stop
+*OAIRouteSettingApi* | [**createRouteSettings**](docs/OAIRouteSettingApi.md#createroutesettings) | **POST** /route/setting | Create Route Setting
+*OAIRouteSettingApi* | [**deleteRouteSettings**](docs/OAIRouteSettingApi.md#deleteroutesettings) | **DELETE** /route/setting/{routeSettingsId} | Delete Route Setting
+*OAIRouteSettingApi* | [**getRouteSettings**](docs/OAIRouteSettingApi.md#getroutesettings) | **GET** /route/setting/{routeSettingsId} | Get Route Setting
+*OAIRouteSettingApi* | [**searchRouteSettings**](docs/OAIRouteSettingApi.md#searchroutesettings) | **GET** /route/setting | Search Route Settings
+*OAIRouteSettingApi* | [**updateRouteSettings**](docs/OAIRouteSettingApi.md#updateroutesettings) | **PUT** /route/setting/{routeSettingsId} | Update Route Setting
+*OAIRoutingApi* | [**computeRouting**](docs/OAIRoutingApi.md#computerouting) | **POST** /routing/compute | Compute Route
+*OAIScheduledNotificationApi* | [**createScheduledNotification**](docs/OAIScheduledNotificationApi.md#createschedulednotification) | **POST** /notification/schedule/create | Create Scheduled Notification
+*OAIScheduledNotificationApi* | [**deleteScheduledNotification**](docs/OAIScheduledNotificationApi.md#deleteschedulednotification) | **POST** /notification/schedule/delete | Delete Scheduled Notification
+*OAIScheduledNotificationApi* | [**getScheduledNotification**](docs/OAIScheduledNotificationApi.md#getschedulednotification) | **GET** /notification/schedule/get | Get Scheduled Notification
+*OAIScheduledNotificationApi* | [**scheduleNotificationListings**](docs/OAIScheduledNotificationApi.md#schedulenotificationlistings) | **POST** /notification/schedule/generate | Generate Schedule Notifications
+*OAIScheduledNotificationApi* | [**searchScheduledNotifications**](docs/OAIScheduledNotificationApi.md#searchschedulednotifications) | **GET** /notification/schedule/search | Search Scheduled Notifications
+*OAIScheduledNotificationApi* | [**updateScheduledNotification**](docs/OAIScheduledNotificationApi.md#updateschedulednotification) | **POST** /notification/schedule/update | Update Scheduled Notification
+*OAIScoreApi* | [**createScore**](docs/OAIScoreApi.md#createscore) | **POST** /score/create | Create Score
+*OAIScoreApi* | [**getScore**](docs/OAIScoreApi.md#getscore) | **GET** /score/get | Get Score
+*OAIScoreApi* | [**searchScores**](docs/OAIScoreApi.md#searchscores) | **GET** /score/search | Search Score
+*OAISecureAppApi* | [**createSecureApplication**](docs/OAISecureAppApi.md#createsecureapplication) | **POST** /secure/application/create | Create Secure Application
+*OAISecureAppApi* | [**deleteSecureApplication**](docs/OAISecureAppApi.md#deletesecureapplication) | **POST** /secure/application/delete | Delete Secure Application
+*OAISecureAppApi* | [**loginSecure**](docs/OAISecureAppApi.md#loginsecure) | **POST** /secure/login | Login Clear
+*OAISecureAppApi* | [**purchaseSecure**](docs/OAISecureAppApi.md#purchasesecure) | **POST** /secure/purchase | Purchase Clear
+*OAISecureAppApi* | [**resetSecure**](docs/OAISecureAppApi.md#resetsecure) | **POST** /secure/application/reset | Rest Secure Application
+*OAISecureAppApi* | [**updateSecureApplication**](docs/OAISecureAppApi.md#updatesecureapplication) | **POST** /secure/application/update | Update Secure Application
+*OAIServiceHubApi* | [**createServiceHub**](docs/OAIServiceHubApi.md#createservicehub) | **POST** /hub | Create Service Hub
+*OAIServiceHubApi* | [**deleteServiceHub**](docs/OAIServiceHubApi.md#deleteservicehub) | **DELETE** /hub/{id} | Delete Service Hub
+*OAIServiceHubApi* | [**getServiceHub**](docs/OAIServiceHubApi.md#getservicehub) | **GET** /hub/{id} | Get Service Hub
+*OAIServiceHubApi* | [**postServiceHub**](docs/OAIServiceHubApi.md#postservicehub) | **POST** /hub/{id} | Update Service Hub
+*OAIServiceHubApi* | [**putServiceHub**](docs/OAIServiceHubApi.md#putservicehub) | **PUT** /hub/{id} | Update Service Hub
+*OAIServiceHubApi* | [**searchServiceHubs**](docs/OAIServiceHubApi.md#searchservicehubs) | **GET** /hub | Search Service Hubs
+*OAIShipmentApi* | [**cancelShipment**](docs/OAIShipmentApi.md#cancelshipment) | **POST** /shipment/{id}/cancel | Cancel Shipment
+*OAIShipmentApi* | [**createShipment**](docs/OAIShipmentApi.md#createshipment) | **POST** /shipment | Create Shipment
+*OAIShipmentApi* | [**deleteShipment**](docs/OAIShipmentApi.md#deleteshipment) | **DELETE** /shipment/{id} | Delete Shipment
+*OAIShipmentApi* | [**getShipment**](docs/OAIShipmentApi.md#getshipment) | **GET** /shipment/{id} | Get Shipment
+*OAIShipmentApi* | [**searchShipments**](docs/OAIShipmentApi.md#searchshipments) | **GET** /shipment | Search Shipments
+*OAIShipmentApi* | [**updateShipment**](docs/OAIShipmentApi.md#updateshipment) | **PUT** /shipment/{id} | Update Shipment
+*OAIShipmentApi* | [**updateShipmentStatus**](docs/OAIShipmentApi.md#updateshipmentstatus) | **POST** /shipment/{id}/status | Uupdate Shipment Status
+*OAIShipmentBatchApi* | [**createShipmentBatch**](docs/OAIShipmentBatchApi.md#createshipmentbatch) | **POST** /shipment/batch | Create Shipment Batch
+*OAIShipmentBatchApi* | [**deleteShipmentBatch**](docs/OAIShipmentBatchApi.md#deleteshipmentbatch) | **DELETE** /shipment/batch/{batchId} | Delete Shipment Batch
+*OAIShipmentBatchApi* | [**getShipmentBatch**](docs/OAIShipmentBatchApi.md#getshipmentbatch) | **GET** /shipment/batch/{batchId} | Get Shipment Batch
+*OAIShipmentBatchApi* | [**getShipmentBatchStatus**](docs/OAIShipmentBatchApi.md#getshipmentbatchstatus) | **GET** /shipment/batch/{batchId}/status | Get Shipment Batch Status
+*OAIShipmentBatchApi* | [**searchShipmentBatch**](docs/OAIShipmentBatchApi.md#searchshipmentbatch) | **GET** /shipment/batch | Search Shipment Batch
+*OAISimulationApi* | [**simulation**](docs/OAISimulationApi.md#simulation) | **POST** /simulation/routing | Routing Simulation
+*OAIStopApi* | [**getStop**](docs/OAIStopApi.md#getstop) | **GET** /stop/{id} | Get Stop
+*OAIStopApi* | [**updateStop**](docs/OAIStopApi.md#updatestop) | **PUT** /stop/{id} | Update Stop
+*OAIStripeApi* | [**createStripeCheckoutSession**](docs/OAIStripeApi.md#createstripecheckoutsession) | **POST** /stripe/checkout/session/create | Create Stripe Checkout Session
+*OAISubscriptionApi* | [**createSubscription**](docs/OAISubscriptionApi.md#createsubscription) | **POST** /subscription/create | Create Subscription
+*OAISubscriptionApi* | [**deleteSubscription**](docs/OAISubscriptionApi.md#deletesubscription) | **POST** /subscription/delete | Delete Subscription
+*OAISubscriptionApi* | [**getSubscription**](docs/OAISubscriptionApi.md#getsubscription) | **GET** /subscription/get | Get Subscription
+*OAISubscriptionApi* | [**getSubscriptionPlan**](docs/OAISubscriptionApi.md#getsubscriptionplan) | **GET** /subscription/plan/get | Get Subscription Plan
+*OAISubscriptionApi* | [**getSubscriptionPlans**](docs/OAISubscriptionApi.md#getsubscriptionplans) | **GET** /subscription/plan/list | List Subscription Plans
+*OAISubscriptionApi* | [**getSubscriptionUsage**](docs/OAISubscriptionApi.md#getsubscriptionusage) | **GET** /subscription/usage/get | Get Subscription Usage
+*OAISubscriptionApi* | [**updateSubscription**](docs/OAISubscriptionApi.md#updatesubscription) | **POST** /subscription/update | Update Subscription
+*OAITaskApi* | [**createTask**](docs/OAITaskApi.md#createtask) | **POST** /task/create | Create Task
+*OAITaskApi* | [**deleteTask**](docs/OAITaskApi.md#deletetask) | **POST** /task/delete | Delete Task
+*OAITaskApi* | [**getTask**](docs/OAITaskApi.md#gettask) | **GET** /task/get | Get Task
+*OAITaskApi* | [**searchTasks**](docs/OAITaskApi.md#searchtasks) | **GET** /task/search | Search Tasks
+*OAITaskApi* | [**updateTask**](docs/OAITaskApi.md#updatetask) | **POST** /task/update | Update Task
+*OAITerritoryApi* | [**createTerritory**](docs/OAITerritoryApi.md#createterritory) | **POST** /territory/create | Create Territory
+*OAITerritoryApi* | [**deleteTerritory**](docs/OAITerritoryApi.md#deleteterritory) | **POST** /territory/delete | Delete Territory
+*OAITerritoryApi* | [**getTerritory**](docs/OAITerritoryApi.md#getterritory) | **GET** /territory/get | Get Territory
+*OAITerritoryApi* | [**searchTerritories**](docs/OAITerritoryApi.md#searchterritories) | **GET** /territory/search | Search Territories
+*OAITerritoryApi* | [**updateTerritory**](docs/OAITerritoryApi.md#updateterritory) | **POST** /territory/update | Update Territory
+*OAIThemeDescriptorApi* | [**addOrUpdateThemeDescriptor**](docs/OAIThemeDescriptorApi.md#addorupdatethemedescriptor) | **POST** /consumer/theme | Create/Update Theme
+*OAIThemeDescriptorApi* | [**getThemeDescriptor**](docs/OAIThemeDescriptorApi.md#getthemedescriptor) | **GET** /consumer/theme/get | Get Theme
+*OAIThemeDescriptorApi* | [**getThemeDescriptors**](docs/OAIThemeDescriptorApi.md#getthemedescriptors) | **GET** /consumer/theme/search | Search Themes
+*OAIThemeDescriptorApi* | [**removeThemeDescriptor**](docs/OAIThemeDescriptorApi.md#removethemedescriptor) | **POST** /consumer/theme/remove | Delete Theme
+*OAIThirdPartyCredentialsApi* | [**createCredential**](docs/OAIThirdPartyCredentialsApi.md#createcredential) | **POST** /thirdparty/credential/create | Create Credential
+*OAIThirdPartyCredentialsApi* | [**createNetwork**](docs/OAIThirdPartyCredentialsApi.md#createnetwork) | **POST** /thirdparty/network/create | Create Network
+*OAIThirdPartyCredentialsApi* | [**deleteCredential**](docs/OAIThirdPartyCredentialsApi.md#deletecredential) | **POST** /thirdparty/credential/delete | Delete Credential
+*OAIThirdPartyCredentialsApi* | [**deleteNetwork**](docs/OAIThirdPartyCredentialsApi.md#deletenetwork) | **POST** /thirdparty/network/delete | Delete Network
+*OAIThirdPartyCredentialsApi* | [**getCredential**](docs/OAIThirdPartyCredentialsApi.md#getcredential) | **POST** /thirdparty/credential/get | Get Credential
+*OAIThirdPartyCredentialsApi* | [**getNetwork**](docs/OAIThirdPartyCredentialsApi.md#getnetwork) | **GET** /thirdparty/network/get | Get Network
+*OAIThirdPartyCredentialsApi* | [**searchCredentials**](docs/OAIThirdPartyCredentialsApi.md#searchcredentials) | **GET** /thirdparty/credential/search | Search Credentials
+*OAIThirdPartyCredentialsApi* | [**searchNetworks**](docs/OAIThirdPartyCredentialsApi.md#searchnetworks) | **GET** /thirdparty/network/search | Search Networks
+*OAIThirdPartyCredentialsApi* | [**sendMFAChallenge**](docs/OAIThirdPartyCredentialsApi.md#sendmfachallenge) | **POST** /thirdparty/credential/mfa/send | Send MFA Challenge
+*OAIThirdPartyCredentialsApi* | [**updateCredential**](docs/OAIThirdPartyCredentialsApi.md#updatecredential) | **POST** /thirdparty/credential/update | Update Credential
+*OAIThirdPartyCredentialsApi* | [**updateNetwork**](docs/OAIThirdPartyCredentialsApi.md#updatenetwork) | **POST** /thirdparty/network/update | Update Network
+*OAITicketApi* | [**getTicketCount**](docs/OAITicketApi.md#getticketcount) | **GET** /ticket/count | Get Ticket Count
+*OAITicketApi* | [**getTicketList**](docs/OAITicketApi.md#getticketlist) | **GET** /ticket/getList | Get Ticket List
+*OAITicketApi* | [**giftPurchase**](docs/OAITicketApi.md#giftpurchase) | **POST** /purchase/gift | Gift Tickets
+*OAITicketApi* | [**saveTicket**](docs/OAITicketApi.md#saveticket) | **POST** /ticket/save | Save Ticket
+*OAITicketApi* | [**saveTicketViaFileUpload**](docs/OAITicketApi.md#saveticketviafileupload) | **POST** /ticket/save/fileUpload | Save Ticket with Reciept
+*OAITicketApi* | [**ticketOffers**](docs/OAITicketApi.md#ticketoffers) | **GET** /ticket/ticketoffers | Get Ticket Offers
+*OAITournamentApi* | [**createTournament**](docs/OAITournamentApi.md#createtournament) | **POST** /tournament/create | Create Tournament
+*OAITournamentApi* | [**deleteTournament**](docs/OAITournamentApi.md#deletetournament) | **POST** /tournament/delete | Delete Tournament
+*OAITournamentApi* | [**getTournament**](docs/OAITournamentApi.md#gettournament) | **GET** /tournament/get | Get Tournament
+*OAITournamentApi* | [**searchObjects**](docs/OAITournamentApi.md#searchobjects) | **GET** /tournament/object/search | Search Tournament Objects
+*OAITournamentApi* | [**searchRounds**](docs/OAITournamentApi.md#searchrounds) | **GET** /tournament/round/search | Search Tournament Rounds
+*OAITournamentApi* | [**searchTournaments**](docs/OAITournamentApi.md#searchtournaments) | **GET** /tournament/search | Search Tournaments
+*OAITournamentApi* | [**submitTournamentScore**](docs/OAITournamentApi.md#submittournamentscore) | **POST** /tournament/score | Submit Tournament Score
+*OAITournamentApi* | [**submitTournamentVote**](docs/OAITournamentApi.md#submittournamentvote) | **POST** /tournament/vote | Submit a vote for a multi-stage album tournament.
+*OAITournamentApi* | [**substituteTournamentPlayer**](docs/OAITournamentApi.md#substitutetournamentplayer) | **POST** /tournament/substitute | Substitute Tournament Player
+*OAITournamentApi* | [**updateTournament**](docs/OAITournamentApi.md#updatetournament) | **POST** /tournament/update | Update Tournament
+*OAITrackingApi* | [**batchSaveTracking**](docs/OAITrackingApi.md#batchsavetracking) | **POST** /tracking/batch/create | Create Batch Tracking
+*OAITrackingApi* | [**getPredictedLocations**](docs/OAITrackingApi.md#getpredictedlocations) | **GET** /tracking/predicted/get | Get Predicted Locations
+*OAITrackingApi* | [**getPredictedPath**](docs/OAITrackingApi.md#getpredictedpath) | **GET** /tracking/path/get | Get Tracking Path
+*OAITrackingApi* | [**getPreferredLocations**](docs/OAITrackingApi.md#getpreferredlocations) | **GET** /tracking/preferred/search | Search Preferred Locations
+*OAITrackingApi* | [**getTrackingLegs**](docs/OAITrackingApi.md#gettrackinglegs) | **GET** /tracking/search | Search Tracking
+*OAITrackingApi* | [**saveTrackingLeg**](docs/OAITrackingApi.md#savetrackingleg) | **POST** /tracking/leg/create | Create Tracking Leg
+*OAITrackingApi* | [**saveTrackingStep**](docs/OAITrackingApi.md#savetrackingstep) | **POST** /tracking/step/create | Create Tracking Step
+*OAITrackingApi* | [**searchAccountsWithTrackingLegs**](docs/OAITrackingApi.md#searchaccountswithtrackinglegs) | **GET** /tracking/list | List Tracking
+*OAITrackingApi* | [**searchTrackingLegs**](docs/OAITrackingApi.md#searchtrackinglegs) | **GET** /tracking/searchByBillable | Search Tracking (Billable)
+*OAITriggerApi* | [**createTrigger**](docs/OAITriggerApi.md#createtrigger) | **POST** /trigger/create | Create Trigger
+*OAITriggerApi* | [**deleteTrigger**](docs/OAITriggerApi.md#deletetrigger) | **POST** /trigger/delete | Delete Trigger
+*OAITriggerApi* | [**getTrigger**](docs/OAITriggerApi.md#gettrigger) | **GET** /trigger/get | Get Trigger
+*OAITriggerApi* | [**searchTriggers**](docs/OAITriggerApi.md#searchtriggers) | **GET** /trigger/search | Search Triggers
+*OAITriggerApi* | [**updateTrigger**](docs/OAITriggerApi.md#updatetrigger) | **POST** /trigger/update | Update Trigger
+*OAITripApi* | [**createTrip**](docs/OAITripApi.md#createtrip) | **POST** /trip | Create Trip
+*OAITripApi* | [**delete**](docs/OAITripApi.md#delete) | **DELETE** /trip/{id} | Delete Trip
+*OAITripApi* | [**driveTrip**](docs/OAITripApi.md#drivetrip) | **POST** /trip/{id}/drive | Set Trip Preference Driver
+*OAITripApi* | [**flexibleTrip**](docs/OAITripApi.md#flexibletrip) | **POST** /trip/{id}/flexible | Set Trip Preference Flexible
+*OAITripApi* | [**getTrip**](docs/OAITripApi.md#gettrip) | **GET** /trip/{id} | Get Trip
+*OAITripApi* | [**getTripMatches**](docs/OAITripApi.md#gettripmatches) | **GET** /trip/{id}/match | Get Trip Matches
+*OAITripApi* | [**processTripMatches**](docs/OAITripApi.md#processtripmatches) | **POST** /trip/match/process | Process Trip Matches
+*OAITripApi* | [**ride**](docs/OAITripApi.md#ride) | **POST** /trip/{id}/ride | Set Trip Preference Rider
+*OAITripApi* | [**search**](docs/OAITripApi.md#search) | **GET** /trip | Search Trips
+*OAITripApi* | [**searchTrips**](docs/OAITripApi.md#searchtrips) | **GET** /trip/match | Search Trips
+*OAITripApi* | [**updateLocations**](docs/OAITripApi.md#updatelocations) | **POST** /trip/{id}/locations | Update Trip Locations
+*OAITripApi* | [**updateRecurrenceLocations**](docs/OAITripApi.md#updaterecurrencelocations) | **POST** /trip/{id}/locations/recurrence | Update Recurrence Locations
+*OAITripApi* | [**updateRecurrenceShipments**](docs/OAITripApi.md#updaterecurrenceshipments) | **POST** /trip/{id}/shipments/recurrence | Update Recurrence Shipments
+*OAITripApi* | [**updateShipments**](docs/OAITripApi.md#updateshipments) | **POST** /trip/{id}/shipments | Update Trip Shipments
+*OAITripApi* | [**updateTrip**](docs/OAITripApi.md#updatetrip) | **PUT** /trip/{id} | Update Trip
+*OAITripApi* | [**updateTripNotifications**](docs/OAITripApi.md#updatetripnotifications) | **POST** /trip/notifications | Trip Notifications
+*OAITwilioApi* | [**smsBuyOffer**](docs/OAITwilioApi.md#smsbuyoffer) | **POST** /sms/buyoffer/{appKey} | Buy Offer by SMS
+*OAITwitterApi* | [**authorizeTwitter**](docs/OAITwitterApi.md#authorizetwitter) | **POST** /twitter/authorize | Authorize Twitter
+*OAITwitterApi* | [**loginTwitter**](docs/OAITwitterApi.md#logintwitter) | **POST** /twitter/login | Login Twitter
+*OAIUserPermissionsApi* | [**addUsersToPermissionable**](docs/OAIUserPermissionsApi.md#adduserstopermissionable) | **POST** /consumer/permissions/add | Add User
+*OAIUserPermissionsApi* | [**approvePermissionable**](docs/OAIUserPermissionsApi.md#approvepermissionable) | **POST** /permissionable/approve | Approve Permissionable
+*OAIUserPermissionsApi* | [**leaveFromPermissionable**](docs/OAIUserPermissionsApi.md#leavefrompermissionable) | **POST** /consumer/permissions/leave | Leave
+*OAIUserPermissionsApi* | [**removeUsersFromPermissionable**](docs/OAIUserPermissionsApi.md#removeusersfrompermissionable) | **POST** /consumer/permissions/remove | Remove User
+*OAIUserPermissionsApi* | [**searchPermissionables**](docs/OAIUserPermissionsApi.md#searchpermissionables) | **GET** /permissions/search | Search Permissionables
+*OAIUserPermissionsApi* | [**searchPermissionablesFollowingDistance**](docs/OAIUserPermissionsApi.md#searchpermissionablesfollowingdistance) | **GET** /permissions/distancesearch | Search Permissionables by Distnace
+*OAIVatomApi* | [**createFollowing**](docs/OAIVatomApi.md#createfollowing) | **POST** /vatom/me/rels/following/create | Create following
+*OAIVatomApi* | [**createSpace**](docs/OAIVatomApi.md#createspace) | **POST** /vatom/b/spaces/create | Create Vatom Space
+*OAIVatomApi* | [**createVatomEvent**](docs/OAIVatomApi.md#createvatomevent) | **POST** /vatom/b/events/create | Create Vatom Event
+*OAIVatomApi* | [**deleteFollowing**](docs/OAIVatomApi.md#deletefollowing) | **POST** /vatom/me/rels/following/delete | Delete following
+*OAIVatomApi* | [**deletePointsBalance**](docs/OAIVatomApi.md#deletepointsbalance) | **POST** /vatom/b/campaign/points/delete | Reset All Points Balance
+*OAIVatomApi* | [**deleteSpace**](docs/OAIVatomApi.md#deletespace) | **POST** /vatom/b/spaces/delete | Delete Vatom Space
+*OAIVatomApi* | [**deleteVatomEvent**](docs/OAIVatomApi.md#deletevatomevent) | **POST** /vatom/b/events/delete | Delete Vatom Event
+*OAIVatomApi* | [**deleteVatomNFT**](docs/OAIVatomApi.md#deletevatomnft) | **POST** /vatom/vatoms/delete | Delete Vatom NFT
+*OAIVatomApi* | [**executeActionOnNFT**](docs/OAIVatomApi.md#executeactiononnft) | **POST** /vatom/vatoms/execute-action | Execute Action on NFT
+*OAIVatomApi* | [**geomapSearch**](docs/OAIVatomApi.md#geomapsearch) | **GET** /vatom/vatoms/geo-map/search | Search Vatom Geo Map
+*OAIVatomApi* | [**getBusinessBehaviors**](docs/OAIVatomApi.md#getbusinessbehaviors) | **GET** /vatom/b/behaviors | Get Vatom Business Behaviors
+*OAIVatomApi* | [**getBusinessCoinsBalance**](docs/OAIVatomApi.md#getbusinesscoinsbalance) | **GET** /vatom/b/coins/get | Get the coins for a Business
+*OAIVatomApi* | [**getBusinessIds**](docs/OAIVatomApi.md#getbusinessids) | **GET** /vatom/me/businesses | Get the user business ids
+*OAIVatomApi* | [**getBusinessInfo**](docs/OAIVatomApi.md#getbusinessinfo) | **GET** /vatom/b/get | Get Vatom Business Info
+*OAIVatomApi* | [**getBusinessUsers**](docs/OAIVatomApi.md#getbusinessusers) | **GET** /vatom/b/users | Get Vatom Business Users
+*OAIVatomApi* | [**getCampaignGroupEntities**](docs/OAIVatomApi.md#getcampaigngroupentities) | **GET** /vatom/b/campaign-groups/entities | Get Campaign Group Entities
+*OAIVatomApi* | [**getCampaignGroupRules**](docs/OAIVatomApi.md#getcampaigngrouprules) | **GET** /vatom/b/campaign-groups/rules | Get Campaign Group Rules
+*OAIVatomApi* | [**getCampaignGroupStats**](docs/OAIVatomApi.md#getcampaigngroupstats) | **GET** /vatom/b/campaign-groups/stats | Get Campaign Group Stats
+*OAIVatomApi* | [**getCampaignInfo**](docs/OAIVatomApi.md#getcampaigninfo) | **GET** /vatom/b/campaign-groups/get | Get Campaign Info
+*OAIVatomApi* | [**getEventGuestList**](docs/OAIVatomApi.md#geteventguestlist) | **GET** /vatom/b/events/guests/get | Get Vatom Event Guest List
+*OAIVatomApi* | [**getInventory**](docs/OAIVatomApi.md#getinventory) | **GET** /vatom/me/inventory | Get Vatom User&#39;s Inventory
+*OAIVatomApi* | [**getMyFollowing**](docs/OAIVatomApi.md#getmyfollowing) | **GET** /vatom/me/rels/following | Get following
+*OAIVatomApi* | [**getPointsBalance**](docs/OAIVatomApi.md#getpointsbalance) | **GET** /vatom/u/campaign/points/get | Get Points Balance
+*OAIVatomApi* | [**getPointsBalanceAsBusiness**](docs/OAIVatomApi.md#getpointsbalanceasbusiness) | **GET** /vatom/b/campaign/u/points/get | Get Points Balance as Business
+*OAIVatomApi* | [**getSpace**](docs/OAIVatomApi.md#getspace) | **GET** /vatom/b/spaces/get | Get Vatom Space
+*OAIVatomApi* | [**getUserCoinsAsBusiness**](docs/OAIVatomApi.md#getusercoinsasbusiness) | **GET** /vatom/b/users/coins/get | Get the coins for a user (as a Business)
+*OAIVatomApi* | [**getUserCoinsBalance**](docs/OAIVatomApi.md#getusercoinsbalance) | **GET** /vatom/u/coins/get | Gets the coins balance for a Vatom User
+*OAIVatomApi* | [**getUserFollowers**](docs/OAIVatomApi.md#getuserfollowers) | **GET** /vatom/users/rels/followers | Get user followers
+*OAIVatomApi* | [**getUserFollowing**](docs/OAIVatomApi.md#getuserfollowing) | **GET** /vatom/users/rels/following | Get user following
+*OAIVatomApi* | [**getUserInfo**](docs/OAIVatomApi.md#getuserinfo) | **GET** /vatom/user/get | Get User Info
+*OAIVatomApi* | [**getUserProfile**](docs/OAIVatomApi.md#getuserprofile) | **GET** /vatom/me/get | Get Vatom User Profile
+*OAIVatomApi* | [**getVatomEvent**](docs/OAIVatomApi.md#getvatomevent) | **GET** /vatom/b/events/get | Get Vatom Event
+*OAIVatomApi* | [**getVatomNFT**](docs/OAIVatomApi.md#getvatomnft) | **GET** /vatom/vatoms/get | Get Vatom NFT Details
+*OAIVatomApi* | [**listCommunities**](docs/OAIVatomApi.md#listcommunities) | **GET** /vatom/b/communities/search | List Vatom Communities
+*OAIVatomApi* | [**listEvents**](docs/OAIVatomApi.md#listevents) | **GET** /vatom/b/events/search | List Vatom Events
+*OAIVatomApi* | [**listSpaces**](docs/OAIVatomApi.md#listspaces) | **GET** /vatom/b/spaces/search | List Vatom Spaces
+*OAIVatomApi* | [**listUserCoinTransactions**](docs/OAIVatomApi.md#listusercointransactions) | **GET** /vatom/u/coins/txns/search | List Coin Transactions for a Vatom User
+*OAIVatomApi* | [**listUserCoinTransactionsAsBusiness**](docs/OAIVatomApi.md#listusercointransactionsasbusiness) | **GET** /vatom/b/users/coins/txns/search | List coin transactions for a user (as a Business)
+*OAIVatomApi* | [**performActionOnNFT**](docs/OAIVatomApi.md#performactiononnft) | **POST** /vatom/me/vatoms/actions | Perform Action on NFT
+*OAIVatomApi* | [**redeemNFT**](docs/OAIVatomApi.md#redeemnft) | **POST** /vatom/b/redemptions | Redeem NFT
+*OAIVatomApi* | [**redeemUserCoinsAsBusiness**](docs/OAIVatomApi.md#redeemusercoinsasbusiness) | **POST** /vatom/b/users/coins/redeem | Redeem the coins for a user (as a Business)
+*OAIVatomApi* | [**searchBusinesses**](docs/OAIVatomApi.md#searchbusinesses) | **GET** /vatom/b/search | Search for Vatom Businesses
+*OAIVatomApi* | [**searchCampaignGroups**](docs/OAIVatomApi.md#searchcampaigngroups) | **GET** /vatom/b/campaign-groups/search | Search Campaign Groups
+*OAIVatomApi* | [**searchIdentities**](docs/OAIVatomApi.md#searchidentities) | **GET** /vatom/me/identities/search | Search User Identities
+*OAIVatomApi* | [**searchInventory**](docs/OAIVatomApi.md#searchinventory) | **GET** /vatom/user-inventory/search | Search Vatom User&#39;s Inventory
+*OAIVatomApi* | [**sendNFT**](docs/OAIVatomApi.md#sendnft) | **POST** /vatom/b/campaigns/send | Send NFT
+*OAIVatomApi* | [**setPointsBalanceAsBusiness**](docs/OAIVatomApi.md#setpointsbalanceasbusiness) | **POST** /vatom/b/campaign/u/points/update | Set Points Balance as Business
+*OAIVatomApi* | [**transferUserCoins**](docs/OAIVatomApi.md#transferusercoins) | **POST** /vatom/u/coins/transfer | Transfer coins from Vatom Users
+*OAIVatomApi* | [**updateBusinessCoins**](docs/OAIVatomApi.md#updatebusinesscoins) | **POST** /vatom/b/coins/update | Fund coins for a Business
+*OAIVatomApi* | [**updateEventGuestList**](docs/OAIVatomApi.md#updateeventguestlist) | **POST** /vatom/b/events/guests/update | Update Vatom Event Guest List
+*OAIVatomApi* | [**updateSpace**](docs/OAIVatomApi.md#updatespace) | **POST** /vatom/b/spaces/update | Update Vatom Space
+*OAIVatomApi* | [**updateUserCoinsAsBusiness**](docs/OAIVatomApi.md#updateusercoinsasbusiness) | **POST** /vatom/b/users/coins/update | Update the coins for a user (as a Business)
+*OAIVatomApi* | [**updateUserProfile**](docs/OAIVatomApi.md#updateuserprofile) | **POST** /vatom/me/update | Update Vatom User Profile
+*OAIVatomApi* | [**updateVatomEvent**](docs/OAIVatomApi.md#updatevatomevent) | **POST** /vatom/b/events/update | Update Vatom Event
+*OAIVehicleApi* | [**createVehicle**](docs/OAIVehicleApi.md#createvehicle) | **POST** /vehicle | Create Vehicle
+*OAIVehicleApi* | [**deleteVehicle**](docs/OAIVehicleApi.md#deletevehicle) | **DELETE** /vehicle/{id} | Delete Vehicle
+*OAIVehicleApi* | [**getVehicle**](docs/OAIVehicleApi.md#getvehicle) | **GET** /vehicle/{id} | Get Vehicle
+*OAIVehicleApi* | [**searchVehicle**](docs/OAIVehicleApi.md#searchvehicle) | **GET** /vehicle | Search Vehicle
+*OAIVehicleApi* | [**updateVehicle**](docs/OAIVehicleApi.md#updatevehicle) | **PUT** /vehicle/{id} | Update Vehicle
+*OAIVehicleTypeApi* | [**createVehicleType**](docs/OAIVehicleTypeApi.md#createvehicletype) | **POST** /vehicle/type | Create Vehicle Type
+*OAIVehicleTypeApi* | [**deleteVehicleType**](docs/OAIVehicleTypeApi.md#deletevehicletype) | **DELETE** /vehicle/type/{vehicleTypeId} | Delete Vehicle Type
+*OAIVehicleTypeApi* | [**getVehicleType**](docs/OAIVehicleTypeApi.md#getvehicletype) | **GET** /vehicle/type/{vehicleTypeId} | Get Vehicle Type
+*OAIVehicleTypeApi* | [**searchVehicleTypes**](docs/OAIVehicleTypeApi.md#searchvehicletypes) | **GET** /vehicle/type | Search Vehicle Type
+*OAIVehicleTypeApi* | [**updateVehicleType**](docs/OAIVehicleTypeApi.md#updatevehicletype) | **PUT** /vehicle/type/{vehicleTypeId} | Update Vehicle Type
+*OAIWalletApi* | [**createOfferTransaction**](docs/OAIWalletApi.md#createoffertransaction) | **POST** /wallet/create | Create Wallet Offers
+*OAIWalletApi* | [**deleteOfferTransaction**](docs/OAIWalletApi.md#deleteoffertransaction) | **POST** /wallet/delete | Delete Wallet Offer
+*OAIWalletApi* | [**getOfferTransaction**](docs/OAIWalletApi.md#getoffertransaction) | **GET** /wallet/get | Get Wallet Offer
+*OAIWalletApi* | [**previewOfferTransaction**](docs/OAIWalletApi.md#previewoffertransaction) | **POST** /wallet/preview | Preview Wallet Offers
+*OAIWalletApi* | [**searchOfferTransactions**](docs/OAIWalletApi.md#searchoffertransactions) | **GET** /wallet/search | Search Wallet Offers
+*OAIWalletApi* | [**updateOfferTransaction**](docs/OAIWalletApi.md#updateoffertransaction) | **POST** /wallet/update | Update Wallet Offer
+*OAIWeatherApi* | [**searchWeather**](docs/OAIWeatherApi.md#searchweather) | **GET** /weather/search | Search Weather
+*OAIWordApi* | [**createWord**](docs/OAIWordApi.md#createword) | **POST** /game/word/create | Create Word
+*OAIWordApi* | [**deleteWord**](docs/OAIWordApi.md#deleteword) | **DELETE** /game/word/delete | Delete Word
+*OAIWordApi* | [**getWord**](docs/OAIWordApi.md#getword) | **GET** /game/word/get | Get Word
+*OAIWordApi* | [**getWords**](docs/OAIWordApi.md#getwords) | **GET** /game/word/search | Search Words
+*OAIWordApi* | [**updateWord**](docs/OAIWordApi.md#updateword) | **POST** /game/word/update | Update Word
+*OAIWorkflowApi* | [**runWorkflow**](docs/OAIWorkflowApi.md#runworkflow) | **POST** /workflow/run | Run Workflow
 
 
 ## Documentation For Models

@@ -27,7 +27,6 @@ extern NSInteger kOAIAMQPApiMissingParamErrorCode;
 /// Create Consumer
 /// Create a connection to an existing amqp queue and register as a consumer.
 ///
-/// @param version 
 /// @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
 /// @param name The name of the queue to connect to
 /// @param hostname The hostname of the server the queue is hosted on
@@ -46,8 +45,7 @@ extern NSInteger kOAIAMQPApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIQueueResponse*
--(NSURLSessionTask*) consumerCreateWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) consumerCreateWithAppKey: (NSString*) appKey
     name: (NSString*) name
     hostname: (NSString*) hostname
     username: (NSString*) username
@@ -67,7 +65,6 @@ extern NSInteger kOAIAMQPApiMissingParamErrorCode;
 /// Update Consumer
 /// Update an existing amqp queue's data mapping.
 ///
-/// @param version 
 /// @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
 /// @param queueId The queue to update
 /// @param dataMapping The data mapping information in the format of AMQPRequest
@@ -78,8 +75,7 @@ extern NSInteger kOAIAMQPApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIQueueResponse*
--(NSURLSessionTask*) consumerUpdateWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) consumerUpdateWithAppKey: (NSString*) appKey
     queueId: (NSNumber*) queueId
     dataMapping: (NSString*) dataMapping
     deviceId: (NSString*) deviceId
@@ -91,7 +87,6 @@ extern NSInteger kOAIAMQPApiMissingParamErrorCode;
 /// Create Queue
 /// Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
 ///
-/// @param version 
 /// @param appKey The application key unique to each application.
 /// @param name The name of the queue to create
 /// @param deviceId The client deviceID (optional)
@@ -108,8 +103,7 @@ extern NSInteger kOAIAMQPApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIQueueResponse*
--(NSURLSessionTask*) queueCreateWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) queueCreateWithAppKey: (NSString*) appKey
     name: (NSString*) name
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -127,7 +121,6 @@ extern NSInteger kOAIAMQPApiMissingParamErrorCode;
 /// Delete Queue
 /// Delete the stored queue record and close any active connections to the AMQP servers.
 ///
-/// @param version 
 /// @param queueId The id of the queue to find
 /// @param deviceId The client device ID (optional)
 /// @param accountId The logged in user ID (optional)
@@ -135,8 +128,7 @@ extern NSInteger kOAIAMQPApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) queueDeleteWithVersion: (NSNumber*) version
-    queueId: (NSNumber*) queueId
+-(NSURLSessionTask*) queueDeleteWithQueueId: (NSNumber*) queueId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
@@ -145,7 +137,6 @@ extern NSInteger kOAIAMQPApiMissingParamErrorCode;
 /// Get Queue
 /// Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
 ///
-/// @param version 
 /// @param deviceId The client device ID (optional)
 /// @param accountId The logged in user ID (optional)
 /// @param queueId The id of the queue to find (optional)
@@ -157,8 +148,7 @@ extern NSInteger kOAIAMQPApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIQueueResponse*
--(NSURLSessionTask*) queueGetWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) queueGetWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     queueId: (NSNumber*) queueId
     appKey: (NSString*) appKey
@@ -171,7 +161,6 @@ extern NSInteger kOAIAMQPApiMissingParamErrorCode;
 /// Publish Queue
 /// Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
 ///
-/// @param version 
 /// @param message The payload to send to the queue
 /// @param queueId The id of the queue to publish to (optional)
 /// @param appKey The application key the queue was assigned to (optional)
@@ -182,8 +171,7 @@ extern NSInteger kOAIAMQPApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) queuePublishWithVersion: (NSNumber*) version
-    message: (NSString*) message
+-(NSURLSessionTask*) queuePublishWithMessage: (NSString*) message
     queueId: (NSNumber*) queueId
     appKey: (NSString*) appKey
     name: (NSString*) name
@@ -195,7 +183,6 @@ extern NSInteger kOAIAMQPApiMissingParamErrorCode;
 /// Search Queue
 /// Get the queues setup for the BillableEntity's applications.
 ///
-/// @param version 
 /// @param queueId The id of the queue to find (optional)
 /// @param deviceId The client device ID (optional)
 /// @param accountId The logged in user ID (optional)
@@ -206,8 +193,7 @@ extern NSInteger kOAIAMQPApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIQueueResponse*
--(NSURLSessionTask*) queueSearchWithVersion: (NSNumber*) version
-    queueId: (NSNumber*) queueId
+-(NSURLSessionTask*) queueSearchWithQueueId: (NSNumber*) queueId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     name: (NSString*) name
@@ -219,7 +205,6 @@ extern NSInteger kOAIAMQPApiMissingParamErrorCode;
 /// Update Queue
 /// Update the basic AMQP queue.
 ///
-/// @param version 
 /// @param queueId The id of the queue to update
 /// @param deviceId The client deviceID (optional)
 /// @param accountId The logged in user ID (optional)
@@ -236,8 +221,7 @@ extern NSInteger kOAIAMQPApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIQueueResponse*
--(NSURLSessionTask*) queueUpdateWithVersion: (NSNumber*) version
-    queueId: (NSNumber*) queueId
+-(NSURLSessionTask*) queueUpdateWithQueueId: (NSNumber*) queueId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appKey: (NSString*) appKey

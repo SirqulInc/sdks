@@ -28,7 +28,6 @@ extern NSInteger kOAIPurchaseItemApiMissingParamErrorCode;
 /// Create Purchase
 /// Creates a purchase item for in app purchases
 ///
-/// @param version 
 /// @param appKey The application key that the purchase can be used in
 /// @param name The name of the purchase item
 /// @param purchaseType The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt;
@@ -53,8 +52,7 @@ extern NSInteger kOAIPurchaseItemApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPurchaseItemFullResponse*
--(NSURLSessionTask*) createPurchaseItemWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) createPurchaseItemWithAppKey: (NSString*) appKey
     name: (NSString*) name
     purchaseType: (NSString*) purchaseType
     deviceId: (NSString*) deviceId
@@ -80,7 +78,6 @@ extern NSInteger kOAIPurchaseItemApiMissingParamErrorCode;
 /// Delete Purchase
 /// Marks the purchase item as deleted
 ///
-/// @param version 
 /// @param purchaseItemId The purchase item id
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -88,8 +85,7 @@ extern NSInteger kOAIPurchaseItemApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deletePurchaseItemWithVersion: (NSNumber*) version
-    purchaseItemId: (NSNumber*) purchaseItemId
+-(NSURLSessionTask*) deletePurchaseItemWithPurchaseItemId: (NSNumber*) purchaseItemId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
@@ -98,7 +94,6 @@ extern NSInteger kOAIPurchaseItemApiMissingParamErrorCode;
 /// Get Purchase
 /// Get detailed information about a purchase item
 ///
-/// @param version 
 /// @param purchaseItemId The purchase item id
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -106,8 +101,7 @@ extern NSInteger kOAIPurchaseItemApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPurchaseItemFullResponse*
--(NSURLSessionTask*) getPurchaseItemWithVersion: (NSNumber*) version
-    purchaseItemId: (NSNumber*) purchaseItemId
+-(NSURLSessionTask*) getPurchaseItemWithPurchaseItemId: (NSNumber*) purchaseItemId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIPurchaseItemFullResponse* output, NSError* error)) handler;
@@ -116,7 +110,6 @@ extern NSInteger kOAIPurchaseItemApiMissingParamErrorCode;
 /// Search Purchases
 /// Search for purchasable items from the system
 ///
-/// @param version 
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
 /// @param appKey The application key to filter results by application (optional)
@@ -133,8 +126,7 @@ extern NSInteger kOAIPurchaseItemApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIPurchaseItemResponse>*
--(NSURLSessionTask*) searchPurchaseItemsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) searchPurchaseItemsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     filterByBillable: (NSNumber*) filterByBillable
@@ -152,7 +144,6 @@ extern NSInteger kOAIPurchaseItemApiMissingParamErrorCode;
 /// Update Purchase
 /// Updates a purchase item for in app purchases
 ///
-/// @param version 
 /// @param purchaseItemId The purchase item id
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -178,8 +169,7 @@ extern NSInteger kOAIPurchaseItemApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPurchaseItemFullResponse*
--(NSURLSessionTask*) updatePurchaseItemWithVersion: (NSNumber*) version
-    purchaseItemId: (NSNumber*) purchaseItemId
+-(NSURLSessionTask*) updatePurchaseItemWithPurchaseItemId: (NSNumber*) purchaseItemId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     name: (NSString*) name

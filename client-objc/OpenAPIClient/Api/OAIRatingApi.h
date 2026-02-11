@@ -28,7 +28,6 @@ extern NSInteger kOAIRatingApiMissingParamErrorCode;
 /// Create Rating
 /// This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
 ///
-/// @param version 
 /// @param ratableType The ratable object type {RETAILER_LOCATION}
 /// @param ratableId The id of the ratable object
 /// @param ratingValue The integer value of 0-100
@@ -44,8 +43,7 @@ extern NSInteger kOAIRatingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRatingResponse*
--(NSURLSessionTask*) createRatingWithVersion: (NSNumber*) version
-    ratableType: (NSString*) ratableType
+-(NSURLSessionTask*) createRatingWithRatableType: (NSString*) ratableType
     ratableId: (NSNumber*) ratableId
     ratingValue: (NSNumber*) ratingValue
     deviceId: (NSString*) deviceId
@@ -62,7 +60,6 @@ extern NSInteger kOAIRatingApiMissingParamErrorCode;
 /// Delete Rating
 /// Sets a rating as deleted.
 ///
-/// @param version 
 /// @param ratingId The ID of the rating to delete
 /// @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
 /// @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -70,8 +67,7 @@ extern NSInteger kOAIRatingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteRatingWithVersion: (NSNumber*) version
-    ratingId: (NSNumber*) ratingId
+-(NSURLSessionTask*) deleteRatingWithRatingId: (NSNumber*) ratingId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
@@ -80,7 +76,6 @@ extern NSInteger kOAIRatingApiMissingParamErrorCode;
 /// Search Location Rating Indexes
 /// Search for retailer locations by averages near you.
 ///
-/// @param version 
 /// @param categoryIds Comma separated list of category ids to filter the results by (optional)
 /// @param keyword The keyword used to search (optional)
 /// @param locationType The type of location to filter the results by (optional)
@@ -102,8 +97,7 @@ extern NSInteger kOAIRatingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIRatingIndexResponse>*
--(NSURLSessionTask*) searchLocationRatingIndexesWithVersion: (NSNumber*) version
-    categoryIds: (NSString*) categoryIds
+-(NSURLSessionTask*) searchLocationRatingIndexesWithCategoryIds: (NSString*) categoryIds
     keyword: (NSString*) keyword
     locationType: (NSString*) locationType
     sortField: (NSString*) sortField
@@ -126,7 +120,6 @@ extern NSInteger kOAIRatingApiMissingParamErrorCode;
 /// Search Rating Indexes
 /// Search for ratable items by averages.
 ///
-/// @param version 
 /// @param ratableType Filter results by a ratable type {RETAILER_LOCATION}
 /// @param ratableIds Comma separated list of ratable ids to filter the resuts by (optional)
 /// @param categoryIds Comma separated list of category ids to filter the results by (optional)
@@ -144,8 +137,7 @@ extern NSInteger kOAIRatingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIRatingIndexResponse>*
--(NSURLSessionTask*) searchRatingIndexesWithVersion: (NSNumber*) version
-    ratableType: (NSString*) ratableType
+-(NSURLSessionTask*) searchRatingIndexesWithRatableType: (NSString*) ratableType
     ratableIds: (NSString*) ratableIds
     categoryIds: (NSString*) categoryIds
     secondaryType: (NSString*) secondaryType
@@ -164,7 +156,6 @@ extern NSInteger kOAIRatingApiMissingParamErrorCode;
 /// Search Ratings
 /// Search for ratings on a ratable object.
 ///
-/// @param version 
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
 /// @param filterAccountId Filter results for a particular account (optional)
@@ -180,8 +171,7 @@ extern NSInteger kOAIRatingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIRatingResponse>*
--(NSURLSessionTask*) searchRatingsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) searchRatingsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     filterAccountId: (NSNumber*) filterAccountId
     ratableType: (NSString*) ratableType
@@ -198,7 +188,6 @@ extern NSInteger kOAIRatingApiMissingParamErrorCode;
 /// Update Rating
 /// Update an existing rating. Only the creator of the rating have permission to update.
 ///
-/// @param version 
 /// @param ratingId The id of the rating (Note: this is not the ratable object id)
 /// @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
 /// @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -213,8 +202,7 @@ extern NSInteger kOAIRatingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRatingResponse*
--(NSURLSessionTask*) updateRatingWithVersion: (NSNumber*) version
-    ratingId: (NSNumber*) ratingId
+-(NSURLSessionTask*) updateRatingWithRatingId: (NSNumber*) ratingId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     ratingValue: (NSNumber*) ratingValue

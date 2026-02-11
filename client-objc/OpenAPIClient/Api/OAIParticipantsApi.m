@@ -52,8 +52,6 @@ NSInteger kOAIParticipantsApiMissingParamErrorCode = 234513;
 ///
 /// Process All Participant Feeds
 /// Processes all supported participant feeds.
-///  @param version  
-///
 ///  @param accountId The account id of the user 
 ///
 ///  @param appKey The application key used to identify the application (optional)
@@ -62,22 +60,10 @@ NSInteger kOAIParticipantsApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) processAllParticipantsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) processAllParticipantsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     useShortNameAsID: (NSNumber*) useShortNameAsID
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIParticipantsApiErrorDomain code:kOAIParticipantsApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -89,12 +75,9 @@ NSInteger kOAIParticipantsApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/participant/process/all"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/participant/process/all"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -149,8 +132,6 @@ NSInteger kOAIParticipantsApiMissingParamErrorCode = 234513;
 ///
 /// Process Participants Feed
 /// Processes a participant feed or uploaded file for a specific league.
-///  @param version  
-///
 ///  @param accountId The account id of the user 
 ///
 ///  @param league The league identifier to process 
@@ -163,24 +144,12 @@ NSInteger kOAIParticipantsApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) processParticipantsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) processParticipantsWithAccountId: (NSNumber*) accountId
     league: (NSString*) league
     appKey: (NSString*) appKey
     useShortNameAsID: (NSNumber*) useShortNameAsID
     file: (NSURL*) file
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIParticipantsApiErrorDomain code:kOAIParticipantsApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -203,12 +172,9 @@ NSInteger kOAIParticipantsApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/participant/process"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/participant/process"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

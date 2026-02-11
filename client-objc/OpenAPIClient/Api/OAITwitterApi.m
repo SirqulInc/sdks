@@ -53,26 +53,12 @@ NSInteger kOAITwitterApiMissingParamErrorCode = 234513;
 ///
 /// Authorize Twitter
 /// Makes an authorization call to twitter for a user to login and allow any app permissions.
-///  @param version  
-///
 ///  @param appKey the application key 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) authorizeTwitterWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) authorizeTwitterWithAppKey: (NSString*) appKey
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITwitterApiErrorDomain code:kOAITwitterApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'appKey' is set
     if (appKey == nil) {
         NSParameterAssert(appKey);
@@ -84,12 +70,9 @@ NSInteger kOAITwitterApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/twitter/authorize"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/twitter/authorize"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (appKey != nil) {
@@ -138,8 +121,6 @@ NSInteger kOAITwitterApiMissingParamErrorCode = 234513;
 ///
 /// Login Twitter
 /// Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
-///  @param version  
-///
 ///  @param accessToken The access token 
 ///
 ///  @param accessTokenSecret The secret access token 
@@ -156,8 +137,7 @@ NSInteger kOAITwitterApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIProfileResponse*
 ///
--(NSURLSessionTask*) loginTwitterWithVersion: (NSNumber*) version
-    accessToken: (NSString*) accessToken
+-(NSURLSessionTask*) loginTwitterWithAccessToken: (NSString*) accessToken
     accessTokenSecret: (NSString*) accessTokenSecret
     appKey: (NSString*) appKey
     responseFilters: (NSString*) responseFilters
@@ -165,17 +145,6 @@ NSInteger kOAITwitterApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIProfileResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITwitterApiErrorDomain code:kOAITwitterApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accessToken' is set
     if (accessToken == nil) {
         NSParameterAssert(accessToken);
@@ -220,12 +189,9 @@ NSInteger kOAITwitterApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/twitter/login"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/twitter/login"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {

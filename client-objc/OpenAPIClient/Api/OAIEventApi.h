@@ -29,7 +29,6 @@ extern NSInteger kOAIEventApiMissingParamErrorCode;
 /// Attend Event
 ///  Specify whether the user is attending an event at a particular location. This can also be used as a \"check-in\" action.
 ///
-/// @param version 
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id (deviceId or accountId required) (optional)
 /// @param appKey The application of where to send notifications about the attend action (optional)
@@ -44,8 +43,7 @@ extern NSInteger kOAIEventApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOfferResponse*
--(NSURLSessionTask*) attendEventWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) attendEventWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     listingId: (NSNumber*) listingId
@@ -61,7 +59,6 @@ extern NSInteger kOAIEventApiMissingParamErrorCode;
 /// Create Event
 /// Create a private event to share with associates.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param title The event title
 /// @param retailerLocationIds The retailer location to have the event at (optional)
@@ -78,8 +75,7 @@ extern NSInteger kOAIEventApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOfferResponse*
--(NSURLSessionTask*) createEventWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createEventWithAccountId: (NSNumber*) accountId
     title: (NSString*) title
     retailerLocationIds: (NSString*) retailerLocationIds
     subTitle: (NSString*) subTitle
@@ -97,15 +93,13 @@ extern NSInteger kOAIEventApiMissingParamErrorCode;
 /// Delete Event
 /// Delete an event that the user has permissions to.
 ///
-/// @param version 
 /// @param accountId the id of the logged in user
 /// @param eventId the id of the event to update
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteEventWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteEventWithAccountId: (NSNumber*) accountId
     eventId: (NSNumber*) eventId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -113,15 +107,13 @@ extern NSInteger kOAIEventApiMissingParamErrorCode;
 /// Get Event
 /// Get an event.
 ///
-/// @param version 
 /// @param accountId the id of the logged in user
 /// @param eventId The id of the event to return
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOfferResponse*
--(NSURLSessionTask*) getEventWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getEventWithAccountId: (NSNumber*) accountId
     eventId: (NSNumber*) eventId
     completionHandler: (void (^)(OAIOfferResponse* output, NSError* error)) handler;
 
@@ -129,7 +121,6 @@ extern NSInteger kOAIEventApiMissingParamErrorCode;
 /// Search Event Attendance
 /// Searches on event type transactions. This can be used to see who is attending an event.
 ///
-/// @param version 
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
 /// @param appKey The application key (optional)
@@ -153,8 +144,7 @@ extern NSInteger kOAIEventApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIEventAttendanceResponse>*
--(NSURLSessionTask*) searchEventTransactionsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) searchEventTransactionsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     keyword: (NSString*) keyword
@@ -179,7 +169,6 @@ extern NSInteger kOAIEventApiMissingParamErrorCode;
 /// Search Events
 /// Searches on events that the account has access to.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param keyword The keyword used to search (optional)
 /// @param activeOnly Return only active results (optional)
@@ -197,8 +186,7 @@ extern NSInteger kOAIEventApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIOfferShortResponse>*
--(NSURLSessionTask*) searchEventsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchEventsWithAccountId: (NSNumber*) accountId
     keyword: (NSString*) keyword
     activeOnly: (NSNumber*) activeOnly
     categoryIds: (NSString*) categoryIds
@@ -217,7 +205,6 @@ extern NSInteger kOAIEventApiMissingParamErrorCode;
 /// Update Event
 /// Update a private event to share with associates.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param eventId The id of the event to update
 /// @param retailerLocationIds The retailer location to have the event at (optional)
@@ -234,8 +221,7 @@ extern NSInteger kOAIEventApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOfferResponse*
--(NSURLSessionTask*) updateEventWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateEventWithAccountId: (NSNumber*) accountId
     eventId: (NSNumber*) eventId
     retailerLocationIds: (NSString*) retailerLocationIds
     title: (NSString*) title

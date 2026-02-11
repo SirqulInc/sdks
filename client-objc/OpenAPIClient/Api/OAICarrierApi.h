@@ -26,7 +26,6 @@ extern NSInteger kOAICarrierApiMissingParamErrorCode;
 /// Search Carriers
 /// Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
 ///
-/// @param version 
 /// @param keyword The keyword to search on (optional)
 /// @param descending Determines whether the sorted list is in descending or ascending order (optional) (default to @(NO))
 /// @param start The start index for pagination (optional) (default to @0)
@@ -36,8 +35,7 @@ extern NSInteger kOAICarrierApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAICellCarrierResponse>*
--(NSURLSessionTask*) searchCarriersWithVersion: (NSNumber*) version
-    keyword: (NSString*) keyword
+-(NSURLSessionTask*) searchCarriersWithKeyword: (NSString*) keyword
     descending: (NSNumber*) descending
     start: (NSNumber*) start
     limit: (NSNumber*) limit

@@ -53,26 +53,12 @@ NSInteger kOAIActivityApiMissingParamErrorCode = 234513;
 ///
 /// Create an entity reference.
 /// Creates a reference for an entity for syncing data between servers.
-///  @param version  
-///
 ///  @param body The entity reference object 
 ///
 ///  @returns OAIActivityResponse*
 ///
--(NSURLSessionTask*) createEntityReferenceWithVersion: (NSNumber*) version
-    body: (OAIEntityReference*) body
+-(NSURLSessionTask*) createEntityReferenceWithBody: (OAIEntityReference*) body
     completionHandler: (void (^)(OAIActivityResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIActivityApiErrorDomain code:kOAIActivityApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'body' is set
     if (body == nil) {
         NSParameterAssert(body);
@@ -84,12 +70,9 @@ NSInteger kOAIActivityApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/entity/reference"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/entity/reference"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];

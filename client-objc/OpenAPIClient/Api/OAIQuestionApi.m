@@ -53,8 +53,6 @@ NSInteger kOAIQuestionApiMissingParamErrorCode = 234513;
 ///
 /// Create Question
 /// Create a question and related answers by the given params.
-///  @param version  
-///
 ///  @param accountId the id of the logged in user 
 ///
 ///  @param question the text of the question 
@@ -79,8 +77,7 @@ NSInteger kOAIQuestionApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIQuestionResponse*
 ///
--(NSURLSessionTask*) createQuestionWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createQuestionWithAccountId: (NSNumber*) accountId
     question: (NSString*) question
     answers: (NSString*) answers
     active: (NSNumber*) active
@@ -92,17 +89,6 @@ NSInteger kOAIQuestionApiMissingParamErrorCode = 234513;
     ticketType: (NSString*) ticketType
     points: (NSNumber*) points
     completionHandler: (void (^)(OAIQuestionResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIQuestionApiErrorDomain code:kOAIQuestionApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -169,12 +155,9 @@ NSInteger kOAIQuestionApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/game/question/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/game/question/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -253,29 +236,15 @@ NSInteger kOAIQuestionApiMissingParamErrorCode = 234513;
 ///
 /// Delete Question
 /// Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
-///  @param version  
-///
 ///  @param questionId the id of the question to delete 
 ///
 ///  @param accountId the id of the account that can execute this request 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteQuestionWithVersion: (NSNumber*) version
-    questionId: (NSNumber*) questionId
+-(NSURLSessionTask*) deleteQuestionWithQuestionId: (NSNumber*) questionId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIQuestionApiErrorDomain code:kOAIQuestionApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'questionId' is set
     if (questionId == nil) {
         NSParameterAssert(questionId);
@@ -298,12 +267,9 @@ NSInteger kOAIQuestionApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/game/question/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/game/question/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (questionId != nil) {
@@ -355,29 +321,15 @@ NSInteger kOAIQuestionApiMissingParamErrorCode = 234513;
 ///
 /// Get Question
 /// Get a question by the given id.
-///  @param version  
-///
 ///  @param questionId the id of the question to get 
 ///
 ///  @param accountId the id of the account that can make this request 
 ///
 ///  @returns OAIQuestionResponse*
 ///
--(NSURLSessionTask*) getQuestionWithVersion: (NSNumber*) version
-    questionId: (NSNumber*) questionId
+-(NSURLSessionTask*) getQuestionWithQuestionId: (NSNumber*) questionId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIQuestionResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIQuestionApiErrorDomain code:kOAIQuestionApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'questionId' is set
     if (questionId == nil) {
         NSParameterAssert(questionId);
@@ -400,12 +352,9 @@ NSInteger kOAIQuestionApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/game/question/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/game/question/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (questionId != nil) {
@@ -457,8 +406,6 @@ NSInteger kOAIQuestionApiMissingParamErrorCode = 234513;
 ///
 /// Search Questions
 /// Search for questions by the given params.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param sortField The column to sort the search on 
@@ -475,8 +422,7 @@ NSInteger kOAIQuestionApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIQuestionResponse>*
 ///
--(NSURLSessionTask*) searchQuestionsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchQuestionsWithAccountId: (NSNumber*) accountId
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     activeOnly: (NSNumber*) activeOnly
@@ -484,17 +430,6 @@ NSInteger kOAIQuestionApiMissingParamErrorCode = 234513;
     limit: (NSNumber*) limit
     keyword: (NSString*) keyword
     completionHandler: (void (^)(NSArray<OAIQuestionResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIQuestionApiErrorDomain code:kOAIQuestionApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -561,12 +496,9 @@ NSInteger kOAIQuestionApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/game/question/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/game/question/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -633,8 +565,6 @@ NSInteger kOAIQuestionApiMissingParamErrorCode = 234513;
 ///
 /// Update Question
 /// Update a question and related answers.
-///  @param version  
-///
 ///  @param questionId The id of the question to update. 
 ///
 ///  @param accountId The logged in user. 
@@ -661,8 +591,7 @@ NSInteger kOAIQuestionApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIQuestionResponse*
 ///
--(NSURLSessionTask*) updateQuestionWithVersion: (NSNumber*) version
-    questionId: (NSNumber*) questionId
+-(NSURLSessionTask*) updateQuestionWithQuestionId: (NSNumber*) questionId
     accountId: (NSNumber*) accountId
     ticketCount: (NSNumber*) ticketCount
     question: (NSString*) question
@@ -675,17 +604,6 @@ NSInteger kOAIQuestionApiMissingParamErrorCode = 234513;
     ticketType: (NSString*) ticketType
     points: (NSNumber*) points
     completionHandler: (void (^)(OAIQuestionResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIQuestionApiErrorDomain code:kOAIQuestionApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'questionId' is set
     if (questionId == nil) {
         NSParameterAssert(questionId);
@@ -719,12 +637,9 @@ NSInteger kOAIQuestionApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/game/question/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/game/question/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (questionId != nil) {

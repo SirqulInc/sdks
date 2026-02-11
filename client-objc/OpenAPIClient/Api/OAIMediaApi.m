@@ -53,8 +53,6 @@ NSInteger kOAIMediaApiMissingParamErrorCode = 234513;
 ///
 /// Create Media
 /// Create a media offering.
-///  @param version  
-///
 ///  @param accountId The account id of the logged in user 
 ///
 ///  @param title The title (255 char limit) 
@@ -171,8 +169,7 @@ NSInteger kOAIMediaApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIMediaOfferResponse*
 ///
--(NSURLSessionTask*) createMediaWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createMediaWithAccountId: (NSNumber*) accountId
     title: (NSString*) title
     barcodeType: (NSString*) barcodeType
     noExpiration: (NSNumber*) noExpiration
@@ -230,17 +227,6 @@ NSInteger kOAIMediaApiMissingParamErrorCode = 234513;
     availability: (NSString*) availability
     availabilitySummary: (NSString*) availabilitySummary
     completionHandler: (void (^)(OAIMediaOfferResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIMediaApiErrorDomain code:kOAIMediaApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -406,12 +392,9 @@ NSInteger kOAIMediaApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/media/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/media/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -628,29 +611,15 @@ NSInteger kOAIMediaApiMissingParamErrorCode = 234513;
 ///
 /// Delete Media
 /// Delete a media offering that the user has permissions to.
-///  @param version  
-///
 ///  @param accountId the id of the logged in user 
 ///
 ///  @param mediaId the ID of the media to delete 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteMediaWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteMediaWithAccountId: (NSNumber*) accountId
     mediaId: (NSNumber*) mediaId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIMediaApiErrorDomain code:kOAIMediaApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -673,12 +642,9 @@ NSInteger kOAIMediaApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/media/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/media/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -730,29 +696,15 @@ NSInteger kOAIMediaApiMissingParamErrorCode = 234513;
 ///
 /// Media Get
 /// Get a media offering.
-///  @param version  
-///
 ///  @param accountId the id of the logged in user 
 ///
 ///  @param mediaId the id of the media to get 
 ///
 ///  @returns OAIMediaOfferResponse*
 ///
--(NSURLSessionTask*) getMediaWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getMediaWithAccountId: (NSNumber*) accountId
     mediaId: (NSNumber*) mediaId
     completionHandler: (void (^)(OAIMediaOfferResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIMediaApiErrorDomain code:kOAIMediaApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -775,12 +727,9 @@ NSInteger kOAIMediaApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/media/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/media/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -832,8 +781,6 @@ NSInteger kOAIMediaApiMissingParamErrorCode = 234513;
 ///
 /// Search Media
 /// Searches on events that the account has access to.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param activeOnly Return only active results 
@@ -854,8 +801,7 @@ NSInteger kOAIMediaApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIMediaOfferResponse>*
 ///
--(NSURLSessionTask*) searchMediaWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchMediaWithAccountId: (NSNumber*) accountId
     activeOnly: (NSNumber*) activeOnly
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
@@ -865,17 +811,6 @@ NSInteger kOAIMediaApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSArray<OAIMediaOfferResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIMediaApiErrorDomain code:kOAIMediaApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -920,12 +855,9 @@ NSInteger kOAIMediaApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/media/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/media/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -998,8 +930,6 @@ NSInteger kOAIMediaApiMissingParamErrorCode = 234513;
 ///
 /// Update Media
 /// Update a media offering.
-///  @param version  
-///
 ///  @param accountId The account used to perform the update, must have rights to edit the offer (deviceId or accountId required) 
 ///
 ///  @param mediaId  
@@ -1120,8 +1050,7 @@ NSInteger kOAIMediaApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIMediaOfferResponse*
 ///
--(NSURLSessionTask*) updateMediaWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateMediaWithAccountId: (NSNumber*) accountId
     mediaId: (NSNumber*) mediaId
     retailerLocationIds: (NSString*) retailerLocationIds
     offerLocations: (NSString*) offerLocations
@@ -1181,17 +1110,6 @@ NSInteger kOAIMediaApiMissingParamErrorCode = 234513;
     availability: (NSString*) availability
     availabilitySummary: (NSString*) availabilitySummary
     completionHandler: (void (^)(OAIMediaOfferResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIMediaApiErrorDomain code:kOAIMediaApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1214,12 +1132,9 @@ NSInteger kOAIMediaApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/media/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/media/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

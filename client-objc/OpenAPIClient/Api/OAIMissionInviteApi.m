@@ -53,8 +53,6 @@ NSInteger kOAIMissionInviteApiMissingParamErrorCode = 234513;
 ///
 /// Create Mission Invite
 /// Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-///  @param version  
-///
 ///  @param deviceId the device id (deviceId or accountId required). (optional)
 ///
 ///  @param accountId the account id of the user (deviceId or accountId required). (optional)
@@ -67,30 +65,15 @@ NSInteger kOAIMissionInviteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIMissionResponse*
 ///
--(NSURLSessionTask*) createMissionInviteWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) createMissionInviteWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     missionId: (NSNumber*) missionId
     joinCode: (NSString*) joinCode
     includeGameData: (NSNumber*) includeGameData
     completionHandler: (void (^)(OAIMissionResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIMissionInviteApiErrorDomain code:kOAIMissionInviteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/mission/invite/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/mission/invite/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -151,8 +134,6 @@ NSInteger kOAIMissionInviteApiMissingParamErrorCode = 234513;
 ///
 /// Delete Mission Invite
 /// Update the mission invite status to quit.
-///  @param version  
-///
 ///  @param deviceId the device id (deviceId or accountId required). (optional)
 ///
 ///  @param accountId the account id of the user (deviceId or accountId required). (optional)
@@ -165,30 +146,15 @@ NSInteger kOAIMissionInviteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteMissionInviteWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) deleteMissionInviteWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     missionId: (NSNumber*) missionId
     missionInviteId: (NSNumber*) missionInviteId
     includeGameData: (NSNumber*) includeGameData
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIMissionInviteApiErrorDomain code:kOAIMissionInviteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/mission/invite/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/mission/invite/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -249,8 +215,6 @@ NSInteger kOAIMissionInviteApiMissingParamErrorCode = 234513;
 ///
 /// Get Mission Invite
 /// Get the mission invite. An account can only be invited to a mission one time.
-///  @param version  
-///
 ///  @param deviceId the device id (deviceId or accountId required). (optional)
 ///
 ///  @param accountId the account id of the user (deviceId or accountId required). (optional)
@@ -265,31 +229,16 @@ NSInteger kOAIMissionInviteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIMissionResponse*
 ///
--(NSURLSessionTask*) getMissionInviteWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) getMissionInviteWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     missionId: (NSNumber*) missionId
     missionInviteId: (NSNumber*) missionInviteId
     includeGameData: (NSNumber*) includeGameData
     includeScores: (NSString*) includeScores
     completionHandler: (void (^)(OAIMissionResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIMissionInviteApiErrorDomain code:kOAIMissionInviteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/mission/invite/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/mission/invite/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -353,8 +302,6 @@ NSInteger kOAIMissionInviteApiMissingParamErrorCode = 234513;
 ///
 /// Search Mission Invites
 /// Get a list of mission invites that the account has.
-///  @param version  
-///
 ///  @param deviceId the device id (deviceId or accountId required). (optional)
 ///
 ///  @param accountId the account id of the user (deviceId or accountId required). (optional)
@@ -383,8 +330,7 @@ NSInteger kOAIMissionInviteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIMissionResponse>*
 ///
--(NSURLSessionTask*) searchMissionInvitesWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) searchMissionInvitesWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     appVersion: (NSString*) appVersion
@@ -398,23 +344,9 @@ NSInteger kOAIMissionInviteApiMissingParamErrorCode = 234513;
     filterByBillable: (NSNumber*) filterByBillable
     includeGameData: (NSNumber*) includeGameData
     completionHandler: (void (^)(NSArray<OAIMissionResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIMissionInviteApiErrorDomain code:kOAIMissionInviteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/mission/invite/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/mission/invite/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -499,8 +431,6 @@ NSInteger kOAIMissionInviteApiMissingParamErrorCode = 234513;
 ///
 /// Update Mission Invite
 /// Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-///  @param version  
-///
 ///  @param deviceId the device id (deviceId or accountId required). (optional)
 ///
 ///  @param accountId the account id of the user (deviceId or accountId required). (optional)
@@ -525,8 +455,7 @@ NSInteger kOAIMissionInviteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIMissionResponse*
 ///
--(NSURLSessionTask*) updateMissionInviteWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) updateMissionInviteWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     missionId: (NSNumber*) missionId
@@ -538,23 +467,9 @@ NSInteger kOAIMissionInviteApiMissingParamErrorCode = 234513;
     permissionableId: (NSNumber*) permissionableId
     includeGameData: (NSNumber*) includeGameData
     completionHandler: (void (^)(OAIMissionResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIMissionInviteApiErrorDomain code:kOAIMissionInviteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/mission/invite/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/mission/invite/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {

@@ -29,7 +29,6 @@ extern NSInteger kOAIRetailerApiMissingParamErrorCode;
 /// Create Retailer
 /// Create a retailer record. A billable entity must be created first before a retailer record can be made.
 ///
-/// @param version 
 /// @param name The name of the retailer
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -67,8 +66,7 @@ extern NSInteger kOAIRetailerApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRetailerFullResponse*
--(NSURLSessionTask*) createRetailerWithVersion: (NSNumber*) version
-    name: (NSString*) name
+-(NSURLSessionTask*) createRetailerWithName: (NSString*) name
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     streetAddress: (NSString*) streetAddress
@@ -107,7 +105,6 @@ extern NSInteger kOAIRetailerApiMissingParamErrorCode;
 /// Delete Retailer
 /// Set the deleted timestamp to current time.
 ///
-/// @param version 
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account used to perform the delete, must have rights to edit the retailer. (optional)
 /// @param retailerId The ID of the retailer to be deleted (optional)
@@ -115,8 +112,7 @@ extern NSInteger kOAIRetailerApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteRetailerWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) deleteRetailerWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     retailerId: (NSNumber*) retailerId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
@@ -125,7 +121,6 @@ extern NSInteger kOAIRetailerApiMissingParamErrorCode;
 /// Get Retailer
 /// Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
 ///
-/// @param version 
 /// @param retailerId the ID of the retailer
 /// @param deviceId the device id (deviceId or accountId required) (optional)
 /// @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -134,8 +129,7 @@ extern NSInteger kOAIRetailerApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRetailerFullResponse*
--(NSURLSessionTask*) getRetailerWithVersion: (NSNumber*) version
-    retailerId: (NSNumber*) retailerId
+-(NSURLSessionTask*) getRetailerWithRetailerId: (NSNumber*) retailerId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     includeCounts: (NSNumber*) includeCounts
@@ -145,7 +139,6 @@ extern NSInteger kOAIRetailerApiMissingParamErrorCode;
 /// Search Retailers
 /// earches on retailers that the account has access to.
 ///
-/// @param version 
 /// @param visibility 
 /// @param sortField The column to sort the search on
 /// @param descending The order to return the search results
@@ -164,8 +157,7 @@ extern NSInteger kOAIRetailerApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIRetailerResponse>*
--(NSURLSessionTask*) getRetailersWithVersion: (NSNumber*) version
-    visibility: (NSString*) visibility
+-(NSURLSessionTask*) getRetailersWithVisibility: (NSString*) visibility
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
@@ -185,7 +177,6 @@ extern NSInteger kOAIRetailerApiMissingParamErrorCode;
 /// Login Retailer
 /// Retailer login check.
 ///
-/// @param version 
 /// @param username the user&#39;s email address they used to sign-up
 /// @param password the password
 /// @param deviceId the device id (optional) (optional)
@@ -196,8 +187,7 @@ extern NSInteger kOAIRetailerApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAccountLoginResponse*
--(NSURLSessionTask*) retailerLoginCheckWithVersion: (NSNumber*) version
-    username: (NSString*) username
+-(NSURLSessionTask*) retailerLoginCheckWithUsername: (NSString*) username
     password: (NSString*) password
     deviceId: (NSString*) deviceId
     latitude: (NSNumber*) latitude
@@ -209,7 +199,6 @@ extern NSInteger kOAIRetailerApiMissingParamErrorCode;
 /// Update Retailer
 /// Update a retailer record. Only the owner and the employees of the retailer have access to update its information.
 ///
-/// @param version 
 /// @param retailerId The ID of the retailer to update
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -246,8 +235,7 @@ extern NSInteger kOAIRetailerApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRetailerFullResponse*
--(NSURLSessionTask*) updateRetailerWithVersion: (NSNumber*) version
-    retailerId: (NSNumber*) retailerId
+-(NSURLSessionTask*) updateRetailerWithRetailerId: (NSNumber*) retailerId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     name: (NSString*) name

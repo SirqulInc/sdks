@@ -55,8 +55,6 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
 ///
 /// Create Album
 /// Create an Album.
-///  @param version  
-///
 ///  @param title the title of the album 
 ///
 ///  @param coverAssetNullable determines whether the cover image of the album can be empty, else will use the user's profile picture as the cover image 
@@ -151,8 +149,7 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISearchResponse*
 ///
--(NSURLSessionTask*) addAlbumCollectionWithVersion: (NSNumber*) version
-    title: (NSString*) title
+-(NSURLSessionTask*) addAlbumCollectionWithTitle: (NSString*) title
     coverAssetNullable: (NSNumber*) coverAssetNullable
     includeCoverInAssetList: (NSNumber*) includeCoverInAssetList
     publicRead: (NSNumber*) publicRead
@@ -199,17 +196,6 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
     linkedObjectType: (NSString*) linkedObjectType
     linkedObjectId: (NSNumber*) linkedObjectId
     completionHandler: (void (^)(OAISearchResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAlbumApiErrorDomain code:kOAIAlbumApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'title' is set
     if (title == nil) {
         NSParameterAssert(title);
@@ -298,12 +284,9 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/album/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/album/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -487,8 +470,6 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
 ///
 /// Add Album Users
 /// Add users to an album as participants.
-///  @param version  
-///
 ///  @param albumId the album ID 
 ///
 ///  @param includeFriendGroup determines whether to include all friends as participants 
@@ -511,8 +492,7 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) addAlbumUsersWithVersion: (NSNumber*) version
-    albumId: (NSNumber*) albumId
+-(NSURLSessionTask*) addAlbumUsersWithAlbumId: (NSNumber*) albumId
     includeFriendGroup: (NSNumber*) includeFriendGroup
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -523,17 +503,6 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
     connections: (NSString*) connections
     connectionGroups: (NSString*) connectionGroups
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAlbumApiErrorDomain code:kOAIAlbumApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'albumId' is set
     if (albumId == nil) {
         NSParameterAssert(albumId);
@@ -556,12 +525,9 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/album/user/add"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/album/user/add"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -637,8 +603,6 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
 ///
 /// Approve Album
 /// Sets the approval status of an Album.
-///  @param version  
-///
 ///  @param albumId The ID of the album 
 ///
 ///  @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -651,24 +615,12 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) approveAlbumWithVersion: (NSNumber*) version
-    albumId: (NSNumber*) albumId
+-(NSURLSessionTask*) approveAlbumWithAlbumId: (NSNumber*) albumId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     approvalStatus: (NSString*) approvalStatus
     verified: (NSNumber*) verified
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAlbumApiErrorDomain code:kOAIAlbumApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'albumId' is set
     if (albumId == nil) {
         NSParameterAssert(albumId);
@@ -680,12 +632,9 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/album/approve"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/album/approve"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -746,8 +695,6 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
 ///
 ///  Get Album
 /// Get an Album.
-///  @param version  
-///
 ///  @param returnNulls This parameter is deprecated. 
 ///
 ///  @param albumId the album to look up 
@@ -768,8 +715,7 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAlbumFullResponse*
 ///
--(NSURLSessionTask*) getAlbumCollectionWithVersion: (NSNumber*) version
-    returnNulls: (NSNumber*) returnNulls
+-(NSURLSessionTask*) getAlbumCollectionWithReturnNulls: (NSNumber*) returnNulls
     albumId: (NSNumber*) albumId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -779,17 +725,6 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
     connectionPreviewSize: (NSNumber*) connectionPreviewSize
     audiencePreviewSize: (NSNumber*) audiencePreviewSize
     completionHandler: (void (^)(OAIAlbumFullResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAlbumApiErrorDomain code:kOAIAlbumApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'returnNulls' is set
     if (returnNulls == nil) {
         NSParameterAssert(returnNulls);
@@ -812,12 +747,9 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/album/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/album/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (returnNulls != nil) {
@@ -890,8 +822,6 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
 ///
 /// Leave Album
 ///  Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
-///  @param version  
-///
 ///  @param albumId the album ID 
 ///
 ///  @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -900,22 +830,10 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) leaveAlbumWithVersion: (NSNumber*) version
-    albumId: (NSNumber*) albumId
+-(NSURLSessionTask*) leaveAlbumWithAlbumId: (NSNumber*) albumId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAlbumApiErrorDomain code:kOAIAlbumApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'albumId' is set
     if (albumId == nil) {
         NSParameterAssert(albumId);
@@ -927,12 +845,9 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/album/user/leave"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/album/user/leave"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -987,8 +902,6 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
 ///
 /// Delete Album
 /// Deletes an Album
-///  @param version  
-///
 ///  @param albumId the album ID to delete 
 ///
 ///  @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -997,22 +910,10 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) removeAlbumWithVersion: (NSNumber*) version
-    albumId: (NSNumber*) albumId
+-(NSURLSessionTask*) removeAlbumWithAlbumId: (NSNumber*) albumId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAlbumApiErrorDomain code:kOAIAlbumApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'albumId' is set
     if (albumId == nil) {
         NSParameterAssert(albumId);
@@ -1024,12 +925,9 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/album/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/album/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -1084,8 +982,6 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
 ///
 /// Remove Album Users
 /// Remove participants of an album.
-///  @param version  
-///
 ///  @param albumId the album ID 
 ///
 ///  @param removeFriendGroup remove friend group 
@@ -1100,25 +996,13 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) removeAlbumUsersWithVersion: (NSNumber*) version
-    albumId: (NSNumber*) albumId
+-(NSURLSessionTask*) removeAlbumUsersWithAlbumId: (NSNumber*) albumId
     removeFriendGroup: (NSNumber*) removeFriendGroup
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     connections: (NSString*) connections
     connectionGroups: (NSString*) connectionGroups
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAlbumApiErrorDomain code:kOAIAlbumApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'albumId' is set
     if (albumId == nil) {
         NSParameterAssert(albumId);
@@ -1141,12 +1025,9 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/album/user/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/album/user/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -1210,8 +1091,6 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
 ///
 /// Search Albums
 /// Searches on Albums.
-///  @param version  
-///
 ///  @param filter a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user's followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums.  
 ///
 ///  @param albumTypeId id of custom albumType 
@@ -1334,8 +1213,7 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIAlbumFullResponse>*
 ///
--(NSURLSessionTask*) searchAlbumsWithVersion: (NSNumber*) version
-    filter: (NSString*) filter
+-(NSURLSessionTask*) searchAlbumsWithFilter: (NSString*) filter
     albumTypeId: (NSNumber*) albumTypeId
     subType: (NSString*) subType
     includeInactive: (NSNumber*) includeInactive
@@ -1396,17 +1274,6 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
     searchExpression: (NSString*) searchExpression
     generateAlbums: (NSNumber*) generateAlbums
     completionHandler: (void (^)(NSArray<OAIAlbumFullResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAlbumApiErrorDomain code:kOAIAlbumApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'filter' is set
     if (filter == nil) {
         NSParameterAssert(filter);
@@ -1594,12 +1461,9 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/album/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/album/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -1825,8 +1689,6 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
 ///
 /// Update Album
 /// Update an Album.
-///  @param version  
-///
 ///  @param albumId the ID of the album to update 
 ///
 ///  @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -1919,8 +1781,7 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAlbumResponse*
 ///
--(NSURLSessionTask*) updateAlbumCollectionWithVersion: (NSNumber*) version
-    albumId: (NSNumber*) albumId
+-(NSURLSessionTask*) updateAlbumCollectionWithAlbumId: (NSNumber*) albumId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     assetsToAdd: (NSString*) assetsToAdd
@@ -1966,17 +1827,6 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
     linkedObjectId: (NSNumber*) linkedObjectId
     indexNow: (NSNumber*) indexNow
     completionHandler: (void (^)(OAIAlbumResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAlbumApiErrorDomain code:kOAIAlbumApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'albumId' is set
     if (albumId == nil) {
         NSParameterAssert(albumId);
@@ -1988,12 +1838,9 @@ NSInteger kOAIAlbumApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/album/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/album/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {

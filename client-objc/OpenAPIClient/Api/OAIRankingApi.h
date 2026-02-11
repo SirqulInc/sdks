@@ -27,7 +27,6 @@ extern NSInteger kOAIRankingApiMissingParamErrorCode;
 /// Search Historical Rankings
 /// Get historical leaderboard rankings by time-frame.
 ///
-/// @param version 
 /// @param appKey the application key for filtering results by application
 /// @param rankType the rank type to return
 /// @param startDate timestamp in milliseconds to filter results with
@@ -42,8 +41,7 @@ extern NSInteger kOAIRankingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRankFullResponse*
--(NSURLSessionTask*) getHistoricalRankingsWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) getHistoricalRankingsWithAppKey: (NSString*) appKey
     rankType: (NSString*) rankType
     startDate: (NSNumber*) startDate
     endDate: (NSNumber*) endDate
@@ -59,7 +57,6 @@ extern NSInteger kOAIRankingApiMissingParamErrorCode;
 /// Search Rankings
 /// Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
 ///
-/// @param version 
 /// @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
 /// @param accountId the account id of the user (deviceId or accountId required) (optional)
 /// @param gameType This parameter is deprecated. (optional)
@@ -82,8 +79,7 @@ extern NSInteger kOAIRankingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRankFullResponse*
--(NSURLSessionTask*) getRankingsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) getRankingsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     gameType: (NSString*) gameType
     appKey: (NSString*) appKey
@@ -107,7 +103,6 @@ extern NSInteger kOAIRankingApiMissingParamErrorCode;
 /// Get Personal Rankings
 /// Returns the user's ranks for one or more rank types and modes.
 ///
-/// @param version 
 /// @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
 /// @param accountId the account id of the user (optional)
 /// @param appKey the application key for filtering results by application (required) (optional)
@@ -123,8 +118,7 @@ extern NSInteger kOAIRankingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSObject*
--(NSURLSessionTask*) getUserRankWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) getUserRankWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     rankType: (NSString*) rankType
@@ -141,7 +135,6 @@ extern NSInteger kOAIRankingApiMissingParamErrorCode;
 /// Override User Rank
 /// Allows an admin of an application to override a user's scores for a leaderboard.
 ///
-/// @param version 
 /// @param accountId the logged in user&#39;s account id (must have permissions to manage data for the application)
 /// @param ownerAccountId the end user&#39;s account id to override
 /// @param appKey the application key the leaderboard is for
@@ -168,8 +161,7 @@ extern NSInteger kOAIRankingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) overrideUserRankWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) overrideUserRankWithAccountId: (NSNumber*) accountId
     ownerAccountId: (NSNumber*) ownerAccountId
     appKey: (NSString*) appKey
     rankType: (NSString*) rankType
@@ -197,7 +189,6 @@ extern NSInteger kOAIRankingApiMissingParamErrorCode;
 /// Update Ranking
 /// Update the rank value 
 ///
-/// @param version 
 /// @param accountId the account id of the user
 /// @param appKey the application key for filtering results by application
 /// @param rankType a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS
@@ -212,8 +203,7 @@ extern NSInteger kOAIRankingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) updateRankingsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateRankingsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     rankType: (NSString*) rankType
     increment: (NSNumber*) increment

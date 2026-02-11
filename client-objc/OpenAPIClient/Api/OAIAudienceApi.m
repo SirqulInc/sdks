@@ -57,8 +57,6 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
 ///
 /// Create Audience
 /// Create a user defined audience.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param name The name of the audience 
@@ -119,8 +117,7 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAudienceResponse*
 ///
--(NSURLSessionTask*) createAudienceWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createAudienceWithAccountId: (NSNumber*) accountId
     name: (NSString*) name
     _description: (NSString*) _description
     searchTags: (NSString*) searchTags
@@ -150,17 +147,6 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
     trilaterationTypes: (NSString*) trilaterationTypes
     uniqueName: (NSNumber*) uniqueName
     completionHandler: (void (^)(OAIAudienceResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAudienceApiErrorDomain code:kOAIAudienceApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -183,12 +169,9 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/audience/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/audience/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -321,29 +304,15 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
 ///
 /// Delete Audience
 /// Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param audienceId The id of the audience to delete. 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteAudienceWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteAudienceWithAccountId: (NSNumber*) accountId
     audienceId: (NSNumber*) audienceId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAudienceApiErrorDomain code:kOAIAudienceApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -366,12 +335,9 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/audience/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/audience/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -423,29 +389,13 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
 ///
 /// Get Age Groups
 /// Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
-///  @param version  
-///
 ///  @returns NSArray<OAIAgeGroupResponse>*
 ///
--(NSURLSessionTask*) getAgeGroupsWithVersion: (NSNumber*) version
-    completionHandler: (void (^)(NSArray<OAIAgeGroupResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAudienceApiErrorDomain code:kOAIAudienceApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/audience/ageGroups"];
+-(NSURLSessionTask*) getAgeGroupsWithCompletionHandler: 
+    (void (^)(NSArray<OAIAgeGroupResponse>* output, NSError* error)) handler {
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/audience/ageGroups"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
@@ -491,8 +441,6 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
 ///
 /// Get Audience
 /// Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param audienceId The id of the audience to return. 
@@ -507,25 +455,13 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAudienceResponse*
 ///
--(NSURLSessionTask*) getAudienceWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getAudienceWithAccountId: (NSNumber*) accountId
     audienceId: (NSNumber*) audienceId
     appKey: (NSString*) appKey
     returnAccountCount: (NSNumber*) returnAccountCount
     returnAlbumCount: (NSNumber*) returnAlbumCount
     albumTypesForCount: (NSString*) albumTypesForCount
     completionHandler: (void (^)(OAIAudienceResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAudienceApiErrorDomain code:kOAIAudienceApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -548,12 +484,9 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/audience/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/audience/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -617,8 +550,6 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
 ///
 /// Search Audiences
 /// Get the list audiences owned by the account
-///  @param version  
-///
 ///  @param accountId The logged in user. (optional)
 ///
 ///  @param albumIds Comma separated list of album IDs to filter results with (optional)
@@ -659,8 +590,7 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAISearchResponse>*
 ///
--(NSURLSessionTask*) getAudienceListWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getAudienceListWithAccountId: (NSNumber*) accountId
     albumIds: (NSString*) albumIds
     keyword: (NSString*) keyword
     keywordFields: (NSString*) keywordFields
@@ -680,23 +610,9 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
     returnAlbumCount: (NSNumber*) returnAlbumCount
     albumTypesForCount: (NSString*) albumTypesForCount
     completionHandler: (void (^)(NSArray<OAISearchResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAudienceApiErrorDomain code:kOAIAudienceApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/audience/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/audience/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -799,26 +715,12 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
 ///
 /// Get Devices
 /// Gets the list of available devices that can be selected by consumers and retailers.
-///  @param version  
-///
 ///  @param includeInactive If true return inactive record as well. default is false. 
 ///
 ///  @returns NSArray<OAIAudienceDeviceResponse>*
 ///
--(NSURLSessionTask*) getDevicesWithVersion: (NSNumber*) version
-    includeInactive: (NSNumber*) includeInactive
+-(NSURLSessionTask*) getDevicesWithIncludeInactive: (NSNumber*) includeInactive
     completionHandler: (void (^)(NSArray<OAIAudienceDeviceResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAudienceApiErrorDomain code:kOAIAudienceApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'includeInactive' is set
     if (includeInactive == nil) {
         NSParameterAssert(includeInactive);
@@ -830,12 +732,9 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/audience/devices"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/audience/devices"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (includeInactive != nil) {
@@ -884,29 +783,13 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
 ///
 /// Get Experiences
 /// Gets the list of available experiences that can be selected by consumers and retailers.
-///  @param version  
-///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) getExperiencesWithVersion: (NSNumber*) version
-    completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAudienceApiErrorDomain code:kOAIAudienceApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/audience/experiences"];
+-(NSURLSessionTask*) getExperiencesWithCompletionHandler: 
+    (void (^)(OAISirqulResponse* output, NSError* error)) handler {
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/audience/experiences"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
@@ -952,29 +835,15 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
 ///
 /// Get GroupedAudiences
 /// Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param audienceGroupingId The audience grouping id to return. 
 ///
 ///  @returns OAIAudienceResponse*
 ///
--(NSURLSessionTask*) getGroupedAudiencesWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getGroupedAudiencesWithAccountId: (NSNumber*) accountId
     audienceGroupingId: (NSString*) audienceGroupingId
     completionHandler: (void (^)(OAIAudienceResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAudienceApiErrorDomain code:kOAIAudienceApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -997,12 +866,9 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/audience/grouped/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/audience/grouped/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1054,8 +920,6 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
 ///
 /// List Suggestions by Audience
 /// List either Missions or Offers that the user matches the assigned audience.
-///  @param version  
-///
 ///  @param accountId The account to match offers for. 
 ///
 ///  @param limit the limit of the index 
@@ -1064,22 +928,10 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIOfferListResponse*
 ///
--(NSURLSessionTask*) listByAccountWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) listByAccountWithAccountId: (NSNumber*) accountId
     limit: (NSNumber*) limit
     suggestionType: (NSString*) suggestionType
     completionHandler: (void (^)(OAIOfferListResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAudienceApiErrorDomain code:kOAIAudienceApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1113,12 +965,9 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/audience/suggestion/list"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/audience/suggestion/list"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1173,8 +1022,6 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
 ///
 /// List Offers by Audience
 /// Get a list of offer locations based on audience information provided.
-///  @param version  
-///
 ///  @param limit this is the limit of the index 
 ///
 ///  @param gender this is the gender to list offers by (optional)
@@ -1189,25 +1036,13 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIOfferListResponse*
 ///
--(NSURLSessionTask*) listByAudienceWithVersion: (NSNumber*) version
-    limit: (NSNumber*) limit
+-(NSURLSessionTask*) listByAudienceWithLimit: (NSNumber*) limit
     gender: (NSString*) gender
     age: (NSNumber*) age
     categoryIds: (NSString*) categoryIds
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIOfferListResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAudienceApiErrorDomain code:kOAIAudienceApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'limit' is set
     if (limit == nil) {
         NSParameterAssert(limit);
@@ -1219,12 +1054,9 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/audience/suggestion/offersByAudience"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/audience/suggestion/offersByAudience"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (gender != nil) {
@@ -1288,8 +1120,6 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
 ///
 /// List Sent Suggestions 
 /// Return list of recent trigger suggestions that have been sent to the user.
-///  @param version  
-///
 ///  @param accountId The account to match offers for. 
 ///
 ///  @param timeframe The timeframe in seconds of the latest suggestions 
@@ -1298,22 +1128,10 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIOfferListResponse*
 ///
--(NSURLSessionTask*) listLastestByAccountWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) listLastestByAccountWithAccountId: (NSNumber*) accountId
     timeframe: (NSNumber*) timeframe
     suggestionType: (NSString*) suggestionType
     completionHandler: (void (^)(OAIOfferListResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAudienceApiErrorDomain code:kOAIAudienceApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1347,12 +1165,9 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/audience/suggestion/latest"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/audience/suggestion/latest"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1407,8 +1222,6 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
 ///
 /// Send Suggestions
 /// Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
-///  @param version  
-///
 ///  @param accountId The account to match offers for. 
 ///
 ///  @param latitude the latitude 
@@ -1417,22 +1230,10 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) sendByAccountWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) sendByAccountWithAccountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAudienceApiErrorDomain code:kOAIAudienceApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1466,12 +1267,9 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/audience/suggestion/send"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/audience/suggestion/send"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1526,8 +1324,6 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
 ///
 /// Update Audience
 /// Update a user defined audience.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param audienceId The id of the audience to update. 
@@ -1592,8 +1388,7 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAudienceResponse*
 ///
--(NSURLSessionTask*) updateAudienceWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateAudienceWithAccountId: (NSNumber*) accountId
     audienceId: (NSNumber*) audienceId
     name: (NSString*) name
     _description: (NSString*) _description
@@ -1625,17 +1420,6 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
     trilaterationTypes: (NSString*) trilaterationTypes
     uniqueName: (NSNumber*) uniqueName
     completionHandler: (void (^)(OAIAudienceResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAudienceApiErrorDomain code:kOAIAudienceApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1658,12 +1442,9 @@ NSInteger kOAIAudienceApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/audience/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/audience/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

@@ -55,8 +55,6 @@ NSInteger kOAIFavoriteApiMissingParamErrorCode = 234513;
 ///
 /// Create Favorite
 /// Adds an offer, offer location, retailer location, or category to your favorites.
-///  @param version  
-///
 ///  @param favoritableId The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId} 
 ///
 ///  @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM} 
@@ -71,25 +69,13 @@ NSInteger kOAIFavoriteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIWrappedResponse*
 ///
--(NSURLSessionTask*) addFavoriteWithVersion: (NSNumber*) version
-    favoritableId: (NSNumber*) favoritableId
+-(NSURLSessionTask*) addFavoriteWithFavoritableId: (NSNumber*) favoritableId
     favoritableType: (NSString*) favoritableType
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIWrappedResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIFavoriteApiErrorDomain code:kOAIFavoriteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'favoritableId' is set
     if (favoritableId == nil) {
         NSParameterAssert(favoritableId);
@@ -112,12 +98,9 @@ NSInteger kOAIFavoriteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/favorite/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/favorite/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -181,8 +164,6 @@ NSInteger kOAIFavoriteApiMissingParamErrorCode = 234513;
 ///
 /// Delete Favorite
 /// Removes a favorited item from the user's favorites list.
-///  @param version  
-///
 ///  @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
 ///
 ///  @param accountId The account ID of the user (deviceId or accountId required) (optional)
@@ -195,30 +176,15 @@ NSInteger kOAIFavoriteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteFavoriteWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) deleteFavoriteWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     favoriteId: (NSNumber*) favoriteId
     favoritableId: (NSNumber*) favoritableId
     favoritableType: (NSString*) favoritableType
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIFavoriteApiErrorDomain code:kOAIFavoriteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/favorite/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/favorite/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -279,8 +245,6 @@ NSInteger kOAIFavoriteApiMissingParamErrorCode = 234513;
 ///
 /// Get Favorite
 /// Retrieves a single favorited item.
-///  @param version  
-///
 ///  @param favoriteId The ID of the favorite reference record 
 ///
 ///  @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
@@ -293,24 +257,12 @@ NSInteger kOAIFavoriteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIWrappedResponse*
 ///
--(NSURLSessionTask*) getFavoriteWithVersion: (NSNumber*) version
-    favoriteId: (NSNumber*) favoriteId
+-(NSURLSessionTask*) getFavoriteWithFavoriteId: (NSNumber*) favoriteId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIWrappedResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIFavoriteApiErrorDomain code:kOAIFavoriteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'favoriteId' is set
     if (favoriteId == nil) {
         NSParameterAssert(favoriteId);
@@ -322,12 +274,9 @@ NSInteger kOAIFavoriteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/favorite/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/favorite/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -388,8 +337,6 @@ NSInteger kOAIFavoriteApiMissingParamErrorCode = 234513;
 ///
 /// Search Favorites
 /// Searches on the user's favorites.
-///  @param version  
-///
 ///  @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} 
 ///
 ///  @param sortField Determines what to sort the results by {CREATED, UPDATED, DISPLAY} 
@@ -420,8 +367,7 @@ NSInteger kOAIFavoriteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISearchResponse*
 ///
--(NSURLSessionTask*) searchFavoritesWithVersion: (NSNumber*) version
-    favoritableType: (NSString*) favoritableType
+-(NSURLSessionTask*) searchFavoritesWithFavoritableType: (NSString*) favoritableType
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
@@ -436,17 +382,6 @@ NSInteger kOAIFavoriteApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAISearchResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIFavoriteApiErrorDomain code:kOAIFavoriteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'favoritableType' is set
     if (favoritableType == nil) {
         NSParameterAssert(favoritableType);
@@ -524,12 +459,9 @@ NSInteger kOAIFavoriteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/favorite/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/favorite/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -617,8 +549,6 @@ NSInteger kOAIFavoriteApiMissingParamErrorCode = 234513;
 ///
 /// Who has Favorited
 /// Searches for everyone that has favorited an item
-///  @param version  
-///
 ///  @param favoritableId The ID of the favoritableType to search on 
 ///
 ///  @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} 
@@ -639,8 +569,7 @@ NSInteger kOAIFavoriteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIAccountResponse>*
 ///
--(NSURLSessionTask*) whoHasFavoritedWithVersion: (NSNumber*) version
-    favoritableId: (NSNumber*) favoritableId
+-(NSURLSessionTask*) whoHasFavoritedWithFavoritableId: (NSNumber*) favoritableId
     favoritableType: (NSString*) favoritableType
     start: (NSNumber*) start
     limit: (NSNumber*) limit
@@ -650,17 +579,6 @@ NSInteger kOAIFavoriteApiMissingParamErrorCode = 234513;
     longitude: (NSNumber*) longitude
     keyword: (NSString*) keyword
     completionHandler: (void (^)(NSArray<OAIAccountResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIFavoriteApiErrorDomain code:kOAIFavoriteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'favoritableId' is set
     if (favoritableId == nil) {
         NSParameterAssert(favoritableId);
@@ -705,12 +623,9 @@ NSInteger kOAIFavoriteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/favorite/whois"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/favorite/whois"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {

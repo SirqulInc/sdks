@@ -27,15 +27,13 @@ extern NSInteger kOAIDependentApiMissingParamErrorCode;
 /// Create Dependent
 /// Create dependent of the account
 ///
-/// @param version 
 /// @param accountId the id of the parent account to create a dependent for
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) createWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createWithAccountId: (NSNumber*) accountId
     body: (OAIAccount*) body
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -43,29 +41,25 @@ extern NSInteger kOAIDependentApiMissingParamErrorCode;
 /// Get dependent list of an account
 /// Get the dependent list of an account
 ///
-/// @param version 
 /// @param accountId the id of the parent account to get a list of dependents
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) getDependentsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getDependentsWithAccountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
 
 /// Delete Dependent
 /// Delete the Dependent
 ///
-/// @param version 
 /// @param accountId the id of the parent account tied to the dependent
 /// @param dependentId the id of the dependent to delete
 /// 
 ///  code:0 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) removeDependentWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) removeDependentWithAccountId: (NSNumber*) accountId
     dependentId: (NSNumber*) dependentId
     completionHandler: (void (^)(NSError* error)) handler;
 

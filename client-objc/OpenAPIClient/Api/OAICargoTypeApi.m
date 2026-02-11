@@ -52,32 +52,15 @@ NSInteger kOAICargoTypeApiMissingParamErrorCode = 234513;
 ///
 /// Create Cargo Type
 /// Create new cargo type
-///  @param version  
-///
 ///  @param body  (optional)
 ///
 ///  @returns OAICargoType*
 ///
--(NSURLSessionTask*) createCargoTypeWithVersion: (NSNumber*) version
-    body: (OAICargoType*) body
+-(NSURLSessionTask*) createCargoTypeWithBody: (OAICargoType*) body
     completionHandler: (void (^)(OAICargoType* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAICargoTypeApiErrorDomain code:kOAICargoTypeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/cargo/type"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/cargo/type"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
@@ -124,26 +107,12 @@ NSInteger kOAICargoTypeApiMissingParamErrorCode = 234513;
 ///
 /// Delete Cargo Type
 /// Delete a type of cargo
-///  @param version  
-///
 ///  @param cargoTypeId the ID of the cargo type 
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) deleteCargoTypeWithVersion: (NSNumber*) version
-    cargoTypeId: (NSNumber*) cargoTypeId
+-(NSURLSessionTask*) deleteCargoTypeWithCargoTypeId: (NSNumber*) cargoTypeId
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAICargoTypeApiErrorDomain code:kOAICargoTypeApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'cargoTypeId' is set
     if (cargoTypeId == nil) {
         NSParameterAssert(cargoTypeId);
@@ -155,12 +124,9 @@ NSInteger kOAICargoTypeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/cargo/type/{cargoTypeId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/cargo/type/{cargoTypeId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (cargoTypeId != nil) {
         pathParams[@"cargoTypeId"] = cargoTypeId;
     }
@@ -209,26 +175,12 @@ NSInteger kOAICargoTypeApiMissingParamErrorCode = 234513;
 ///
 /// Get Cargo Type
 /// Get an existing cargo type
-///  @param version  
-///
 ///  @param cargoTypeId the cargo type ID 
 ///
 ///  @returns OAICargoType*
 ///
--(NSURLSessionTask*) getCargoTypeWithVersion: (NSNumber*) version
-    cargoTypeId: (NSNumber*) cargoTypeId
+-(NSURLSessionTask*) getCargoTypeWithCargoTypeId: (NSNumber*) cargoTypeId
     completionHandler: (void (^)(OAICargoType* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAICargoTypeApiErrorDomain code:kOAICargoTypeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'cargoTypeId' is set
     if (cargoTypeId == nil) {
         NSParameterAssert(cargoTypeId);
@@ -240,12 +192,9 @@ NSInteger kOAICargoTypeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/cargo/type/{cargoTypeId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/cargo/type/{cargoTypeId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (cargoTypeId != nil) {
         pathParams[@"cargoTypeId"] = cargoTypeId;
     }
@@ -294,8 +243,6 @@ NSInteger kOAICargoTypeApiMissingParamErrorCode = 234513;
 ///
 /// Search Cargo Type
 /// Search for types of cargo
-///  @param version  
-///
 ///  @param sortField the sort field to use for the cargo type 
 ///
 ///  @param descending if the cargo type should be should be in descending order 
@@ -312,8 +259,7 @@ NSInteger kOAICargoTypeApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAICargoType>*
 ///
--(NSURLSessionTask*) searchCargoTypesWithVersion: (NSNumber*) version
-    sortField: (NSString*) sortField
+-(NSURLSessionTask*) searchCargoTypesWithSortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
     limit: (NSNumber*) limit
@@ -321,17 +267,6 @@ NSInteger kOAICargoTypeApiMissingParamErrorCode = 234513;
     retailerId: (NSNumber*) retailerId
     hubId: (NSNumber*) hubId
     completionHandler: (void (^)(NSArray<OAICargoType>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAICargoTypeApiErrorDomain code:kOAICargoTypeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'sortField' is set
     if (sortField == nil) {
         NSParameterAssert(sortField);
@@ -387,12 +322,9 @@ NSInteger kOAICargoTypeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/cargo/type"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/cargo/type"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (retailerId != nil) {
@@ -459,29 +391,15 @@ NSInteger kOAICargoTypeApiMissingParamErrorCode = 234513;
 ///
 /// Update Cargo Type
 /// Update an existing cargo type
-///  @param version  
-///
 ///  @param cargoTypeId the ID of the cargo type 
 ///
 ///  @param body  (optional)
 ///
 ///  @returns OAICargoType*
 ///
--(NSURLSessionTask*) updateCargoTypeWithVersion: (NSNumber*) version
-    cargoTypeId: (NSNumber*) cargoTypeId
+-(NSURLSessionTask*) updateCargoTypeWithCargoTypeId: (NSNumber*) cargoTypeId
     body: (OAICargoType*) body
     completionHandler: (void (^)(OAICargoType* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAICargoTypeApiErrorDomain code:kOAICargoTypeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'cargoTypeId' is set
     if (cargoTypeId == nil) {
         NSParameterAssert(cargoTypeId);
@@ -493,12 +411,9 @@ NSInteger kOAICargoTypeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/cargo/type/{cargoTypeId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/cargo/type/{cargoTypeId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (cargoTypeId != nil) {
         pathParams[@"cargoTypeId"] = cargoTypeId;
     }

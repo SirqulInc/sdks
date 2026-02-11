@@ -53,8 +53,6 @@ NSInteger kOAIBillableEntityApiMissingParamErrorCode = 234513;
 ///
 /// Create Billable
 /// reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
-///  @param version  
-///
 ///  @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
 ///
 ///  @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -81,8 +79,7 @@ NSInteger kOAIBillableEntityApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIBillableEntityResponse*
 ///
--(NSURLSessionTask*) createBillableEntityWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) createBillableEntityWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     name: (NSString*) name
     streetAddress: (NSString*) streetAddress
@@ -95,23 +92,9 @@ NSInteger kOAIBillableEntityApiMissingParamErrorCode = 234513;
     authorizeNetApiKey: (NSString*) authorizeNetApiKey
     authorizeNetTransactionKey: (NSString*) authorizeNetTransactionKey
     completionHandler: (void (^)(OAIBillableEntityResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIBillableEntityApiErrorDomain code:kOAIBillableEntityApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/billable/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/billable/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -193,35 +176,18 @@ NSInteger kOAIBillableEntityApiMissingParamErrorCode = 234513;
 ///
 /// Delete Billable
 /// Mark the billable as deleted
-///  @param version  
-///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
 ///
 ///  @param accountId The account used to perform the delete, must have rights to edit the billable entity. (optional)
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteBillableEntityWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) deleteBillableEntityWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIBillableEntityApiErrorDomain code:kOAIBillableEntityApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/billable/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/billable/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -273,8 +239,6 @@ NSInteger kOAIBillableEntityApiMissingParamErrorCode = 234513;
 ///
 /// Get Billable
 /// Used to determine the associated BillableEntity of an account
-///  @param version  
-///
 ///  @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
 ///
 ///  @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -285,29 +249,14 @@ NSInteger kOAIBillableEntityApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIBillableEntityResponse*
 ///
--(NSURLSessionTask*) getBillableEntityWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) getBillableEntityWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     includeCounts: (NSNumber*) includeCounts
     includePayments: (NSNumber*) includePayments
     completionHandler: (void (^)(OAIBillableEntityResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIBillableEntityApiErrorDomain code:kOAIBillableEntityApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/billable/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/billable/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -365,8 +314,6 @@ NSInteger kOAIBillableEntityApiMissingParamErrorCode = 234513;
 ///
 /// Update Billable
 /// Updates the billable record for an account
-///  @param version  
-///
 ///  @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
 ///
 ///  @param accountId The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity. (optional)
@@ -393,8 +340,7 @@ NSInteger kOAIBillableEntityApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIBillableEntityResponse*
 ///
--(NSURLSessionTask*) updateBillableEntityWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) updateBillableEntityWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     name: (NSString*) name
     streetAddress: (NSString*) streetAddress
@@ -407,23 +353,9 @@ NSInteger kOAIBillableEntityApiMissingParamErrorCode = 234513;
     authorizeNetApiKey: (NSString*) authorizeNetApiKey
     authorizeNetTransactionKey: (NSString*) authorizeNetTransactionKey
     completionHandler: (void (^)(OAIBillableEntityResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIBillableEntityApiErrorDomain code:kOAIBillableEntityApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/billable/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/billable/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {

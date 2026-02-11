@@ -28,7 +28,6 @@ extern NSInteger kOAIThemeDescriptorApiMissingParamErrorCode;
 /// Create/Update Theme
 /// Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
 ///
-/// @param version 
 /// @param publicRead determines whether the theme&#39;s participants have read permissions
 /// @param publicWrite determines whether the theme&#39;s participants have write permissions
 /// @param publicDelete determines whether the theme&#39;s participants have delete permissions
@@ -60,8 +59,7 @@ extern NSInteger kOAIThemeDescriptorApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIThemeDescriptorResponse*
--(NSURLSessionTask*) addOrUpdateThemeDescriptorWithVersion: (NSNumber*) version
-    publicRead: (NSNumber*) publicRead
+-(NSURLSessionTask*) addOrUpdateThemeDescriptorWithPublicRead: (NSNumber*) publicRead
     publicWrite: (NSNumber*) publicWrite
     publicDelete: (NSNumber*) publicDelete
     publicAdd: (NSNumber*) publicAdd
@@ -94,7 +92,6 @@ extern NSInteger kOAIThemeDescriptorApiMissingParamErrorCode;
 /// Get Theme
 /// Gets a theme.
 ///
-/// @param version 
 /// @param themeDescriptorId the theme id
 /// @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
 /// @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -105,8 +102,7 @@ extern NSInteger kOAIThemeDescriptorApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPurchaseItemListResponse*
--(NSURLSessionTask*) getThemeDescriptorWithVersion: (NSNumber*) version
-    themeDescriptorId: (NSNumber*) themeDescriptorId
+-(NSURLSessionTask*) getThemeDescriptorWithThemeDescriptorId: (NSNumber*) themeDescriptorId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     gameType: (NSString*) gameType
@@ -118,7 +114,6 @@ extern NSInteger kOAIThemeDescriptorApiMissingParamErrorCode;
 /// Search Themes
 /// Searches for themes.
 ///
-/// @param version 
 /// @param filter a comma separated list of Ownership
 /// @param sortField the field to sort by. See ThemeDescriptorApiMap
 /// @param descending determines whether the sorted list is in descending or ascending order
@@ -141,8 +136,7 @@ extern NSInteger kOAIThemeDescriptorApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPurchaseItemListResponse*
--(NSURLSessionTask*) getThemeDescriptorsWithVersion: (NSNumber*) version
-    filter: (NSString*) filter
+-(NSURLSessionTask*) getThemeDescriptorsWithFilter: (NSString*) filter
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
@@ -166,7 +160,6 @@ extern NSInteger kOAIThemeDescriptorApiMissingParamErrorCode;
 /// Delete Theme
 /// Removes a theme.
 ///
-/// @param version 
 /// @param themeDescriptorId the theme id to remove
 /// @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
 /// @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -177,8 +170,7 @@ extern NSInteger kOAIThemeDescriptorApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) removeThemeDescriptorWithVersion: (NSNumber*) version
-    themeDescriptorId: (NSNumber*) themeDescriptorId
+-(NSURLSessionTask*) removeThemeDescriptorWithThemeDescriptorId: (NSNumber*) themeDescriptorId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     gameType: (NSString*) gameType

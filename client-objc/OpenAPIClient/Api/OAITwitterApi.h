@@ -27,21 +27,18 @@ extern NSInteger kOAITwitterApiMissingParamErrorCode;
 /// Authorize Twitter
 /// Makes an authorization call to twitter for a user to login and allow any app permissions.
 ///
-/// @param version 
 /// @param appKey the application key
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) authorizeTwitterWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) authorizeTwitterWithAppKey: (NSString*) appKey
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
 
 /// Login Twitter
 /// Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
 ///
-/// @param version 
 /// @param accessToken The access token
 /// @param accessTokenSecret The secret access token
 /// @param appKey The application key
@@ -53,8 +50,7 @@ extern NSInteger kOAITwitterApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIProfileResponse*
--(NSURLSessionTask*) loginTwitterWithVersion: (NSNumber*) version
-    accessToken: (NSString*) accessToken
+-(NSURLSessionTask*) loginTwitterWithAccessToken: (NSString*) accessToken
     accessTokenSecret: (NSString*) accessTokenSecret
     appKey: (NSString*) appKey
     responseFilters: (NSString*) responseFilters

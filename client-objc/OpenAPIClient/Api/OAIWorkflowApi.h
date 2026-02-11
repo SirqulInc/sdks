@@ -26,7 +26,6 @@ extern NSInteger kOAIWorkflowApiMissingParamErrorCode;
 /// Run Workflow
 /// Runs a published executable workflow
 ///
-/// @param version 
 /// @param accountId the account ID of the user
 /// @param workflowId the workflow to run
 /// @param skuId this runs a particular sku on the workflow (optional)
@@ -36,8 +35,7 @@ extern NSInteger kOAIWorkflowApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) runWorkflowWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) runWorkflowWithAccountId: (NSNumber*) accountId
     workflowId: (NSNumber*) workflowId
     skuId: (NSNumber*) skuId
     versionCode: (NSNumber*) versionCode

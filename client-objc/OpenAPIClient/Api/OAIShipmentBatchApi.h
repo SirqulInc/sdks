@@ -27,49 +27,42 @@ extern NSInteger kOAIShipmentBatchApiMissingParamErrorCode;
 /// Create Shipment Batch
 /// Create a new shipment batch
 ///
-/// @param version 
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIShipmentBatch*
--(NSURLSessionTask*) createShipmentBatchWithVersion: (NSNumber*) version
-    body: (OAIShipmentBatch*) body
+-(NSURLSessionTask*) createShipmentBatchWithBody: (OAIShipmentBatch*) body
     completionHandler: (void (^)(OAIShipmentBatch* output, NSError* error)) handler;
 
 
 /// Delete Shipment Batch
 /// Search for shipment batches
 ///
-/// @param version 
 /// @param batchId the id of the shipment batch to delete
 /// 
 ///  code:0 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) deleteShipmentBatchWithVersion: (NSNumber*) version
-    batchId: (NSNumber*) batchId
+-(NSURLSessionTask*) deleteShipmentBatchWithBatchId: (NSNumber*) batchId
     completionHandler: (void (^)(NSError* error)) handler;
 
 
 /// Get Shipment Batch
 /// Get an existing shipment batch
 ///
-/// @param version 
 /// @param batchId the id of the shipment batch to get
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIShipmentBatch*
--(NSURLSessionTask*) getShipmentBatchWithVersion: (NSNumber*) version
-    batchId: (NSNumber*) batchId
+-(NSURLSessionTask*) getShipmentBatchWithBatchId: (NSNumber*) batchId
     completionHandler: (void (^)(OAIShipmentBatch* output, NSError* error)) handler;
 
 
 /// Get Shipment Batch Status
 /// Get the import status list of the import shipment batch
 ///
-/// @param version 
 /// @param batchId The id of the requested shipment batch
 /// @param accountId the id of the logged in user
 /// @param sortField The field to sort by
@@ -86,8 +79,7 @@ extern NSInteger kOAIShipmentBatchApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIShipmentImportStatus>*
--(NSURLSessionTask*) getShipmentBatchStatusWithVersion: (NSNumber*) version
-    batchId: (NSNumber*) batchId
+-(NSURLSessionTask*) getShipmentBatchStatusWithBatchId: (NSNumber*) batchId
     accountId: (NSNumber*) accountId
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
@@ -105,7 +97,6 @@ extern NSInteger kOAIShipmentBatchApiMissingParamErrorCode;
 /// Search Shipment Batch
 /// Search for shipment batches
 ///
-/// @param version 
 /// @param hubId The associated service hub
 /// @param sortField The field to sort by
 /// @param descending Determines whether the sorted list is in descending or ascending order
@@ -115,8 +106,7 @@ extern NSInteger kOAIShipmentBatchApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIShipmentBatch>*
--(NSURLSessionTask*) searchShipmentBatchWithVersion: (NSNumber*) version
-    hubId: (NSNumber*) hubId
+-(NSURLSessionTask*) searchShipmentBatchWithHubId: (NSNumber*) hubId
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start

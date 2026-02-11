@@ -54,8 +54,6 @@ NSInteger kOAIReservationApiMissingParamErrorCode = 234513;
 ///
 /// Create Reservation
 /// Creates a reservation on an offer object
-///  @param version  
-///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
 ///
 ///  @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -74,8 +72,7 @@ NSInteger kOAIReservationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) createReservationWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) createReservationWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     startDate: (NSNumber*) startDate
     endDate: (NSNumber*) endDate
@@ -84,23 +81,9 @@ NSInteger kOAIReservationApiMissingParamErrorCode = 234513;
     appKey: (NSString*) appKey
     metaData: (NSString*) metaData
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIReservationApiErrorDomain code:kOAIReservationApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/reservation/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/reservation/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -170,8 +153,6 @@ NSInteger kOAIReservationApiMissingParamErrorCode = 234513;
 ///
 /// Delete Reservation
 /// Deleted a reservation on a reservation object
-///  @param version  
-///
 ///  @param reservationId The reservation id 
 ///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
@@ -180,22 +161,10 @@ NSInteger kOAIReservationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) deleteReservationWithVersion: (NSNumber*) version
-    reservationId: (NSNumber*) reservationId
+-(NSURLSessionTask*) deleteReservationWithReservationId: (NSNumber*) reservationId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIReservationApiErrorDomain code:kOAIReservationApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'reservationId' is set
     if (reservationId == nil) {
         NSParameterAssert(reservationId);
@@ -207,12 +176,9 @@ NSInteger kOAIReservationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/reservation/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/reservation/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -267,8 +233,6 @@ NSInteger kOAIReservationApiMissingParamErrorCode = 234513;
 ///
 /// Update Availability
 /// 
-///  @param version  
-///
 ///  @param reservableId the id of the reservation 
 ///
 ///  @param reservableType the type of reservation 
@@ -283,25 +247,13 @@ NSInteger kOAIReservationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIAvailabilityResponse>*
 ///
--(NSURLSessionTask*) reservableAvailabilityWithVersion: (NSNumber*) version
-    reservableId: (NSNumber*) reservableId
+-(NSURLSessionTask*) reservableAvailabilityWithReservableId: (NSNumber*) reservableId
     reservableType: (NSString*) reservableType
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     availability: (NSString*) availability
     availabilitySummary: (NSString*) availabilitySummary
     completionHandler: (void (^)(NSArray<OAIAvailabilityResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIReservationApiErrorDomain code:kOAIReservationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'reservableId' is set
     if (reservableId == nil) {
         NSParameterAssert(reservableId);
@@ -324,12 +276,9 @@ NSInteger kOAIReservationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/reservable/availability/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/reservable/availability/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -393,8 +342,6 @@ NSInteger kOAIReservationApiMissingParamErrorCode = 234513;
 ///
 /// Search Availability
 /// 
-///  @param version  
-///
 ///  @param reservableId the id of the reservation 
 ///
 ///  @param reservableType the reservable type 
@@ -413,8 +360,7 @@ NSInteger kOAIReservationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIAvailabilityResponse>*
 ///
--(NSURLSessionTask*) searchAvailabilityWithVersion: (NSNumber*) version
-    reservableId: (NSNumber*) reservableId
+-(NSURLSessionTask*) searchAvailabilityWithReservableId: (NSNumber*) reservableId
     reservableType: (NSString*) reservableType
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -423,17 +369,6 @@ NSInteger kOAIReservationApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSArray<OAIAvailabilityResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIReservationApiErrorDomain code:kOAIReservationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'reservableId' is set
     if (reservableId == nil) {
         NSParameterAssert(reservableId);
@@ -456,12 +391,9 @@ NSInteger kOAIReservationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/reservable/availability/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/reservable/availability/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -531,8 +463,6 @@ NSInteger kOAIReservationApiMissingParamErrorCode = 234513;
 ///
 /// Search Reservations
 /// 
-///  @param version  
-///
 ///  @param deviceId Device Id (optional)
 ///
 ///  @param appKey Appilcation Key (optional)
@@ -557,8 +487,7 @@ NSInteger kOAIReservationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIReservationResponse>*
 ///
--(NSURLSessionTask*) searchReservationsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) searchReservationsWithDeviceId: (NSString*) deviceId
     appKey: (NSString*) appKey
     accountId: (NSNumber*) accountId
     filterAccountId: (NSNumber*) filterAccountId
@@ -570,23 +499,9 @@ NSInteger kOAIReservationApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSArray<OAIReservationResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIReservationApiErrorDomain code:kOAIReservationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/reservation/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/reservation/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -665,8 +580,6 @@ NSInteger kOAIReservationApiMissingParamErrorCode = 234513;
 ///
 /// Search Schedule
 /// 
-///  @param version  
-///
 ///  @param reservableId the id of the reservation 
 ///
 ///  @param reservableType the reservation type 
@@ -683,8 +596,7 @@ NSInteger kOAIReservationApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAITimeSlotResponse>*
 ///
--(NSURLSessionTask*) searchScheduleWithVersion: (NSNumber*) version
-    reservableId: (NSNumber*) reservableId
+-(NSURLSessionTask*) searchScheduleWithReservableId: (NSNumber*) reservableId
     reservableType: (NSString*) reservableType
     startDate: (NSNumber*) startDate
     endDate: (NSNumber*) endDate
@@ -692,17 +604,6 @@ NSInteger kOAIReservationApiMissingParamErrorCode = 234513;
     accountId: (NSNumber*) accountId
     timeBucketMins: (NSNumber*) timeBucketMins
     completionHandler: (void (^)(NSArray<OAITimeSlotResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIReservationApiErrorDomain code:kOAIReservationApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'reservableId' is set
     if (reservableId == nil) {
         NSParameterAssert(reservableId);
@@ -747,12 +648,9 @@ NSInteger kOAIReservationApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/reservable/schedule/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/reservable/schedule/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {

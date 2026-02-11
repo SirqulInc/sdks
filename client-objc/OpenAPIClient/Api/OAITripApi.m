@@ -52,32 +52,15 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
 ///
 /// Create Trip
 /// Create a new trip
-///  @param version  
-///
 ///  @param body  (optional)
 ///
 ///  @returns OAITrip*
 ///
--(NSURLSessionTask*) createTripWithVersion: (NSNumber*) version
-    body: (OAITrip*) body
+-(NSURLSessionTask*) createTripWithBody: (OAITrip*) body
     completionHandler: (void (^)(OAITrip* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITripApiErrorDomain code:kOAITripApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/trip"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/trip"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
@@ -124,26 +107,12 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
 ///
 /// Delete Trip
 /// Delete an existing trip
-///  @param version  
-///
 ///  @param _id the id of the trip to delete 
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) deleteWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) deleteWithId: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITripApiErrorDomain code:kOAITripApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -155,12 +124,9 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/trip/{id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/trip/{id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -209,29 +175,15 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
 ///
 /// Set Trip Preference Driver
 /// Update trip preference to drive, also create a route and assign the trip to the route
-///  @param version  
-///
 ///  @param _id the id of the trip 
 ///
 ///  @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) 
 ///
 ///  @returns OAITrip*
 ///
--(NSURLSessionTask*) driveTripWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) driveTripWithId: (NSNumber*) _id
     recurrence: (NSNumber*) recurrence
     completionHandler: (void (^)(OAITrip* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITripApiErrorDomain code:kOAITripApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -254,12 +206,9 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/trip/{id}/drive"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/trip/{id}/drive"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -311,29 +260,15 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
 ///
 /// Set Trip Preference Flexible
 /// Update trip preference to flexible.
-///  @param version  
-///
 ///  @param _id the id of the trip 
 ///
 ///  @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) 
 ///
 ///  @returns OAITrip*
 ///
--(NSURLSessionTask*) flexibleTripWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) flexibleTripWithId: (NSNumber*) _id
     recurrence: (NSNumber*) recurrence
     completionHandler: (void (^)(OAITrip* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITripApiErrorDomain code:kOAITripApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -356,12 +291,9 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/trip/{id}/flexible"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/trip/{id}/flexible"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -413,26 +345,12 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
 ///
 /// Get Trip
 /// Get an existing trip
-///  @param version  
-///
 ///  @param _id the id of the trip to get 
 ///
 ///  @returns OAITrip*
 ///
--(NSURLSessionTask*) getTripWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) getTripWithId: (NSNumber*) _id
     completionHandler: (void (^)(OAITrip* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITripApiErrorDomain code:kOAITripApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -444,12 +362,9 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/trip/{id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/trip/{id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -498,8 +413,6 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
 ///
 /// Get Trip Matches
 /// Get matching trips of specific trip
-///  @param version  
-///
 ///  @param _id The id The id of the trip to search for matches for 
 ///
 ///  @param sortField The field to sort by 
@@ -518,8 +431,7 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAITrip>*
 ///
--(NSURLSessionTask*) getTripMatchesWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) getTripMatchesWithId: (NSNumber*) _id
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
@@ -528,17 +440,6 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
     matchedHasRoute: (NSNumber*) matchedHasRoute
     matchedHasDriver: (NSNumber*) matchedHasDriver
     completionHandler: (void (^)(NSArray<OAITrip>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITripApiErrorDomain code:kOAITripApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -605,12 +506,9 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/trip/{id}/match"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/trip/{id}/match"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -680,8 +578,6 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
 ///
 /// Process Trip Matches
 /// Process trip matching, assign trips with no route to matched trips with route.
-///  @param version  
-///
 ///  @param startDate The lower bound date to process matchings (optional)
 ///
 ///  @param endDate The upper bound date to process matchings (optional)
@@ -690,28 +586,13 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAITrip>*
 ///
--(NSURLSessionTask*) processTripMatchesWithVersion: (NSNumber*) version
-    startDate: (NSNumber*) startDate
+-(NSURLSessionTask*) processTripMatchesWithStartDate: (NSNumber*) startDate
     endDate: (NSNumber*) endDate
     tripId: (NSNumber*) tripId
     completionHandler: (void (^)(NSArray<OAITrip>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITripApiErrorDomain code:kOAITripApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/trip/match/process"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/trip/match/process"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (startDate != nil) {
@@ -766,29 +647,15 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
 ///
 /// Set Trip Preference Rider
 /// Update trip preference to ride.
-///  @param version  
-///
 ///  @param _id the id of the trip 
 ///
 ///  @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) 
 ///
 ///  @returns OAITrip*
 ///
--(NSURLSessionTask*) rideWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) rideWithId: (NSNumber*) _id
     recurrence: (NSNumber*) recurrence
     completionHandler: (void (^)(OAITrip* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITripApiErrorDomain code:kOAITripApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -811,12 +678,9 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/trip/{id}/ride"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/trip/{id}/ride"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -868,8 +732,6 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
 ///
 /// Search Trips
 /// Search for trips
-///  @param version  
-///
 ///  @param accountId The owner of the trips 
 ///
 ///  @param sortField The field to sort by 
@@ -890,8 +752,7 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAITrip>*
 ///
--(NSURLSessionTask*) searchWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchWithAccountId: (NSNumber*) accountId
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
@@ -901,17 +762,6 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
     endDate: (NSNumber*) endDate
     hasNotifications: (NSNumber*) hasNotifications
     completionHandler: (void (^)(NSArray<OAITrip>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITripApiErrorDomain code:kOAITripApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -978,12 +828,9 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/trip"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/trip"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1056,8 +903,6 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
 ///
 /// Search Trips
 /// Search for trips with matching information.
-///  @param version  
-///
 ///  @param accountId The owner of the trips 
 ///
 ///  @param sortField The field to sort by 
@@ -1080,8 +925,7 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAITrip>*
 ///
--(NSURLSessionTask*) searchTripsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchTripsWithAccountId: (NSNumber*) accountId
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
@@ -1092,17 +936,6 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
     matchedHasRoute: (NSNumber*) matchedHasRoute
     matchedHasDriver: (NSNumber*) matchedHasDriver
     completionHandler: (void (^)(NSArray<OAITrip>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITripApiErrorDomain code:kOAITripApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1169,12 +1002,9 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/trip/match"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/trip/match"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1250,29 +1080,15 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
 ///
 /// Update Trip Locations
 /// 
-///  @param version  
-///
 ///  @param _id the id of the trip to update locations for 
 ///
 ///  @param body  (optional)
 ///
 ///  @returns OAITrip*
 ///
--(NSURLSessionTask*) updateLocationsWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) updateLocationsWithId: (NSNumber*) _id
     body: (OAITrip*) body
     completionHandler: (void (^)(OAITrip* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITripApiErrorDomain code:kOAITripApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -1284,12 +1100,9 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/trip/{id}/locations"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/trip/{id}/locations"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -1339,29 +1152,15 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
 ///
 /// Update Recurrence Locations
 /// 
-///  @param version  
-///
 ///  @param _id the id of the trip 
 ///
 ///  @param body  (optional)
 ///
 ///  @returns NSArray<OAITrip>*
 ///
--(NSURLSessionTask*) updateRecurrenceLocationsWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) updateRecurrenceLocationsWithId: (NSNumber*) _id
     body: (OAITrip*) body
     completionHandler: (void (^)(NSArray<OAITrip>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITripApiErrorDomain code:kOAITripApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -1373,12 +1172,9 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/trip/{id}/locations/recurrence"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/trip/{id}/locations/recurrence"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -1428,29 +1224,15 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
 ///
 /// Update Recurrence Shipments
 /// 
-///  @param version  
-///
 ///  @param _id the id of the trip 
 ///
 ///  @param body  (optional)
 ///
 ///  @returns NSArray<OAITrip>*
 ///
--(NSURLSessionTask*) updateRecurrenceShipmentsWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) updateRecurrenceShipmentsWithId: (NSNumber*) _id
     body: (OAITrip*) body
     completionHandler: (void (^)(NSArray<OAITrip>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITripApiErrorDomain code:kOAITripApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -1462,12 +1244,9 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/trip/{id}/shipments/recurrence"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/trip/{id}/shipments/recurrence"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -1517,29 +1296,15 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
 ///
 /// Update Trip Shipments
 /// 
-///  @param version  
-///
 ///  @param _id the id of the trip shipments to update 
 ///
 ///  @param body  (optional)
 ///
 ///  @returns OAITrip*
 ///
--(NSURLSessionTask*) updateShipmentsWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) updateShipmentsWithId: (NSNumber*) _id
     body: (OAITrip*) body
     completionHandler: (void (^)(OAITrip* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITripApiErrorDomain code:kOAITripApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -1551,12 +1316,9 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/trip/{id}/shipments"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/trip/{id}/shipments"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -1606,29 +1368,15 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
 ///
 /// Update Trip
 /// Update an existing trip. Does not support recurring trip update.
-///  @param version  
-///
 ///  @param _id the id of the trip to update 
 ///
 ///  @param body  (optional)
 ///
 ///  @returns OAITrip*
 ///
--(NSURLSessionTask*) updateTripWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) updateTripWithId: (NSNumber*) _id
     body: (OAITrip*) body
     completionHandler: (void (^)(OAITrip* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITripApiErrorDomain code:kOAITripApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -1640,12 +1388,9 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/trip/{id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/trip/{id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -1695,29 +1440,15 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
 ///
 /// Trip Notifications
 /// Update the trip notifications
-///  @param version  
-///
 ///  @param _id the id of the trip 
 ///
 ///  @param notifications the notifications to update on the trip (optional)
 ///
 ///  @returns OAITrip*
 ///
--(NSURLSessionTask*) updateTripNotificationsWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) updateTripNotificationsWithId: (NSNumber*) _id
     notifications: (NSString*) notifications
     completionHandler: (void (^)(OAITrip* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITripApiErrorDomain code:kOAITripApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -1729,12 +1460,9 @@ NSInteger kOAITripApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/trip/notifications"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/trip/notifications"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (_id != nil) {

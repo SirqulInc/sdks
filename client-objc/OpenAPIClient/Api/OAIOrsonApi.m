@@ -62,8 +62,6 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 /// Add Movie
 /// Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param movieName Movie Name 
@@ -80,8 +78,7 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIOrsonAiAddMovieResponse*
 ///
--(NSURLSessionTask*) addMovieWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) addMovieWithAccountId: (NSNumber*) accountId
     movieName: (NSString*) movieName
     thirdPartyAccountId: (NSString*) thirdPartyAccountId
     tags: (NSString*) tags
@@ -89,17 +86,6 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
     url: (NSString*) url
     callback: (NSString*) callback
     completionHandler: (void (^)(OAIOrsonAiAddMovieResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOrsonApiErrorDomain code:kOAIOrsonApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -122,12 +108,9 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/orson/ai/addMovie"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/orson/ai/addMovie"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -194,8 +177,6 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 /// Search Docs
 /// Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param doc Doc 
@@ -208,24 +189,12 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIOrsonAiProtoResponse*
 ///
--(NSURLSessionTask*) aiDocsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) aiDocsWithAccountId: (NSNumber*) accountId
     doc: (NSString*) doc
     returnTopics: (NSNumber*) returnTopics
     limit: (NSNumber*) limit
     offset: (NSNumber*) offset
     completionHandler: (void (^)(OAIOrsonAiProtoResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOrsonApiErrorDomain code:kOAIOrsonApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -248,12 +217,9 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/orson/ai/docs"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/orson/ai/docs"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -314,8 +280,6 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 /// Find images
 /// Returns a list of URIs of images that match the text.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param text Text 
@@ -328,24 +292,12 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIOrsonAiProtoResponse*
 ///
--(NSURLSessionTask*) aiFindImagesWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) aiFindImagesWithAccountId: (NSNumber*) accountId
     text: (NSString*) text
     parseFlag: (NSString*) parseFlag
     fetchFlag: (NSString*) fetchFlag
     size: (NSString*) size
     completionHandler: (void (^)(OAIOrsonAiProtoResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOrsonApiErrorDomain code:kOAIOrsonApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -368,12 +320,9 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/orson/ai/img"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/orson/ai/img"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -434,8 +383,6 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 /// Search Tags
 /// Search the tags column of user provided tags using this endpoint.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param tags Tags 
@@ -448,24 +395,12 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIOrsonAiProtoResponse*
 ///
--(NSURLSessionTask*) aiTagsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) aiTagsWithAccountId: (NSNumber*) accountId
     tags: (NSString*) tags
     conditional: (NSString*) conditional
     limit: (NSNumber*) limit
     offset: (NSNumber*) offset
     completionHandler: (void (^)(OAIOrsonAiProtoResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOrsonApiErrorDomain code:kOAIOrsonApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -488,12 +423,9 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/orson/ai/tags"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/orson/ai/tags"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -554,8 +486,6 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 /// Search Text
 /// Search the movie text column of movie text using this endpoint.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param terms Terms 
@@ -568,24 +498,12 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIOrsonAiProtoResponse*
 ///
--(NSURLSessionTask*) aiTextWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) aiTextWithAccountId: (NSNumber*) accountId
     terms: (NSString*) terms
     conditional: (NSString*) conditional
     limit: (NSNumber*) limit
     offset: (NSNumber*) offset
     completionHandler: (void (^)(OAIOrsonAiProtoResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOrsonApiErrorDomain code:kOAIOrsonApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -608,12 +526,9 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/orson/ai/text"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/orson/ai/text"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -674,8 +589,6 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 /// Batch Analysis
 /// Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -692,8 +605,7 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIOrsonAiBatchResponse*
 ///
--(NSURLSessionTask*) batchWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) batchWithAccountId: (NSNumber*) accountId
     thirdPartyAccountId: (NSString*) thirdPartyAccountId
     limit: (NSNumber*) limit
     operations: (NSString*) operations
@@ -701,17 +613,6 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
     url: (NSString*) url
     callback: (NSString*) callback
     completionHandler: (void (^)(OAIOrsonAiBatchResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOrsonApiErrorDomain code:kOAIOrsonApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -723,12 +624,9 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/orson/ai/batch"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/orson/ai/batch"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -795,29 +693,15 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 /// Creates an instant episode
 /// Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param data Request Data String 
 ///
 ///  @returns OAIOrsonEpisodeResponse*
 ///
--(NSURLSessionTask*) createInstantEpisodeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createInstantEpisodeWithAccountId: (NSNumber*) accountId
     data: (NSString*) data
     completionHandler: (void (^)(OAIOrsonEpisodeResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOrsonApiErrorDomain code:kOAIOrsonApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -840,12 +724,9 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/orson/stories/episodes/instant"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/orson/stories/episodes/instant"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -897,8 +778,6 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 /// Create VoiceCanvas images
 /// Create VoiceCanvas images for provided text, file upload, or file URL
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param dimensions Enum: \"256x256\" \"512x512\" \"1024x1024\" 
@@ -919,8 +798,7 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIOrsonAiVoiceCanvasResponse*
 ///
--(NSURLSessionTask*) createVoiceCanvasWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createVoiceCanvasWithAccountId: (NSNumber*) accountId
     dimensions: (NSString*) dimensions
     thirdPartyAccountId: (NSString*) thirdPartyAccountId
     text: (NSString*) text
@@ -930,17 +808,6 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
     fetchFlag: (NSNumber*) fetchFlag
     callback: (NSString*) callback
     completionHandler: (void (^)(OAIOrsonAiVoiceCanvasResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOrsonApiErrorDomain code:kOAIOrsonApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -963,12 +830,9 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/orson/ai/voiceCanvas"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/orson/ai/voiceCanvas"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1041,8 +905,6 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 /// Detect emotions
 /// Detects emotions in an audio or video recording.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -1055,24 +917,12 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIOrsonAiEmotionsResponse*
 ///
--(NSURLSessionTask*) emotionWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) emotionWithAccountId: (NSNumber*) accountId
     thirdPartyAccountId: (NSString*) thirdPartyAccountId
     file: (NSURL*) file
     url: (NSString*) url
     callback: (NSString*) callback
     completionHandler: (void (^)(OAIOrsonAiEmotionsResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOrsonApiErrorDomain code:kOAIOrsonApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1084,12 +934,9 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/orson/ai/emotion"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/orson/ai/emotion"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1150,29 +997,15 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 /// Get Add Movie Result
 /// Get the result of an in progress Add Movie request from an earlier POST.
-///  @param version  
-///
 ///  @param requestId Orson Request Id 
 ///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @returns OAIOrsonAiAddMovieResponse*
 ///
--(NSURLSessionTask*) getAddMovieResultWithVersion: (NSNumber*) version
-    requestId: (NSString*) requestId
+-(NSURLSessionTask*) getAddMovieResultWithRequestId: (NSString*) requestId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIOrsonAiAddMovieResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOrsonApiErrorDomain code:kOAIOrsonApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'requestId' is set
     if (requestId == nil) {
         NSParameterAssert(requestId);
@@ -1195,12 +1028,9 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/orson/ai/addMovie/{requestId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/orson/ai/addMovie/{requestId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (requestId != nil) {
         pathParams[@"requestId"] = requestId;
     }
@@ -1252,29 +1082,15 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 /// Get Batch Analysis Results
 /// Gets the completed Video Batch results, if done, or an error or status update if not.
-///  @param version  
-///
 ///  @param requestId Orson Request Id 
 ///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @returns OAIOrsonAiBatchResponse*
 ///
--(NSURLSessionTask*) getBatchWithVersion: (NSNumber*) version
-    requestId: (NSString*) requestId
+-(NSURLSessionTask*) getBatchWithRequestId: (NSString*) requestId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIOrsonAiBatchResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOrsonApiErrorDomain code:kOAIOrsonApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'requestId' is set
     if (requestId == nil) {
         NSParameterAssert(requestId);
@@ -1297,12 +1113,9 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/orson/ai/batch/{requestId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/orson/ai/batch/{requestId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (requestId != nil) {
         pathParams[@"requestId"] = requestId;
     }
@@ -1354,29 +1167,15 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 /// Get Emotion Results
 /// Checks the Emotion analysis and returns in progress, results, or error.
-///  @param version  
-///
 ///  @param requestId Orson Request Id 
 ///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @returns OAIOrsonAiEmotionsResponse*
 ///
--(NSURLSessionTask*) getEmotionWithVersion: (NSNumber*) version
-    requestId: (NSString*) requestId
+-(NSURLSessionTask*) getEmotionWithRequestId: (NSString*) requestId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIOrsonAiEmotionsResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOrsonApiErrorDomain code:kOAIOrsonApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'requestId' is set
     if (requestId == nil) {
         NSParameterAssert(requestId);
@@ -1399,12 +1198,9 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/orson/ai/emotion/{requestId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/orson/ai/emotion/{requestId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (requestId != nil) {
         pathParams[@"requestId"] = requestId;
     }
@@ -1456,29 +1252,15 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 /// Check episode status
 /// Gets a summary of the episode's status, including any renders.
-///  @param version  
-///
 ///  @param episodeId Episode ID 
 ///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @returns OAIOrsonEpisodeResponse*
 ///
--(NSURLSessionTask*) getEpisodeStatusWithVersion: (NSNumber*) version
-    episodeId: (NSNumber*) episodeId
+-(NSURLSessionTask*) getEpisodeStatusWithEpisodeId: (NSNumber*) episodeId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIOrsonEpisodeResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOrsonApiErrorDomain code:kOAIOrsonApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'episodeId' is set
     if (episodeId == nil) {
         NSParameterAssert(episodeId);
@@ -1501,12 +1283,9 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/orson/stories/episodes/{episodeId}/status"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/orson/stories/episodes/{episodeId}/status"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (episodeId != nil) {
         pathParams[@"episodeId"] = episodeId;
     }
@@ -1558,29 +1337,15 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 /// Check episode status
 /// Gets a summary of the episode's status, including any renders.
-///  @param version  
-///
 ///  @param renderId Render ID 
 ///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @returns OAIOrsonRenderResponse*
 ///
--(NSURLSessionTask*) getRenderStatusWithVersion: (NSNumber*) version
-    renderId: (NSString*) renderId
+-(NSURLSessionTask*) getRenderStatusWithRenderId: (NSString*) renderId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIOrsonRenderResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOrsonApiErrorDomain code:kOAIOrsonApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'renderId' is set
     if (renderId == nil) {
         NSParameterAssert(renderId);
@@ -1603,12 +1368,9 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/orson/stories/renders/{renderId}/status"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/orson/stories/renders/{renderId}/status"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (renderId != nil) {
         pathParams[@"renderId"] = renderId;
     }
@@ -1660,29 +1422,15 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 /// Get Speach to Text Result
 /// The results of the video transcription and optional translation.
-///  @param version  
-///
 ///  @param requestId Orson Request Id 
 ///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @returns OAIOrsonAiSTTResponse*
 ///
--(NSURLSessionTask*) getSTTWithVersion: (NSNumber*) version
-    requestId: (NSString*) requestId
+-(NSURLSessionTask*) getSTTWithRequestId: (NSString*) requestId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIOrsonAiSTTResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOrsonApiErrorDomain code:kOAIOrsonApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'requestId' is set
     if (requestId == nil) {
         NSParameterAssert(requestId);
@@ -1705,12 +1453,9 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/orson/ai/stt/{requestId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/orson/ai/stt/{requestId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (requestId != nil) {
         pathParams[@"requestId"] = requestId;
     }
@@ -1762,29 +1507,15 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 /// Get Text to Speach Result
 /// Check the status of an in progress Text-to-Speech call or download the result.
-///  @param version  
-///
 ///  @param requestId Orson Request Id 
 ///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @returns OAIOrsonAiTTSResponse*
 ///
--(NSURLSessionTask*) getTTSWithVersion: (NSNumber*) version
-    requestId: (NSString*) requestId
+-(NSURLSessionTask*) getTTSWithRequestId: (NSString*) requestId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIOrsonAiTTSResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOrsonApiErrorDomain code:kOAIOrsonApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'requestId' is set
     if (requestId == nil) {
         NSParameterAssert(requestId);
@@ -1807,12 +1538,9 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/orson/ai/tts/{requestId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/orson/ai/tts/{requestId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (requestId != nil) {
         pathParams[@"requestId"] = requestId;
     }
@@ -1864,29 +1592,15 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 /// Get TechTune Results
 /// Get a result or continue waiting for a pending request for TechTune analysis.
-///  @param version  
-///
 ///  @param requestId Orson Request Id 
 ///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @returns OAIOrsonAiTechTuneResponse*
 ///
--(NSURLSessionTask*) getTechTuneWithVersion: (NSNumber*) version
-    requestId: (NSString*) requestId
+-(NSURLSessionTask*) getTechTuneWithRequestId: (NSString*) requestId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIOrsonAiTechTuneResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOrsonApiErrorDomain code:kOAIOrsonApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'requestId' is set
     if (requestId == nil) {
         NSParameterAssert(requestId);
@@ -1909,12 +1623,9 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/orson/ai/techTune/{requestId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/orson/ai/techTune/{requestId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (requestId != nil) {
         pathParams[@"requestId"] = requestId;
     }
@@ -1966,29 +1677,15 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 /// Get Topics
 /// Get the result of an in progress Topics Analysis from an earlier POST.
-///  @param version  
-///
 ///  @param requestId Orson Request Id 
 ///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @returns OAIOrsonAiTopicsResponse*
 ///
--(NSURLSessionTask*) getTopicsWithVersion: (NSNumber*) version
-    requestId: (NSString*) requestId
+-(NSURLSessionTask*) getTopicsWithRequestId: (NSString*) requestId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIOrsonAiTopicsResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOrsonApiErrorDomain code:kOAIOrsonApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'requestId' is set
     if (requestId == nil) {
         NSParameterAssert(requestId);
@@ -2011,12 +1708,9 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/orson/ai/topics/{requestId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/orson/ai/topics/{requestId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (requestId != nil) {
         pathParams[@"requestId"] = requestId;
     }
@@ -2068,29 +1762,15 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 /// Get VoiceCanvas images
 /// Get a result or continue waiting for a pending request for VoiceCanvas Images.
-///  @param version  
-///
 ///  @param requestId Orson Request Id 
 ///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @returns OAIOrsonAiVoiceCanvasResponse*
 ///
--(NSURLSessionTask*) getVoiceCanvasWithVersion: (NSNumber*) version
-    requestId: (NSString*) requestId
+-(NSURLSessionTask*) getVoiceCanvasWithRequestId: (NSString*) requestId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIOrsonAiVoiceCanvasResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOrsonApiErrorDomain code:kOAIOrsonApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'requestId' is set
     if (requestId == nil) {
         NSParameterAssert(requestId);
@@ -2113,12 +1793,9 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/orson/ai/voiceCanvas/{requestId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/orson/ai/voiceCanvas/{requestId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (requestId != nil) {
         pathParams[@"requestId"] = requestId;
     }
@@ -2170,29 +1847,15 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 /// Starts a StoryStitch video render
 /// Starts a StoryStitch video render to produce your final video, returning the status details.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param data Request Data String 
 ///
 ///  @returns OAIOrsonRenderResponse*
 ///
--(NSURLSessionTask*) startVideoRenderWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) startVideoRenderWithAccountId: (NSNumber*) accountId
     data: (NSString*) data
     completionHandler: (void (^)(OAIOrsonRenderResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOrsonApiErrorDomain code:kOAIOrsonApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -2215,12 +1878,9 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/orson/stories/renders"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/orson/stories/renders"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -2272,8 +1932,6 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 /// Speach to Text
 /// Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -2290,8 +1948,7 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIOrsonAiSTTResponse*
 ///
--(NSURLSessionTask*) sttWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) sttWithAccountId: (NSNumber*) accountId
     thirdPartyAccountId: (NSString*) thirdPartyAccountId
     sourceLanguage: (NSString*) sourceLanguage
     targetLanguage: (NSString*) targetLanguage
@@ -2299,17 +1956,6 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
     url: (NSString*) url
     callback: (NSString*) callback
     completionHandler: (void (^)(OAIOrsonAiSTTResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOrsonApiErrorDomain code:kOAIOrsonApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -2321,12 +1967,9 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/orson/ai/stt"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/orson/ai/stt"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -2393,8 +2036,6 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 /// Summarize Topics
 /// Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -2413,8 +2054,7 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIOrsonAiTopicsResponse*
 ///
--(NSURLSessionTask*) summarizeTopicsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) summarizeTopicsWithAccountId: (NSNumber*) accountId
     thirdPartyAccountId: (NSString*) thirdPartyAccountId
     doc: (NSString*) doc
     file: (NSURL*) file
@@ -2423,17 +2063,6 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
     offset: (NSNumber*) offset
     callback: (NSString*) callback
     completionHandler: (void (^)(OAIOrsonAiTopicsResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOrsonApiErrorDomain code:kOAIOrsonApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -2445,12 +2074,9 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/orson/ai/topics"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/orson/ai/topics"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -2520,8 +2146,6 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 /// Detect Technical Issues
 /// Analyses a movie file to detect technical issues, such as too few people in frame.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param numFacesExpected Number of expected faces 
@@ -2536,25 +2160,13 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIOrsonAiTechTuneResponse*
 ///
--(NSURLSessionTask*) techTuneWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) techTuneWithAccountId: (NSNumber*) accountId
     numFacesExpected: (NSNumber*) numFacesExpected
     thirdPartyAccountId: (NSString*) thirdPartyAccountId
     file: (NSURL*) file
     url: (NSString*) url
     callback: (NSString*) callback
     completionHandler: (void (^)(OAIOrsonAiTechTuneResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOrsonApiErrorDomain code:kOAIOrsonApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -2577,12 +2189,9 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/orson/ai/techTune"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/orson/ai/techTune"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -2646,8 +2255,6 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 /// Text to Speach
 /// Creates an audio file for the given text, with the option of language and voice selection.
-///  @param version  
-///
 ///  @param accountId Sirqul Account Id 
 ///
 ///  @param text Text 
@@ -2662,25 +2269,13 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIOrsonAiTTSResponse*
 ///
--(NSURLSessionTask*) ttsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) ttsWithAccountId: (NSNumber*) accountId
     text: (NSString*) text
     thirdPartyAccountId: (NSString*) thirdPartyAccountId
     language: (NSString*) language
     voice: (NSString*) voice
     callback: (NSString*) callback
     completionHandler: (void (^)(OAIOrsonAiTTSResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIOrsonApiErrorDomain code:kOAIOrsonApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -2703,12 +2298,9 @@ NSInteger kOAIOrsonApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/orson/ai/tts"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/orson/ai/tts"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

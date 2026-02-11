@@ -27,7 +27,6 @@ extern NSInteger kOAIPurchaseOrderApiMissingParamErrorCode;
 /// Create Order
 /// Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
 ///
-/// @param version 
 /// @param appKey The application requesting the purchase
 /// @param cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; 
 /// @param deviceId The device id (deviceId or accountId required) (optional)
@@ -44,8 +43,7 @@ extern NSInteger kOAIPurchaseOrderApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrderResponse*
--(NSURLSessionTask*) createOrderWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) createOrderWithAppKey: (NSString*) appKey
     cart: (NSString*) cart
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -63,7 +61,6 @@ extern NSInteger kOAIPurchaseOrderApiMissingParamErrorCode;
 /// Delete Order
 /// Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
 ///
-/// @param version 
 /// @param orderId Order Id
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -71,8 +68,7 @@ extern NSInteger kOAIPurchaseOrderApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteOrderWithVersion: (NSNumber*) version
-    orderId: (NSNumber*) orderId
+-(NSURLSessionTask*) deleteOrderWithOrderId: (NSNumber*) orderId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
@@ -81,7 +77,6 @@ extern NSInteger kOAIPurchaseOrderApiMissingParamErrorCode;
 /// Get Order
 /// Get an order record
 ///
-/// @param version 
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
 /// @param orderId The order id to get details of, either orderId or externalOrderId must be provided (optional)
@@ -90,8 +85,7 @@ extern NSInteger kOAIPurchaseOrderApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrderResponse*
--(NSURLSessionTask*) getOrderWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) getOrderWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     orderId: (NSNumber*) orderId
     externalOrderId: (NSString*) externalOrderId
@@ -101,7 +95,6 @@ extern NSInteger kOAIPurchaseOrderApiMissingParamErrorCode;
 /// Preview Order
 /// Previews a purchase to see the total cost before making it.
 ///
-/// @param version 
 /// @param appKey The application requesting the purchase
 /// @param cart A JSON list of items to purchase
 /// @param deviceId The device id (deviceId or accountId required) (optional)
@@ -118,8 +111,7 @@ extern NSInteger kOAIPurchaseOrderApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrderResponse*
--(NSURLSessionTask*) previewOrderWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) previewOrderWithAppKey: (NSString*) appKey
     cart: (NSString*) cart
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -137,7 +129,6 @@ extern NSInteger kOAIPurchaseOrderApiMissingParamErrorCode;
 /// Search Orders
 /// Search on active orders by customer
 ///
-/// @param version 
 /// @param appKey The application requesting the purchase
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -173,8 +164,7 @@ extern NSInteger kOAIPurchaseOrderApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIOrderResponse>*
--(NSURLSessionTask*) searchOrdersWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) searchOrdersWithAppKey: (NSString*) appKey
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     start: (NSNumber*) start
@@ -211,7 +201,6 @@ extern NSInteger kOAIPurchaseOrderApiMissingParamErrorCode;
 /// Update Order
 /// Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
 ///
-/// @param version 
 /// @param orderId The order to add the purchase to, leave null for new order.
 /// @param appKey The application requesting the purchase
 /// @param cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; 
@@ -227,8 +216,7 @@ extern NSInteger kOAIPurchaseOrderApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOrderResponse*
--(NSURLSessionTask*) updateOrderWithVersion: (NSNumber*) version
-    orderId: (NSNumber*) orderId
+-(NSURLSessionTask*) updateOrderWithOrderId: (NSNumber*) orderId
     appKey: (NSString*) appKey
     cart: (NSString*) cart
     deviceId: (NSString*) deviceId

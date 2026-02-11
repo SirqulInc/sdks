@@ -52,8 +52,6 @@ NSInteger kOAIScoreApiMissingParamErrorCode = 234513;
 ///
 /// Create Score
 /// Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via  a list of {@link MessageResponse}.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param appKey The game application key to save the score for. 
@@ -76,8 +74,7 @@ NSInteger kOAIScoreApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIScoreResponse*
 ///
--(NSURLSessionTask*) createScoreWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createScoreWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     points: (NSNumber*) points
     missionId: (NSNumber*) missionId
@@ -88,17 +85,6 @@ NSInteger kOAIScoreApiMissingParamErrorCode = 234513;
     timeTaken: (NSNumber*) timeTaken
     highest: (NSNumber*) highest
     completionHandler: (void (^)(OAIScoreResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIScoreApiErrorDomain code:kOAIScoreApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -132,12 +118,9 @@ NSInteger kOAIScoreApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/score/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/score/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -213,8 +196,6 @@ NSInteger kOAIScoreApiMissingParamErrorCode = 234513;
 ///
 /// Get Score
 /// Get the high score for an item.  Pass in the full path IDs for the score.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param appKey The game application key to get the level for. 
@@ -235,8 +216,7 @@ NSInteger kOAIScoreApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIScoreResponse*
 ///
--(NSURLSessionTask*) getScoreWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getScoreWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     missionId: (NSNumber*) missionId
     gameId: (NSNumber*) gameId
@@ -246,17 +226,6 @@ NSInteger kOAIScoreApiMissingParamErrorCode = 234513;
     scoreObjectType: (NSString*) scoreObjectType
     scoreStatus: (NSString*) scoreStatus
     completionHandler: (void (^)(OAIScoreResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIScoreApiErrorDomain code:kOAIScoreApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -279,12 +248,9 @@ NSInteger kOAIScoreApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/score/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/score/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -357,8 +323,6 @@ NSInteger kOAIScoreApiMissingParamErrorCode = 234513;
 ///
 /// Search Score
 /// Search the scores for an item.  Pass in the full path IDs for the scores.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param appKey The game application key to get the level for. 
@@ -375,8 +339,7 @@ NSInteger kOAIScoreApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIScoreResponse>*
 ///
--(NSURLSessionTask*) searchScoresWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchScoresWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     missionId: (NSNumber*) missionId
     gameId: (NSNumber*) gameId
@@ -384,17 +347,6 @@ NSInteger kOAIScoreApiMissingParamErrorCode = 234513;
     gameLevelId: (NSNumber*) gameLevelId
     gameObjectId: (NSNumber*) gameObjectId
     completionHandler: (void (^)(NSArray<OAIScoreResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIScoreApiErrorDomain code:kOAIScoreApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -417,12 +369,9 @@ NSInteger kOAIScoreApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/score/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/score/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

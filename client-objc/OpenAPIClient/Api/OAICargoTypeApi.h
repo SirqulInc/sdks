@@ -26,49 +26,42 @@ extern NSInteger kOAICargoTypeApiMissingParamErrorCode;
 /// Create Cargo Type
 /// Create new cargo type
 ///
-/// @param version 
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAICargoType*
--(NSURLSessionTask*) createCargoTypeWithVersion: (NSNumber*) version
-    body: (OAICargoType*) body
+-(NSURLSessionTask*) createCargoTypeWithBody: (OAICargoType*) body
     completionHandler: (void (^)(OAICargoType* output, NSError* error)) handler;
 
 
 /// Delete Cargo Type
 /// Delete a type of cargo
 ///
-/// @param version 
 /// @param cargoTypeId the ID of the cargo type
 /// 
 ///  code:0 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) deleteCargoTypeWithVersion: (NSNumber*) version
-    cargoTypeId: (NSNumber*) cargoTypeId
+-(NSURLSessionTask*) deleteCargoTypeWithCargoTypeId: (NSNumber*) cargoTypeId
     completionHandler: (void (^)(NSError* error)) handler;
 
 
 /// Get Cargo Type
 /// Get an existing cargo type
 ///
-/// @param version 
 /// @param cargoTypeId the cargo type ID
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAICargoType*
--(NSURLSessionTask*) getCargoTypeWithVersion: (NSNumber*) version
-    cargoTypeId: (NSNumber*) cargoTypeId
+-(NSURLSessionTask*) getCargoTypeWithCargoTypeId: (NSNumber*) cargoTypeId
     completionHandler: (void (^)(OAICargoType* output, NSError* error)) handler;
 
 
 /// Search Cargo Type
 /// Search for types of cargo
 ///
-/// @param version 
 /// @param sortField the sort field to use for the cargo type
 /// @param descending if the cargo type should be should be in descending order
 /// @param start the start of the search
@@ -80,8 +73,7 @@ extern NSInteger kOAICargoTypeApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAICargoType>*
--(NSURLSessionTask*) searchCargoTypesWithVersion: (NSNumber*) version
-    sortField: (NSString*) sortField
+-(NSURLSessionTask*) searchCargoTypesWithSortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
     limit: (NSNumber*) limit
@@ -94,15 +86,13 @@ extern NSInteger kOAICargoTypeApiMissingParamErrorCode;
 /// Update Cargo Type
 /// Update an existing cargo type
 ///
-/// @param version 
 /// @param cargoTypeId the ID of the cargo type
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAICargoType*
--(NSURLSessionTask*) updateCargoTypeWithVersion: (NSNumber*) version
-    cargoTypeId: (NSNumber*) cargoTypeId
+-(NSURLSessionTask*) updateCargoTypeWithCargoTypeId: (NSNumber*) cargoTypeId
     body: (OAICargoType*) body
     completionHandler: (void (^)(OAICargoType* output, NSError* error)) handler;
 

@@ -25,7 +25,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Create following
 /// Create following.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param vatomParameters Vatom Parameters
 /// @param returnRawResponse Return raw response (optional)
@@ -33,8 +32,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) createFollowingWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createFollowingWithAccountId: (NSNumber*) accountId
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler;
@@ -43,7 +41,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Create Vatom Space
 /// Create a Vatom space.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param vatomParameters Vatom Parameters
@@ -52,8 +49,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) createSpaceWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createSpaceWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
@@ -63,7 +59,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Create Vatom Event
 /// Create a Vatom event.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param vatomParameters Vatom Parameters
@@ -72,8 +67,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) createVatomEventWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createVatomEventWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
@@ -83,7 +77,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Delete following
 /// Delete following.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param vatomRelsKey Vatom Rels Key
 /// @param returnRawResponse Return raw response (optional)
@@ -91,8 +84,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) deleteFollowingWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteFollowingWithAccountId: (NSNumber*) accountId
     vatomRelsKey: (NSString*) vatomRelsKey
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler;
@@ -101,7 +93,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Reset All Points Balance
 /// Reset All Points Balance.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param vatomCampaignId Vatom Campaign Id
@@ -110,8 +101,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) deletePointsBalanceWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deletePointsBalanceWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomCampaignId: (NSString*) vatomCampaignId
     returnRawResponse: (NSNumber*) returnRawResponse
@@ -121,7 +111,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Delete Vatom Space
 /// Delete a Vatom space.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param vatomSpaceId Vatom Space Id
@@ -130,8 +119,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) deleteSpaceWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteSpaceWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomSpaceId: (NSString*) vatomSpaceId
     returnRawResponse: (NSNumber*) returnRawResponse
@@ -141,7 +129,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Delete Vatom Event
 /// Delete a Vatom event.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param vatomEventId Vatom Event Id
@@ -150,8 +137,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) deleteVatomEventWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteVatomEventWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomEventId: (NSString*) vatomEventId
     returnRawResponse: (NSNumber*) returnRawResponse
@@ -161,7 +147,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Delete Vatom NFT
 /// Delete Vatom NFT
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param vatomId Vatom NFT Id
 /// @param returnRawResponse Return raw response (optional)
@@ -169,8 +154,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) deleteVatomNFTWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteVatomNFTWithAccountId: (NSNumber*) accountId
     vatomId: (NSString*) vatomId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler;
@@ -179,7 +163,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Execute Action on NFT
 /// Execute Action on NFT.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param vatomId Vatom NFT Id
 /// @param vatomParameters Vatom Parameters
@@ -188,8 +171,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) executeActionOnNFTWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) executeActionOnNFTWithAccountId: (NSNumber*) accountId
     vatomId: (NSString*) vatomId
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
@@ -199,7 +181,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Search Vatom Geo Map
 /// Search Vatom Geo Map
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param vatomParameters Vatom Parameters
 /// @param returnRawResponse Return raw response (optional)
@@ -207,8 +188,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) geomapSearchWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) geomapSearchWithAccountId: (NSNumber*) accountId
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler;
@@ -217,7 +197,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Get Vatom Business Behaviors
 /// Gets the behaviors of a business.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param returnRawResponse Return raw response (optional)
@@ -225,8 +204,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) getBusinessBehaviorsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getBusinessBehaviorsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler;
@@ -235,7 +213,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Get the coins for a Business
 /// Get the coins for a Businesss.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param returnRawResponse Return raw response (optional)
@@ -243,8 +220,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) getBusinessCoinsBalanceWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getBusinessCoinsBalanceWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler;
@@ -253,15 +229,13 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Get the user business ids
 /// Get the business ids the logged in user has access to.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param returnRawResponse Return raw response (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) getBusinessIdsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getBusinessIdsWithAccountId: (NSNumber*) accountId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -269,7 +243,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Get Vatom Business Info
 /// Gets the business info tied to this account.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param vatomParameters Vatom Parameters (optional)
@@ -278,8 +251,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) getBusinessInfoWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getBusinessInfoWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
@@ -289,7 +261,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Get Vatom Business Users
 /// Gets the users of a business.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param returnRawResponse Return raw response (optional)
@@ -297,8 +268,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) getBusinessUsersWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getBusinessUsersWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler;
@@ -307,7 +277,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Get Campaign Group Entities
 /// Get campaign group entities.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param vatomCampaignId Vatom Campaign Id
@@ -316,8 +285,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) getCampaignGroupEntitiesWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getCampaignGroupEntitiesWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomCampaignId: (NSString*) vatomCampaignId
     returnRawResponse: (NSNumber*) returnRawResponse
@@ -327,7 +295,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Get Campaign Group Rules
 /// Get campaign group rules.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param vatomCampaignId Vatom Campaign Id
@@ -336,8 +303,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) getCampaignGroupRulesWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getCampaignGroupRulesWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomCampaignId: (NSString*) vatomCampaignId
     returnRawResponse: (NSNumber*) returnRawResponse
@@ -347,7 +313,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Get Campaign Group Stats
 /// Get campaign group stats.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param vatomCampaignId Vatom Campaign Id
@@ -356,8 +321,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) getCampaignGroupStatsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getCampaignGroupStatsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomCampaignId: (NSString*) vatomCampaignId
     returnRawResponse: (NSNumber*) returnRawResponse
@@ -367,7 +331,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Get Campaign Info
 /// Gets the info on a campaign.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param vatomCampaignId Vatom Campaign Id
@@ -376,8 +339,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) getCampaignInfoWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getCampaignInfoWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomCampaignId: (NSString*) vatomCampaignId
     returnRawResponse: (NSNumber*) returnRawResponse
@@ -387,7 +349,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Get Vatom Event Guest List
 /// Gets the guest list of an event.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param vatomEventId Vatom Event Id
@@ -396,8 +357,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) getEventGuestListWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getEventGuestListWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomEventId: (NSString*) vatomEventId
     returnRawResponse: (NSNumber*) returnRawResponse
@@ -407,7 +367,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Get Vatom User's Inventory
 /// Gets the logged in user's Vatom Inventory.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param vatomParameters Vatom Parameters
 /// @param returnRawResponse Return raw response (optional)
@@ -415,8 +374,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) getInventoryWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getInventoryWithAccountId: (NSNumber*) accountId
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler;
@@ -425,15 +383,13 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Get following
 /// Get following.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param returnRawResponse Return raw response (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) getMyFollowingWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getMyFollowingWithAccountId: (NSNumber*) accountId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -441,7 +397,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Get Points Balance
 /// Gets the points balance of a Vatom user.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param vatomUserId Vatom User Id
 /// @param vatomCampaignId Vatom Campaign Id
@@ -450,8 +405,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) getPointsBalanceWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getPointsBalanceWithAccountId: (NSNumber*) accountId
     vatomUserId: (NSString*) vatomUserId
     vatomCampaignId: (NSString*) vatomCampaignId
     returnRawResponse: (NSNumber*) returnRawResponse
@@ -461,7 +415,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Get Points Balance as Business
 /// Gets the points balance of a Vatom user.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param vatomUserId Vatom User Id
@@ -471,8 +424,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) getPointsBalanceAsBusinessWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getPointsBalanceAsBusinessWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomUserId: (NSString*) vatomUserId
     vatomCampaignId: (NSString*) vatomCampaignId
@@ -483,7 +435,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Get Vatom Space
 /// Gets the details of a space.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param vatomSpaceId Vatom Space Id
@@ -492,8 +443,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) getSpaceWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getSpaceWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomSpaceId: (NSString*) vatomSpaceId
     returnRawResponse: (NSNumber*) returnRawResponse
@@ -503,7 +453,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Get the coins for a user (as a Business)
 /// Get the coins for a user (as a Business).
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param vatomUserId Vatom User Id
 /// @param appKey Sirqul Application Key
@@ -512,8 +461,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) getUserCoinsAsBusinessWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getUserCoinsAsBusinessWithAccountId: (NSNumber*) accountId
     vatomUserId: (NSString*) vatomUserId
     appKey: (NSString*) appKey
     returnRawResponse: (NSNumber*) returnRawResponse
@@ -523,7 +471,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Gets the coins balance for a Vatom User
 /// Gets the coins balance for a Vatom User.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param vatomUserId Vatom User Id
 /// @param vatomParameters Vatom Parameters (optional)
@@ -532,8 +479,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) getUserCoinsBalanceWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getUserCoinsBalanceWithAccountId: (NSNumber*) accountId
     vatomUserId: (NSString*) vatomUserId
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
@@ -543,7 +489,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Get user followers
 /// Get user followers.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param vatomUserId Vatom User Id
 /// @param returnRawResponse Return raw response (optional)
@@ -551,8 +496,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) getUserFollowersWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getUserFollowersWithAccountId: (NSNumber*) accountId
     vatomUserId: (NSString*) vatomUserId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler;
@@ -561,7 +505,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Get user following
 /// Get user following.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param vatomUserId Vatom User Id
 /// @param returnRawResponse Return raw response (optional)
@@ -569,8 +512,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) getUserFollowingWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getUserFollowingWithAccountId: (NSNumber*) accountId
     vatomUserId: (NSString*) vatomUserId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler;
@@ -579,7 +521,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Get User Info
 /// Get a User's Info.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param vatomUserId Vatom User Id
 /// @param returnRawResponse Return raw response (optional)
@@ -587,8 +528,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) getUserInfoWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getUserInfoWithAccountId: (NSNumber*) accountId
     vatomUserId: (NSString*) vatomUserId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler;
@@ -597,15 +537,13 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Get Vatom User Profile
 /// Gets the logged in user's profile in Vatom.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param returnRawResponse Return raw response (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) getUserProfileWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getUserProfileWithAccountId: (NSNumber*) accountId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -613,7 +551,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Get Vatom Event
 /// Gets the details of a event.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param vatomEventId Vatom Event Id
@@ -622,8 +559,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) getVatomEventWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getVatomEventWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomEventId: (NSString*) vatomEventId
     returnRawResponse: (NSNumber*) returnRawResponse
@@ -633,7 +569,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Get Vatom NFT Details
 /// Get Vatom NFT Details
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param vatomId Vatom NFT Id
 /// @param returnRawResponse Return raw response (optional)
@@ -641,8 +576,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) getVatomNFTWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getVatomNFTWithAccountId: (NSNumber*) accountId
     vatomId: (NSString*) vatomId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler;
@@ -651,7 +585,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// List Vatom Communities
 /// Gets the communities tied to a business.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param vatomParameters Vatom Parameters (optional)
@@ -660,8 +593,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) listCommunitiesWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) listCommunitiesWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
@@ -671,7 +603,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// List Vatom Events
 /// Gets the events tied to a business.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param vatomParameters Vatom Parameters (optional)
@@ -680,8 +611,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) listEventsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) listEventsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
@@ -691,7 +621,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// List Vatom Spaces
 /// Gets the spaces tied to a business.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param vatomParameters Vatom Parameters (optional)
@@ -700,8 +629,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) listSpacesWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) listSpacesWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
@@ -711,7 +639,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// List Coin Transactions for a Vatom User
 /// Gets the logged in user's Vatom coin transactions.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param vatomUserId Vatom User Id
 /// @param vatomParameters Vatom Parameters (optional)
@@ -720,8 +647,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) listUserCoinTransactionsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) listUserCoinTransactionsWithAccountId: (NSNumber*) accountId
     vatomUserId: (NSString*) vatomUserId
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
@@ -731,7 +657,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// List coin transactions for a user (as a Business)
 /// List coin transactions for a user (as a Business).
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param vatomUserId Vatom User Id
 /// @param appKey Sirqul Application Key
@@ -741,8 +666,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) listUserCoinTransactionsAsBusinessWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) listUserCoinTransactionsAsBusinessWithAccountId: (NSNumber*) accountId
     vatomUserId: (NSString*) vatomUserId
     appKey: (NSString*) appKey
     vatomParameters: (NSString*) vatomParameters
@@ -753,7 +677,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Perform Action on NFT
 /// Perform Action on NFT.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param vatomId Vatom NFT Id
 /// @param vatomAction Vatom Action
@@ -763,8 +686,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) performActionOnNFTWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) performActionOnNFTWithAccountId: (NSNumber*) accountId
     vatomId: (NSString*) vatomId
     vatomAction: (NSString*) vatomAction
     vatomParameters: (NSString*) vatomParameters
@@ -775,7 +697,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Redeem NFT
 /// Redeem an NFT.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param vatomParameters Vatom Parameters
@@ -784,8 +705,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) redeemNFTWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) redeemNFTWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
@@ -795,7 +715,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Redeem the coins for a user (as a Business)
 /// Redeem the coins for a user (as a Business).
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param vatomUserId Vatom User Id
 /// @param appKey Sirqul Application Key
@@ -805,8 +724,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) redeemUserCoinsAsBusinessWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) redeemUserCoinsAsBusinessWithAccountId: (NSNumber*) accountId
     vatomUserId: (NSString*) vatomUserId
     appKey: (NSString*) appKey
     vatomParameters: (NSString*) vatomParameters
@@ -817,7 +735,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Search for Vatom Businesses
 /// Searches for Vatom businesses.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param vatomParameters Vatom Parameters (optional)
 /// @param returnRawResponse Return raw response (optional)
@@ -825,8 +742,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) searchBusinessesWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchBusinessesWithAccountId: (NSNumber*) accountId
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler;
@@ -835,7 +751,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Search Campaign Groups
 /// Search campaign groups.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param returnRawResponse Return raw response (optional)
@@ -843,8 +758,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) searchCampaignGroupsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchCampaignGroupsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler;
@@ -853,15 +767,13 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Search User Identities
 /// Search User Identities.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param returnRawResponse Return raw response (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) searchIdentitiesWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchIdentitiesWithAccountId: (NSNumber*) accountId
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -869,7 +781,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Search Vatom User's Inventory
 /// Searches the logged in user's Vatom Inventory.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param vatomParameters Vatom Parameters (optional)
 /// @param returnRawResponse Return raw response (optional)
@@ -877,8 +788,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) searchInventoryWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchInventoryWithAccountId: (NSNumber*) accountId
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler;
@@ -887,7 +797,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Send NFT
 /// Send an NFT.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param vatomCampaignId Vatom Campaign Id
@@ -897,8 +806,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) sendNFTWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) sendNFTWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomCampaignId: (NSString*) vatomCampaignId
     vatomParameters: (NSString*) vatomParameters
@@ -909,7 +817,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Set Points Balance as Business
 /// Sets the points balance of a Vatom user.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param vatomUserId Vatom User Id
@@ -920,8 +827,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) setPointsBalanceAsBusinessWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) setPointsBalanceAsBusinessWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomUserId: (NSString*) vatomUserId
     vatomCampaignId: (NSString*) vatomCampaignId
@@ -933,7 +839,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Transfer coins from Vatom Users
 /// Transfer coins from Vatom Users.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param vatomUserId Vatom User Id
 /// @param vatomParameters Vatom Parameters
@@ -942,8 +847,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) transferUserCoinsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) transferUserCoinsWithAccountId: (NSNumber*) accountId
     vatomUserId: (NSString*) vatomUserId
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
@@ -953,7 +857,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Fund coins for a Business
 /// Fund/update coins for a Businesss.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param vatomParameters Vatom Parameters
@@ -962,8 +865,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) updateBusinessCoinsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateBusinessCoinsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
@@ -973,7 +875,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Update Vatom Event Guest List
 /// Update the guest list of an event.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param vatomEventId Vatom Event Id
@@ -983,8 +884,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) updateEventGuestListWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateEventGuestListWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomEventId: (NSString*) vatomEventId
     vatomParameters: (NSString*) vatomParameters
@@ -995,7 +895,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Update Vatom Space
 /// Update a Vatom space.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param vatomSpaceId Vatom Space Id
@@ -1005,8 +904,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) updateSpaceWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateSpaceWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomSpaceId: (NSString*) vatomSpaceId
     vatomParameters: (NSString*) vatomParameters
@@ -1017,7 +915,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Update the coins for a user (as a Business)
 /// Update the coins for a user (as a Business).
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param vatomUserId Vatom User Id
 /// @param appKey Sirqul Application Key
@@ -1027,8 +924,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) updateUserCoinsAsBusinessWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateUserCoinsAsBusinessWithAccountId: (NSNumber*) accountId
     vatomUserId: (NSString*) vatomUserId
     appKey: (NSString*) appKey
     vatomParameters: (NSString*) vatomParameters
@@ -1039,7 +935,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Update Vatom User Profile
 /// Gets the logged in user's profile in Vatom.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param vatomParameters Vatom Parameters
 /// @param returnRawResponse Return raw response (optional)
@@ -1047,8 +942,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) updateUserProfileWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateUserProfileWithAccountId: (NSNumber*) accountId
     vatomParameters: (NSString*) vatomParameters
     returnRawResponse: (NSNumber*) returnRawResponse
     completionHandler: (void (^)(NSError* error)) handler;
@@ -1057,7 +951,6 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 /// Update Vatom Event
 /// Update a Vatom event.
 ///
-/// @param version 
 /// @param accountId Sirqul Account Id
 /// @param appKey Sirqul Application Key
 /// @param vatomEventId Vatom Event Id
@@ -1067,8 +960,7 @@ extern NSInteger kOAIVatomApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) updateVatomEventWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateVatomEventWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     vatomEventId: (NSString*) vatomEventId
     vatomParameters: (NSString*) vatomParameters

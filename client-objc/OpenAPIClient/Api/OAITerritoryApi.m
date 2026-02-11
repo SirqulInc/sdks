@@ -53,8 +53,6 @@ NSInteger kOAITerritoryApiMissingParamErrorCode = 234513;
 ///
 /// Create Territory
 /// Creates a territory.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param name The name of the territory 
@@ -63,22 +61,10 @@ NSInteger kOAITerritoryApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAITerritoryResponse*
 ///
--(NSURLSessionTask*) createTerritoryWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createTerritoryWithAccountId: (NSNumber*) accountId
     name: (NSString*) name
     active: (NSNumber*) active
     completionHandler: (void (^)(OAITerritoryResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITerritoryApiErrorDomain code:kOAITerritoryApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -101,12 +87,9 @@ NSInteger kOAITerritoryApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/territory/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/territory/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -161,29 +144,15 @@ NSInteger kOAITerritoryApiMissingParamErrorCode = 234513;
 ///
 /// Delete Territory
 /// Deletes a territory.
-///  @param version  
-///
 ///  @param accountId the id of the logged in user 
 ///
 ///  @param territoryId the id of the territory to delete 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteTerritoryWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteTerritoryWithAccountId: (NSNumber*) accountId
     territoryId: (NSNumber*) territoryId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITerritoryApiErrorDomain code:kOAITerritoryApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -206,12 +175,9 @@ NSInteger kOAITerritoryApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/territory/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/territory/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -263,26 +229,12 @@ NSInteger kOAITerritoryApiMissingParamErrorCode = 234513;
 ///
 /// Get Territory
 /// Get a territory.
-///  @param version  
-///
 ///  @param territoryId the id of the territory to get 
 ///
 ///  @returns OAITerritoryResponse*
 ///
--(NSURLSessionTask*) getTerritoryWithVersion: (NSNumber*) version
-    territoryId: (NSNumber*) territoryId
+-(NSURLSessionTask*) getTerritoryWithTerritoryId: (NSNumber*) territoryId
     completionHandler: (void (^)(OAITerritoryResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITerritoryApiErrorDomain code:kOAITerritoryApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'territoryId' is set
     if (territoryId == nil) {
         NSParameterAssert(territoryId);
@@ -294,12 +246,9 @@ NSInteger kOAITerritoryApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/territory/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/territory/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (territoryId != nil) {
@@ -348,8 +297,6 @@ NSInteger kOAITerritoryApiMissingParamErrorCode = 234513;
 ///
 /// Search Territories
 /// Searches on territories.
-///  @param version  
-///
 ///  @param sortField the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME 
 ///
 ///  @param descending determines whether the sorted list is in descending or ascending order 
@@ -362,24 +309,12 @@ NSInteger kOAITerritoryApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAITerritoryResponse>*
 ///
--(NSURLSessionTask*) searchTerritoriesWithVersion: (NSNumber*) version
-    sortField: (NSString*) sortField
+-(NSURLSessionTask*) searchTerritoriesWithSortField: (NSString*) sortField
     descending: (NSNumber*) descending
     keyword: (NSString*) keyword
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSArray<OAITerritoryResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITerritoryApiErrorDomain code:kOAITerritoryApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'sortField' is set
     if (sortField == nil) {
         NSParameterAssert(sortField);
@@ -402,12 +337,9 @@ NSInteger kOAITerritoryApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/territory/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/territory/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (keyword != nil) {
@@ -468,8 +400,6 @@ NSInteger kOAITerritoryApiMissingParamErrorCode = 234513;
 ///
 /// Update Territory
 /// Updates a territory.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param territoryId the id of the territory to update 
@@ -480,23 +410,11 @@ NSInteger kOAITerritoryApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAITerritoryResponse*
 ///
--(NSURLSessionTask*) updateTerritoryWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateTerritoryWithAccountId: (NSNumber*) accountId
     territoryId: (NSNumber*) territoryId
     name: (NSString*) name
     active: (NSNumber*) active
     completionHandler: (void (^)(OAITerritoryResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITerritoryApiErrorDomain code:kOAITerritoryApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -519,12 +437,9 @@ NSInteger kOAITerritoryApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/territory/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/territory/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

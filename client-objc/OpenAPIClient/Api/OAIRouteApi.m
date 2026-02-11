@@ -55,26 +55,12 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
 ///
 /// Approve Route
 /// Approve a route
-///  @param version  
-///
 ///  @param routeId the id of the route to approve 
 ///
 ///  @returns OAIRoute*
 ///
--(NSURLSessionTask*) approveRouteWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) approveRouteWithRouteId: (NSNumber*) routeId
     completionHandler: (void (^)(OAIRoute* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRouteApiErrorDomain code:kOAIRouteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'routeId' is set
     if (routeId == nil) {
         NSParameterAssert(routeId);
@@ -86,12 +72,9 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/route/{routeId}/approve"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/route/{routeId}/approve"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (routeId != nil) {
         pathParams[@"routeId"] = routeId;
     }
@@ -140,29 +123,15 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
 ///
 /// Copy Route
 /// Make an copy of the given route with optional overriding properties
-///  @param version  
-///
 ///  @param routeId the id of the route to duplicate 
 ///
 ///  @param body  (optional)
 ///
 ///  @returns OAIRoute*
 ///
--(NSURLSessionTask*) copyRouteWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) copyRouteWithRouteId: (NSNumber*) routeId
     body: (OAIRoute*) body
     completionHandler: (void (^)(OAIRoute* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRouteApiErrorDomain code:kOAIRouteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'routeId' is set
     if (routeId == nil) {
         NSParameterAssert(routeId);
@@ -174,12 +143,9 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/route/{routeId}/copy"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/route/{routeId}/copy"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (routeId != nil) {
         pathParams[@"routeId"] = routeId;
     }
@@ -229,32 +195,15 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
 ///
 /// Create Route
 /// Create new route
-///  @param version  
-///
 ///  @param body  (optional)
 ///
 ///  @returns OAIRoute*
 ///
--(NSURLSessionTask*) createRouteWithVersion: (NSNumber*) version
-    body: (OAIRoute*) body
+-(NSURLSessionTask*) createRouteWithBody: (OAIRoute*) body
     completionHandler: (void (^)(OAIRoute* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRouteApiErrorDomain code:kOAIRouteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/route"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/route"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
@@ -301,26 +250,12 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
 ///
 /// Update Route Directions
 /// Regenerate the directions of a route
-///  @param version  
-///
 ///  @param routeId the id of the route to update directions for 
 ///
 ///  @returns NSArray<OAIDirection>*
 ///
--(NSURLSessionTask*) createRouteDirectionsWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) createRouteDirectionsWithRouteId: (NSNumber*) routeId
     completionHandler: (void (^)(NSArray<OAIDirection>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRouteApiErrorDomain code:kOAIRouteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'routeId' is set
     if (routeId == nil) {
         NSParameterAssert(routeId);
@@ -332,12 +267,9 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/route/{routeId}/directions"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/route/{routeId}/directions"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (routeId != nil) {
         pathParams[@"routeId"] = routeId;
     }
@@ -386,26 +318,12 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
 ///
 /// Create Route Polyline
 /// Update the polyline of the requested route
-///  @param version  
-///
 ///  @param routeId the id of the route to create a polyline for 
 ///
 ///  @returns OAIRoute*
 ///
--(NSURLSessionTask*) createRoutePolylineWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) createRoutePolylineWithRouteId: (NSNumber*) routeId
     completionHandler: (void (^)(OAIRoute* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRouteApiErrorDomain code:kOAIRouteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'routeId' is set
     if (routeId == nil) {
         NSParameterAssert(routeId);
@@ -417,12 +335,9 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/route/{routeId}/polyline"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/route/{routeId}/polyline"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (routeId != nil) {
         pathParams[@"routeId"] = routeId;
     }
@@ -471,26 +386,12 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
 ///
 /// Delete Route
 /// Delete an existing route
-///  @param version  
-///
 ///  @param routeId the id of the route 
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) deleteRouteWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) deleteRouteWithRouteId: (NSNumber*) routeId
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRouteApiErrorDomain code:kOAIRouteApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'routeId' is set
     if (routeId == nil) {
         NSParameterAssert(routeId);
@@ -502,12 +403,9 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/route/{routeId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/route/{routeId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (routeId != nil) {
         pathParams[@"routeId"] = routeId;
     }
@@ -556,26 +454,12 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
 ///
 /// Disapprove Route
 /// Disapprove a route
-///  @param version  
-///
 ///  @param routeId the id of the route to reject 
 ///
 ///  @returns OAIRoute*
 ///
--(NSURLSessionTask*) disapproveRouteWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) disapproveRouteWithRouteId: (NSNumber*) routeId
     completionHandler: (void (^)(OAIRoute* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRouteApiErrorDomain code:kOAIRouteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'routeId' is set
     if (routeId == nil) {
         NSParameterAssert(routeId);
@@ -587,12 +471,9 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/route/{routeId}/disapprove"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/route/{routeId}/disapprove"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (routeId != nil) {
         pathParams[@"routeId"] = routeId;
     }
@@ -641,29 +522,15 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
 ///
 /// Get Route
 /// Get an existing route
-///  @param version  
-///
 ///  @param routeId the id of the route to get 
 ///
 ///  @param showInheritedProperties return inherited properties from parent or not 
 ///
 ///  @returns OAIRoute*
 ///
--(NSURLSessionTask*) getRouteWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) getRouteWithRouteId: (NSNumber*) routeId
     showInheritedProperties: (NSNumber*) showInheritedProperties
     completionHandler: (void (^)(OAIRoute* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRouteApiErrorDomain code:kOAIRouteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'routeId' is set
     if (routeId == nil) {
         NSParameterAssert(routeId);
@@ -686,12 +553,9 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/route/{routeId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/route/{routeId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (routeId != nil) {
         pathParams[@"routeId"] = routeId;
     }
@@ -743,26 +607,12 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
 ///
 /// Get Route Directions
 /// Get the directions of a route
-///  @param version  
-///
 ///  @param routeId the id of the route to get directions for 
 ///
 ///  @returns NSArray<OAIDirection>*
 ///
--(NSURLSessionTask*) getRouteDirectionsWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) getRouteDirectionsWithRouteId: (NSNumber*) routeId
     completionHandler: (void (^)(NSArray<OAIDirection>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRouteApiErrorDomain code:kOAIRouteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'routeId' is set
     if (routeId == nil) {
         NSParameterAssert(routeId);
@@ -774,12 +624,9 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/route/{routeId}/directions"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/route/{routeId}/directions"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (routeId != nil) {
         pathParams[@"routeId"] = routeId;
     }
@@ -828,26 +675,12 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
 ///
 /// Get Route Shipments
 /// Get the shipments on the requested route
-///  @param version  
-///
 ///  @param routeId the id of the route to get shipments for 
 ///
 ///  @returns NSArray<OAIShipment>*
 ///
--(NSURLSessionTask*) getRouteShipmentsWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) getRouteShipmentsWithRouteId: (NSNumber*) routeId
     completionHandler: (void (^)(NSArray<OAIShipment>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRouteApiErrorDomain code:kOAIRouteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'routeId' is set
     if (routeId == nil) {
         NSParameterAssert(routeId);
@@ -859,12 +692,9 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/route/{routeId}/shipments"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/route/{routeId}/shipments"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (routeId != nil) {
         pathParams[@"routeId"] = routeId;
     }
@@ -913,29 +743,15 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
 ///
 /// Get Route Stop
 /// Get the specific stop on a route
-///  @param version  
-///
 ///  @param routeId the id of the route to get stops for 
 ///
 ///  @param stopId the id of the specific stop on the route 
 ///
 ///  @returns OAIStop*
 ///
--(NSURLSessionTask*) getRouteStopWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) getRouteStopWithRouteId: (NSNumber*) routeId
     stopId: (NSNumber*) stopId
     completionHandler: (void (^)(OAIStop* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRouteApiErrorDomain code:kOAIRouteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'routeId' is set
     if (routeId == nil) {
         NSParameterAssert(routeId);
@@ -958,12 +774,9 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/route/{routeId}/stop/{stopId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/route/{routeId}/stop/{stopId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (routeId != nil) {
         pathParams[@"routeId"] = routeId;
     }
@@ -1015,29 +828,15 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
 ///
 /// Get Route Stops
 /// The stops of the route requested
-///  @param version  
-///
 ///  @param routeId the id of the route 
 ///
 ///  @param confirmedOnly only get stops that have been confirmed or not 
 ///
 ///  @returns NSArray<OAIStop>*
 ///
--(NSURLSessionTask*) getRouteStopsWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) getRouteStopsWithRouteId: (NSNumber*) routeId
     confirmedOnly: (NSNumber*) confirmedOnly
     completionHandler: (void (^)(NSArray<OAIStop>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRouteApiErrorDomain code:kOAIRouteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'routeId' is set
     if (routeId == nil) {
         NSParameterAssert(routeId);
@@ -1060,12 +859,9 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/route/{routeId}/stops"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/route/{routeId}/stops"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (routeId != nil) {
         pathParams[@"routeId"] = routeId;
     }
@@ -1117,29 +913,15 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
 ///
 /// Get Shipments At Stop
 /// Get the list of shipments on the requested route at a stop
-///  @param version  
-///
 ///  @param routeId the id of the route 
 ///
 ///  @param stopId the id of the stop to get shipments on 
 ///
 ///  @returns NSArray<OAIShipment>*
 ///
--(NSURLSessionTask*) getShipmentsAtStopWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) getShipmentsAtStopWithRouteId: (NSNumber*) routeId
     stopId: (NSNumber*) stopId
     completionHandler: (void (^)(NSArray<OAIShipment>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRouteApiErrorDomain code:kOAIRouteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'routeId' is set
     if (routeId == nil) {
         NSParameterAssert(routeId);
@@ -1162,12 +944,9 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/route/{routeId}/stop/{stopId}/shipments"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/route/{routeId}/stop/{stopId}/shipments"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (routeId != nil) {
         pathParams[@"routeId"] = routeId;
     }
@@ -1219,26 +998,12 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
 ///
 /// Optimize Route
 /// Optimize a route. The optimization method based on how the server is configured.
-///  @param version  
-///
 ///  @param routeId the id of the route to optimize 
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) optimizeRouteWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) optimizeRouteWithRouteId: (NSNumber*) routeId
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRouteApiErrorDomain code:kOAIRouteApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'routeId' is set
     if (routeId == nil) {
         NSParameterAssert(routeId);
@@ -1250,12 +1015,9 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/route/{routeId}/optimize"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/route/{routeId}/optimize"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (routeId != nil) {
         pathParams[@"routeId"] = routeId;
     }
@@ -1304,29 +1066,15 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
 ///
 /// Delete Stop
 /// Delete a stop on a route
-///  @param version  
-///
 ///  @param routeId the id of the route 
 ///
 ///  @param stopId the id of the specific stop to delete on the route 
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) removeStopWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) removeStopWithRouteId: (NSNumber*) routeId
     stopId: (NSNumber*) stopId
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRouteApiErrorDomain code:kOAIRouteApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'routeId' is set
     if (routeId == nil) {
         NSParameterAssert(routeId);
@@ -1349,12 +1097,9 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/route/{routeId}/stop/{stopId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/route/{routeId}/stop/{stopId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (routeId != nil) {
         pathParams[@"routeId"] = routeId;
     }
@@ -1406,29 +1151,15 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
 ///
 /// Reorder Route Stops
 /// Reordering the stops on the route with and update route distance, time, direction, and polyline
-///  @param version  
-///
 ///  @param routeId the id of the route 
 ///
 ///  @param body  (optional)
 ///
 ///  @returns NSArray<OAIStop>*
 ///
--(NSURLSessionTask*) reorderRouteStopsPatchWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) reorderRouteStopsPatchWithRouteId: (NSNumber*) routeId
     body: (NSArray<OAIStop>*) body
     completionHandler: (void (^)(NSArray<OAIStop>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRouteApiErrorDomain code:kOAIRouteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'routeId' is set
     if (routeId == nil) {
         NSParameterAssert(routeId);
@@ -1440,12 +1171,9 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/route/{routeId}/stops/reorder"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/route/{routeId}/stops/reorder"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (routeId != nil) {
         pathParams[@"routeId"] = routeId;
     }
@@ -1495,29 +1223,15 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
 ///
 /// Reorder Route Stops
 /// Reordering the stops on the route with and update route distance, time, direction, and polyline
-///  @param version  
-///
 ///  @param routeId the id of the route 
 ///
 ///  @param body  (optional)
 ///
 ///  @returns NSArray<OAIStop>*
 ///
--(NSURLSessionTask*) reorderRouteStopsPostWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) reorderRouteStopsPostWithRouteId: (NSNumber*) routeId
     body: (NSArray<OAIStop>*) body
     completionHandler: (void (^)(NSArray<OAIStop>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRouteApiErrorDomain code:kOAIRouteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'routeId' is set
     if (routeId == nil) {
         NSParameterAssert(routeId);
@@ -1529,12 +1243,9 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/route/{routeId}/stops/reorder"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/route/{routeId}/stops/reorder"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (routeId != nil) {
         pathParams[@"routeId"] = routeId;
     }
@@ -1584,8 +1295,6 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
 ///
 /// Search Routes
 /// Search for routes.
-///  @param version  
-///
 ///  @param sortField The field to sort by 
 ///
 ///  @param descending Determines whether the sorted list is in descending or ascending order 
@@ -1630,8 +1339,7 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIRoute>*
 ///
--(NSURLSessionTask*) searchRoutesWithVersion: (NSNumber*) version
-    sortField: (NSString*) sortField
+-(NSURLSessionTask*) searchRoutesWithSortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
     limit: (NSNumber*) limit
@@ -1653,17 +1361,6 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
     valid: (NSNumber*) valid
     parentId: (NSNumber*) parentId
     completionHandler: (void (^)(NSArray<OAIRoute>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRouteApiErrorDomain code:kOAIRouteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'sortField' is set
     if (sortField == nil) {
         NSParameterAssert(sortField);
@@ -1752,12 +1449,9 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/route"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/route"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (hubId != nil) {
@@ -1866,29 +1560,15 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
 ///
 /// Set Driver
 /// Update the driver of the route.
-///  @param version  
-///
 ///  @param _id the id of the route 
 ///
 ///  @param driverId the id of the driver 
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) setDriverWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) setDriverWithId: (NSNumber*) _id
     driverId: (NSNumber*) driverId
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRouteApiErrorDomain code:kOAIRouteApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -1911,12 +1591,9 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/route/{id}/driver/{driverId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/route/{id}/driver/{driverId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -1968,29 +1645,15 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
 ///
 /// Update Route
 /// Update an existing route
-///  @param version  
-///
 ///  @param routeId the id of the route 
 ///
 ///  @param body  (optional)
 ///
 ///  @returns OAIRoute*
 ///
--(NSURLSessionTask*) updateRouteWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) updateRouteWithRouteId: (NSNumber*) routeId
     body: (OAIRoute*) body
     completionHandler: (void (^)(OAIRoute* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRouteApiErrorDomain code:kOAIRouteApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'routeId' is set
     if (routeId == nil) {
         NSParameterAssert(routeId);
@@ -2002,12 +1665,9 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/route/{routeId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/route/{routeId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (routeId != nil) {
         pathParams[@"routeId"] = routeId;
     }
@@ -2057,8 +1717,6 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
 ///
 /// Update Route Stop
 /// Update a stop on a specified route
-///  @param version  
-///
 ///  @param routeId the id of the route to update stops for 
 ///
 ///  @param stopId the id of the specific stop to update on the route 
@@ -2067,22 +1725,10 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) updateRouteStopWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) updateRouteStopWithRouteId: (NSNumber*) routeId
     stopId: (NSNumber*) stopId
     body: (OAIStop*) body
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRouteApiErrorDomain code:kOAIRouteApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'routeId' is set
     if (routeId == nil) {
         NSParameterAssert(routeId);
@@ -2105,12 +1751,9 @@ NSInteger kOAIRouteApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/route/{routeId}/stop/{stopId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/route/{routeId}/stop/{stopId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (routeId != nil) {
         pathParams[@"routeId"] = routeId;
     }

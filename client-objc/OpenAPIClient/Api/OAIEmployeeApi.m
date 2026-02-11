@@ -53,8 +53,6 @@ NSInteger kOAIEmployeeApiMissingParamErrorCode = 234513;
 ///
 /// Assign Employee
 /// Assign An existing account to be an employee
-///  @param version  
-///
 ///  @param accountId The account id of the logged in user 
 ///
 ///  @param managerAccountId The account id of the manager to assign under 
@@ -65,23 +63,11 @@ NSInteger kOAIEmployeeApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIEmployeeResponse*
 ///
--(NSURLSessionTask*) assignEmployeeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) assignEmployeeWithAccountId: (NSNumber*) accountId
     managerAccountId: (NSNumber*) managerAccountId
     employeeAccountId: (NSNumber*) employeeAccountId
     role: (NSString*) role
     completionHandler: (void (^)(OAIEmployeeResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIEmployeeApiErrorDomain code:kOAIEmployeeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -115,12 +101,9 @@ NSInteger kOAIEmployeeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/employee/assign"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/employee/assign"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -178,8 +161,6 @@ NSInteger kOAIEmployeeApiMissingParamErrorCode = 234513;
 ///
 /// Assign Employee to Location
 /// Assign or unassign the account to a retailer location.
-///  @param version  
-///
 ///  @param accountId The account id of the logged in user 
 ///
 ///  @param retailerLocationId The retailer location to apply the change to 
@@ -190,23 +171,11 @@ NSInteger kOAIEmployeeApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) assignToLocationEmployeeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) assignToLocationEmployeeWithAccountId: (NSNumber*) accountId
     retailerLocationId: (NSNumber*) retailerLocationId
     employeeAccountId: (NSNumber*) employeeAccountId
     assign: (NSNumber*) assign
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIEmployeeApiErrorDomain code:kOAIEmployeeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -229,12 +198,9 @@ NSInteger kOAIEmployeeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/employee/assignToLocation"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/employee/assignToLocation"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -292,8 +258,6 @@ NSInteger kOAIEmployeeApiMissingParamErrorCode = 234513;
 ///
 /// Create Employee
 /// Create a new account record with the provided information.
-///  @param version  
-///
 ///  @param accountId The account id of the logged in user 
 ///
 ///  @param managerAccountId The account id of the manager to assign under 
@@ -356,8 +320,7 @@ NSInteger kOAIEmployeeApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIEmployeeResponse*
 ///
--(NSURLSessionTask*) createEmployeeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createEmployeeWithAccountId: (NSNumber*) accountId
     managerAccountId: (NSNumber*) managerAccountId
     username: (NSString*) username
     password: (NSString*) password
@@ -388,17 +351,6 @@ NSInteger kOAIEmployeeApiMissingParamErrorCode = 234513;
     appBlob: (NSString*) appBlob
     assignedDeviceId: (NSString*) assignedDeviceId
     completionHandler: (void (^)(OAIEmployeeResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIEmployeeApiErrorDomain code:kOAIEmployeeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -443,12 +395,9 @@ NSInteger kOAIEmployeeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/employee/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/employee/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -584,29 +533,15 @@ NSInteger kOAIEmployeeApiMissingParamErrorCode = 234513;
 ///
 /// Delete Employee
 /// Set the deleted date field which marks the record as deleted.
-///  @param version  
-///
 ///  @param accountId the id of the logged in user 
 ///
 ///  @param employeeAccountId the id of the employee to delete 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteEmployeeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteEmployeeWithAccountId: (NSNumber*) accountId
     employeeAccountId: (NSNumber*) employeeAccountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIEmployeeApiErrorDomain code:kOAIEmployeeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -629,12 +564,9 @@ NSInteger kOAIEmployeeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/employee/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/employee/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -686,8 +618,6 @@ NSInteger kOAIEmployeeApiMissingParamErrorCode = 234513;
 ///
 /// Get Employee
 /// Get the account record for the account id provided.
-///  @param version  
-///
 ///  @param accountId the id of logged in user 
 ///
 ///  @param employeeAccountId the id of the employee account to get 
@@ -696,22 +626,10 @@ NSInteger kOAIEmployeeApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIEmployeeResponse*
 ///
--(NSURLSessionTask*) getEmployeeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getEmployeeWithAccountId: (NSNumber*) accountId
     employeeAccountId: (NSNumber*) employeeAccountId
     settingsAppKey: (NSString*) settingsAppKey
     completionHandler: (void (^)(OAIEmployeeResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIEmployeeApiErrorDomain code:kOAIEmployeeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -734,12 +652,9 @@ NSInteger kOAIEmployeeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/employee/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/employee/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -794,8 +709,6 @@ NSInteger kOAIEmployeeApiMissingParamErrorCode = 234513;
 ///
 /// Search Employees
 /// Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
-///  @param version  
-///
 ///  @param accountId The account id of the logged in user 
 ///
 ///  @param role The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles. (optional)
@@ -832,8 +745,7 @@ NSInteger kOAIEmployeeApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIEmployeeResponse>*
 ///
--(NSURLSessionTask*) searchEmployeesWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchEmployeesWithAccountId: (NSNumber*) accountId
     role: (NSString*) role
     retailerId: (NSNumber*) retailerId
     retailerLocationId: (NSNumber*) retailerLocationId
@@ -851,17 +763,6 @@ NSInteger kOAIEmployeeApiMissingParamErrorCode = 234513;
     categoryIds: (NSString*) categoryIds
     query: (NSString*) query
     completionHandler: (void (^)(NSArray<OAIEmployeeResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIEmployeeApiErrorDomain code:kOAIEmployeeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -873,12 +774,9 @@ NSInteger kOAIEmployeeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/employee/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/employee/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -975,29 +873,15 @@ NSInteger kOAIEmployeeApiMissingParamErrorCode = 234513;
 ///
 /// Unassign Employee
 /// Unassign An existing account to be an employee
-///  @param version  
-///
 ///  @param accountId The account id of the logged in user 
 ///
 ///  @param employeeAccountId The account id of the user to be unassigned 
 ///
 ///  @returns OAIEmployeeResponse*
 ///
--(NSURLSessionTask*) unassignEmployeeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) unassignEmployeeWithAccountId: (NSNumber*) accountId
     employeeAccountId: (NSNumber*) employeeAccountId
     completionHandler: (void (^)(OAIEmployeeResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIEmployeeApiErrorDomain code:kOAIEmployeeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1020,12 +904,9 @@ NSInteger kOAIEmployeeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/employee/unassign"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/employee/unassign"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1077,8 +958,6 @@ NSInteger kOAIEmployeeApiMissingParamErrorCode = 234513;
 ///
 /// Update Employee
 /// Update the account record with the provided information.
-///  @param version  
-///
 ///  @param accountId The account id of the logged in user 
 ///
 ///  @param employeeAccountId the id of the employee account 
@@ -1141,8 +1020,7 @@ NSInteger kOAIEmployeeApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIEmployeeResponse*
 ///
--(NSURLSessionTask*) updateEmployeeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateEmployeeWithAccountId: (NSNumber*) accountId
     employeeAccountId: (NSNumber*) employeeAccountId
     managerAccountId: (NSNumber*) managerAccountId
     name: (NSString*) name
@@ -1173,17 +1051,6 @@ NSInteger kOAIEmployeeApiMissingParamErrorCode = 234513;
     appBlob: (NSString*) appBlob
     assignedDeviceId: (NSString*) assignedDeviceId
     completionHandler: (void (^)(OAIEmployeeResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIEmployeeApiErrorDomain code:kOAIEmployeeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1206,12 +1073,9 @@ NSInteger kOAIEmployeeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/employee/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/employee/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

@@ -27,7 +27,6 @@ extern NSInteger kOAITerritoryApiMissingParamErrorCode;
 /// Create Territory
 /// Creates a territory.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param name The name of the territory
 /// @param active If true set the game level as active. Default is true. (optional)
@@ -35,8 +34,7 @@ extern NSInteger kOAITerritoryApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAITerritoryResponse*
--(NSURLSessionTask*) createTerritoryWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createTerritoryWithAccountId: (NSNumber*) accountId
     name: (NSString*) name
     active: (NSNumber*) active
     completionHandler: (void (^)(OAITerritoryResponse* output, NSError* error)) handler;
@@ -45,15 +43,13 @@ extern NSInteger kOAITerritoryApiMissingParamErrorCode;
 /// Delete Territory
 /// Deletes a territory.
 ///
-/// @param version 
 /// @param accountId the id of the logged in user
 /// @param territoryId the id of the territory to delete
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteTerritoryWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteTerritoryWithAccountId: (NSNumber*) accountId
     territoryId: (NSNumber*) territoryId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -61,21 +57,18 @@ extern NSInteger kOAITerritoryApiMissingParamErrorCode;
 /// Get Territory
 /// Get a territory.
 ///
-/// @param version 
 /// @param territoryId the id of the territory to get
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAITerritoryResponse*
--(NSURLSessionTask*) getTerritoryWithVersion: (NSNumber*) version
-    territoryId: (NSNumber*) territoryId
+-(NSURLSessionTask*) getTerritoryWithTerritoryId: (NSNumber*) territoryId
     completionHandler: (void (^)(OAITerritoryResponse* output, NSError* error)) handler;
 
 
 /// Search Territories
 /// Searches on territories.
 ///
-/// @param version 
 /// @param sortField the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME
 /// @param descending determines whether the sorted list is in descending or ascending order
 /// @param keyword Return results that match this keyword. (optional)
@@ -85,8 +78,7 @@ extern NSInteger kOAITerritoryApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAITerritoryResponse>*
--(NSURLSessionTask*) searchTerritoriesWithVersion: (NSNumber*) version
-    sortField: (NSString*) sortField
+-(NSURLSessionTask*) searchTerritoriesWithSortField: (NSString*) sortField
     descending: (NSNumber*) descending
     keyword: (NSString*) keyword
     start: (NSNumber*) start
@@ -97,7 +89,6 @@ extern NSInteger kOAITerritoryApiMissingParamErrorCode;
 /// Update Territory
 /// Updates a territory.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param territoryId the id of the territory to update
 /// @param name The name of the territory (optional)
@@ -106,8 +97,7 @@ extern NSInteger kOAITerritoryApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAITerritoryResponse*
--(NSURLSessionTask*) updateTerritoryWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateTerritoryWithAccountId: (NSNumber*) accountId
     territoryId: (NSNumber*) territoryId
     name: (NSString*) name
     active: (NSNumber*) active

@@ -52,26 +52,12 @@ NSInteger kOAIRoutingApiMissingParamErrorCode = 234513;
 ///
 /// Compute Route
 /// This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off. 
-///  @param version  
-///
 ///  @param data Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest 
 ///
 ///  @returns OAIRoutingListResponse*
 ///
--(NSURLSessionTask*) computeRoutingWithVersion: (NSNumber*) version
-    data: (NSString*) data
+-(NSURLSessionTask*) computeRoutingWithData: (NSString*) data
     completionHandler: (void (^)(OAIRoutingListResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRoutingApiErrorDomain code:kOAIRoutingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'data' is set
     if (data == nil) {
         NSParameterAssert(data);
@@ -83,12 +69,9 @@ NSInteger kOAIRoutingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/routing/compute"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/routing/compute"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (data != nil) {

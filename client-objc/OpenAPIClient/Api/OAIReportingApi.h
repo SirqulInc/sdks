@@ -30,7 +30,6 @@ extern NSInteger kOAIReportingApiMissingParamErrorCode;
 /// Create Offline Report
 /// Create an entry for the batch for offline report
 ///
-/// @param version 
 /// @param accountId The account id of the user for passing account related params
 /// @param status the status of the report
 /// @param previewLimit the limit on how much you can preview of the batch report
@@ -46,8 +45,7 @@ extern NSInteger kOAIReportingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIReportBatchResponse*
--(NSURLSessionTask*) createBatchWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createBatchWithAccountId: (NSNumber*) accountId
     status: (NSString*) status
     previewLimit: (NSNumber*) previewLimit
     appKey: (NSString*) appKey
@@ -64,29 +62,25 @@ extern NSInteger kOAIReportingApiMissingParamErrorCode;
 /// Create Offline Report
 /// Create an entry for the batch for offline report
 ///
-/// @param version 
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIReportRegionLegSummaryBatchResponse*
--(NSURLSessionTask*) createRegionLegSummaryBatchWithVersion: (NSNumber*) version
-    body: (NSArray<OAIRegionLegSummary>*) body
+-(NSURLSessionTask*) createRegionLegSummaryBatchWithBody: (NSArray<OAIRegionLegSummary>*) body
     completionHandler: (void (^)(OAIReportRegionLegSummaryBatchResponse* output, NSError* error)) handler;
 
 
 /// Delete Offline Report
 /// Deletes a batch report.
 ///
-/// @param version 
 /// @param accountId the id of the account
 /// @param batchId the id of the batch to delete
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteBatchWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteBatchWithAccountId: (NSNumber*) accountId
     batchId: (NSNumber*) batchId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -94,7 +88,6 @@ extern NSInteger kOAIReportingApiMissingParamErrorCode;
 /// Get Offline Report
 /// Checks status of batch report.
 ///
-/// @param version 
 /// @param accountId the id of the logged in user
 /// @param batchId returned by /report/batch/create
 /// @param allResults whether to return all batch results or not
@@ -102,8 +95,7 @@ extern NSInteger kOAIReportingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIReportBatchResponse*
--(NSURLSessionTask*) getReportBatchWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getReportBatchWithAccountId: (NSNumber*) accountId
     batchId: (NSNumber*) batchId
     allResults: (NSNumber*) allResults
     completionHandler: (void (^)(OAIReportBatchResponse* output, NSError* error)) handler;
@@ -112,7 +104,6 @@ extern NSInteger kOAIReportingApiMissingParamErrorCode;
 /// Run Report
 ///  This endpoint allows you to run a set of predefined reports that can be used to understand your users' behavior as well as trends within your application.
 ///
-/// @param version 
 /// @param desc If true then descending order, false is ascending
 /// @param accountId The account id of the user for passing account related params (optional)
 /// @param query The named identifier of the query (optional)
@@ -125,8 +116,7 @@ extern NSInteger kOAIReportingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIReportResponse*
--(NSURLSessionTask*) runReportWithVersion: (NSNumber*) version
-    desc: (NSNumber*) desc
+-(NSURLSessionTask*) runReportWithDesc: (NSNumber*) desc
     accountId: (NSNumber*) accountId
     query: (NSString*) query
     parameters: (NSString*) parameters
@@ -140,7 +130,6 @@ extern NSInteger kOAIReportingApiMissingParamErrorCode;
 /// Search Offline Reports
 /// Retrieves batches for a user..
 ///
-/// @param version 
 /// @param accountId the id of the account logged in
 /// @param start the start of the index and/or pagination
 /// @param limit the limit of the index and/or pagination
@@ -154,8 +143,7 @@ extern NSInteger kOAIReportingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIReportBatchResponse>*
--(NSURLSessionTask*) searchBatchWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchBatchWithAccountId: (NSNumber*) accountId
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     names: (NSString*) names

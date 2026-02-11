@@ -56,8 +56,6 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
 ///
 /// Create Game Level
 /// Create a game level. Currently does NOT support game objects.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param name The name of the level. 
@@ -112,8 +110,7 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIGameLevelResponse*
 ///
--(NSURLSessionTask*) createGameLevelWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createGameLevelWithAccountId: (NSNumber*) accountId
     name: (NSString*) name
     gameData: (NSString*) gameData
     gameDataSuffix: (NSString*) gameDataSuffix
@@ -140,17 +137,6 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
     offerId: (NSNumber*) offerId
     metaData: (NSString*) metaData
     completionHandler: (void (^)(OAIGameLevelResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIGameLevelApiErrorDomain code:kOAIGameLevelApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -195,12 +181,9 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/level/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/level/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -324,29 +307,15 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
 ///
 /// Delete Game Level
 /// Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param levelId The id of the level to return. 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteGameLevelWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteGameLevelWithAccountId: (NSNumber*) accountId
     levelId: (NSNumber*) levelId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIGameLevelApiErrorDomain code:kOAIGameLevelApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -369,12 +338,9 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/level/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/level/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -426,8 +392,6 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
 ///
 /// Get Game Level
 /// Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param levelId The id of the level to return. 
@@ -436,22 +400,10 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIGameLevelResponse*
 ///
--(NSURLSessionTask*) getGameLevelWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getGameLevelWithAccountId: (NSNumber*) accountId
     levelId: (NSNumber*) levelId
     includeGameData: (NSNumber*) includeGameData
     completionHandler: (void (^)(OAIGameLevelResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIGameLevelApiErrorDomain code:kOAIGameLevelApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -474,12 +426,9 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/level/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/level/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -534,8 +483,6 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
 ///
 /// Search Game Levels
 /// Get a list of levels for an application, just those the account has permissions to view.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param appKey the application key 
@@ -558,8 +505,7 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIGameLevelListResponse*
 ///
--(NSURLSessionTask*) getGameLevelsByApplicationWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getGameLevelsByApplicationWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     keyword: (NSString*) keyword
     sortField: (NSString*) sortField
@@ -570,17 +516,6 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
     includeGameData: (NSNumber*) includeGameData
     filters: (NSString*) filters
     completionHandler: (void (^)(OAIGameLevelListResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIGameLevelApiErrorDomain code:kOAIGameLevelApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -603,12 +538,9 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/level/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/level/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -684,8 +616,6 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
 ///
 /// Search Game Level by Billable Entity
 /// Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
-///  @param version  
-///
 ///  @param accountId The account id of the user 
 ///
 ///  @param appKey the application key (optional)
@@ -704,8 +634,7 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIGameLevelResponse*
 ///
--(NSURLSessionTask*) getGameLevelsByBillableEntityWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getGameLevelsByBillableEntityWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     keyword: (NSString*) keyword
     sortField: (NSString*) sortField
@@ -714,17 +643,6 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(OAIGameLevelResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIGameLevelApiErrorDomain code:kOAIGameLevelApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -736,12 +654,9 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/level/searchByBillableEntity"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/level/searchByBillableEntity"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -811,29 +726,15 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
 ///
 /// Get Level Questions
 /// Get questions within a level.
-///  @param version  
-///
 ///  @param levelId the id of the level to get questions from 
 ///
 ///  @param accountId the id of the logged in user 
 ///
 ///  @returns OAIQuestionResponse*
 ///
--(NSURLSessionTask*) getQuestionsInLevelWithVersion: (NSNumber*) version
-    levelId: (NSNumber*) levelId
+-(NSURLSessionTask*) getQuestionsInLevelWithLevelId: (NSNumber*) levelId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIQuestionResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIGameLevelApiErrorDomain code:kOAIGameLevelApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'levelId' is set
     if (levelId == nil) {
         NSParameterAssert(levelId);
@@ -856,12 +757,9 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/level/questions/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/level/questions/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (levelId != nil) {
@@ -913,29 +811,15 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
 ///
 /// Get Level Words
 /// Get words within a level.
-///  @param version  
-///
 ///  @param levelId the id of the level to get words for 
 ///
 ///  @param accountId the id of the logged in user 
 ///
 ///  @returns OAIWordzWordResponse*
 ///
--(NSURLSessionTask*) getWordsInLevelWithVersion: (NSNumber*) version
-    levelId: (NSNumber*) levelId
+-(NSURLSessionTask*) getWordsInLevelWithLevelId: (NSNumber*) levelId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIWordzWordResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIGameLevelApiErrorDomain code:kOAIGameLevelApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'levelId' is set
     if (levelId == nil) {
         NSParameterAssert(levelId);
@@ -958,12 +842,9 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/level/words/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/level/words/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (levelId != nil) {
@@ -1015,8 +896,6 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
 ///
 /// Update Game Level
 /// Update a game level. Currently does NOT support game objects.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param levelId If update then include the level Id. 
@@ -1073,8 +952,7 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIGameLevelResponse*
 ///
--(NSURLSessionTask*) updateGameLevelWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateGameLevelWithAccountId: (NSNumber*) accountId
     levelId: (NSNumber*) levelId
     appKey: (NSString*) appKey
     name: (NSString*) name
@@ -1102,17 +980,6 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
     offerId: (NSNumber*) offerId
     metaData: (NSString*) metaData
     completionHandler: (void (^)(OAIGameLevelResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIGameLevelApiErrorDomain code:kOAIGameLevelApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1135,12 +1002,9 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/level/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/level/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1267,8 +1131,6 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
 ///
 /// Update Level Questions
 /// Updates a level with question game objects.
-///  @param version  
-///
 ///  @param levelId the id of the level to update questions on 
 ///
 ///  @param accountId the id of the logged in user 
@@ -1277,22 +1139,10 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) updateQuestionsInLevelWithVersion: (NSNumber*) version
-    levelId: (NSNumber*) levelId
+-(NSURLSessionTask*) updateQuestionsInLevelWithLevelId: (NSNumber*) levelId
     accountId: (NSNumber*) accountId
     questionIds: (NSString*) questionIds
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIGameLevelApiErrorDomain code:kOAIGameLevelApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'levelId' is set
     if (levelId == nil) {
         NSParameterAssert(levelId);
@@ -1326,12 +1176,9 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/level/questions/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/level/questions/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (levelId != nil) {
@@ -1386,8 +1233,6 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
 ///
 /// Update Level Words
 /// Updates a level with word game objects.
-///  @param version  
-///
 ///  @param levelId the id of the level to update words for 
 ///
 ///  @param accountId the id of the logged in user 
@@ -1396,22 +1241,10 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) updateWordsInLevelWithVersion: (NSNumber*) version
-    levelId: (NSNumber*) levelId
+-(NSURLSessionTask*) updateWordsInLevelWithLevelId: (NSNumber*) levelId
     accountId: (NSNumber*) accountId
     wordIds: (NSString*) wordIds
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIGameLevelApiErrorDomain code:kOAIGameLevelApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'levelId' is set
     if (levelId == nil) {
         NSParameterAssert(levelId);
@@ -1445,12 +1278,9 @@ NSInteger kOAIGameLevelApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/level/words/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/level/words/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (levelId != nil) {

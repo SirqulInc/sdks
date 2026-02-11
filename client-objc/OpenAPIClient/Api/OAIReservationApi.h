@@ -28,7 +28,6 @@ extern NSInteger kOAIReservationApiMissingParamErrorCode;
 /// Create Reservation
 /// Creates a reservation on an offer object
 ///
-/// @param version 
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
 /// @param startDate The start date (optional)
@@ -41,8 +40,7 @@ extern NSInteger kOAIReservationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) createReservationWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) createReservationWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     startDate: (NSNumber*) startDate
     endDate: (NSNumber*) endDate
@@ -56,7 +54,6 @@ extern NSInteger kOAIReservationApiMissingParamErrorCode;
 /// Delete Reservation
 /// Deleted a reservation on a reservation object
 ///
-/// @param version 
 /// @param reservationId The reservation id
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -64,8 +61,7 @@ extern NSInteger kOAIReservationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) deleteReservationWithVersion: (NSNumber*) version
-    reservationId: (NSNumber*) reservationId
+-(NSURLSessionTask*) deleteReservationWithReservationId: (NSNumber*) reservationId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(NSError* error)) handler;
@@ -74,7 +70,6 @@ extern NSInteger kOAIReservationApiMissingParamErrorCode;
 /// Update Availability
 /// 
 ///
-/// @param version 
 /// @param reservableId the id of the reservation
 /// @param reservableType the type of reservation
 /// @param deviceId the device id of the reservation (optional)
@@ -85,8 +80,7 @@ extern NSInteger kOAIReservationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIAvailabilityResponse>*
--(NSURLSessionTask*) reservableAvailabilityWithVersion: (NSNumber*) version
-    reservableId: (NSNumber*) reservableId
+-(NSURLSessionTask*) reservableAvailabilityWithReservableId: (NSNumber*) reservableId
     reservableType: (NSString*) reservableType
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -98,7 +92,6 @@ extern NSInteger kOAIReservationApiMissingParamErrorCode;
 /// Search Availability
 /// 
 ///
-/// @param version 
 /// @param reservableId the id of the reservation
 /// @param reservableType the reservable type
 /// @param deviceId the device ID that the reservation is on (optional)
@@ -111,8 +104,7 @@ extern NSInteger kOAIReservationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIAvailabilityResponse>*
--(NSURLSessionTask*) searchAvailabilityWithVersion: (NSNumber*) version
-    reservableId: (NSNumber*) reservableId
+-(NSURLSessionTask*) searchAvailabilityWithReservableId: (NSNumber*) reservableId
     reservableType: (NSString*) reservableType
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -126,7 +118,6 @@ extern NSInteger kOAIReservationApiMissingParamErrorCode;
 /// Search Reservations
 /// 
 ///
-/// @param version 
 /// @param deviceId Device Id (optional)
 /// @param appKey Appilcation Key (optional)
 /// @param accountId the id of the logged in user (optional)
@@ -142,8 +133,7 @@ extern NSInteger kOAIReservationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIReservationResponse>*
--(NSURLSessionTask*) searchReservationsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) searchReservationsWithDeviceId: (NSString*) deviceId
     appKey: (NSString*) appKey
     accountId: (NSNumber*) accountId
     filterAccountId: (NSNumber*) filterAccountId
@@ -160,7 +150,6 @@ extern NSInteger kOAIReservationApiMissingParamErrorCode;
 /// Search Schedule
 /// 
 ///
-/// @param version 
 /// @param reservableId the id of the reservation
 /// @param reservableType the reservation type
 /// @param startDate the start date of the reservation
@@ -172,8 +161,7 @@ extern NSInteger kOAIReservationApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAITimeSlotResponse>*
--(NSURLSessionTask*) searchScheduleWithVersion: (NSNumber*) version
-    reservableId: (NSNumber*) reservableId
+-(NSURLSessionTask*) searchScheduleWithReservableId: (NSNumber*) reservableId
     reservableType: (NSString*) reservableType
     startDate: (NSNumber*) startDate
     endDate: (NSNumber*) endDate

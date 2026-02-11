@@ -28,7 +28,6 @@ extern NSInteger kOAIInviteApiMissingParamErrorCode;
 /// Accept Invite
 /// Allows a user to accept an invite. The user could also become the inviter's friend.
 ///
-/// @param version 
 /// @param token the invite token
 /// @param accountId the accountId of the user who is accepting the invite
 /// @param albumId the album id associated with this invite (if applicable) (optional)
@@ -47,8 +46,7 @@ extern NSInteger kOAIInviteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIConsumerInviteResponse*
--(NSURLSessionTask*) acceptInviteWithVersion: (NSNumber*) version
-    token: (NSString*) token
+-(NSURLSessionTask*) acceptInviteWithToken: (NSString*) token
     accountId: (NSNumber*) accountId
     albumId: (NSNumber*) albumId
     missionId: (NSNumber*) missionId
@@ -68,7 +66,6 @@ extern NSInteger kOAIInviteApiMissingParamErrorCode;
 /// Invite to Contest
 /// Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 ///
-/// @param version 
 /// @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
 /// @param accountId the account ID of the user (deviceId or accountId required) (optional)
 /// @param appId This parameter is deprecated. (optional)
@@ -80,8 +77,7 @@ extern NSInteger kOAIInviteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIInviteResponse*
--(NSURLSessionTask*) albumContestInviteWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) albumContestInviteWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appId: (NSNumber*) appId
     appKey: (NSString*) appKey
@@ -94,7 +90,6 @@ extern NSInteger kOAIInviteApiMissingParamErrorCode;
 /// Invite to Collection
 /// Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 ///
-/// @param version 
 /// @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
 /// @param accountId the account ID of the user (deviceId or accountId required) (optional)
 /// @param appId This parameter is deprecated. (optional)
@@ -106,8 +101,7 @@ extern NSInteger kOAIInviteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIInviteResponse*
--(NSURLSessionTask*) albumInviteWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) albumInviteWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appId: (NSNumber*) appId
     appKey: (NSString*) appKey
@@ -120,7 +114,6 @@ extern NSInteger kOAIInviteApiMissingParamErrorCode;
 /// Invite to Event
 /// Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
 ///
-/// @param version 
 /// @param accountId the account ID of the user making the share
 /// @param appKey the application key
 /// @param listingId The ID of the event listing
@@ -130,8 +123,7 @@ extern NSInteger kOAIInviteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIInviteResponse*
--(NSURLSessionTask*) eventInviteWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) eventInviteWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     listingId: (NSNumber*) listingId
     receiverAccountIds: (NSString*) receiverAccountIds
@@ -142,7 +134,6 @@ extern NSInteger kOAIInviteApiMissingParamErrorCode;
 /// Invite to Game Level
 /// Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 ///
-/// @param version 
 /// @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
 /// @param accountId the account ID of the user (deviceId or accountId required) (optional)
 /// @param appId This parameter is deprecated. (optional)
@@ -154,8 +145,7 @@ extern NSInteger kOAIInviteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIInviteResponse*
--(NSURLSessionTask*) gameInviteWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) gameInviteWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appId: (NSNumber*) appId
     appKey: (NSString*) appKey
@@ -168,7 +158,6 @@ extern NSInteger kOAIInviteApiMissingParamErrorCode;
 /// Get Invite
 /// This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
 ///
-/// @param version 
 /// @param accountId Account ID of the user if they are logged in (optional)
 /// @param token the invite token (optional)
 /// @param albumId album id to match the invite against (if applicable) (optional)
@@ -182,8 +171,7 @@ extern NSInteger kOAIInviteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) getInviteWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getInviteWithAccountId: (NSNumber*) accountId
     token: (NSString*) token
     albumId: (NSNumber*) albumId
     missionId: (NSNumber*) missionId
@@ -198,7 +186,6 @@ extern NSInteger kOAIInviteApiMissingParamErrorCode;
 /// Invite to Mission
 /// Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 ///
-/// @param version 
 /// @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
 /// @param accountId the account ID of the user (deviceId or accountId required) (optional)
 /// @param appId This parameter is deprecated. (optional)
@@ -210,8 +197,7 @@ extern NSInteger kOAIInviteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIInviteResponse*
--(NSURLSessionTask*) missionInviteWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) missionInviteWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appId: (NSNumber*) appId
     appKey: (NSString*) appKey
@@ -224,7 +210,6 @@ extern NSInteger kOAIInviteApiMissingParamErrorCode;
 /// Invite to Offer
 /// Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite's list.
 ///
-/// @param version 
 /// @param accountId the account ID of the user making the share
 /// @param appKey the application key
 /// @param offerId the ID of the offer used to invite to favorite
@@ -232,8 +217,7 @@ extern NSInteger kOAIInviteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIInviteResponse*
--(NSURLSessionTask*) offerInviteWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) offerInviteWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     offerId: (NSNumber*) offerId
     completionHandler: (void (^)(OAIInviteResponse* output, NSError* error)) handler;
@@ -242,7 +226,6 @@ extern NSInteger kOAIInviteApiMissingParamErrorCode;
 /// Invite to Offer Location
 /// Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite's list.
 ///
-/// @param version 
 /// @param accountId the account ID of the user making the share
 /// @param appKey the application key
 /// @param offerLocationId the id of the offer location to share
@@ -250,8 +233,7 @@ extern NSInteger kOAIInviteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIInviteResponse*
--(NSURLSessionTask*) offerLocationInviteWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) offerLocationInviteWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     offerLocationId: (NSNumber*) offerLocationId
     completionHandler: (void (^)(OAIInviteResponse* output, NSError* error)) handler;
@@ -260,7 +242,6 @@ extern NSInteger kOAIInviteApiMissingParamErrorCode;
 /// Invite to Retailer Location
 /// Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite's list.
 ///
-/// @param version 
 /// @param accountId the account ID of the user making the share
 /// @param appKey the application key
 /// @param retailerLocationId The retailer location id of where the event will take place
@@ -269,8 +250,7 @@ extern NSInteger kOAIInviteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIInviteResponse*
--(NSURLSessionTask*) retailerLocationInviteWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) retailerLocationInviteWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     retailerLocationId: (NSNumber*) retailerLocationId
     albumId: (NSNumber*) albumId

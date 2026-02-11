@@ -30,7 +30,6 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 /// Add Connection
 /// Adds a connection to a group.
 ///
-/// @param version 
 /// @param returnNulls whether to return nulls or not
 /// @param groupId the group id
 /// @param deviceId the device id (deviceId or accountId required) (optional)
@@ -44,8 +43,7 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) addConnectionToGroupWithVersion: (NSNumber*) version
-    returnNulls: (NSNumber*) returnNulls
+-(NSURLSessionTask*) addConnectionToGroupWithReturnNulls: (NSNumber*) returnNulls
     groupId: (NSNumber*) groupId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -60,7 +58,6 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 /// Add Connections
 /// Adds a list of connections to a group.
 ///
-/// @param version 
 /// @param connectionGroupId the connection group ID
 /// @param deviceId the device id (deviceId or accountId required) (optional)
 /// @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -72,8 +69,7 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) addConnectionsToGroupWithVersion: (NSNumber*) version
-    connectionGroupId: (NSNumber*) connectionGroupId
+-(NSURLSessionTask*) addConnectionsToGroupWithConnectionGroupId: (NSNumber*) connectionGroupId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     connectionIds: (NSString*) connectionIds
@@ -86,7 +82,6 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 /// Add Connection Groups
 /// Add sub groups to a group.
 ///
-/// @param version 
 /// @param returnNulls whether to return nulls or not
 /// @param groupId the parent group id
 /// @param subGroupIds comma separated list of group IDs to add to the parent group
@@ -98,8 +93,7 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIConnectionGroupResponse*
--(NSURLSessionTask*) addSubGroupsWithVersion: (NSNumber*) version
-    returnNulls: (NSNumber*) returnNulls
+-(NSURLSessionTask*) addSubGroupsWithReturnNulls: (NSNumber*) returnNulls
     groupId: (NSNumber*) groupId
     subGroupIds: (NSString*) subGroupIds
     deviceId: (NSString*) deviceId
@@ -112,7 +106,6 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 /// Create or Update Connection
 /// Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
 ///
-/// @param version 
 /// @param deviceId the device id (deviceId or accountId required) (optional)
 /// @param accountId the account id of the user (deviceId or accountId required) (optional)
 /// @param connectionId the connection id for editing (optional)
@@ -131,8 +124,7 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIConnectionResponse*
--(NSURLSessionTask*) createOrUpdateConnectionWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) createOrUpdateConnectionWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     connectionId: (NSNumber*) connectionId
     connectionAccountId: (NSNumber*) connectionAccountId
@@ -152,7 +144,6 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 /// Create or Update Connection Group
 /// Creates a new private group.
 ///
-/// @param version 
 /// @param returnNulls whether to return nulls or not
 /// @param deviceId the device id (deviceId or accountId required) (optional)
 /// @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -171,8 +162,7 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) createOrUpdateGroupWithVersion: (NSNumber*) version
-    returnNulls: (NSNumber*) returnNulls
+-(NSURLSessionTask*) createOrUpdateGroupWithReturnNulls: (NSNumber*) returnNulls
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     name: (NSString*) name
@@ -192,7 +182,6 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 /// Accept Follow Request
 /// Accept someone's follow request.
 ///
-/// @param version 
 /// @param accountId the account id of the user
 /// @param connectionAccountId the account ID of the user who initiated the follow
 /// @param appKey the application key for sending notifications
@@ -200,8 +189,7 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) followAcceptWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) followAcceptWithAccountId: (NSNumber*) accountId
     connectionAccountId: (NSNumber*) connectionAccountId
     appKey: (NSString*) appKey
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
@@ -210,7 +198,6 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 /// Reject Follow Request
 /// Reject someone's follow request or remove them as a follower.
 ///
-/// @param version 
 /// @param accountId the account id of the user
 /// @param connectionAccountId the account ID of the user who initiated the follow
 /// @param appKey the application key for sending notifications
@@ -218,8 +205,7 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) followRejectWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) followRejectWithAccountId: (NSNumber*) accountId
     connectionAccountId: (NSNumber*) connectionAccountId
     appKey: (NSString*) appKey
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
@@ -228,7 +214,6 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 /// Remove Follower / Unfollow
 /// Unfollow someone you are following or remove them as a follower.
 ///
-/// @param version 
 /// @param accountId the account id of the user
 /// @param connectionAccountId the account ID of the user who you want to unfollow
 /// @param appKey the application key for sending notifications
@@ -236,8 +221,7 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) followRemoveWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) followRemoveWithAccountId: (NSNumber*) accountId
     connectionAccountId: (NSNumber*) connectionAccountId
     appKey: (NSString*) appKey
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
@@ -246,7 +230,6 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 /// Send Follow Request
 /// Send a request to follow someone.
 ///
-/// @param version 
 /// @param accountId the account id of the user
 /// @param connectionAccountId the account ID of the user who you want to follow
 /// @param appKey the application key for sending notifications
@@ -255,8 +238,7 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) followRequestWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) followRequestWithAccountId: (NSNumber*) accountId
     connectionAccountId: (NSNumber*) connectionAccountId
     appKey: (NSString*) appKey
     approvalNeeded: (NSNumber*) approvalNeeded
@@ -266,7 +248,6 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 /// Accept Friend
 /// Accept a friend request and optionally sends a notification.
 ///
-/// @param version 
 /// @param friendAccountId the friend&#39;s account id
 /// @param notifyFriend determines whether to send a notification to the afflicting party
 /// @param deviceId the device id (deviceId or accountId required) (optional)
@@ -278,8 +259,7 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) friendAcceptWithVersion: (NSNumber*) version
-    friendAccountId: (NSNumber*) friendAccountId
+-(NSURLSessionTask*) friendAcceptWithFriendAccountId: (NSNumber*) friendAccountId
     notifyFriend: (NSNumber*) notifyFriend
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -292,7 +272,6 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 /// Decline Friend
 /// Request a friend request and optionally sends a notification.
 ///
-/// @param version 
 /// @param friendAccountId the friend&#39;s account id
 /// @param deviceId the device id (deviceId or accountId required) (optional)
 /// @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -304,8 +283,7 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) friendRejectWithVersion: (NSNumber*) version
-    friendAccountId: (NSNumber*) friendAccountId
+-(NSURLSessionTask*) friendRejectWithFriendAccountId: (NSNumber*) friendAccountId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     gameType: (NSString*) gameType
@@ -318,7 +296,6 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 /// Delete Friend
 /// Removes a friend from the user's friends list.
 ///
-/// @param version 
 /// @param friendAccountId the account ID of the friend to remove
 /// @param deviceId the device id (deviceId or accountId required) (optional)
 /// @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -328,8 +305,7 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) friendRemoveWithVersion: (NSNumber*) version
-    friendAccountId: (NSNumber*) friendAccountId
+-(NSURLSessionTask*) friendRemoveWithFriendAccountId: (NSNumber*) friendAccountId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     notifyFriend: (NSNumber*) notifyFriend
@@ -340,7 +316,6 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 /// Request Friend
 /// Sends a friend request notification to another user.
 ///
-/// @param version 
 /// @param friendAccountId the friend&#39;s account id
 /// @param deviceId the device id (deviceId or accountId required) (optional)
 /// @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -351,8 +326,7 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) friendRequestWithVersion: (NSNumber*) version
-    friendAccountId: (NSNumber*) friendAccountId
+-(NSURLSessionTask*) friendRequestWithFriendAccountId: (NSNumber*) friendAccountId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     gameType: (NSString*) gameType
@@ -364,15 +338,13 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 /// Get Sent Friend Requests
 /// Gets the connection sent friend requests.
 ///
-/// @param version 
 /// @param deviceId the ID of the device (optional)
 /// @param accountId the id of the account (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIConnectionListResponse*
--(NSURLSessionTask*) getConnectionSentFriendRequestsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) getConnectionSentFriendRequestsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIConnectionListResponse* output, NSError* error)) handler;
 
@@ -380,7 +352,6 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 /// Search Connections
 /// Gets the connections.
 ///
-/// @param version 
 /// @param returnNulls whether to return nulls or not
 /// @param filter a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following)
 /// @param sortField sorts the response list by ConnectionApiMap
@@ -400,8 +371,7 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIConnectionListResponse*
--(NSURLSessionTask*) getConnectionsWithVersion: (NSNumber*) version
-    returnNulls: (NSNumber*) returnNulls
+-(NSURLSessionTask*) getConnectionsWithReturnNulls: (NSNumber*) returnNulls
     filter: (NSString*) filter
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
@@ -422,7 +392,6 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 /// Get Connection Group
 /// 
 ///
-/// @param version 
 /// @param combineConnections whether to combine connections or not
 /// @param deviceId the device id (deviceId or accountId required) (optional)
 /// @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -433,8 +402,7 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIConnectionGroupResponse*
--(NSURLSessionTask*) getGroupDetailsWithVersion: (NSNumber*) version
-    combineConnections: (NSNumber*) combineConnections
+-(NSURLSessionTask*) getGroupDetailsWithCombineConnections: (NSNumber*) combineConnections
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     groupId: (NSNumber*) groupId
@@ -446,7 +414,6 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 /// Search Connection Groups
 /// Gets a user's private groups and default groups.
 ///
-/// @param version 
 /// @param sortField the field to sort by
 /// @param descending whether to return results in descending or ascending order
 /// @param activeOnly to search on active only or not
@@ -461,8 +428,7 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIConnectionInfoResponse>*
--(NSURLSessionTask*) groupSearchWithVersion: (NSNumber*) version
-    sortField: (NSString*) sortField
+-(NSURLSessionTask*) groupSearchWithSortField: (NSString*) sortField
     descending: (NSNumber*) descending
     activeOnly: (NSNumber*) activeOnly
     start: (NSNumber*) start
@@ -478,7 +444,6 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 /// Delete Connection
 /// Removes the connection from group.
 ///
-/// @param version 
 /// @param returnNulls whether to return nulls or not
 /// @param groupId the group id
 /// @param deviceId the device id (deviceId or accountId required) (optional)
@@ -492,8 +457,7 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) removeConnectionFromGroupWithVersion: (NSNumber*) version
-    returnNulls: (NSNumber*) returnNulls
+-(NSURLSessionTask*) removeConnectionFromGroupWithReturnNulls: (NSNumber*) returnNulls
     groupId: (NSNumber*) groupId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -508,7 +472,6 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 /// Remove Connections
 /// Remove a list of connections from a group.
 ///
-/// @param version 
 /// @param connectionGroupId connection group id
 /// @param deviceId the device id (deviceId or accountId required) (optional)
 /// @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -520,8 +483,7 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) removeConnectionsFromGroupWithVersion: (NSNumber*) version
-    connectionGroupId: (NSNumber*) connectionGroupId
+-(NSURLSessionTask*) removeConnectionsFromGroupWithConnectionGroupId: (NSNumber*) connectionGroupId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     connectionIds: (NSString*) connectionIds
@@ -534,7 +496,6 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 /// Delete Connection Group
 /// Remove a user's group.
 ///
-/// @param version 
 /// @param returnNulls whether to return nulls or not
 /// @param groupId the group id
 /// @param deviceId the device id (deviceId or accountId required) (optional)
@@ -545,8 +506,7 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) removeGroupWithVersion: (NSNumber*) version
-    returnNulls: (NSNumber*) returnNulls
+-(NSURLSessionTask*) removeGroupWithReturnNulls: (NSNumber*) returnNulls
     groupId: (NSNumber*) groupId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -558,7 +518,6 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 /// Remove Connection Groups
 /// Remove sub groups from a group
 ///
-/// @param version 
 /// @param returnNulls whether to return nulls or not
 /// @param groupId the parent group id
 /// @param subGroupIds comma separated list of group IDs to remove from the parent group
@@ -570,8 +529,7 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) removeSubGroupsWithVersion: (NSNumber*) version
-    returnNulls: (NSNumber*) returnNulls
+-(NSURLSessionTask*) removeSubGroupsWithReturnNulls: (NSNumber*) returnNulls
     groupId: (NSNumber*) groupId
     subGroupIds: (NSString*) subGroupIds
     deviceId: (NSString*) deviceId
@@ -584,7 +542,6 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 /// Search Possible Connections
 /// Search for accounts that the user may not have a connection with.
 ///
-/// @param version 
 /// @param returnNulls return all json attributes if true. defualt is true.
 /// @param start start index of the pagination
 /// @param limit limit of the pagination
@@ -604,8 +561,7 @@ extern NSInteger kOAIConnectionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIConnectionListResponse*
--(NSURLSessionTask*) searchConnectionsWithVersion: (NSNumber*) version
-    returnNulls: (NSNumber*) returnNulls
+-(NSURLSessionTask*) searchConnectionsWithReturnNulls: (NSNumber*) returnNulls
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     deviceId: (NSString*) deviceId

@@ -55,8 +55,6 @@ NSInteger kOAIRetailerApiMissingParamErrorCode = 234513;
 ///
 /// Create Retailer
 /// Create a retailer record. A billable entity must be created first before a retailer record can be made.
-///  @param version  
-///
 ///  @param name The name of the retailer 
 ///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
@@ -125,8 +123,7 @@ NSInteger kOAIRetailerApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIRetailerFullResponse*
 ///
--(NSURLSessionTask*) createRetailerWithVersion: (NSNumber*) version
-    name: (NSString*) name
+-(NSURLSessionTask*) createRetailerWithName: (NSString*) name
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     streetAddress: (NSString*) streetAddress
@@ -160,17 +157,6 @@ NSInteger kOAIRetailerApiMissingParamErrorCode = 234513;
     createDefaultLocation: (NSNumber*) createDefaultLocation
     responseFormat: (NSString*) responseFormat
     completionHandler: (void (^)(OAIRetailerFullResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRetailerApiErrorDomain code:kOAIRetailerApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'name' is set
     if (name == nil) {
         NSParameterAssert(name);
@@ -182,12 +168,9 @@ NSInteger kOAIRetailerApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/retailer/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/retailer/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -332,8 +315,6 @@ NSInteger kOAIRetailerApiMissingParamErrorCode = 234513;
 ///
 /// Delete Retailer
 /// Set the deleted timestamp to current time.
-///  @param version  
-///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
 ///
 ///  @param accountId The account used to perform the delete, must have rights to edit the retailer. (optional)
@@ -342,28 +323,13 @@ NSInteger kOAIRetailerApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteRetailerWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) deleteRetailerWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     retailerId: (NSNumber*) retailerId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRetailerApiErrorDomain code:kOAIRetailerApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/retailer/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/retailer/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -418,8 +384,6 @@ NSInteger kOAIRetailerApiMissingParamErrorCode = 234513;
 ///
 /// Get Retailer
 /// Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-///  @param version  
-///
 ///  @param retailerId the ID of the retailer 
 ///
 ///  @param deviceId the device id (deviceId or accountId required) (optional)
@@ -430,23 +394,11 @@ NSInteger kOAIRetailerApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIRetailerFullResponse*
 ///
--(NSURLSessionTask*) getRetailerWithVersion: (NSNumber*) version
-    retailerId: (NSNumber*) retailerId
+-(NSURLSessionTask*) getRetailerWithRetailerId: (NSNumber*) retailerId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     includeCounts: (NSNumber*) includeCounts
     completionHandler: (void (^)(OAIRetailerFullResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRetailerApiErrorDomain code:kOAIRetailerApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'retailerId' is set
     if (retailerId == nil) {
         NSParameterAssert(retailerId);
@@ -458,12 +410,9 @@ NSInteger kOAIRetailerApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/retailer/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/retailer/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -521,8 +470,6 @@ NSInteger kOAIRetailerApiMissingParamErrorCode = 234513;
 ///
 /// Search Retailers
 /// earches on retailers that the account has access to.
-///  @param version  
-///
 ///  @param visibility  
 ///
 ///  @param sortField The column to sort the search on 
@@ -553,8 +500,7 @@ NSInteger kOAIRetailerApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIRetailerResponse>*
 ///
--(NSURLSessionTask*) getRetailersWithVersion: (NSNumber*) version
-    visibility: (NSString*) visibility
+-(NSURLSessionTask*) getRetailersWithVisibility: (NSString*) visibility
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
@@ -569,17 +515,6 @@ NSInteger kOAIRetailerApiMissingParamErrorCode = 234513;
     i: (NSNumber*) i
     l: (NSNumber*) l
     completionHandler: (void (^)(NSArray<OAIRetailerResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRetailerApiErrorDomain code:kOAIRetailerApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'visibility' is set
     if (visibility == nil) {
         NSParameterAssert(visibility);
@@ -646,12 +581,9 @@ NSInteger kOAIRetailerApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/retailer/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/retailer/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -739,8 +671,6 @@ NSInteger kOAIRetailerApiMissingParamErrorCode = 234513;
 ///
 /// Login Retailer
 /// Retailer login check.
-///  @param version  
-///
 ///  @param username the user's email address they used to sign-up 
 ///
 ///  @param password the password 
@@ -755,25 +685,13 @@ NSInteger kOAIRetailerApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAccountLoginResponse*
 ///
--(NSURLSessionTask*) retailerLoginCheckWithVersion: (NSNumber*) version
-    username: (NSString*) username
+-(NSURLSessionTask*) retailerLoginCheckWithUsername: (NSString*) username
     password: (NSString*) password
     deviceId: (NSString*) deviceId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     appKey: (NSString*) appKey
     completionHandler: (void (^)(OAIAccountLoginResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRetailerApiErrorDomain code:kOAIRetailerApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'username' is set
     if (username == nil) {
         NSParameterAssert(username);
@@ -796,12 +714,9 @@ NSInteger kOAIRetailerApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/retailer/login"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/retailer/login"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (username != nil) {
@@ -865,8 +780,6 @@ NSInteger kOAIRetailerApiMissingParamErrorCode = 234513;
 ///
 /// Update Retailer
 /// Update a retailer record. Only the owner and the employees of the retailer have access to update its information.
-///  @param version  
-///
 ///  @param retailerId The ID of the retailer to update 
 ///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
@@ -933,8 +846,7 @@ NSInteger kOAIRetailerApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIRetailerFullResponse*
 ///
--(NSURLSessionTask*) updateRetailerWithVersion: (NSNumber*) version
-    retailerId: (NSNumber*) retailerId
+-(NSURLSessionTask*) updateRetailerWithRetailerId: (NSNumber*) retailerId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     name: (NSString*) name
@@ -967,17 +879,6 @@ NSInteger kOAIRetailerApiMissingParamErrorCode = 234513;
     active: (NSNumber*) active
     responseFormat: (NSString*) responseFormat
     completionHandler: (void (^)(OAIRetailerFullResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRetailerApiErrorDomain code:kOAIRetailerApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'retailerId' is set
     if (retailerId == nil) {
         NSParameterAssert(retailerId);
@@ -989,12 +890,9 @@ NSInteger kOAIRetailerApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/retailer/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/retailer/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {

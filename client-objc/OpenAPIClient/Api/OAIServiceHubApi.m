@@ -52,32 +52,15 @@ NSInteger kOAIServiceHubApiMissingParamErrorCode = 234513;
 ///
 /// Create Service Hub
 /// Create new service hub
-///  @param version  
-///
 ///  @param body  (optional)
 ///
 ///  @returns OAIServiceHub*
 ///
--(NSURLSessionTask*) createServiceHubWithVersion: (NSNumber*) version
-    body: (OAIServiceHub*) body
+-(NSURLSessionTask*) createServiceHubWithBody: (OAIServiceHub*) body
     completionHandler: (void (^)(OAIServiceHub* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIServiceHubApiErrorDomain code:kOAIServiceHubApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/hub"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/hub"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
@@ -124,26 +107,12 @@ NSInteger kOAIServiceHubApiMissingParamErrorCode = 234513;
 ///
 /// Delete Service Hub
 /// Delete an existing service hub
-///  @param version  
-///
 ///  @param _id the id of the service hub to delete 
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) deleteServiceHubWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) deleteServiceHubWithId: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIServiceHubApiErrorDomain code:kOAIServiceHubApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -155,12 +124,9 @@ NSInteger kOAIServiceHubApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/hub/{id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/hub/{id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -209,26 +175,12 @@ NSInteger kOAIServiceHubApiMissingParamErrorCode = 234513;
 ///
 /// Get Service Hub
 /// Get an existing service hub
-///  @param version  
-///
 ///  @param _id the id of the service hub to get 
 ///
 ///  @returns NSObject*
 ///
--(NSURLSessionTask*) getServiceHubWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) getServiceHubWithId: (NSNumber*) _id
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIServiceHubApiErrorDomain code:kOAIServiceHubApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -240,12 +192,9 @@ NSInteger kOAIServiceHubApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/hub/{id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/hub/{id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -294,29 +243,15 @@ NSInteger kOAIServiceHubApiMissingParamErrorCode = 234513;
 ///
 /// Update Service Hub
 /// Update an existing service hub
-///  @param version  
-///
 ///  @param _id the id of the service hub 
 ///
 ///  @param body  (optional)
 ///
 ///  @returns OAIServiceHub*
 ///
--(NSURLSessionTask*) postServiceHubWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) postServiceHubWithId: (NSNumber*) _id
     body: (OAIServiceHub*) body
     completionHandler: (void (^)(OAIServiceHub* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIServiceHubApiErrorDomain code:kOAIServiceHubApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -328,12 +263,9 @@ NSInteger kOAIServiceHubApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/hub/{id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/hub/{id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -383,29 +315,15 @@ NSInteger kOAIServiceHubApiMissingParamErrorCode = 234513;
 ///
 /// Update Service Hub
 /// Update an existing service hub
-///  @param version  
-///
 ///  @param _id the id of the service hub 
 ///
 ///  @param body  (optional)
 ///
 ///  @returns OAIServiceHub*
 ///
--(NSURLSessionTask*) putServiceHubWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) putServiceHubWithId: (NSNumber*) _id
     body: (OAIServiceHub*) body
     completionHandler: (void (^)(OAIServiceHub* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIServiceHubApiErrorDomain code:kOAIServiceHubApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -417,12 +335,9 @@ NSInteger kOAIServiceHubApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/hub/{id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/hub/{id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -472,8 +387,6 @@ NSInteger kOAIServiceHubApiMissingParamErrorCode = 234513;
 ///
 /// Search Service Hubs
 /// Search for service hubs.
-///  @param version  
-///
 ///  @param sortField The field to sort by 
 ///
 ///  @param descending Determines whether the sorted list is in descending or ascending order 
@@ -490,8 +403,7 @@ NSInteger kOAIServiceHubApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIServiceHub>*
 ///
--(NSURLSessionTask*) searchServiceHubsWithVersion: (NSNumber*) version
-    sortField: (NSString*) sortField
+-(NSURLSessionTask*) searchServiceHubsWithSortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
     limit: (NSNumber*) limit
@@ -499,17 +411,6 @@ NSInteger kOAIServiceHubApiMissingParamErrorCode = 234513;
     keyword: (NSString*) keyword
     retailerId: (NSNumber*) retailerId
     completionHandler: (void (^)(NSArray<OAIServiceHub>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIServiceHubApiErrorDomain code:kOAIServiceHubApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'sortField' is set
     if (sortField == nil) {
         NSParameterAssert(sortField);
@@ -565,12 +466,9 @@ NSInteger kOAIServiceHubApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/hub"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/hub"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (keyword != nil) {

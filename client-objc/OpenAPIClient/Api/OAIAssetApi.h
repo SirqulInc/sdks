@@ -29,21 +29,18 @@ extern NSInteger kOAIAssetApiMissingParamErrorCode;
 /// Download Asset
 /// Downloads an asset from the server for assets that have been uploaded to the server.
 ///
-/// @param version 
 /// @param filename the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) assetDownloadWithVersion: (NSNumber*) version
-    filename: (NSString*) filename
+-(NSURLSessionTask*) assetDownloadWithFilename: (NSString*) filename
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
 
 /// Convert Offer to Creative
 /// Converts an offer image + text into a creative image.
 ///
-/// @param version 
 /// @param offerId offer id used for inserting offer text/flavor
 /// @param adSize the ad size used for selecting a format for the creative image
 /// @param creativeId used for inserting the newly created image into (optional)
@@ -55,8 +52,7 @@ extern NSInteger kOAIAssetApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAssetShortResponse*
--(NSURLSessionTask*) assetMorphWithVersion: (NSNumber*) version
-    offerId: (NSNumber*) offerId
+-(NSURLSessionTask*) assetMorphWithOfferId: (NSNumber*) offerId
     adSize: (NSString*) adSize
     creativeId: (NSNumber*) creativeId
     width: (NSNumber*) width
@@ -69,7 +65,6 @@ extern NSInteger kOAIAssetApiMissingParamErrorCode;
 /// Create Asset
 /// Uploads an asset to server and returns an asset id which can be used to assign to various objects.
 ///
-/// @param version 
 /// @param returnNulls to return nulls (optional)
 /// @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
 /// @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -108,8 +103,7 @@ extern NSInteger kOAIAssetApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAssetResponse*
--(NSURLSessionTask*) createAssetWithVersion: (NSNumber*) version
-    returnNulls: (NSNumber*) returnNulls
+-(NSURLSessionTask*) createAssetWithReturnNulls: (NSNumber*) returnNulls
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     albumId: (NSNumber*) albumId
@@ -149,7 +143,6 @@ extern NSInteger kOAIAssetApiMissingParamErrorCode;
 /// Delete Asset
 /// Delete an asset.
 ///
-/// @param version 
 /// @param assetId the id of the asset to delete
 /// @param deviceId the device id (deviceId or accountId required) (optional)
 /// @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -159,8 +152,7 @@ extern NSInteger kOAIAssetApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteAssetWithVersion: (NSNumber*) version
-    assetId: (NSString*) assetId
+-(NSURLSessionTask*) deleteAssetWithAssetId: (NSString*) assetId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
@@ -171,7 +163,6 @@ extern NSInteger kOAIAssetApiMissingParamErrorCode;
 /// Get Asset
 /// Gets the full asset response including attached likes and notes.
 ///
-/// @param version 
 /// @param assetId the asset ID
 /// @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
 /// @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -180,8 +171,7 @@ extern NSInteger kOAIAssetApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAssetFullResponse*
--(NSURLSessionTask*) getAssetWithVersion: (NSNumber*) version
-    assetId: (NSNumber*) assetId
+-(NSURLSessionTask*) getAssetWithAssetId: (NSNumber*) assetId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     noteDescending: (NSNumber*) noteDescending
@@ -191,7 +181,6 @@ extern NSInteger kOAIAssetApiMissingParamErrorCode;
 /// Remove Asset from Collection
 /// Remove assets from collections
 ///
-/// @param version 
 /// @param assetId the id of the asset to remove
 /// @param deviceId the device id (deviceId or accountId required) (optional)
 /// @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -204,8 +193,7 @@ extern NSInteger kOAIAssetApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) removeAssetWithVersion: (NSNumber*) version
-    assetId: (NSString*) assetId
+-(NSURLSessionTask*) removeAssetWithAssetId: (NSString*) assetId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     albumId: (NSNumber*) albumId
@@ -219,7 +207,6 @@ extern NSInteger kOAIAssetApiMissingParamErrorCode;
 /// Search Assets
 /// Searches for assets
 ///
-/// @param version 
 /// @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
 /// @param accountId the account ID of the user (deviceId or accountId required) (optional)
 /// @param albumIds comma separated list of album ids to search on (optional)
@@ -248,8 +235,7 @@ extern NSInteger kOAIAssetApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIAssetResponse>*
--(NSURLSessionTask*) searchAssetsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) searchAssetsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     albumIds: (NSString*) albumIds
     assetIds: (NSString*) assetIds
@@ -279,7 +265,6 @@ extern NSInteger kOAIAssetApiMissingParamErrorCode;
 /// Update Asset
 /// Updates an asset's meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
 ///
-/// @param version 
 /// @param assetId the ID of the asset to update
 /// @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
 /// @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -315,8 +300,7 @@ extern NSInteger kOAIAssetApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) updateAssetWithVersion: (NSNumber*) version
-    assetId: (NSNumber*) assetId
+-(NSURLSessionTask*) updateAssetWithAssetId: (NSNumber*) assetId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     albumId: (NSNumber*) albumId

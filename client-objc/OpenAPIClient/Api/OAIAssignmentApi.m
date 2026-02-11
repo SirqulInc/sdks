@@ -55,29 +55,15 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
 ///
 /// Search Assignment Assignees
 /// Search for avaiable users for creating or updating assignment.
-///  @param version  
-///
 ///  @param accountId The account id sending the request 
 ///
 ///  @param keyword The keyword to filter the returned results (optional)
 ///
 ///  @returns NSArray<OAIAccountMiniResponse>*
 ///
--(NSURLSessionTask*) assigmentAssigneeAccountSearchWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) assigmentAssigneeAccountSearchWithAccountId: (NSNumber*) accountId
     keyword: (NSString*) keyword
     completionHandler: (void (^)(NSArray<OAIAccountMiniResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAssignmentApiErrorDomain code:kOAIAssignmentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -89,12 +75,9 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/assignment/assignee/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/assignment/assignee/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -146,8 +129,6 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
 ///
 /// Create Assignment
 /// Create an assignment.
-///  @param version  
-///
 ///  @param accountId the user account id 
 ///
 ///  @param name the name for the assignment 
@@ -164,8 +145,7 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAssignmentResponse*
 ///
--(NSURLSessionTask*) assignmentCreateWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) assignmentCreateWithAccountId: (NSNumber*) accountId
     name: (NSString*) name
     assigneeAccountId: (NSNumber*) assigneeAccountId
     _description: (NSString*) _description
@@ -173,17 +153,6 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
     tags: (NSString*) tags
     active: (NSNumber*) active
     completionHandler: (void (^)(OAIAssignmentResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAssignmentApiErrorDomain code:kOAIAssignmentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -217,12 +186,9 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/assignment/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/assignment/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -289,29 +255,15 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
 ///
 /// Delete Assignment
 /// Delete an assignment.
-///  @param version  
-///
 ///  @param accountId the user account id 
 ///
 ///  @param assignmentId the assignment id 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) assignmentDeleteWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) assignmentDeleteWithAccountId: (NSNumber*) accountId
     assignmentId: (NSNumber*) assignmentId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAssignmentApiErrorDomain code:kOAIAssignmentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -334,12 +286,9 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/assignment/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/assignment/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -391,29 +340,15 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
 ///
 /// Get Assignment
 /// Get the details of an assignment.
-///  @param version  
-///
 ///  @param accountId the user account id 
 ///
 ///  @param assignmentId the assignment id 
 ///
 ///  @returns OAIAssignmentResponse*
 ///
--(NSURLSessionTask*) assignmentGetWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) assignmentGetWithAccountId: (NSNumber*) accountId
     assignmentId: (NSNumber*) assignmentId
     completionHandler: (void (^)(OAIAssignmentResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAssignmentApiErrorDomain code:kOAIAssignmentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -436,12 +371,9 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/assignment/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/assignment/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -493,8 +425,6 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
 ///
 /// Search Assignments
 /// Search for assignments by the given parameters.
-///  @param version  
-///
 ///  @param accountId the account sending the request 
 ///
 ///  @param sortField sort by table field 
@@ -519,8 +449,7 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIAssignmentResponse>*
 ///
--(NSURLSessionTask*) assignmentSearchWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) assignmentSearchWithAccountId: (NSNumber*) accountId
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     activeOnly: (NSNumber*) activeOnly
@@ -532,17 +461,6 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
     currentStatusType: (NSString*) currentStatusType
     keyword: (NSString*) keyword
     completionHandler: (void (^)(NSArray<OAIAssignmentResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAssignmentApiErrorDomain code:kOAIAssignmentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -609,12 +527,9 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/assignment/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/assignment/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -693,8 +608,6 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
 ///
 /// Create Assignment Status
 /// Create an assignment status.
-///  @param version  
-///
 ///  @param accountId the user account id 
 ///
 ///  @param assignmentId the assignment id 
@@ -719,8 +632,7 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAssignmentStatusResponse*
 ///
--(NSURLSessionTask*) assignmentStatusCreateWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) assignmentStatusCreateWithAccountId: (NSNumber*) accountId
     assignmentId: (NSNumber*) assignmentId
     scheduledNotificationId: (NSNumber*) scheduledNotificationId
     toDo: (NSString*) toDo
@@ -732,17 +644,6 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
     followUp: (NSNumber*) followUp
     active: (NSNumber*) active
     completionHandler: (void (^)(OAIAssignmentStatusResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAssignmentApiErrorDomain code:kOAIAssignmentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -765,12 +666,9 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/assignment/status/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/assignment/status/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -849,29 +747,15 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
 ///
 /// Deletes Assignment Status
 /// Deletes an assignment status.
-///  @param version  
-///
 ///  @param accountId the user account id 
 ///
 ///  @param assignmentStatusId the assignment status id 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) assignmentStatusDeleteWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) assignmentStatusDeleteWithAccountId: (NSNumber*) accountId
     assignmentStatusId: (NSNumber*) assignmentStatusId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAssignmentApiErrorDomain code:kOAIAssignmentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -894,12 +778,9 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/assignment/status/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/assignment/status/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -951,29 +832,15 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
 ///
 /// Get Assignment Status
 /// Get an assignment status.
-///  @param version  
-///
 ///  @param accountId the user account id 
 ///
 ///  @param assignmentStatusId the assignment status id 
 ///
 ///  @returns OAIAssignmentStatusResponse*
 ///
--(NSURLSessionTask*) assignmentStatusGetWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) assignmentStatusGetWithAccountId: (NSNumber*) accountId
     assignmentStatusId: (NSNumber*) assignmentStatusId
     completionHandler: (void (^)(OAIAssignmentStatusResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAssignmentApiErrorDomain code:kOAIAssignmentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -996,12 +863,9 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/assignment/status/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/assignment/status/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1053,8 +917,6 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
 ///
 /// Search Assignment Statuses
 /// Search on assignment statuses.
-///  @param version  
-///
 ///  @param accountId the user account id 
 ///
 ///  @param sortField the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP 
@@ -1081,8 +943,7 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIAssignmentStatusResponse>*
 ///
--(NSURLSessionTask*) assignmentStatusSearchWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) assignmentStatusSearchWithAccountId: (NSNumber*) accountId
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     activeOnly: (NSNumber*) activeOnly
@@ -1095,17 +956,6 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
     statusType: (NSString*) statusType
     keyword: (NSString*) keyword
     completionHandler: (void (^)(NSArray<OAIAssignmentStatusResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAssignmentApiErrorDomain code:kOAIAssignmentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1172,12 +1022,9 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/assignment/status/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/assignment/status/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1259,8 +1106,6 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
 ///
 /// Update Assignment Status
 /// Updates an assignment status.
-///  @param version  
-///
 ///  @param accountId the user account id 
 ///
 ///  @param assignmentStatusId the assignment status id 
@@ -1285,8 +1130,7 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAssignmentStatusResponse*
 ///
--(NSURLSessionTask*) assignmentStatusUpdateWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) assignmentStatusUpdateWithAccountId: (NSNumber*) accountId
     assignmentStatusId: (NSNumber*) assignmentStatusId
     scheduledNotificationId: (NSNumber*) scheduledNotificationId
     toDo: (NSString*) toDo
@@ -1298,17 +1142,6 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
     followUp: (NSNumber*) followUp
     active: (NSNumber*) active
     completionHandler: (void (^)(OAIAssignmentStatusResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAssignmentApiErrorDomain code:kOAIAssignmentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1331,12 +1164,9 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/assignment/status/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/assignment/status/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1415,8 +1245,6 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
 ///
 /// Update Assignment
 /// Updates an assignment.
-///  @param version  
-///
 ///  @param accountId the user account id 
 ///
 ///  @param assignmentId the assignment id 
@@ -1435,8 +1263,7 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAssignmentResponse*
 ///
--(NSURLSessionTask*) assignmentUpdateWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) assignmentUpdateWithAccountId: (NSNumber*) accountId
     assignmentId: (NSNumber*) assignmentId
     name: (NSString*) name
     _description: (NSString*) _description
@@ -1445,17 +1272,6 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
     tags: (NSString*) tags
     active: (NSNumber*) active
     completionHandler: (void (^)(OAIAssignmentResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIAssignmentApiErrorDomain code:kOAIAssignmentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1478,12 +1294,9 @@ NSInteger kOAIAssignmentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/assignment/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/assignment/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

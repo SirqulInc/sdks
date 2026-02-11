@@ -26,15 +26,13 @@ extern NSInteger kOAIStripeApiMissingParamErrorCode;
 /// Create Stripe Checkout Session
 /// Create a Stripe checkout session
 ///
-/// @param version 
 /// @param appKey Sirqul Application Key
 /// @param stripeParameters Stripe Parameters
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) createStripeCheckoutSessionWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) createStripeCheckoutSessionWithAppKey: (NSString*) appKey
     stripeParameters: (NSString*) stripeParameters
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 

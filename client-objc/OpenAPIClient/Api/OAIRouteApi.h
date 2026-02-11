@@ -29,29 +29,25 @@ extern NSInteger kOAIRouteApiMissingParamErrorCode;
 /// Approve Route
 /// Approve a route
 ///
-/// @param version 
 /// @param routeId the id of the route to approve
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRoute*
--(NSURLSessionTask*) approveRouteWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) approveRouteWithRouteId: (NSNumber*) routeId
     completionHandler: (void (^)(OAIRoute* output, NSError* error)) handler;
 
 
 /// Copy Route
 /// Make an copy of the given route with optional overriding properties
 ///
-/// @param version 
 /// @param routeId the id of the route to duplicate
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRoute*
--(NSURLSessionTask*) copyRouteWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) copyRouteWithRouteId: (NSNumber*) routeId
     body: (OAIRoute*) body
     completionHandler: (void (^)(OAIRoute* output, NSError* error)) handler;
 
@@ -59,85 +55,73 @@ extern NSInteger kOAIRouteApiMissingParamErrorCode;
 /// Create Route
 /// Create new route
 ///
-/// @param version 
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRoute*
--(NSURLSessionTask*) createRouteWithVersion: (NSNumber*) version
-    body: (OAIRoute*) body
+-(NSURLSessionTask*) createRouteWithBody: (OAIRoute*) body
     completionHandler: (void (^)(OAIRoute* output, NSError* error)) handler;
 
 
 /// Update Route Directions
 /// Regenerate the directions of a route
 ///
-/// @param version 
 /// @param routeId the id of the route to update directions for
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIDirection>*
--(NSURLSessionTask*) createRouteDirectionsWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) createRouteDirectionsWithRouteId: (NSNumber*) routeId
     completionHandler: (void (^)(NSArray<OAIDirection>* output, NSError* error)) handler;
 
 
 /// Create Route Polyline
 /// Update the polyline of the requested route
 ///
-/// @param version 
 /// @param routeId the id of the route to create a polyline for
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRoute*
--(NSURLSessionTask*) createRoutePolylineWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) createRoutePolylineWithRouteId: (NSNumber*) routeId
     completionHandler: (void (^)(OAIRoute* output, NSError* error)) handler;
 
 
 /// Delete Route
 /// Delete an existing route
 ///
-/// @param version 
 /// @param routeId the id of the route
 /// 
 ///  code:0 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) deleteRouteWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) deleteRouteWithRouteId: (NSNumber*) routeId
     completionHandler: (void (^)(NSError* error)) handler;
 
 
 /// Disapprove Route
 /// Disapprove a route
 ///
-/// @param version 
 /// @param routeId the id of the route to reject
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRoute*
--(NSURLSessionTask*) disapproveRouteWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) disapproveRouteWithRouteId: (NSNumber*) routeId
     completionHandler: (void (^)(OAIRoute* output, NSError* error)) handler;
 
 
 /// Get Route
 /// Get an existing route
 ///
-/// @param version 
 /// @param routeId the id of the route to get
 /// @param showInheritedProperties return inherited properties from parent or not
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRoute*
--(NSURLSessionTask*) getRouteWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) getRouteWithRouteId: (NSNumber*) routeId
     showInheritedProperties: (NSNumber*) showInheritedProperties
     completionHandler: (void (^)(OAIRoute* output, NSError* error)) handler;
 
@@ -145,43 +129,37 @@ extern NSInteger kOAIRouteApiMissingParamErrorCode;
 /// Get Route Directions
 /// Get the directions of a route
 ///
-/// @param version 
 /// @param routeId the id of the route to get directions for
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIDirection>*
--(NSURLSessionTask*) getRouteDirectionsWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) getRouteDirectionsWithRouteId: (NSNumber*) routeId
     completionHandler: (void (^)(NSArray<OAIDirection>* output, NSError* error)) handler;
 
 
 /// Get Route Shipments
 /// Get the shipments on the requested route
 ///
-/// @param version 
 /// @param routeId the id of the route to get shipments for
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIShipment>*
--(NSURLSessionTask*) getRouteShipmentsWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) getRouteShipmentsWithRouteId: (NSNumber*) routeId
     completionHandler: (void (^)(NSArray<OAIShipment>* output, NSError* error)) handler;
 
 
 /// Get Route Stop
 /// Get the specific stop on a route
 ///
-/// @param version 
 /// @param routeId the id of the route to get stops for
 /// @param stopId the id of the specific stop on the route
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIStop*
--(NSURLSessionTask*) getRouteStopWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) getRouteStopWithRouteId: (NSNumber*) routeId
     stopId: (NSNumber*) stopId
     completionHandler: (void (^)(OAIStop* output, NSError* error)) handler;
 
@@ -189,15 +167,13 @@ extern NSInteger kOAIRouteApiMissingParamErrorCode;
 /// Get Route Stops
 /// The stops of the route requested
 ///
-/// @param version 
 /// @param routeId the id of the route
 /// @param confirmedOnly only get stops that have been confirmed or not
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIStop>*
--(NSURLSessionTask*) getRouteStopsWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) getRouteStopsWithRouteId: (NSNumber*) routeId
     confirmedOnly: (NSNumber*) confirmedOnly
     completionHandler: (void (^)(NSArray<OAIStop>* output, NSError* error)) handler;
 
@@ -205,15 +181,13 @@ extern NSInteger kOAIRouteApiMissingParamErrorCode;
 /// Get Shipments At Stop
 /// Get the list of shipments on the requested route at a stop
 ///
-/// @param version 
 /// @param routeId the id of the route
 /// @param stopId the id of the stop to get shipments on
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIShipment>*
--(NSURLSessionTask*) getShipmentsAtStopWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) getShipmentsAtStopWithRouteId: (NSNumber*) routeId
     stopId: (NSNumber*) stopId
     completionHandler: (void (^)(NSArray<OAIShipment>* output, NSError* error)) handler;
 
@@ -221,29 +195,25 @@ extern NSInteger kOAIRouteApiMissingParamErrorCode;
 /// Optimize Route
 /// Optimize a route. The optimization method based on how the server is configured.
 ///
-/// @param version 
 /// @param routeId the id of the route to optimize
 /// 
 ///  code:0 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) optimizeRouteWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) optimizeRouteWithRouteId: (NSNumber*) routeId
     completionHandler: (void (^)(NSError* error)) handler;
 
 
 /// Delete Stop
 /// Delete a stop on a route
 ///
-/// @param version 
 /// @param routeId the id of the route
 /// @param stopId the id of the specific stop to delete on the route
 /// 
 ///  code:0 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) removeStopWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) removeStopWithRouteId: (NSNumber*) routeId
     stopId: (NSNumber*) stopId
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -251,15 +221,13 @@ extern NSInteger kOAIRouteApiMissingParamErrorCode;
 /// Reorder Route Stops
 /// Reordering the stops on the route with and update route distance, time, direction, and polyline
 ///
-/// @param version 
 /// @param routeId the id of the route
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIStop>*
--(NSURLSessionTask*) reorderRouteStopsPatchWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) reorderRouteStopsPatchWithRouteId: (NSNumber*) routeId
     body: (NSArray<OAIStop>*) body
     completionHandler: (void (^)(NSArray<OAIStop>* output, NSError* error)) handler;
 
@@ -267,15 +235,13 @@ extern NSInteger kOAIRouteApiMissingParamErrorCode;
 /// Reorder Route Stops
 /// Reordering the stops on the route with and update route distance, time, direction, and polyline
 ///
-/// @param version 
 /// @param routeId the id of the route
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIStop>*
--(NSURLSessionTask*) reorderRouteStopsPostWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) reorderRouteStopsPostWithRouteId: (NSNumber*) routeId
     body: (NSArray<OAIStop>*) body
     completionHandler: (void (^)(NSArray<OAIStop>* output, NSError* error)) handler;
 
@@ -283,7 +249,6 @@ extern NSInteger kOAIRouteApiMissingParamErrorCode;
 /// Search Routes
 /// Search for routes.
 ///
-/// @param version 
 /// @param sortField The field to sort by
 /// @param descending Determines whether the sorted list is in descending or ascending order
 /// @param start The start index for pagination
@@ -309,8 +274,7 @@ extern NSInteger kOAIRouteApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIRoute>*
--(NSURLSessionTask*) searchRoutesWithVersion: (NSNumber*) version
-    sortField: (NSString*) sortField
+-(NSURLSessionTask*) searchRoutesWithSortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
     limit: (NSNumber*) limit
@@ -337,15 +301,13 @@ extern NSInteger kOAIRouteApiMissingParamErrorCode;
 /// Set Driver
 /// Update the driver of the route.
 ///
-/// @param version 
 /// @param _id the id of the route
 /// @param driverId the id of the driver
 /// 
 ///  code:0 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) setDriverWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) setDriverWithId: (NSNumber*) _id
     driverId: (NSNumber*) driverId
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -353,15 +315,13 @@ extern NSInteger kOAIRouteApiMissingParamErrorCode;
 /// Update Route
 /// Update an existing route
 ///
-/// @param version 
 /// @param routeId the id of the route
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRoute*
--(NSURLSessionTask*) updateRouteWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) updateRouteWithRouteId: (NSNumber*) routeId
     body: (OAIRoute*) body
     completionHandler: (void (^)(OAIRoute* output, NSError* error)) handler;
 
@@ -369,7 +329,6 @@ extern NSInteger kOAIRouteApiMissingParamErrorCode;
 /// Update Route Stop
 /// Update a stop on a specified route
 ///
-/// @param version 
 /// @param routeId the id of the route to update stops for
 /// @param stopId the id of the specific stop to update on the route
 /// @param body  (optional)
@@ -377,8 +336,7 @@ extern NSInteger kOAIRouteApiMissingParamErrorCode;
 ///  code:0 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) updateRouteStopWithVersion: (NSNumber*) version
-    routeId: (NSNumber*) routeId
+-(NSURLSessionTask*) updateRouteStopWithRouteId: (NSNumber*) routeId
     stopId: (NSNumber*) stopId
     body: (OAIStop*) body
     completionHandler: (void (^)(NSError* error)) handler;

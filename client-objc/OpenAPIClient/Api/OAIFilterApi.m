@@ -54,8 +54,6 @@ NSInteger kOAIFilterApiMissingParamErrorCode = 234513;
 ///
 /// Create Filter
 /// Create a filter
-///  @param version  
-///
 ///  @param accountId The account id of the user (must have permissions to the target application) 
 ///
 ///  @param name The name of the filter 
@@ -76,8 +74,7 @@ NSInteger kOAIFilterApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIFilterTreeResponse*
 ///
--(NSURLSessionTask*) createFilterWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createFilterWithAccountId: (NSNumber*) accountId
     name: (NSString*) name
     appKey: (NSString*) appKey
     parentFilterId: (NSNumber*) parentFilterId
@@ -87,17 +84,6 @@ NSInteger kOAIFilterApiMissingParamErrorCode = 234513;
     active: (NSNumber*) active
     metaData: (NSString*) metaData
     completionHandler: (void (^)(OAIFilterTreeResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIFilterApiErrorDomain code:kOAIFilterApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -120,12 +106,9 @@ NSInteger kOAIFilterApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/filter/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/filter/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -198,29 +181,15 @@ NSInteger kOAIFilterApiMissingParamErrorCode = 234513;
 ///
 /// Delete Filter
 /// Delete a filter.
-///  @param version  
-///
 ///  @param accountId The account id of the user (must have permissions to the filter's assigned application) 
 ///
 ///  @param filterId The ID of the filter to delete 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteFilterWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteFilterWithAccountId: (NSNumber*) accountId
     filterId: (NSNumber*) filterId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIFilterApiErrorDomain code:kOAIFilterApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -243,12 +212,9 @@ NSInteger kOAIFilterApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/filter/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/filter/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -300,26 +266,12 @@ NSInteger kOAIFilterApiMissingParamErrorCode = 234513;
 ///
 /// Get Filter
 /// Get the details of a specific filter. Recursively include all child filters and their children.
-///  @param version  
-///
 ///  @param filterId the id of the filter to get 
 ///
 ///  @returns OAIFilterTreeResponse*
 ///
--(NSURLSessionTask*) getFilterWithVersion: (NSNumber*) version
-    filterId: (NSNumber*) filterId
+-(NSURLSessionTask*) getFilterWithFilterId: (NSNumber*) filterId
     completionHandler: (void (^)(OAIFilterTreeResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIFilterApiErrorDomain code:kOAIFilterApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'filterId' is set
     if (filterId == nil) {
         NSParameterAssert(filterId);
@@ -331,12 +283,9 @@ NSInteger kOAIFilterApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/filter/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/filter/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (filterId != nil) {
@@ -385,8 +334,6 @@ NSInteger kOAIFilterApiMissingParamErrorCode = 234513;
 ///
 /// Search Filters
 /// Search for filters.
-///  @param version  
-///
 ///  @param accountId The account id of the user (optional)
 ///
 ///  @param keyword The string to search on (optional)
@@ -409,8 +356,7 @@ NSInteger kOAIFilterApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIFilterResponse>*
 ///
--(NSURLSessionTask*) searchFiltersWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchFiltersWithAccountId: (NSNumber*) accountId
     keyword: (NSString*) keyword
     appKey: (NSString*) appKey
     responseGroup: (NSString*) responseGroup
@@ -421,23 +367,9 @@ NSInteger kOAIFilterApiMissingParamErrorCode = 234513;
     limit: (NSNumber*) limit
     activeOnly: (NSNumber*) activeOnly
     completionHandler: (void (^)(NSArray<OAIFilterResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIFilterApiErrorDomain code:kOAIFilterApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/filter/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/filter/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -513,8 +445,6 @@ NSInteger kOAIFilterApiMissingParamErrorCode = 234513;
 ///
 /// Update Filter
 /// Update a filter.
-///  @param version  
-///
 ///  @param accountId The account id of the user 
 ///
 ///  @param filterId The ID of the filter to edit 
@@ -535,8 +465,7 @@ NSInteger kOAIFilterApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIFilterTreeResponse*
 ///
--(NSURLSessionTask*) updateFilterWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateFilterWithAccountId: (NSNumber*) accountId
     filterId: (NSNumber*) filterId
     parentFilterId: (NSNumber*) parentFilterId
     name: (NSString*) name
@@ -546,17 +475,6 @@ NSInteger kOAIFilterApiMissingParamErrorCode = 234513;
     active: (NSNumber*) active
     metaData: (NSString*) metaData
     completionHandler: (void (^)(OAIFilterTreeResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIFilterApiErrorDomain code:kOAIFilterApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -579,12 +497,9 @@ NSInteger kOAIFilterApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/filter/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/filter/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

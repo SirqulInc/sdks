@@ -55,8 +55,6 @@ NSInteger kOAIEventApiMissingParamErrorCode = 234513;
 ///
 /// Attend Event
 ///  Specify whether the user is attending an event at a particular location. This can also be used as a \"check-in\" action.
-///  @param version  
-///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
 ///
 ///  @param accountId The account id (deviceId or accountId required) (optional)
@@ -79,8 +77,7 @@ NSInteger kOAIEventApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIOfferResponse*
 ///
--(NSURLSessionTask*) attendEventWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) attendEventWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     listingId: (NSNumber*) listingId
@@ -91,23 +88,9 @@ NSInteger kOAIEventApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIOfferResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIEventApiErrorDomain code:kOAIEventApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/event/attend"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/event/attend"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -183,8 +166,6 @@ NSInteger kOAIEventApiMissingParamErrorCode = 234513;
 ///
 /// Create Event
 /// Create a private event to share with associates.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param title The event title 
@@ -211,8 +192,7 @@ NSInteger kOAIEventApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIOfferResponse*
 ///
--(NSURLSessionTask*) createEventWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createEventWithAccountId: (NSNumber*) accountId
     title: (NSString*) title
     retailerLocationIds: (NSString*) retailerLocationIds
     subTitle: (NSString*) subTitle
@@ -225,17 +205,6 @@ NSInteger kOAIEventApiMissingParamErrorCode = 234513;
     redeemableEnd: (NSNumber*) redeemableEnd
     metaData: (NSString*) metaData
     completionHandler: (void (^)(OAIOfferResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIEventApiErrorDomain code:kOAIEventApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -258,12 +227,9 @@ NSInteger kOAIEventApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/event/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/event/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -345,29 +311,15 @@ NSInteger kOAIEventApiMissingParamErrorCode = 234513;
 ///
 /// Delete Event
 /// Delete an event that the user has permissions to.
-///  @param version  
-///
 ///  @param accountId the id of the logged in user 
 ///
 ///  @param eventId the id of the event to update 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteEventWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteEventWithAccountId: (NSNumber*) accountId
     eventId: (NSNumber*) eventId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIEventApiErrorDomain code:kOAIEventApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -390,12 +342,9 @@ NSInteger kOAIEventApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/event/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/event/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -447,29 +396,15 @@ NSInteger kOAIEventApiMissingParamErrorCode = 234513;
 ///
 /// Get Event
 /// Get an event.
-///  @param version  
-///
 ///  @param accountId the id of the logged in user 
 ///
 ///  @param eventId The id of the event to return 
 ///
 ///  @returns OAIOfferResponse*
 ///
--(NSURLSessionTask*) getEventWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getEventWithAccountId: (NSNumber*) accountId
     eventId: (NSNumber*) eventId
     completionHandler: (void (^)(OAIOfferResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIEventApiErrorDomain code:kOAIEventApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -492,12 +427,9 @@ NSInteger kOAIEventApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/event/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/event/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -549,8 +481,6 @@ NSInteger kOAIEventApiMissingParamErrorCode = 234513;
 ///
 /// Search Event Attendance
 /// Searches on event type transactions. This can be used to see who is attending an event.
-///  @param version  
-///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
 ///
 ///  @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -591,8 +521,7 @@ NSInteger kOAIEventApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIEventAttendanceResponse>*
 ///
--(NSURLSessionTask*) searchEventTransactionsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) searchEventTransactionsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     keyword: (NSString*) keyword
@@ -612,23 +541,9 @@ NSInteger kOAIEventApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSArray<OAIEventAttendanceResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIEventApiErrorDomain code:kOAIEventApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/event/attendance/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/event/attendance/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -731,8 +646,6 @@ NSInteger kOAIEventApiMissingParamErrorCode = 234513;
 ///
 /// Search Events
 /// Searches on events that the account has access to.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param keyword The keyword used to search (optional)
@@ -761,8 +674,7 @@ NSInteger kOAIEventApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIOfferShortResponse>*
 ///
--(NSURLSessionTask*) searchEventsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchEventsWithAccountId: (NSNumber*) accountId
     keyword: (NSString*) keyword
     activeOnly: (NSNumber*) activeOnly
     categoryIds: (NSString*) categoryIds
@@ -776,17 +688,6 @@ NSInteger kOAIEventApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSArray<OAIOfferShortResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIEventApiErrorDomain code:kOAIEventApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -798,12 +699,9 @@ NSInteger kOAIEventApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/event/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/event/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -888,8 +786,6 @@ NSInteger kOAIEventApiMissingParamErrorCode = 234513;
 ///
 /// Update Event
 /// Update a private event to share with associates.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param eventId The id of the event to update 
@@ -916,8 +812,7 @@ NSInteger kOAIEventApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIOfferResponse*
 ///
--(NSURLSessionTask*) updateEventWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateEventWithAccountId: (NSNumber*) accountId
     eventId: (NSNumber*) eventId
     retailerLocationIds: (NSString*) retailerLocationIds
     title: (NSString*) title
@@ -930,17 +825,6 @@ NSInteger kOAIEventApiMissingParamErrorCode = 234513;
     redeemableStart: (NSNumber*) redeemableStart
     redeemableEnd: (NSNumber*) redeemableEnd
     completionHandler: (void (^)(OAIOfferResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIEventApiErrorDomain code:kOAIEventApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -963,12 +847,9 @@ NSInteger kOAIEventApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/event/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/event/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

@@ -52,26 +52,12 @@ NSInteger kOAIShipmentApiMissingParamErrorCode = 234513;
 ///
 /// Cancel Shipment
 /// Remove shipment from route
-///  @param version  
-///
 ///  @param _id the id of the shipment to cancel 
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) cancelShipmentWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) cancelShipmentWithId: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIShipmentApiErrorDomain code:kOAIShipmentApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -83,12 +69,9 @@ NSInteger kOAIShipmentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/shipment/{id}/cancel"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/shipment/{id}/cancel"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -137,32 +120,15 @@ NSInteger kOAIShipmentApiMissingParamErrorCode = 234513;
 ///
 /// Create Shipment
 /// Create new shipment
-///  @param version  
-///
 ///  @param body  (optional)
 ///
 ///  @returns OAIShipment*
 ///
--(NSURLSessionTask*) createShipmentWithVersion: (NSNumber*) version
-    body: (OAIShipment*) body
+-(NSURLSessionTask*) createShipmentWithBody: (OAIShipment*) body
     completionHandler: (void (^)(OAIShipment* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIShipmentApiErrorDomain code:kOAIShipmentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/shipment"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/shipment"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
@@ -209,26 +175,12 @@ NSInteger kOAIShipmentApiMissingParamErrorCode = 234513;
 ///
 /// Delete Shipment
 /// Delete an existing shipment
-///  @param version  
-///
 ///  @param _id the id of the shipment to delete 
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) deleteShipmentWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) deleteShipmentWithId: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIShipmentApiErrorDomain code:kOAIShipmentApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -240,12 +192,9 @@ NSInteger kOAIShipmentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/shipment/{id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/shipment/{id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -294,26 +243,12 @@ NSInteger kOAIShipmentApiMissingParamErrorCode = 234513;
 ///
 /// Get Shipment
 /// Get an existing shipment
-///  @param version  
-///
 ///  @param _id the id of the shipment to get 
 ///
 ///  @returns OAIShipment*
 ///
--(NSURLSessionTask*) getShipmentWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) getShipmentWithId: (NSNumber*) _id
     completionHandler: (void (^)(OAIShipment* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIShipmentApiErrorDomain code:kOAIShipmentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -325,12 +260,9 @@ NSInteger kOAIShipmentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/shipment/{id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/shipment/{id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -379,8 +311,6 @@ NSInteger kOAIShipmentApiMissingParamErrorCode = 234513;
 ///
 /// Search Shipments
 /// Search for shipments
-///  @param version  
-///
 ///  @param sortField The field to sort by 
 ///
 ///  @param descending Determines whether the sorted list is in descending or ascending order 
@@ -399,8 +329,7 @@ NSInteger kOAIShipmentApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIShipment>*
 ///
--(NSURLSessionTask*) searchShipmentsWithVersion: (NSNumber*) version
-    sortField: (NSString*) sortField
+-(NSURLSessionTask*) searchShipmentsWithSortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
     limit: (NSNumber*) limit
@@ -409,17 +338,6 @@ NSInteger kOAIShipmentApiMissingParamErrorCode = 234513;
     riderId: (NSNumber*) riderId
     routeId: (NSNumber*) routeId
     completionHandler: (void (^)(NSArray<OAIShipment>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIShipmentApiErrorDomain code:kOAIShipmentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'sortField' is set
     if (sortField == nil) {
         NSParameterAssert(sortField);
@@ -475,12 +393,9 @@ NSInteger kOAIShipmentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/shipment"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/shipment"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (ownerId != nil) {
@@ -550,29 +465,15 @@ NSInteger kOAIShipmentApiMissingParamErrorCode = 234513;
 ///
 /// Update Shipment
 /// Update an existing shipment
-///  @param version  
-///
 ///  @param _id the id of the shipment to update 
 ///
 ///  @param body  (optional)
 ///
 ///  @returns OAIShipment*
 ///
--(NSURLSessionTask*) updateShipmentWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) updateShipmentWithId: (NSNumber*) _id
     body: (OAIShipment*) body
     completionHandler: (void (^)(OAIShipment* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIShipmentApiErrorDomain code:kOAIShipmentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -584,12 +485,9 @@ NSInteger kOAIShipmentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/shipment/{id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/shipment/{id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }
@@ -639,29 +537,15 @@ NSInteger kOAIShipmentApiMissingParamErrorCode = 234513;
 ///
 /// Uupdate Shipment Status
 /// Update status of an existing shipment
-///  @param version  
-///
 ///  @param _id the id of the shipment to update status 
 ///
 ///  @param body  (optional)
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) updateShipmentStatusWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) updateShipmentStatusWithId: (NSNumber*) _id
     body: (NSDictionary<NSString*, NSNumber*>*) body
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIShipmentApiErrorDomain code:kOAIShipmentApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -673,12 +557,9 @@ NSInteger kOAIShipmentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/shipment/{id}/status"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/shipment/{id}/status"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (_id != nil) {
         pathParams[@"id"] = _id;
     }

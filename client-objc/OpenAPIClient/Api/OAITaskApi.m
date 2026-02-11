@@ -53,8 +53,6 @@ NSInteger kOAITaskApiMissingParamErrorCode = 234513;
 ///
 /// Create Task
 /// Create a Task
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param name The name of the task 
@@ -81,8 +79,7 @@ NSInteger kOAITaskApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAITaskResponse*
 ///
--(NSURLSessionTask*) createTaskWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createTaskWithAccountId: (NSNumber*) accountId
     name: (NSString*) name
     appKey: (NSString*) appKey
     groupingId: (NSString*) groupingId
@@ -95,17 +92,6 @@ NSInteger kOAITaskApiMissingParamErrorCode = 234513;
     visibility: (NSString*) visibility
     active: (NSNumber*) active
     completionHandler: (void (^)(OAITaskResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITaskApiErrorDomain code:kOAITaskApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -128,12 +114,9 @@ NSInteger kOAITaskApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/task/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/task/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -215,29 +198,15 @@ NSInteger kOAITaskApiMissingParamErrorCode = 234513;
 ///
 /// Delete Task
 /// Delete a Task
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param taskId The id of the Task to delete. 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteTaskWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteTaskWithAccountId: (NSNumber*) accountId
     taskId: (NSNumber*) taskId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITaskApiErrorDomain code:kOAITaskApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -260,12 +229,9 @@ NSInteger kOAITaskApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/task/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/task/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -317,29 +283,15 @@ NSInteger kOAITaskApiMissingParamErrorCode = 234513;
 ///
 /// Get Task
 /// Get a Task
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param taskId The id of the Task to return. 
 ///
 ///  @returns OAITaskResponse*
 ///
--(NSURLSessionTask*) getTaskWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getTaskWithAccountId: (NSNumber*) accountId
     taskId: (NSNumber*) taskId
     completionHandler: (void (^)(OAITaskResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITaskApiErrorDomain code:kOAITaskApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -362,12 +314,9 @@ NSInteger kOAITaskApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/task/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/task/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -419,8 +368,6 @@ NSInteger kOAITaskApiMissingParamErrorCode = 234513;
 ///
 /// Search Tasks
 /// Search on Tasks
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param groupingId Filter results by a grouping identifier defined by the client (optional)
@@ -447,8 +394,7 @@ NSInteger kOAITaskApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAITaskResponse>*
 ///
--(NSURLSessionTask*) searchTasksWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchTasksWithAccountId: (NSNumber*) accountId
     groupingId: (NSString*) groupingId
     filter: (NSString*) filter
     statuses: (NSString*) statuses
@@ -461,17 +407,6 @@ NSInteger kOAITaskApiMissingParamErrorCode = 234513;
     limit: (NSNumber*) limit
     activeOnly: (NSNumber*) activeOnly
     completionHandler: (void (^)(NSArray<OAITaskResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITaskApiErrorDomain code:kOAITaskApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -483,12 +418,9 @@ NSInteger kOAITaskApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/task/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/task/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -570,8 +502,6 @@ NSInteger kOAITaskApiMissingParamErrorCode = 234513;
 ///
 /// Update Task
 /// Update a Task
-///  @param version  
-///
 ///  @param taskId Task Id 
 ///
 ///  @param accountId The logged in user. 
@@ -600,8 +530,7 @@ NSInteger kOAITaskApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAITaskResponse*
 ///
--(NSURLSessionTask*) updateTaskWithVersion: (NSNumber*) version
-    taskId: (NSNumber*) taskId
+-(NSURLSessionTask*) updateTaskWithTaskId: (NSNumber*) taskId
     accountId: (NSNumber*) accountId
     name: (NSString*) name
     appKey: (NSString*) appKey
@@ -615,17 +544,6 @@ NSInteger kOAITaskApiMissingParamErrorCode = 234513;
     visibility: (NSString*) visibility
     active: (NSNumber*) active
     completionHandler: (void (^)(OAITaskResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAITaskApiErrorDomain code:kOAITaskApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'taskId' is set
     if (taskId == nil) {
         NSParameterAssert(taskId);
@@ -648,12 +566,9 @@ NSInteger kOAITaskApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/task/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/task/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (taskId != nil) {

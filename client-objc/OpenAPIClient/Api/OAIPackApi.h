@@ -27,7 +27,6 @@ extern NSInteger kOAIPackApiMissingParamErrorCode;
 /// Create Pack
 /// Create a pack.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param title The title of the pack
 /// @param packOrder The order of the pack
@@ -56,8 +55,7 @@ extern NSInteger kOAIPackApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPackResponse*
--(NSURLSessionTask*) createPackWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createPackWithAccountId: (NSNumber*) accountId
     title: (NSString*) title
     packOrder: (NSNumber*) packOrder
     price: (NSNumber*) price
@@ -87,15 +85,13 @@ extern NSInteger kOAIPackApiMissingParamErrorCode;
 /// Delete Pack
 /// Delete a pack.
 ///
-/// @param version 
 /// @param accountId the id of the logged in user
 /// @param packId the id of the pack to delete
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deletePackWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deletePackWithAccountId: (NSNumber*) accountId
     packId: (NSNumber*) packId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -103,7 +99,6 @@ extern NSInteger kOAIPackApiMissingParamErrorCode;
 /// Get Pack
 /// Get a pack.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param packId The id of the pack to return.
 /// @param includeGameData If true include the game level data, otherwise don&#39;t. default is false.
@@ -111,8 +106,7 @@ extern NSInteger kOAIPackApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPackResponse*
--(NSURLSessionTask*) getPackWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getPackWithAccountId: (NSNumber*) accountId
     packId: (NSNumber*) packId
     includeGameData: (NSNumber*) includeGameData
     completionHandler: (void (^)(OAIPackResponse* output, NSError* error)) handler;
@@ -121,7 +115,6 @@ extern NSInteger kOAIPackApiMissingParamErrorCode;
 /// Search Packs
 /// Search on packs.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param sortField The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED
 /// @param descending Determines whether the sorted list is in descending or ascending order
@@ -136,8 +129,7 @@ extern NSInteger kOAIPackApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIPackResponse>*
--(NSURLSessionTask*) searchPacksWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchPacksWithAccountId: (NSNumber*) accountId
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     keyword: (NSString*) keyword
@@ -153,7 +145,6 @@ extern NSInteger kOAIPackApiMissingParamErrorCode;
 /// Update Pack
 /// Update a pack.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param packId The id of the pack to update.
 /// @param allocateTickets Flag to indicate owner should receive tickets for completed packs
@@ -183,8 +174,7 @@ extern NSInteger kOAIPackApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPackResponse*
--(NSURLSessionTask*) updatePackWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updatePackWithAccountId: (NSNumber*) accountId
     packId: (NSNumber*) packId
     allocateTickets: (NSNumber*) allocateTickets
     ticketCount: (NSNumber*) ticketCount

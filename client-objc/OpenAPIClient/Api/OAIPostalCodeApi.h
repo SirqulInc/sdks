@@ -27,7 +27,6 @@ extern NSInteger kOAIPostalCodeApiMissingParamErrorCode;
 /// Create Postal Code
 /// Create a Postal Code
 ///
-/// @param version 
 /// @param accountId the id of the logged in user
 /// @param code the postal code
 /// @param latitude the latitude of the postal code
@@ -39,8 +38,7 @@ extern NSInteger kOAIPostalCodeApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPostalCodeResponse*
--(NSURLSessionTask*) createPostalCodeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createPostalCodeWithAccountId: (NSNumber*) accountId
     code: (NSString*) code
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
@@ -53,15 +51,13 @@ extern NSInteger kOAIPostalCodeApiMissingParamErrorCode;
 /// Delete Postal Code
 /// Delete a Postal Code
 ///
-/// @param version 
 /// @param accountId the id of the logged in user
 /// @param postalCodeId the id of the postal code to delete
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deletePostalCodeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deletePostalCodeWithAccountId: (NSNumber*) accountId
     postalCodeId: (NSNumber*) postalCodeId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -69,21 +65,18 @@ extern NSInteger kOAIPostalCodeApiMissingParamErrorCode;
 /// Get Postal Code
 /// Get a Postal Code
 ///
-/// @param version 
 /// @param postalCodeId the id of the postal code to get
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPostalCodeResponse*
--(NSURLSessionTask*) getPostalCodeWithVersion: (NSNumber*) version
-    postalCodeId: (NSNumber*) postalCodeId
+-(NSURLSessionTask*) getPostalCodeWithPostalCodeId: (NSNumber*) postalCodeId
     completionHandler: (void (^)(OAIPostalCodeResponse* output, NSError* error)) handler;
 
 
 /// Search Postal Codes
 /// Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
 ///
-/// @param version 
 /// @param sortField the field to sort the results on
 /// @param descending whether to order results in ascending or descending order
 /// @param latitude the latitude of the postal code to search on (optional)
@@ -96,8 +89,7 @@ extern NSInteger kOAIPostalCodeApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIPostalCodeResponse>*
--(NSURLSessionTask*) getPostalCodesWithVersion: (NSNumber*) version
-    sortField: (NSString*) sortField
+-(NSURLSessionTask*) getPostalCodesWithSortField: (NSString*) sortField
     descending: (NSNumber*) descending
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
@@ -111,7 +103,6 @@ extern NSInteger kOAIPostalCodeApiMissingParamErrorCode;
 /// Update Postal Code
 /// Update a Postal Code
 ///
-/// @param version 
 /// @param accountId the id of the logged in user
 /// @param postalCodeId the id of the postal code to update
 /// @param code the postal code to update (optional)
@@ -124,8 +115,7 @@ extern NSInteger kOAIPostalCodeApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIPostalCodeResponse*
--(NSURLSessionTask*) updatePostalCodeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updatePostalCodeWithAccountId: (NSNumber*) accountId
     postalCodeId: (NSNumber*) postalCodeId
     code: (NSString*) code
     latitude: (NSNumber*) latitude

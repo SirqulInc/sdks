@@ -27,7 +27,6 @@ extern NSInteger kOAIOfferStatusApiMissingParamErrorCode;
 /// Create Offer Status
 /// Create an offer status record
 ///
-/// @param version 
 /// @param name The name of the status
 /// @param code The status code, must be unique 
 /// @param deviceId The device id (deviceId or accountId required) (optional)
@@ -42,8 +41,7 @@ extern NSInteger kOAIOfferStatusApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOfferTransactionStatusResponse*
--(NSURLSessionTask*) createOfferTransactionStatusWithVersion: (NSNumber*) version
-    name: (NSString*) name
+-(NSURLSessionTask*) createOfferTransactionStatusWithName: (NSString*) name
     code: (NSNumber*) code
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -59,7 +57,6 @@ extern NSInteger kOAIOfferStatusApiMissingParamErrorCode;
 /// Delete Offer Status
 /// Mark an offer status record as deleted
 ///
-/// @param version 
 /// @param statusId The id of the record to delete
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -69,8 +66,7 @@ extern NSInteger kOAIOfferStatusApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteOfferTransactionStatusWithVersion: (NSNumber*) version
-    statusId: (NSNumber*) statusId
+-(NSURLSessionTask*) deleteOfferTransactionStatusWithStatusId: (NSNumber*) statusId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
@@ -81,7 +77,6 @@ extern NSInteger kOAIOfferStatusApiMissingParamErrorCode;
 /// Get Offer Status
 /// Get an offer status record
 ///
-/// @param version 
 /// @param statusId The id of the record to get 
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -91,8 +86,7 @@ extern NSInteger kOAIOfferStatusApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOfferTransactionStatusResponse*
--(NSURLSessionTask*) getOfferTransactionStatusWithVersion: (NSNumber*) version
-    statusId: (NSNumber*) statusId
+-(NSURLSessionTask*) getOfferTransactionStatusWithStatusId: (NSNumber*) statusId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
@@ -103,7 +97,6 @@ extern NSInteger kOAIOfferStatusApiMissingParamErrorCode;
 /// Search Offer Status
 /// Search for the available offer statuses
 ///
-/// @param version 
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
 /// @param latitude Used to update the user&#39;s current location (optional)
@@ -120,8 +113,7 @@ extern NSInteger kOAIOfferStatusApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIOfferTransactionStatusResponse>*
--(NSURLSessionTask*) searchOfferTransactionStatusesWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) searchOfferTransactionStatusesWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
@@ -139,7 +131,6 @@ extern NSInteger kOAIOfferStatusApiMissingParamErrorCode;
 /// Update Offer Status
 /// Update an offer status record
 ///
-/// @param version 
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
 /// @param latitude Used to update the user&#39;s current location (optional)
@@ -155,8 +146,7 @@ extern NSInteger kOAIOfferStatusApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOfferTransactionStatusResponse*
--(NSURLSessionTask*) updateOfferTransactionStatusWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) updateOfferTransactionStatusWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude

@@ -27,7 +27,6 @@ extern NSInteger kOAIBidApiMissingParamErrorCode;
 /// Create Bid
 /// Creates a bid on a biddable object
 ///
-/// @param version 
 /// @param biddableType A biddable object type. Possible values include: CREATIVE (ads).
 /// @param biddableId The id of the biddable object
 /// @param amountPerView The bid amount for views. For ads, this is the amount that will be taken for each impression.
@@ -40,8 +39,7 @@ extern NSInteger kOAIBidApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIBidResponse*
--(NSURLSessionTask*) createBidWithVersion: (NSNumber*) version
-    biddableType: (NSString*) biddableType
+-(NSURLSessionTask*) createBidWithBiddableType: (NSString*) biddableType
     biddableId: (NSNumber*) biddableId
     amountPerView: (NSNumber*) amountPerView
     amountPerAction: (NSNumber*) amountPerAction
@@ -55,7 +53,6 @@ extern NSInteger kOAIBidApiMissingParamErrorCode;
 /// Delete Bid
 /// Deleted a bid on a biddable object
 ///
-/// @param version 
 /// @param bidId The bid id
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -63,8 +60,7 @@ extern NSInteger kOAIBidApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteBidWithVersion: (NSNumber*) version
-    bidId: (NSNumber*) bidId
+-(NSURLSessionTask*) deleteBidWithBidId: (NSNumber*) bidId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
@@ -73,7 +69,6 @@ extern NSInteger kOAIBidApiMissingParamErrorCode;
 /// Get Bid
 /// Get the bid details of a biddable object
 ///
-/// @param version 
 /// @param bidId The bid id
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -81,8 +76,7 @@ extern NSInteger kOAIBidApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIBidResponse*
--(NSURLSessionTask*) getBidWithVersion: (NSNumber*) version
-    bidId: (NSNumber*) bidId
+-(NSURLSessionTask*) getBidWithBidId: (NSNumber*) bidId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIBidResponse* output, NSError* error)) handler;
@@ -91,7 +85,6 @@ extern NSInteger kOAIBidApiMissingParamErrorCode;
 /// Update Bid
 /// Updates a bid on a biddable object
 ///
-/// @param version 
 /// @param bidId The bid id
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -103,8 +96,7 @@ extern NSInteger kOAIBidApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIBidResponse*
--(NSURLSessionTask*) updateBidWithVersion: (NSNumber*) version
-    bidId: (NSNumber*) bidId
+-(NSURLSessionTask*) updateBidWithBidId: (NSNumber*) bidId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     amountPerView: (NSNumber*) amountPerView

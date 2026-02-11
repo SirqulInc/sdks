@@ -52,8 +52,6 @@ NSInteger kOAIBillingInfoApiMissingParamErrorCode = 234513;
 ///
 /// Update Payment Method
 /// Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
-///  @param version  
-///
 ///  @param accountId The account used to perform the the request 
 ///
 ///  @param paymentMethodId Payment Method Id (optional)
@@ -102,8 +100,7 @@ NSInteger kOAIBillingInfoApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIPaymentTypesResponse*
 ///
--(NSURLSessionTask*) addPaymentMethodWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) addPaymentMethodWithAccountId: (NSNumber*) accountId
     paymentMethodId: (NSNumber*) paymentMethodId
     accountName: (NSString*) accountName
     firstName: (NSString*) firstName
@@ -127,17 +124,6 @@ NSInteger kOAIBillingInfoApiMissingParamErrorCode = 234513;
     providerPaymentProfileId: (NSString*) providerPaymentProfileId
     metaData: (NSString*) metaData
     completionHandler: (void (^)(OAIPaymentTypesResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIBillingInfoApiErrorDomain code:kOAIBillingInfoApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -149,12 +135,9 @@ NSInteger kOAIBillingInfoApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/billing/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/billing/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -269,8 +252,6 @@ NSInteger kOAIBillingInfoApiMissingParamErrorCode = 234513;
 ///
 /// Create Payment Method
 /// Add a new method of payment.
-///  @param version  
-///
 ///  @param accountId The account used to perform the the request 
 ///
 ///  @param accountName Account Name of the credit card user (optional)
@@ -323,8 +304,7 @@ NSInteger kOAIBillingInfoApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIPaymentTypesResponse*
 ///
--(NSURLSessionTask*) createPaymentMethodWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createPaymentMethodWithAccountId: (NSNumber*) accountId
     accountName: (NSString*) accountName
     firstName: (NSString*) firstName
     lastName: (NSString*) lastName
@@ -350,17 +330,6 @@ NSInteger kOAIBillingInfoApiMissingParamErrorCode = 234513;
     metaData: (NSString*) metaData
     appKey: (NSString*) appKey
     completionHandler: (void (^)(OAIPaymentTypesResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIBillingInfoApiErrorDomain code:kOAIBillingInfoApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -372,12 +341,9 @@ NSInteger kOAIBillingInfoApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/billing/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/billing/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -498,8 +464,6 @@ NSInteger kOAIBillingInfoApiMissingParamErrorCode = 234513;
 ///
 /// Create Smart Contract
 /// Adds a smart contract.
-///  @param version  
-///
 ///  @param accountId The account used to perform the the request 
 ///
 ///  @param tokenName The token name 
@@ -510,23 +474,11 @@ NSInteger kOAIBillingInfoApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIPaymentTypesResponse*
 ///
--(NSURLSessionTask*) createSmartContractWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createSmartContractWithAccountId: (NSNumber*) accountId
     tokenName: (NSString*) tokenName
     tokenSymbol: (NSString*) tokenSymbol
     paymentMethodId: (NSNumber*) paymentMethodId
     completionHandler: (void (^)(OAIPaymentTypesResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIBillingInfoApiErrorDomain code:kOAIBillingInfoApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -560,12 +512,9 @@ NSInteger kOAIBillingInfoApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/billing/crypto/transfer"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/billing/crypto/transfer"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -623,8 +572,6 @@ NSInteger kOAIBillingInfoApiMissingParamErrorCode = 234513;
 ///
 /// Get Crypto Balances
 /// Get the cypto balance details for a user
-///  @param version  
-///
 ///  @param accountId The account used to perform the the request 
 ///
 ///  @param ownerAccountId The account to retreive balances for (optional)
@@ -633,22 +580,10 @@ NSInteger kOAIBillingInfoApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIPaymentTypesResponse*
 ///
--(NSURLSessionTask*) getCryptoBalanceWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getCryptoBalanceWithAccountId: (NSNumber*) accountId
     ownerAccountId: (NSNumber*) ownerAccountId
     paymentMethodId: (NSNumber*) paymentMethodId
     completionHandler: (void (^)(OAIPaymentTypesResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIBillingInfoApiErrorDomain code:kOAIBillingInfoApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -660,12 +595,9 @@ NSInteger kOAIBillingInfoApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/billing/crypto/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/billing/crypto/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -720,8 +652,6 @@ NSInteger kOAIBillingInfoApiMissingParamErrorCode = 234513;
 ///
 /// Get Payment Method
 /// Get the details of the user's payment method or their current default method of payment
-///  @param version  
-///
 ///  @param accountId The account used to perform the the request 
 ///
 ///  @param paymentMethodId The payment method to return details on. If this is not set, then the user's default payment method will be returned. (optional)
@@ -730,22 +660,10 @@ NSInteger kOAIBillingInfoApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIPaymentTypesResponse*
 ///
--(NSURLSessionTask*) getPaymentMethodWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getPaymentMethodWithAccountId: (NSNumber*) accountId
     paymentMethodId: (NSNumber*) paymentMethodId
     getCurrentBalance: (NSNumber*) getCurrentBalance
     completionHandler: (void (^)(OAIPaymentTypesResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIBillingInfoApiErrorDomain code:kOAIBillingInfoApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -757,12 +675,9 @@ NSInteger kOAIBillingInfoApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/billing/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/billing/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -817,8 +732,6 @@ NSInteger kOAIBillingInfoApiMissingParamErrorCode = 234513;
 ///
 /// Search Payment Methods
 /// Search the payment methods of an account
-///  @param version  
-///
 ///  @param accountId Account Id to search on 
 ///
 ///  @param provider Provider to search on (optional, default to @"AUTHORIZE_NET")
@@ -837,8 +750,7 @@ NSInteger kOAIBillingInfoApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIPaymentTypesResponse*
 ///
--(NSURLSessionTask*) searchPaymentMethodWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchPaymentMethodWithAccountId: (NSNumber*) accountId
     provider: (NSString*) provider
     type: (NSString*) type
     keyword: (NSString*) keyword
@@ -847,17 +759,6 @@ NSInteger kOAIBillingInfoApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(OAIPaymentTypesResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIBillingInfoApiErrorDomain code:kOAIBillingInfoApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -869,12 +770,9 @@ NSInteger kOAIBillingInfoApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/billing/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/billing/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

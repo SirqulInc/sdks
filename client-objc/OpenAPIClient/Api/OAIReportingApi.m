@@ -56,8 +56,6 @@ NSInteger kOAIReportingApiMissingParamErrorCode = 234513;
 ///
 /// Create Offline Report
 /// Create an entry for the batch for offline report
-///  @param version  
-///
 ///  @param accountId The account id of the user for passing account related params 
 ///
 ///  @param status the status of the report 
@@ -82,8 +80,7 @@ NSInteger kOAIReportingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIReportBatchResponse*
 ///
--(NSURLSessionTask*) createBatchWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createBatchWithAccountId: (NSNumber*) accountId
     status: (NSString*) status
     previewLimit: (NSNumber*) previewLimit
     appKey: (NSString*) appKey
@@ -95,17 +92,6 @@ NSInteger kOAIReportingApiMissingParamErrorCode = 234513;
     _description: (NSString*) _description
     pageUrl: (NSString*) pageUrl
     completionHandler: (void (^)(OAIReportBatchResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIReportingApiErrorDomain code:kOAIReportingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -139,12 +125,9 @@ NSInteger kOAIReportingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/report/batch/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/report/batch/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -223,32 +206,15 @@ NSInteger kOAIReportingApiMissingParamErrorCode = 234513;
 ///
 /// Create Offline Report
 /// Create an entry for the batch for offline report
-///  @param version  
-///
 ///  @param body  (optional)
 ///
 ///  @returns OAIReportRegionLegSummaryBatchResponse*
 ///
--(NSURLSessionTask*) createRegionLegSummaryBatchWithVersion: (NSNumber*) version
-    body: (NSArray<OAIRegionLegSummary>*) body
+-(NSURLSessionTask*) createRegionLegSummaryBatchWithBody: (NSArray<OAIRegionLegSummary>*) body
     completionHandler: (void (^)(OAIReportRegionLegSummaryBatchResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIReportingApiErrorDomain code:kOAIReportingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/report/region/summary/batch"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/report/region/summary/batch"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
@@ -295,29 +261,15 @@ NSInteger kOAIReportingApiMissingParamErrorCode = 234513;
 ///
 /// Delete Offline Report
 /// Deletes a batch report.
-///  @param version  
-///
 ///  @param accountId the id of the account 
 ///
 ///  @param batchId the id of the batch to delete 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteBatchWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteBatchWithAccountId: (NSNumber*) accountId
     batchId: (NSNumber*) batchId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIReportingApiErrorDomain code:kOAIReportingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -340,12 +292,9 @@ NSInteger kOAIReportingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/report/batch/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/report/batch/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -397,8 +346,6 @@ NSInteger kOAIReportingApiMissingParamErrorCode = 234513;
 ///
 /// Get Offline Report
 /// Checks status of batch report.
-///  @param version  
-///
 ///  @param accountId the id of the logged in user 
 ///
 ///  @param batchId returned by /report/batch/create 
@@ -407,22 +354,10 @@ NSInteger kOAIReportingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIReportBatchResponse*
 ///
--(NSURLSessionTask*) getReportBatchWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getReportBatchWithAccountId: (NSNumber*) accountId
     batchId: (NSNumber*) batchId
     allResults: (NSNumber*) allResults
     completionHandler: (void (^)(OAIReportBatchResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIReportingApiErrorDomain code:kOAIReportingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -456,12 +391,9 @@ NSInteger kOAIReportingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/report/batch/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/report/batch/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -516,8 +448,6 @@ NSInteger kOAIReportingApiMissingParamErrorCode = 234513;
 ///
 /// Run Report
 ///  This endpoint allows you to run a set of predefined reports that can be used to understand your users' behavior as well as trends within your application.
-///  @param version  
-///
 ///  @param desc If true then descending order, false is ascending 
 ///
 ///  @param accountId The account id of the user for passing account related params (optional)
@@ -536,8 +466,7 @@ NSInteger kOAIReportingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIReportResponse*
 ///
--(NSURLSessionTask*) runReportWithVersion: (NSNumber*) version
-    desc: (NSNumber*) desc
+-(NSURLSessionTask*) runReportWithDesc: (NSNumber*) desc
     accountId: (NSNumber*) accountId
     query: (NSString*) query
     parameters: (NSString*) parameters
@@ -546,17 +475,6 @@ NSInteger kOAIReportingApiMissingParamErrorCode = 234513;
     limit: (NSNumber*) limit
     responseFormat: (NSString*) responseFormat
     completionHandler: (void (^)(OAIReportResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIReportingApiErrorDomain code:kOAIReportingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'desc' is set
     if (desc == nil) {
         NSParameterAssert(desc);
@@ -568,12 +486,9 @@ NSInteger kOAIReportingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/report/run"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/report/run"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -643,8 +558,6 @@ NSInteger kOAIReportingApiMissingParamErrorCode = 234513;
 ///
 /// Search Offline Reports
 /// Retrieves batches for a user..
-///  @param version  
-///
 ///  @param accountId the id of the account logged in 
 ///
 ///  @param start the start of the index and/or pagination 
@@ -665,8 +578,7 @@ NSInteger kOAIReportingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIReportBatchResponse>*
 ///
--(NSURLSessionTask*) searchBatchWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchBatchWithAccountId: (NSNumber*) accountId
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     names: (NSString*) names
@@ -676,17 +588,6 @@ NSInteger kOAIReportingApiMissingParamErrorCode = 234513;
     startDate: (NSNumber*) startDate
     endDate: (NSNumber*) endDate
     completionHandler: (void (^)(NSArray<OAIReportBatchResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIReportingApiErrorDomain code:kOAIReportingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -720,12 +621,9 @@ NSInteger kOAIReportingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/report/batch/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/report/batch/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

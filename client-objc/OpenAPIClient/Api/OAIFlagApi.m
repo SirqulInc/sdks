@@ -54,8 +54,6 @@ NSInteger kOAIFlagApiMissingParamErrorCode = 234513;
 ///
 /// Create Flag
 /// Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
-///  @param version  
-///
 ///  @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} 
 ///
 ///  @param flagableId The flagable object id 
@@ -72,8 +70,7 @@ NSInteger kOAIFlagApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) createFlagWithVersion: (NSNumber*) version
-    flagableType: (NSString*) flagableType
+-(NSURLSessionTask*) createFlagWithFlagableType: (NSString*) flagableType
     flagableId: (NSNumber*) flagableId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -81,17 +78,6 @@ NSInteger kOAIFlagApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIFlagApiErrorDomain code:kOAIFlagApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'flagableType' is set
     if (flagableType == nil) {
         NSParameterAssert(flagableType);
@@ -114,12 +100,9 @@ NSInteger kOAIFlagApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/flag/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/flag/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -186,8 +169,6 @@ NSInteger kOAIFlagApiMissingParamErrorCode = 234513;
 ///
 /// Delete Flag
 /// Deletes a flag.
-///  @param version  
-///
 ///  @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
 ///
 ///  @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -202,31 +183,16 @@ NSInteger kOAIFlagApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteFlagWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) deleteFlagWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     itemBeingFlaggedType: (NSString*) itemBeingFlaggedType
     itemBeingFlaggedId: (NSNumber*) itemBeingFlaggedId
     flagableType: (NSString*) flagableType
     flagableId: (NSNumber*) flagableId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIFlagApiErrorDomain code:kOAIFlagApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/flag/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/flag/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -290,8 +256,6 @@ NSInteger kOAIFlagApiMissingParamErrorCode = 234513;
 ///
 /// Get Flag
 /// Gets the details on whether the user has flagged a particular flagable object.
-///  @param version  
-///
 ///  @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} 
 ///
 ///  @param flagableId The flagable object id 
@@ -306,25 +270,13 @@ NSInteger kOAIFlagApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIFlagResponse*
 ///
--(NSURLSessionTask*) getFlagWithVersion: (NSNumber*) version
-    flagableType: (NSString*) flagableType
+-(NSURLSessionTask*) getFlagWithFlagableType: (NSString*) flagableType
     flagableId: (NSNumber*) flagableId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIFlagResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIFlagApiErrorDomain code:kOAIFlagApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'flagableType' is set
     if (flagableType == nil) {
         NSParameterAssert(flagableType);
@@ -347,12 +299,9 @@ NSInteger kOAIFlagApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/flag/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/flag/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -416,29 +365,15 @@ NSInteger kOAIFlagApiMissingParamErrorCode = 234513;
 ///
 /// Get Flag Threshold
 /// Get the flag threshold value on an object type for a particular application.
-///  @param version  
-///
 ///  @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} 
 ///
 ///  @param appKey The application key 
 ///
 ///  @returns OAICountResponse*
 ///
--(NSURLSessionTask*) getFlagThresholdWithVersion: (NSNumber*) version
-    itemBeingFlaggedType: (NSString*) itemBeingFlaggedType
+-(NSURLSessionTask*) getFlagThresholdWithItemBeingFlaggedType: (NSString*) itemBeingFlaggedType
     appKey: (NSString*) appKey
     completionHandler: (void (^)(OAICountResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIFlagApiErrorDomain code:kOAIFlagApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'itemBeingFlaggedType' is set
     if (itemBeingFlaggedType == nil) {
         NSParameterAssert(itemBeingFlaggedType);
@@ -461,12 +396,9 @@ NSInteger kOAIFlagApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/flag/threshold/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/flag/threshold/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (itemBeingFlaggedType != nil) {
@@ -518,8 +450,6 @@ NSInteger kOAIFlagApiMissingParamErrorCode = 234513;
 ///
 /// Update Flag Threshold
 /// Update the flag threshold on an object type for a particular application.
-///  @param version  
-///
 ///  @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} 
 ///
 ///  @param threshold The threshold value 
@@ -532,24 +462,12 @@ NSInteger kOAIFlagApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAICountResponse*
 ///
--(NSURLSessionTask*) updateFlagThresholdWithVersion: (NSNumber*) version
-    itemBeingFlaggedType: (NSString*) itemBeingFlaggedType
+-(NSURLSessionTask*) updateFlagThresholdWithItemBeingFlaggedType: (NSString*) itemBeingFlaggedType
     threshold: (NSNumber*) threshold
     appKey: (NSString*) appKey
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAICountResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIFlagApiErrorDomain code:kOAIFlagApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'itemBeingFlaggedType' is set
     if (itemBeingFlaggedType == nil) {
         NSParameterAssert(itemBeingFlaggedType);
@@ -583,12 +501,9 @@ NSInteger kOAIFlagApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/flag/threshold/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/flag/threshold/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {

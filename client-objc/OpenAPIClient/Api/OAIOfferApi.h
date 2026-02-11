@@ -32,7 +32,6 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 /// Update Offer Locations
 /// Batch update offer locations.
 ///
-/// @param version 
 /// @param data JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60; 
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -40,8 +39,7 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) batchUpdateOfferLocationsWithVersion: (NSNumber*) version
-    data: (NSString*) data
+-(NSURLSessionTask*) batchUpdateOfferLocationsWithData: (NSString*) data
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
@@ -50,7 +48,6 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 /// Create Offer
 /// Create an offer and assign it to the provided retailer locations.
 ///
-/// @param version 
 /// @param includeOfferLocations If true return all the offer locations associated with the offer
 /// @param title The title (255 char limit)
 /// @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}
@@ -141,8 +138,7 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRetailerOfferResponse*
--(NSURLSessionTask*) createOfferWithVersion: (NSNumber*) version
-    includeOfferLocations: (NSNumber*) includeOfferLocations
+-(NSURLSessionTask*) createOfferWithIncludeOfferLocations: (NSNumber*) includeOfferLocations
     title: (NSString*) title
     barcodeType: (NSString*) barcodeType
     noExpiration: (NSNumber*) noExpiration
@@ -234,7 +230,6 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 /// Delete Offer
 /// Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
 ///
-/// @param version 
 /// @param offerId The ID of the offer to be deleted
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account used to perform the delete, must have rights to edit the offer. (optional)
@@ -242,8 +237,7 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteOfferWithVersion: (NSNumber*) version
-    offerId: (NSNumber*) offerId
+-(NSURLSessionTask*) deleteOfferWithOfferId: (NSNumber*) offerId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
@@ -252,7 +246,6 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 /// Delete Offer Location
 /// Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
 ///
-/// @param version 
 /// @param offerLocationId The ID of the offer location to be deleted
 /// @param deviceId The device id (deviceId or accountId required) (optional)
 /// @param accountId The account used to perform the delete, must have rights to edit the offer location. (optional)
@@ -260,8 +253,7 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteOfferLocationWithVersion: (NSNumber*) version
-    offerLocationId: (NSNumber*) offerLocationId
+-(NSURLSessionTask*) deleteOfferLocationWithOfferLocationId: (NSNumber*) offerLocationId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
@@ -270,7 +262,6 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 /// Get Offer
 /// Gets the details of an offer that the user has access to.
 ///
-/// @param version 
 /// @param offerId The id of the offer
 /// @param includeOfferLocations 
 /// @param deviceId The device id (deviceId or accountId required) (optional)
@@ -279,8 +270,7 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRetailerOfferResponse*
--(NSURLSessionTask*) getOfferWithVersion: (NSNumber*) version
-    offerId: (NSNumber*) offerId
+-(NSURLSessionTask*) getOfferWithOfferId: (NSNumber*) offerId
     includeOfferLocations: (NSNumber*) includeOfferLocations
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -290,7 +280,6 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 /// Get Offer
 /// Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
 ///
-/// @param version 
 /// @param deviceId The device id for returning account information (i.e. favorites) (optional)
 /// @param accountId The account id for returning account information (i.e. favorites) (optional)
 /// @param offerId The offer id (either offeLocationId or offerId must be provided) (optional)
@@ -305,8 +294,7 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOfferResponse*
--(NSURLSessionTask*) getOfferDetailsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) getOfferDetailsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     offerId: (NSNumber*) offerId
     offerLocationId: (NSNumber*) offerLocationId
@@ -322,7 +310,6 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 /// Get Offers (Counts)
 /// Gets the offer list counts.
 ///
-/// @param version 
 /// @param latitude The latitude of where the search will center at
 /// @param longitude The longitude of where the search will center at
 /// @param searchRange The range of the search (optional) (default to @5)
@@ -331,8 +318,7 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIListCountResponse*
--(NSURLSessionTask*) getOfferListCountsWithVersion: (NSNumber*) version
-    latitude: (NSNumber*) latitude
+-(NSURLSessionTask*) getOfferListCountsWithLatitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     searchRange: (NSNumber*) searchRange
     distanceUnit: (NSString*) distanceUnit
@@ -342,15 +328,13 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 /// Get Offer Location
 /// Gets the offer location by offer location id or udid (of a device)
 ///
-/// @param version 
 /// @param offerLocationId the id of the offer location to get (optional)
 /// @param udid the UDID of the device (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOfferShortResponse*
--(NSURLSessionTask*) getOfferLocationWithVersion: (NSNumber*) version
-    offerLocationId: (NSNumber*) offerLocationId
+-(NSURLSessionTask*) getOfferLocationWithOfferLocationId: (NSNumber*) offerLocationId
     udid: (NSString*) udid
     completionHandler: (void (^)(OAIOfferShortResponse* output, NSError* error)) handler;
 
@@ -358,7 +342,6 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 /// Search Offer Locations
 /// Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
 ///
-/// @param version 
 /// @param sortField The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
 /// @param descending The order to return the results. Default is false, which will return the results in ascending order.
 /// @param start The index into the record set to start with. Default is 0.
@@ -383,8 +366,7 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIOfferShortResponse>*
--(NSURLSessionTask*) getOfferLocationsForRetailersWithVersion: (NSNumber*) version
-    sortField: (NSString*) sortField
+-(NSURLSessionTask*) getOfferLocationsForRetailersWithSortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
     limit: (NSNumber*) limit
@@ -410,7 +392,6 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 /// Search Offers
 /// Searches on offers that the account has access to.
 ///
-/// @param version 
 /// @param offerVisibility 
 /// @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY
 /// @param descending The order to return the search results
@@ -446,8 +427,7 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIOfferResponse>*
--(NSURLSessionTask*) getOffersForRetailersWithVersion: (NSNumber*) version
-    offerVisibility: (NSString*) offerVisibility
+-(NSURLSessionTask*) getOffersForRetailersWithOfferVisibility: (NSString*) offerVisibility
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
@@ -484,7 +464,6 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 /// Update Offer Transaction
 /// Redeems an offer.
 ///
-/// @param version 
 /// @param offerTransactionId the OfferTransaction ID of the transaction being redeemed
 /// @param status the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed
 /// @param deviceId the device id (deviceId or accountId required) (optional)
@@ -494,8 +473,7 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) redeemOfferTransactionWithVersion: (NSNumber*) version
-    offerTransactionId: (NSNumber*) offerTransactionId
+-(NSURLSessionTask*) redeemOfferTransactionWithOfferTransactionId: (NSNumber*) offerTransactionId
     status: (NSNumber*) status
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -506,7 +484,6 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 /// Search Offer Transactions
 /// Searches on offer transactions for offers that the account has access to.
 ///
-/// @param version 
 /// @param sortField Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
 /// @param descending Determines whether the results are in descending order
 /// @param start The start index for pagination
@@ -535,8 +512,7 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIOfferTransactionResponse>*
--(NSURLSessionTask*) searchOfferTransactionsForRetailersWithVersion: (NSNumber*) version
-    sortField: (NSString*) sortField
+-(NSURLSessionTask*) searchOfferTransactionsForRetailersWithSortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
     limit: (NSNumber*) limit
@@ -566,7 +542,6 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 /// Search Offers
 /// Searches for offers as a consumer.
 ///
-/// @param version 
 /// @param latitude The latitude of where the search will center at
 /// @param longitude The longitude of where the search will center at
 /// @param recommendationType The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available
@@ -602,8 +577,7 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOfferListResponse*
--(NSURLSessionTask*) searchOffersForConsumerWithVersion: (NSNumber*) version
-    latitude: (NSNumber*) latitude
+-(NSURLSessionTask*) searchOffersForConsumerWithLatitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     recommendationType: (NSString*) recommendationType
     locationId: (NSNumber*) locationId
@@ -640,15 +614,13 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 /// Get Offers (Top)
 /// Gets the top active offers.
 ///
-/// @param version 
 /// @param start The index into the record set to start with. Default is 0. (optional) (default to @0)
 /// @param limit The total number of record to return. Default id 20. (optional) (default to @20)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIOfferListResponse*
--(NSURLSessionTask*) topOfferTransactionsWithVersion: (NSNumber*) version
-    start: (NSNumber*) start
+-(NSURLSessionTask*) topOfferTransactionsWithStart: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(OAIOfferListResponse* output, NSError* error)) handler;
 
@@ -656,7 +628,6 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 /// Update Offer
 /// Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
 ///
-/// @param version 
 /// @param offerId The offer to update
 /// @param includeOfferLocations If true return all the offer locations associated with the offer
 /// @param deviceId The device id (deviceId or accountId required) (optional)
@@ -748,8 +719,7 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRetailerOfferResponse*
--(NSURLSessionTask*) updateOfferWithVersion: (NSNumber*) version
-    offerId: (NSNumber*) offerId
+-(NSURLSessionTask*) updateOfferWithOfferId: (NSNumber*) offerId
     includeOfferLocations: (NSNumber*) includeOfferLocations
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -842,7 +812,6 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 /// Activate Offer
 /// Sets the activated date on offers. This will make offers visible for consumers.
 ///
-/// @param version 
 /// @param offerIds Comma separated list of offer ids
 /// @param active Determines whether to make the offer active as well
 /// @param deviceId The device id (deviceId or accountId required) (optional)
@@ -851,8 +820,7 @@ extern NSInteger kOAIOfferApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) updateOfferStatusWithVersion: (NSNumber*) version
-    offerIds: (NSString*) offerIds
+-(NSURLSessionTask*) updateOfferStatusWithOfferIds: (NSString*) offerIds
     active: (NSNumber*) active
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId

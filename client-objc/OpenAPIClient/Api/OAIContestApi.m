@@ -54,8 +54,6 @@ NSInteger kOAIContestApiMissingParamErrorCode = 234513;
 ///
 /// Create or Update Contest
 /// Creates or updates a contest.
-///  @param version  
-///
 ///  @param publicRead determines whether the contest's participants has read permissions 
 ///
 ///  @param publicWrite determines whether the contest's participants has write permissions 
@@ -108,8 +106,7 @@ NSInteger kOAIContestApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAlbumContestResponse*
 ///
--(NSURLSessionTask*) addOrUpdateAlbumContestWithVersion: (NSNumber*) version
-    publicRead: (NSNumber*) publicRead
+-(NSURLSessionTask*) addOrUpdateAlbumContestWithPublicRead: (NSNumber*) publicRead
     publicWrite: (NSNumber*) publicWrite
     publicDelete: (NSNumber*) publicDelete
     publicAdd: (NSNumber*) publicAdd
@@ -135,17 +132,6 @@ NSInteger kOAIContestApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIAlbumContestResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIContestApiErrorDomain code:kOAIContestApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'publicRead' is set
     if (publicRead == nil) {
         NSParameterAssert(publicRead);
@@ -212,12 +198,9 @@ NSInteger kOAIContestApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/consumer/album/contest"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/consumer/album/contest"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -338,8 +321,6 @@ NSInteger kOAIContestApiMissingParamErrorCode = 234513;
 ///
 /// Approve Contest
 /// Sets the approval status of a contest.
-///  @param version  
-///
 ///  @param albumContestId The ID of the album contest 
 ///
 ///  @param approvalStatus The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} 
@@ -350,23 +331,11 @@ NSInteger kOAIContestApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) approveAlbumContestWithVersion: (NSNumber*) version
-    albumContestId: (NSNumber*) albumContestId
+-(NSURLSessionTask*) approveAlbumContestWithAlbumContestId: (NSNumber*) albumContestId
     approvalStatus: (NSString*) approvalStatus
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIContestApiErrorDomain code:kOAIContestApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'albumContestId' is set
     if (albumContestId == nil) {
         NSParameterAssert(albumContestId);
@@ -389,12 +358,9 @@ NSInteger kOAIContestApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/consumer/album/contest/approve"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/consumer/album/contest/approve"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -452,8 +418,6 @@ NSInteger kOAIContestApiMissingParamErrorCode = 234513;
 ///
 /// Delete Contest
 /// Deletes a contest.
-///  @param version  
-///
 ///  @param albumContestId the album contest ID 
 ///
 ///  @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -466,24 +430,12 @@ NSInteger kOAIContestApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteContestWithVersion: (NSNumber*) version
-    albumContestId: (NSNumber*) albumContestId
+-(NSURLSessionTask*) deleteContestWithAlbumContestId: (NSNumber*) albumContestId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIContestApiErrorDomain code:kOAIContestApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'albumContestId' is set
     if (albumContestId == nil) {
         NSParameterAssert(albumContestId);
@@ -495,12 +447,9 @@ NSInteger kOAIContestApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/consumer/album/contest/remove"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/consumer/album/contest/remove"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -561,8 +510,6 @@ NSInteger kOAIContestApiMissingParamErrorCode = 234513;
 ///
 /// Get Contest
 /// Gets the contest object including the likes and notes
-///  @param version  
-///
 ///  @param albumContestId the album contest ID 
 ///
 ///  @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -575,24 +522,12 @@ NSInteger kOAIContestApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAlbumContestResponse*
 ///
--(NSURLSessionTask*) getAlbumContestWithVersion: (NSNumber*) version
-    albumContestId: (NSNumber*) albumContestId
+-(NSURLSessionTask*) getAlbumContestWithAlbumContestId: (NSNumber*) albumContestId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIAlbumContestResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIContestApiErrorDomain code:kOAIContestApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'albumContestId' is set
     if (albumContestId == nil) {
         NSParameterAssert(albumContestId);
@@ -604,12 +539,9 @@ NSInteger kOAIContestApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/consumer/album/contest/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/consumer/album/contest/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -670,8 +602,6 @@ NSInteger kOAIContestApiMissingParamErrorCode = 234513;
 ///
 /// Search Contests
 /// Searches on contests.
-///  @param version  
-///
 ///  @param filter a comma separated list of Ownership 
 ///
 ///  @param sortField the field to sort by. See AlbumContestApiMap 
@@ -712,8 +642,7 @@ NSInteger kOAIContestApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAlbumContestListResponse*
 ///
--(NSURLSessionTask*) getAlbumContestsWithVersion: (NSNumber*) version
-    filter: (NSString*) filter
+-(NSURLSessionTask*) getAlbumContestsWithFilter: (NSString*) filter
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
@@ -733,17 +662,6 @@ NSInteger kOAIContestApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIAlbumContestListResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIContestApiErrorDomain code:kOAIContestApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'filter' is set
     if (filter == nil) {
         NSParameterAssert(filter);
@@ -799,12 +717,9 @@ NSInteger kOAIContestApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/consumer/album/contest/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/consumer/album/contest/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -907,8 +822,6 @@ NSInteger kOAIContestApiMissingParamErrorCode = 234513;
 ///
 /// Vote on Contest
 /// Vote on a collection in a contest.
-///  @param version  
-///
 ///  @param albumContestId the album contest ID 
 ///
 ///  @param albumId the ID of the album to vote on 
@@ -925,8 +838,7 @@ NSInteger kOAIContestApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIAlbumContestResponse*
 ///
--(NSURLSessionTask*) voteOnAlbumContestWithVersion: (NSNumber*) version
-    albumContestId: (NSNumber*) albumContestId
+-(NSURLSessionTask*) voteOnAlbumContestWithAlbumContestId: (NSNumber*) albumContestId
     albumId: (NSNumber*) albumId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -934,17 +846,6 @@ NSInteger kOAIContestApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIAlbumContestResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIContestApiErrorDomain code:kOAIContestApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'albumContestId' is set
     if (albumContestId == nil) {
         NSParameterAssert(albumContestId);
@@ -967,12 +868,9 @@ NSInteger kOAIContestApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/consumer/album/contest/vote"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/consumer/album/contest/vote"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {

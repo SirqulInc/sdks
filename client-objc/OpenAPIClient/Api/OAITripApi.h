@@ -26,43 +26,37 @@ extern NSInteger kOAITripApiMissingParamErrorCode;
 /// Create Trip
 /// Create a new trip
 ///
-/// @param version 
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAITrip*
--(NSURLSessionTask*) createTripWithVersion: (NSNumber*) version
-    body: (OAITrip*) body
+-(NSURLSessionTask*) createTripWithBody: (OAITrip*) body
     completionHandler: (void (^)(OAITrip* output, NSError* error)) handler;
 
 
 /// Delete Trip
 /// Delete an existing trip
 ///
-/// @param version 
 /// @param _id the id of the trip to delete
 /// 
 ///  code:0 message:"successful operation"
 ///
 /// @return void
--(NSURLSessionTask*) deleteWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) deleteWithId: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler;
 
 
 /// Set Trip Preference Driver
 /// Update trip preference to drive, also create a route and assign the trip to the route
 ///
-/// @param version 
 /// @param _id the id of the trip
 /// @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAITrip*
--(NSURLSessionTask*) driveTripWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) driveTripWithId: (NSNumber*) _id
     recurrence: (NSNumber*) recurrence
     completionHandler: (void (^)(OAITrip* output, NSError* error)) handler;
 
@@ -70,15 +64,13 @@ extern NSInteger kOAITripApiMissingParamErrorCode;
 /// Set Trip Preference Flexible
 /// Update trip preference to flexible.
 ///
-/// @param version 
 /// @param _id the id of the trip
 /// @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAITrip*
--(NSURLSessionTask*) flexibleTripWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) flexibleTripWithId: (NSNumber*) _id
     recurrence: (NSNumber*) recurrence
     completionHandler: (void (^)(OAITrip* output, NSError* error)) handler;
 
@@ -86,21 +78,18 @@ extern NSInteger kOAITripApiMissingParamErrorCode;
 /// Get Trip
 /// Get an existing trip
 ///
-/// @param version 
 /// @param _id the id of the trip to get
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAITrip*
--(NSURLSessionTask*) getTripWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) getTripWithId: (NSNumber*) _id
     completionHandler: (void (^)(OAITrip* output, NSError* error)) handler;
 
 
 /// Get Trip Matches
 /// Get matching trips of specific trip
 ///
-/// @param version 
 /// @param _id The id The id of the trip to search for matches for
 /// @param sortField The field to sort by
 /// @param descending Determines whether the sorted list is in descending or ascending order
@@ -113,8 +102,7 @@ extern NSInteger kOAITripApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAITrip>*
--(NSURLSessionTask*) getTripMatchesWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) getTripMatchesWithId: (NSNumber*) _id
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
@@ -128,7 +116,6 @@ extern NSInteger kOAITripApiMissingParamErrorCode;
 /// Process Trip Matches
 /// Process trip matching, assign trips with no route to matched trips with route.
 ///
-/// @param version 
 /// @param startDate The lower bound date to process matchings (optional)
 /// @param endDate The upper bound date to process matchings (optional)
 /// @param tripId the id of the trip to process (optional)
@@ -136,8 +123,7 @@ extern NSInteger kOAITripApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAITrip>*
--(NSURLSessionTask*) processTripMatchesWithVersion: (NSNumber*) version
-    startDate: (NSNumber*) startDate
+-(NSURLSessionTask*) processTripMatchesWithStartDate: (NSNumber*) startDate
     endDate: (NSNumber*) endDate
     tripId: (NSNumber*) tripId
     completionHandler: (void (^)(NSArray<OAITrip>* output, NSError* error)) handler;
@@ -146,15 +132,13 @@ extern NSInteger kOAITripApiMissingParamErrorCode;
 /// Set Trip Preference Rider
 /// Update trip preference to ride.
 ///
-/// @param version 
 /// @param _id the id of the trip
 /// @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAITrip*
--(NSURLSessionTask*) rideWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) rideWithId: (NSNumber*) _id
     recurrence: (NSNumber*) recurrence
     completionHandler: (void (^)(OAITrip* output, NSError* error)) handler;
 
@@ -162,7 +146,6 @@ extern NSInteger kOAITripApiMissingParamErrorCode;
 /// Search Trips
 /// Search for trips
 ///
-/// @param version 
 /// @param accountId The owner of the trips
 /// @param sortField The field to sort by
 /// @param descending Determines whether the sorted list is in descending or ascending order
@@ -176,8 +159,7 @@ extern NSInteger kOAITripApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAITrip>*
--(NSURLSessionTask*) searchWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchWithAccountId: (NSNumber*) accountId
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
@@ -192,7 +174,6 @@ extern NSInteger kOAITripApiMissingParamErrorCode;
 /// Search Trips
 /// Search for trips with matching information.
 ///
-/// @param version 
 /// @param accountId The owner of the trips
 /// @param sortField The field to sort by
 /// @param descending Determines whether the sorted list is in descending or ascending order
@@ -207,8 +188,7 @@ extern NSInteger kOAITripApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAITrip>*
--(NSURLSessionTask*) searchTripsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchTripsWithAccountId: (NSNumber*) accountId
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
@@ -224,15 +204,13 @@ extern NSInteger kOAITripApiMissingParamErrorCode;
 /// Update Trip Locations
 /// 
 ///
-/// @param version 
 /// @param _id the id of the trip to update locations for
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAITrip*
--(NSURLSessionTask*) updateLocationsWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) updateLocationsWithId: (NSNumber*) _id
     body: (OAITrip*) body
     completionHandler: (void (^)(OAITrip* output, NSError* error)) handler;
 
@@ -240,15 +218,13 @@ extern NSInteger kOAITripApiMissingParamErrorCode;
 /// Update Recurrence Locations
 /// 
 ///
-/// @param version 
 /// @param _id the id of the trip
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAITrip>*
--(NSURLSessionTask*) updateRecurrenceLocationsWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) updateRecurrenceLocationsWithId: (NSNumber*) _id
     body: (OAITrip*) body
     completionHandler: (void (^)(NSArray<OAITrip>* output, NSError* error)) handler;
 
@@ -256,15 +232,13 @@ extern NSInteger kOAITripApiMissingParamErrorCode;
 /// Update Recurrence Shipments
 /// 
 ///
-/// @param version 
 /// @param _id the id of the trip
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAITrip>*
--(NSURLSessionTask*) updateRecurrenceShipmentsWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) updateRecurrenceShipmentsWithId: (NSNumber*) _id
     body: (OAITrip*) body
     completionHandler: (void (^)(NSArray<OAITrip>* output, NSError* error)) handler;
 
@@ -272,15 +246,13 @@ extern NSInteger kOAITripApiMissingParamErrorCode;
 /// Update Trip Shipments
 /// 
 ///
-/// @param version 
 /// @param _id the id of the trip shipments to update
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAITrip*
--(NSURLSessionTask*) updateShipmentsWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) updateShipmentsWithId: (NSNumber*) _id
     body: (OAITrip*) body
     completionHandler: (void (^)(OAITrip* output, NSError* error)) handler;
 
@@ -288,15 +260,13 @@ extern NSInteger kOAITripApiMissingParamErrorCode;
 /// Update Trip
 /// Update an existing trip. Does not support recurring trip update.
 ///
-/// @param version 
 /// @param _id the id of the trip to update
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAITrip*
--(NSURLSessionTask*) updateTripWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) updateTripWithId: (NSNumber*) _id
     body: (OAITrip*) body
     completionHandler: (void (^)(OAITrip* output, NSError* error)) handler;
 
@@ -304,15 +274,13 @@ extern NSInteger kOAITripApiMissingParamErrorCode;
 /// Trip Notifications
 /// Update the trip notifications
 ///
-/// @param version 
 /// @param _id the id of the trip
 /// @param notifications the notifications to update on the trip (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAITrip*
--(NSURLSessionTask*) updateTripNotificationsWithVersion: (NSNumber*) version
-    _id: (NSNumber*) _id
+-(NSURLSessionTask*) updateTripNotificationsWithId: (NSNumber*) _id
     notifications: (NSString*) notifications
     completionHandler: (void (^)(OAITrip* output, NSError* error)) handler;
 

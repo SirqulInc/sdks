@@ -54,29 +54,15 @@ NSInteger kOAICreativeApiMissingParamErrorCode = 234513;
 ///
 /// Add Preview
 /// Enable this ad for preview for this account.
-///  @param version  
-///
 ///  @param accountId the id of the account 
 ///
 ///  @param creativeId The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied. 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) addPreviewWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) addPreviewWithAccountId: (NSNumber*) accountId
     creativeId: (NSNumber*) creativeId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAICreativeApiErrorDomain code:kOAICreativeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -99,12 +85,9 @@ NSInteger kOAICreativeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/creative/addpreview"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/creative/addpreview"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -156,8 +139,6 @@ NSInteger kOAICreativeApiMissingParamErrorCode = 234513;
 ///
 /// Find Missions
 /// Get a set of ad filtered by the parameters provided.
-///  @param version  
-///
 ///  @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. 
 ///
 ///  @param randomize return a random set of results, default is true. If false returns in nature order. 
@@ -192,8 +173,7 @@ NSInteger kOAICreativeApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIMissionResponse>*
 ///
--(NSURLSessionTask*) adsFindWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) adsFindWithAppKey: (NSString*) appKey
     randomize: (NSNumber*) randomize
     targetedAdsOnly: (NSNumber*) targetedAdsOnly
     type: (NSString*) type
@@ -210,17 +190,6 @@ NSInteger kOAICreativeApiMissingParamErrorCode = 234513;
     allocatesTickets: (NSNumber*) allocatesTickets
     missionIds: (NSString*) missionIds
     completionHandler: (void (^)(NSArray<OAIMissionResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAICreativeApiErrorDomain code:kOAICreativeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'appKey' is set
     if (appKey == nil) {
         NSParameterAssert(appKey);
@@ -254,12 +223,9 @@ NSInteger kOAICreativeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/ads/find"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/ads/find"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (appKey != nil) {
@@ -353,8 +319,6 @@ NSInteger kOAICreativeApiMissingParamErrorCode = 234513;
 ///
 /// Create Creative
 /// Create a creative
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param name The name of the level. 
@@ -387,8 +351,7 @@ NSInteger kOAICreativeApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAICreativeResponse*
 ///
--(NSURLSessionTask*) createCreativeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createCreativeWithAccountId: (NSNumber*) accountId
     name: (NSString*) name
     active: (NSNumber*) active
     waitForAsset: (NSNumber*) waitForAsset
@@ -404,17 +367,6 @@ NSInteger kOAICreativeApiMissingParamErrorCode = 234513;
     missionId: (NSNumber*) missionId
     offerId: (NSNumber*) offerId
     completionHandler: (void (^)(OAICreativeResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAICreativeApiErrorDomain code:kOAICreativeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -459,12 +411,9 @@ NSInteger kOAICreativeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/creative/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/creative/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -555,29 +504,15 @@ NSInteger kOAICreativeApiMissingParamErrorCode = 234513;
 ///
 /// Delete Creative
 /// Delete a creative
-///  @param version  
-///
 ///  @param accountId the id of the logged in user 
 ///
 ///  @param creativeId the id of the creative to delete 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteCreativeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteCreativeWithAccountId: (NSNumber*) accountId
     creativeId: (NSNumber*) creativeId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAICreativeApiErrorDomain code:kOAICreativeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -600,12 +535,9 @@ NSInteger kOAICreativeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/creative/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/creative/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -657,29 +589,15 @@ NSInteger kOAICreativeApiMissingParamErrorCode = 234513;
 ///
 /// Get Creative
 /// Get a creative
-///  @param version  
-///
 ///  @param accountId the id of the logged in user 
 ///
 ///  @param creativeId the ID of the creative to get 
 ///
 ///  @returns OAICreativeResponse*
 ///
--(NSURLSessionTask*) getCreativeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getCreativeWithAccountId: (NSNumber*) accountId
     creativeId: (NSNumber*) creativeId
     completionHandler: (void (^)(OAICreativeResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAICreativeApiErrorDomain code:kOAICreativeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -702,12 +620,9 @@ NSInteger kOAICreativeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/creative/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/creative/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -759,8 +674,6 @@ NSInteger kOAICreativeApiMissingParamErrorCode = 234513;
 ///
 /// Search Creatives
 /// Get a list of levels for an application, just those the account has permissions to view.
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param appKey the application key 
@@ -775,25 +688,13 @@ NSInteger kOAICreativeApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAICreativeResponse>*
 ///
--(NSURLSessionTask*) getCreativesByApplicationWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getCreativesByApplicationWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     missionId: (NSNumber*) missionId
     keyword: (NSString*) keyword
     completionHandler: (void (^)(NSArray<OAICreativeResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAICreativeApiErrorDomain code:kOAICreativeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -838,12 +739,9 @@ NSInteger kOAICreativeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/creative/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/creative/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -907,29 +805,15 @@ NSInteger kOAICreativeApiMissingParamErrorCode = 234513;
 ///
 /// Remove Preview
 /// Remove this ad for preview for this account.
-///  @param version  
-///
 ///  @param accountId the ID of the logged in user 
 ///
 ///  @param creativeId the ID of the creative to remove preview 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) removePreviewWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) removePreviewWithAccountId: (NSNumber*) accountId
     creativeId: (NSNumber*) creativeId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAICreativeApiErrorDomain code:kOAICreativeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -952,12 +836,9 @@ NSInteger kOAICreativeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/creative/removepreview"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/creative/removepreview"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -1009,8 +890,6 @@ NSInteger kOAICreativeApiMissingParamErrorCode = 234513;
 ///
 /// Update Creative
 /// Update a creative
-///  @param version  
-///
 ///  @param accountId The logged in user. 
 ///
 ///  @param creativeId the creative Id to upate. 
@@ -1041,8 +920,7 @@ NSInteger kOAICreativeApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAICreativeResponse*
 ///
--(NSURLSessionTask*) updateCreativeWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateCreativeWithAccountId: (NSNumber*) accountId
     creativeId: (NSNumber*) creativeId
     name: (NSString*) name
     _description: (NSString*) _description
@@ -1057,17 +935,6 @@ NSInteger kOAICreativeApiMissingParamErrorCode = 234513;
     appVersion: (NSString*) appVersion
     missionId: (NSNumber*) missionId
     completionHandler: (void (^)(OAICreativeResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAICreativeApiErrorDomain code:kOAICreativeApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -1090,12 +957,9 @@ NSInteger kOAICreativeApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/creative/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/creative/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

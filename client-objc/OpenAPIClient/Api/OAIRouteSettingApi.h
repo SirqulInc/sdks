@@ -26,49 +26,42 @@ extern NSInteger kOAIRouteSettingApiMissingParamErrorCode;
 /// Create Route Setting
 /// Create a new route setting
 ///
-/// @param version 
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRouteSettings*
--(NSURLSessionTask*) createRouteSettingsWithVersion: (NSNumber*) version
-    body: (OAIRouteSettings*) body
+-(NSURLSessionTask*) createRouteSettingsWithBody: (OAIRouteSettings*) body
     completionHandler: (void (^)(OAIRouteSettings* output, NSError* error)) handler;
 
 
 /// Delete Route Setting
 /// Delete an existing route setting
 ///
-/// @param version 
 /// @param routeSettingsId the id of the route setting to delete
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return NSObject*
--(NSURLSessionTask*) deleteRouteSettingsWithVersion: (NSNumber*) version
-    routeSettingsId: (NSNumber*) routeSettingsId
+-(NSURLSessionTask*) deleteRouteSettingsWithRouteSettingsId: (NSNumber*) routeSettingsId
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 
 
 /// Get Route Setting
 /// Get an existing route settings
 ///
-/// @param version 
 /// @param routeSettingsId the id of the route settings to get
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRouteSettings*
--(NSURLSessionTask*) getRouteSettingsWithVersion: (NSNumber*) version
-    routeSettingsId: (NSNumber*) routeSettingsId
+-(NSURLSessionTask*) getRouteSettingsWithRouteSettingsId: (NSNumber*) routeSettingsId
     completionHandler: (void (^)(OAIRouteSettings* output, NSError* error)) handler;
 
 
 /// Search Route Settings
 /// Search for route settings
 ///
-/// @param version 
 /// @param sortField The field to sort by
 /// @param descending Determines whether the sorted list is in descending or ascending order
 /// @param start The start index for pagination
@@ -81,8 +74,7 @@ extern NSInteger kOAIRouteSettingApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIRouteSettings>*
--(NSURLSessionTask*) searchRouteSettingsWithVersion: (NSNumber*) version
-    sortField: (NSString*) sortField
+-(NSURLSessionTask*) searchRouteSettingsWithSortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
     limit: (NSNumber*) limit
@@ -96,15 +88,13 @@ extern NSInteger kOAIRouteSettingApiMissingParamErrorCode;
 /// Update Route Setting
 /// Update an existing route setting
 ///
-/// @param version 
 /// @param routeSettingsId the id of the route settings to update
 /// @param body  (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRouteSettings*
--(NSURLSessionTask*) updateRouteSettingsWithVersion: (NSNumber*) version
-    routeSettingsId: (NSNumber*) routeSettingsId
+-(NSURLSessionTask*) updateRouteSettingsWithRouteSettingsId: (NSNumber*) routeSettingsId
     body: (OAIRouteSettings*) body
     completionHandler: (void (^)(OAIRouteSettings* output, NSError* error)) handler;
 

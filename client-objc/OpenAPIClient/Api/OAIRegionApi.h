@@ -26,7 +26,6 @@ extern NSInteger kOAIRegionApiMissingParamErrorCode;
 /// Create Region
 /// Create a region.
 ///
-/// @param version 
 /// @param accountId The id of the account sending the request
 /// @param regionClass RegionClass of this region
 /// @param shortName Short name of the region. This is optimized for search
@@ -52,8 +51,7 @@ extern NSInteger kOAIRegionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRegionResponse*
--(NSURLSessionTask*) createRegionWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createRegionWithAccountId: (NSNumber*) accountId
     regionClass: (NSString*) regionClass
     shortName: (NSString*) shortName
     fullName: (NSString*) fullName
@@ -80,15 +78,13 @@ extern NSInteger kOAIRegionApiMissingParamErrorCode;
 /// Delete Region
 /// Delete a region.
 ///
-/// @param version 
 /// @param accountId the id of the account logged in
 /// @param regionId the id of the region
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRegionResponse*
--(NSURLSessionTask*) deleteRegionWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteRegionWithAccountId: (NSNumber*) accountId
     regionId: (NSNumber*) regionId
     completionHandler: (void (^)(OAIRegionResponse* output, NSError* error)) handler;
 
@@ -96,15 +92,13 @@ extern NSInteger kOAIRegionApiMissingParamErrorCode;
 /// Get Region
 /// Get a region.
 ///
-/// @param version 
 /// @param regionId the id of the region to get
 /// @param accountId the id of the logged in user (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRegionResponse*
--(NSURLSessionTask*) getRegionWithVersion: (NSNumber*) version
-    regionId: (NSNumber*) regionId
+-(NSURLSessionTask*) getRegionWithRegionId: (NSNumber*) regionId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIRegionResponse* output, NSError* error)) handler;
 
@@ -112,7 +106,6 @@ extern NSInteger kOAIRegionApiMissingParamErrorCode;
 /// Search Regions
 /// Get the list of regions.
 ///
-/// @param version 
 /// @param accountId the owner account id of the region to be created (optional)
 /// @param query This parameter is deprecated. deprecated - use \&quot;keyword\&quot; (optional)
 /// @param keyword the keyword to filter results on (optional)
@@ -139,8 +132,7 @@ extern NSInteger kOAIRegionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIRegionResponse>*
--(NSURLSessionTask*) searchRegionsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchRegionsWithAccountId: (NSNumber*) accountId
     query: (NSString*) query
     keyword: (NSString*) keyword
     latitude: (NSNumber*) latitude
@@ -168,7 +160,6 @@ extern NSInteger kOAIRegionApiMissingParamErrorCode;
 /// Update Region
 /// Update a region.
 ///
-/// @param version 
 /// @param accountId The id of the account sending the request
 /// @param regionId The id of the region to be updated
 /// @param regionClass RegionClass of this region (optional)
@@ -196,8 +187,7 @@ extern NSInteger kOAIRegionApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIRegionResponse*
--(NSURLSessionTask*) updateRegionWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateRegionWithAccountId: (NSNumber*) accountId
     regionId: (NSNumber*) regionId
     regionClass: (NSString*) regionClass
     shortName: (NSString*) shortName

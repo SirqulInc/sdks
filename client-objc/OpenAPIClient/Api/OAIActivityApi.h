@@ -27,14 +27,12 @@ extern NSInteger kOAIActivityApiMissingParamErrorCode;
 /// Create an entity reference.
 /// Creates a reference for an entity for syncing data between servers.
 ///
-/// @param version 
 /// @param body The entity reference object
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIActivityResponse*
--(NSURLSessionTask*) createEntityReferenceWithVersion: (NSNumber*) version
-    body: (OAIEntityReference*) body
+-(NSURLSessionTask*) createEntityReferenceWithBody: (OAIEntityReference*) body
     completionHandler: (void (^)(OAIActivityResponse* output, NSError* error)) handler;
 
 

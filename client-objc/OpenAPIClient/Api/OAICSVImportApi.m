@@ -53,8 +53,6 @@ NSInteger kOAICSVImportApiMissingParamErrorCode = 234513;
 ///
 /// Detail Status
 /// 
-///  @param version  
-///
 ///  @param accountId the id of the logged in user 
 ///
 ///  @param batchId the id of the batch 
@@ -67,24 +65,12 @@ NSInteger kOAICSVImportApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) getStatusCSVWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getStatusCSVWithAccountId: (NSNumber*) accountId
     batchId: (NSNumber*) batchId
     responseGroup: (NSString*) responseGroup
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAICSVImportApiErrorDomain code:kOAICSVImportApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -140,12 +126,9 @@ NSInteger kOAICSVImportApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/csvimport/batch/status/details"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/csvimport/batch/status/details"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -206,8 +189,6 @@ NSInteger kOAICSVImportApiMissingParamErrorCode = 234513;
 ///
 /// Search Status
 /// Retrieves batches for a user.
-///  @param version  
-///
 ///  @param accountId the id of the account 
 ///
 ///  @param start the start of the pagination 
@@ -216,22 +197,10 @@ NSInteger kOAICSVImportApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAICsvImportResponse*
 ///
--(NSURLSessionTask*) listStatusCSVWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) listStatusCSVWithAccountId: (NSNumber*) accountId
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(OAICsvImportResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAICSVImportApiErrorDomain code:kOAICSVImportApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -265,12 +234,9 @@ NSInteger kOAICSVImportApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/csvimport/batch/list"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/csvimport/batch/list"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -325,29 +291,15 @@ NSInteger kOAICSVImportApiMissingParamErrorCode = 234513;
 ///
 /// Batch Status
 /// Checks status of batch upload.
-///  @param version  
-///
 ///  @param accountId the id of the account 
 ///
 ///  @param batchId the id of the batch to get its status 
 ///
 ///  @returns OAICsvImportResponse*
 ///
--(NSURLSessionTask*) statusCSVWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) statusCSVWithAccountId: (NSNumber*) accountId
     batchId: (NSNumber*) batchId
     completionHandler: (void (^)(OAICsvImportResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAICSVImportApiErrorDomain code:kOAICSVImportApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -370,12 +322,9 @@ NSInteger kOAICSVImportApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/csvimport/batch/status"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/csvimport/batch/status"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -427,8 +376,6 @@ NSInteger kOAICSVImportApiMissingParamErrorCode = 234513;
 ///
 /// Upload CSV
 /// Uploads a CSV import file.
-///  @param version  
-///
 ///  @param accountId the id of the account 
 ///
 ///  @param uploadType the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS 
@@ -441,24 +388,12 @@ NSInteger kOAICSVImportApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAICsvImportResponse*
 ///
--(NSURLSessionTask*) uploadCSVWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) uploadCSVWithAccountId: (NSNumber*) accountId
     uploadType: (NSString*) uploadType
     importFile: (NSURL*) importFile
     fileFormat: (NSString*) fileFormat
     appKey: (NSString*) appKey
     completionHandler: (void (^)(OAICsvImportResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAICSVImportApiErrorDomain code:kOAICSVImportApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -503,12 +438,9 @@ NSInteger kOAICSVImportApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/csvimport/upload"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/csvimport/upload"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

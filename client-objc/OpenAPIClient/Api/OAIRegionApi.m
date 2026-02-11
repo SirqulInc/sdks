@@ -52,8 +52,6 @@ NSInteger kOAIRegionApiMissingParamErrorCode = 234513;
 ///
 /// Create Region
 /// Create a region.
-///  @param version  
-///
 ///  @param accountId The id of the account sending the request 
 ///
 ///  @param regionClass RegionClass of this region 
@@ -98,8 +96,7 @@ NSInteger kOAIRegionApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIRegionResponse*
 ///
--(NSURLSessionTask*) createRegionWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createRegionWithAccountId: (NSNumber*) accountId
     regionClass: (NSString*) regionClass
     shortName: (NSString*) shortName
     fullName: (NSString*) fullName
@@ -121,17 +118,6 @@ NSInteger kOAIRegionApiMissingParamErrorCode = 234513;
     root: (NSNumber*) root
     active: (NSNumber*) active
     completionHandler: (void (^)(OAIRegionResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRegionApiErrorDomain code:kOAIRegionApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -165,12 +151,9 @@ NSInteger kOAIRegionApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/region/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/region/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -279,29 +262,15 @@ NSInteger kOAIRegionApiMissingParamErrorCode = 234513;
 ///
 /// Delete Region
 /// Delete a region.
-///  @param version  
-///
 ///  @param accountId the id of the account logged in 
 ///
 ///  @param regionId the id of the region 
 ///
 ///  @returns OAIRegionResponse*
 ///
--(NSURLSessionTask*) deleteRegionWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteRegionWithAccountId: (NSNumber*) accountId
     regionId: (NSNumber*) regionId
     completionHandler: (void (^)(OAIRegionResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRegionApiErrorDomain code:kOAIRegionApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -324,12 +293,9 @@ NSInteger kOAIRegionApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/region/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/region/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -381,29 +347,15 @@ NSInteger kOAIRegionApiMissingParamErrorCode = 234513;
 ///
 /// Get Region
 /// Get a region.
-///  @param version  
-///
 ///  @param regionId the id of the region to get 
 ///
 ///  @param accountId the id of the logged in user (optional)
 ///
 ///  @returns OAIRegionResponse*
 ///
--(NSURLSessionTask*) getRegionWithVersion: (NSNumber*) version
-    regionId: (NSNumber*) regionId
+-(NSURLSessionTask*) getRegionWithRegionId: (NSNumber*) regionId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAIRegionResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRegionApiErrorDomain code:kOAIRegionApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'regionId' is set
     if (regionId == nil) {
         NSParameterAssert(regionId);
@@ -415,12 +367,9 @@ NSInteger kOAIRegionApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/region/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/region/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -472,8 +421,6 @@ NSInteger kOAIRegionApiMissingParamErrorCode = 234513;
 ///
 /// Search Regions
 /// Get the list of regions.
-///  @param version  
-///
 ///  @param accountId the owner account id of the region to be created (optional)
 ///
 ///  @param query This parameter is deprecated. deprecated - use \"keyword\" (optional)
@@ -520,8 +467,7 @@ NSInteger kOAIRegionApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIRegionResponse>*
 ///
--(NSURLSessionTask*) searchRegionsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchRegionsWithAccountId: (NSNumber*) accountId
     query: (NSString*) query
     keyword: (NSString*) keyword
     latitude: (NSNumber*) latitude
@@ -544,23 +490,9 @@ NSInteger kOAIRegionApiMissingParamErrorCode = 234513;
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSArray<OAIRegionResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRegionApiErrorDomain code:kOAIRegionApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/region/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/region/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -672,8 +604,6 @@ NSInteger kOAIRegionApiMissingParamErrorCode = 234513;
 ///
 /// Update Region
 /// Update a region.
-///  @param version  
-///
 ///  @param accountId The id of the account sending the request 
 ///
 ///  @param regionId The id of the region to be updated 
@@ -722,8 +652,7 @@ NSInteger kOAIRegionApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIRegionResponse*
 ///
--(NSURLSessionTask*) updateRegionWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateRegionWithAccountId: (NSNumber*) accountId
     regionId: (NSNumber*) regionId
     regionClass: (NSString*) regionClass
     shortName: (NSString*) shortName
@@ -747,17 +676,6 @@ NSInteger kOAIRegionApiMissingParamErrorCode = 234513;
     active: (NSNumber*) active
     clearLists: (NSNumber*) clearLists
     completionHandler: (void (^)(OAIRegionResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIRegionApiErrorDomain code:kOAIRegionApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -780,12 +698,9 @@ NSInteger kOAIRegionApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/region/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/region/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

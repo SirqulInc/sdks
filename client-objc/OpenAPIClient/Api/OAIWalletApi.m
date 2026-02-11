@@ -53,8 +53,6 @@ NSInteger kOAIWalletApiMissingParamErrorCode = 234513;
 ///
 /// Create Wallet Offers
 /// Adds offers to the wallet
-///  @param version  
-///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
 ///
 ///  @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -79,8 +77,7 @@ NSInteger kOAIWalletApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIOfferTransactionResponse>*
 ///
--(NSURLSessionTask*) createOfferTransactionWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) createOfferTransactionWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     offerId: (NSNumber*) offerId
     offerLocationId: (NSNumber*) offerLocationId
@@ -92,23 +89,9 @@ NSInteger kOAIWalletApiMissingParamErrorCode = 234513;
     appKey: (NSString*) appKey
     status: (NSNumber*) status
     completionHandler: (void (^)(NSArray<OAIOfferTransactionResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIWalletApiErrorDomain code:kOAIWalletApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/wallet/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/wallet/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -187,8 +170,6 @@ NSInteger kOAIWalletApiMissingParamErrorCode = 234513;
 ///
 /// Delete Wallet Offer
 /// Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-///  @param version  
-///
 ///  @param transactionId The offer transaction id to remove 
 ///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
@@ -197,22 +178,10 @@ NSInteger kOAIWalletApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteOfferTransactionWithVersion: (NSNumber*) version
-    transactionId: (NSNumber*) transactionId
+-(NSURLSessionTask*) deleteOfferTransactionWithTransactionId: (NSNumber*) transactionId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIWalletApiErrorDomain code:kOAIWalletApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'transactionId' is set
     if (transactionId == nil) {
         NSParameterAssert(transactionId);
@@ -224,12 +193,9 @@ NSInteger kOAIWalletApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/wallet/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/wallet/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -284,8 +250,6 @@ NSInteger kOAIWalletApiMissingParamErrorCode = 234513;
 ///
 /// Get Wallet Offer
 /// 
-///  @param version  
-///
 ///  @param transactionId The offer transaction id to get details of 
 ///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
@@ -302,8 +266,7 @@ NSInteger kOAIWalletApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIOfferTransactionResponse*
 ///
--(NSURLSessionTask*) getOfferTransactionWithVersion: (NSNumber*) version
-    transactionId: (NSNumber*) transactionId
+-(NSURLSessionTask*) getOfferTransactionWithTransactionId: (NSNumber*) transactionId
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     includeMission: (NSNumber*) includeMission
@@ -311,17 +274,6 @@ NSInteger kOAIWalletApiMissingParamErrorCode = 234513;
     longitude: (NSNumber*) longitude
     returnFullResponse: (NSNumber*) returnFullResponse
     completionHandler: (void (^)(OAIOfferTransactionResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIWalletApiErrorDomain code:kOAIWalletApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'transactionId' is set
     if (transactionId == nil) {
         NSParameterAssert(transactionId);
@@ -333,12 +285,9 @@ NSInteger kOAIWalletApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/wallet/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/wallet/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -405,8 +354,6 @@ NSInteger kOAIWalletApiMissingParamErrorCode = 234513;
 ///
 /// Preview Wallet Offers
 /// Preview the final cost of a transaction without charging the user
-///  @param version  
-///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
 ///
 ///  @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -429,8 +376,7 @@ NSInteger kOAIWalletApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIOfferTransactionResponse>*
 ///
--(NSURLSessionTask*) previewOfferTransactionWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) previewOfferTransactionWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     offerId: (NSNumber*) offerId
     offerLocationId: (NSNumber*) offerLocationId
@@ -441,23 +387,9 @@ NSInteger kOAIWalletApiMissingParamErrorCode = 234513;
     metaData: (NSString*) metaData
     appKey: (NSString*) appKey
     completionHandler: (void (^)(NSArray<OAIOfferTransactionResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIWalletApiErrorDomain code:kOAIWalletApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/wallet/preview"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/wallet/preview"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -533,8 +465,6 @@ NSInteger kOAIWalletApiMissingParamErrorCode = 234513;
 ///
 /// Search Wallet Offers
 /// Search on active offers currently in the user's wallet, or past offers the user has already redeemed.
-///  @param version  
-///
 ///  @param deviceId The device id (deviceId or accountId required) (optional)
 ///
 ///  @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -619,8 +549,7 @@ NSInteger kOAIWalletApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIOfferTransactionResponse>*
 ///
--(NSURLSessionTask*) searchOfferTransactionsWithVersion: (NSNumber*) version
-    deviceId: (NSString*) deviceId
+-(NSURLSessionTask*) searchOfferTransactionsWithDeviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
     keyword: (NSString*) keyword
     retailerId: (NSNumber*) retailerId
@@ -662,23 +591,9 @@ NSInteger kOAIWalletApiMissingParamErrorCode = 234513;
     recurringExpirationSince: (NSNumber*) recurringExpirationSince
     recurringExpirationBefore: (NSNumber*) recurringExpirationBefore
     completionHandler: (void (^)(NSArray<OAIOfferTransactionResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIWalletApiErrorDomain code:kOAIWalletApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/wallet/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/wallet/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {
@@ -847,8 +762,6 @@ NSInteger kOAIWalletApiMissingParamErrorCode = 234513;
 ///
 /// Update Wallet Offer
 /// Update offer status. The status values are: 0 - not redeemable, 1 - redeemable.  Not redeemable means the customer has received the offer but has not decided to use (or print) it yet.  Until they choose to do this the merchant cannot redeem the offer (has not been given permission yet).   Redeemable means the customer has chosen to use the offer and wishes to redeem it.  Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
-///  @param version  
-///
 ///  @param transactionId The offer transaction id to remove 
 ///
 ///  @param status The status value to change to (0 or 1) 
@@ -877,8 +790,7 @@ NSInteger kOAIWalletApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIOfferTransactionResponse*
 ///
--(NSURLSessionTask*) updateOfferTransactionWithVersion: (NSNumber*) version
-    transactionId: (NSNumber*) transactionId
+-(NSURLSessionTask*) updateOfferTransactionWithTransactionId: (NSNumber*) transactionId
     status: (NSNumber*) status
     deviceId: (NSString*) deviceId
     accountId: (NSNumber*) accountId
@@ -892,17 +804,6 @@ NSInteger kOAIWalletApiMissingParamErrorCode = 234513;
     returnFullResponse: (NSNumber*) returnFullResponse
     exceptionMembershipOfferIds: (NSString*) exceptionMembershipOfferIds
     completionHandler: (void (^)(OAIOfferTransactionResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIWalletApiErrorDomain code:kOAIWalletApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'transactionId' is set
     if (transactionId == nil) {
         NSParameterAssert(transactionId);
@@ -925,12 +826,9 @@ NSInteger kOAIWalletApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/wallet/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/wallet/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (deviceId != nil) {

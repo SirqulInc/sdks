@@ -26,7 +26,6 @@ extern NSInteger kOAITwilioApiMissingParamErrorCode;
 /// Buy Offer by SMS
 /// Recieve an SMS payload from Twillio to purchase an offer.
 ///
-/// @param version 
 /// @param appKey the application key
 /// @param body the message of the text
 /// @param from the sender of the sms
@@ -35,8 +34,7 @@ extern NSInteger kOAITwilioApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAITwiMLResponse*
--(NSURLSessionTask*) smsBuyOfferWithVersion: (NSNumber*) version
-    appKey: (NSString*) appKey
+-(NSURLSessionTask*) smsBuyOfferWithAppKey: (NSString*) appKey
     body: (NSString*) body
     from: (NSString*) from
     currencyType: (NSString*) currencyType

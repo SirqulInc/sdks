@@ -55,8 +55,6 @@ NSInteger kOAIListingApiMissingParamErrorCode = 234513;
 ///
 /// Create Listing
 /// Creates a listing.
-///  @param version  
-///
 ///  @param accountId the user's account ID 
 ///
 ///  @param name the name of the listing 
@@ -87,8 +85,7 @@ NSInteger kOAIListingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIListingFullResponse*
 ///
--(NSURLSessionTask*) createListingWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createListingWithAccountId: (NSNumber*) accountId
     name: (NSString*) name
     filterIds: (NSString*) filterIds
     _description: (NSString*) _description
@@ -103,17 +100,6 @@ NSInteger kOAIListingApiMissingParamErrorCode = 234513;
     active: (NSNumber*) active
     metaData: (NSString*) metaData
     completionHandler: (void (^)(OAIListingFullResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIListingApiErrorDomain code:kOAIListingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -136,12 +122,9 @@ NSInteger kOAIListingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/listing/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/listing/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -229,29 +212,15 @@ NSInteger kOAIListingApiMissingParamErrorCode = 234513;
 ///
 /// Delete Listing
 /// Delete a listing.
-///  @param version  
-///
 ///  @param accountId the id of the logged in user 
 ///
 ///  @param listingId the id of the listing to delete 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deleteListingWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteListingWithAccountId: (NSNumber*) accountId
     listingId: (NSNumber*) listingId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIListingApiErrorDomain code:kOAIListingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -274,12 +243,9 @@ NSInteger kOAIListingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/listing/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/listing/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -331,26 +297,12 @@ NSInteger kOAIListingApiMissingParamErrorCode = 234513;
 ///
 /// Get Listing
 /// Get a listing by id.
-///  @param version  
-///
 ///  @param listingId the id of the listing to get 
 ///
 ///  @returns OAIListingFullResponse*
 ///
--(NSURLSessionTask*) getListingWithVersion: (NSNumber*) version
-    listingId: (NSNumber*) listingId
+-(NSURLSessionTask*) getListingWithListingId: (NSNumber*) listingId
     completionHandler: (void (^)(OAIListingFullResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIListingApiErrorDomain code:kOAIListingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'listingId' is set
     if (listingId == nil) {
         NSParameterAssert(listingId);
@@ -362,12 +314,9 @@ NSInteger kOAIListingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/listing/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/listing/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (listingId != nil) {
@@ -416,8 +365,6 @@ NSInteger kOAIListingApiMissingParamErrorCode = 234513;
 ///
 /// Search Listings
 /// Search for event listings from the start time to end time
-///  @param version  
-///
 ///  @param accountId the account id of the user (optional)
 ///
 ///  @param keyword search the event name and description for this keyword (optional)
@@ -450,8 +397,7 @@ NSInteger kOAIListingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIListingResponse>*
 ///
--(NSURLSessionTask*) searchListingWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchListingWithAccountId: (NSNumber*) accountId
     keyword: (NSString*) keyword
     start: (NSNumber*) start
     limit: (NSNumber*) limit
@@ -467,23 +413,9 @@ NSInteger kOAIListingApiMissingParamErrorCode = 234513;
     externalId2: (NSString*) externalId2
     externalGroupId: (NSString*) externalGroupId
     completionHandler: (void (^)(NSArray<OAIListingResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIListingApiErrorDomain code:kOAIListingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/listing/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/listing/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -574,8 +506,6 @@ NSInteger kOAIListingApiMissingParamErrorCode = 234513;
 ///
 /// Summary Listing
 /// Search for a list of summary listings from the start time up to 8 days out.
-///  @param version  
-///
 ///  @param accountId the account id of the user (optional)
 ///
 ///  @param startDate the start date to search from (optional)
@@ -588,30 +518,15 @@ NSInteger kOAIListingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIListingGroupResponse>*
 ///
--(NSURLSessionTask*) summaryListingWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) summaryListingWithAccountId: (NSNumber*) accountId
     startDate: (NSNumber*) startDate
     categoryIds: (NSString*) categoryIds
     daysToInclude: (NSNumber*) daysToInclude
     useListingOrderIds: (NSNumber*) useListingOrderIds
     completionHandler: (void (^)(NSArray<OAIListingGroupResponse>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIListingApiErrorDomain code:kOAIListingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/listing/summary"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/listing/summary"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -672,8 +587,6 @@ NSInteger kOAIListingApiMissingParamErrorCode = 234513;
 ///
 /// Update Listing
 /// Updates a listing.
-///  @param version  
-///
 ///  @param accountId the user's account ID 
 ///
 ///  @param listingId the listing to update 
@@ -706,8 +619,7 @@ NSInteger kOAIListingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIListingFullResponse*
 ///
--(NSURLSessionTask*) updateListingWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateListingWithAccountId: (NSNumber*) accountId
     listingId: (NSNumber*) listingId
     filterIds: (NSString*) filterIds
     name: (NSString*) name
@@ -723,17 +635,6 @@ NSInteger kOAIListingApiMissingParamErrorCode = 234513;
     active: (NSNumber*) active
     metaData: (NSString*) metaData
     completionHandler: (void (^)(OAIListingFullResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIListingApiErrorDomain code:kOAIListingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -756,12 +657,9 @@ NSInteger kOAIListingApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/listing/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/listing/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

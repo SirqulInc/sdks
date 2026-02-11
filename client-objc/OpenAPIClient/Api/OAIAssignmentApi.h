@@ -29,15 +29,13 @@ extern NSInteger kOAIAssignmentApiMissingParamErrorCode;
 /// Search Assignment Assignees
 /// Search for avaiable users for creating or updating assignment.
 ///
-/// @param version 
 /// @param accountId The account id sending the request
 /// @param keyword The keyword to filter the returned results (optional)
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIAccountMiniResponse>*
--(NSURLSessionTask*) assigmentAssigneeAccountSearchWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) assigmentAssigneeAccountSearchWithAccountId: (NSNumber*) accountId
     keyword: (NSString*) keyword
     completionHandler: (void (^)(NSArray<OAIAccountMiniResponse>* output, NSError* error)) handler;
 
@@ -45,7 +43,6 @@ extern NSInteger kOAIAssignmentApiMissingParamErrorCode;
 /// Create Assignment
 /// Create an assignment.
 ///
-/// @param version 
 /// @param accountId the user account id
 /// @param name the name for the assignment
 /// @param assigneeAccountId the account id to assign to
@@ -57,8 +54,7 @@ extern NSInteger kOAIAssignmentApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAssignmentResponse*
--(NSURLSessionTask*) assignmentCreateWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) assignmentCreateWithAccountId: (NSNumber*) accountId
     name: (NSString*) name
     assigneeAccountId: (NSNumber*) assigneeAccountId
     _description: (NSString*) _description
@@ -71,15 +67,13 @@ extern NSInteger kOAIAssignmentApiMissingParamErrorCode;
 /// Delete Assignment
 /// Delete an assignment.
 ///
-/// @param version 
 /// @param accountId the user account id
 /// @param assignmentId the assignment id
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) assignmentDeleteWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) assignmentDeleteWithAccountId: (NSNumber*) accountId
     assignmentId: (NSNumber*) assignmentId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -87,15 +81,13 @@ extern NSInteger kOAIAssignmentApiMissingParamErrorCode;
 /// Get Assignment
 /// Get the details of an assignment.
 ///
-/// @param version 
 /// @param accountId the user account id
 /// @param assignmentId the assignment id
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAssignmentResponse*
--(NSURLSessionTask*) assignmentGetWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) assignmentGetWithAccountId: (NSNumber*) accountId
     assignmentId: (NSNumber*) assignmentId
     completionHandler: (void (^)(OAIAssignmentResponse* output, NSError* error)) handler;
 
@@ -103,7 +95,6 @@ extern NSInteger kOAIAssignmentApiMissingParamErrorCode;
 /// Search Assignments
 /// Search for assignments by the given parameters.
 ///
-/// @param version 
 /// @param accountId the account sending the request
 /// @param sortField sort by table field
 /// @param descending return results in descending order or not
@@ -119,8 +110,7 @@ extern NSInteger kOAIAssignmentApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIAssignmentResponse>*
--(NSURLSessionTask*) assignmentSearchWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) assignmentSearchWithAccountId: (NSNumber*) accountId
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     activeOnly: (NSNumber*) activeOnly
@@ -137,7 +127,6 @@ extern NSInteger kOAIAssignmentApiMissingParamErrorCode;
 /// Create Assignment Status
 /// Create an assignment status.
 ///
-/// @param version 
 /// @param accountId the user account id
 /// @param assignmentId the assignment id
 /// @param scheduledNotificationId the scheduled notification id for reminders (optional)
@@ -153,8 +142,7 @@ extern NSInteger kOAIAssignmentApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAssignmentStatusResponse*
--(NSURLSessionTask*) assignmentStatusCreateWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) assignmentStatusCreateWithAccountId: (NSNumber*) accountId
     assignmentId: (NSNumber*) assignmentId
     scheduledNotificationId: (NSNumber*) scheduledNotificationId
     toDo: (NSString*) toDo
@@ -171,15 +159,13 @@ extern NSInteger kOAIAssignmentApiMissingParamErrorCode;
 /// Deletes Assignment Status
 /// Deletes an assignment status.
 ///
-/// @param version 
 /// @param accountId the user account id
 /// @param assignmentStatusId the assignment status id
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) assignmentStatusDeleteWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) assignmentStatusDeleteWithAccountId: (NSNumber*) accountId
     assignmentStatusId: (NSNumber*) assignmentStatusId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -187,15 +173,13 @@ extern NSInteger kOAIAssignmentApiMissingParamErrorCode;
 /// Get Assignment Status
 /// Get an assignment status.
 ///
-/// @param version 
 /// @param accountId the user account id
 /// @param assignmentStatusId the assignment status id
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAssignmentStatusResponse*
--(NSURLSessionTask*) assignmentStatusGetWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) assignmentStatusGetWithAccountId: (NSNumber*) accountId
     assignmentStatusId: (NSNumber*) assignmentStatusId
     completionHandler: (void (^)(OAIAssignmentStatusResponse* output, NSError* error)) handler;
 
@@ -203,7 +187,6 @@ extern NSInteger kOAIAssignmentApiMissingParamErrorCode;
 /// Search Assignment Statuses
 /// Search on assignment statuses.
 ///
-/// @param version 
 /// @param accountId the user account id
 /// @param sortField the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP
 /// @param descending determines whether the sorted list is in descending or ascending order
@@ -220,8 +203,7 @@ extern NSInteger kOAIAssignmentApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return NSArray<OAIAssignmentStatusResponse>*
--(NSURLSessionTask*) assignmentStatusSearchWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) assignmentStatusSearchWithAccountId: (NSNumber*) accountId
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     activeOnly: (NSNumber*) activeOnly
@@ -239,7 +221,6 @@ extern NSInteger kOAIAssignmentApiMissingParamErrorCode;
 /// Update Assignment Status
 /// Updates an assignment status.
 ///
-/// @param version 
 /// @param accountId the user account id
 /// @param assignmentStatusId the assignment status id
 /// @param scheduledNotificationId the scheduled notification id for reminders (optional)
@@ -255,8 +236,7 @@ extern NSInteger kOAIAssignmentApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAssignmentStatusResponse*
--(NSURLSessionTask*) assignmentStatusUpdateWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) assignmentStatusUpdateWithAccountId: (NSNumber*) accountId
     assignmentStatusId: (NSNumber*) assignmentStatusId
     scheduledNotificationId: (NSNumber*) scheduledNotificationId
     toDo: (NSString*) toDo
@@ -273,7 +253,6 @@ extern NSInteger kOAIAssignmentApiMissingParamErrorCode;
 /// Update Assignment
 /// Updates an assignment.
 ///
-/// @param version 
 /// @param accountId the user account id
 /// @param assignmentId the assignment id
 /// @param name the name of the assignment (optional)
@@ -286,8 +265,7 @@ extern NSInteger kOAIAssignmentApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIAssignmentResponse*
--(NSURLSessionTask*) assignmentUpdateWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) assignmentUpdateWithAccountId: (NSNumber*) accountId
     assignmentId: (NSNumber*) assignmentId
     name: (NSString*) name
     _description: (NSString*) _description

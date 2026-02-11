@@ -53,8 +53,6 @@ NSInteger kOAIPreviewPersonaApiMissingParamErrorCode = 234513;
 ///
 /// Create Persona
 /// Creates a new persona. If the given params are null those attributes will be override by null.
-///  @param version  
-///
 ///  @param accountId the account ID of the user 
 ///
 ///  @param title the title of the persona 
@@ -75,8 +73,7 @@ NSInteger kOAIPreviewPersonaApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIPreviewPersonaResponse*
 ///
--(NSURLSessionTask*) createPersonaWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createPersonaWithAccountId: (NSNumber*) accountId
     title: (NSString*) title
     previewAccounts: (NSString*) previewAccounts
     date: (NSNumber*) date
@@ -86,17 +83,6 @@ NSInteger kOAIPreviewPersonaApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIPreviewPersonaResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIPreviewPersonaApiErrorDomain code:kOAIPreviewPersonaApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -119,12 +105,9 @@ NSInteger kOAIPreviewPersonaApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/persona/create"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/persona/create"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -197,29 +180,15 @@ NSInteger kOAIPreviewPersonaApiMissingParamErrorCode = 234513;
 ///
 /// Delete Persona
 /// Mark the persona for deletion.
-///  @param version  
-///
 ///  @param accountId the account id of the user 
 ///
 ///  @param personaId the id of the persona to delete 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) deletePersonaWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deletePersonaWithAccountId: (NSNumber*) accountId
     personaId: (NSNumber*) personaId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIPreviewPersonaApiErrorDomain code:kOAIPreviewPersonaApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -242,12 +211,9 @@ NSInteger kOAIPreviewPersonaApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/persona/delete"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/persona/delete"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -299,29 +265,15 @@ NSInteger kOAIPreviewPersonaApiMissingParamErrorCode = 234513;
 ///
 /// Get Persona
 /// Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned.
-///  @param version  
-///
 ///  @param accountId the account ID of the user 
 ///
 ///  @param personaId the persona ID of the persona 
 ///
 ///  @returns OAIPreviewPersonaResponse*
 ///
--(NSURLSessionTask*) getPersonaListWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getPersonaListWithAccountId: (NSNumber*) accountId
     personaId: (NSNumber*) personaId
     completionHandler: (void (^)(OAIPreviewPersonaResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIPreviewPersonaApiErrorDomain code:kOAIPreviewPersonaApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -344,12 +296,9 @@ NSInteger kOAIPreviewPersonaApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/persona/get"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/persona/get"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -401,8 +350,6 @@ NSInteger kOAIPreviewPersonaApiMissingParamErrorCode = 234513;
 ///
 /// Search Personas
 /// Search for persona that the account owns by the given account ID.
-///  @param version  
-///
 ///  @param accountId the account ID of the user 
 ///
 ///  @param start the start index for pagination 
@@ -411,22 +358,10 @@ NSInteger kOAIPreviewPersonaApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIPreviewPersonaResponse*
 ///
--(NSURLSessionTask*) searchPersonaWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchPersonaWithAccountId: (NSNumber*) accountId
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(OAIPreviewPersonaResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIPreviewPersonaApiErrorDomain code:kOAIPreviewPersonaApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -460,12 +395,9 @@ NSInteger kOAIPreviewPersonaApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/persona/search"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/persona/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {
@@ -520,8 +452,6 @@ NSInteger kOAIPreviewPersonaApiMissingParamErrorCode = 234513;
 ///
 /// Update Persona
 /// Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored.
-///  @param version  
-///
 ///  @param accountId the account ID of the user 
 ///
 ///  @param personaId the persona ID of the persona to update 
@@ -546,8 +476,7 @@ NSInteger kOAIPreviewPersonaApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAIPreviewPersonaResponse*
 ///
--(NSURLSessionTask*) updatePersonaWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updatePersonaWithAccountId: (NSNumber*) accountId
     personaId: (NSNumber*) personaId
     title: (NSString*) title
     previewAccounts: (NSString*) previewAccounts
@@ -559,17 +488,6 @@ NSInteger kOAIPreviewPersonaApiMissingParamErrorCode = 234513;
     latitude: (NSNumber*) latitude
     longitude: (NSNumber*) longitude
     completionHandler: (void (^)(OAIPreviewPersonaResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIPreviewPersonaApiErrorDomain code:kOAIPreviewPersonaApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -592,12 +510,9 @@ NSInteger kOAIPreviewPersonaApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/persona/update"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/persona/update"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (accountId != nil) {

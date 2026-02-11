@@ -53,32 +53,15 @@ NSInteger kOAIShipmentBatchApiMissingParamErrorCode = 234513;
 ///
 /// Create Shipment Batch
 /// Create a new shipment batch
-///  @param version  
-///
 ///  @param body  (optional)
 ///
 ///  @returns OAIShipmentBatch*
 ///
--(NSURLSessionTask*) createShipmentBatchWithVersion: (NSNumber*) version
-    body: (OAIShipmentBatch*) body
+-(NSURLSessionTask*) createShipmentBatchWithBody: (OAIShipmentBatch*) body
     completionHandler: (void (^)(OAIShipmentBatch* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIShipmentBatchApiErrorDomain code:kOAIShipmentBatchApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/shipment/batch"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/shipment/batch"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
@@ -125,26 +108,12 @@ NSInteger kOAIShipmentBatchApiMissingParamErrorCode = 234513;
 ///
 /// Delete Shipment Batch
 /// Search for shipment batches
-///  @param version  
-///
 ///  @param batchId the id of the shipment batch to delete 
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) deleteShipmentBatchWithVersion: (NSNumber*) version
-    batchId: (NSNumber*) batchId
+-(NSURLSessionTask*) deleteShipmentBatchWithBatchId: (NSNumber*) batchId
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIShipmentBatchApiErrorDomain code:kOAIShipmentBatchApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'batchId' is set
     if (batchId == nil) {
         NSParameterAssert(batchId);
@@ -156,12 +125,9 @@ NSInteger kOAIShipmentBatchApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/shipment/batch/{batchId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/shipment/batch/{batchId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (batchId != nil) {
         pathParams[@"batchId"] = batchId;
     }
@@ -210,26 +176,12 @@ NSInteger kOAIShipmentBatchApiMissingParamErrorCode = 234513;
 ///
 /// Get Shipment Batch
 /// Get an existing shipment batch
-///  @param version  
-///
 ///  @param batchId the id of the shipment batch to get 
 ///
 ///  @returns OAIShipmentBatch*
 ///
--(NSURLSessionTask*) getShipmentBatchWithVersion: (NSNumber*) version
-    batchId: (NSNumber*) batchId
+-(NSURLSessionTask*) getShipmentBatchWithBatchId: (NSNumber*) batchId
     completionHandler: (void (^)(OAIShipmentBatch* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIShipmentBatchApiErrorDomain code:kOAIShipmentBatchApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'batchId' is set
     if (batchId == nil) {
         NSParameterAssert(batchId);
@@ -241,12 +193,9 @@ NSInteger kOAIShipmentBatchApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/shipment/batch/{batchId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/shipment/batch/{batchId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (batchId != nil) {
         pathParams[@"batchId"] = batchId;
     }
@@ -295,8 +244,6 @@ NSInteger kOAIShipmentBatchApiMissingParamErrorCode = 234513;
 ///
 /// Get Shipment Batch Status
 /// Get the import status list of the import shipment batch
-///  @param version  
-///
 ///  @param batchId The id of the requested shipment batch 
 ///
 ///  @param accountId the id of the logged in user 
@@ -323,8 +270,7 @@ NSInteger kOAIShipmentBatchApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIShipmentImportStatus>*
 ///
--(NSURLSessionTask*) getShipmentBatchStatusWithVersion: (NSNumber*) version
-    batchId: (NSNumber*) batchId
+-(NSURLSessionTask*) getShipmentBatchStatusWithBatchId: (NSNumber*) batchId
     accountId: (NSNumber*) accountId
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
@@ -337,17 +283,6 @@ NSInteger kOAIShipmentBatchApiMissingParamErrorCode = 234513;
     hasRoute: (NSNumber*) hasRoute
     keyword: (NSString*) keyword
     completionHandler: (void (^)(NSArray<OAIShipmentImportStatus>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIShipmentBatchApiErrorDomain code:kOAIShipmentBatchApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'batchId' is set
     if (batchId == nil) {
         NSParameterAssert(batchId);
@@ -414,12 +349,9 @@ NSInteger kOAIShipmentBatchApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/shipment/batch/{batchId}/status"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/shipment/batch/{batchId}/status"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (batchId != nil) {
         pathParams[@"batchId"] = batchId;
     }
@@ -501,8 +433,6 @@ NSInteger kOAIShipmentBatchApiMissingParamErrorCode = 234513;
 ///
 /// Search Shipment Batch
 /// Search for shipment batches
-///  @param version  
-///
 ///  @param hubId The associated service hub 
 ///
 ///  @param sortField The field to sort by 
@@ -515,24 +445,12 @@ NSInteger kOAIShipmentBatchApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSArray<OAIShipmentBatch>*
 ///
--(NSURLSessionTask*) searchShipmentBatchWithVersion: (NSNumber*) version
-    hubId: (NSNumber*) hubId
+-(NSURLSessionTask*) searchShipmentBatchWithHubId: (NSNumber*) hubId
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
     start: (NSNumber*) start
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSArray<OAIShipmentBatch>* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIShipmentBatchApiErrorDomain code:kOAIShipmentBatchApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'hubId' is set
     if (hubId == nil) {
         NSParameterAssert(hubId);
@@ -588,12 +506,9 @@ NSInteger kOAIShipmentBatchApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/shipment/batch"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/shipment/batch"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (hubId != nil) {

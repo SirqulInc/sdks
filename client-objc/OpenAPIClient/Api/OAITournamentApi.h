@@ -28,7 +28,6 @@ extern NSInteger kOAITournamentApiMissingParamErrorCode;
 /// Create Tournament
 /// Create a tournament.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param appKey The appKey the tournament is created for.
 /// @param title The title of the tournament
@@ -68,8 +67,7 @@ extern NSInteger kOAITournamentApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAITournamentResponse*
--(NSURLSessionTask*) createTournamentWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createTournamentWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     title: (NSString*) title
     costToPlay: (NSNumber*) costToPlay
@@ -110,15 +108,13 @@ extern NSInteger kOAITournamentApiMissingParamErrorCode;
 /// Delete Tournament
 /// Delete a tournament.
 ///
-/// @param version 
 /// @param accountId the id of the logged in user
 /// @param missionId the id of the mission to delete
 /// 
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) deleteTournamentWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) deleteTournamentWithAccountId: (NSNumber*) accountId
     missionId: (NSNumber*) missionId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler;
 
@@ -126,7 +122,6 @@ extern NSInteger kOAITournamentApiMissingParamErrorCode;
 /// Get Tournament
 /// Get a tournament.
 ///
-/// @param version 
 /// @param accountId The id of the logged in user
 /// @param missionId The id of the mission to return (either missionId or joinCode is required) (optional)
 /// @param joinCode Optional identifier for getting the tournament (either missionId or joinCode is required) (optional)
@@ -136,8 +131,7 @@ extern NSInteger kOAITournamentApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAITournamentResponse*
--(NSURLSessionTask*) getTournamentWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getTournamentWithAccountId: (NSNumber*) accountId
     missionId: (NSNumber*) missionId
     joinCode: (NSString*) joinCode
     includeScores: (NSString*) includeScores
@@ -148,7 +142,6 @@ extern NSInteger kOAITournamentApiMissingParamErrorCode;
 /// Search Tournament Objects
 /// Search on game objects of tournaments
 ///
-/// @param version 
 /// @param accountId the account ID
 /// @param gameLevelId the game level id to filter results by
 /// @param sortField the field to sort by (optional) (default to @"PLAYER_SCORE_COUNT")
@@ -159,8 +152,7 @@ extern NSInteger kOAITournamentApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) searchObjectsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchObjectsWithAccountId: (NSNumber*) accountId
     gameLevelId: (NSNumber*) gameLevelId
     sortField: (NSString*) sortField
     descending: (NSNumber*) descending
@@ -172,7 +164,6 @@ extern NSInteger kOAITournamentApiMissingParamErrorCode;
 /// Search Tournament Rounds
 /// Search for the user's tournament games.
 ///
-/// @param version 
 /// @param accountId the account ID
 /// @param appKey the application key
 /// @param status comma separated list of statuses to filter results by (optional) (default to @"ACCEPTED,ACTIVE")
@@ -185,8 +176,7 @@ extern NSInteger kOAITournamentApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) searchRoundsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchRoundsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     status: (NSString*) status
     missionType: (NSString*) missionType
@@ -200,7 +190,6 @@ extern NSInteger kOAITournamentApiMissingParamErrorCode;
 /// Search Tournaments
 /// Search for tournaments
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param appKey The application key
 /// @param keyword the keyword to search tournament on (optional)
@@ -217,8 +206,7 @@ extern NSInteger kOAITournamentApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAIMissionShortResponse*
--(NSURLSessionTask*) searchTournamentsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) searchTournamentsWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     keyword: (NSString*) keyword
     subType: (NSString*) subType
@@ -236,7 +224,6 @@ extern NSInteger kOAITournamentApiMissingParamErrorCode;
 /// Submit Tournament Score
 /// Submit an array of scores for a tournament match. 
 ///
-/// @param version 
 /// @param accountId The logged in user account ID.
 /// @param appKey The application key.
 /// @param missionId The missionId to score for
@@ -248,8 +235,7 @@ extern NSInteger kOAITournamentApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) submitTournamentScoreWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) submitTournamentScoreWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     missionId: (NSNumber*) missionId
     gameId: (NSNumber*) gameId
@@ -262,7 +248,6 @@ extern NSInteger kOAITournamentApiMissingParamErrorCode;
 /// Submit a vote for a multi-stage album tournament.
 /// Submit a vote for a multi-stage album tournament.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param appKey The application to target
 /// @param missionId The tournament&#39;s primary id
@@ -273,8 +258,7 @@ extern NSInteger kOAITournamentApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) submitTournamentVoteWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) submitTournamentVoteWithAccountId: (NSNumber*) accountId
     appKey: (NSString*) appKey
     missionId: (NSNumber*) missionId
     gameObjectId: (NSNumber*) gameObjectId
@@ -286,7 +270,6 @@ extern NSInteger kOAITournamentApiMissingParamErrorCode;
 /// Substitute Tournament Player
 /// Service to replace the user's opponent in the current level - pack - mission with an AI account.
 ///
-/// @param version 
 /// @param accountId the id of the logged in user
 /// @param missionId the id of the mission
 /// @param packId the id of the pack
@@ -295,8 +278,7 @@ extern NSInteger kOAITournamentApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAISirqulResponse*
--(NSURLSessionTask*) substituteTournamentPlayerWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) substituteTournamentPlayerWithAccountId: (NSNumber*) accountId
     missionId: (NSNumber*) missionId
     packId: (NSNumber*) packId
     gameLevelId: (NSNumber*) gameLevelId
@@ -306,7 +288,6 @@ extern NSInteger kOAITournamentApiMissingParamErrorCode;
 /// Update Tournament
 /// Update a tournament.
 ///
-/// @param version 
 /// @param accountId The logged in user.
 /// @param missionId The mission/tournament to update
 /// @param title The title of the tournament (optional)
@@ -345,8 +326,7 @@ extern NSInteger kOAITournamentApiMissingParamErrorCode;
 ///  code:200 message:"successful operation"
 ///
 /// @return OAITournamentResponse*
--(NSURLSessionTask*) updateTournamentWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) updateTournamentWithAccountId: (NSNumber*) accountId
     missionId: (NSNumber*) missionId
     title: (NSString*) title
     subType: (NSString*) subType

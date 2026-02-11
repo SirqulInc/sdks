@@ -53,29 +53,15 @@ NSInteger kOAIDependentApiMissingParamErrorCode = 234513;
 ///
 /// Create Dependent
 /// Create dependent of the account
-///  @param version  
-///
 ///  @param accountId the id of the parent account to create a dependent for 
 ///
 ///  @param body  (optional)
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) createWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) createWithAccountId: (NSNumber*) accountId
     body: (OAIAccount*) body
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIDependentApiErrorDomain code:kOAIDependentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -87,12 +73,9 @@ NSInteger kOAIDependentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/cargo/dependent/{accountId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/cargo/dependent/{accountId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (accountId != nil) {
         pathParams[@"accountId"] = accountId;
     }
@@ -142,26 +125,12 @@ NSInteger kOAIDependentApiMissingParamErrorCode = 234513;
 ///
 /// Get dependent list of an account
 /// Get the dependent list of an account
-///  @param version  
-///
 ///  @param accountId the id of the parent account to get a list of dependents 
 ///
 ///  @returns OAISirqulResponse*
 ///
--(NSURLSessionTask*) getDependentsWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) getDependentsWithAccountId: (NSNumber*) accountId
     completionHandler: (void (^)(OAISirqulResponse* output, NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIDependentApiErrorDomain code:kOAIDependentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -173,12 +142,9 @@ NSInteger kOAIDependentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/cargo/dependent/{accountId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/cargo/dependent/{accountId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (accountId != nil) {
         pathParams[@"accountId"] = accountId;
     }
@@ -227,29 +193,15 @@ NSInteger kOAIDependentApiMissingParamErrorCode = 234513;
 ///
 /// Delete Dependent
 /// Delete the Dependent
-///  @param version  
-///
 ///  @param accountId the id of the parent account tied to the dependent 
 ///
 ///  @param dependentId the id of the dependent to delete 
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) removeDependentWithVersion: (NSNumber*) version
-    accountId: (NSNumber*) accountId
+-(NSURLSessionTask*) removeDependentWithAccountId: (NSNumber*) accountId
     dependentId: (NSNumber*) dependentId
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'version' is set
-    if (version == nil) {
-        NSParameterAssert(version);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"version"] };
-            NSError* error = [NSError errorWithDomain:kOAIDependentApiErrorDomain code:kOAIDependentApiMissingParamErrorCode userInfo:userInfo];
-            handler(error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'accountId' is set
     if (accountId == nil) {
         NSParameterAssert(accountId);
@@ -272,12 +224,9 @@ NSInteger kOAIDependentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/{version}/cargo/dependent/{accountId}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/cargo/dependent/{accountId}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (version != nil) {
-        pathParams[@"version"] = version;
-    }
     if (accountId != nil) {
         pathParams[@"accountId"] = accountId;
     }
