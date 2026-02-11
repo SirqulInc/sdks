@@ -43,7 +43,7 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
@@ -93,10 +93,9 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
      }
 
     /**
-     * POST /api/{version}/purchase/create
+     * POST /purchase/create
      * Create Purchase
      * Creates a purchase item for in app purchases
-     * @param version 
      * @param appKey The application key that the purchase can be used in
      * @param name The name of the purchase item
      * @param purchaseType The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt;
@@ -126,8 +125,8 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createPurchaseItem(version: java.math.BigDecimal, appKey: kotlin.String, name: kotlin.String, purchaseType: PurchaseTypeCreatePurchaseItem, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, description: kotlin.String? = null, tickets: kotlin.Int? = null, price: kotlin.Float? = null, purchaseCode: kotlin.String? = null, secretKey: kotlin.String? = null, purchaseLimit: kotlin.Int? = 0, serviceAction: ServiceActionCreatePurchaseItem? = null, coverAssetId: kotlin.Long? = null, promoAssetId: kotlin.Long? = null, giftable: kotlin.Boolean? = null, assetable: kotlin.Boolean? = null, allocateTickets: kotlin.Boolean? = false, ticketType: kotlin.String? = null, points: kotlin.Long? = null, offerLocationId: kotlin.Long? = null) : PurchaseItemFullResponse {
-        val localVarResponse = createPurchaseItemWithHttpInfo(version = version, appKey = appKey, name = name, purchaseType = purchaseType, deviceId = deviceId, accountId = accountId, description = description, tickets = tickets, price = price, purchaseCode = purchaseCode, secretKey = secretKey, purchaseLimit = purchaseLimit, serviceAction = serviceAction, coverAssetId = coverAssetId, promoAssetId = promoAssetId, giftable = giftable, assetable = assetable, allocateTickets = allocateTickets, ticketType = ticketType, points = points, offerLocationId = offerLocationId)
+    fun createPurchaseItem(appKey: kotlin.String, name: kotlin.String, purchaseType: PurchaseTypeCreatePurchaseItem, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, description: kotlin.String? = null, tickets: kotlin.Int? = null, price: kotlin.Float? = null, purchaseCode: kotlin.String? = null, secretKey: kotlin.String? = null, purchaseLimit: kotlin.Int? = 0, serviceAction: ServiceActionCreatePurchaseItem? = null, coverAssetId: kotlin.Long? = null, promoAssetId: kotlin.Long? = null, giftable: kotlin.Boolean? = null, assetable: kotlin.Boolean? = null, allocateTickets: kotlin.Boolean? = false, ticketType: kotlin.String? = null, points: kotlin.Long? = null, offerLocationId: kotlin.Long? = null) : PurchaseItemFullResponse {
+        val localVarResponse = createPurchaseItemWithHttpInfo(appKey = appKey, name = name, purchaseType = purchaseType, deviceId = deviceId, accountId = accountId, description = description, tickets = tickets, price = price, purchaseCode = purchaseCode, secretKey = secretKey, purchaseLimit = purchaseLimit, serviceAction = serviceAction, coverAssetId = coverAssetId, promoAssetId = promoAssetId, giftable = giftable, assetable = assetable, allocateTickets = allocateTickets, ticketType = ticketType, points = points, offerLocationId = offerLocationId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PurchaseItemFullResponse
@@ -145,10 +144,9 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/purchase/create
+     * POST /purchase/create
      * Create Purchase
      * Creates a purchase item for in app purchases
-     * @param version 
      * @param appKey The application key that the purchase can be used in
      * @param name The name of the purchase item
      * @param purchaseType The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt;
@@ -175,8 +173,8 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createPurchaseItemWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String, name: kotlin.String, purchaseType: PurchaseTypeCreatePurchaseItem, deviceId: kotlin.String?, accountId: kotlin.Long?, description: kotlin.String?, tickets: kotlin.Int?, price: kotlin.Float?, purchaseCode: kotlin.String?, secretKey: kotlin.String?, purchaseLimit: kotlin.Int?, serviceAction: ServiceActionCreatePurchaseItem?, coverAssetId: kotlin.Long?, promoAssetId: kotlin.Long?, giftable: kotlin.Boolean?, assetable: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketType: kotlin.String?, points: kotlin.Long?, offerLocationId: kotlin.Long?) : ApiResponse<PurchaseItemFullResponse?> {
-        val localVariableConfig = createPurchaseItemRequestConfig(version = version, appKey = appKey, name = name, purchaseType = purchaseType, deviceId = deviceId, accountId = accountId, description = description, tickets = tickets, price = price, purchaseCode = purchaseCode, secretKey = secretKey, purchaseLimit = purchaseLimit, serviceAction = serviceAction, coverAssetId = coverAssetId, promoAssetId = promoAssetId, giftable = giftable, assetable = assetable, allocateTickets = allocateTickets, ticketType = ticketType, points = points, offerLocationId = offerLocationId)
+    fun createPurchaseItemWithHttpInfo(appKey: kotlin.String, name: kotlin.String, purchaseType: PurchaseTypeCreatePurchaseItem, deviceId: kotlin.String?, accountId: kotlin.Long?, description: kotlin.String?, tickets: kotlin.Int?, price: kotlin.Float?, purchaseCode: kotlin.String?, secretKey: kotlin.String?, purchaseLimit: kotlin.Int?, serviceAction: ServiceActionCreatePurchaseItem?, coverAssetId: kotlin.Long?, promoAssetId: kotlin.Long?, giftable: kotlin.Boolean?, assetable: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketType: kotlin.String?, points: kotlin.Long?, offerLocationId: kotlin.Long?) : ApiResponse<PurchaseItemFullResponse?> {
+        val localVariableConfig = createPurchaseItemRequestConfig(appKey = appKey, name = name, purchaseType = purchaseType, deviceId = deviceId, accountId = accountId, description = description, tickets = tickets, price = price, purchaseCode = purchaseCode, secretKey = secretKey, purchaseLimit = purchaseLimit, serviceAction = serviceAction, coverAssetId = coverAssetId, promoAssetId = promoAssetId, giftable = giftable, assetable = assetable, allocateTickets = allocateTickets, ticketType = ticketType, points = points, offerLocationId = offerLocationId)
 
         return request<Unit, PurchaseItemFullResponse>(
             localVariableConfig
@@ -186,7 +184,6 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation createPurchaseItem
      *
-     * @param version 
      * @param appKey The application key that the purchase can be used in
      * @param name The name of the purchase item
      * @param purchaseType The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt;
@@ -209,7 +206,7 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param offerLocationId The offer location that will get added to the user&#39;s wallet after purchase. (optional)
      * @return RequestConfig
      */
-    fun createPurchaseItemRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String, name: kotlin.String, purchaseType: PurchaseTypeCreatePurchaseItem, deviceId: kotlin.String?, accountId: kotlin.Long?, description: kotlin.String?, tickets: kotlin.Int?, price: kotlin.Float?, purchaseCode: kotlin.String?, secretKey: kotlin.String?, purchaseLimit: kotlin.Int?, serviceAction: ServiceActionCreatePurchaseItem?, coverAssetId: kotlin.Long?, promoAssetId: kotlin.Long?, giftable: kotlin.Boolean?, assetable: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketType: kotlin.String?, points: kotlin.Long?, offerLocationId: kotlin.Long?) : RequestConfig<Unit> {
+    fun createPurchaseItemRequestConfig(appKey: kotlin.String, name: kotlin.String, purchaseType: PurchaseTypeCreatePurchaseItem, deviceId: kotlin.String?, accountId: kotlin.Long?, description: kotlin.String?, tickets: kotlin.Int?, price: kotlin.Float?, purchaseCode: kotlin.String?, secretKey: kotlin.String?, purchaseLimit: kotlin.Int?, serviceAction: ServiceActionCreatePurchaseItem?, coverAssetId: kotlin.Long?, promoAssetId: kotlin.Long?, giftable: kotlin.Boolean?, assetable: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketType: kotlin.String?, points: kotlin.Long?, offerLocationId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -272,7 +269,7 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/purchase/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/purchase/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -281,10 +278,9 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/purchase/delete
+     * POST /purchase/delete
      * Delete Purchase
      * Marks the purchase item as deleted
-     * @param version 
      * @param purchaseItemId The purchase item id
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -297,8 +293,8 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deletePurchaseItem(version: java.math.BigDecimal, purchaseItemId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = deletePurchaseItemWithHttpInfo(version = version, purchaseItemId = purchaseItemId, deviceId = deviceId, accountId = accountId)
+    fun deletePurchaseItem(purchaseItemId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = deletePurchaseItemWithHttpInfo(purchaseItemId = purchaseItemId, deviceId = deviceId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -316,10 +312,9 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/purchase/delete
+     * POST /purchase/delete
      * Delete Purchase
      * Marks the purchase item as deleted
-     * @param version 
      * @param purchaseItemId The purchase item id
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -329,8 +324,8 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deletePurchaseItemWithHttpInfo(version: java.math.BigDecimal, purchaseItemId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deletePurchaseItemRequestConfig(version = version, purchaseItemId = purchaseItemId, deviceId = deviceId, accountId = accountId)
+    fun deletePurchaseItemWithHttpInfo(purchaseItemId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deletePurchaseItemRequestConfig(purchaseItemId = purchaseItemId, deviceId = deviceId, accountId = accountId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -340,13 +335,12 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation deletePurchaseItem
      *
-     * @param version 
      * @param purchaseItemId The purchase item id
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @return RequestConfig
      */
-    fun deletePurchaseItemRequestConfig(version: java.math.BigDecimal, purchaseItemId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun deletePurchaseItemRequestConfig(purchaseItemId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -362,7 +356,7 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/purchase/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/purchase/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -371,10 +365,9 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/purchase/get
+     * GET /purchase/get
      * Get Purchase
      * Get detailed information about a purchase item
-     * @param version 
      * @param purchaseItemId The purchase item id
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -387,8 +380,8 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getPurchaseItem(version: java.math.BigDecimal, purchaseItemId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : PurchaseItemFullResponse {
-        val localVarResponse = getPurchaseItemWithHttpInfo(version = version, purchaseItemId = purchaseItemId, deviceId = deviceId, accountId = accountId)
+    fun getPurchaseItem(purchaseItemId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : PurchaseItemFullResponse {
+        val localVarResponse = getPurchaseItemWithHttpInfo(purchaseItemId = purchaseItemId, deviceId = deviceId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PurchaseItemFullResponse
@@ -406,10 +399,9 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/purchase/get
+     * GET /purchase/get
      * Get Purchase
      * Get detailed information about a purchase item
-     * @param version 
      * @param purchaseItemId The purchase item id
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -419,8 +411,8 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getPurchaseItemWithHttpInfo(version: java.math.BigDecimal, purchaseItemId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<PurchaseItemFullResponse?> {
-        val localVariableConfig = getPurchaseItemRequestConfig(version = version, purchaseItemId = purchaseItemId, deviceId = deviceId, accountId = accountId)
+    fun getPurchaseItemWithHttpInfo(purchaseItemId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<PurchaseItemFullResponse?> {
+        val localVariableConfig = getPurchaseItemRequestConfig(purchaseItemId = purchaseItemId, deviceId = deviceId, accountId = accountId)
 
         return request<Unit, PurchaseItemFullResponse>(
             localVariableConfig
@@ -430,13 +422,12 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation getPurchaseItem
      *
-     * @param version 
      * @param purchaseItemId The purchase item id
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @return RequestConfig
      */
-    fun getPurchaseItemRequestConfig(version: java.math.BigDecimal, purchaseItemId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun getPurchaseItemRequestConfig(purchaseItemId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -452,7 +443,7 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/purchase/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/purchase/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -494,10 +485,9 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
      }
 
     /**
-     * GET /api/{version}/purchase/search
+     * GET /purchase/search
      * Search Purchases
      * Search for purchasable items from the system
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param appKey The application key to filter results by application (optional)
@@ -519,8 +509,8 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchPurchaseItems(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, filterByBillable: kotlin.Boolean? = false, purchaseType: kotlin.String? = null, serviceAction: kotlin.String? = null, keyword: kotlin.String? = null, sortField: SortFieldSearchPurchaseItems? = SortFieldSearchPurchaseItems.NAME, descending: kotlin.Boolean? = false, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, activeOnly: kotlin.Boolean? = false) : kotlin.collections.List<PurchaseItemResponse> {
-        val localVarResponse = searchPurchaseItemsWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, appKey = appKey, filterByBillable = filterByBillable, purchaseType = purchaseType, serviceAction = serviceAction, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
+    fun searchPurchaseItems(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, filterByBillable: kotlin.Boolean? = false, purchaseType: kotlin.String? = null, serviceAction: kotlin.String? = null, keyword: kotlin.String? = null, sortField: SortFieldSearchPurchaseItems? = SortFieldSearchPurchaseItems.NAME, descending: kotlin.Boolean? = false, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, activeOnly: kotlin.Boolean? = false) : kotlin.collections.List<PurchaseItemResponse> {
+        val localVarResponse = searchPurchaseItemsWithHttpInfo(deviceId = deviceId, accountId = accountId, appKey = appKey, filterByBillable = filterByBillable, purchaseType = purchaseType, serviceAction = serviceAction, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<PurchaseItemResponse>
@@ -538,10 +528,9 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/purchase/search
+     * GET /purchase/search
      * Search Purchases
      * Search for purchasable items from the system
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param appKey The application key to filter results by application (optional)
@@ -560,8 +549,8 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchPurchaseItemsWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, filterByBillable: kotlin.Boolean?, purchaseType: kotlin.String?, serviceAction: kotlin.String?, keyword: kotlin.String?, sortField: SortFieldSearchPurchaseItems?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<PurchaseItemResponse>?> {
-        val localVariableConfig = searchPurchaseItemsRequestConfig(version = version, deviceId = deviceId, accountId = accountId, appKey = appKey, filterByBillable = filterByBillable, purchaseType = purchaseType, serviceAction = serviceAction, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
+    fun searchPurchaseItemsWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, filterByBillable: kotlin.Boolean?, purchaseType: kotlin.String?, serviceAction: kotlin.String?, keyword: kotlin.String?, sortField: SortFieldSearchPurchaseItems?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<PurchaseItemResponse>?> {
+        val localVariableConfig = searchPurchaseItemsRequestConfig(deviceId = deviceId, accountId = accountId, appKey = appKey, filterByBillable = filterByBillable, purchaseType = purchaseType, serviceAction = serviceAction, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
 
         return request<Unit, kotlin.collections.List<PurchaseItemResponse>>(
             localVariableConfig
@@ -571,7 +560,6 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation searchPurchaseItems
      *
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param appKey The application key to filter results by application (optional)
@@ -586,7 +574,7 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param activeOnly Return only active results (optional, default to false)
      * @return RequestConfig
      */
-    fun searchPurchaseItemsRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, filterByBillable: kotlin.Boolean?, purchaseType: kotlin.String?, serviceAction: kotlin.String?, keyword: kotlin.String?, sortField: SortFieldSearchPurchaseItems?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchPurchaseItemsRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, filterByBillable: kotlin.Boolean?, purchaseType: kotlin.String?, serviceAction: kotlin.String?, keyword: kotlin.String?, sortField: SortFieldSearchPurchaseItems?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -631,7 +619,7 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/purchase/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/purchase/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -685,10 +673,9 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
      }
 
     /**
-     * POST /api/{version}/purchase/update
+     * POST /purchase/update
      * Update Purchase
      * Updates a purchase item for in app purchases
-     * @param version 
      * @param purchaseItemId The purchase item id
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -719,8 +706,8 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updatePurchaseItem(version: java.math.BigDecimal, purchaseItemId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, name: kotlin.String? = null, description: kotlin.String? = null, tickets: kotlin.Int? = null, price: kotlin.Float? = null, purchaseType: PurchaseTypeUpdatePurchaseItem? = null, purchaseCode: kotlin.String? = null, secretKey: kotlin.String? = null, purchaseLimit: kotlin.Int? = null, serviceAction: ServiceActionUpdatePurchaseItem? = null, coverAssetId: kotlin.Long? = null, promoAssetId: kotlin.Long? = null, giftable: kotlin.Boolean? = null, assetable: kotlin.Boolean? = null, active: kotlin.Boolean? = null, allocateTickets: kotlin.Boolean? = false, ticketType: kotlin.String? = null, points: kotlin.Long? = null, offerLocationId: kotlin.Long? = null) : PurchaseItemFullResponse {
-        val localVarResponse = updatePurchaseItemWithHttpInfo(version = version, purchaseItemId = purchaseItemId, deviceId = deviceId, accountId = accountId, name = name, description = description, tickets = tickets, price = price, purchaseType = purchaseType, purchaseCode = purchaseCode, secretKey = secretKey, purchaseLimit = purchaseLimit, serviceAction = serviceAction, coverAssetId = coverAssetId, promoAssetId = promoAssetId, giftable = giftable, assetable = assetable, active = active, allocateTickets = allocateTickets, ticketType = ticketType, points = points, offerLocationId = offerLocationId)
+    fun updatePurchaseItem(purchaseItemId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, name: kotlin.String? = null, description: kotlin.String? = null, tickets: kotlin.Int? = null, price: kotlin.Float? = null, purchaseType: PurchaseTypeUpdatePurchaseItem? = null, purchaseCode: kotlin.String? = null, secretKey: kotlin.String? = null, purchaseLimit: kotlin.Int? = null, serviceAction: ServiceActionUpdatePurchaseItem? = null, coverAssetId: kotlin.Long? = null, promoAssetId: kotlin.Long? = null, giftable: kotlin.Boolean? = null, assetable: kotlin.Boolean? = null, active: kotlin.Boolean? = null, allocateTickets: kotlin.Boolean? = false, ticketType: kotlin.String? = null, points: kotlin.Long? = null, offerLocationId: kotlin.Long? = null) : PurchaseItemFullResponse {
+        val localVarResponse = updatePurchaseItemWithHttpInfo(purchaseItemId = purchaseItemId, deviceId = deviceId, accountId = accountId, name = name, description = description, tickets = tickets, price = price, purchaseType = purchaseType, purchaseCode = purchaseCode, secretKey = secretKey, purchaseLimit = purchaseLimit, serviceAction = serviceAction, coverAssetId = coverAssetId, promoAssetId = promoAssetId, giftable = giftable, assetable = assetable, active = active, allocateTickets = allocateTickets, ticketType = ticketType, points = points, offerLocationId = offerLocationId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PurchaseItemFullResponse
@@ -738,10 +725,9 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/purchase/update
+     * POST /purchase/update
      * Update Purchase
      * Updates a purchase item for in app purchases
-     * @param version 
      * @param purchaseItemId The purchase item id
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -769,8 +755,8 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updatePurchaseItemWithHttpInfo(version: java.math.BigDecimal, purchaseItemId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, description: kotlin.String?, tickets: kotlin.Int?, price: kotlin.Float?, purchaseType: PurchaseTypeUpdatePurchaseItem?, purchaseCode: kotlin.String?, secretKey: kotlin.String?, purchaseLimit: kotlin.Int?, serviceAction: ServiceActionUpdatePurchaseItem?, coverAssetId: kotlin.Long?, promoAssetId: kotlin.Long?, giftable: kotlin.Boolean?, assetable: kotlin.Boolean?, active: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketType: kotlin.String?, points: kotlin.Long?, offerLocationId: kotlin.Long?) : ApiResponse<PurchaseItemFullResponse?> {
-        val localVariableConfig = updatePurchaseItemRequestConfig(version = version, purchaseItemId = purchaseItemId, deviceId = deviceId, accountId = accountId, name = name, description = description, tickets = tickets, price = price, purchaseType = purchaseType, purchaseCode = purchaseCode, secretKey = secretKey, purchaseLimit = purchaseLimit, serviceAction = serviceAction, coverAssetId = coverAssetId, promoAssetId = promoAssetId, giftable = giftable, assetable = assetable, active = active, allocateTickets = allocateTickets, ticketType = ticketType, points = points, offerLocationId = offerLocationId)
+    fun updatePurchaseItemWithHttpInfo(purchaseItemId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, description: kotlin.String?, tickets: kotlin.Int?, price: kotlin.Float?, purchaseType: PurchaseTypeUpdatePurchaseItem?, purchaseCode: kotlin.String?, secretKey: kotlin.String?, purchaseLimit: kotlin.Int?, serviceAction: ServiceActionUpdatePurchaseItem?, coverAssetId: kotlin.Long?, promoAssetId: kotlin.Long?, giftable: kotlin.Boolean?, assetable: kotlin.Boolean?, active: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketType: kotlin.String?, points: kotlin.Long?, offerLocationId: kotlin.Long?) : ApiResponse<PurchaseItemFullResponse?> {
+        val localVariableConfig = updatePurchaseItemRequestConfig(purchaseItemId = purchaseItemId, deviceId = deviceId, accountId = accountId, name = name, description = description, tickets = tickets, price = price, purchaseType = purchaseType, purchaseCode = purchaseCode, secretKey = secretKey, purchaseLimit = purchaseLimit, serviceAction = serviceAction, coverAssetId = coverAssetId, promoAssetId = promoAssetId, giftable = giftable, assetable = assetable, active = active, allocateTickets = allocateTickets, ticketType = ticketType, points = points, offerLocationId = offerLocationId)
 
         return request<Unit, PurchaseItemFullResponse>(
             localVariableConfig
@@ -780,7 +766,6 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation updatePurchaseItem
      *
-     * @param version 
      * @param purchaseItemId The purchase item id
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -804,7 +789,7 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param offerLocationId The offer location that will get added to the user&#39;s wallet after purchase. (optional)
      * @return RequestConfig
      */
-    fun updatePurchaseItemRequestConfig(version: java.math.BigDecimal, purchaseItemId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, description: kotlin.String?, tickets: kotlin.Int?, price: kotlin.Float?, purchaseType: PurchaseTypeUpdatePurchaseItem?, purchaseCode: kotlin.String?, secretKey: kotlin.String?, purchaseLimit: kotlin.Int?, serviceAction: ServiceActionUpdatePurchaseItem?, coverAssetId: kotlin.Long?, promoAssetId: kotlin.Long?, giftable: kotlin.Boolean?, assetable: kotlin.Boolean?, active: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketType: kotlin.String?, points: kotlin.Long?, offerLocationId: kotlin.Long?) : RequestConfig<Unit> {
+    fun updatePurchaseItemRequestConfig(purchaseItemId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, description: kotlin.String?, tickets: kotlin.Int?, price: kotlin.Float?, purchaseType: PurchaseTypeUpdatePurchaseItem?, purchaseCode: kotlin.String?, secretKey: kotlin.String?, purchaseLimit: kotlin.Int?, serviceAction: ServiceActionUpdatePurchaseItem?, coverAssetId: kotlin.Long?, promoAssetId: kotlin.Long?, giftable: kotlin.Boolean?, assetable: kotlin.Boolean?, active: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketType: kotlin.String?, points: kotlin.Long?, offerLocationId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -874,7 +859,7 @@ open class PurchaseItemApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/purchase/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/purchase/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

@@ -41,15 +41,14 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/billing/update
+     * POST /billing/update
      * Update Payment Method
      * Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
-     * @param version 
      * @param accountId The account used to perform the the request
      * @param paymentMethodId Payment Method Id (optional)
      * @param accountName the name of the account (optional)
@@ -82,8 +81,8 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun addPaymentMethod(version: java.math.BigDecimal, accountId: kotlin.Long, paymentMethodId: kotlin.Long? = null, accountName: kotlin.String? = null, firstName: kotlin.String? = null, lastName: kotlin.String? = null, address: kotlin.String? = null, city: kotlin.String? = null, state: kotlin.String? = null, postalCode: kotlin.String? = null, country: kotlin.String? = null, phone: kotlin.String? = null, creditCardNumber: kotlin.String? = null, expirationDate: kotlin.String? = null, ccv: kotlin.String? = null, accountNumber: kotlin.String? = null, bankName: kotlin.String? = null, routingNumber: kotlin.String? = null, defaultPaymentMethod: kotlin.Boolean? = null, paymentMethodNickname: kotlin.String? = null, taxId: kotlin.String? = null, providerCustomerProfileId: kotlin.String? = null, providerPaymentProfileId: kotlin.String? = null, metaData: kotlin.String? = null) : PaymentTypesResponse {
-        val localVarResponse = addPaymentMethodWithHttpInfo(version = version, accountId = accountId, paymentMethodId = paymentMethodId, accountName = accountName, firstName = firstName, lastName = lastName, address = address, city = city, state = state, postalCode = postalCode, country = country, phone = phone, creditCardNumber = creditCardNumber, expirationDate = expirationDate, ccv = ccv, accountNumber = accountNumber, bankName = bankName, routingNumber = routingNumber, defaultPaymentMethod = defaultPaymentMethod, paymentMethodNickname = paymentMethodNickname, taxId = taxId, providerCustomerProfileId = providerCustomerProfileId, providerPaymentProfileId = providerPaymentProfileId, metaData = metaData)
+    fun addPaymentMethod(accountId: kotlin.Long, paymentMethodId: kotlin.Long? = null, accountName: kotlin.String? = null, firstName: kotlin.String? = null, lastName: kotlin.String? = null, address: kotlin.String? = null, city: kotlin.String? = null, state: kotlin.String? = null, postalCode: kotlin.String? = null, country: kotlin.String? = null, phone: kotlin.String? = null, creditCardNumber: kotlin.String? = null, expirationDate: kotlin.String? = null, ccv: kotlin.String? = null, accountNumber: kotlin.String? = null, bankName: kotlin.String? = null, routingNumber: kotlin.String? = null, defaultPaymentMethod: kotlin.Boolean? = null, paymentMethodNickname: kotlin.String? = null, taxId: kotlin.String? = null, providerCustomerProfileId: kotlin.String? = null, providerPaymentProfileId: kotlin.String? = null, metaData: kotlin.String? = null) : PaymentTypesResponse {
+        val localVarResponse = addPaymentMethodWithHttpInfo(accountId = accountId, paymentMethodId = paymentMethodId, accountName = accountName, firstName = firstName, lastName = lastName, address = address, city = city, state = state, postalCode = postalCode, country = country, phone = phone, creditCardNumber = creditCardNumber, expirationDate = expirationDate, ccv = ccv, accountNumber = accountNumber, bankName = bankName, routingNumber = routingNumber, defaultPaymentMethod = defaultPaymentMethod, paymentMethodNickname = paymentMethodNickname, taxId = taxId, providerCustomerProfileId = providerCustomerProfileId, providerPaymentProfileId = providerPaymentProfileId, metaData = metaData)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaymentTypesResponse
@@ -101,10 +100,9 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/billing/update
+     * POST /billing/update
      * Update Payment Method
      * Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
-     * @param version 
      * @param accountId The account used to perform the the request
      * @param paymentMethodId Payment Method Id (optional)
      * @param accountName the name of the account (optional)
@@ -134,8 +132,8 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun addPaymentMethodWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, paymentMethodId: kotlin.Long?, accountName: kotlin.String?, firstName: kotlin.String?, lastName: kotlin.String?, address: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, country: kotlin.String?, phone: kotlin.String?, creditCardNumber: kotlin.String?, expirationDate: kotlin.String?, ccv: kotlin.String?, accountNumber: kotlin.String?, bankName: kotlin.String?, routingNumber: kotlin.String?, defaultPaymentMethod: kotlin.Boolean?, paymentMethodNickname: kotlin.String?, taxId: kotlin.String?, providerCustomerProfileId: kotlin.String?, providerPaymentProfileId: kotlin.String?, metaData: kotlin.String?) : ApiResponse<PaymentTypesResponse?> {
-        val localVariableConfig = addPaymentMethodRequestConfig(version = version, accountId = accountId, paymentMethodId = paymentMethodId, accountName = accountName, firstName = firstName, lastName = lastName, address = address, city = city, state = state, postalCode = postalCode, country = country, phone = phone, creditCardNumber = creditCardNumber, expirationDate = expirationDate, ccv = ccv, accountNumber = accountNumber, bankName = bankName, routingNumber = routingNumber, defaultPaymentMethod = defaultPaymentMethod, paymentMethodNickname = paymentMethodNickname, taxId = taxId, providerCustomerProfileId = providerCustomerProfileId, providerPaymentProfileId = providerPaymentProfileId, metaData = metaData)
+    fun addPaymentMethodWithHttpInfo(accountId: kotlin.Long, paymentMethodId: kotlin.Long?, accountName: kotlin.String?, firstName: kotlin.String?, lastName: kotlin.String?, address: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, country: kotlin.String?, phone: kotlin.String?, creditCardNumber: kotlin.String?, expirationDate: kotlin.String?, ccv: kotlin.String?, accountNumber: kotlin.String?, bankName: kotlin.String?, routingNumber: kotlin.String?, defaultPaymentMethod: kotlin.Boolean?, paymentMethodNickname: kotlin.String?, taxId: kotlin.String?, providerCustomerProfileId: kotlin.String?, providerPaymentProfileId: kotlin.String?, metaData: kotlin.String?) : ApiResponse<PaymentTypesResponse?> {
+        val localVariableConfig = addPaymentMethodRequestConfig(accountId = accountId, paymentMethodId = paymentMethodId, accountName = accountName, firstName = firstName, lastName = lastName, address = address, city = city, state = state, postalCode = postalCode, country = country, phone = phone, creditCardNumber = creditCardNumber, expirationDate = expirationDate, ccv = ccv, accountNumber = accountNumber, bankName = bankName, routingNumber = routingNumber, defaultPaymentMethod = defaultPaymentMethod, paymentMethodNickname = paymentMethodNickname, taxId = taxId, providerCustomerProfileId = providerCustomerProfileId, providerPaymentProfileId = providerPaymentProfileId, metaData = metaData)
 
         return request<Unit, PaymentTypesResponse>(
             localVariableConfig
@@ -145,7 +143,6 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation addPaymentMethod
      *
-     * @param version 
      * @param accountId The account used to perform the the request
      * @param paymentMethodId Payment Method Id (optional)
      * @param accountName the name of the account (optional)
@@ -171,7 +168,7 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param metaData Meta Data (optional)
      * @return RequestConfig
      */
-    fun addPaymentMethodRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, paymentMethodId: kotlin.Long?, accountName: kotlin.String?, firstName: kotlin.String?, lastName: kotlin.String?, address: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, country: kotlin.String?, phone: kotlin.String?, creditCardNumber: kotlin.String?, expirationDate: kotlin.String?, ccv: kotlin.String?, accountNumber: kotlin.String?, bankName: kotlin.String?, routingNumber: kotlin.String?, defaultPaymentMethod: kotlin.Boolean?, paymentMethodNickname: kotlin.String?, taxId: kotlin.String?, providerCustomerProfileId: kotlin.String?, providerPaymentProfileId: kotlin.String?, metaData: kotlin.String?) : RequestConfig<Unit> {
+    fun addPaymentMethodRequestConfig(accountId: kotlin.Long, paymentMethodId: kotlin.Long?, accountName: kotlin.String?, firstName: kotlin.String?, lastName: kotlin.String?, address: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, country: kotlin.String?, phone: kotlin.String?, creditCardNumber: kotlin.String?, expirationDate: kotlin.String?, ccv: kotlin.String?, accountNumber: kotlin.String?, bankName: kotlin.String?, routingNumber: kotlin.String?, defaultPaymentMethod: kotlin.Boolean?, paymentMethodNickname: kotlin.String?, taxId: kotlin.String?, providerCustomerProfileId: kotlin.String?, providerPaymentProfileId: kotlin.String?, metaData: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -247,7 +244,7 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/billing/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/billing/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -256,10 +253,9 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/billing/create
+     * POST /billing/create
      * Create Payment Method
      * Add a new method of payment.
-     * @param version 
      * @param accountId The account used to perform the the request
      * @param accountName Account Name of the credit card user (optional)
      * @param firstName The first name on the credit card (optional)
@@ -294,8 +290,8 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createPaymentMethod(version: java.math.BigDecimal, accountId: kotlin.Long, accountName: kotlin.String? = null, firstName: kotlin.String? = null, lastName: kotlin.String? = null, address: kotlin.String? = null, city: kotlin.String? = null, state: kotlin.String? = null, postalCode: kotlin.String? = null, country: kotlin.String? = null, phone: kotlin.String? = null, creditCardNumber: kotlin.String? = null, expirationDate: kotlin.String? = null, ccv: kotlin.String? = null, accountNumber: kotlin.String? = null, bankName: kotlin.String? = null, routingNumber: kotlin.String? = null, paymentMethodNickname: kotlin.String? = null, taxId: kotlin.String? = null, defaultPaymentMethod: kotlin.Boolean? = true, authToken: kotlin.String? = null, provider: kotlin.String? = "AUTHORIZE_NET", providerCustomerProfileId: kotlin.String? = null, providerPaymentProfileId: kotlin.String? = null, metaData: kotlin.String? = null, appKey: kotlin.String? = null) : PaymentTypesResponse {
-        val localVarResponse = createPaymentMethodWithHttpInfo(version = version, accountId = accountId, accountName = accountName, firstName = firstName, lastName = lastName, address = address, city = city, state = state, postalCode = postalCode, country = country, phone = phone, creditCardNumber = creditCardNumber, expirationDate = expirationDate, ccv = ccv, accountNumber = accountNumber, bankName = bankName, routingNumber = routingNumber, paymentMethodNickname = paymentMethodNickname, taxId = taxId, defaultPaymentMethod = defaultPaymentMethod, authToken = authToken, provider = provider, providerCustomerProfileId = providerCustomerProfileId, providerPaymentProfileId = providerPaymentProfileId, metaData = metaData, appKey = appKey)
+    fun createPaymentMethod(accountId: kotlin.Long, accountName: kotlin.String? = null, firstName: kotlin.String? = null, lastName: kotlin.String? = null, address: kotlin.String? = null, city: kotlin.String? = null, state: kotlin.String? = null, postalCode: kotlin.String? = null, country: kotlin.String? = null, phone: kotlin.String? = null, creditCardNumber: kotlin.String? = null, expirationDate: kotlin.String? = null, ccv: kotlin.String? = null, accountNumber: kotlin.String? = null, bankName: kotlin.String? = null, routingNumber: kotlin.String? = null, paymentMethodNickname: kotlin.String? = null, taxId: kotlin.String? = null, defaultPaymentMethod: kotlin.Boolean? = true, authToken: kotlin.String? = null, provider: kotlin.String? = "AUTHORIZE_NET", providerCustomerProfileId: kotlin.String? = null, providerPaymentProfileId: kotlin.String? = null, metaData: kotlin.String? = null, appKey: kotlin.String? = null) : PaymentTypesResponse {
+        val localVarResponse = createPaymentMethodWithHttpInfo(accountId = accountId, accountName = accountName, firstName = firstName, lastName = lastName, address = address, city = city, state = state, postalCode = postalCode, country = country, phone = phone, creditCardNumber = creditCardNumber, expirationDate = expirationDate, ccv = ccv, accountNumber = accountNumber, bankName = bankName, routingNumber = routingNumber, paymentMethodNickname = paymentMethodNickname, taxId = taxId, defaultPaymentMethod = defaultPaymentMethod, authToken = authToken, provider = provider, providerCustomerProfileId = providerCustomerProfileId, providerPaymentProfileId = providerPaymentProfileId, metaData = metaData, appKey = appKey)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaymentTypesResponse
@@ -313,10 +309,9 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/billing/create
+     * POST /billing/create
      * Create Payment Method
      * Add a new method of payment.
-     * @param version 
      * @param accountId The account used to perform the the request
      * @param accountName Account Name of the credit card user (optional)
      * @param firstName The first name on the credit card (optional)
@@ -348,8 +343,8 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createPaymentMethodWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, accountName: kotlin.String?, firstName: kotlin.String?, lastName: kotlin.String?, address: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, country: kotlin.String?, phone: kotlin.String?, creditCardNumber: kotlin.String?, expirationDate: kotlin.String?, ccv: kotlin.String?, accountNumber: kotlin.String?, bankName: kotlin.String?, routingNumber: kotlin.String?, paymentMethodNickname: kotlin.String?, taxId: kotlin.String?, defaultPaymentMethod: kotlin.Boolean?, authToken: kotlin.String?, provider: kotlin.String?, providerCustomerProfileId: kotlin.String?, providerPaymentProfileId: kotlin.String?, metaData: kotlin.String?, appKey: kotlin.String?) : ApiResponse<PaymentTypesResponse?> {
-        val localVariableConfig = createPaymentMethodRequestConfig(version = version, accountId = accountId, accountName = accountName, firstName = firstName, lastName = lastName, address = address, city = city, state = state, postalCode = postalCode, country = country, phone = phone, creditCardNumber = creditCardNumber, expirationDate = expirationDate, ccv = ccv, accountNumber = accountNumber, bankName = bankName, routingNumber = routingNumber, paymentMethodNickname = paymentMethodNickname, taxId = taxId, defaultPaymentMethod = defaultPaymentMethod, authToken = authToken, provider = provider, providerCustomerProfileId = providerCustomerProfileId, providerPaymentProfileId = providerPaymentProfileId, metaData = metaData, appKey = appKey)
+    fun createPaymentMethodWithHttpInfo(accountId: kotlin.Long, accountName: kotlin.String?, firstName: kotlin.String?, lastName: kotlin.String?, address: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, country: kotlin.String?, phone: kotlin.String?, creditCardNumber: kotlin.String?, expirationDate: kotlin.String?, ccv: kotlin.String?, accountNumber: kotlin.String?, bankName: kotlin.String?, routingNumber: kotlin.String?, paymentMethodNickname: kotlin.String?, taxId: kotlin.String?, defaultPaymentMethod: kotlin.Boolean?, authToken: kotlin.String?, provider: kotlin.String?, providerCustomerProfileId: kotlin.String?, providerPaymentProfileId: kotlin.String?, metaData: kotlin.String?, appKey: kotlin.String?) : ApiResponse<PaymentTypesResponse?> {
+        val localVariableConfig = createPaymentMethodRequestConfig(accountId = accountId, accountName = accountName, firstName = firstName, lastName = lastName, address = address, city = city, state = state, postalCode = postalCode, country = country, phone = phone, creditCardNumber = creditCardNumber, expirationDate = expirationDate, ccv = ccv, accountNumber = accountNumber, bankName = bankName, routingNumber = routingNumber, paymentMethodNickname = paymentMethodNickname, taxId = taxId, defaultPaymentMethod = defaultPaymentMethod, authToken = authToken, provider = provider, providerCustomerProfileId = providerCustomerProfileId, providerPaymentProfileId = providerPaymentProfileId, metaData = metaData, appKey = appKey)
 
         return request<Unit, PaymentTypesResponse>(
             localVariableConfig
@@ -359,7 +354,6 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation createPaymentMethod
      *
-     * @param version 
      * @param accountId The account used to perform the the request
      * @param accountName Account Name of the credit card user (optional)
      * @param firstName The first name on the credit card (optional)
@@ -387,7 +381,7 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param appKey Application Key (optional)
      * @return RequestConfig
      */
-    fun createPaymentMethodRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, accountName: kotlin.String?, firstName: kotlin.String?, lastName: kotlin.String?, address: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, country: kotlin.String?, phone: kotlin.String?, creditCardNumber: kotlin.String?, expirationDate: kotlin.String?, ccv: kotlin.String?, accountNumber: kotlin.String?, bankName: kotlin.String?, routingNumber: kotlin.String?, paymentMethodNickname: kotlin.String?, taxId: kotlin.String?, defaultPaymentMethod: kotlin.Boolean?, authToken: kotlin.String?, provider: kotlin.String?, providerCustomerProfileId: kotlin.String?, providerPaymentProfileId: kotlin.String?, metaData: kotlin.String?, appKey: kotlin.String?) : RequestConfig<Unit> {
+    fun createPaymentMethodRequestConfig(accountId: kotlin.Long, accountName: kotlin.String?, firstName: kotlin.String?, lastName: kotlin.String?, address: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, country: kotlin.String?, phone: kotlin.String?, creditCardNumber: kotlin.String?, expirationDate: kotlin.String?, ccv: kotlin.String?, accountNumber: kotlin.String?, bankName: kotlin.String?, routingNumber: kotlin.String?, paymentMethodNickname: kotlin.String?, taxId: kotlin.String?, defaultPaymentMethod: kotlin.Boolean?, authToken: kotlin.String?, provider: kotlin.String?, providerCustomerProfileId: kotlin.String?, providerPaymentProfileId: kotlin.String?, metaData: kotlin.String?, appKey: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -469,7 +463,7 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/billing/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/billing/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -478,10 +472,9 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/billing/crypto/transfer
+     * POST /billing/crypto/transfer
      * Create Smart Contract
      * Adds a smart contract.
-     * @param version 
      * @param accountId The account used to perform the the request
      * @param tokenName The token name
      * @param tokenSymbol The token symbol
@@ -495,8 +488,8 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createSmartContract(version: java.math.BigDecimal, accountId: kotlin.Long, tokenName: kotlin.String, tokenSymbol: kotlin.String, paymentMethodId: kotlin.Long? = null) : PaymentTypesResponse {
-        val localVarResponse = createSmartContractWithHttpInfo(version = version, accountId = accountId, tokenName = tokenName, tokenSymbol = tokenSymbol, paymentMethodId = paymentMethodId)
+    fun createSmartContract(accountId: kotlin.Long, tokenName: kotlin.String, tokenSymbol: kotlin.String, paymentMethodId: kotlin.Long? = null) : PaymentTypesResponse {
+        val localVarResponse = createSmartContractWithHttpInfo(accountId = accountId, tokenName = tokenName, tokenSymbol = tokenSymbol, paymentMethodId = paymentMethodId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaymentTypesResponse
@@ -514,10 +507,9 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/billing/crypto/transfer
+     * POST /billing/crypto/transfer
      * Create Smart Contract
      * Adds a smart contract.
-     * @param version 
      * @param accountId The account used to perform the the request
      * @param tokenName The token name
      * @param tokenSymbol The token symbol
@@ -528,8 +520,8 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createSmartContractWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, tokenName: kotlin.String, tokenSymbol: kotlin.String, paymentMethodId: kotlin.Long?) : ApiResponse<PaymentTypesResponse?> {
-        val localVariableConfig = createSmartContractRequestConfig(version = version, accountId = accountId, tokenName = tokenName, tokenSymbol = tokenSymbol, paymentMethodId = paymentMethodId)
+    fun createSmartContractWithHttpInfo(accountId: kotlin.Long, tokenName: kotlin.String, tokenSymbol: kotlin.String, paymentMethodId: kotlin.Long?) : ApiResponse<PaymentTypesResponse?> {
+        val localVariableConfig = createSmartContractRequestConfig(accountId = accountId, tokenName = tokenName, tokenSymbol = tokenSymbol, paymentMethodId = paymentMethodId)
 
         return request<Unit, PaymentTypesResponse>(
             localVariableConfig
@@ -539,14 +531,13 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation createSmartContract
      *
-     * @param version 
      * @param accountId The account used to perform the the request
      * @param tokenName The token name
      * @param tokenSymbol The token symbol
      * @param paymentMethodId The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
      * @return RequestConfig
      */
-    fun createSmartContractRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, tokenName: kotlin.String, tokenSymbol: kotlin.String, paymentMethodId: kotlin.Long?) : RequestConfig<Unit> {
+    fun createSmartContractRequestConfig(accountId: kotlin.Long, tokenName: kotlin.String, tokenSymbol: kotlin.String, paymentMethodId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -561,7 +552,7 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/billing/crypto/transfer".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/billing/crypto/transfer",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -570,10 +561,9 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/billing/crypto/get
+     * GET /billing/crypto/get
      * Get Crypto Balances
      * Get the cypto balance details for a user
-     * @param version 
      * @param accountId The account used to perform the the request
      * @param ownerAccountId The account to retreive balances for (optional)
      * @param paymentMethodId The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
@@ -586,8 +576,8 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCryptoBalance(version: java.math.BigDecimal, accountId: kotlin.Long, ownerAccountId: kotlin.Long? = null, paymentMethodId: kotlin.Long? = null) : PaymentTypesResponse {
-        val localVarResponse = getCryptoBalanceWithHttpInfo(version = version, accountId = accountId, ownerAccountId = ownerAccountId, paymentMethodId = paymentMethodId)
+    fun getCryptoBalance(accountId: kotlin.Long, ownerAccountId: kotlin.Long? = null, paymentMethodId: kotlin.Long? = null) : PaymentTypesResponse {
+        val localVarResponse = getCryptoBalanceWithHttpInfo(accountId = accountId, ownerAccountId = ownerAccountId, paymentMethodId = paymentMethodId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaymentTypesResponse
@@ -605,10 +595,9 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/billing/crypto/get
+     * GET /billing/crypto/get
      * Get Crypto Balances
      * Get the cypto balance details for a user
-     * @param version 
      * @param accountId The account used to perform the the request
      * @param ownerAccountId The account to retreive balances for (optional)
      * @param paymentMethodId The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
@@ -618,8 +607,8 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCryptoBalanceWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, ownerAccountId: kotlin.Long?, paymentMethodId: kotlin.Long?) : ApiResponse<PaymentTypesResponse?> {
-        val localVariableConfig = getCryptoBalanceRequestConfig(version = version, accountId = accountId, ownerAccountId = ownerAccountId, paymentMethodId = paymentMethodId)
+    fun getCryptoBalanceWithHttpInfo(accountId: kotlin.Long, ownerAccountId: kotlin.Long?, paymentMethodId: kotlin.Long?) : ApiResponse<PaymentTypesResponse?> {
+        val localVariableConfig = getCryptoBalanceRequestConfig(accountId = accountId, ownerAccountId = ownerAccountId, paymentMethodId = paymentMethodId)
 
         return request<Unit, PaymentTypesResponse>(
             localVariableConfig
@@ -629,13 +618,12 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation getCryptoBalance
      *
-     * @param version 
      * @param accountId The account used to perform the the request
      * @param ownerAccountId The account to retreive balances for (optional)
      * @param paymentMethodId The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
      * @return RequestConfig
      */
-    fun getCryptoBalanceRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, ownerAccountId: kotlin.Long?, paymentMethodId: kotlin.Long?) : RequestConfig<Unit> {
+    fun getCryptoBalanceRequestConfig(accountId: kotlin.Long, ownerAccountId: kotlin.Long?, paymentMethodId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -651,7 +639,7 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/billing/crypto/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/billing/crypto/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -660,10 +648,9 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/billing/get
+     * GET /billing/get
      * Get Payment Method
      * Get the details of the user&#39;s payment method or their current default method of payment
-     * @param version 
      * @param accountId The account used to perform the the request
      * @param paymentMethodId The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
      * @param getCurrentBalance Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this) (optional)
@@ -676,8 +663,8 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getPaymentMethod(version: java.math.BigDecimal, accountId: kotlin.Long, paymentMethodId: kotlin.Long? = null, getCurrentBalance: kotlin.Boolean? = null) : PaymentTypesResponse {
-        val localVarResponse = getPaymentMethodWithHttpInfo(version = version, accountId = accountId, paymentMethodId = paymentMethodId, getCurrentBalance = getCurrentBalance)
+    fun getPaymentMethod(accountId: kotlin.Long, paymentMethodId: kotlin.Long? = null, getCurrentBalance: kotlin.Boolean? = null) : PaymentTypesResponse {
+        val localVarResponse = getPaymentMethodWithHttpInfo(accountId = accountId, paymentMethodId = paymentMethodId, getCurrentBalance = getCurrentBalance)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaymentTypesResponse
@@ -695,10 +682,9 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/billing/get
+     * GET /billing/get
      * Get Payment Method
      * Get the details of the user&#39;s payment method or their current default method of payment
-     * @param version 
      * @param accountId The account used to perform the the request
      * @param paymentMethodId The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
      * @param getCurrentBalance Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this) (optional)
@@ -708,8 +694,8 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getPaymentMethodWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, paymentMethodId: kotlin.Long?, getCurrentBalance: kotlin.Boolean?) : ApiResponse<PaymentTypesResponse?> {
-        val localVariableConfig = getPaymentMethodRequestConfig(version = version, accountId = accountId, paymentMethodId = paymentMethodId, getCurrentBalance = getCurrentBalance)
+    fun getPaymentMethodWithHttpInfo(accountId: kotlin.Long, paymentMethodId: kotlin.Long?, getCurrentBalance: kotlin.Boolean?) : ApiResponse<PaymentTypesResponse?> {
+        val localVariableConfig = getPaymentMethodRequestConfig(accountId = accountId, paymentMethodId = paymentMethodId, getCurrentBalance = getCurrentBalance)
 
         return request<Unit, PaymentTypesResponse>(
             localVariableConfig
@@ -719,13 +705,12 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation getPaymentMethod
      *
-     * @param version 
      * @param accountId The account used to perform the the request
      * @param paymentMethodId The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
      * @param getCurrentBalance Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this) (optional)
      * @return RequestConfig
      */
-    fun getPaymentMethodRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, paymentMethodId: kotlin.Long?, getCurrentBalance: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getPaymentMethodRequestConfig(accountId: kotlin.Long, paymentMethodId: kotlin.Long?, getCurrentBalance: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -741,7 +726,7 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/billing/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/billing/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -750,10 +735,9 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/billing/search
+     * GET /billing/search
      * Search Payment Methods
      * Search the payment methods of an account
-     * @param version 
      * @param accountId Account Id to search on
      * @param provider Provider to search on (optional, default to "AUTHORIZE_NET")
      * @param type the type to search on (optional)
@@ -771,8 +755,8 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchPaymentMethod(version: java.math.BigDecimal, accountId: kotlin.Long, provider: kotlin.String? = "AUTHORIZE_NET", type: kotlin.String? = null, keyword: kotlin.String? = null, sortField: kotlin.String? = "UPDATED", descending: kotlin.Boolean? = true, start: kotlin.Int? = 0, limit: kotlin.Int? = 5) : PaymentTypesResponse {
-        val localVarResponse = searchPaymentMethodWithHttpInfo(version = version, accountId = accountId, provider = provider, type = type, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit)
+    fun searchPaymentMethod(accountId: kotlin.Long, provider: kotlin.String? = "AUTHORIZE_NET", type: kotlin.String? = null, keyword: kotlin.String? = null, sortField: kotlin.String? = "UPDATED", descending: kotlin.Boolean? = true, start: kotlin.Int? = 0, limit: kotlin.Int? = 5) : PaymentTypesResponse {
+        val localVarResponse = searchPaymentMethodWithHttpInfo(accountId = accountId, provider = provider, type = type, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaymentTypesResponse
@@ -790,10 +774,9 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/billing/search
+     * GET /billing/search
      * Search Payment Methods
      * Search the payment methods of an account
-     * @param version 
      * @param accountId Account Id to search on
      * @param provider Provider to search on (optional, default to "AUTHORIZE_NET")
      * @param type the type to search on (optional)
@@ -808,8 +791,8 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchPaymentMethodWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, provider: kotlin.String?, type: kotlin.String?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<PaymentTypesResponse?> {
-        val localVariableConfig = searchPaymentMethodRequestConfig(version = version, accountId = accountId, provider = provider, type = type, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit)
+    fun searchPaymentMethodWithHttpInfo(accountId: kotlin.Long, provider: kotlin.String?, type: kotlin.String?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<PaymentTypesResponse?> {
+        val localVariableConfig = searchPaymentMethodRequestConfig(accountId = accountId, provider = provider, type = type, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit)
 
         return request<Unit, PaymentTypesResponse>(
             localVariableConfig
@@ -819,7 +802,6 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation searchPaymentMethod
      *
-     * @param version 
      * @param accountId Account Id to search on
      * @param provider Provider to search on (optional, default to "AUTHORIZE_NET")
      * @param type the type to search on (optional)
@@ -830,7 +812,7 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param limit the limit of the search (optional, default to 5)
      * @return RequestConfig
      */
-    fun searchPaymentMethodRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, provider: kotlin.String?, type: kotlin.String?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchPaymentMethodRequestConfig(accountId: kotlin.Long, provider: kotlin.String?, type: kotlin.String?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -861,7 +843,7 @@ open class BillingInfoApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/billing/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/billing/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

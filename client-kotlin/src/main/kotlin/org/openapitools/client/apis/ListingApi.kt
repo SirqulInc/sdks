@@ -44,15 +44,14 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/listing/create
+     * POST /listing/create
      * Create Listing
      * Creates a listing.
-     * @param version 
      * @param accountId the user&#39;s account ID
      * @param name the name of the listing
      * @param filterIds comma separated list of filter IDs (optional)
@@ -76,8 +75,8 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createListing(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, filterIds: kotlin.String? = null, description: kotlin.String? = null, start: kotlin.Long? = null, end: kotlin.Long? = null, locationName: kotlin.String? = null, locationDescription: kotlin.String? = null, isPrivate: kotlin.Boolean? = false, externalId: kotlin.String? = null, externalId2: kotlin.String? = null, externalGroupId: kotlin.String? = null, active: kotlin.Boolean? = null, metaData: kotlin.String? = null) : ListingFullResponse {
-        val localVarResponse = createListingWithHttpInfo(version = version, accountId = accountId, name = name, filterIds = filterIds, description = description, start = start, end = end, locationName = locationName, locationDescription = locationDescription, isPrivate = isPrivate, externalId = externalId, externalId2 = externalId2, externalGroupId = externalGroupId, active = active, metaData = metaData)
+    fun createListing(accountId: kotlin.Long, name: kotlin.String, filterIds: kotlin.String? = null, description: kotlin.String? = null, start: kotlin.Long? = null, end: kotlin.Long? = null, locationName: kotlin.String? = null, locationDescription: kotlin.String? = null, isPrivate: kotlin.Boolean? = false, externalId: kotlin.String? = null, externalId2: kotlin.String? = null, externalGroupId: kotlin.String? = null, active: kotlin.Boolean? = null, metaData: kotlin.String? = null) : ListingFullResponse {
+        val localVarResponse = createListingWithHttpInfo(accountId = accountId, name = name, filterIds = filterIds, description = description, start = start, end = end, locationName = locationName, locationDescription = locationDescription, isPrivate = isPrivate, externalId = externalId, externalId2 = externalId2, externalGroupId = externalGroupId, active = active, metaData = metaData)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ListingFullResponse
@@ -95,10 +94,9 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/listing/create
+     * POST /listing/create
      * Create Listing
      * Creates a listing.
-     * @param version 
      * @param accountId the user&#39;s account ID
      * @param name the name of the listing
      * @param filterIds comma separated list of filter IDs (optional)
@@ -119,8 +117,8 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createListingWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, filterIds: kotlin.String?, description: kotlin.String?, start: kotlin.Long?, end: kotlin.Long?, locationName: kotlin.String?, locationDescription: kotlin.String?, isPrivate: kotlin.Boolean?, externalId: kotlin.String?, externalId2: kotlin.String?, externalGroupId: kotlin.String?, active: kotlin.Boolean?, metaData: kotlin.String?) : ApiResponse<ListingFullResponse?> {
-        val localVariableConfig = createListingRequestConfig(version = version, accountId = accountId, name = name, filterIds = filterIds, description = description, start = start, end = end, locationName = locationName, locationDescription = locationDescription, isPrivate = isPrivate, externalId = externalId, externalId2 = externalId2, externalGroupId = externalGroupId, active = active, metaData = metaData)
+    fun createListingWithHttpInfo(accountId: kotlin.Long, name: kotlin.String, filterIds: kotlin.String?, description: kotlin.String?, start: kotlin.Long?, end: kotlin.Long?, locationName: kotlin.String?, locationDescription: kotlin.String?, isPrivate: kotlin.Boolean?, externalId: kotlin.String?, externalId2: kotlin.String?, externalGroupId: kotlin.String?, active: kotlin.Boolean?, metaData: kotlin.String?) : ApiResponse<ListingFullResponse?> {
+        val localVariableConfig = createListingRequestConfig(accountId = accountId, name = name, filterIds = filterIds, description = description, start = start, end = end, locationName = locationName, locationDescription = locationDescription, isPrivate = isPrivate, externalId = externalId, externalId2 = externalId2, externalGroupId = externalGroupId, active = active, metaData = metaData)
 
         return request<Unit, ListingFullResponse>(
             localVariableConfig
@@ -130,7 +128,6 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation createListing
      *
-     * @param version 
      * @param accountId the user&#39;s account ID
      * @param name the name of the listing
      * @param filterIds comma separated list of filter IDs (optional)
@@ -147,7 +144,7 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param metaData external custom client defined data (optional)
      * @return RequestConfig
      */
-    fun createListingRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, filterIds: kotlin.String?, description: kotlin.String?, start: kotlin.Long?, end: kotlin.Long?, locationName: kotlin.String?, locationDescription: kotlin.String?, isPrivate: kotlin.Boolean?, externalId: kotlin.String?, externalId2: kotlin.String?, externalGroupId: kotlin.String?, active: kotlin.Boolean?, metaData: kotlin.String?) : RequestConfig<Unit> {
+    fun createListingRequestConfig(accountId: kotlin.Long, name: kotlin.String, filterIds: kotlin.String?, description: kotlin.String?, start: kotlin.Long?, end: kotlin.Long?, locationName: kotlin.String?, locationDescription: kotlin.String?, isPrivate: kotlin.Boolean?, externalId: kotlin.String?, externalId2: kotlin.String?, externalGroupId: kotlin.String?, active: kotlin.Boolean?, metaData: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -194,7 +191,7 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/listing/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/listing/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -203,10 +200,9 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/listing/delete
+     * POST /listing/delete
      * Delete Listing
      * Delete a listing.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param listingId the id of the listing to delete
      * @return SirqulResponse
@@ -218,8 +214,8 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteListing(version: java.math.BigDecimal, accountId: kotlin.Long, listingId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = deleteListingWithHttpInfo(version = version, accountId = accountId, listingId = listingId)
+    fun deleteListing(accountId: kotlin.Long, listingId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = deleteListingWithHttpInfo(accountId = accountId, listingId = listingId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -237,10 +233,9 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/listing/delete
+     * POST /listing/delete
      * Delete Listing
      * Delete a listing.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param listingId the id of the listing to delete
      * @return ApiResponse<SirqulResponse?>
@@ -249,8 +244,8 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteListingWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, listingId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteListingRequestConfig(version = version, accountId = accountId, listingId = listingId)
+    fun deleteListingWithHttpInfo(accountId: kotlin.Long, listingId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteListingRequestConfig(accountId = accountId, listingId = listingId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -260,12 +255,11 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation deleteListing
      *
-     * @param version 
      * @param accountId the id of the logged in user
      * @param listingId the id of the listing to delete
      * @return RequestConfig
      */
-    fun deleteListingRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, listingId: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteListingRequestConfig(accountId: kotlin.Long, listingId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -276,7 +270,7 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/listing/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/listing/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -285,10 +279,9 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/listing/get
+     * GET /listing/get
      * Get Listing
      * Get a listing by id.
-     * @param version 
      * @param listingId the id of the listing to get
      * @return ListingFullResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -299,8 +292,8 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getListing(version: java.math.BigDecimal, listingId: kotlin.Long) : ListingFullResponse {
-        val localVarResponse = getListingWithHttpInfo(version = version, listingId = listingId)
+    fun getListing(listingId: kotlin.Long) : ListingFullResponse {
+        val localVarResponse = getListingWithHttpInfo(listingId = listingId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ListingFullResponse
@@ -318,10 +311,9 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/listing/get
+     * GET /listing/get
      * Get Listing
      * Get a listing by id.
-     * @param version 
      * @param listingId the id of the listing to get
      * @return ApiResponse<ListingFullResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -329,8 +321,8 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getListingWithHttpInfo(version: java.math.BigDecimal, listingId: kotlin.Long) : ApiResponse<ListingFullResponse?> {
-        val localVariableConfig = getListingRequestConfig(version = version, listingId = listingId)
+    fun getListingWithHttpInfo(listingId: kotlin.Long) : ApiResponse<ListingFullResponse?> {
+        val localVariableConfig = getListingRequestConfig(listingId = listingId)
 
         return request<Unit, ListingFullResponse>(
             localVariableConfig
@@ -340,11 +332,10 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation getListing
      *
-     * @param version 
      * @param listingId the id of the listing to get
      * @return RequestConfig
      */
-    fun getListingRequestConfig(version: java.math.BigDecimal, listingId: kotlin.Long) : RequestConfig<Unit> {
+    fun getListingRequestConfig(listingId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -354,7 +345,7 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/listing/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/listing/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -363,10 +354,9 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/listing/search
+     * GET /listing/search
      * Search Listings
      * Search for event listings from the start time to end time
-     * @param version 
      * @param accountId the account id of the user (optional)
      * @param keyword search the event name and description for this keyword (optional)
      * @param start the record to begin the return set on (optional, default to 0)
@@ -391,8 +381,8 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchListing(version: java.math.BigDecimal, accountId: kotlin.Long? = null, keyword: kotlin.String? = null, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, activeOnly: kotlin.Boolean? = false, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, useListingOrderIds: kotlin.Boolean? = true, externalId: kotlin.String? = null, externalId2: kotlin.String? = null, externalGroupId: kotlin.String? = null) : kotlin.collections.List<ListingResponse> {
-        val localVarResponse = searchListingWithHttpInfo(version = version, accountId = accountId, keyword = keyword, start = start, limit = limit, activeOnly = activeOnly, latitude = latitude, longitude = longitude, startDate = startDate, endDate = endDate, categoryIds = categoryIds, filterIds = filterIds, useListingOrderIds = useListingOrderIds, externalId = externalId, externalId2 = externalId2, externalGroupId = externalGroupId)
+    fun searchListing(accountId: kotlin.Long? = null, keyword: kotlin.String? = null, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, activeOnly: kotlin.Boolean? = false, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, useListingOrderIds: kotlin.Boolean? = true, externalId: kotlin.String? = null, externalId2: kotlin.String? = null, externalGroupId: kotlin.String? = null) : kotlin.collections.List<ListingResponse> {
+        val localVarResponse = searchListingWithHttpInfo(accountId = accountId, keyword = keyword, start = start, limit = limit, activeOnly = activeOnly, latitude = latitude, longitude = longitude, startDate = startDate, endDate = endDate, categoryIds = categoryIds, filterIds = filterIds, useListingOrderIds = useListingOrderIds, externalId = externalId, externalId2 = externalId2, externalGroupId = externalGroupId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<ListingResponse>
@@ -410,10 +400,9 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/listing/search
+     * GET /listing/search
      * Search Listings
      * Search for event listings from the start time to end time
-     * @param version 
      * @param accountId the account id of the user (optional)
      * @param keyword search the event name and description for this keyword (optional)
      * @param start the record to begin the return set on (optional, default to 0)
@@ -435,8 +424,8 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchListingWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long?, keyword: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?, startDate: kotlin.Long?, endDate: kotlin.Long?, categoryIds: kotlin.String?, filterIds: kotlin.String?, useListingOrderIds: kotlin.Boolean?, externalId: kotlin.String?, externalId2: kotlin.String?, externalGroupId: kotlin.String?) : ApiResponse<kotlin.collections.List<ListingResponse>?> {
-        val localVariableConfig = searchListingRequestConfig(version = version, accountId = accountId, keyword = keyword, start = start, limit = limit, activeOnly = activeOnly, latitude = latitude, longitude = longitude, startDate = startDate, endDate = endDate, categoryIds = categoryIds, filterIds = filterIds, useListingOrderIds = useListingOrderIds, externalId = externalId, externalId2 = externalId2, externalGroupId = externalGroupId)
+    fun searchListingWithHttpInfo(accountId: kotlin.Long?, keyword: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?, startDate: kotlin.Long?, endDate: kotlin.Long?, categoryIds: kotlin.String?, filterIds: kotlin.String?, useListingOrderIds: kotlin.Boolean?, externalId: kotlin.String?, externalId2: kotlin.String?, externalGroupId: kotlin.String?) : ApiResponse<kotlin.collections.List<ListingResponse>?> {
+        val localVariableConfig = searchListingRequestConfig(accountId = accountId, keyword = keyword, start = start, limit = limit, activeOnly = activeOnly, latitude = latitude, longitude = longitude, startDate = startDate, endDate = endDate, categoryIds = categoryIds, filterIds = filterIds, useListingOrderIds = useListingOrderIds, externalId = externalId, externalId2 = externalId2, externalGroupId = externalGroupId)
 
         return request<Unit, kotlin.collections.List<ListingResponse>>(
             localVariableConfig
@@ -446,7 +435,6 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation searchListing
      *
-     * @param version 
      * @param accountId the account id of the user (optional)
      * @param keyword search the event name and description for this keyword (optional)
      * @param start the record to begin the return set on (optional, default to 0)
@@ -464,7 +452,7 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param externalGroupId external group identifier used by a third party (optional)
      * @return RequestConfig
      */
-    fun searchListingRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long?, keyword: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?, startDate: kotlin.Long?, endDate: kotlin.Long?, categoryIds: kotlin.String?, filterIds: kotlin.String?, useListingOrderIds: kotlin.Boolean?, externalId: kotlin.String?, externalId2: kotlin.String?, externalGroupId: kotlin.String?) : RequestConfig<Unit> {
+    fun searchListingRequestConfig(accountId: kotlin.Long?, keyword: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?, startDate: kotlin.Long?, endDate: kotlin.Long?, categoryIds: kotlin.String?, filterIds: kotlin.String?, useListingOrderIds: kotlin.Boolean?, externalId: kotlin.String?, externalId2: kotlin.String?, externalGroupId: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -518,7 +506,7 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/listing/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/listing/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -527,10 +515,9 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/listing/summary
+     * GET /listing/summary
      * Summary Listing
      * Search for a list of summary listings from the start time up to 8 days out.
-     * @param version 
      * @param accountId the account id of the user (optional)
      * @param startDate the start date to search from (optional)
      * @param categoryIds the list of categories to search on (optional)
@@ -545,8 +532,8 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun summaryListing(version: java.math.BigDecimal, accountId: kotlin.Long? = null, startDate: kotlin.Long? = null, categoryIds: kotlin.String? = null, daysToInclude: kotlin.Int? = 15, useListingOrderIds: kotlin.Boolean? = true) : kotlin.collections.List<ListingGroupResponse> {
-        val localVarResponse = summaryListingWithHttpInfo(version = version, accountId = accountId, startDate = startDate, categoryIds = categoryIds, daysToInclude = daysToInclude, useListingOrderIds = useListingOrderIds)
+    fun summaryListing(accountId: kotlin.Long? = null, startDate: kotlin.Long? = null, categoryIds: kotlin.String? = null, daysToInclude: kotlin.Int? = 15, useListingOrderIds: kotlin.Boolean? = true) : kotlin.collections.List<ListingGroupResponse> {
+        val localVarResponse = summaryListingWithHttpInfo(accountId = accountId, startDate = startDate, categoryIds = categoryIds, daysToInclude = daysToInclude, useListingOrderIds = useListingOrderIds)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<ListingGroupResponse>
@@ -564,10 +551,9 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/listing/summary
+     * GET /listing/summary
      * Summary Listing
      * Search for a list of summary listings from the start time up to 8 days out.
-     * @param version 
      * @param accountId the account id of the user (optional)
      * @param startDate the start date to search from (optional)
      * @param categoryIds the list of categories to search on (optional)
@@ -579,8 +565,8 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun summaryListingWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long?, startDate: kotlin.Long?, categoryIds: kotlin.String?, daysToInclude: kotlin.Int?, useListingOrderIds: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<ListingGroupResponse>?> {
-        val localVariableConfig = summaryListingRequestConfig(version = version, accountId = accountId, startDate = startDate, categoryIds = categoryIds, daysToInclude = daysToInclude, useListingOrderIds = useListingOrderIds)
+    fun summaryListingWithHttpInfo(accountId: kotlin.Long?, startDate: kotlin.Long?, categoryIds: kotlin.String?, daysToInclude: kotlin.Int?, useListingOrderIds: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<ListingGroupResponse>?> {
+        val localVariableConfig = summaryListingRequestConfig(accountId = accountId, startDate = startDate, categoryIds = categoryIds, daysToInclude = daysToInclude, useListingOrderIds = useListingOrderIds)
 
         return request<Unit, kotlin.collections.List<ListingGroupResponse>>(
             localVariableConfig
@@ -590,7 +576,6 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation summaryListing
      *
-     * @param version 
      * @param accountId the account id of the user (optional)
      * @param startDate the start date to search from (optional)
      * @param categoryIds the list of categories to search on (optional)
@@ -598,7 +583,7 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param useListingOrderIds determines whether to use configured listing order ids (optional, default to true)
      * @return RequestConfig
      */
-    fun summaryListingRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long?, startDate: kotlin.Long?, categoryIds: kotlin.String?, daysToInclude: kotlin.Int?, useListingOrderIds: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun summaryListingRequestConfig(accountId: kotlin.Long?, startDate: kotlin.Long?, categoryIds: kotlin.String?, daysToInclude: kotlin.Int?, useListingOrderIds: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -622,7 +607,7 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/listing/summary".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/listing/summary",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -631,10 +616,9 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/listing/update
+     * POST /listing/update
      * Update Listing
      * Updates a listing.
-     * @param version 
      * @param accountId the user&#39;s account ID
      * @param listingId the listing to update
      * @param filterIds comma separated list of filter IDs (optional)
@@ -659,8 +643,8 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateListing(version: java.math.BigDecimal, accountId: kotlin.Long, listingId: kotlin.Long, filterIds: kotlin.String? = null, name: kotlin.String? = null, description: kotlin.String? = null, start: kotlin.Long? = null, end: kotlin.Long? = null, locationName: kotlin.String? = null, locationDescription: kotlin.String? = null, isPrivate: kotlin.Boolean? = null, externalId: kotlin.String? = null, externalId2: kotlin.String? = null, externalGroupId: kotlin.String? = null, active: kotlin.Boolean? = null, metaData: kotlin.String? = null) : ListingFullResponse {
-        val localVarResponse = updateListingWithHttpInfo(version = version, accountId = accountId, listingId = listingId, filterIds = filterIds, name = name, description = description, start = start, end = end, locationName = locationName, locationDescription = locationDescription, isPrivate = isPrivate, externalId = externalId, externalId2 = externalId2, externalGroupId = externalGroupId, active = active, metaData = metaData)
+    fun updateListing(accountId: kotlin.Long, listingId: kotlin.Long, filterIds: kotlin.String? = null, name: kotlin.String? = null, description: kotlin.String? = null, start: kotlin.Long? = null, end: kotlin.Long? = null, locationName: kotlin.String? = null, locationDescription: kotlin.String? = null, isPrivate: kotlin.Boolean? = null, externalId: kotlin.String? = null, externalId2: kotlin.String? = null, externalGroupId: kotlin.String? = null, active: kotlin.Boolean? = null, metaData: kotlin.String? = null) : ListingFullResponse {
+        val localVarResponse = updateListingWithHttpInfo(accountId = accountId, listingId = listingId, filterIds = filterIds, name = name, description = description, start = start, end = end, locationName = locationName, locationDescription = locationDescription, isPrivate = isPrivate, externalId = externalId, externalId2 = externalId2, externalGroupId = externalGroupId, active = active, metaData = metaData)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ListingFullResponse
@@ -678,10 +662,9 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/listing/update
+     * POST /listing/update
      * Update Listing
      * Updates a listing.
-     * @param version 
      * @param accountId the user&#39;s account ID
      * @param listingId the listing to update
      * @param filterIds comma separated list of filter IDs (optional)
@@ -703,8 +686,8 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateListingWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, listingId: kotlin.Long, filterIds: kotlin.String?, name: kotlin.String?, description: kotlin.String?, start: kotlin.Long?, end: kotlin.Long?, locationName: kotlin.String?, locationDescription: kotlin.String?, isPrivate: kotlin.Boolean?, externalId: kotlin.String?, externalId2: kotlin.String?, externalGroupId: kotlin.String?, active: kotlin.Boolean?, metaData: kotlin.String?) : ApiResponse<ListingFullResponse?> {
-        val localVariableConfig = updateListingRequestConfig(version = version, accountId = accountId, listingId = listingId, filterIds = filterIds, name = name, description = description, start = start, end = end, locationName = locationName, locationDescription = locationDescription, isPrivate = isPrivate, externalId = externalId, externalId2 = externalId2, externalGroupId = externalGroupId, active = active, metaData = metaData)
+    fun updateListingWithHttpInfo(accountId: kotlin.Long, listingId: kotlin.Long, filterIds: kotlin.String?, name: kotlin.String?, description: kotlin.String?, start: kotlin.Long?, end: kotlin.Long?, locationName: kotlin.String?, locationDescription: kotlin.String?, isPrivate: kotlin.Boolean?, externalId: kotlin.String?, externalId2: kotlin.String?, externalGroupId: kotlin.String?, active: kotlin.Boolean?, metaData: kotlin.String?) : ApiResponse<ListingFullResponse?> {
+        val localVariableConfig = updateListingRequestConfig(accountId = accountId, listingId = listingId, filterIds = filterIds, name = name, description = description, start = start, end = end, locationName = locationName, locationDescription = locationDescription, isPrivate = isPrivate, externalId = externalId, externalId2 = externalId2, externalGroupId = externalGroupId, active = active, metaData = metaData)
 
         return request<Unit, ListingFullResponse>(
             localVariableConfig
@@ -714,7 +697,6 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation updateListing
      *
-     * @param version 
      * @param accountId the user&#39;s account ID
      * @param listingId the listing to update
      * @param filterIds comma separated list of filter IDs (optional)
@@ -732,7 +714,7 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param metaData external custom client defined data (optional)
      * @return RequestConfig
      */
-    fun updateListingRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, listingId: kotlin.Long, filterIds: kotlin.String?, name: kotlin.String?, description: kotlin.String?, start: kotlin.Long?, end: kotlin.Long?, locationName: kotlin.String?, locationDescription: kotlin.String?, isPrivate: kotlin.Boolean?, externalId: kotlin.String?, externalId2: kotlin.String?, externalGroupId: kotlin.String?, active: kotlin.Boolean?, metaData: kotlin.String?) : RequestConfig<Unit> {
+    fun updateListingRequestConfig(accountId: kotlin.Long, listingId: kotlin.Long, filterIds: kotlin.String?, name: kotlin.String?, description: kotlin.String?, start: kotlin.Long?, end: kotlin.Long?, locationName: kotlin.String?, locationDescription: kotlin.String?, isPrivate: kotlin.Boolean?, externalId: kotlin.String?, externalId2: kotlin.String?, externalGroupId: kotlin.String?, active: kotlin.Boolean?, metaData: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -782,7 +764,7 @@ open class ListingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/listing/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/listing/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

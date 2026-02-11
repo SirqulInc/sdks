@@ -43,15 +43,14 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/flag/create
+     * POST /flag/create
      * Create Flag
      * Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
-     * @param version 
      * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
      * @param flagableId The flagable object id
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -68,8 +67,8 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createFlag(version: java.math.BigDecimal, flagableType: kotlin.String, flagableId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, flagDescription: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
-        val localVarResponse = createFlagWithHttpInfo(version = version, flagableType = flagableType, flagableId = flagableId, deviceId = deviceId, accountId = accountId, flagDescription = flagDescription, latitude = latitude, longitude = longitude)
+    fun createFlag(flagableType: kotlin.String, flagableId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, flagDescription: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
+        val localVarResponse = createFlagWithHttpInfo(flagableType = flagableType, flagableId = flagableId, deviceId = deviceId, accountId = accountId, flagDescription = flagDescription, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -87,10 +86,9 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/flag/create
+     * POST /flag/create
      * Create Flag
      * Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
-     * @param version 
      * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
      * @param flagableId The flagable object id
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -104,8 +102,8 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createFlagWithHttpInfo(version: java.math.BigDecimal, flagableType: kotlin.String, flagableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, flagDescription: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = createFlagRequestConfig(version = version, flagableType = flagableType, flagableId = flagableId, deviceId = deviceId, accountId = accountId, flagDescription = flagDescription, latitude = latitude, longitude = longitude)
+    fun createFlagWithHttpInfo(flagableType: kotlin.String, flagableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, flagDescription: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = createFlagRequestConfig(flagableType = flagableType, flagableId = flagableId, deviceId = deviceId, accountId = accountId, flagDescription = flagDescription, latitude = latitude, longitude = longitude)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -115,7 +113,6 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation createFlag
      *
-     * @param version 
      * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
      * @param flagableId The flagable object id
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -125,7 +122,7 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param longitude The current location of the user (optional)
      * @return RequestConfig
      */
-    fun createFlagRequestConfig(version: java.math.BigDecimal, flagableType: kotlin.String, flagableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, flagDescription: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun createFlagRequestConfig(flagableType: kotlin.String, flagableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, flagDescription: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -151,7 +148,7 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/flag/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/flag/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -160,10 +157,9 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/flag/delete
+     * POST /flag/delete
      * Delete Flag
      * Deletes a flag.
-     * @param version 
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param itemBeingFlaggedType This parameter is deprecated. (optional)
@@ -179,8 +175,8 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteFlag(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, itemBeingFlaggedType: kotlin.String? = null, itemBeingFlaggedId: kotlin.Long? = null, flagableType: kotlin.String? = null, flagableId: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = deleteFlagWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, itemBeingFlaggedType = itemBeingFlaggedType, itemBeingFlaggedId = itemBeingFlaggedId, flagableType = flagableType, flagableId = flagableId)
+    fun deleteFlag(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, itemBeingFlaggedType: kotlin.String? = null, itemBeingFlaggedId: kotlin.Long? = null, flagableType: kotlin.String? = null, flagableId: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = deleteFlagWithHttpInfo(deviceId = deviceId, accountId = accountId, itemBeingFlaggedType = itemBeingFlaggedType, itemBeingFlaggedId = itemBeingFlaggedId, flagableType = flagableType, flagableId = flagableId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -198,10 +194,9 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/flag/delete
+     * POST /flag/delete
      * Delete Flag
      * Deletes a flag.
-     * @param version 
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param itemBeingFlaggedType This parameter is deprecated. (optional)
@@ -214,8 +209,8 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteFlagWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, itemBeingFlaggedType: kotlin.String?, itemBeingFlaggedId: kotlin.Long?, flagableType: kotlin.String?, flagableId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteFlagRequestConfig(version = version, deviceId = deviceId, accountId = accountId, itemBeingFlaggedType = itemBeingFlaggedType, itemBeingFlaggedId = itemBeingFlaggedId, flagableType = flagableType, flagableId = flagableId)
+    fun deleteFlagWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, itemBeingFlaggedType: kotlin.String?, itemBeingFlaggedId: kotlin.Long?, flagableType: kotlin.String?, flagableId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteFlagRequestConfig(deviceId = deviceId, accountId = accountId, itemBeingFlaggedType = itemBeingFlaggedType, itemBeingFlaggedId = itemBeingFlaggedId, flagableType = flagableType, flagableId = flagableId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -225,7 +220,6 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation deleteFlag
      *
-     * @param version 
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param itemBeingFlaggedType This parameter is deprecated. (optional)
@@ -234,7 +228,7 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param flagableId The flagable object id (optional)
      * @return RequestConfig
      */
-    fun deleteFlagRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, itemBeingFlaggedType: kotlin.String?, itemBeingFlaggedId: kotlin.Long?, flagableType: kotlin.String?, flagableId: kotlin.Long?) : RequestConfig<Unit> {
+    fun deleteFlagRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, itemBeingFlaggedType: kotlin.String?, itemBeingFlaggedId: kotlin.Long?, flagableType: kotlin.String?, flagableId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -261,7 +255,7 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/flag/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/flag/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -270,10 +264,9 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/flag/get
+     * GET /flag/get
      * Get Flag
      * Gets the details on whether the user has flagged a particular flagable object.
-     * @param version 
      * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
      * @param flagableId The flagable object id
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -289,8 +282,8 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getFlag(version: java.math.BigDecimal, flagableType: kotlin.String, flagableId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : FlagResponse {
-        val localVarResponse = getFlagWithHttpInfo(version = version, flagableType = flagableType, flagableId = flagableId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun getFlag(flagableType: kotlin.String, flagableId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : FlagResponse {
+        val localVarResponse = getFlagWithHttpInfo(flagableType = flagableType, flagableId = flagableId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as FlagResponse
@@ -308,10 +301,9 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/flag/get
+     * GET /flag/get
      * Get Flag
      * Gets the details on whether the user has flagged a particular flagable object.
-     * @param version 
      * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
      * @param flagableId The flagable object id
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -324,8 +316,8 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getFlagWithHttpInfo(version: java.math.BigDecimal, flagableType: kotlin.String, flagableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<FlagResponse?> {
-        val localVariableConfig = getFlagRequestConfig(version = version, flagableType = flagableType, flagableId = flagableId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun getFlagWithHttpInfo(flagableType: kotlin.String, flagableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<FlagResponse?> {
+        val localVariableConfig = getFlagRequestConfig(flagableType = flagableType, flagableId = flagableId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return request<Unit, FlagResponse>(
             localVariableConfig
@@ -335,7 +327,6 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation getFlag
      *
-     * @param version 
      * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
      * @param flagableId The flagable object id
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -344,7 +335,7 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param longitude The current location of the user (optional)
      * @return RequestConfig
      */
-    fun getFlagRequestConfig(version: java.math.BigDecimal, flagableType: kotlin.String, flagableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun getFlagRequestConfig(flagableType: kotlin.String, flagableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -367,7 +358,7 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/flag/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/flag/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -376,10 +367,9 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/flag/threshold/get
+     * GET /flag/threshold/get
      * Get Flag Threshold
      * Get the flag threshold value on an object type for a particular application.
-     * @param version 
      * @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
      * @param appKey The application key
      * @return CountResponse
@@ -391,8 +381,8 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getFlagThreshold(version: java.math.BigDecimal, itemBeingFlaggedType: kotlin.String, appKey: kotlin.String) : CountResponse {
-        val localVarResponse = getFlagThresholdWithHttpInfo(version = version, itemBeingFlaggedType = itemBeingFlaggedType, appKey = appKey)
+    fun getFlagThreshold(itemBeingFlaggedType: kotlin.String, appKey: kotlin.String) : CountResponse {
+        val localVarResponse = getFlagThresholdWithHttpInfo(itemBeingFlaggedType = itemBeingFlaggedType, appKey = appKey)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CountResponse
@@ -410,10 +400,9 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/flag/threshold/get
+     * GET /flag/threshold/get
      * Get Flag Threshold
      * Get the flag threshold value on an object type for a particular application.
-     * @param version 
      * @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
      * @param appKey The application key
      * @return ApiResponse<CountResponse?>
@@ -422,8 +411,8 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getFlagThresholdWithHttpInfo(version: java.math.BigDecimal, itemBeingFlaggedType: kotlin.String, appKey: kotlin.String) : ApiResponse<CountResponse?> {
-        val localVariableConfig = getFlagThresholdRequestConfig(version = version, itemBeingFlaggedType = itemBeingFlaggedType, appKey = appKey)
+    fun getFlagThresholdWithHttpInfo(itemBeingFlaggedType: kotlin.String, appKey: kotlin.String) : ApiResponse<CountResponse?> {
+        val localVariableConfig = getFlagThresholdRequestConfig(itemBeingFlaggedType = itemBeingFlaggedType, appKey = appKey)
 
         return request<Unit, CountResponse>(
             localVariableConfig
@@ -433,12 +422,11 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation getFlagThreshold
      *
-     * @param version 
      * @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
      * @param appKey The application key
      * @return RequestConfig
      */
-    fun getFlagThresholdRequestConfig(version: java.math.BigDecimal, itemBeingFlaggedType: kotlin.String, appKey: kotlin.String) : RequestConfig<Unit> {
+    fun getFlagThresholdRequestConfig(itemBeingFlaggedType: kotlin.String, appKey: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -449,7 +437,7 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/flag/threshold/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/flag/threshold/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -458,10 +446,9 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/flag/threshold/update
+     * POST /flag/threshold/update
      * Update Flag Threshold
      * Update the flag threshold on an object type for a particular application.
-     * @param version 
      * @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
      * @param threshold The threshold value
      * @param appKey The application key
@@ -476,8 +463,8 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateFlagThreshold(version: java.math.BigDecimal, itemBeingFlaggedType: kotlin.String, threshold: kotlin.Long, appKey: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : CountResponse {
-        val localVarResponse = updateFlagThresholdWithHttpInfo(version = version, itemBeingFlaggedType = itemBeingFlaggedType, threshold = threshold, appKey = appKey, deviceId = deviceId, accountId = accountId)
+    fun updateFlagThreshold(itemBeingFlaggedType: kotlin.String, threshold: kotlin.Long, appKey: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : CountResponse {
+        val localVarResponse = updateFlagThresholdWithHttpInfo(itemBeingFlaggedType = itemBeingFlaggedType, threshold = threshold, appKey = appKey, deviceId = deviceId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CountResponse
@@ -495,10 +482,9 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/flag/threshold/update
+     * POST /flag/threshold/update
      * Update Flag Threshold
      * Update the flag threshold on an object type for a particular application.
-     * @param version 
      * @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
      * @param threshold The threshold value
      * @param appKey The application key
@@ -510,8 +496,8 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateFlagThresholdWithHttpInfo(version: java.math.BigDecimal, itemBeingFlaggedType: kotlin.String, threshold: kotlin.Long, appKey: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<CountResponse?> {
-        val localVariableConfig = updateFlagThresholdRequestConfig(version = version, itemBeingFlaggedType = itemBeingFlaggedType, threshold = threshold, appKey = appKey, deviceId = deviceId, accountId = accountId)
+    fun updateFlagThresholdWithHttpInfo(itemBeingFlaggedType: kotlin.String, threshold: kotlin.Long, appKey: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<CountResponse?> {
+        val localVariableConfig = updateFlagThresholdRequestConfig(itemBeingFlaggedType = itemBeingFlaggedType, threshold = threshold, appKey = appKey, deviceId = deviceId, accountId = accountId)
 
         return request<Unit, CountResponse>(
             localVariableConfig
@@ -521,7 +507,6 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation updateFlagThreshold
      *
-     * @param version 
      * @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
      * @param threshold The threshold value
      * @param appKey The application key
@@ -529,7 +514,7 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @return RequestConfig
      */
-    fun updateFlagThresholdRequestConfig(version: java.math.BigDecimal, itemBeingFlaggedType: kotlin.String, threshold: kotlin.Long, appKey: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun updateFlagThresholdRequestConfig(itemBeingFlaggedType: kotlin.String, threshold: kotlin.Long, appKey: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -547,7 +532,7 @@ open class FlagApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/flag/threshold/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/flag/threshold/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

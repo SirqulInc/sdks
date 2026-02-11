@@ -42,15 +42,14 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/employee/assign
+     * POST /employee/assign
      * Assign Employee
      * Assign An existing account to be an employee
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param managerAccountId The account id of the manager to assign under
      * @param employeeAccountId The account id of the user to be assigned as employee
@@ -64,8 +63,8 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun assignEmployee(version: java.math.BigDecimal, accountId: kotlin.Long, managerAccountId: kotlin.Long, employeeAccountId: kotlin.Long, role: kotlin.String? = null) : EmployeeResponse {
-        val localVarResponse = assignEmployeeWithHttpInfo(version = version, accountId = accountId, managerAccountId = managerAccountId, employeeAccountId = employeeAccountId, role = role)
+    fun assignEmployee(accountId: kotlin.Long, managerAccountId: kotlin.Long, employeeAccountId: kotlin.Long, role: kotlin.String? = null) : EmployeeResponse {
+        val localVarResponse = assignEmployeeWithHttpInfo(accountId = accountId, managerAccountId = managerAccountId, employeeAccountId = employeeAccountId, role = role)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmployeeResponse
@@ -83,10 +82,9 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/employee/assign
+     * POST /employee/assign
      * Assign Employee
      * Assign An existing account to be an employee
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param managerAccountId The account id of the manager to assign under
      * @param employeeAccountId The account id of the user to be assigned as employee
@@ -97,8 +95,8 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun assignEmployeeWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, managerAccountId: kotlin.Long, employeeAccountId: kotlin.Long, role: kotlin.String?) : ApiResponse<EmployeeResponse?> {
-        val localVariableConfig = assignEmployeeRequestConfig(version = version, accountId = accountId, managerAccountId = managerAccountId, employeeAccountId = employeeAccountId, role = role)
+    fun assignEmployeeWithHttpInfo(accountId: kotlin.Long, managerAccountId: kotlin.Long, employeeAccountId: kotlin.Long, role: kotlin.String?) : ApiResponse<EmployeeResponse?> {
+        val localVariableConfig = assignEmployeeRequestConfig(accountId = accountId, managerAccountId = managerAccountId, employeeAccountId = employeeAccountId, role = role)
 
         return request<Unit, EmployeeResponse>(
             localVariableConfig
@@ -108,14 +106,13 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation assignEmployee
      *
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param managerAccountId The account id of the manager to assign under
      * @param employeeAccountId The account id of the user to be assigned as employee
      * @param role The role to assign to the employee (e.g. RETAILER or RETAILER_LIMITED) (optional)
      * @return RequestConfig
      */
-    fun assignEmployeeRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, managerAccountId: kotlin.Long, employeeAccountId: kotlin.Long, role: kotlin.String?) : RequestConfig<Unit> {
+    fun assignEmployeeRequestConfig(accountId: kotlin.Long, managerAccountId: kotlin.Long, employeeAccountId: kotlin.Long, role: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -130,7 +127,7 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/employee/assign".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/employee/assign",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -139,10 +136,9 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/employee/assignToLocation
+     * POST /employee/assignToLocation
      * Assign Employee to Location
      * Assign or unassign the account to a retailer location.
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param retailerLocationId The retailer location to apply the change to
      * @param employeeAccountId The account id of the user to apply the change to (optional)
@@ -156,8 +152,8 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun assignToLocationEmployee(version: java.math.BigDecimal, accountId: kotlin.Long, retailerLocationId: kotlin.Long, employeeAccountId: kotlin.Long? = null, assign: kotlin.Boolean? = true) : SirqulResponse {
-        val localVarResponse = assignToLocationEmployeeWithHttpInfo(version = version, accountId = accountId, retailerLocationId = retailerLocationId, employeeAccountId = employeeAccountId, assign = assign)
+    fun assignToLocationEmployee(accountId: kotlin.Long, retailerLocationId: kotlin.Long, employeeAccountId: kotlin.Long? = null, assign: kotlin.Boolean? = true) : SirqulResponse {
+        val localVarResponse = assignToLocationEmployeeWithHttpInfo(accountId = accountId, retailerLocationId = retailerLocationId, employeeAccountId = employeeAccountId, assign = assign)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -175,10 +171,9 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/employee/assignToLocation
+     * POST /employee/assignToLocation
      * Assign Employee to Location
      * Assign or unassign the account to a retailer location.
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param retailerLocationId The retailer location to apply the change to
      * @param employeeAccountId The account id of the user to apply the change to (optional)
@@ -189,8 +184,8 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun assignToLocationEmployeeWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, retailerLocationId: kotlin.Long, employeeAccountId: kotlin.Long?, assign: kotlin.Boolean?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = assignToLocationEmployeeRequestConfig(version = version, accountId = accountId, retailerLocationId = retailerLocationId, employeeAccountId = employeeAccountId, assign = assign)
+    fun assignToLocationEmployeeWithHttpInfo(accountId: kotlin.Long, retailerLocationId: kotlin.Long, employeeAccountId: kotlin.Long?, assign: kotlin.Boolean?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = assignToLocationEmployeeRequestConfig(accountId = accountId, retailerLocationId = retailerLocationId, employeeAccountId = employeeAccountId, assign = assign)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -200,14 +195,13 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation assignToLocationEmployee
      *
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param retailerLocationId The retailer location to apply the change to
      * @param employeeAccountId The account id of the user to apply the change to (optional)
      * @param assign If true (default) assign to the location, otherwise remove from the retailer (optional, default to true)
      * @return RequestConfig
      */
-    fun assignToLocationEmployeeRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, retailerLocationId: kotlin.Long, employeeAccountId: kotlin.Long?, assign: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun assignToLocationEmployeeRequestConfig(accountId: kotlin.Long, retailerLocationId: kotlin.Long, employeeAccountId: kotlin.Long?, assign: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -224,7 +218,7 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/employee/assignToLocation".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/employee/assignToLocation",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -251,10 +245,9 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      }
 
     /**
-     * POST /api/{version}/employee/create
+     * POST /employee/create
      * Create Employee
      * Create a new account record with the provided information.
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param managerAccountId The account id of the manager to assign under
      * @param username The username/email for the new user. This must be unique across the entire the system.
@@ -294,8 +287,8 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createEmployee(version: java.math.BigDecimal, accountId: kotlin.Long, managerAccountId: kotlin.Long, username: kotlin.String, password: kotlin.String, name: kotlin.String? = null, prefixName: kotlin.String? = null, firstName: kotlin.String? = null, middleName: kotlin.String? = null, lastName: kotlin.String? = null, suffixName: kotlin.String? = null, title: kotlin.String? = null, aboutUs: kotlin.String? = null, assetId: kotlin.Long? = null, gender: GenderCreateEmployee? = null, homePhone: kotlin.String? = null, cellPhone: kotlin.String? = null, cellPhoneCarrier: kotlin.String? = null, businessPhone: kotlin.String? = null, emailAddress: kotlin.String? = null, streetAddress: kotlin.String? = null, streetAddress2: kotlin.String? = null, city: kotlin.String? = null, state: kotlin.String? = null, zipcode: kotlin.String? = null, country: kotlin.String? = null, role: kotlin.String? = null, retailerLocationIds: kotlin.String? = null, settingsAppKey: kotlin.String? = null, appBlob: kotlin.String? = null, assignedDeviceId: kotlin.String? = null) : EmployeeResponse {
-        val localVarResponse = createEmployeeWithHttpInfo(version = version, accountId = accountId, managerAccountId = managerAccountId, username = username, password = password, name = name, prefixName = prefixName, firstName = firstName, middleName = middleName, lastName = lastName, suffixName = suffixName, title = title, aboutUs = aboutUs, assetId = assetId, gender = gender, homePhone = homePhone, cellPhone = cellPhone, cellPhoneCarrier = cellPhoneCarrier, businessPhone = businessPhone, emailAddress = emailAddress, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, zipcode = zipcode, country = country, role = role, retailerLocationIds = retailerLocationIds, settingsAppKey = settingsAppKey, appBlob = appBlob, assignedDeviceId = assignedDeviceId)
+    fun createEmployee(accountId: kotlin.Long, managerAccountId: kotlin.Long, username: kotlin.String, password: kotlin.String, name: kotlin.String? = null, prefixName: kotlin.String? = null, firstName: kotlin.String? = null, middleName: kotlin.String? = null, lastName: kotlin.String? = null, suffixName: kotlin.String? = null, title: kotlin.String? = null, aboutUs: kotlin.String? = null, assetId: kotlin.Long? = null, gender: GenderCreateEmployee? = null, homePhone: kotlin.String? = null, cellPhone: kotlin.String? = null, cellPhoneCarrier: kotlin.String? = null, businessPhone: kotlin.String? = null, emailAddress: kotlin.String? = null, streetAddress: kotlin.String? = null, streetAddress2: kotlin.String? = null, city: kotlin.String? = null, state: kotlin.String? = null, zipcode: kotlin.String? = null, country: kotlin.String? = null, role: kotlin.String? = null, retailerLocationIds: kotlin.String? = null, settingsAppKey: kotlin.String? = null, appBlob: kotlin.String? = null, assignedDeviceId: kotlin.String? = null) : EmployeeResponse {
+        val localVarResponse = createEmployeeWithHttpInfo(accountId = accountId, managerAccountId = managerAccountId, username = username, password = password, name = name, prefixName = prefixName, firstName = firstName, middleName = middleName, lastName = lastName, suffixName = suffixName, title = title, aboutUs = aboutUs, assetId = assetId, gender = gender, homePhone = homePhone, cellPhone = cellPhone, cellPhoneCarrier = cellPhoneCarrier, businessPhone = businessPhone, emailAddress = emailAddress, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, zipcode = zipcode, country = country, role = role, retailerLocationIds = retailerLocationIds, settingsAppKey = settingsAppKey, appBlob = appBlob, assignedDeviceId = assignedDeviceId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmployeeResponse
@@ -313,10 +306,9 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/employee/create
+     * POST /employee/create
      * Create Employee
      * Create a new account record with the provided information.
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param managerAccountId The account id of the manager to assign under
      * @param username The username/email for the new user. This must be unique across the entire the system.
@@ -353,8 +345,8 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createEmployeeWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, managerAccountId: kotlin.Long, username: kotlin.String, password: kotlin.String, name: kotlin.String?, prefixName: kotlin.String?, firstName: kotlin.String?, middleName: kotlin.String?, lastName: kotlin.String?, suffixName: kotlin.String?, title: kotlin.String?, aboutUs: kotlin.String?, assetId: kotlin.Long?, gender: GenderCreateEmployee?, homePhone: kotlin.String?, cellPhone: kotlin.String?, cellPhoneCarrier: kotlin.String?, businessPhone: kotlin.String?, emailAddress: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, zipcode: kotlin.String?, country: kotlin.String?, role: kotlin.String?, retailerLocationIds: kotlin.String?, settingsAppKey: kotlin.String?, appBlob: kotlin.String?, assignedDeviceId: kotlin.String?) : ApiResponse<EmployeeResponse?> {
-        val localVariableConfig = createEmployeeRequestConfig(version = version, accountId = accountId, managerAccountId = managerAccountId, username = username, password = password, name = name, prefixName = prefixName, firstName = firstName, middleName = middleName, lastName = lastName, suffixName = suffixName, title = title, aboutUs = aboutUs, assetId = assetId, gender = gender, homePhone = homePhone, cellPhone = cellPhone, cellPhoneCarrier = cellPhoneCarrier, businessPhone = businessPhone, emailAddress = emailAddress, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, zipcode = zipcode, country = country, role = role, retailerLocationIds = retailerLocationIds, settingsAppKey = settingsAppKey, appBlob = appBlob, assignedDeviceId = assignedDeviceId)
+    fun createEmployeeWithHttpInfo(accountId: kotlin.Long, managerAccountId: kotlin.Long, username: kotlin.String, password: kotlin.String, name: kotlin.String?, prefixName: kotlin.String?, firstName: kotlin.String?, middleName: kotlin.String?, lastName: kotlin.String?, suffixName: kotlin.String?, title: kotlin.String?, aboutUs: kotlin.String?, assetId: kotlin.Long?, gender: GenderCreateEmployee?, homePhone: kotlin.String?, cellPhone: kotlin.String?, cellPhoneCarrier: kotlin.String?, businessPhone: kotlin.String?, emailAddress: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, zipcode: kotlin.String?, country: kotlin.String?, role: kotlin.String?, retailerLocationIds: kotlin.String?, settingsAppKey: kotlin.String?, appBlob: kotlin.String?, assignedDeviceId: kotlin.String?) : ApiResponse<EmployeeResponse?> {
+        val localVariableConfig = createEmployeeRequestConfig(accountId = accountId, managerAccountId = managerAccountId, username = username, password = password, name = name, prefixName = prefixName, firstName = firstName, middleName = middleName, lastName = lastName, suffixName = suffixName, title = title, aboutUs = aboutUs, assetId = assetId, gender = gender, homePhone = homePhone, cellPhone = cellPhone, cellPhoneCarrier = cellPhoneCarrier, businessPhone = businessPhone, emailAddress = emailAddress, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, zipcode = zipcode, country = country, role = role, retailerLocationIds = retailerLocationIds, settingsAppKey = settingsAppKey, appBlob = appBlob, assignedDeviceId = assignedDeviceId)
 
         return request<Unit, EmployeeResponse>(
             localVariableConfig
@@ -364,7 +356,6 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation createEmployee
      *
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param managerAccountId The account id of the manager to assign under
      * @param username The username/email for the new user. This must be unique across the entire the system.
@@ -397,7 +388,7 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param assignedDeviceId The device id to assign to the user (used for IPS beacon tracking) (optional)
      * @return RequestConfig
      */
-    fun createEmployeeRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, managerAccountId: kotlin.Long, username: kotlin.String, password: kotlin.String, name: kotlin.String?, prefixName: kotlin.String?, firstName: kotlin.String?, middleName: kotlin.String?, lastName: kotlin.String?, suffixName: kotlin.String?, title: kotlin.String?, aboutUs: kotlin.String?, assetId: kotlin.Long?, gender: GenderCreateEmployee?, homePhone: kotlin.String?, cellPhone: kotlin.String?, cellPhoneCarrier: kotlin.String?, businessPhone: kotlin.String?, emailAddress: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, zipcode: kotlin.String?, country: kotlin.String?, role: kotlin.String?, retailerLocationIds: kotlin.String?, settingsAppKey: kotlin.String?, appBlob: kotlin.String?, assignedDeviceId: kotlin.String?) : RequestConfig<Unit> {
+    fun createEmployeeRequestConfig(accountId: kotlin.Long, managerAccountId: kotlin.Long, username: kotlin.String, password: kotlin.String, name: kotlin.String?, prefixName: kotlin.String?, firstName: kotlin.String?, middleName: kotlin.String?, lastName: kotlin.String?, suffixName: kotlin.String?, title: kotlin.String?, aboutUs: kotlin.String?, assetId: kotlin.Long?, gender: GenderCreateEmployee?, homePhone: kotlin.String?, cellPhone: kotlin.String?, cellPhoneCarrier: kotlin.String?, businessPhone: kotlin.String?, emailAddress: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, zipcode: kotlin.String?, country: kotlin.String?, role: kotlin.String?, retailerLocationIds: kotlin.String?, settingsAppKey: kotlin.String?, appBlob: kotlin.String?, assignedDeviceId: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -488,7 +479,7 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/employee/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/employee/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -497,10 +488,9 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/employee/delete
+     * POST /employee/delete
      * Delete Employee
      * Set the deleted date field which marks the record as deleted.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param employeeAccountId the id of the employee to delete
      * @return SirqulResponse
@@ -512,8 +502,8 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteEmployee(version: java.math.BigDecimal, accountId: kotlin.Long, employeeAccountId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = deleteEmployeeWithHttpInfo(version = version, accountId = accountId, employeeAccountId = employeeAccountId)
+    fun deleteEmployee(accountId: kotlin.Long, employeeAccountId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = deleteEmployeeWithHttpInfo(accountId = accountId, employeeAccountId = employeeAccountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -531,10 +521,9 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/employee/delete
+     * POST /employee/delete
      * Delete Employee
      * Set the deleted date field which marks the record as deleted.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param employeeAccountId the id of the employee to delete
      * @return ApiResponse<SirqulResponse?>
@@ -543,8 +532,8 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteEmployeeWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, employeeAccountId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteEmployeeRequestConfig(version = version, accountId = accountId, employeeAccountId = employeeAccountId)
+    fun deleteEmployeeWithHttpInfo(accountId: kotlin.Long, employeeAccountId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteEmployeeRequestConfig(accountId = accountId, employeeAccountId = employeeAccountId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -554,12 +543,11 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation deleteEmployee
      *
-     * @param version 
      * @param accountId the id of the logged in user
      * @param employeeAccountId the id of the employee to delete
      * @return RequestConfig
      */
-    fun deleteEmployeeRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, employeeAccountId: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteEmployeeRequestConfig(accountId: kotlin.Long, employeeAccountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -570,7 +558,7 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/employee/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/employee/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -579,10 +567,9 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/employee/get
+     * POST /employee/get
      * Get Employee
      * Get the account record for the account id provided.
-     * @param version 
      * @param accountId the id of logged in user
      * @param employeeAccountId the id of the employee account to get
      * @param settingsAppKey Determines whether to return the application settings for the employee for a particular application (optional)
@@ -595,8 +582,8 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getEmployee(version: java.math.BigDecimal, accountId: kotlin.Long, employeeAccountId: kotlin.Long, settingsAppKey: kotlin.String? = null) : EmployeeResponse {
-        val localVarResponse = getEmployeeWithHttpInfo(version = version, accountId = accountId, employeeAccountId = employeeAccountId, settingsAppKey = settingsAppKey)
+    fun getEmployee(accountId: kotlin.Long, employeeAccountId: kotlin.Long, settingsAppKey: kotlin.String? = null) : EmployeeResponse {
+        val localVarResponse = getEmployeeWithHttpInfo(accountId = accountId, employeeAccountId = employeeAccountId, settingsAppKey = settingsAppKey)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmployeeResponse
@@ -614,10 +601,9 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/employee/get
+     * POST /employee/get
      * Get Employee
      * Get the account record for the account id provided.
-     * @param version 
      * @param accountId the id of logged in user
      * @param employeeAccountId the id of the employee account to get
      * @param settingsAppKey Determines whether to return the application settings for the employee for a particular application (optional)
@@ -627,8 +613,8 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getEmployeeWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, employeeAccountId: kotlin.Long, settingsAppKey: kotlin.String?) : ApiResponse<EmployeeResponse?> {
-        val localVariableConfig = getEmployeeRequestConfig(version = version, accountId = accountId, employeeAccountId = employeeAccountId, settingsAppKey = settingsAppKey)
+    fun getEmployeeWithHttpInfo(accountId: kotlin.Long, employeeAccountId: kotlin.Long, settingsAppKey: kotlin.String?) : ApiResponse<EmployeeResponse?> {
+        val localVariableConfig = getEmployeeRequestConfig(accountId = accountId, employeeAccountId = employeeAccountId, settingsAppKey = settingsAppKey)
 
         return request<Unit, EmployeeResponse>(
             localVariableConfig
@@ -638,13 +624,12 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation getEmployee
      *
-     * @param version 
      * @param accountId the id of logged in user
      * @param employeeAccountId the id of the employee account to get
      * @param settingsAppKey Determines whether to return the application settings for the employee for a particular application (optional)
      * @return RequestConfig
      */
-    fun getEmployeeRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, employeeAccountId: kotlin.Long, settingsAppKey: kotlin.String?) : RequestConfig<Unit> {
+    fun getEmployeeRequestConfig(accountId: kotlin.Long, employeeAccountId: kotlin.Long, settingsAppKey: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -658,7 +643,7 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/employee/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/employee/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -693,10 +678,9 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      }
 
     /**
-     * POST /api/{version}/employee/search
+     * POST /employee/search
      * Search Employees
      * Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param role The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles. (optional)
      * @param retailerId Filters employees by retailer (optional)
@@ -723,8 +707,8 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchEmployees(version: java.math.BigDecimal, accountId: kotlin.Long, role: kotlin.String? = null, retailerId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, sortField: SortFieldSearchEmployees? = null, descending: kotlin.Boolean? = false, i: kotlin.Int? = null, start: kotlin.Int? = 0, l: kotlin.Int? = null, limit: kotlin.Int? = 20, activeOnly: kotlin.Boolean? = true, managedOnly: kotlin.Boolean? = null, settingsAppKey: kotlin.String? = null, categoryIds: kotlin.String? = null, query: kotlin.String? = null) : kotlin.collections.List<EmployeeResponse> {
-        val localVarResponse = searchEmployeesWithHttpInfo(version = version, accountId = accountId, role = role, retailerId = retailerId, retailerLocationId = retailerLocationId, q = q, keyword = keyword, sortField = sortField, descending = descending, i = i, start = start, l = l, limit = limit, activeOnly = activeOnly, managedOnly = managedOnly, settingsAppKey = settingsAppKey, categoryIds = categoryIds, query = query)
+    fun searchEmployees(accountId: kotlin.Long, role: kotlin.String? = null, retailerId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, sortField: SortFieldSearchEmployees? = null, descending: kotlin.Boolean? = false, i: kotlin.Int? = null, start: kotlin.Int? = 0, l: kotlin.Int? = null, limit: kotlin.Int? = 20, activeOnly: kotlin.Boolean? = true, managedOnly: kotlin.Boolean? = null, settingsAppKey: kotlin.String? = null, categoryIds: kotlin.String? = null, query: kotlin.String? = null) : kotlin.collections.List<EmployeeResponse> {
+        val localVarResponse = searchEmployeesWithHttpInfo(accountId = accountId, role = role, retailerId = retailerId, retailerLocationId = retailerLocationId, q = q, keyword = keyword, sortField = sortField, descending = descending, i = i, start = start, l = l, limit = limit, activeOnly = activeOnly, managedOnly = managedOnly, settingsAppKey = settingsAppKey, categoryIds = categoryIds, query = query)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<EmployeeResponse>
@@ -742,10 +726,9 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/employee/search
+     * POST /employee/search
      * Search Employees
      * Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param role The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles. (optional)
      * @param retailerId Filters employees by retailer (optional)
@@ -769,8 +752,8 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchEmployeesWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, role: kotlin.String?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, sortField: SortFieldSearchEmployees?, descending: kotlin.Boolean?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?, managedOnly: kotlin.Boolean?, settingsAppKey: kotlin.String?, categoryIds: kotlin.String?, query: kotlin.String?) : ApiResponse<kotlin.collections.List<EmployeeResponse>?> {
-        val localVariableConfig = searchEmployeesRequestConfig(version = version, accountId = accountId, role = role, retailerId = retailerId, retailerLocationId = retailerLocationId, q = q, keyword = keyword, sortField = sortField, descending = descending, i = i, start = start, l = l, limit = limit, activeOnly = activeOnly, managedOnly = managedOnly, settingsAppKey = settingsAppKey, categoryIds = categoryIds, query = query)
+    fun searchEmployeesWithHttpInfo(accountId: kotlin.Long, role: kotlin.String?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, sortField: SortFieldSearchEmployees?, descending: kotlin.Boolean?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?, managedOnly: kotlin.Boolean?, settingsAppKey: kotlin.String?, categoryIds: kotlin.String?, query: kotlin.String?) : ApiResponse<kotlin.collections.List<EmployeeResponse>?> {
+        val localVariableConfig = searchEmployeesRequestConfig(accountId = accountId, role = role, retailerId = retailerId, retailerLocationId = retailerLocationId, q = q, keyword = keyword, sortField = sortField, descending = descending, i = i, start = start, l = l, limit = limit, activeOnly = activeOnly, managedOnly = managedOnly, settingsAppKey = settingsAppKey, categoryIds = categoryIds, query = query)
 
         return request<Unit, kotlin.collections.List<EmployeeResponse>>(
             localVariableConfig
@@ -780,7 +763,6 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation searchEmployees
      *
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param role The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles. (optional)
      * @param retailerId Filters employees by retailer (optional)
@@ -800,7 +782,7 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param query Legacy/reporting query parameter used for formatting employee responses (optional)
      * @return RequestConfig
      */
-    fun searchEmployeesRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, role: kotlin.String?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, sortField: SortFieldSearchEmployees?, descending: kotlin.Boolean?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?, managedOnly: kotlin.Boolean?, settingsAppKey: kotlin.String?, categoryIds: kotlin.String?, query: kotlin.String?) : RequestConfig<Unit> {
+    fun searchEmployeesRequestConfig(accountId: kotlin.Long, role: kotlin.String?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, sortField: SortFieldSearchEmployees?, descending: kotlin.Boolean?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?, managedOnly: kotlin.Boolean?, settingsAppKey: kotlin.String?, categoryIds: kotlin.String?, query: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -858,7 +840,7 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/employee/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/employee/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -867,10 +849,9 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/employee/unassign
+     * POST /employee/unassign
      * Unassign Employee
      * Unassign An existing account to be an employee
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param employeeAccountId The account id of the user to be unassigned
      * @return EmployeeResponse
@@ -882,8 +863,8 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun unassignEmployee(version: java.math.BigDecimal, accountId: kotlin.Long, employeeAccountId: kotlin.Long) : EmployeeResponse {
-        val localVarResponse = unassignEmployeeWithHttpInfo(version = version, accountId = accountId, employeeAccountId = employeeAccountId)
+    fun unassignEmployee(accountId: kotlin.Long, employeeAccountId: kotlin.Long) : EmployeeResponse {
+        val localVarResponse = unassignEmployeeWithHttpInfo(accountId = accountId, employeeAccountId = employeeAccountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmployeeResponse
@@ -901,10 +882,9 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/employee/unassign
+     * POST /employee/unassign
      * Unassign Employee
      * Unassign An existing account to be an employee
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param employeeAccountId The account id of the user to be unassigned
      * @return ApiResponse<EmployeeResponse?>
@@ -913,8 +893,8 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun unassignEmployeeWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, employeeAccountId: kotlin.Long) : ApiResponse<EmployeeResponse?> {
-        val localVariableConfig = unassignEmployeeRequestConfig(version = version, accountId = accountId, employeeAccountId = employeeAccountId)
+    fun unassignEmployeeWithHttpInfo(accountId: kotlin.Long, employeeAccountId: kotlin.Long) : ApiResponse<EmployeeResponse?> {
+        val localVariableConfig = unassignEmployeeRequestConfig(accountId = accountId, employeeAccountId = employeeAccountId)
 
         return request<Unit, EmployeeResponse>(
             localVariableConfig
@@ -924,12 +904,11 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation unassignEmployee
      *
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param employeeAccountId The account id of the user to be unassigned
      * @return RequestConfig
      */
-    fun unassignEmployeeRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, employeeAccountId: kotlin.Long) : RequestConfig<Unit> {
+    fun unassignEmployeeRequestConfig(accountId: kotlin.Long, employeeAccountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -940,7 +919,7 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/employee/unassign".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/employee/unassign",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -967,10 +946,9 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      }
 
     /**
-     * POST /api/{version}/employee/update
+     * POST /employee/update
      * Update Employee
      * Update the account record with the provided information.
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param employeeAccountId the id of the employee account
      * @param managerAccountId The account id of the manager to assign under (optional)
@@ -1010,8 +988,8 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateEmployee(version: java.math.BigDecimal, accountId: kotlin.Long, employeeAccountId: kotlin.Long, managerAccountId: kotlin.Long? = null, name: kotlin.String? = null, prefixName: kotlin.String? = null, firstName: kotlin.String? = null, middleName: kotlin.String? = null, lastName: kotlin.String? = null, suffixName: kotlin.String? = null, title: kotlin.String? = null, assetId: kotlin.Long? = null, gender: GenderUpdateEmployee? = null, homePhone: kotlin.String? = null, cellPhone: kotlin.String? = null, cellPhoneCarrier: kotlin.String? = null, businessPhone: kotlin.String? = null, emailAddress: kotlin.String? = null, streetAddress: kotlin.String? = null, streetAddress2: kotlin.String? = null, city: kotlin.String? = null, state: kotlin.String? = null, zipcode: kotlin.String? = null, country: kotlin.String? = null, role: kotlin.String? = null, active: kotlin.Boolean? = null, password: kotlin.String? = null, retailerLocationIds: kotlin.String? = null, settingsAppKey: kotlin.String? = null, appBlob: kotlin.String? = null, assignedDeviceId: kotlin.String? = null) : EmployeeResponse {
-        val localVarResponse = updateEmployeeWithHttpInfo(version = version, accountId = accountId, employeeAccountId = employeeAccountId, managerAccountId = managerAccountId, name = name, prefixName = prefixName, firstName = firstName, middleName = middleName, lastName = lastName, suffixName = suffixName, title = title, assetId = assetId, gender = gender, homePhone = homePhone, cellPhone = cellPhone, cellPhoneCarrier = cellPhoneCarrier, businessPhone = businessPhone, emailAddress = emailAddress, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, zipcode = zipcode, country = country, role = role, active = active, password = password, retailerLocationIds = retailerLocationIds, settingsAppKey = settingsAppKey, appBlob = appBlob, assignedDeviceId = assignedDeviceId)
+    fun updateEmployee(accountId: kotlin.Long, employeeAccountId: kotlin.Long, managerAccountId: kotlin.Long? = null, name: kotlin.String? = null, prefixName: kotlin.String? = null, firstName: kotlin.String? = null, middleName: kotlin.String? = null, lastName: kotlin.String? = null, suffixName: kotlin.String? = null, title: kotlin.String? = null, assetId: kotlin.Long? = null, gender: GenderUpdateEmployee? = null, homePhone: kotlin.String? = null, cellPhone: kotlin.String? = null, cellPhoneCarrier: kotlin.String? = null, businessPhone: kotlin.String? = null, emailAddress: kotlin.String? = null, streetAddress: kotlin.String? = null, streetAddress2: kotlin.String? = null, city: kotlin.String? = null, state: kotlin.String? = null, zipcode: kotlin.String? = null, country: kotlin.String? = null, role: kotlin.String? = null, active: kotlin.Boolean? = null, password: kotlin.String? = null, retailerLocationIds: kotlin.String? = null, settingsAppKey: kotlin.String? = null, appBlob: kotlin.String? = null, assignedDeviceId: kotlin.String? = null) : EmployeeResponse {
+        val localVarResponse = updateEmployeeWithHttpInfo(accountId = accountId, employeeAccountId = employeeAccountId, managerAccountId = managerAccountId, name = name, prefixName = prefixName, firstName = firstName, middleName = middleName, lastName = lastName, suffixName = suffixName, title = title, assetId = assetId, gender = gender, homePhone = homePhone, cellPhone = cellPhone, cellPhoneCarrier = cellPhoneCarrier, businessPhone = businessPhone, emailAddress = emailAddress, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, zipcode = zipcode, country = country, role = role, active = active, password = password, retailerLocationIds = retailerLocationIds, settingsAppKey = settingsAppKey, appBlob = appBlob, assignedDeviceId = assignedDeviceId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmployeeResponse
@@ -1029,10 +1007,9 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/employee/update
+     * POST /employee/update
      * Update Employee
      * Update the account record with the provided information.
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param employeeAccountId the id of the employee account
      * @param managerAccountId The account id of the manager to assign under (optional)
@@ -1069,8 +1046,8 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateEmployeeWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, employeeAccountId: kotlin.Long, managerAccountId: kotlin.Long?, name: kotlin.String?, prefixName: kotlin.String?, firstName: kotlin.String?, middleName: kotlin.String?, lastName: kotlin.String?, suffixName: kotlin.String?, title: kotlin.String?, assetId: kotlin.Long?, gender: GenderUpdateEmployee?, homePhone: kotlin.String?, cellPhone: kotlin.String?, cellPhoneCarrier: kotlin.String?, businessPhone: kotlin.String?, emailAddress: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, zipcode: kotlin.String?, country: kotlin.String?, role: kotlin.String?, active: kotlin.Boolean?, password: kotlin.String?, retailerLocationIds: kotlin.String?, settingsAppKey: kotlin.String?, appBlob: kotlin.String?, assignedDeviceId: kotlin.String?) : ApiResponse<EmployeeResponse?> {
-        val localVariableConfig = updateEmployeeRequestConfig(version = version, accountId = accountId, employeeAccountId = employeeAccountId, managerAccountId = managerAccountId, name = name, prefixName = prefixName, firstName = firstName, middleName = middleName, lastName = lastName, suffixName = suffixName, title = title, assetId = assetId, gender = gender, homePhone = homePhone, cellPhone = cellPhone, cellPhoneCarrier = cellPhoneCarrier, businessPhone = businessPhone, emailAddress = emailAddress, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, zipcode = zipcode, country = country, role = role, active = active, password = password, retailerLocationIds = retailerLocationIds, settingsAppKey = settingsAppKey, appBlob = appBlob, assignedDeviceId = assignedDeviceId)
+    fun updateEmployeeWithHttpInfo(accountId: kotlin.Long, employeeAccountId: kotlin.Long, managerAccountId: kotlin.Long?, name: kotlin.String?, prefixName: kotlin.String?, firstName: kotlin.String?, middleName: kotlin.String?, lastName: kotlin.String?, suffixName: kotlin.String?, title: kotlin.String?, assetId: kotlin.Long?, gender: GenderUpdateEmployee?, homePhone: kotlin.String?, cellPhone: kotlin.String?, cellPhoneCarrier: kotlin.String?, businessPhone: kotlin.String?, emailAddress: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, zipcode: kotlin.String?, country: kotlin.String?, role: kotlin.String?, active: kotlin.Boolean?, password: kotlin.String?, retailerLocationIds: kotlin.String?, settingsAppKey: kotlin.String?, appBlob: kotlin.String?, assignedDeviceId: kotlin.String?) : ApiResponse<EmployeeResponse?> {
+        val localVariableConfig = updateEmployeeRequestConfig(accountId = accountId, employeeAccountId = employeeAccountId, managerAccountId = managerAccountId, name = name, prefixName = prefixName, firstName = firstName, middleName = middleName, lastName = lastName, suffixName = suffixName, title = title, assetId = assetId, gender = gender, homePhone = homePhone, cellPhone = cellPhone, cellPhoneCarrier = cellPhoneCarrier, businessPhone = businessPhone, emailAddress = emailAddress, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, zipcode = zipcode, country = country, role = role, active = active, password = password, retailerLocationIds = retailerLocationIds, settingsAppKey = settingsAppKey, appBlob = appBlob, assignedDeviceId = assignedDeviceId)
 
         return request<Unit, EmployeeResponse>(
             localVariableConfig
@@ -1080,7 +1057,6 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation updateEmployee
      *
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param employeeAccountId the id of the employee account
      * @param managerAccountId The account id of the manager to assign under (optional)
@@ -1113,7 +1089,7 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param assignedDeviceId The device id to assign to the user (used for IPS beacon tracking) (optional)
      * @return RequestConfig
      */
-    fun updateEmployeeRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, employeeAccountId: kotlin.Long, managerAccountId: kotlin.Long?, name: kotlin.String?, prefixName: kotlin.String?, firstName: kotlin.String?, middleName: kotlin.String?, lastName: kotlin.String?, suffixName: kotlin.String?, title: kotlin.String?, assetId: kotlin.Long?, gender: GenderUpdateEmployee?, homePhone: kotlin.String?, cellPhone: kotlin.String?, cellPhoneCarrier: kotlin.String?, businessPhone: kotlin.String?, emailAddress: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, zipcode: kotlin.String?, country: kotlin.String?, role: kotlin.String?, active: kotlin.Boolean?, password: kotlin.String?, retailerLocationIds: kotlin.String?, settingsAppKey: kotlin.String?, appBlob: kotlin.String?, assignedDeviceId: kotlin.String?) : RequestConfig<Unit> {
+    fun updateEmployeeRequestConfig(accountId: kotlin.Long, employeeAccountId: kotlin.Long, managerAccountId: kotlin.Long?, name: kotlin.String?, prefixName: kotlin.String?, firstName: kotlin.String?, middleName: kotlin.String?, lastName: kotlin.String?, suffixName: kotlin.String?, title: kotlin.String?, assetId: kotlin.Long?, gender: GenderUpdateEmployee?, homePhone: kotlin.String?, cellPhone: kotlin.String?, cellPhoneCarrier: kotlin.String?, businessPhone: kotlin.String?, emailAddress: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, zipcode: kotlin.String?, country: kotlin.String?, role: kotlin.String?, active: kotlin.Boolean?, password: kotlin.String?, retailerLocationIds: kotlin.String?, settingsAppKey: kotlin.String?, appBlob: kotlin.String?, assignedDeviceId: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1208,7 +1184,7 @@ open class EmployeeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/employee/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/employee/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

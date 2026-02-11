@@ -43,15 +43,14 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/creative/addpreview
+     * POST /creative/addpreview
      * Add Preview
      * Enable this ad for preview for this account.
-     * @param version 
      * @param accountId the id of the account
      * @param creativeId The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied.
      * @return SirqulResponse
@@ -63,8 +62,8 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun addPreview(version: java.math.BigDecimal, accountId: kotlin.Long, creativeId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = addPreviewWithHttpInfo(version = version, accountId = accountId, creativeId = creativeId)
+    fun addPreview(accountId: kotlin.Long, creativeId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = addPreviewWithHttpInfo(accountId = accountId, creativeId = creativeId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -82,10 +81,9 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/creative/addpreview
+     * POST /creative/addpreview
      * Add Preview
      * Enable this ad for preview for this account.
-     * @param version 
      * @param accountId the id of the account
      * @param creativeId The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied.
      * @return ApiResponse<SirqulResponse?>
@@ -94,8 +92,8 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun addPreviewWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, creativeId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = addPreviewRequestConfig(version = version, accountId = accountId, creativeId = creativeId)
+    fun addPreviewWithHttpInfo(accountId: kotlin.Long, creativeId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = addPreviewRequestConfig(accountId = accountId, creativeId = creativeId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -105,12 +103,11 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation addPreview
      *
-     * @param version 
      * @param accountId the id of the account
      * @param creativeId The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied.
      * @return RequestConfig
      */
-    fun addPreviewRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, creativeId: kotlin.Long) : RequestConfig<Unit> {
+    fun addPreviewRequestConfig(accountId: kotlin.Long, creativeId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -121,7 +118,7 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/creative/addpreview".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/creative/addpreview",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -130,10 +127,9 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/ads/find
+     * GET /ads/find
      * Find Missions
      * Get a set of ad filtered by the parameters provided.
-     * @param version 
      * @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
      * @param randomize return a random set of results, default is true. If false returns in nature order.
      * @param targetedAdsOnly return only ads targets to the specific app, no global ads.
@@ -159,8 +155,8 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun adsFind(version: java.math.BigDecimal, appKey: kotlin.String, randomize: kotlin.Boolean, targetedAdsOnly: kotlin.Boolean, type: kotlin.String? = null, accountId: kotlin.Long? = null, appVersion: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, device: kotlin.String? = null, deviceIdentifier: kotlin.Long? = null, deviceVersion: kotlin.String? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null, includeAudiences: kotlin.Boolean? = null, allocatesTickets: kotlin.Boolean? = null, missionIds: kotlin.String? = null) : kotlin.collections.List<MissionResponse> {
-        val localVarResponse = adsFindWithHttpInfo(version = version, appKey = appKey, randomize = randomize, targetedAdsOnly = targetedAdsOnly, type = type, accountId = accountId, appVersion = appVersion, latitude = latitude, longitude = longitude, device = device, deviceIdentifier = deviceIdentifier, deviceVersion = deviceVersion, start = start, limit = limit, includeAudiences = includeAudiences, allocatesTickets = allocatesTickets, missionIds = missionIds)
+    fun adsFind(appKey: kotlin.String, randomize: kotlin.Boolean, targetedAdsOnly: kotlin.Boolean, type: kotlin.String? = null, accountId: kotlin.Long? = null, appVersion: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, device: kotlin.String? = null, deviceIdentifier: kotlin.Long? = null, deviceVersion: kotlin.String? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null, includeAudiences: kotlin.Boolean? = null, allocatesTickets: kotlin.Boolean? = null, missionIds: kotlin.String? = null) : kotlin.collections.List<MissionResponse> {
+        val localVarResponse = adsFindWithHttpInfo(appKey = appKey, randomize = randomize, targetedAdsOnly = targetedAdsOnly, type = type, accountId = accountId, appVersion = appVersion, latitude = latitude, longitude = longitude, device = device, deviceIdentifier = deviceIdentifier, deviceVersion = deviceVersion, start = start, limit = limit, includeAudiences = includeAudiences, allocatesTickets = allocatesTickets, missionIds = missionIds)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<MissionResponse>
@@ -178,10 +174,9 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/ads/find
+     * GET /ads/find
      * Find Missions
      * Get a set of ad filtered by the parameters provided.
-     * @param version 
      * @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
      * @param randomize return a random set of results, default is true. If false returns in nature order.
      * @param targetedAdsOnly return only ads targets to the specific app, no global ads.
@@ -204,8 +199,8 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun adsFindWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String, randomize: kotlin.Boolean, targetedAdsOnly: kotlin.Boolean, type: kotlin.String?, accountId: kotlin.Long?, appVersion: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, device: kotlin.String?, deviceIdentifier: kotlin.Long?, deviceVersion: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?, includeAudiences: kotlin.Boolean?, allocatesTickets: kotlin.Boolean?, missionIds: kotlin.String?) : ApiResponse<kotlin.collections.List<MissionResponse>?> {
-        val localVariableConfig = adsFindRequestConfig(version = version, appKey = appKey, randomize = randomize, targetedAdsOnly = targetedAdsOnly, type = type, accountId = accountId, appVersion = appVersion, latitude = latitude, longitude = longitude, device = device, deviceIdentifier = deviceIdentifier, deviceVersion = deviceVersion, start = start, limit = limit, includeAudiences = includeAudiences, allocatesTickets = allocatesTickets, missionIds = missionIds)
+    fun adsFindWithHttpInfo(appKey: kotlin.String, randomize: kotlin.Boolean, targetedAdsOnly: kotlin.Boolean, type: kotlin.String?, accountId: kotlin.Long?, appVersion: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, device: kotlin.String?, deviceIdentifier: kotlin.Long?, deviceVersion: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?, includeAudiences: kotlin.Boolean?, allocatesTickets: kotlin.Boolean?, missionIds: kotlin.String?) : ApiResponse<kotlin.collections.List<MissionResponse>?> {
+        val localVariableConfig = adsFindRequestConfig(appKey = appKey, randomize = randomize, targetedAdsOnly = targetedAdsOnly, type = type, accountId = accountId, appVersion = appVersion, latitude = latitude, longitude = longitude, device = device, deviceIdentifier = deviceIdentifier, deviceVersion = deviceVersion, start = start, limit = limit, includeAudiences = includeAudiences, allocatesTickets = allocatesTickets, missionIds = missionIds)
 
         return request<Unit, kotlin.collections.List<MissionResponse>>(
             localVariableConfig
@@ -215,7 +210,6 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation adsFind
      *
-     * @param version 
      * @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
      * @param randomize return a random set of results, default is true. If false returns in nature order.
      * @param targetedAdsOnly return only ads targets to the specific app, no global ads.
@@ -234,7 +228,7 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param missionIds return only ads from the specified campaigns. (optional)
      * @return RequestConfig
      */
-    fun adsFindRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String, randomize: kotlin.Boolean, targetedAdsOnly: kotlin.Boolean, type: kotlin.String?, accountId: kotlin.Long?, appVersion: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, device: kotlin.String?, deviceIdentifier: kotlin.Long?, deviceVersion: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?, includeAudiences: kotlin.Boolean?, allocatesTickets: kotlin.Boolean?, missionIds: kotlin.String?) : RequestConfig<Unit> {
+    fun adsFindRequestConfig(appKey: kotlin.String, randomize: kotlin.Boolean, targetedAdsOnly: kotlin.Boolean, type: kotlin.String?, accountId: kotlin.Long?, appVersion: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, device: kotlin.String?, deviceIdentifier: kotlin.Long?, deviceVersion: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?, includeAudiences: kotlin.Boolean?, allocatesTickets: kotlin.Boolean?, missionIds: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -285,7 +279,7 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/ads/find".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/ads/find",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -294,10 +288,9 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/creative/create
+     * POST /creative/create
      * Create Creative
      * Create a creative
-     * @param version 
      * @param accountId The logged in user.
      * @param name The name of the level.
      * @param active If true set the game level as active. Default is false.
@@ -322,8 +315,8 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createCreative(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, active: kotlin.Boolean, waitForAsset: kotlin.Boolean, description: kotlin.String? = null, assetImageId: kotlin.Long? = null, action: kotlin.String? = null, `data`: kotlin.String? = null, suffix: kotlin.String? = null, type: kotlin.String? = null, balance: kotlin.Double? = null, referenceId: kotlin.Long? = null, appVersion: kotlin.String? = null, missionId: kotlin.Long? = null, offerId: kotlin.Long? = null) : CreativeResponse {
-        val localVarResponse = createCreativeWithHttpInfo(version = version, accountId = accountId, name = name, active = active, waitForAsset = waitForAsset, description = description, assetImageId = assetImageId, action = action, `data` = `data`, suffix = suffix, type = type, balance = balance, referenceId = referenceId, appVersion = appVersion, missionId = missionId, offerId = offerId)
+    fun createCreative(accountId: kotlin.Long, name: kotlin.String, active: kotlin.Boolean, waitForAsset: kotlin.Boolean, description: kotlin.String? = null, assetImageId: kotlin.Long? = null, action: kotlin.String? = null, `data`: kotlin.String? = null, suffix: kotlin.String? = null, type: kotlin.String? = null, balance: kotlin.Double? = null, referenceId: kotlin.Long? = null, appVersion: kotlin.String? = null, missionId: kotlin.Long? = null, offerId: kotlin.Long? = null) : CreativeResponse {
+        val localVarResponse = createCreativeWithHttpInfo(accountId = accountId, name = name, active = active, waitForAsset = waitForAsset, description = description, assetImageId = assetImageId, action = action, `data` = `data`, suffix = suffix, type = type, balance = balance, referenceId = referenceId, appVersion = appVersion, missionId = missionId, offerId = offerId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CreativeResponse
@@ -341,10 +334,9 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/creative/create
+     * POST /creative/create
      * Create Creative
      * Create a creative
-     * @param version 
      * @param accountId The logged in user.
      * @param name The name of the level.
      * @param active If true set the game level as active. Default is false.
@@ -366,8 +358,8 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createCreativeWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, active: kotlin.Boolean, waitForAsset: kotlin.Boolean, description: kotlin.String?, assetImageId: kotlin.Long?, action: kotlin.String?, `data`: kotlin.String?, suffix: kotlin.String?, type: kotlin.String?, balance: kotlin.Double?, referenceId: kotlin.Long?, appVersion: kotlin.String?, missionId: kotlin.Long?, offerId: kotlin.Long?) : ApiResponse<CreativeResponse?> {
-        val localVariableConfig = createCreativeRequestConfig(version = version, accountId = accountId, name = name, active = active, waitForAsset = waitForAsset, description = description, assetImageId = assetImageId, action = action, `data` = `data`, suffix = suffix, type = type, balance = balance, referenceId = referenceId, appVersion = appVersion, missionId = missionId, offerId = offerId)
+    fun createCreativeWithHttpInfo(accountId: kotlin.Long, name: kotlin.String, active: kotlin.Boolean, waitForAsset: kotlin.Boolean, description: kotlin.String?, assetImageId: kotlin.Long?, action: kotlin.String?, `data`: kotlin.String?, suffix: kotlin.String?, type: kotlin.String?, balance: kotlin.Double?, referenceId: kotlin.Long?, appVersion: kotlin.String?, missionId: kotlin.Long?, offerId: kotlin.Long?) : ApiResponse<CreativeResponse?> {
+        val localVariableConfig = createCreativeRequestConfig(accountId = accountId, name = name, active = active, waitForAsset = waitForAsset, description = description, assetImageId = assetImageId, action = action, `data` = `data`, suffix = suffix, type = type, balance = balance, referenceId = referenceId, appVersion = appVersion, missionId = missionId, offerId = offerId)
 
         return request<Unit, CreativeResponse>(
             localVariableConfig
@@ -377,7 +369,6 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation createCreative
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param name The name of the level.
      * @param active If true set the game level as active. Default is false.
@@ -395,7 +386,7 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param offerId the id of the offer (optional)
      * @return RequestConfig
      */
-    fun createCreativeRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, active: kotlin.Boolean, waitForAsset: kotlin.Boolean, description: kotlin.String?, assetImageId: kotlin.Long?, action: kotlin.String?, `data`: kotlin.String?, suffix: kotlin.String?, type: kotlin.String?, balance: kotlin.Double?, referenceId: kotlin.Long?, appVersion: kotlin.String?, missionId: kotlin.Long?, offerId: kotlin.Long?) : RequestConfig<Unit> {
+    fun createCreativeRequestConfig(accountId: kotlin.Long, name: kotlin.String, active: kotlin.Boolean, waitForAsset: kotlin.Boolean, description: kotlin.String?, assetImageId: kotlin.Long?, action: kotlin.String?, `data`: kotlin.String?, suffix: kotlin.String?, type: kotlin.String?, balance: kotlin.Double?, referenceId: kotlin.Long?, appVersion: kotlin.String?, missionId: kotlin.Long?, offerId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -441,7 +432,7 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/creative/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/creative/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -450,10 +441,9 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/creative/delete
+     * POST /creative/delete
      * Delete Creative
      * Delete a creative
-     * @param version 
      * @param accountId the id of the logged in user
      * @param creativeId the id of the creative to delete
      * @return SirqulResponse
@@ -465,8 +455,8 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteCreative(version: java.math.BigDecimal, accountId: kotlin.Long, creativeId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = deleteCreativeWithHttpInfo(version = version, accountId = accountId, creativeId = creativeId)
+    fun deleteCreative(accountId: kotlin.Long, creativeId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = deleteCreativeWithHttpInfo(accountId = accountId, creativeId = creativeId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -484,10 +474,9 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/creative/delete
+     * POST /creative/delete
      * Delete Creative
      * Delete a creative
-     * @param version 
      * @param accountId the id of the logged in user
      * @param creativeId the id of the creative to delete
      * @return ApiResponse<SirqulResponse?>
@@ -496,8 +485,8 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteCreativeWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, creativeId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteCreativeRequestConfig(version = version, accountId = accountId, creativeId = creativeId)
+    fun deleteCreativeWithHttpInfo(accountId: kotlin.Long, creativeId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteCreativeRequestConfig(accountId = accountId, creativeId = creativeId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -507,12 +496,11 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation deleteCreative
      *
-     * @param version 
      * @param accountId the id of the logged in user
      * @param creativeId the id of the creative to delete
      * @return RequestConfig
      */
-    fun deleteCreativeRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, creativeId: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteCreativeRequestConfig(accountId: kotlin.Long, creativeId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -523,7 +511,7 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/creative/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/creative/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -532,10 +520,9 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/creative/get
+     * GET /creative/get
      * Get Creative
      * Get a creative
-     * @param version 
      * @param accountId the id of the logged in user
      * @param creativeId the ID of the creative to get
      * @return CreativeResponse
@@ -547,8 +534,8 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCreative(version: java.math.BigDecimal, accountId: kotlin.Long, creativeId: kotlin.Long) : CreativeResponse {
-        val localVarResponse = getCreativeWithHttpInfo(version = version, accountId = accountId, creativeId = creativeId)
+    fun getCreative(accountId: kotlin.Long, creativeId: kotlin.Long) : CreativeResponse {
+        val localVarResponse = getCreativeWithHttpInfo(accountId = accountId, creativeId = creativeId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CreativeResponse
@@ -566,10 +553,9 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/creative/get
+     * GET /creative/get
      * Get Creative
      * Get a creative
-     * @param version 
      * @param accountId the id of the logged in user
      * @param creativeId the ID of the creative to get
      * @return ApiResponse<CreativeResponse?>
@@ -578,8 +564,8 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCreativeWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, creativeId: kotlin.Long) : ApiResponse<CreativeResponse?> {
-        val localVariableConfig = getCreativeRequestConfig(version = version, accountId = accountId, creativeId = creativeId)
+    fun getCreativeWithHttpInfo(accountId: kotlin.Long, creativeId: kotlin.Long) : ApiResponse<CreativeResponse?> {
+        val localVariableConfig = getCreativeRequestConfig(accountId = accountId, creativeId = creativeId)
 
         return request<Unit, CreativeResponse>(
             localVariableConfig
@@ -589,12 +575,11 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation getCreative
      *
-     * @param version 
      * @param accountId the id of the logged in user
      * @param creativeId the ID of the creative to get
      * @return RequestConfig
      */
-    fun getCreativeRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, creativeId: kotlin.Long) : RequestConfig<Unit> {
+    fun getCreativeRequestConfig(accountId: kotlin.Long, creativeId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -605,7 +590,7 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/creative/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/creative/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -614,10 +599,9 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/creative/search
+     * GET /creative/search
      * Search Creatives
      * Get a list of levels for an application, just those the account has permissions to view.
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey the application key
      * @param start Start the result set at some index.
@@ -633,8 +617,8 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCreativesByApplication(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, start: kotlin.Int, limit: kotlin.Int, missionId: kotlin.Long? = null, keyword: kotlin.String? = null) : kotlin.collections.List<CreativeResponse> {
-        val localVarResponse = getCreativesByApplicationWithHttpInfo(version = version, accountId = accountId, appKey = appKey, start = start, limit = limit, missionId = missionId, keyword = keyword)
+    fun getCreativesByApplication(accountId: kotlin.Long, appKey: kotlin.String, start: kotlin.Int, limit: kotlin.Int, missionId: kotlin.Long? = null, keyword: kotlin.String? = null) : kotlin.collections.List<CreativeResponse> {
+        val localVarResponse = getCreativesByApplicationWithHttpInfo(accountId = accountId, appKey = appKey, start = start, limit = limit, missionId = missionId, keyword = keyword)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<CreativeResponse>
@@ -652,10 +636,9 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/creative/search
+     * GET /creative/search
      * Search Creatives
      * Get a list of levels for an application, just those the account has permissions to view.
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey the application key
      * @param start Start the result set at some index.
@@ -668,8 +651,8 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCreativesByApplicationWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, start: kotlin.Int, limit: kotlin.Int, missionId: kotlin.Long?, keyword: kotlin.String?) : ApiResponse<kotlin.collections.List<CreativeResponse>?> {
-        val localVariableConfig = getCreativesByApplicationRequestConfig(version = version, accountId = accountId, appKey = appKey, start = start, limit = limit, missionId = missionId, keyword = keyword)
+    fun getCreativesByApplicationWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, start: kotlin.Int, limit: kotlin.Int, missionId: kotlin.Long?, keyword: kotlin.String?) : ApiResponse<kotlin.collections.List<CreativeResponse>?> {
+        val localVariableConfig = getCreativesByApplicationRequestConfig(accountId = accountId, appKey = appKey, start = start, limit = limit, missionId = missionId, keyword = keyword)
 
         return request<Unit, kotlin.collections.List<CreativeResponse>>(
             localVariableConfig
@@ -679,7 +662,6 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation getCreativesByApplication
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey the application key
      * @param start Start the result set at some index.
@@ -688,7 +670,7 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param keyword Match the keyword to the owner name or level name. (optional)
      * @return RequestConfig
      */
-    fun getCreativesByApplicationRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, start: kotlin.Int, limit: kotlin.Int, missionId: kotlin.Long?, keyword: kotlin.String?) : RequestConfig<Unit> {
+    fun getCreativesByApplicationRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, start: kotlin.Int, limit: kotlin.Int, missionId: kotlin.Long?, keyword: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -707,7 +689,7 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/creative/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/creative/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -716,10 +698,9 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/creative/removepreview
+     * POST /creative/removepreview
      * Remove Preview
      * Remove this ad for preview for this account.
-     * @param version 
      * @param accountId the ID of the logged in user
      * @param creativeId the ID of the creative to remove preview
      * @return SirqulResponse
@@ -731,8 +712,8 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun removePreview(version: java.math.BigDecimal, accountId: kotlin.Long, creativeId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = removePreviewWithHttpInfo(version = version, accountId = accountId, creativeId = creativeId)
+    fun removePreview(accountId: kotlin.Long, creativeId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = removePreviewWithHttpInfo(accountId = accountId, creativeId = creativeId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -750,10 +731,9 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/creative/removepreview
+     * POST /creative/removepreview
      * Remove Preview
      * Remove this ad for preview for this account.
-     * @param version 
      * @param accountId the ID of the logged in user
      * @param creativeId the ID of the creative to remove preview
      * @return ApiResponse<SirqulResponse?>
@@ -762,8 +742,8 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun removePreviewWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, creativeId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = removePreviewRequestConfig(version = version, accountId = accountId, creativeId = creativeId)
+    fun removePreviewWithHttpInfo(accountId: kotlin.Long, creativeId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = removePreviewRequestConfig(accountId = accountId, creativeId = creativeId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -773,12 +753,11 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation removePreview
      *
-     * @param version 
      * @param accountId the ID of the logged in user
      * @param creativeId the ID of the creative to remove preview
      * @return RequestConfig
      */
-    fun removePreviewRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, creativeId: kotlin.Long) : RequestConfig<Unit> {
+    fun removePreviewRequestConfig(accountId: kotlin.Long, creativeId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -789,7 +768,7 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/creative/removepreview".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/creative/removepreview",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -798,10 +777,9 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/creative/update
+     * POST /creative/update
      * Update Creative
      * Update a creative
-     * @param version 
      * @param accountId The logged in user.
      * @param creativeId the creative Id to upate.
      * @param name The name of the level. (optional)
@@ -825,8 +803,8 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateCreative(version: java.math.BigDecimal, accountId: kotlin.Long, creativeId: kotlin.Long, name: kotlin.String? = null, description: kotlin.String? = null, assetImageId: kotlin.Long? = null, action: kotlin.String? = null, `data`: kotlin.String? = null, suffix: kotlin.String? = null, type: kotlin.String? = null, balance: kotlin.Double? = null, active: kotlin.Boolean? = null, referenceId: kotlin.Long? = null, appVersion: kotlin.String? = null, missionId: kotlin.Long? = null) : CreativeResponse {
-        val localVarResponse = updateCreativeWithHttpInfo(version = version, accountId = accountId, creativeId = creativeId, name = name, description = description, assetImageId = assetImageId, action = action, `data` = `data`, suffix = suffix, type = type, balance = balance, active = active, referenceId = referenceId, appVersion = appVersion, missionId = missionId)
+    fun updateCreative(accountId: kotlin.Long, creativeId: kotlin.Long, name: kotlin.String? = null, description: kotlin.String? = null, assetImageId: kotlin.Long? = null, action: kotlin.String? = null, `data`: kotlin.String? = null, suffix: kotlin.String? = null, type: kotlin.String? = null, balance: kotlin.Double? = null, active: kotlin.Boolean? = null, referenceId: kotlin.Long? = null, appVersion: kotlin.String? = null, missionId: kotlin.Long? = null) : CreativeResponse {
+        val localVarResponse = updateCreativeWithHttpInfo(accountId = accountId, creativeId = creativeId, name = name, description = description, assetImageId = assetImageId, action = action, `data` = `data`, suffix = suffix, type = type, balance = balance, active = active, referenceId = referenceId, appVersion = appVersion, missionId = missionId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CreativeResponse
@@ -844,10 +822,9 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/creative/update
+     * POST /creative/update
      * Update Creative
      * Update a creative
-     * @param version 
      * @param accountId The logged in user.
      * @param creativeId the creative Id to upate.
      * @param name The name of the level. (optional)
@@ -868,8 +845,8 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateCreativeWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, creativeId: kotlin.Long, name: kotlin.String?, description: kotlin.String?, assetImageId: kotlin.Long?, action: kotlin.String?, `data`: kotlin.String?, suffix: kotlin.String?, type: kotlin.String?, balance: kotlin.Double?, active: kotlin.Boolean?, referenceId: kotlin.Long?, appVersion: kotlin.String?, missionId: kotlin.Long?) : ApiResponse<CreativeResponse?> {
-        val localVariableConfig = updateCreativeRequestConfig(version = version, accountId = accountId, creativeId = creativeId, name = name, description = description, assetImageId = assetImageId, action = action, `data` = `data`, suffix = suffix, type = type, balance = balance, active = active, referenceId = referenceId, appVersion = appVersion, missionId = missionId)
+    fun updateCreativeWithHttpInfo(accountId: kotlin.Long, creativeId: kotlin.Long, name: kotlin.String?, description: kotlin.String?, assetImageId: kotlin.Long?, action: kotlin.String?, `data`: kotlin.String?, suffix: kotlin.String?, type: kotlin.String?, balance: kotlin.Double?, active: kotlin.Boolean?, referenceId: kotlin.Long?, appVersion: kotlin.String?, missionId: kotlin.Long?) : ApiResponse<CreativeResponse?> {
+        val localVariableConfig = updateCreativeRequestConfig(accountId = accountId, creativeId = creativeId, name = name, description = description, assetImageId = assetImageId, action = action, `data` = `data`, suffix = suffix, type = type, balance = balance, active = active, referenceId = referenceId, appVersion = appVersion, missionId = missionId)
 
         return request<Unit, CreativeResponse>(
             localVariableConfig
@@ -879,7 +856,6 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation updateCreative
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param creativeId the creative Id to upate.
      * @param name The name of the level. (optional)
@@ -896,7 +872,7 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param missionId Assign the creative to a campaign for timing and audience matching. (optional)
      * @return RequestConfig
      */
-    fun updateCreativeRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, creativeId: kotlin.Long, name: kotlin.String?, description: kotlin.String?, assetImageId: kotlin.Long?, action: kotlin.String?, `data`: kotlin.String?, suffix: kotlin.String?, type: kotlin.String?, balance: kotlin.Double?, active: kotlin.Boolean?, referenceId: kotlin.Long?, appVersion: kotlin.String?, missionId: kotlin.Long?) : RequestConfig<Unit> {
+    fun updateCreativeRequestConfig(accountId: kotlin.Long, creativeId: kotlin.Long, name: kotlin.String?, description: kotlin.String?, assetImageId: kotlin.Long?, action: kotlin.String?, `data`: kotlin.String?, suffix: kotlin.String?, type: kotlin.String?, balance: kotlin.Double?, active: kotlin.Boolean?, referenceId: kotlin.Long?, appVersion: kotlin.String?, missionId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -943,7 +919,7 @@ open class CreativeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/creative/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/creative/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

@@ -42,7 +42,7 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
@@ -66,10 +66,9 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
      }
 
     /**
-     * GET /api/{version}/csvimport/batch/status/details
+     * GET /csvimport/batch/status/details
      * Detail Status
      * 
-     * @param version 
      * @param accountId the id of the logged in user
      * @param batchId the id of the batch
      * @param responseGroup The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL
@@ -84,8 +83,8 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getStatusCSV(version: java.math.BigDecimal, accountId: kotlin.Long, batchId: kotlin.Long, responseGroup: ResponseGroupGetStatusCSV, start: kotlin.Long, limit: kotlin.Long) : SirqulResponse {
-        val localVarResponse = getStatusCSVWithHttpInfo(version = version, accountId = accountId, batchId = batchId, responseGroup = responseGroup, start = start, limit = limit)
+    fun getStatusCSV(accountId: kotlin.Long, batchId: kotlin.Long, responseGroup: ResponseGroupGetStatusCSV, start: kotlin.Long, limit: kotlin.Long) : SirqulResponse {
+        val localVarResponse = getStatusCSVWithHttpInfo(accountId = accountId, batchId = batchId, responseGroup = responseGroup, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -103,10 +102,9 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/csvimport/batch/status/details
+     * GET /csvimport/batch/status/details
      * Detail Status
      * 
-     * @param version 
      * @param accountId the id of the logged in user
      * @param batchId the id of the batch
      * @param responseGroup The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL
@@ -118,8 +116,8 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getStatusCSVWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, batchId: kotlin.Long, responseGroup: ResponseGroupGetStatusCSV, start: kotlin.Long, limit: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = getStatusCSVRequestConfig(version = version, accountId = accountId, batchId = batchId, responseGroup = responseGroup, start = start, limit = limit)
+    fun getStatusCSVWithHttpInfo(accountId: kotlin.Long, batchId: kotlin.Long, responseGroup: ResponseGroupGetStatusCSV, start: kotlin.Long, limit: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = getStatusCSVRequestConfig(accountId = accountId, batchId = batchId, responseGroup = responseGroup, start = start, limit = limit)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -129,7 +127,6 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation getStatusCSV
      *
-     * @param version 
      * @param accountId the id of the logged in user
      * @param batchId the id of the batch
      * @param responseGroup The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL
@@ -137,7 +134,7 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param limit the limit of the pagination
      * @return RequestConfig
      */
-    fun getStatusCSVRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, batchId: kotlin.Long, responseGroup: ResponseGroupGetStatusCSV, start: kotlin.Long, limit: kotlin.Long) : RequestConfig<Unit> {
+    fun getStatusCSVRequestConfig(accountId: kotlin.Long, batchId: kotlin.Long, responseGroup: ResponseGroupGetStatusCSV, start: kotlin.Long, limit: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -151,7 +148,7 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/csvimport/batch/status/details".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/csvimport/batch/status/details",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -160,10 +157,9 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/csvimport/batch/list
+     * GET /csvimport/batch/list
      * Search Status
      * Retrieves batches for a user.
-     * @param version 
      * @param accountId the id of the account
      * @param start the start of the pagination
      * @param limit the limit of the pagination
@@ -176,8 +172,8 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listStatusCSV(version: java.math.BigDecimal, accountId: kotlin.Long, start: kotlin.Int, limit: kotlin.Int) : CsvImportResponse {
-        val localVarResponse = listStatusCSVWithHttpInfo(version = version, accountId = accountId, start = start, limit = limit)
+    fun listStatusCSV(accountId: kotlin.Long, start: kotlin.Int, limit: kotlin.Int) : CsvImportResponse {
+        val localVarResponse = listStatusCSVWithHttpInfo(accountId = accountId, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CsvImportResponse
@@ -195,10 +191,9 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/csvimport/batch/list
+     * GET /csvimport/batch/list
      * Search Status
      * Retrieves batches for a user.
-     * @param version 
      * @param accountId the id of the account
      * @param start the start of the pagination
      * @param limit the limit of the pagination
@@ -208,8 +203,8 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun listStatusCSVWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, start: kotlin.Int, limit: kotlin.Int) : ApiResponse<CsvImportResponse?> {
-        val localVariableConfig = listStatusCSVRequestConfig(version = version, accountId = accountId, start = start, limit = limit)
+    fun listStatusCSVWithHttpInfo(accountId: kotlin.Long, start: kotlin.Int, limit: kotlin.Int) : ApiResponse<CsvImportResponse?> {
+        val localVariableConfig = listStatusCSVRequestConfig(accountId = accountId, start = start, limit = limit)
 
         return request<Unit, CsvImportResponse>(
             localVariableConfig
@@ -219,13 +214,12 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation listStatusCSV
      *
-     * @param version 
      * @param accountId the id of the account
      * @param start the start of the pagination
      * @param limit the limit of the pagination
      * @return RequestConfig
      */
-    fun listStatusCSVRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, start: kotlin.Int, limit: kotlin.Int) : RequestConfig<Unit> {
+    fun listStatusCSVRequestConfig(accountId: kotlin.Long, start: kotlin.Int, limit: kotlin.Int) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -237,7 +231,7 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/csvimport/batch/list".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/csvimport/batch/list",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -246,10 +240,9 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/csvimport/batch/status
+     * GET /csvimport/batch/status
      * Batch Status
      * Checks status of batch upload.
-     * @param version 
      * @param accountId the id of the account
      * @param batchId the id of the batch to get its status
      * @return CsvImportResponse
@@ -261,8 +254,8 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun statusCSV(version: java.math.BigDecimal, accountId: kotlin.Long, batchId: kotlin.Long) : CsvImportResponse {
-        val localVarResponse = statusCSVWithHttpInfo(version = version, accountId = accountId, batchId = batchId)
+    fun statusCSV(accountId: kotlin.Long, batchId: kotlin.Long) : CsvImportResponse {
+        val localVarResponse = statusCSVWithHttpInfo(accountId = accountId, batchId = batchId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CsvImportResponse
@@ -280,10 +273,9 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/csvimport/batch/status
+     * GET /csvimport/batch/status
      * Batch Status
      * Checks status of batch upload.
-     * @param version 
      * @param accountId the id of the account
      * @param batchId the id of the batch to get its status
      * @return ApiResponse<CsvImportResponse?>
@@ -292,8 +284,8 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun statusCSVWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, batchId: kotlin.Long) : ApiResponse<CsvImportResponse?> {
-        val localVariableConfig = statusCSVRequestConfig(version = version, accountId = accountId, batchId = batchId)
+    fun statusCSVWithHttpInfo(accountId: kotlin.Long, batchId: kotlin.Long) : ApiResponse<CsvImportResponse?> {
+        val localVariableConfig = statusCSVRequestConfig(accountId = accountId, batchId = batchId)
 
         return request<Unit, CsvImportResponse>(
             localVariableConfig
@@ -303,12 +295,11 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation statusCSV
      *
-     * @param version 
      * @param accountId the id of the account
      * @param batchId the id of the batch to get its status
      * @return RequestConfig
      */
-    fun statusCSVRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, batchId: kotlin.Long) : RequestConfig<Unit> {
+    fun statusCSVRequestConfig(accountId: kotlin.Long, batchId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -319,7 +310,7 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/csvimport/batch/status".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/csvimport/batch/status",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -367,10 +358,9 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
      }
 
     /**
-     * POST /api/{version}/csvimport/upload
+     * POST /csvimport/upload
      * Upload CSV
      * Uploads a CSV import file.
-     * @param version 
      * @param accountId the id of the account
      * @param uploadType the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS
      * @param importFile the import file to reference
@@ -385,8 +375,8 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun uploadCSV(version: java.math.BigDecimal, accountId: kotlin.Long, uploadType: UploadTypeUploadCSV, importFile: java.io.File, fileFormat: FileFormatUploadCSV, appKey: kotlin.String? = null) : CsvImportResponse {
-        val localVarResponse = uploadCSVWithHttpInfo(version = version, accountId = accountId, uploadType = uploadType, importFile = importFile, fileFormat = fileFormat, appKey = appKey)
+    fun uploadCSV(accountId: kotlin.Long, uploadType: UploadTypeUploadCSV, importFile: java.io.File, fileFormat: FileFormatUploadCSV, appKey: kotlin.String? = null) : CsvImportResponse {
+        val localVarResponse = uploadCSVWithHttpInfo(accountId = accountId, uploadType = uploadType, importFile = importFile, fileFormat = fileFormat, appKey = appKey)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CsvImportResponse
@@ -404,10 +394,9 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/csvimport/upload
+     * POST /csvimport/upload
      * Upload CSV
      * Uploads a CSV import file.
-     * @param version 
      * @param accountId the id of the account
      * @param uploadType the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS
      * @param importFile the import file to reference
@@ -419,8 +408,8 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun uploadCSVWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, uploadType: UploadTypeUploadCSV, importFile: java.io.File, fileFormat: FileFormatUploadCSV, appKey: kotlin.String?) : ApiResponse<CsvImportResponse?> {
-        val localVariableConfig = uploadCSVRequestConfig(version = version, accountId = accountId, uploadType = uploadType, importFile = importFile, fileFormat = fileFormat, appKey = appKey)
+    fun uploadCSVWithHttpInfo(accountId: kotlin.Long, uploadType: UploadTypeUploadCSV, importFile: java.io.File, fileFormat: FileFormatUploadCSV, appKey: kotlin.String?) : ApiResponse<CsvImportResponse?> {
+        val localVariableConfig = uploadCSVRequestConfig(accountId = accountId, uploadType = uploadType, importFile = importFile, fileFormat = fileFormat, appKey = appKey)
 
         return request<Unit, CsvImportResponse>(
             localVariableConfig
@@ -430,7 +419,6 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation uploadCSV
      *
-     * @param version 
      * @param accountId the id of the account
      * @param uploadType the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS
      * @param importFile the import file to reference
@@ -438,7 +426,7 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param appKey the application key (optional)
      * @return RequestConfig
      */
-    fun uploadCSVRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, uploadType: UploadTypeUploadCSV, importFile: java.io.File, fileFormat: FileFormatUploadCSV, appKey: kotlin.String?) : RequestConfig<Unit> {
+    fun uploadCSVRequestConfig(accountId: kotlin.Long, uploadType: UploadTypeUploadCSV, importFile: java.io.File, fileFormat: FileFormatUploadCSV, appKey: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -454,7 +442,7 @@ open class CSVImportApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/csvimport/upload".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/csvimport/upload",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

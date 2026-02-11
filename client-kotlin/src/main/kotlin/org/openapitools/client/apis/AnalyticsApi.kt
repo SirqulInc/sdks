@@ -43,15 +43,14 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * GET /api/{version}/analytics/useractivity
+     * GET /analytics/useractivity
      * Get User Activity
      * Get an activity feed by user.
-     * @param version 
      * @param start The start of the pagination
      * @param limit The limit of the pagination
      * @param accountId the account id of the user
@@ -64,8 +63,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun activities(version: java.math.BigDecimal, start: kotlin.Int, limit: kotlin.Int, accountId: kotlin.Long) : kotlin.collections.List<UserActivityResponse> {
-        val localVarResponse = activitiesWithHttpInfo(version = version, start = start, limit = limit, accountId = accountId)
+    fun activities(start: kotlin.Int, limit: kotlin.Int, accountId: kotlin.Long) : kotlin.collections.List<UserActivityResponse> {
+        val localVarResponse = activitiesWithHttpInfo(start = start, limit = limit, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<UserActivityResponse>
@@ -83,10 +82,9 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/analytics/useractivity
+     * GET /analytics/useractivity
      * Get User Activity
      * Get an activity feed by user.
-     * @param version 
      * @param start The start of the pagination
      * @param limit The limit of the pagination
      * @param accountId the account id of the user
@@ -96,8 +94,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun activitiesWithHttpInfo(version: java.math.BigDecimal, start: kotlin.Int, limit: kotlin.Int, accountId: kotlin.Long) : ApiResponse<kotlin.collections.List<UserActivityResponse>?> {
-        val localVariableConfig = activitiesRequestConfig(version = version, start = start, limit = limit, accountId = accountId)
+    fun activitiesWithHttpInfo(start: kotlin.Int, limit: kotlin.Int, accountId: kotlin.Long) : ApiResponse<kotlin.collections.List<UserActivityResponse>?> {
+        val localVariableConfig = activitiesRequestConfig(start = start, limit = limit, accountId = accountId)
 
         return request<Unit, kotlin.collections.List<UserActivityResponse>>(
             localVariableConfig
@@ -107,13 +105,12 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation activities
      *
-     * @param version 
      * @param start The start of the pagination
      * @param limit The limit of the pagination
      * @param accountId the account id of the user
      * @return RequestConfig
      */
-    fun activitiesRequestConfig(version: java.math.BigDecimal, start: kotlin.Int, limit: kotlin.Int, accountId: kotlin.Long) : RequestConfig<Unit> {
+    fun activitiesRequestConfig(start: kotlin.Int, limit: kotlin.Int, accountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -125,7 +122,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/analytics/useractivity".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/analytics/useractivity",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -353,10 +350,9 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      }
 
     /**
-     * GET /api/{version}/analytics/aggregatedFilteredUsage
+     * GET /analytics/aggregatedFilteredUsage
      * Get Aggregated Filtered Usage
      * Query analytics to get data used for nested graphs and charts
-     * @param version 
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param applicationId This parameter is deprecated. (optional)
@@ -397,8 +393,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun aggregatedFilteredUsage(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, applicationId: kotlin.Long? = null, appKey: kotlin.String? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, deviceType: kotlin.String? = null, device: kotlin.String? = null, deviceOS: kotlin.String? = null, gender: kotlin.String? = null, ageGroup: kotlin.String? = null, country: kotlin.String? = null, state: kotlin.String? = null, city: kotlin.String? = null, zip: kotlin.String? = null, model: kotlin.String? = null, tag: kotlin.String? = null, userAccountId: kotlin.Long? = null, userAccountDisplay: kotlin.String? = null, userAccountUsername: kotlin.String? = null, groupByRoot: GroupByRootAggregatedFilteredUsage? = null, groupBy: GroupByAggregatedFilteredUsage? = null, distinctCount: DistinctCountAggregatedFilteredUsage? = null, sortField: SortFieldAggregatedFilteredUsage? = null, descending: kotlin.Boolean? = null, hideUnknown: kotlin.Boolean? = null, responseFormat: ResponseFormatAggregatedFilteredUsage? = null, l: kotlin.Int? = null, limit: kotlin.Int? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : ChartData {
-        val localVarResponse = aggregatedFilteredUsageWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, applicationId = applicationId, appKey = appKey, startDate = startDate, endDate = endDate, deviceType = deviceType, device = device, deviceOS = deviceOS, gender = gender, ageGroup = ageGroup, country = country, state = state, city = city, zip = zip, model = model, tag = tag, userAccountId = userAccountId, userAccountDisplay = userAccountDisplay, userAccountUsername = userAccountUsername, groupByRoot = groupByRoot, groupBy = groupBy, distinctCount = distinctCount, sortField = sortField, descending = descending, hideUnknown = hideUnknown, responseFormat = responseFormat, l = l, limit = limit, latitude = latitude, longitude = longitude)
+    fun aggregatedFilteredUsage(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, applicationId: kotlin.Long? = null, appKey: kotlin.String? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, deviceType: kotlin.String? = null, device: kotlin.String? = null, deviceOS: kotlin.String? = null, gender: kotlin.String? = null, ageGroup: kotlin.String? = null, country: kotlin.String? = null, state: kotlin.String? = null, city: kotlin.String? = null, zip: kotlin.String? = null, model: kotlin.String? = null, tag: kotlin.String? = null, userAccountId: kotlin.Long? = null, userAccountDisplay: kotlin.String? = null, userAccountUsername: kotlin.String? = null, groupByRoot: GroupByRootAggregatedFilteredUsage? = null, groupBy: GroupByAggregatedFilteredUsage? = null, distinctCount: DistinctCountAggregatedFilteredUsage? = null, sortField: SortFieldAggregatedFilteredUsage? = null, descending: kotlin.Boolean? = null, hideUnknown: kotlin.Boolean? = null, responseFormat: ResponseFormatAggregatedFilteredUsage? = null, l: kotlin.Int? = null, limit: kotlin.Int? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : ChartData {
+        val localVarResponse = aggregatedFilteredUsageWithHttpInfo(deviceId = deviceId, accountId = accountId, applicationId = applicationId, appKey = appKey, startDate = startDate, endDate = endDate, deviceType = deviceType, device = device, deviceOS = deviceOS, gender = gender, ageGroup = ageGroup, country = country, state = state, city = city, zip = zip, model = model, tag = tag, userAccountId = userAccountId, userAccountDisplay = userAccountDisplay, userAccountUsername = userAccountUsername, groupByRoot = groupByRoot, groupBy = groupBy, distinctCount = distinctCount, sortField = sortField, descending = descending, hideUnknown = hideUnknown, responseFormat = responseFormat, l = l, limit = limit, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ChartData
@@ -416,10 +412,9 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/analytics/aggregatedFilteredUsage
+     * GET /analytics/aggregatedFilteredUsage
      * Get Aggregated Filtered Usage
      * Query analytics to get data used for nested graphs and charts
-     * @param version 
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param applicationId This parameter is deprecated. (optional)
@@ -457,8 +452,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun aggregatedFilteredUsageWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, applicationId: kotlin.Long?, appKey: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, deviceType: kotlin.String?, device: kotlin.String?, deviceOS: kotlin.String?, gender: kotlin.String?, ageGroup: kotlin.String?, country: kotlin.String?, state: kotlin.String?, city: kotlin.String?, zip: kotlin.String?, model: kotlin.String?, tag: kotlin.String?, userAccountId: kotlin.Long?, userAccountDisplay: kotlin.String?, userAccountUsername: kotlin.String?, groupByRoot: GroupByRootAggregatedFilteredUsage?, groupBy: GroupByAggregatedFilteredUsage?, distinctCount: DistinctCountAggregatedFilteredUsage?, sortField: SortFieldAggregatedFilteredUsage?, descending: kotlin.Boolean?, hideUnknown: kotlin.Boolean?, responseFormat: ResponseFormatAggregatedFilteredUsage?, l: kotlin.Int?, limit: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<ChartData?> {
-        val localVariableConfig = aggregatedFilteredUsageRequestConfig(version = version, deviceId = deviceId, accountId = accountId, applicationId = applicationId, appKey = appKey, startDate = startDate, endDate = endDate, deviceType = deviceType, device = device, deviceOS = deviceOS, gender = gender, ageGroup = ageGroup, country = country, state = state, city = city, zip = zip, model = model, tag = tag, userAccountId = userAccountId, userAccountDisplay = userAccountDisplay, userAccountUsername = userAccountUsername, groupByRoot = groupByRoot, groupBy = groupBy, distinctCount = distinctCount, sortField = sortField, descending = descending, hideUnknown = hideUnknown, responseFormat = responseFormat, l = l, limit = limit, latitude = latitude, longitude = longitude)
+    fun aggregatedFilteredUsageWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, applicationId: kotlin.Long?, appKey: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, deviceType: kotlin.String?, device: kotlin.String?, deviceOS: kotlin.String?, gender: kotlin.String?, ageGroup: kotlin.String?, country: kotlin.String?, state: kotlin.String?, city: kotlin.String?, zip: kotlin.String?, model: kotlin.String?, tag: kotlin.String?, userAccountId: kotlin.Long?, userAccountDisplay: kotlin.String?, userAccountUsername: kotlin.String?, groupByRoot: GroupByRootAggregatedFilteredUsage?, groupBy: GroupByAggregatedFilteredUsage?, distinctCount: DistinctCountAggregatedFilteredUsage?, sortField: SortFieldAggregatedFilteredUsage?, descending: kotlin.Boolean?, hideUnknown: kotlin.Boolean?, responseFormat: ResponseFormatAggregatedFilteredUsage?, l: kotlin.Int?, limit: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<ChartData?> {
+        val localVariableConfig = aggregatedFilteredUsageRequestConfig(deviceId = deviceId, accountId = accountId, applicationId = applicationId, appKey = appKey, startDate = startDate, endDate = endDate, deviceType = deviceType, device = device, deviceOS = deviceOS, gender = gender, ageGroup = ageGroup, country = country, state = state, city = city, zip = zip, model = model, tag = tag, userAccountId = userAccountId, userAccountDisplay = userAccountDisplay, userAccountUsername = userAccountUsername, groupByRoot = groupByRoot, groupBy = groupBy, distinctCount = distinctCount, sortField = sortField, descending = descending, hideUnknown = hideUnknown, responseFormat = responseFormat, l = l, limit = limit, latitude = latitude, longitude = longitude)
 
         return request<Unit, ChartData>(
             localVariableConfig
@@ -468,7 +463,6 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation aggregatedFilteredUsage
      *
-     * @param version 
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param applicationId This parameter is deprecated. (optional)
@@ -502,7 +496,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param longitude the current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun aggregatedFilteredUsageRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, applicationId: kotlin.Long?, appKey: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, deviceType: kotlin.String?, device: kotlin.String?, deviceOS: kotlin.String?, gender: kotlin.String?, ageGroup: kotlin.String?, country: kotlin.String?, state: kotlin.String?, city: kotlin.String?, zip: kotlin.String?, model: kotlin.String?, tag: kotlin.String?, userAccountId: kotlin.Long?, userAccountDisplay: kotlin.String?, userAccountUsername: kotlin.String?, groupByRoot: GroupByRootAggregatedFilteredUsage?, groupBy: GroupByAggregatedFilteredUsage?, distinctCount: DistinctCountAggregatedFilteredUsage?, sortField: SortFieldAggregatedFilteredUsage?, descending: kotlin.Boolean?, hideUnknown: kotlin.Boolean?, responseFormat: ResponseFormatAggregatedFilteredUsage?, l: kotlin.Int?, limit: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun aggregatedFilteredUsageRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, applicationId: kotlin.Long?, appKey: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, deviceType: kotlin.String?, device: kotlin.String?, deviceOS: kotlin.String?, gender: kotlin.String?, ageGroup: kotlin.String?, country: kotlin.String?, state: kotlin.String?, city: kotlin.String?, zip: kotlin.String?, model: kotlin.String?, tag: kotlin.String?, userAccountId: kotlin.Long?, userAccountDisplay: kotlin.String?, userAccountUsername: kotlin.String?, groupByRoot: GroupByRootAggregatedFilteredUsage?, groupBy: GroupByAggregatedFilteredUsage?, distinctCount: DistinctCountAggregatedFilteredUsage?, sortField: SortFieldAggregatedFilteredUsage?, descending: kotlin.Boolean?, hideUnknown: kotlin.Boolean?, responseFormat: ResponseFormatAggregatedFilteredUsage?, l: kotlin.Int?, limit: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -604,7 +598,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/analytics/aggregatedFilteredUsage".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/analytics/aggregatedFilteredUsage",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -832,10 +826,9 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      }
 
     /**
-     * GET /api/{version}/analytics/filteredUsage
+     * GET /analytics/filteredUsage
      * Get Filtered Usage
      * Query analytics to get data used for graphs and charts
-     * @param version 
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param applicationId This parameter is deprecated. (optional)
@@ -884,8 +877,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun filteredUsage(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, applicationId: kotlin.Long? = null, appKey: kotlin.String? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, deviceType: kotlin.String? = null, device: kotlin.String? = null, deviceOS: kotlin.String? = null, gender: kotlin.String? = null, ageGroup: kotlin.String? = null, country: kotlin.String? = null, state: kotlin.String? = null, city: kotlin.String? = null, zip: kotlin.String? = null, model: kotlin.String? = null, tag: kotlin.String? = null, userAccountId: kotlin.Long? = null, userAccountDisplay: kotlin.String? = null, userAccountUsername: kotlin.String? = null, customId: kotlin.Long? = null, customType: kotlin.String? = null, customValue: kotlin.Double? = null, customValue2: kotlin.Double? = null, customLong: kotlin.Long? = null, customLong2: kotlin.Long? = null, customMessage: kotlin.String? = null, customMessage2: kotlin.String? = null, groupBy: GroupByFilteredUsage? = null, distinctCount: DistinctCountFilteredUsage? = null, sumColumn: SumColumnFilteredUsage? = null, sortField: SortFieldFilteredUsage? = null, descending: kotlin.Boolean? = null, hideUnknown: kotlin.Boolean? = null, responseFormat: ResponseFormatFilteredUsage? = null, l: kotlin.Int? = null, limit: kotlin.Int? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : ChartData {
-        val localVarResponse = filteredUsageWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, applicationId = applicationId, appKey = appKey, startDate = startDate, endDate = endDate, deviceType = deviceType, device = device, deviceOS = deviceOS, gender = gender, ageGroup = ageGroup, country = country, state = state, city = city, zip = zip, model = model, tag = tag, userAccountId = userAccountId, userAccountDisplay = userAccountDisplay, userAccountUsername = userAccountUsername, customId = customId, customType = customType, customValue = customValue, customValue2 = customValue2, customLong = customLong, customLong2 = customLong2, customMessage = customMessage, customMessage2 = customMessage2, groupBy = groupBy, distinctCount = distinctCount, sumColumn = sumColumn, sortField = sortField, descending = descending, hideUnknown = hideUnknown, responseFormat = responseFormat, l = l, limit = limit, latitude = latitude, longitude = longitude)
+    fun filteredUsage(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, applicationId: kotlin.Long? = null, appKey: kotlin.String? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, deviceType: kotlin.String? = null, device: kotlin.String? = null, deviceOS: kotlin.String? = null, gender: kotlin.String? = null, ageGroup: kotlin.String? = null, country: kotlin.String? = null, state: kotlin.String? = null, city: kotlin.String? = null, zip: kotlin.String? = null, model: kotlin.String? = null, tag: kotlin.String? = null, userAccountId: kotlin.Long? = null, userAccountDisplay: kotlin.String? = null, userAccountUsername: kotlin.String? = null, customId: kotlin.Long? = null, customType: kotlin.String? = null, customValue: kotlin.Double? = null, customValue2: kotlin.Double? = null, customLong: kotlin.Long? = null, customLong2: kotlin.Long? = null, customMessage: kotlin.String? = null, customMessage2: kotlin.String? = null, groupBy: GroupByFilteredUsage? = null, distinctCount: DistinctCountFilteredUsage? = null, sumColumn: SumColumnFilteredUsage? = null, sortField: SortFieldFilteredUsage? = null, descending: kotlin.Boolean? = null, hideUnknown: kotlin.Boolean? = null, responseFormat: ResponseFormatFilteredUsage? = null, l: kotlin.Int? = null, limit: kotlin.Int? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : ChartData {
+        val localVarResponse = filteredUsageWithHttpInfo(deviceId = deviceId, accountId = accountId, applicationId = applicationId, appKey = appKey, startDate = startDate, endDate = endDate, deviceType = deviceType, device = device, deviceOS = deviceOS, gender = gender, ageGroup = ageGroup, country = country, state = state, city = city, zip = zip, model = model, tag = tag, userAccountId = userAccountId, userAccountDisplay = userAccountDisplay, userAccountUsername = userAccountUsername, customId = customId, customType = customType, customValue = customValue, customValue2 = customValue2, customLong = customLong, customLong2 = customLong2, customMessage = customMessage, customMessage2 = customMessage2, groupBy = groupBy, distinctCount = distinctCount, sumColumn = sumColumn, sortField = sortField, descending = descending, hideUnknown = hideUnknown, responseFormat = responseFormat, l = l, limit = limit, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ChartData
@@ -903,10 +896,9 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/analytics/filteredUsage
+     * GET /analytics/filteredUsage
      * Get Filtered Usage
      * Query analytics to get data used for graphs and charts
-     * @param version 
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param applicationId This parameter is deprecated. (optional)
@@ -952,8 +944,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun filteredUsageWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, applicationId: kotlin.Long?, appKey: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, deviceType: kotlin.String?, device: kotlin.String?, deviceOS: kotlin.String?, gender: kotlin.String?, ageGroup: kotlin.String?, country: kotlin.String?, state: kotlin.String?, city: kotlin.String?, zip: kotlin.String?, model: kotlin.String?, tag: kotlin.String?, userAccountId: kotlin.Long?, userAccountDisplay: kotlin.String?, userAccountUsername: kotlin.String?, customId: kotlin.Long?, customType: kotlin.String?, customValue: kotlin.Double?, customValue2: kotlin.Double?, customLong: kotlin.Long?, customLong2: kotlin.Long?, customMessage: kotlin.String?, customMessage2: kotlin.String?, groupBy: GroupByFilteredUsage?, distinctCount: DistinctCountFilteredUsage?, sumColumn: SumColumnFilteredUsage?, sortField: SortFieldFilteredUsage?, descending: kotlin.Boolean?, hideUnknown: kotlin.Boolean?, responseFormat: ResponseFormatFilteredUsage?, l: kotlin.Int?, limit: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<ChartData?> {
-        val localVariableConfig = filteredUsageRequestConfig(version = version, deviceId = deviceId, accountId = accountId, applicationId = applicationId, appKey = appKey, startDate = startDate, endDate = endDate, deviceType = deviceType, device = device, deviceOS = deviceOS, gender = gender, ageGroup = ageGroup, country = country, state = state, city = city, zip = zip, model = model, tag = tag, userAccountId = userAccountId, userAccountDisplay = userAccountDisplay, userAccountUsername = userAccountUsername, customId = customId, customType = customType, customValue = customValue, customValue2 = customValue2, customLong = customLong, customLong2 = customLong2, customMessage = customMessage, customMessage2 = customMessage2, groupBy = groupBy, distinctCount = distinctCount, sumColumn = sumColumn, sortField = sortField, descending = descending, hideUnknown = hideUnknown, responseFormat = responseFormat, l = l, limit = limit, latitude = latitude, longitude = longitude)
+    fun filteredUsageWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, applicationId: kotlin.Long?, appKey: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, deviceType: kotlin.String?, device: kotlin.String?, deviceOS: kotlin.String?, gender: kotlin.String?, ageGroup: kotlin.String?, country: kotlin.String?, state: kotlin.String?, city: kotlin.String?, zip: kotlin.String?, model: kotlin.String?, tag: kotlin.String?, userAccountId: kotlin.Long?, userAccountDisplay: kotlin.String?, userAccountUsername: kotlin.String?, customId: kotlin.Long?, customType: kotlin.String?, customValue: kotlin.Double?, customValue2: kotlin.Double?, customLong: kotlin.Long?, customLong2: kotlin.Long?, customMessage: kotlin.String?, customMessage2: kotlin.String?, groupBy: GroupByFilteredUsage?, distinctCount: DistinctCountFilteredUsage?, sumColumn: SumColumnFilteredUsage?, sortField: SortFieldFilteredUsage?, descending: kotlin.Boolean?, hideUnknown: kotlin.Boolean?, responseFormat: ResponseFormatFilteredUsage?, l: kotlin.Int?, limit: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<ChartData?> {
+        val localVariableConfig = filteredUsageRequestConfig(deviceId = deviceId, accountId = accountId, applicationId = applicationId, appKey = appKey, startDate = startDate, endDate = endDate, deviceType = deviceType, device = device, deviceOS = deviceOS, gender = gender, ageGroup = ageGroup, country = country, state = state, city = city, zip = zip, model = model, tag = tag, userAccountId = userAccountId, userAccountDisplay = userAccountDisplay, userAccountUsername = userAccountUsername, customId = customId, customType = customType, customValue = customValue, customValue2 = customValue2, customLong = customLong, customLong2 = customLong2, customMessage = customMessage, customMessage2 = customMessage2, groupBy = groupBy, distinctCount = distinctCount, sumColumn = sumColumn, sortField = sortField, descending = descending, hideUnknown = hideUnknown, responseFormat = responseFormat, l = l, limit = limit, latitude = latitude, longitude = longitude)
 
         return request<Unit, ChartData>(
             localVariableConfig
@@ -963,7 +955,6 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation filteredUsage
      *
-     * @param version 
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param applicationId This parameter is deprecated. (optional)
@@ -1005,7 +996,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param longitude the current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun filteredUsageRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, applicationId: kotlin.Long?, appKey: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, deviceType: kotlin.String?, device: kotlin.String?, deviceOS: kotlin.String?, gender: kotlin.String?, ageGroup: kotlin.String?, country: kotlin.String?, state: kotlin.String?, city: kotlin.String?, zip: kotlin.String?, model: kotlin.String?, tag: kotlin.String?, userAccountId: kotlin.Long?, userAccountDisplay: kotlin.String?, userAccountUsername: kotlin.String?, customId: kotlin.Long?, customType: kotlin.String?, customValue: kotlin.Double?, customValue2: kotlin.Double?, customLong: kotlin.Long?, customLong2: kotlin.Long?, customMessage: kotlin.String?, customMessage2: kotlin.String?, groupBy: GroupByFilteredUsage?, distinctCount: DistinctCountFilteredUsage?, sumColumn: SumColumnFilteredUsage?, sortField: SortFieldFilteredUsage?, descending: kotlin.Boolean?, hideUnknown: kotlin.Boolean?, responseFormat: ResponseFormatFilteredUsage?, l: kotlin.Int?, limit: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun filteredUsageRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, applicationId: kotlin.Long?, appKey: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, deviceType: kotlin.String?, device: kotlin.String?, deviceOS: kotlin.String?, gender: kotlin.String?, ageGroup: kotlin.String?, country: kotlin.String?, state: kotlin.String?, city: kotlin.String?, zip: kotlin.String?, model: kotlin.String?, tag: kotlin.String?, userAccountId: kotlin.Long?, userAccountDisplay: kotlin.String?, userAccountUsername: kotlin.String?, customId: kotlin.Long?, customType: kotlin.String?, customValue: kotlin.Double?, customValue2: kotlin.Double?, customLong: kotlin.Long?, customLong2: kotlin.Long?, customMessage: kotlin.String?, customMessage2: kotlin.String?, groupBy: GroupByFilteredUsage?, distinctCount: DistinctCountFilteredUsage?, sumColumn: SumColumnFilteredUsage?, sortField: SortFieldFilteredUsage?, descending: kotlin.Boolean?, hideUnknown: kotlin.Boolean?, responseFormat: ResponseFormatFilteredUsage?, l: kotlin.Int?, limit: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1131,7 +1122,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/analytics/filteredUsage".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/analytics/filteredUsage",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1140,10 +1131,9 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/analytics/usage
+     * POST /analytics/usage
      * Create Usage Record
      * Record an analytic record for a known state within the application.
-     * @param version 
      * @param tag The tag to apply: the name of the action or thing being logged.
      * @param deviceId The client deviceID (optional)
      * @param accountId The logged in user ID (optional)
@@ -1184,8 +1174,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun usage(version: java.math.BigDecimal, tag: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, applicationId: kotlin.Long? = null, appKey: kotlin.String? = null, appVersion: kotlin.String? = null, device: kotlin.String? = null, deviceType: kotlin.String? = null, deviceOS: kotlin.String? = null, model: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, customId: kotlin.Long? = null, customType: kotlin.String? = null, achievementIncrement: kotlin.Long? = null, city: kotlin.String? = null, state: kotlin.String? = null, country: kotlin.String? = null, zip: kotlin.String? = null, locationDescription: kotlin.String? = null, clientTime: kotlin.Long? = null, errorMessage: kotlin.String? = null, ip: kotlin.String? = null, userAgent: kotlin.String? = null, backgroundEvent: kotlin.Boolean? = null, customMessage: kotlin.String? = null, customMessage2: kotlin.String? = null, customValue: kotlin.Double? = null, customValue2: kotlin.Double? = null, customLong: kotlin.Long? = null, customLong2: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = usageWithHttpInfo(version = version, tag = tag, deviceId = deviceId, accountId = accountId, applicationId = applicationId, appKey = appKey, appVersion = appVersion, device = device, deviceType = deviceType, deviceOS = deviceOS, model = model, latitude = latitude, longitude = longitude, customId = customId, customType = customType, achievementIncrement = achievementIncrement, city = city, state = state, country = country, zip = zip, locationDescription = locationDescription, clientTime = clientTime, errorMessage = errorMessage, ip = ip, userAgent = userAgent, backgroundEvent = backgroundEvent, customMessage = customMessage, customMessage2 = customMessage2, customValue = customValue, customValue2 = customValue2, customLong = customLong, customLong2 = customLong2)
+    fun usage(tag: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, applicationId: kotlin.Long? = null, appKey: kotlin.String? = null, appVersion: kotlin.String? = null, device: kotlin.String? = null, deviceType: kotlin.String? = null, deviceOS: kotlin.String? = null, model: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, customId: kotlin.Long? = null, customType: kotlin.String? = null, achievementIncrement: kotlin.Long? = null, city: kotlin.String? = null, state: kotlin.String? = null, country: kotlin.String? = null, zip: kotlin.String? = null, locationDescription: kotlin.String? = null, clientTime: kotlin.Long? = null, errorMessage: kotlin.String? = null, ip: kotlin.String? = null, userAgent: kotlin.String? = null, backgroundEvent: kotlin.Boolean? = null, customMessage: kotlin.String? = null, customMessage2: kotlin.String? = null, customValue: kotlin.Double? = null, customValue2: kotlin.Double? = null, customLong: kotlin.Long? = null, customLong2: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = usageWithHttpInfo(tag = tag, deviceId = deviceId, accountId = accountId, applicationId = applicationId, appKey = appKey, appVersion = appVersion, device = device, deviceType = deviceType, deviceOS = deviceOS, model = model, latitude = latitude, longitude = longitude, customId = customId, customType = customType, achievementIncrement = achievementIncrement, city = city, state = state, country = country, zip = zip, locationDescription = locationDescription, clientTime = clientTime, errorMessage = errorMessage, ip = ip, userAgent = userAgent, backgroundEvent = backgroundEvent, customMessage = customMessage, customMessage2 = customMessage2, customValue = customValue, customValue2 = customValue2, customLong = customLong, customLong2 = customLong2)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -1203,10 +1193,9 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/analytics/usage
+     * POST /analytics/usage
      * Create Usage Record
      * Record an analytic record for a known state within the application.
-     * @param version 
      * @param tag The tag to apply: the name of the action or thing being logged.
      * @param deviceId The client deviceID (optional)
      * @param accountId The logged in user ID (optional)
@@ -1244,8 +1233,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun usageWithHttpInfo(version: java.math.BigDecimal, tag: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, applicationId: kotlin.Long?, appKey: kotlin.String?, appVersion: kotlin.String?, device: kotlin.String?, deviceType: kotlin.String?, deviceOS: kotlin.String?, model: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, customId: kotlin.Long?, customType: kotlin.String?, achievementIncrement: kotlin.Long?, city: kotlin.String?, state: kotlin.String?, country: kotlin.String?, zip: kotlin.String?, locationDescription: kotlin.String?, clientTime: kotlin.Long?, errorMessage: kotlin.String?, ip: kotlin.String?, userAgent: kotlin.String?, backgroundEvent: kotlin.Boolean?, customMessage: kotlin.String?, customMessage2: kotlin.String?, customValue: kotlin.Double?, customValue2: kotlin.Double?, customLong: kotlin.Long?, customLong2: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = usageRequestConfig(version = version, tag = tag, deviceId = deviceId, accountId = accountId, applicationId = applicationId, appKey = appKey, appVersion = appVersion, device = device, deviceType = deviceType, deviceOS = deviceOS, model = model, latitude = latitude, longitude = longitude, customId = customId, customType = customType, achievementIncrement = achievementIncrement, city = city, state = state, country = country, zip = zip, locationDescription = locationDescription, clientTime = clientTime, errorMessage = errorMessage, ip = ip, userAgent = userAgent, backgroundEvent = backgroundEvent, customMessage = customMessage, customMessage2 = customMessage2, customValue = customValue, customValue2 = customValue2, customLong = customLong, customLong2 = customLong2)
+    fun usageWithHttpInfo(tag: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, applicationId: kotlin.Long?, appKey: kotlin.String?, appVersion: kotlin.String?, device: kotlin.String?, deviceType: kotlin.String?, deviceOS: kotlin.String?, model: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, customId: kotlin.Long?, customType: kotlin.String?, achievementIncrement: kotlin.Long?, city: kotlin.String?, state: kotlin.String?, country: kotlin.String?, zip: kotlin.String?, locationDescription: kotlin.String?, clientTime: kotlin.Long?, errorMessage: kotlin.String?, ip: kotlin.String?, userAgent: kotlin.String?, backgroundEvent: kotlin.Boolean?, customMessage: kotlin.String?, customMessage2: kotlin.String?, customValue: kotlin.Double?, customValue2: kotlin.Double?, customLong: kotlin.Long?, customLong2: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = usageRequestConfig(tag = tag, deviceId = deviceId, accountId = accountId, applicationId = applicationId, appKey = appKey, appVersion = appVersion, device = device, deviceType = deviceType, deviceOS = deviceOS, model = model, latitude = latitude, longitude = longitude, customId = customId, customType = customType, achievementIncrement = achievementIncrement, city = city, state = state, country = country, zip = zip, locationDescription = locationDescription, clientTime = clientTime, errorMessage = errorMessage, ip = ip, userAgent = userAgent, backgroundEvent = backgroundEvent, customMessage = customMessage, customMessage2 = customMessage2, customValue = customValue, customValue2 = customValue2, customLong = customLong, customLong2 = customLong2)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -1255,7 +1244,6 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation usage
      *
-     * @param version 
      * @param tag The tag to apply: the name of the action or thing being logged.
      * @param deviceId The client deviceID (optional)
      * @param accountId The logged in user ID (optional)
@@ -1289,7 +1277,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param customLong2 a custom long value for the usage record (optional)
      * @return RequestConfig
      */
-    fun usageRequestConfig(version: java.math.BigDecimal, tag: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, applicationId: kotlin.Long?, appKey: kotlin.String?, appVersion: kotlin.String?, device: kotlin.String?, deviceType: kotlin.String?, deviceOS: kotlin.String?, model: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, customId: kotlin.Long?, customType: kotlin.String?, achievementIncrement: kotlin.Long?, city: kotlin.String?, state: kotlin.String?, country: kotlin.String?, zip: kotlin.String?, locationDescription: kotlin.String?, clientTime: kotlin.Long?, errorMessage: kotlin.String?, ip: kotlin.String?, userAgent: kotlin.String?, backgroundEvent: kotlin.Boolean?, customMessage: kotlin.String?, customMessage2: kotlin.String?, customValue: kotlin.Double?, customValue2: kotlin.Double?, customLong: kotlin.Long?, customLong2: kotlin.Long?) : RequestConfig<Unit> {
+    fun usageRequestConfig(tag: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, applicationId: kotlin.Long?, appKey: kotlin.String?, appVersion: kotlin.String?, device: kotlin.String?, deviceType: kotlin.String?, deviceOS: kotlin.String?, model: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, customId: kotlin.Long?, customType: kotlin.String?, achievementIncrement: kotlin.Long?, city: kotlin.String?, state: kotlin.String?, country: kotlin.String?, zip: kotlin.String?, locationDescription: kotlin.String?, clientTime: kotlin.Long?, errorMessage: kotlin.String?, ip: kotlin.String?, userAgent: kotlin.String?, backgroundEvent: kotlin.Boolean?, customMessage: kotlin.String?, customMessage2: kotlin.String?, customValue: kotlin.Double?, customValue2: kotlin.Double?, customLong: kotlin.Long?, customLong2: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1389,7 +1377,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/analytics/usage".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/analytics/usage",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1398,10 +1386,9 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/analytics/usage/batch
+     * POST /analytics/usage/batch
      * Create Multiple Usage Records
      * Sends multiple analytics. Can be used to send in the user&#39;s stored usage when they did not have internet access. Should not include more than 100 items per batch.
-     * @param version 
      * @param appKey The application key unique to each application.
      * @param device The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.)
      * @param `data` The analytic data AnalyticListResponse
@@ -1422,8 +1409,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun usageBatch(version: java.math.BigDecimal, appKey: kotlin.String, device: kotlin.String, `data`: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appVersion: kotlin.String? = null, deviceType: kotlin.String? = null, deviceOS: kotlin.String? = null, model: kotlin.String? = null, updateRanking: kotlin.Boolean? = null, returnSummaryResponse: kotlin.Boolean? = null) : SirqulResponse {
-        val localVarResponse = usageBatchWithHttpInfo(version = version, appKey = appKey, device = device, `data` = `data`, deviceId = deviceId, accountId = accountId, appVersion = appVersion, deviceType = deviceType, deviceOS = deviceOS, model = model, updateRanking = updateRanking, returnSummaryResponse = returnSummaryResponse)
+    fun usageBatch(appKey: kotlin.String, device: kotlin.String, `data`: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appVersion: kotlin.String? = null, deviceType: kotlin.String? = null, deviceOS: kotlin.String? = null, model: kotlin.String? = null, updateRanking: kotlin.Boolean? = null, returnSummaryResponse: kotlin.Boolean? = null) : SirqulResponse {
+        val localVarResponse = usageBatchWithHttpInfo(appKey = appKey, device = device, `data` = `data`, deviceId = deviceId, accountId = accountId, appVersion = appVersion, deviceType = deviceType, deviceOS = deviceOS, model = model, updateRanking = updateRanking, returnSummaryResponse = returnSummaryResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -1441,10 +1428,9 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/analytics/usage/batch
+     * POST /analytics/usage/batch
      * Create Multiple Usage Records
      * Sends multiple analytics. Can be used to send in the user&#39;s stored usage when they did not have internet access. Should not include more than 100 items per batch.
-     * @param version 
      * @param appKey The application key unique to each application.
      * @param device The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.)
      * @param `data` The analytic data AnalyticListResponse
@@ -1462,8 +1448,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun usageBatchWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String, device: kotlin.String, `data`: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, appVersion: kotlin.String?, deviceType: kotlin.String?, deviceOS: kotlin.String?, model: kotlin.String?, updateRanking: kotlin.Boolean?, returnSummaryResponse: kotlin.Boolean?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = usageBatchRequestConfig(version = version, appKey = appKey, device = device, `data` = `data`, deviceId = deviceId, accountId = accountId, appVersion = appVersion, deviceType = deviceType, deviceOS = deviceOS, model = model, updateRanking = updateRanking, returnSummaryResponse = returnSummaryResponse)
+    fun usageBatchWithHttpInfo(appKey: kotlin.String, device: kotlin.String, `data`: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, appVersion: kotlin.String?, deviceType: kotlin.String?, deviceOS: kotlin.String?, model: kotlin.String?, updateRanking: kotlin.Boolean?, returnSummaryResponse: kotlin.Boolean?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = usageBatchRequestConfig(appKey = appKey, device = device, `data` = `data`, deviceId = deviceId, accountId = accountId, appVersion = appVersion, deviceType = deviceType, deviceOS = deviceOS, model = model, updateRanking = updateRanking, returnSummaryResponse = returnSummaryResponse)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -1473,7 +1459,6 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation usageBatch
      *
-     * @param version 
      * @param appKey The application key unique to each application.
      * @param device The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.)
      * @param `data` The analytic data AnalyticListResponse
@@ -1487,7 +1472,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param returnSummaryResponse Returns a summary response of the achievements that have been completed due to the analytics (optional)
      * @return RequestConfig
      */
-    fun usageBatchRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String, device: kotlin.String, `data`: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, appVersion: kotlin.String?, deviceType: kotlin.String?, deviceOS: kotlin.String?, model: kotlin.String?, updateRanking: kotlin.Boolean?, returnSummaryResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun usageBatchRequestConfig(appKey: kotlin.String, device: kotlin.String, `data`: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, appVersion: kotlin.String?, deviceType: kotlin.String?, deviceOS: kotlin.String?, model: kotlin.String?, updateRanking: kotlin.Boolean?, returnSummaryResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1523,7 +1508,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/analytics/usage/batch".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/analytics/usage/batch",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

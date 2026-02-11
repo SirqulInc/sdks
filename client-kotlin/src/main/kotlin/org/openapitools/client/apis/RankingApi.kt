@@ -42,15 +42,14 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * GET /api/{version}/ranking/historical/search
+     * GET /ranking/historical/search
      * Search Historical Rankings
      * Get historical leaderboard rankings by time-frame.
-     * @param version 
      * @param appKey the application key for filtering results by application
      * @param rankType the rank type to return
      * @param startDate timestamp in milliseconds to filter results with
@@ -70,8 +69,8 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getHistoricalRankings(version: java.math.BigDecimal, appKey: kotlin.String, rankType: kotlin.String, startDate: kotlin.Long, endDate: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, sortField: kotlin.String? = "TOTAL", descending: kotlin.Boolean? = true, start: kotlin.Int? = 0, limit: kotlin.Int? = 100) : RankFullResponse {
-        val localVarResponse = getHistoricalRankingsWithHttpInfo(version = version, appKey = appKey, rankType = rankType, startDate = startDate, endDate = endDate, deviceId = deviceId, accountId = accountId, sortField = sortField, descending = descending, start = start, limit = limit)
+    fun getHistoricalRankings(appKey: kotlin.String, rankType: kotlin.String, startDate: kotlin.Long, endDate: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, sortField: kotlin.String? = "TOTAL", descending: kotlin.Boolean? = true, start: kotlin.Int? = 0, limit: kotlin.Int? = 100) : RankFullResponse {
+        val localVarResponse = getHistoricalRankingsWithHttpInfo(appKey = appKey, rankType = rankType, startDate = startDate, endDate = endDate, deviceId = deviceId, accountId = accountId, sortField = sortField, descending = descending, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as RankFullResponse
@@ -89,10 +88,9 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/ranking/historical/search
+     * GET /ranking/historical/search
      * Search Historical Rankings
      * Get historical leaderboard rankings by time-frame.
-     * @param version 
      * @param appKey the application key for filtering results by application
      * @param rankType the rank type to return
      * @param startDate timestamp in milliseconds to filter results with
@@ -109,8 +107,8 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getHistoricalRankingsWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String, rankType: kotlin.String, startDate: kotlin.Long, endDate: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<RankFullResponse?> {
-        val localVariableConfig = getHistoricalRankingsRequestConfig(version = version, appKey = appKey, rankType = rankType, startDate = startDate, endDate = endDate, deviceId = deviceId, accountId = accountId, sortField = sortField, descending = descending, start = start, limit = limit)
+    fun getHistoricalRankingsWithHttpInfo(appKey: kotlin.String, rankType: kotlin.String, startDate: kotlin.Long, endDate: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<RankFullResponse?> {
+        val localVariableConfig = getHistoricalRankingsRequestConfig(appKey = appKey, rankType = rankType, startDate = startDate, endDate = endDate, deviceId = deviceId, accountId = accountId, sortField = sortField, descending = descending, start = start, limit = limit)
 
         return request<Unit, RankFullResponse>(
             localVariableConfig
@@ -120,7 +118,6 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation getHistoricalRankings
      *
-     * @param version 
      * @param appKey the application key for filtering results by application
      * @param rankType the rank type to return
      * @param startDate timestamp in milliseconds to filter results with
@@ -133,7 +130,7 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param limit the limit for pagination (optional, default to 100)
      * @return RequestConfig
      */
-    fun getHistoricalRankingsRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String, rankType: kotlin.String, startDate: kotlin.Long, endDate: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun getHistoricalRankingsRequestConfig(appKey: kotlin.String, rankType: kotlin.String, startDate: kotlin.Long, endDate: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -164,7 +161,7 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/ranking/historical/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/ranking/historical/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -173,10 +170,9 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/ranking/search
+     * GET /ranking/search
      * Search Rankings
      * Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
-     * @param version 
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param gameType This parameter is deprecated. (optional)
@@ -204,8 +200,8 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRankings(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, rankType: kotlin.String? = "POINTS,DOWNLOADS,INVITATIONS", leaderboardMode: kotlin.String? = "GLOBAL", withinAccountIds: kotlin.String? = null, returnUserRank: kotlin.Boolean? = true, albumId: kotlin.Long? = null, audienceId: kotlin.Long? = null, sortField: kotlin.String? = "TOTAL", descending: kotlin.Boolean? = true, i: kotlin.Int? = null, start: kotlin.Int? = 0, l: kotlin.Int? = null, limit: kotlin.Int? = 100) : RankFullResponse {
-        val localVarResponse = getRankingsWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, q = q, keyword = keyword, rankType = rankType, leaderboardMode = leaderboardMode, withinAccountIds = withinAccountIds, returnUserRank = returnUserRank, albumId = albumId, audienceId = audienceId, sortField = sortField, descending = descending, i = i, start = start, l = l, limit = limit)
+    fun getRankings(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, rankType: kotlin.String? = "POINTS,DOWNLOADS,INVITATIONS", leaderboardMode: kotlin.String? = "GLOBAL", withinAccountIds: kotlin.String? = null, returnUserRank: kotlin.Boolean? = true, albumId: kotlin.Long? = null, audienceId: kotlin.Long? = null, sortField: kotlin.String? = "TOTAL", descending: kotlin.Boolean? = true, i: kotlin.Int? = null, start: kotlin.Int? = 0, l: kotlin.Int? = null, limit: kotlin.Int? = 100) : RankFullResponse {
+        val localVarResponse = getRankingsWithHttpInfo(deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, q = q, keyword = keyword, rankType = rankType, leaderboardMode = leaderboardMode, withinAccountIds = withinAccountIds, returnUserRank = returnUserRank, albumId = albumId, audienceId = audienceId, sortField = sortField, descending = descending, i = i, start = start, l = l, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as RankFullResponse
@@ -223,10 +219,9 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/ranking/search
+     * GET /ranking/search
      * Search Rankings
      * Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
-     * @param version 
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param gameType This parameter is deprecated. (optional)
@@ -251,8 +246,8 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRankingsWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, q: kotlin.String?, keyword: kotlin.String?, rankType: kotlin.String?, leaderboardMode: kotlin.String?, withinAccountIds: kotlin.String?, returnUserRank: kotlin.Boolean?, albumId: kotlin.Long?, audienceId: kotlin.Long?, sortField: kotlin.String?, descending: kotlin.Boolean?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<RankFullResponse?> {
-        val localVariableConfig = getRankingsRequestConfig(version = version, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, q = q, keyword = keyword, rankType = rankType, leaderboardMode = leaderboardMode, withinAccountIds = withinAccountIds, returnUserRank = returnUserRank, albumId = albumId, audienceId = audienceId, sortField = sortField, descending = descending, i = i, start = start, l = l, limit = limit)
+    fun getRankingsWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, q: kotlin.String?, keyword: kotlin.String?, rankType: kotlin.String?, leaderboardMode: kotlin.String?, withinAccountIds: kotlin.String?, returnUserRank: kotlin.Boolean?, albumId: kotlin.Long?, audienceId: kotlin.Long?, sortField: kotlin.String?, descending: kotlin.Boolean?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<RankFullResponse?> {
+        val localVariableConfig = getRankingsRequestConfig(deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, q = q, keyword = keyword, rankType = rankType, leaderboardMode = leaderboardMode, withinAccountIds = withinAccountIds, returnUserRank = returnUserRank, albumId = albumId, audienceId = audienceId, sortField = sortField, descending = descending, i = i, start = start, l = l, limit = limit)
 
         return request<Unit, RankFullResponse>(
             localVariableConfig
@@ -262,7 +257,6 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation getRankings
      *
-     * @param version 
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param gameType This parameter is deprecated. (optional)
@@ -283,7 +277,7 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param limit the limit for pagination (optional, default to 100)
      * @return RequestConfig
      */
-    fun getRankingsRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, q: kotlin.String?, keyword: kotlin.String?, rankType: kotlin.String?, leaderboardMode: kotlin.String?, withinAccountIds: kotlin.String?, returnUserRank: kotlin.Boolean?, albumId: kotlin.Long?, audienceId: kotlin.Long?, sortField: kotlin.String?, descending: kotlin.Boolean?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun getRankingsRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, q: kotlin.String?, keyword: kotlin.String?, rankType: kotlin.String?, leaderboardMode: kotlin.String?, withinAccountIds: kotlin.String?, returnUserRank: kotlin.Boolean?, albumId: kotlin.Long?, audienceId: kotlin.Long?, sortField: kotlin.String?, descending: kotlin.Boolean?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -346,7 +340,7 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/ranking/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/ranking/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -355,10 +349,9 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/ranking/personal/ranks
+     * POST /ranking/personal/ranks
      * Get Personal Rankings
      * Returns the user&#39;s ranks for one or more rank types and modes.
-     * @param version 
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (optional)
      * @param appKey the application key for filtering results by application (required) (optional)
@@ -379,8 +372,8 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getUserRank(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, rankType: kotlin.String? = null, returnUserRank: kotlin.Boolean? = false, leaderboardMode: kotlin.String? = "GLOBAL", sortField: kotlin.String? = "TOTAL", keyword: kotlin.String? = null, descending: kotlin.Boolean? = true, start: kotlin.Int? = 0, limit: kotlin.Int? = 100) : kotlin.Any {
-        val localVarResponse = getUserRankWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, appKey = appKey, rankType = rankType, returnUserRank = returnUserRank, leaderboardMode = leaderboardMode, sortField = sortField, keyword = keyword, descending = descending, start = start, limit = limit)
+    fun getUserRank(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, rankType: kotlin.String? = null, returnUserRank: kotlin.Boolean? = false, leaderboardMode: kotlin.String? = "GLOBAL", sortField: kotlin.String? = "TOTAL", keyword: kotlin.String? = null, descending: kotlin.Boolean? = true, start: kotlin.Int? = 0, limit: kotlin.Int? = 100) : kotlin.Any {
+        val localVarResponse = getUserRankWithHttpInfo(deviceId = deviceId, accountId = accountId, appKey = appKey, rankType = rankType, returnUserRank = returnUserRank, leaderboardMode = leaderboardMode, sortField = sortField, keyword = keyword, descending = descending, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Any
@@ -398,10 +391,9 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/ranking/personal/ranks
+     * POST /ranking/personal/ranks
      * Get Personal Rankings
      * Returns the user&#39;s ranks for one or more rank types and modes.
-     * @param version 
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (optional)
      * @param appKey the application key for filtering results by application (required) (optional)
@@ -419,8 +411,8 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getUserRankWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, rankType: kotlin.String?, returnUserRank: kotlin.Boolean?, leaderboardMode: kotlin.String?, sortField: kotlin.String?, keyword: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.Any?> {
-        val localVariableConfig = getUserRankRequestConfig(version = version, deviceId = deviceId, accountId = accountId, appKey = appKey, rankType = rankType, returnUserRank = returnUserRank, leaderboardMode = leaderboardMode, sortField = sortField, keyword = keyword, descending = descending, start = start, limit = limit)
+    fun getUserRankWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, rankType: kotlin.String?, returnUserRank: kotlin.Boolean?, leaderboardMode: kotlin.String?, sortField: kotlin.String?, keyword: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.Any?> {
+        val localVariableConfig = getUserRankRequestConfig(deviceId = deviceId, accountId = accountId, appKey = appKey, rankType = rankType, returnUserRank = returnUserRank, leaderboardMode = leaderboardMode, sortField = sortField, keyword = keyword, descending = descending, start = start, limit = limit)
 
         return request<Unit, kotlin.Any>(
             localVariableConfig
@@ -430,7 +422,6 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation getUserRank
      *
-     * @param version 
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (optional)
      * @param appKey the application key for filtering results by application (required) (optional)
@@ -444,7 +435,7 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param limit the limit for pagination (optional, default to 100)
      * @return RequestConfig
      */
-    fun getUserRankRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, rankType: kotlin.String?, returnUserRank: kotlin.Boolean?, leaderboardMode: kotlin.String?, sortField: kotlin.String?, keyword: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun getUserRankRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, rankType: kotlin.String?, returnUserRank: kotlin.Boolean?, leaderboardMode: kotlin.String?, sortField: kotlin.String?, keyword: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -486,7 +477,7 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/ranking/personal/ranks".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/ranking/personal/ranks",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -495,10 +486,9 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/ranking/override
+     * POST /ranking/override
      * Override User Rank
      * Allows an admin of an application to override a user&#39;s scores for a leaderboard.
-     * @param version 
      * @param accountId the logged in user&#39;s account id (must have permissions to manage data for the application)
      * @param ownerAccountId the end user&#39;s account id to override
      * @param appKey the application key the leaderboard is for
@@ -530,8 +520,8 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun overrideUserRank(version: java.math.BigDecimal, accountId: kotlin.Long, ownerAccountId: kotlin.Long, appKey: kotlin.String, rankType: kotlin.String, totalScore: kotlin.Long? = null, totalCount: kotlin.Long? = null, totalTime: kotlin.Long? = null, dailyScore: kotlin.Long? = null, dailyCount: kotlin.Long? = null, dailyTime: kotlin.Long? = null, weeklyScore: kotlin.Long? = null, weeklyCount: kotlin.Long? = null, weeklyTime: kotlin.Long? = null, monthlyScore: kotlin.Long? = null, monthlyCount: kotlin.Long? = null, monthlyTime: kotlin.Long? = null, topScore: kotlin.Long? = null, lowestScore: kotlin.Long? = null, streakCount: kotlin.Long? = null, streakBestCount: kotlin.Long? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = overrideUserRankWithHttpInfo(version = version, accountId = accountId, ownerAccountId = ownerAccountId, appKey = appKey, rankType = rankType, totalScore = totalScore, totalCount = totalCount, totalTime = totalTime, dailyScore = dailyScore, dailyCount = dailyCount, dailyTime = dailyTime, weeklyScore = weeklyScore, weeklyCount = weeklyCount, weeklyTime = weeklyTime, monthlyScore = monthlyScore, monthlyCount = monthlyCount, monthlyTime = monthlyTime, topScore = topScore, lowestScore = lowestScore, streakCount = streakCount, streakBestCount = streakBestCount, startDate = startDate, endDate = endDate)
+    fun overrideUserRank(accountId: kotlin.Long, ownerAccountId: kotlin.Long, appKey: kotlin.String, rankType: kotlin.String, totalScore: kotlin.Long? = null, totalCount: kotlin.Long? = null, totalTime: kotlin.Long? = null, dailyScore: kotlin.Long? = null, dailyCount: kotlin.Long? = null, dailyTime: kotlin.Long? = null, weeklyScore: kotlin.Long? = null, weeklyCount: kotlin.Long? = null, weeklyTime: kotlin.Long? = null, monthlyScore: kotlin.Long? = null, monthlyCount: kotlin.Long? = null, monthlyTime: kotlin.Long? = null, topScore: kotlin.Long? = null, lowestScore: kotlin.Long? = null, streakCount: kotlin.Long? = null, streakBestCount: kotlin.Long? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = overrideUserRankWithHttpInfo(accountId = accountId, ownerAccountId = ownerAccountId, appKey = appKey, rankType = rankType, totalScore = totalScore, totalCount = totalCount, totalTime = totalTime, dailyScore = dailyScore, dailyCount = dailyCount, dailyTime = dailyTime, weeklyScore = weeklyScore, weeklyCount = weeklyCount, weeklyTime = weeklyTime, monthlyScore = monthlyScore, monthlyCount = monthlyCount, monthlyTime = monthlyTime, topScore = topScore, lowestScore = lowestScore, streakCount = streakCount, streakBestCount = streakBestCount, startDate = startDate, endDate = endDate)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -549,10 +539,9 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/ranking/override
+     * POST /ranking/override
      * Override User Rank
      * Allows an admin of an application to override a user&#39;s scores for a leaderboard.
-     * @param version 
      * @param accountId the logged in user&#39;s account id (must have permissions to manage data for the application)
      * @param ownerAccountId the end user&#39;s account id to override
      * @param appKey the application key the leaderboard is for
@@ -581,8 +570,8 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun overrideUserRankWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, ownerAccountId: kotlin.Long, appKey: kotlin.String, rankType: kotlin.String, totalScore: kotlin.Long?, totalCount: kotlin.Long?, totalTime: kotlin.Long?, dailyScore: kotlin.Long?, dailyCount: kotlin.Long?, dailyTime: kotlin.Long?, weeklyScore: kotlin.Long?, weeklyCount: kotlin.Long?, weeklyTime: kotlin.Long?, monthlyScore: kotlin.Long?, monthlyCount: kotlin.Long?, monthlyTime: kotlin.Long?, topScore: kotlin.Long?, lowestScore: kotlin.Long?, streakCount: kotlin.Long?, streakBestCount: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = overrideUserRankRequestConfig(version = version, accountId = accountId, ownerAccountId = ownerAccountId, appKey = appKey, rankType = rankType, totalScore = totalScore, totalCount = totalCount, totalTime = totalTime, dailyScore = dailyScore, dailyCount = dailyCount, dailyTime = dailyTime, weeklyScore = weeklyScore, weeklyCount = weeklyCount, weeklyTime = weeklyTime, monthlyScore = monthlyScore, monthlyCount = monthlyCount, monthlyTime = monthlyTime, topScore = topScore, lowestScore = lowestScore, streakCount = streakCount, streakBestCount = streakBestCount, startDate = startDate, endDate = endDate)
+    fun overrideUserRankWithHttpInfo(accountId: kotlin.Long, ownerAccountId: kotlin.Long, appKey: kotlin.String, rankType: kotlin.String, totalScore: kotlin.Long?, totalCount: kotlin.Long?, totalTime: kotlin.Long?, dailyScore: kotlin.Long?, dailyCount: kotlin.Long?, dailyTime: kotlin.Long?, weeklyScore: kotlin.Long?, weeklyCount: kotlin.Long?, weeklyTime: kotlin.Long?, monthlyScore: kotlin.Long?, monthlyCount: kotlin.Long?, monthlyTime: kotlin.Long?, topScore: kotlin.Long?, lowestScore: kotlin.Long?, streakCount: kotlin.Long?, streakBestCount: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = overrideUserRankRequestConfig(accountId = accountId, ownerAccountId = ownerAccountId, appKey = appKey, rankType = rankType, totalScore = totalScore, totalCount = totalCount, totalTime = totalTime, dailyScore = dailyScore, dailyCount = dailyCount, dailyTime = dailyTime, weeklyScore = weeklyScore, weeklyCount = weeklyCount, weeklyTime = weeklyTime, monthlyScore = monthlyScore, monthlyCount = monthlyCount, monthlyTime = monthlyTime, topScore = topScore, lowestScore = lowestScore, streakCount = streakCount, streakBestCount = streakBestCount, startDate = startDate, endDate = endDate)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -592,7 +581,6 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation overrideUserRank
      *
-     * @param version 
      * @param accountId the logged in user&#39;s account id (must have permissions to manage data for the application)
      * @param ownerAccountId the end user&#39;s account id to override
      * @param appKey the application key the leaderboard is for
@@ -617,7 +605,7 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param endDate the end date to update (optional)
      * @return RequestConfig
      */
-    fun overrideUserRankRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, ownerAccountId: kotlin.Long, appKey: kotlin.String, rankType: kotlin.String, totalScore: kotlin.Long?, totalCount: kotlin.Long?, totalTime: kotlin.Long?, dailyScore: kotlin.Long?, dailyCount: kotlin.Long?, dailyTime: kotlin.Long?, weeklyScore: kotlin.Long?, weeklyCount: kotlin.Long?, weeklyTime: kotlin.Long?, monthlyScore: kotlin.Long?, monthlyCount: kotlin.Long?, monthlyTime: kotlin.Long?, topScore: kotlin.Long?, lowestScore: kotlin.Long?, streakCount: kotlin.Long?, streakBestCount: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?) : RequestConfig<Unit> {
+    fun overrideUserRankRequestConfig(accountId: kotlin.Long, ownerAccountId: kotlin.Long, appKey: kotlin.String, rankType: kotlin.String, totalScore: kotlin.Long?, totalCount: kotlin.Long?, totalTime: kotlin.Long?, dailyScore: kotlin.Long?, dailyCount: kotlin.Long?, dailyTime: kotlin.Long?, weeklyScore: kotlin.Long?, weeklyCount: kotlin.Long?, weeklyTime: kotlin.Long?, monthlyScore: kotlin.Long?, monthlyCount: kotlin.Long?, monthlyTime: kotlin.Long?, topScore: kotlin.Long?, lowestScore: kotlin.Long?, streakCount: kotlin.Long?, streakBestCount: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -684,7 +672,7 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/ranking/override".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/ranking/override",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -693,10 +681,9 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/ranking/update
+     * POST /ranking/update
      * Update Ranking
      * Update the rank value 
-     * @param version 
      * @param accountId the account id of the user
      * @param appKey the application key for filtering results by application
      * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS
@@ -716,8 +703,8 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateRankings(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, rankType: kotlin.String, increment: kotlin.Long? = 1L, timeIncrement: kotlin.Long? = null, tag: kotlin.String? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, updateGlobal: kotlin.Boolean? = null, createLeaderboard: kotlin.Boolean? = false) : SirqulResponse {
-        val localVarResponse = updateRankingsWithHttpInfo(version = version, accountId = accountId, appKey = appKey, rankType = rankType, increment = increment, timeIncrement = timeIncrement, tag = tag, startDate = startDate, endDate = endDate, updateGlobal = updateGlobal, createLeaderboard = createLeaderboard)
+    fun updateRankings(accountId: kotlin.Long, appKey: kotlin.String, rankType: kotlin.String, increment: kotlin.Long? = 1L, timeIncrement: kotlin.Long? = null, tag: kotlin.String? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, updateGlobal: kotlin.Boolean? = null, createLeaderboard: kotlin.Boolean? = false) : SirqulResponse {
+        val localVarResponse = updateRankingsWithHttpInfo(accountId = accountId, appKey = appKey, rankType = rankType, increment = increment, timeIncrement = timeIncrement, tag = tag, startDate = startDate, endDate = endDate, updateGlobal = updateGlobal, createLeaderboard = createLeaderboard)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -735,10 +722,9 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/ranking/update
+     * POST /ranking/update
      * Update Ranking
      * Update the rank value 
-     * @param version 
      * @param accountId the account id of the user
      * @param appKey the application key for filtering results by application
      * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS
@@ -755,8 +741,8 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateRankingsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, rankType: kotlin.String, increment: kotlin.Long?, timeIncrement: kotlin.Long?, tag: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, updateGlobal: kotlin.Boolean?, createLeaderboard: kotlin.Boolean?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = updateRankingsRequestConfig(version = version, accountId = accountId, appKey = appKey, rankType = rankType, increment = increment, timeIncrement = timeIncrement, tag = tag, startDate = startDate, endDate = endDate, updateGlobal = updateGlobal, createLeaderboard = createLeaderboard)
+    fun updateRankingsWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, rankType: kotlin.String, increment: kotlin.Long?, timeIncrement: kotlin.Long?, tag: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, updateGlobal: kotlin.Boolean?, createLeaderboard: kotlin.Boolean?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = updateRankingsRequestConfig(accountId = accountId, appKey = appKey, rankType = rankType, increment = increment, timeIncrement = timeIncrement, tag = tag, startDate = startDate, endDate = endDate, updateGlobal = updateGlobal, createLeaderboard = createLeaderboard)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -766,7 +752,6 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation updateRankings
      *
-     * @param version 
      * @param accountId the account id of the user
      * @param appKey the application key for filtering results by application
      * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS
@@ -779,7 +764,7 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param createLeaderboard create the leaderboard if it does not exist (default false) (optional, default to false)
      * @return RequestConfig
      */
-    fun updateRankingsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, rankType: kotlin.String, increment: kotlin.Long?, timeIncrement: kotlin.Long?, tag: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, updateGlobal: kotlin.Boolean?, createLeaderboard: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun updateRankingsRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, rankType: kotlin.String, increment: kotlin.Long?, timeIncrement: kotlin.Long?, tag: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, updateGlobal: kotlin.Boolean?, createLeaderboard: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -812,7 +797,7 @@ open class RankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/ranking/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/ranking/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

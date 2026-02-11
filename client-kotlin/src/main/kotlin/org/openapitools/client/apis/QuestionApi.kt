@@ -42,15 +42,14 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/game/question/create
+     * POST /game/question/create
      * Create Question
      * Create a question and related answers by the given params.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param question the text of the question
      * @param answers &#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60; 
@@ -71,8 +70,8 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createQuestion(version: java.math.BigDecimal, accountId: kotlin.Long, question: kotlin.String, answers: kotlin.String, active: kotlin.Boolean, allocateTickets: kotlin.Boolean, ticketCount: kotlin.Long, tags: kotlin.String? = null, videoURL: kotlin.String? = null, assetId: kotlin.Long? = null, ticketType: kotlin.String? = null, points: kotlin.Long? = null) : QuestionResponse {
-        val localVarResponse = createQuestionWithHttpInfo(version = version, accountId = accountId, question = question, answers = answers, active = active, allocateTickets = allocateTickets, ticketCount = ticketCount, tags = tags, videoURL = videoURL, assetId = assetId, ticketType = ticketType, points = points)
+    fun createQuestion(accountId: kotlin.Long, question: kotlin.String, answers: kotlin.String, active: kotlin.Boolean, allocateTickets: kotlin.Boolean, ticketCount: kotlin.Long, tags: kotlin.String? = null, videoURL: kotlin.String? = null, assetId: kotlin.Long? = null, ticketType: kotlin.String? = null, points: kotlin.Long? = null) : QuestionResponse {
+        val localVarResponse = createQuestionWithHttpInfo(accountId = accountId, question = question, answers = answers, active = active, allocateTickets = allocateTickets, ticketCount = ticketCount, tags = tags, videoURL = videoURL, assetId = assetId, ticketType = ticketType, points = points)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as QuestionResponse
@@ -90,10 +89,9 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/game/question/create
+     * POST /game/question/create
      * Create Question
      * Create a question and related answers by the given params.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param question the text of the question
      * @param answers &#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60; 
@@ -111,8 +109,8 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createQuestionWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, question: kotlin.String, answers: kotlin.String, active: kotlin.Boolean, allocateTickets: kotlin.Boolean, ticketCount: kotlin.Long, tags: kotlin.String?, videoURL: kotlin.String?, assetId: kotlin.Long?, ticketType: kotlin.String?, points: kotlin.Long?) : ApiResponse<QuestionResponse?> {
-        val localVariableConfig = createQuestionRequestConfig(version = version, accountId = accountId, question = question, answers = answers, active = active, allocateTickets = allocateTickets, ticketCount = ticketCount, tags = tags, videoURL = videoURL, assetId = assetId, ticketType = ticketType, points = points)
+    fun createQuestionWithHttpInfo(accountId: kotlin.Long, question: kotlin.String, answers: kotlin.String, active: kotlin.Boolean, allocateTickets: kotlin.Boolean, ticketCount: kotlin.Long, tags: kotlin.String?, videoURL: kotlin.String?, assetId: kotlin.Long?, ticketType: kotlin.String?, points: kotlin.Long?) : ApiResponse<QuestionResponse?> {
+        val localVariableConfig = createQuestionRequestConfig(accountId = accountId, question = question, answers = answers, active = active, allocateTickets = allocateTickets, ticketCount = ticketCount, tags = tags, videoURL = videoURL, assetId = assetId, ticketType = ticketType, points = points)
 
         return request<Unit, QuestionResponse>(
             localVariableConfig
@@ -122,7 +120,6 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation createQuestion
      *
-     * @param version 
      * @param accountId the id of the logged in user
      * @param question the text of the question
      * @param answers &#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60; 
@@ -136,7 +133,7 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param points The number of points to award for completing a mission (optional)
      * @return RequestConfig
      */
-    fun createQuestionRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, question: kotlin.String, answers: kotlin.String, active: kotlin.Boolean, allocateTickets: kotlin.Boolean, ticketCount: kotlin.Long, tags: kotlin.String?, videoURL: kotlin.String?, assetId: kotlin.Long?, ticketType: kotlin.String?, points: kotlin.Long?) : RequestConfig<Unit> {
+    fun createQuestionRequestConfig(accountId: kotlin.Long, question: kotlin.String, answers: kotlin.String, active: kotlin.Boolean, allocateTickets: kotlin.Boolean, ticketCount: kotlin.Long, tags: kotlin.String?, videoURL: kotlin.String?, assetId: kotlin.Long?, ticketType: kotlin.String?, points: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -166,7 +163,7 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/game/question/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/game/question/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -175,10 +172,9 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/game/question/delete
+     * POST /game/question/delete
      * Delete Question
      * Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
-     * @param version 
      * @param questionId the id of the question to delete
      * @param accountId the id of the account that can execute this request
      * @return SirqulResponse
@@ -190,8 +186,8 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteQuestion(version: java.math.BigDecimal, questionId: kotlin.Long, accountId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = deleteQuestionWithHttpInfo(version = version, questionId = questionId, accountId = accountId)
+    fun deleteQuestion(questionId: kotlin.Long, accountId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = deleteQuestionWithHttpInfo(questionId = questionId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -209,10 +205,9 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/game/question/delete
+     * POST /game/question/delete
      * Delete Question
      * Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
-     * @param version 
      * @param questionId the id of the question to delete
      * @param accountId the id of the account that can execute this request
      * @return ApiResponse<SirqulResponse?>
@@ -221,8 +216,8 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteQuestionWithHttpInfo(version: java.math.BigDecimal, questionId: kotlin.Long, accountId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteQuestionRequestConfig(version = version, questionId = questionId, accountId = accountId)
+    fun deleteQuestionWithHttpInfo(questionId: kotlin.Long, accountId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteQuestionRequestConfig(questionId = questionId, accountId = accountId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -232,12 +227,11 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation deleteQuestion
      *
-     * @param version 
      * @param questionId the id of the question to delete
      * @param accountId the id of the account that can execute this request
      * @return RequestConfig
      */
-    fun deleteQuestionRequestConfig(version: java.math.BigDecimal, questionId: kotlin.Long, accountId: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteQuestionRequestConfig(questionId: kotlin.Long, accountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -248,7 +242,7 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/game/question/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/game/question/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -257,10 +251,9 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/game/question/get
+     * GET /game/question/get
      * Get Question
      * Get a question by the given id.
-     * @param version 
      * @param questionId the id of the question to get
      * @param accountId the id of the account that can make this request
      * @return QuestionResponse
@@ -272,8 +265,8 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getQuestion(version: java.math.BigDecimal, questionId: kotlin.Long, accountId: kotlin.Long) : QuestionResponse {
-        val localVarResponse = getQuestionWithHttpInfo(version = version, questionId = questionId, accountId = accountId)
+    fun getQuestion(questionId: kotlin.Long, accountId: kotlin.Long) : QuestionResponse {
+        val localVarResponse = getQuestionWithHttpInfo(questionId = questionId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as QuestionResponse
@@ -291,10 +284,9 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/game/question/get
+     * GET /game/question/get
      * Get Question
      * Get a question by the given id.
-     * @param version 
      * @param questionId the id of the question to get
      * @param accountId the id of the account that can make this request
      * @return ApiResponse<QuestionResponse?>
@@ -303,8 +295,8 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getQuestionWithHttpInfo(version: java.math.BigDecimal, questionId: kotlin.Long, accountId: kotlin.Long) : ApiResponse<QuestionResponse?> {
-        val localVariableConfig = getQuestionRequestConfig(version = version, questionId = questionId, accountId = accountId)
+    fun getQuestionWithHttpInfo(questionId: kotlin.Long, accountId: kotlin.Long) : ApiResponse<QuestionResponse?> {
+        val localVariableConfig = getQuestionRequestConfig(questionId = questionId, accountId = accountId)
 
         return request<Unit, QuestionResponse>(
             localVariableConfig
@@ -314,12 +306,11 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation getQuestion
      *
-     * @param version 
      * @param questionId the id of the question to get
      * @param accountId the id of the account that can make this request
      * @return RequestConfig
      */
-    fun getQuestionRequestConfig(version: java.math.BigDecimal, questionId: kotlin.Long, accountId: kotlin.Long) : RequestConfig<Unit> {
+    fun getQuestionRequestConfig(questionId: kotlin.Long, accountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -330,7 +321,7 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/game/question/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/game/question/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -339,10 +330,9 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/game/question/search
+     * GET /game/question/search
      * Search Questions
      * Search for questions by the given params.
-     * @param version 
      * @param accountId The logged in user.
      * @param sortField The column to sort the search on
      * @param descending The order to return the search results
@@ -359,8 +349,8 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchQuestions(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, keyword: kotlin.String? = null) : kotlin.collections.List<QuestionResponse> {
-        val localVarResponse = searchQuestionsWithHttpInfo(version = version, accountId = accountId, sortField = sortField, descending = descending, activeOnly = activeOnly, start = start, limit = limit, keyword = keyword)
+    fun searchQuestions(accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, keyword: kotlin.String? = null) : kotlin.collections.List<QuestionResponse> {
+        val localVarResponse = searchQuestionsWithHttpInfo(accountId = accountId, sortField = sortField, descending = descending, activeOnly = activeOnly, start = start, limit = limit, keyword = keyword)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<QuestionResponse>
@@ -378,10 +368,9 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/game/question/search
+     * GET /game/question/search
      * Search Questions
      * Search for questions by the given params.
-     * @param version 
      * @param accountId The logged in user.
      * @param sortField The column to sort the search on
      * @param descending The order to return the search results
@@ -395,8 +384,8 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchQuestionsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, keyword: kotlin.String?) : ApiResponse<kotlin.collections.List<QuestionResponse>?> {
-        val localVariableConfig = searchQuestionsRequestConfig(version = version, accountId = accountId, sortField = sortField, descending = descending, activeOnly = activeOnly, start = start, limit = limit, keyword = keyword)
+    fun searchQuestionsWithHttpInfo(accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, keyword: kotlin.String?) : ApiResponse<kotlin.collections.List<QuestionResponse>?> {
+        val localVariableConfig = searchQuestionsRequestConfig(accountId = accountId, sortField = sortField, descending = descending, activeOnly = activeOnly, start = start, limit = limit, keyword = keyword)
 
         return request<Unit, kotlin.collections.List<QuestionResponse>>(
             localVariableConfig
@@ -406,7 +395,6 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation searchQuestions
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param sortField The column to sort the search on
      * @param descending The order to return the search results
@@ -416,7 +404,7 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param keyword The keyword for searching questions with matching tags or question text. (optional)
      * @return RequestConfig
      */
-    fun searchQuestionsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, keyword: kotlin.String?) : RequestConfig<Unit> {
+    fun searchQuestionsRequestConfig(accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, keyword: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -434,7 +422,7 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/game/question/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/game/question/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -443,10 +431,9 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/game/question/update
+     * POST /game/question/update
      * Update Question
      * Update a question and related answers.
-     * @param version 
      * @param questionId The id of the question to update.
      * @param accountId The logged in user.
      * @param ticketCount The number of tickets to reward
@@ -468,8 +455,8 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateQuestion(version: java.math.BigDecimal, questionId: kotlin.Long, accountId: kotlin.Long, ticketCount: kotlin.Long, question: kotlin.String? = null, answers: kotlin.String? = null, tags: kotlin.String? = null, videoURL: kotlin.String? = null, assetId: kotlin.Long? = null, active: kotlin.Boolean? = null, allocateTickets: kotlin.Boolean? = null, ticketType: kotlin.String? = null, points: kotlin.Long? = null) : QuestionResponse {
-        val localVarResponse = updateQuestionWithHttpInfo(version = version, questionId = questionId, accountId = accountId, ticketCount = ticketCount, question = question, answers = answers, tags = tags, videoURL = videoURL, assetId = assetId, active = active, allocateTickets = allocateTickets, ticketType = ticketType, points = points)
+    fun updateQuestion(questionId: kotlin.Long, accountId: kotlin.Long, ticketCount: kotlin.Long, question: kotlin.String? = null, answers: kotlin.String? = null, tags: kotlin.String? = null, videoURL: kotlin.String? = null, assetId: kotlin.Long? = null, active: kotlin.Boolean? = null, allocateTickets: kotlin.Boolean? = null, ticketType: kotlin.String? = null, points: kotlin.Long? = null) : QuestionResponse {
+        val localVarResponse = updateQuestionWithHttpInfo(questionId = questionId, accountId = accountId, ticketCount = ticketCount, question = question, answers = answers, tags = tags, videoURL = videoURL, assetId = assetId, active = active, allocateTickets = allocateTickets, ticketType = ticketType, points = points)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as QuestionResponse
@@ -487,10 +474,9 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/game/question/update
+     * POST /game/question/update
      * Update Question
      * Update a question and related answers.
-     * @param version 
      * @param questionId The id of the question to update.
      * @param accountId The logged in user.
      * @param ticketCount The number of tickets to reward
@@ -509,8 +495,8 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateQuestionWithHttpInfo(version: java.math.BigDecimal, questionId: kotlin.Long, accountId: kotlin.Long, ticketCount: kotlin.Long, question: kotlin.String?, answers: kotlin.String?, tags: kotlin.String?, videoURL: kotlin.String?, assetId: kotlin.Long?, active: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketType: kotlin.String?, points: kotlin.Long?) : ApiResponse<QuestionResponse?> {
-        val localVariableConfig = updateQuestionRequestConfig(version = version, questionId = questionId, accountId = accountId, ticketCount = ticketCount, question = question, answers = answers, tags = tags, videoURL = videoURL, assetId = assetId, active = active, allocateTickets = allocateTickets, ticketType = ticketType, points = points)
+    fun updateQuestionWithHttpInfo(questionId: kotlin.Long, accountId: kotlin.Long, ticketCount: kotlin.Long, question: kotlin.String?, answers: kotlin.String?, tags: kotlin.String?, videoURL: kotlin.String?, assetId: kotlin.Long?, active: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketType: kotlin.String?, points: kotlin.Long?) : ApiResponse<QuestionResponse?> {
+        val localVariableConfig = updateQuestionRequestConfig(questionId = questionId, accountId = accountId, ticketCount = ticketCount, question = question, answers = answers, tags = tags, videoURL = videoURL, assetId = assetId, active = active, allocateTickets = allocateTickets, ticketType = ticketType, points = points)
 
         return request<Unit, QuestionResponse>(
             localVariableConfig
@@ -520,7 +506,6 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation updateQuestion
      *
-     * @param version 
      * @param questionId The id of the question to update.
      * @param accountId The logged in user.
      * @param ticketCount The number of tickets to reward
@@ -535,7 +520,7 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param points The number of points to award for completing a mission (optional)
      * @return RequestConfig
      */
-    fun updateQuestionRequestConfig(version: java.math.BigDecimal, questionId: kotlin.Long, accountId: kotlin.Long, ticketCount: kotlin.Long, question: kotlin.String?, answers: kotlin.String?, tags: kotlin.String?, videoURL: kotlin.String?, assetId: kotlin.Long?, active: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketType: kotlin.String?, points: kotlin.Long?) : RequestConfig<Unit> {
+    fun updateQuestionRequestConfig(questionId: kotlin.Long, accountId: kotlin.Long, ticketCount: kotlin.Long, question: kotlin.String?, answers: kotlin.String?, tags: kotlin.String?, videoURL: kotlin.String?, assetId: kotlin.Long?, active: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketType: kotlin.String?, points: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -574,7 +559,7 @@ open class QuestionApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/game/question/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/game/question/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

@@ -41,15 +41,14 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/trip
+     * POST /trip
      * Create Trip
      * Create a new trip
-     * @param version 
      * @param body  (optional)
      * @return Trip
      * @throws IllegalStateException If the request is not correctly configured
@@ -60,8 +59,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createTrip(version: java.math.BigDecimal, body: Trip? = null) : Trip {
-        val localVarResponse = createTripWithHttpInfo(version = version, body = body)
+    fun createTrip(body: Trip? = null) : Trip {
+        val localVarResponse = createTripWithHttpInfo(body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Trip
@@ -79,10 +78,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/trip
+     * POST /trip
      * Create Trip
      * Create a new trip
-     * @param version 
      * @param body  (optional)
      * @return ApiResponse<Trip?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -90,8 +88,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createTripWithHttpInfo(version: java.math.BigDecimal, body: Trip?) : ApiResponse<Trip?> {
-        val localVariableConfig = createTripRequestConfig(version = version, body = body)
+    fun createTripWithHttpInfo(body: Trip?) : ApiResponse<Trip?> {
+        val localVariableConfig = createTripRequestConfig(body = body)
 
         return request<Trip, Trip>(
             localVariableConfig
@@ -101,18 +99,17 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation createTrip
      *
-     * @param version 
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun createTripRequestConfig(version: java.math.BigDecimal, body: Trip?) : RequestConfig<Trip> {
+    fun createTripRequestConfig(body: Trip?) : RequestConfig<Trip> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/trip".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/trip",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -121,10 +118,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * DELETE /api/{version}/trip/{id}
+     * DELETE /trip/{id}
      * Delete Trip
      * Delete an existing trip
-     * @param version 
      * @param id the id of the trip to delete
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
@@ -134,8 +130,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun delete(version: java.math.BigDecimal, id: kotlin.Long) : Unit {
-        val localVarResponse = deleteWithHttpInfo(version = version, id = id)
+    fun delete(id: kotlin.Long) : Unit {
+        val localVarResponse = deleteWithHttpInfo(id = id)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -153,18 +149,17 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * DELETE /api/{version}/trip/{id}
+     * DELETE /trip/{id}
      * Delete Trip
      * Delete an existing trip
-     * @param version 
      * @param id the id of the trip to delete
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long) : ApiResponse<Unit?> {
-        val localVariableConfig = deleteRequestConfig(version = version, id = id)
+    fun deleteWithHttpInfo(id: kotlin.Long) : ApiResponse<Unit?> {
+        val localVariableConfig = deleteRequestConfig(id = id)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -174,18 +169,17 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation delete
      *
-     * @param version 
      * @param id the id of the trip to delete
      * @return RequestConfig
      */
-    fun deleteRequestConfig(version: java.math.BigDecimal, id: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteRequestConfig(id: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.DELETE,
-            path = "/api/{version}/trip/{id}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/trip/{id}".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -194,10 +188,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/trip/{id}/drive
+     * POST /trip/{id}/drive
      * Set Trip Preference Driver
      * Update trip preference to drive, also create a route and assign the trip to the route
-     * @param version 
      * @param id the id of the trip
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
      * @return Trip
@@ -209,8 +202,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun driveTrip(version: java.math.BigDecimal, id: kotlin.Long, recurrence: kotlin.Boolean) : Trip {
-        val localVarResponse = driveTripWithHttpInfo(version = version, id = id, recurrence = recurrence)
+    fun driveTrip(id: kotlin.Long, recurrence: kotlin.Boolean) : Trip {
+        val localVarResponse = driveTripWithHttpInfo(id = id, recurrence = recurrence)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Trip
@@ -228,10 +221,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/trip/{id}/drive
+     * POST /trip/{id}/drive
      * Set Trip Preference Driver
      * Update trip preference to drive, also create a route and assign the trip to the route
-     * @param version 
      * @param id the id of the trip
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
      * @return ApiResponse<Trip?>
@@ -240,8 +232,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun driveTripWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long, recurrence: kotlin.Boolean) : ApiResponse<Trip?> {
-        val localVariableConfig = driveTripRequestConfig(version = version, id = id, recurrence = recurrence)
+    fun driveTripWithHttpInfo(id: kotlin.Long, recurrence: kotlin.Boolean) : ApiResponse<Trip?> {
+        val localVariableConfig = driveTripRequestConfig(id = id, recurrence = recurrence)
 
         return request<Unit, Trip>(
             localVariableConfig
@@ -251,12 +243,11 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation driveTrip
      *
-     * @param version 
      * @param id the id of the trip
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
      * @return RequestConfig
      */
-    fun driveTripRequestConfig(version: java.math.BigDecimal, id: kotlin.Long, recurrence: kotlin.Boolean) : RequestConfig<Unit> {
+    fun driveTripRequestConfig(id: kotlin.Long, recurrence: kotlin.Boolean) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -266,7 +257,7 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/trip/{id}/drive".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/trip/{id}/drive".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -275,10 +266,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/trip/{id}/flexible
+     * POST /trip/{id}/flexible
      * Set Trip Preference Flexible
      * Update trip preference to flexible.
-     * @param version 
      * @param id the id of the trip
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
      * @return Trip
@@ -290,8 +280,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun flexibleTrip(version: java.math.BigDecimal, id: kotlin.Long, recurrence: kotlin.Boolean) : Trip {
-        val localVarResponse = flexibleTripWithHttpInfo(version = version, id = id, recurrence = recurrence)
+    fun flexibleTrip(id: kotlin.Long, recurrence: kotlin.Boolean) : Trip {
+        val localVarResponse = flexibleTripWithHttpInfo(id = id, recurrence = recurrence)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Trip
@@ -309,10 +299,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/trip/{id}/flexible
+     * POST /trip/{id}/flexible
      * Set Trip Preference Flexible
      * Update trip preference to flexible.
-     * @param version 
      * @param id the id of the trip
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
      * @return ApiResponse<Trip?>
@@ -321,8 +310,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun flexibleTripWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long, recurrence: kotlin.Boolean) : ApiResponse<Trip?> {
-        val localVariableConfig = flexibleTripRequestConfig(version = version, id = id, recurrence = recurrence)
+    fun flexibleTripWithHttpInfo(id: kotlin.Long, recurrence: kotlin.Boolean) : ApiResponse<Trip?> {
+        val localVariableConfig = flexibleTripRequestConfig(id = id, recurrence = recurrence)
 
         return request<Unit, Trip>(
             localVariableConfig
@@ -332,12 +321,11 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation flexibleTrip
      *
-     * @param version 
      * @param id the id of the trip
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
      * @return RequestConfig
      */
-    fun flexibleTripRequestConfig(version: java.math.BigDecimal, id: kotlin.Long, recurrence: kotlin.Boolean) : RequestConfig<Unit> {
+    fun flexibleTripRequestConfig(id: kotlin.Long, recurrence: kotlin.Boolean) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -347,7 +335,7 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/trip/{id}/flexible".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/trip/{id}/flexible".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -356,10 +344,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/trip/{id}
+     * GET /trip/{id}
      * Get Trip
      * Get an existing trip
-     * @param version 
      * @param id the id of the trip to get
      * @return Trip
      * @throws IllegalStateException If the request is not correctly configured
@@ -370,8 +357,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTrip(version: java.math.BigDecimal, id: kotlin.Long) : Trip {
-        val localVarResponse = getTripWithHttpInfo(version = version, id = id)
+    fun getTrip(id: kotlin.Long) : Trip {
+        val localVarResponse = getTripWithHttpInfo(id = id)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Trip
@@ -389,10 +376,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/trip/{id}
+     * GET /trip/{id}
      * Get Trip
      * Get an existing trip
-     * @param version 
      * @param id the id of the trip to get
      * @return ApiResponse<Trip?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -400,8 +386,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTripWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long) : ApiResponse<Trip?> {
-        val localVariableConfig = getTripRequestConfig(version = version, id = id)
+    fun getTripWithHttpInfo(id: kotlin.Long) : ApiResponse<Trip?> {
+        val localVariableConfig = getTripRequestConfig(id = id)
 
         return request<Unit, Trip>(
             localVariableConfig
@@ -411,18 +397,17 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation getTrip
      *
-     * @param version 
      * @param id the id of the trip to get
      * @return RequestConfig
      */
-    fun getTripRequestConfig(version: java.math.BigDecimal, id: kotlin.Long) : RequestConfig<Unit> {
+    fun getTripRequestConfig(id: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/trip/{id}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/trip/{id}".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -431,10 +416,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/trip/{id}/match
+     * GET /trip/{id}/match
      * Get Trip Matches
      * Get matching trips of specific trip
-     * @param version 
      * @param id The id The id of the trip to search for matches for
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
@@ -452,8 +436,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTripMatches(version: java.math.BigDecimal, id: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, matchedHasRoute: kotlin.Boolean? = null, matchedHasDriver: kotlin.Boolean? = null) : kotlin.collections.List<Trip> {
-        val localVarResponse = getTripMatchesWithHttpInfo(version = version, id = id, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, matchedHasRoute = matchedHasRoute, matchedHasDriver = matchedHasDriver)
+    fun getTripMatches(id: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, matchedHasRoute: kotlin.Boolean? = null, matchedHasDriver: kotlin.Boolean? = null) : kotlin.collections.List<Trip> {
+        val localVarResponse = getTripMatchesWithHttpInfo(id = id, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, matchedHasRoute = matchedHasRoute, matchedHasDriver = matchedHasDriver)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<Trip>
@@ -471,10 +455,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/trip/{id}/match
+     * GET /trip/{id}/match
      * Get Trip Matches
      * Get matching trips of specific trip
-     * @param version 
      * @param id The id The id of the trip to search for matches for
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
@@ -489,8 +472,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTripMatchesWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, matchedHasRoute: kotlin.Boolean?, matchedHasDriver: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<Trip>?> {
-        val localVariableConfig = getTripMatchesRequestConfig(version = version, id = id, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, matchedHasRoute = matchedHasRoute, matchedHasDriver = matchedHasDriver)
+    fun getTripMatchesWithHttpInfo(id: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, matchedHasRoute: kotlin.Boolean?, matchedHasDriver: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<Trip>?> {
+        val localVariableConfig = getTripMatchesRequestConfig(id = id, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, matchedHasRoute = matchedHasRoute, matchedHasDriver = matchedHasDriver)
 
         return request<Unit, kotlin.collections.List<Trip>>(
             localVariableConfig
@@ -500,7 +483,6 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation getTripMatches
      *
-     * @param version 
      * @param id The id The id of the trip to search for matches for
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
@@ -511,7 +493,7 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param matchedHasDriver Only return matchings that already have driver assigned (optional)
      * @return RequestConfig
      */
-    fun getTripMatchesRequestConfig(version: java.math.BigDecimal, id: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, matchedHasRoute: kotlin.Boolean?, matchedHasDriver: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getTripMatchesRequestConfig(id: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, matchedHasRoute: kotlin.Boolean?, matchedHasDriver: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -531,7 +513,7 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/trip/{id}/match".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/trip/{id}/match".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -540,10 +522,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/trip/match/process
+     * POST /trip/match/process
      * Process Trip Matches
      * Process trip matching, assign trips with no route to matched trips with route.
-     * @param version 
      * @param startDate The lower bound date to process matchings (optional)
      * @param endDate The upper bound date to process matchings (optional)
      * @param tripId the id of the trip to process (optional)
@@ -556,8 +537,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun processTripMatches(version: java.math.BigDecimal, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, tripId: kotlin.Long? = null) : kotlin.collections.List<Trip> {
-        val localVarResponse = processTripMatchesWithHttpInfo(version = version, startDate = startDate, endDate = endDate, tripId = tripId)
+    fun processTripMatches(startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, tripId: kotlin.Long? = null) : kotlin.collections.List<Trip> {
+        val localVarResponse = processTripMatchesWithHttpInfo(startDate = startDate, endDate = endDate, tripId = tripId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<Trip>
@@ -575,10 +556,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/trip/match/process
+     * POST /trip/match/process
      * Process Trip Matches
      * Process trip matching, assign trips with no route to matched trips with route.
-     * @param version 
      * @param startDate The lower bound date to process matchings (optional)
      * @param endDate The upper bound date to process matchings (optional)
      * @param tripId the id of the trip to process (optional)
@@ -588,8 +568,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun processTripMatchesWithHttpInfo(version: java.math.BigDecimal, startDate: kotlin.Long?, endDate: kotlin.Long?, tripId: kotlin.Long?) : ApiResponse<kotlin.collections.List<Trip>?> {
-        val localVariableConfig = processTripMatchesRequestConfig(version = version, startDate = startDate, endDate = endDate, tripId = tripId)
+    fun processTripMatchesWithHttpInfo(startDate: kotlin.Long?, endDate: kotlin.Long?, tripId: kotlin.Long?) : ApiResponse<kotlin.collections.List<Trip>?> {
+        val localVariableConfig = processTripMatchesRequestConfig(startDate = startDate, endDate = endDate, tripId = tripId)
 
         return request<Unit, kotlin.collections.List<Trip>>(
             localVariableConfig
@@ -599,13 +579,12 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation processTripMatches
      *
-     * @param version 
      * @param startDate The lower bound date to process matchings (optional)
      * @param endDate The upper bound date to process matchings (optional)
      * @param tripId the id of the trip to process (optional)
      * @return RequestConfig
      */
-    fun processTripMatchesRequestConfig(version: java.math.BigDecimal, startDate: kotlin.Long?, endDate: kotlin.Long?, tripId: kotlin.Long?) : RequestConfig<Unit> {
+    fun processTripMatchesRequestConfig(startDate: kotlin.Long?, endDate: kotlin.Long?, tripId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -623,7 +602,7 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/trip/match/process".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/trip/match/process",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -632,10 +611,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/trip/{id}/ride
+     * POST /trip/{id}/ride
      * Set Trip Preference Rider
      * Update trip preference to ride.
-     * @param version 
      * @param id the id of the trip
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
      * @return Trip
@@ -647,8 +625,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun ride(version: java.math.BigDecimal, id: kotlin.Long, recurrence: kotlin.Boolean) : Trip {
-        val localVarResponse = rideWithHttpInfo(version = version, id = id, recurrence = recurrence)
+    fun ride(id: kotlin.Long, recurrence: kotlin.Boolean) : Trip {
+        val localVarResponse = rideWithHttpInfo(id = id, recurrence = recurrence)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Trip
@@ -666,10 +644,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/trip/{id}/ride
+     * POST /trip/{id}/ride
      * Set Trip Preference Rider
      * Update trip preference to ride.
-     * @param version 
      * @param id the id of the trip
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
      * @return ApiResponse<Trip?>
@@ -678,8 +655,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun rideWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long, recurrence: kotlin.Boolean) : ApiResponse<Trip?> {
-        val localVariableConfig = rideRequestConfig(version = version, id = id, recurrence = recurrence)
+    fun rideWithHttpInfo(id: kotlin.Long, recurrence: kotlin.Boolean) : ApiResponse<Trip?> {
+        val localVariableConfig = rideRequestConfig(id = id, recurrence = recurrence)
 
         return request<Unit, Trip>(
             localVariableConfig
@@ -689,12 +666,11 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation ride
      *
-     * @param version 
      * @param id the id of the trip
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
      * @return RequestConfig
      */
-    fun rideRequestConfig(version: java.math.BigDecimal, id: kotlin.Long, recurrence: kotlin.Boolean) : RequestConfig<Unit> {
+    fun rideRequestConfig(id: kotlin.Long, recurrence: kotlin.Boolean) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -704,7 +680,7 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/trip/{id}/ride".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/trip/{id}/ride".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -713,10 +689,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/trip
+     * GET /trip
      * Search Trips
      * Search for trips
-     * @param version 
      * @param accountId The owner of the trips
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
@@ -735,8 +710,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun search(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, hasNotifications: kotlin.Boolean? = null) : kotlin.collections.List<Trip> {
-        val localVarResponse = searchWithHttpInfo(version = version, accountId = accountId, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, startDate = startDate, endDate = endDate, hasNotifications = hasNotifications)
+    fun search(accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, hasNotifications: kotlin.Boolean? = null) : kotlin.collections.List<Trip> {
+        val localVarResponse = searchWithHttpInfo(accountId = accountId, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, startDate = startDate, endDate = endDate, hasNotifications = hasNotifications)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<Trip>
@@ -754,10 +729,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/trip
+     * GET /trip
      * Search Trips
      * Search for trips
-     * @param version 
      * @param accountId The owner of the trips
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
@@ -773,8 +747,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, startDate: kotlin.Long?, endDate: kotlin.Long?, hasNotifications: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<Trip>?> {
-        val localVariableConfig = searchRequestConfig(version = version, accountId = accountId, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, startDate = startDate, endDate = endDate, hasNotifications = hasNotifications)
+    fun searchWithHttpInfo(accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, startDate: kotlin.Long?, endDate: kotlin.Long?, hasNotifications: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<Trip>?> {
+        val localVariableConfig = searchRequestConfig(accountId = accountId, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, startDate = startDate, endDate = endDate, hasNotifications = hasNotifications)
 
         return request<Unit, kotlin.collections.List<Trip>>(
             localVariableConfig
@@ -784,7 +758,6 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation search
      *
-     * @param version 
      * @param accountId The owner of the trips
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
@@ -796,7 +769,7 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param hasNotifications whether to search on trips that have notifications or not (optional)
      * @return RequestConfig
      */
-    fun searchRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, startDate: kotlin.Long?, endDate: kotlin.Long?, hasNotifications: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchRequestConfig(accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, startDate: kotlin.Long?, endDate: kotlin.Long?, hasNotifications: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -820,7 +793,7 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/trip".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/trip",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -829,10 +802,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/trip/match
+     * GET /trip/match
      * Search Trips
      * Search for trips with matching information.
-     * @param version 
      * @param accountId The owner of the trips
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
@@ -852,8 +824,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchTrips(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, matchedHasRoute: kotlin.Boolean? = null, matchedHasDriver: kotlin.Boolean? = null) : kotlin.collections.List<Trip> {
-        val localVarResponse = searchTripsWithHttpInfo(version = version, accountId = accountId, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, startDate = startDate, endDate = endDate, matchedHasRoute = matchedHasRoute, matchedHasDriver = matchedHasDriver)
+    fun searchTrips(accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, matchedHasRoute: kotlin.Boolean? = null, matchedHasDriver: kotlin.Boolean? = null) : kotlin.collections.List<Trip> {
+        val localVarResponse = searchTripsWithHttpInfo(accountId = accountId, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, startDate = startDate, endDate = endDate, matchedHasRoute = matchedHasRoute, matchedHasDriver = matchedHasDriver)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<Trip>
@@ -871,10 +843,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/trip/match
+     * GET /trip/match
      * Search Trips
      * Search for trips with matching information.
-     * @param version 
      * @param accountId The owner of the trips
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
@@ -891,8 +862,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchTripsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, startDate: kotlin.Long?, endDate: kotlin.Long?, matchedHasRoute: kotlin.Boolean?, matchedHasDriver: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<Trip>?> {
-        val localVariableConfig = searchTripsRequestConfig(version = version, accountId = accountId, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, startDate = startDate, endDate = endDate, matchedHasRoute = matchedHasRoute, matchedHasDriver = matchedHasDriver)
+    fun searchTripsWithHttpInfo(accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, startDate: kotlin.Long?, endDate: kotlin.Long?, matchedHasRoute: kotlin.Boolean?, matchedHasDriver: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<Trip>?> {
+        val localVariableConfig = searchTripsRequestConfig(accountId = accountId, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, startDate = startDate, endDate = endDate, matchedHasRoute = matchedHasRoute, matchedHasDriver = matchedHasDriver)
 
         return request<Unit, kotlin.collections.List<Trip>>(
             localVariableConfig
@@ -902,7 +873,6 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation searchTrips
      *
-     * @param version 
      * @param accountId The owner of the trips
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
@@ -915,7 +885,7 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param matchedHasDriver Only return matchings that already have driver assigned (optional)
      * @return RequestConfig
      */
-    fun searchTripsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, startDate: kotlin.Long?, endDate: kotlin.Long?, matchedHasRoute: kotlin.Boolean?, matchedHasDriver: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchTripsRequestConfig(accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, startDate: kotlin.Long?, endDate: kotlin.Long?, matchedHasRoute: kotlin.Boolean?, matchedHasDriver: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -942,7 +912,7 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/trip/match".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/trip/match",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -951,10 +921,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/trip/{id}/locations
+     * POST /trip/{id}/locations
      * Update Trip Locations
      * 
-     * @param version 
      * @param id the id of the trip to update locations for
      * @param body  (optional)
      * @return Trip
@@ -966,8 +935,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateLocations(version: java.math.BigDecimal, id: kotlin.Long, body: Trip? = null) : Trip {
-        val localVarResponse = updateLocationsWithHttpInfo(version = version, id = id, body = body)
+    fun updateLocations(id: kotlin.Long, body: Trip? = null) : Trip {
+        val localVarResponse = updateLocationsWithHttpInfo(id = id, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Trip
@@ -985,10 +954,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/trip/{id}/locations
+     * POST /trip/{id}/locations
      * Update Trip Locations
      * 
-     * @param version 
      * @param id the id of the trip to update locations for
      * @param body  (optional)
      * @return ApiResponse<Trip?>
@@ -997,8 +965,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateLocationsWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long, body: Trip?) : ApiResponse<Trip?> {
-        val localVariableConfig = updateLocationsRequestConfig(version = version, id = id, body = body)
+    fun updateLocationsWithHttpInfo(id: kotlin.Long, body: Trip?) : ApiResponse<Trip?> {
+        val localVariableConfig = updateLocationsRequestConfig(id = id, body = body)
 
         return request<Trip, Trip>(
             localVariableConfig
@@ -1008,19 +976,18 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation updateLocations
      *
-     * @param version 
      * @param id the id of the trip to update locations for
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun updateLocationsRequestConfig(version: java.math.BigDecimal, id: kotlin.Long, body: Trip?) : RequestConfig<Trip> {
+    fun updateLocationsRequestConfig(id: kotlin.Long, body: Trip?) : RequestConfig<Trip> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/trip/{id}/locations".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/trip/{id}/locations".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1029,10 +996,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/trip/{id}/locations/recurrence
+     * POST /trip/{id}/locations/recurrence
      * Update Recurrence Locations
      * 
-     * @param version 
      * @param id the id of the trip
      * @param body  (optional)
      * @return kotlin.collections.List<Trip>
@@ -1044,8 +1010,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateRecurrenceLocations(version: java.math.BigDecimal, id: kotlin.Long, body: Trip? = null) : kotlin.collections.List<Trip> {
-        val localVarResponse = updateRecurrenceLocationsWithHttpInfo(version = version, id = id, body = body)
+    fun updateRecurrenceLocations(id: kotlin.Long, body: Trip? = null) : kotlin.collections.List<Trip> {
+        val localVarResponse = updateRecurrenceLocationsWithHttpInfo(id = id, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<Trip>
@@ -1063,10 +1029,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/trip/{id}/locations/recurrence
+     * POST /trip/{id}/locations/recurrence
      * Update Recurrence Locations
      * 
-     * @param version 
      * @param id the id of the trip
      * @param body  (optional)
      * @return ApiResponse<kotlin.collections.List<Trip>?>
@@ -1075,8 +1040,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateRecurrenceLocationsWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long, body: Trip?) : ApiResponse<kotlin.collections.List<Trip>?> {
-        val localVariableConfig = updateRecurrenceLocationsRequestConfig(version = version, id = id, body = body)
+    fun updateRecurrenceLocationsWithHttpInfo(id: kotlin.Long, body: Trip?) : ApiResponse<kotlin.collections.List<Trip>?> {
+        val localVariableConfig = updateRecurrenceLocationsRequestConfig(id = id, body = body)
 
         return request<Trip, kotlin.collections.List<Trip>>(
             localVariableConfig
@@ -1086,19 +1051,18 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation updateRecurrenceLocations
      *
-     * @param version 
      * @param id the id of the trip
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun updateRecurrenceLocationsRequestConfig(version: java.math.BigDecimal, id: kotlin.Long, body: Trip?) : RequestConfig<Trip> {
+    fun updateRecurrenceLocationsRequestConfig(id: kotlin.Long, body: Trip?) : RequestConfig<Trip> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/trip/{id}/locations/recurrence".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/trip/{id}/locations/recurrence".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1107,10 +1071,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/trip/{id}/shipments/recurrence
+     * POST /trip/{id}/shipments/recurrence
      * Update Recurrence Shipments
      * 
-     * @param version 
      * @param id the id of the trip
      * @param body  (optional)
      * @return kotlin.collections.List<Trip>
@@ -1122,8 +1085,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateRecurrenceShipments(version: java.math.BigDecimal, id: kotlin.Long, body: Trip? = null) : kotlin.collections.List<Trip> {
-        val localVarResponse = updateRecurrenceShipmentsWithHttpInfo(version = version, id = id, body = body)
+    fun updateRecurrenceShipments(id: kotlin.Long, body: Trip? = null) : kotlin.collections.List<Trip> {
+        val localVarResponse = updateRecurrenceShipmentsWithHttpInfo(id = id, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<Trip>
@@ -1141,10 +1104,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/trip/{id}/shipments/recurrence
+     * POST /trip/{id}/shipments/recurrence
      * Update Recurrence Shipments
      * 
-     * @param version 
      * @param id the id of the trip
      * @param body  (optional)
      * @return ApiResponse<kotlin.collections.List<Trip>?>
@@ -1153,8 +1115,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateRecurrenceShipmentsWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long, body: Trip?) : ApiResponse<kotlin.collections.List<Trip>?> {
-        val localVariableConfig = updateRecurrenceShipmentsRequestConfig(version = version, id = id, body = body)
+    fun updateRecurrenceShipmentsWithHttpInfo(id: kotlin.Long, body: Trip?) : ApiResponse<kotlin.collections.List<Trip>?> {
+        val localVariableConfig = updateRecurrenceShipmentsRequestConfig(id = id, body = body)
 
         return request<Trip, kotlin.collections.List<Trip>>(
             localVariableConfig
@@ -1164,19 +1126,18 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation updateRecurrenceShipments
      *
-     * @param version 
      * @param id the id of the trip
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun updateRecurrenceShipmentsRequestConfig(version: java.math.BigDecimal, id: kotlin.Long, body: Trip?) : RequestConfig<Trip> {
+    fun updateRecurrenceShipmentsRequestConfig(id: kotlin.Long, body: Trip?) : RequestConfig<Trip> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/trip/{id}/shipments/recurrence".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/trip/{id}/shipments/recurrence".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1185,10 +1146,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/trip/{id}/shipments
+     * POST /trip/{id}/shipments
      * Update Trip Shipments
      * 
-     * @param version 
      * @param id the id of the trip shipments to update
      * @param body  (optional)
      * @return Trip
@@ -1200,8 +1160,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateShipments(version: java.math.BigDecimal, id: kotlin.Long, body: Trip? = null) : Trip {
-        val localVarResponse = updateShipmentsWithHttpInfo(version = version, id = id, body = body)
+    fun updateShipments(id: kotlin.Long, body: Trip? = null) : Trip {
+        val localVarResponse = updateShipmentsWithHttpInfo(id = id, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Trip
@@ -1219,10 +1179,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/trip/{id}/shipments
+     * POST /trip/{id}/shipments
      * Update Trip Shipments
      * 
-     * @param version 
      * @param id the id of the trip shipments to update
      * @param body  (optional)
      * @return ApiResponse<Trip?>
@@ -1231,8 +1190,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateShipmentsWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long, body: Trip?) : ApiResponse<Trip?> {
-        val localVariableConfig = updateShipmentsRequestConfig(version = version, id = id, body = body)
+    fun updateShipmentsWithHttpInfo(id: kotlin.Long, body: Trip?) : ApiResponse<Trip?> {
+        val localVariableConfig = updateShipmentsRequestConfig(id = id, body = body)
 
         return request<Trip, Trip>(
             localVariableConfig
@@ -1242,19 +1201,18 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation updateShipments
      *
-     * @param version 
      * @param id the id of the trip shipments to update
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun updateShipmentsRequestConfig(version: java.math.BigDecimal, id: kotlin.Long, body: Trip?) : RequestConfig<Trip> {
+    fun updateShipmentsRequestConfig(id: kotlin.Long, body: Trip?) : RequestConfig<Trip> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/trip/{id}/shipments".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/trip/{id}/shipments".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1263,10 +1221,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * PUT /api/{version}/trip/{id}
+     * PUT /trip/{id}
      * Update Trip
      * Update an existing trip. Does not support recurring trip update.
-     * @param version 
      * @param id the id of the trip to update
      * @param body  (optional)
      * @return Trip
@@ -1278,8 +1235,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateTrip(version: java.math.BigDecimal, id: kotlin.Long, body: Trip? = null) : Trip {
-        val localVarResponse = updateTripWithHttpInfo(version = version, id = id, body = body)
+    fun updateTrip(id: kotlin.Long, body: Trip? = null) : Trip {
+        val localVarResponse = updateTripWithHttpInfo(id = id, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Trip
@@ -1297,10 +1254,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * PUT /api/{version}/trip/{id}
+     * PUT /trip/{id}
      * Update Trip
      * Update an existing trip. Does not support recurring trip update.
-     * @param version 
      * @param id the id of the trip to update
      * @param body  (optional)
      * @return ApiResponse<Trip?>
@@ -1309,8 +1265,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateTripWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long, body: Trip?) : ApiResponse<Trip?> {
-        val localVariableConfig = updateTripRequestConfig(version = version, id = id, body = body)
+    fun updateTripWithHttpInfo(id: kotlin.Long, body: Trip?) : ApiResponse<Trip?> {
+        val localVariableConfig = updateTripRequestConfig(id = id, body = body)
 
         return request<Trip, Trip>(
             localVariableConfig
@@ -1320,19 +1276,18 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation updateTrip
      *
-     * @param version 
      * @param id the id of the trip to update
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun updateTripRequestConfig(version: java.math.BigDecimal, id: kotlin.Long, body: Trip?) : RequestConfig<Trip> {
+    fun updateTripRequestConfig(id: kotlin.Long, body: Trip?) : RequestConfig<Trip> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.PUT,
-            path = "/api/{version}/trip/{id}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/trip/{id}".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1341,10 +1296,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/trip/notifications
+     * POST /trip/notifications
      * Trip Notifications
      * Update the trip notifications
-     * @param version 
      * @param id the id of the trip
      * @param notifications the notifications to update on the trip (optional)
      * @return Trip
@@ -1356,8 +1310,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateTripNotifications(version: java.math.BigDecimal, id: kotlin.Long, notifications: kotlin.String? = null) : Trip {
-        val localVarResponse = updateTripNotificationsWithHttpInfo(version = version, id = id, notifications = notifications)
+    fun updateTripNotifications(id: kotlin.Long, notifications: kotlin.String? = null) : Trip {
+        val localVarResponse = updateTripNotificationsWithHttpInfo(id = id, notifications = notifications)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Trip
@@ -1375,10 +1329,9 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/trip/notifications
+     * POST /trip/notifications
      * Trip Notifications
      * Update the trip notifications
-     * @param version 
      * @param id the id of the trip
      * @param notifications the notifications to update on the trip (optional)
      * @return ApiResponse<Trip?>
@@ -1387,8 +1340,8 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateTripNotificationsWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long, notifications: kotlin.String?) : ApiResponse<Trip?> {
-        val localVariableConfig = updateTripNotificationsRequestConfig(version = version, id = id, notifications = notifications)
+    fun updateTripNotificationsWithHttpInfo(id: kotlin.Long, notifications: kotlin.String?) : ApiResponse<Trip?> {
+        val localVariableConfig = updateTripNotificationsRequestConfig(id = id, notifications = notifications)
 
         return request<Unit, Trip>(
             localVariableConfig
@@ -1398,12 +1351,11 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation updateTripNotifications
      *
-     * @param version 
      * @param id the id of the trip
      * @param notifications the notifications to update on the trip (optional)
      * @return RequestConfig
      */
-    fun updateTripNotificationsRequestConfig(version: java.math.BigDecimal, id: kotlin.Long, notifications: kotlin.String?) : RequestConfig<Unit> {
+    fun updateTripNotificationsRequestConfig(id: kotlin.Long, notifications: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1416,7 +1368,7 @@ open class TripApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/trip/notifications".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/trip/notifications",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

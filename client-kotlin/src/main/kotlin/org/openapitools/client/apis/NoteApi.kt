@@ -42,15 +42,14 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/note/batch
+     * POST /note/batch
      * Batch Note Operation
      * Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE). 
-     * @param version 
      * @param notableId The id of the notable object the batch operation will affect
      * @param notableType The notable object type (for example ALBUM, ASSET, OFFER, etc.)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -65,8 +64,8 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun batchOperation(version: java.math.BigDecimal, notableId: kotlin.Long, notableType: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, batchOperation: kotlin.String? = null) : SirqulResponse {
-        val localVarResponse = batchOperationWithHttpInfo(version = version, notableId = notableId, notableType = notableType, deviceId = deviceId, accountId = accountId, batchOperation = batchOperation)
+    fun batchOperation(notableId: kotlin.Long, notableType: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, batchOperation: kotlin.String? = null) : SirqulResponse {
+        val localVarResponse = batchOperationWithHttpInfo(notableId = notableId, notableType = notableType, deviceId = deviceId, accountId = accountId, batchOperation = batchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -84,10 +83,9 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/note/batch
+     * POST /note/batch
      * Batch Note Operation
      * Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE). 
-     * @param version 
      * @param notableId The id of the notable object the batch operation will affect
      * @param notableType The notable object type (for example ALBUM, ASSET, OFFER, etc.)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -99,8 +97,8 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun batchOperationWithHttpInfo(version: java.math.BigDecimal, notableId: kotlin.Long, notableType: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, batchOperation: kotlin.String?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = batchOperationRequestConfig(version = version, notableId = notableId, notableType = notableType, deviceId = deviceId, accountId = accountId, batchOperation = batchOperation)
+    fun batchOperationWithHttpInfo(notableId: kotlin.Long, notableType: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, batchOperation: kotlin.String?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = batchOperationRequestConfig(notableId = notableId, notableType = notableType, deviceId = deviceId, accountId = accountId, batchOperation = batchOperation)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -110,7 +108,6 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation batchOperation
      *
-     * @param version 
      * @param notableId The id of the notable object the batch operation will affect
      * @param notableType The notable object type (for example ALBUM, ASSET, OFFER, etc.)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -118,7 +115,7 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param batchOperation The batch operation to perform (e.g., DELETE_ALL_NOTES_IN_NOTABLE). Optional. (optional)
      * @return RequestConfig
      */
-    fun batchOperationRequestConfig(version: java.math.BigDecimal, notableId: kotlin.Long, notableType: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, batchOperation: kotlin.String?) : RequestConfig<Unit> {
+    fun batchOperationRequestConfig(notableId: kotlin.Long, notableType: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, batchOperation: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -138,7 +135,7 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/note/batch".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/note/batch",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -147,10 +144,9 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/note/create
+     * POST /note/create
      * Create Note
      * This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
-     * @param version 
      * @param comment The message the user wishes to leave a comment on
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -202,8 +198,8 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createNote(version: java.math.BigDecimal, comment: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, notableType: kotlin.String? = null, notableId: kotlin.Long? = null, noteType: kotlin.String? = null, assetIds: kotlin.String? = null, tags: kotlin.String? = null, permissionableType: kotlin.String? = null, permissionableId: kotlin.Long? = null, appKey: kotlin.String? = null, locationDescription: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, metaData: kotlin.String? = null, receiverAccountIds: kotlin.String? = null, returnFullResponse: kotlin.Boolean? = null, initializeAsset: kotlin.Boolean? = null, assetReturnNulls: kotlin.Boolean? = null, assetAlbumId: kotlin.Long? = null, assetCollectionId: kotlin.Long? = null, assetAddToDefaultAlbum: kotlin.String? = null, assetAddToMediaLibrary: kotlin.Boolean? = null, assetVersionCode: kotlin.Int? = null, assetVersionName: kotlin.String? = null, assetMetaData: kotlin.String? = null, assetCaption: kotlin.String? = null, assetMedia: java.io.File? = null, assetMediaUrl: kotlin.String? = null, assetMediaString: kotlin.String? = null, assetMediaStringFileName: kotlin.String? = null, assetMediaStringContentType: kotlin.String? = null, assetAttachedMedia: java.io.File? = null, assetAttachedMediaUrl: kotlin.String? = null, assetAttachedMediaString: kotlin.String? = null, assetAttachedMediaStringFileName: kotlin.String? = null, assetAttachedMediaStringContentType: kotlin.String? = null, assetLocationDescription: kotlin.String? = null, assetApp: kotlin.String? = null, assetSearchTags: kotlin.String? = null, assetLatitude: kotlin.Double? = null, assetLongitude: java.math.BigDecimal? = null) : NoteResponse {
-        val localVarResponse = createNoteWithHttpInfo(version = version, comment = comment, deviceId = deviceId, accountId = accountId, notableType = notableType, notableId = notableId, noteType = noteType, assetIds = assetIds, tags = tags, permissionableType = permissionableType, permissionableId = permissionableId, appKey = appKey, locationDescription = locationDescription, latitude = latitude, longitude = longitude, metaData = metaData, receiverAccountIds = receiverAccountIds, returnFullResponse = returnFullResponse, initializeAsset = initializeAsset, assetReturnNulls = assetReturnNulls, assetAlbumId = assetAlbumId, assetCollectionId = assetCollectionId, assetAddToDefaultAlbum = assetAddToDefaultAlbum, assetAddToMediaLibrary = assetAddToMediaLibrary, assetVersionCode = assetVersionCode, assetVersionName = assetVersionName, assetMetaData = assetMetaData, assetCaption = assetCaption, assetMedia = assetMedia, assetMediaUrl = assetMediaUrl, assetMediaString = assetMediaString, assetMediaStringFileName = assetMediaStringFileName, assetMediaStringContentType = assetMediaStringContentType, assetAttachedMedia = assetAttachedMedia, assetAttachedMediaUrl = assetAttachedMediaUrl, assetAttachedMediaString = assetAttachedMediaString, assetAttachedMediaStringFileName = assetAttachedMediaStringFileName, assetAttachedMediaStringContentType = assetAttachedMediaStringContentType, assetLocationDescription = assetLocationDescription, assetApp = assetApp, assetSearchTags = assetSearchTags, assetLatitude = assetLatitude, assetLongitude = assetLongitude)
+    fun createNote(comment: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, notableType: kotlin.String? = null, notableId: kotlin.Long? = null, noteType: kotlin.String? = null, assetIds: kotlin.String? = null, tags: kotlin.String? = null, permissionableType: kotlin.String? = null, permissionableId: kotlin.Long? = null, appKey: kotlin.String? = null, locationDescription: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, metaData: kotlin.String? = null, receiverAccountIds: kotlin.String? = null, returnFullResponse: kotlin.Boolean? = null, initializeAsset: kotlin.Boolean? = null, assetReturnNulls: kotlin.Boolean? = null, assetAlbumId: kotlin.Long? = null, assetCollectionId: kotlin.Long? = null, assetAddToDefaultAlbum: kotlin.String? = null, assetAddToMediaLibrary: kotlin.Boolean? = null, assetVersionCode: kotlin.Int? = null, assetVersionName: kotlin.String? = null, assetMetaData: kotlin.String? = null, assetCaption: kotlin.String? = null, assetMedia: java.io.File? = null, assetMediaUrl: kotlin.String? = null, assetMediaString: kotlin.String? = null, assetMediaStringFileName: kotlin.String? = null, assetMediaStringContentType: kotlin.String? = null, assetAttachedMedia: java.io.File? = null, assetAttachedMediaUrl: kotlin.String? = null, assetAttachedMediaString: kotlin.String? = null, assetAttachedMediaStringFileName: kotlin.String? = null, assetAttachedMediaStringContentType: kotlin.String? = null, assetLocationDescription: kotlin.String? = null, assetApp: kotlin.String? = null, assetSearchTags: kotlin.String? = null, assetLatitude: kotlin.Double? = null, assetLongitude: java.math.BigDecimal? = null) : NoteResponse {
+        val localVarResponse = createNoteWithHttpInfo(comment = comment, deviceId = deviceId, accountId = accountId, notableType = notableType, notableId = notableId, noteType = noteType, assetIds = assetIds, tags = tags, permissionableType = permissionableType, permissionableId = permissionableId, appKey = appKey, locationDescription = locationDescription, latitude = latitude, longitude = longitude, metaData = metaData, receiverAccountIds = receiverAccountIds, returnFullResponse = returnFullResponse, initializeAsset = initializeAsset, assetReturnNulls = assetReturnNulls, assetAlbumId = assetAlbumId, assetCollectionId = assetCollectionId, assetAddToDefaultAlbum = assetAddToDefaultAlbum, assetAddToMediaLibrary = assetAddToMediaLibrary, assetVersionCode = assetVersionCode, assetVersionName = assetVersionName, assetMetaData = assetMetaData, assetCaption = assetCaption, assetMedia = assetMedia, assetMediaUrl = assetMediaUrl, assetMediaString = assetMediaString, assetMediaStringFileName = assetMediaStringFileName, assetMediaStringContentType = assetMediaStringContentType, assetAttachedMedia = assetAttachedMedia, assetAttachedMediaUrl = assetAttachedMediaUrl, assetAttachedMediaString = assetAttachedMediaString, assetAttachedMediaStringFileName = assetAttachedMediaStringFileName, assetAttachedMediaStringContentType = assetAttachedMediaStringContentType, assetLocationDescription = assetLocationDescription, assetApp = assetApp, assetSearchTags = assetSearchTags, assetLatitude = assetLatitude, assetLongitude = assetLongitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as NoteResponse
@@ -221,10 +217,9 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/note/create
+     * POST /note/create
      * Create Note
      * This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
-     * @param version 
      * @param comment The message the user wishes to leave a comment on
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -273,8 +268,8 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createNoteWithHttpInfo(version: java.math.BigDecimal, comment: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, notableType: kotlin.String?, notableId: kotlin.Long?, noteType: kotlin.String?, assetIds: kotlin.String?, tags: kotlin.String?, permissionableType: kotlin.String?, permissionableId: kotlin.Long?, appKey: kotlin.String?, locationDescription: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, metaData: kotlin.String?, receiverAccountIds: kotlin.String?, returnFullResponse: kotlin.Boolean?, initializeAsset: kotlin.Boolean?, assetReturnNulls: kotlin.Boolean?, assetAlbumId: kotlin.Long?, assetCollectionId: kotlin.Long?, assetAddToDefaultAlbum: kotlin.String?, assetAddToMediaLibrary: kotlin.Boolean?, assetVersionCode: kotlin.Int?, assetVersionName: kotlin.String?, assetMetaData: kotlin.String?, assetCaption: kotlin.String?, assetMedia: java.io.File?, assetMediaUrl: kotlin.String?, assetMediaString: kotlin.String?, assetMediaStringFileName: kotlin.String?, assetMediaStringContentType: kotlin.String?, assetAttachedMedia: java.io.File?, assetAttachedMediaUrl: kotlin.String?, assetAttachedMediaString: kotlin.String?, assetAttachedMediaStringFileName: kotlin.String?, assetAttachedMediaStringContentType: kotlin.String?, assetLocationDescription: kotlin.String?, assetApp: kotlin.String?, assetSearchTags: kotlin.String?, assetLatitude: kotlin.Double?, assetLongitude: java.math.BigDecimal?) : ApiResponse<NoteResponse?> {
-        val localVariableConfig = createNoteRequestConfig(version = version, comment = comment, deviceId = deviceId, accountId = accountId, notableType = notableType, notableId = notableId, noteType = noteType, assetIds = assetIds, tags = tags, permissionableType = permissionableType, permissionableId = permissionableId, appKey = appKey, locationDescription = locationDescription, latitude = latitude, longitude = longitude, metaData = metaData, receiverAccountIds = receiverAccountIds, returnFullResponse = returnFullResponse, initializeAsset = initializeAsset, assetReturnNulls = assetReturnNulls, assetAlbumId = assetAlbumId, assetCollectionId = assetCollectionId, assetAddToDefaultAlbum = assetAddToDefaultAlbum, assetAddToMediaLibrary = assetAddToMediaLibrary, assetVersionCode = assetVersionCode, assetVersionName = assetVersionName, assetMetaData = assetMetaData, assetCaption = assetCaption, assetMedia = assetMedia, assetMediaUrl = assetMediaUrl, assetMediaString = assetMediaString, assetMediaStringFileName = assetMediaStringFileName, assetMediaStringContentType = assetMediaStringContentType, assetAttachedMedia = assetAttachedMedia, assetAttachedMediaUrl = assetAttachedMediaUrl, assetAttachedMediaString = assetAttachedMediaString, assetAttachedMediaStringFileName = assetAttachedMediaStringFileName, assetAttachedMediaStringContentType = assetAttachedMediaStringContentType, assetLocationDescription = assetLocationDescription, assetApp = assetApp, assetSearchTags = assetSearchTags, assetLatitude = assetLatitude, assetLongitude = assetLongitude)
+    fun createNoteWithHttpInfo(comment: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, notableType: kotlin.String?, notableId: kotlin.Long?, noteType: kotlin.String?, assetIds: kotlin.String?, tags: kotlin.String?, permissionableType: kotlin.String?, permissionableId: kotlin.Long?, appKey: kotlin.String?, locationDescription: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, metaData: kotlin.String?, receiverAccountIds: kotlin.String?, returnFullResponse: kotlin.Boolean?, initializeAsset: kotlin.Boolean?, assetReturnNulls: kotlin.Boolean?, assetAlbumId: kotlin.Long?, assetCollectionId: kotlin.Long?, assetAddToDefaultAlbum: kotlin.String?, assetAddToMediaLibrary: kotlin.Boolean?, assetVersionCode: kotlin.Int?, assetVersionName: kotlin.String?, assetMetaData: kotlin.String?, assetCaption: kotlin.String?, assetMedia: java.io.File?, assetMediaUrl: kotlin.String?, assetMediaString: kotlin.String?, assetMediaStringFileName: kotlin.String?, assetMediaStringContentType: kotlin.String?, assetAttachedMedia: java.io.File?, assetAttachedMediaUrl: kotlin.String?, assetAttachedMediaString: kotlin.String?, assetAttachedMediaStringFileName: kotlin.String?, assetAttachedMediaStringContentType: kotlin.String?, assetLocationDescription: kotlin.String?, assetApp: kotlin.String?, assetSearchTags: kotlin.String?, assetLatitude: kotlin.Double?, assetLongitude: java.math.BigDecimal?) : ApiResponse<NoteResponse?> {
+        val localVariableConfig = createNoteRequestConfig(comment = comment, deviceId = deviceId, accountId = accountId, notableType = notableType, notableId = notableId, noteType = noteType, assetIds = assetIds, tags = tags, permissionableType = permissionableType, permissionableId = permissionableId, appKey = appKey, locationDescription = locationDescription, latitude = latitude, longitude = longitude, metaData = metaData, receiverAccountIds = receiverAccountIds, returnFullResponse = returnFullResponse, initializeAsset = initializeAsset, assetReturnNulls = assetReturnNulls, assetAlbumId = assetAlbumId, assetCollectionId = assetCollectionId, assetAddToDefaultAlbum = assetAddToDefaultAlbum, assetAddToMediaLibrary = assetAddToMediaLibrary, assetVersionCode = assetVersionCode, assetVersionName = assetVersionName, assetMetaData = assetMetaData, assetCaption = assetCaption, assetMedia = assetMedia, assetMediaUrl = assetMediaUrl, assetMediaString = assetMediaString, assetMediaStringFileName = assetMediaStringFileName, assetMediaStringContentType = assetMediaStringContentType, assetAttachedMedia = assetAttachedMedia, assetAttachedMediaUrl = assetAttachedMediaUrl, assetAttachedMediaString = assetAttachedMediaString, assetAttachedMediaStringFileName = assetAttachedMediaStringFileName, assetAttachedMediaStringContentType = assetAttachedMediaStringContentType, assetLocationDescription = assetLocationDescription, assetApp = assetApp, assetSearchTags = assetSearchTags, assetLatitude = assetLatitude, assetLongitude = assetLongitude)
 
         return request<Unit, NoteResponse>(
             localVariableConfig
@@ -284,7 +279,6 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation createNote
      *
-     * @param version 
      * @param comment The message the user wishes to leave a comment on
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -329,7 +323,7 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param assetLongitude the longitude of the asset (optional)
      * @return RequestConfig
      */
-    fun createNoteRequestConfig(version: java.math.BigDecimal, comment: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, notableType: kotlin.String?, notableId: kotlin.Long?, noteType: kotlin.String?, assetIds: kotlin.String?, tags: kotlin.String?, permissionableType: kotlin.String?, permissionableId: kotlin.Long?, appKey: kotlin.String?, locationDescription: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, metaData: kotlin.String?, receiverAccountIds: kotlin.String?, returnFullResponse: kotlin.Boolean?, initializeAsset: kotlin.Boolean?, assetReturnNulls: kotlin.Boolean?, assetAlbumId: kotlin.Long?, assetCollectionId: kotlin.Long?, assetAddToDefaultAlbum: kotlin.String?, assetAddToMediaLibrary: kotlin.Boolean?, assetVersionCode: kotlin.Int?, assetVersionName: kotlin.String?, assetMetaData: kotlin.String?, assetCaption: kotlin.String?, assetMedia: java.io.File?, assetMediaUrl: kotlin.String?, assetMediaString: kotlin.String?, assetMediaStringFileName: kotlin.String?, assetMediaStringContentType: kotlin.String?, assetAttachedMedia: java.io.File?, assetAttachedMediaUrl: kotlin.String?, assetAttachedMediaString: kotlin.String?, assetAttachedMediaStringFileName: kotlin.String?, assetAttachedMediaStringContentType: kotlin.String?, assetLocationDescription: kotlin.String?, assetApp: kotlin.String?, assetSearchTags: kotlin.String?, assetLatitude: kotlin.Double?, assetLongitude: java.math.BigDecimal?) : RequestConfig<Unit> {
+    fun createNoteRequestConfig(comment: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, notableType: kotlin.String?, notableId: kotlin.Long?, noteType: kotlin.String?, assetIds: kotlin.String?, tags: kotlin.String?, permissionableType: kotlin.String?, permissionableId: kotlin.Long?, appKey: kotlin.String?, locationDescription: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, metaData: kotlin.String?, receiverAccountIds: kotlin.String?, returnFullResponse: kotlin.Boolean?, initializeAsset: kotlin.Boolean?, assetReturnNulls: kotlin.Boolean?, assetAlbumId: kotlin.Long?, assetCollectionId: kotlin.Long?, assetAddToDefaultAlbum: kotlin.String?, assetAddToMediaLibrary: kotlin.Boolean?, assetVersionCode: kotlin.Int?, assetVersionName: kotlin.String?, assetMetaData: kotlin.String?, assetCaption: kotlin.String?, assetMedia: java.io.File?, assetMediaUrl: kotlin.String?, assetMediaString: kotlin.String?, assetMediaStringFileName: kotlin.String?, assetMediaStringContentType: kotlin.String?, assetAttachedMedia: java.io.File?, assetAttachedMediaUrl: kotlin.String?, assetAttachedMediaString: kotlin.String?, assetAttachedMediaStringFileName: kotlin.String?, assetAttachedMediaStringContentType: kotlin.String?, assetLocationDescription: kotlin.String?, assetApp: kotlin.String?, assetSearchTags: kotlin.String?, assetLatitude: kotlin.Double?, assetLongitude: java.math.BigDecimal?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -462,7 +456,7 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/note/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/note/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -471,10 +465,9 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/note/delete
+     * POST /note/delete
      * Delete Note
      * Sets a comment (note) as deleted.
-     * @param version 
      * @param noteId The ID of the note to delete
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -490,8 +483,8 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteNote(version: java.math.BigDecimal, noteId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, appKey: kotlin.String? = null) : SirqulResponse {
-        val localVarResponse = deleteNoteWithHttpInfo(version = version, noteId = noteId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, appKey = appKey)
+    fun deleteNote(noteId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, appKey: kotlin.String? = null) : SirqulResponse {
+        val localVarResponse = deleteNoteWithHttpInfo(noteId = noteId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, appKey = appKey)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -509,10 +502,9 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/note/delete
+     * POST /note/delete
      * Delete Note
      * Sets a comment (note) as deleted.
-     * @param version 
      * @param noteId The ID of the note to delete
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -525,8 +517,8 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteNoteWithHttpInfo(version: java.math.BigDecimal, noteId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, appKey: kotlin.String?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteNoteRequestConfig(version = version, noteId = noteId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, appKey = appKey)
+    fun deleteNoteWithHttpInfo(noteId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, appKey: kotlin.String?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteNoteRequestConfig(noteId = noteId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, appKey = appKey)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -536,7 +528,6 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation deleteNote
      *
-     * @param version 
      * @param noteId The ID of the note to delete
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -545,7 +536,7 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param appKey The application key used to identify the application (optional)
      * @return RequestConfig
      */
-    fun deleteNoteRequestConfig(version: java.math.BigDecimal, noteId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, appKey: kotlin.String?) : RequestConfig<Unit> {
+    fun deleteNoteRequestConfig(noteId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, appKey: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -570,7 +561,7 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/note/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/note/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -579,10 +570,9 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/note/get
+     * POST /note/get
      * Get Note
      * Get for a note based on its Id.
-     * @param version 
      * @param noteId the id of the note to get
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -596,8 +586,8 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getNote(version: java.math.BigDecimal, noteId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, returnFullResponse: kotlin.Boolean? = null) : SirqulResponse {
-        val localVarResponse = getNoteWithHttpInfo(version = version, noteId = noteId, deviceId = deviceId, accountId = accountId, returnFullResponse = returnFullResponse)
+    fun getNote(noteId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, returnFullResponse: kotlin.Boolean? = null) : SirqulResponse {
+        val localVarResponse = getNoteWithHttpInfo(noteId = noteId, deviceId = deviceId, accountId = accountId, returnFullResponse = returnFullResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -615,10 +605,9 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/note/get
+     * POST /note/get
      * Get Note
      * Get for a note based on its Id.
-     * @param version 
      * @param noteId the id of the note to get
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -629,8 +618,8 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getNoteWithHttpInfo(version: java.math.BigDecimal, noteId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, returnFullResponse: kotlin.Boolean?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = getNoteRequestConfig(version = version, noteId = noteId, deviceId = deviceId, accountId = accountId, returnFullResponse = returnFullResponse)
+    fun getNoteWithHttpInfo(noteId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, returnFullResponse: kotlin.Boolean?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = getNoteRequestConfig(noteId = noteId, deviceId = deviceId, accountId = accountId, returnFullResponse = returnFullResponse)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -640,14 +629,13 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation getNote
      *
-     * @param version 
      * @param noteId the id of the note to get
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param returnFullResponse Determines whether to return the NoteFullResponse for the item (optional)
      * @return RequestConfig
      */
-    fun getNoteRequestConfig(version: java.math.BigDecimal, noteId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, returnFullResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getNoteRequestConfig(noteId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, returnFullResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -666,7 +654,7 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/note/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/note/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -702,10 +690,9 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      }
 
     /**
-     * POST /api/{version}/note/search
+     * POST /note/search
      * Search Notes
      * Search for notes on a notable object.
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param notableType The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR} (optional)
@@ -732,8 +719,8 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchNotes(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, notableType: kotlin.String? = null, notableId: kotlin.Long? = null, noteTypes: kotlin.String? = null, appKey: kotlin.String? = null, keyword: kotlin.String? = null, flagCountMinimum: kotlin.Long? = null, flagsExceedThreshold: kotlin.Boolean? = null, includeInactive: kotlin.Boolean? = null, sortField: SortFieldSearchNotes? = null, descending: kotlin.Boolean? = null, returnFullResponse: kotlin.Boolean? = null, updatedSince: kotlin.Long? = null, updatedBefore: kotlin.Long? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null) : kotlin.collections.List<NoteResponse> {
-        val localVarResponse = searchNotesWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, notableType = notableType, notableId = notableId, noteTypes = noteTypes, appKey = appKey, keyword = keyword, flagCountMinimum = flagCountMinimum, flagsExceedThreshold = flagsExceedThreshold, includeInactive = includeInactive, sortField = sortField, descending = descending, returnFullResponse = returnFullResponse, updatedSince = updatedSince, updatedBefore = updatedBefore, start = start, limit = limit)
+    fun searchNotes(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, notableType: kotlin.String? = null, notableId: kotlin.Long? = null, noteTypes: kotlin.String? = null, appKey: kotlin.String? = null, keyword: kotlin.String? = null, flagCountMinimum: kotlin.Long? = null, flagsExceedThreshold: kotlin.Boolean? = null, includeInactive: kotlin.Boolean? = null, sortField: SortFieldSearchNotes? = null, descending: kotlin.Boolean? = null, returnFullResponse: kotlin.Boolean? = null, updatedSince: kotlin.Long? = null, updatedBefore: kotlin.Long? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null) : kotlin.collections.List<NoteResponse> {
+        val localVarResponse = searchNotesWithHttpInfo(deviceId = deviceId, accountId = accountId, notableType = notableType, notableId = notableId, noteTypes = noteTypes, appKey = appKey, keyword = keyword, flagCountMinimum = flagCountMinimum, flagsExceedThreshold = flagsExceedThreshold, includeInactive = includeInactive, sortField = sortField, descending = descending, returnFullResponse = returnFullResponse, updatedSince = updatedSince, updatedBefore = updatedBefore, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<NoteResponse>
@@ -751,10 +738,9 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/note/search
+     * POST /note/search
      * Search Notes
      * Search for notes on a notable object.
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param notableType The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR} (optional)
@@ -778,8 +764,8 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchNotesWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, notableType: kotlin.String?, notableId: kotlin.Long?, noteTypes: kotlin.String?, appKey: kotlin.String?, keyword: kotlin.String?, flagCountMinimum: kotlin.Long?, flagsExceedThreshold: kotlin.Boolean?, includeInactive: kotlin.Boolean?, sortField: SortFieldSearchNotes?, descending: kotlin.Boolean?, returnFullResponse: kotlin.Boolean?, updatedSince: kotlin.Long?, updatedBefore: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<NoteResponse>?> {
-        val localVariableConfig = searchNotesRequestConfig(version = version, deviceId = deviceId, accountId = accountId, notableType = notableType, notableId = notableId, noteTypes = noteTypes, appKey = appKey, keyword = keyword, flagCountMinimum = flagCountMinimum, flagsExceedThreshold = flagsExceedThreshold, includeInactive = includeInactive, sortField = sortField, descending = descending, returnFullResponse = returnFullResponse, updatedSince = updatedSince, updatedBefore = updatedBefore, start = start, limit = limit)
+    fun searchNotesWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, notableType: kotlin.String?, notableId: kotlin.Long?, noteTypes: kotlin.String?, appKey: kotlin.String?, keyword: kotlin.String?, flagCountMinimum: kotlin.Long?, flagsExceedThreshold: kotlin.Boolean?, includeInactive: kotlin.Boolean?, sortField: SortFieldSearchNotes?, descending: kotlin.Boolean?, returnFullResponse: kotlin.Boolean?, updatedSince: kotlin.Long?, updatedBefore: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<NoteResponse>?> {
+        val localVariableConfig = searchNotesRequestConfig(deviceId = deviceId, accountId = accountId, notableType = notableType, notableId = notableId, noteTypes = noteTypes, appKey = appKey, keyword = keyword, flagCountMinimum = flagCountMinimum, flagsExceedThreshold = flagsExceedThreshold, includeInactive = includeInactive, sortField = sortField, descending = descending, returnFullResponse = returnFullResponse, updatedSince = updatedSince, updatedBefore = updatedBefore, start = start, limit = limit)
 
         return request<Unit, kotlin.collections.List<NoteResponse>>(
             localVariableConfig
@@ -789,7 +775,6 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation searchNotes
      *
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param notableType The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR} (optional)
@@ -809,7 +794,7 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param limit The number of records to return (optional)
      * @return RequestConfig
      */
-    fun searchNotesRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, notableType: kotlin.String?, notableId: kotlin.Long?, noteTypes: kotlin.String?, appKey: kotlin.String?, keyword: kotlin.String?, flagCountMinimum: kotlin.Long?, flagsExceedThreshold: kotlin.Boolean?, includeInactive: kotlin.Boolean?, sortField: SortFieldSearchNotes?, descending: kotlin.Boolean?, returnFullResponse: kotlin.Boolean?, updatedSince: kotlin.Long?, updatedBefore: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchNotesRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, notableType: kotlin.String?, notableId: kotlin.Long?, noteTypes: kotlin.String?, appKey: kotlin.String?, keyword: kotlin.String?, flagCountMinimum: kotlin.Long?, flagsExceedThreshold: kotlin.Boolean?, includeInactive: kotlin.Boolean?, sortField: SortFieldSearchNotes?, descending: kotlin.Boolean?, returnFullResponse: kotlin.Boolean?, updatedSince: kotlin.Long?, updatedBefore: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -869,7 +854,7 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/note/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/note/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -878,10 +863,9 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/note/update
+     * POST /note/update
      * Update Note
      * Update an existing comment (note). Only the creator of the note have permission to update.
-     * @param version 
      * @param noteId The id of the note, used when editing a comment
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -932,8 +916,8 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateNote(version: java.math.BigDecimal, noteId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, comment: kotlin.String? = null, noteType: kotlin.String? = null, assetIds: kotlin.String? = null, tags: kotlin.String? = null, permissionableType: kotlin.String? = null, permissionableId: kotlin.Long? = null, appKey: kotlin.String? = null, locationDescription: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, metaData: kotlin.String? = null, returnFullResponse: kotlin.Boolean? = null, active: kotlin.Boolean? = null, updateAsset: kotlin.Boolean? = null, assetReturnNulls: kotlin.Boolean? = null, assetAlbumId: kotlin.Long? = null, assetCollectionId: kotlin.Long? = null, assetAddToDefaultAlbum: kotlin.String? = null, assetAddToMediaLibrary: kotlin.Boolean? = null, assetVersionCode: kotlin.Int? = null, assetVersionName: kotlin.String? = null, assetMetaData: kotlin.String? = null, assetCaption: kotlin.String? = null, assetMedia: java.io.File? = null, assetMediaUrl: kotlin.String? = null, assetMediaString: kotlin.String? = null, assetMediaStringFileName: kotlin.String? = null, assetMediaStringContentType: kotlin.String? = null, assetAttachedMedia: java.io.File? = null, assetAttachedMediaUrl: kotlin.String? = null, assetAttachedMediaString: kotlin.String? = null, assetAttachedMediaStringFileName: kotlin.String? = null, assetAttachedMediaStringContentType: kotlin.String? = null, assetLocationDescription: kotlin.String? = null, assetApp: kotlin.String? = null, assetSearchTags: kotlin.String? = null, assetLatitude: kotlin.Double? = null, assetLongitude: kotlin.Double? = null) : NoteResponse {
-        val localVarResponse = updateNoteWithHttpInfo(version = version, noteId = noteId, deviceId = deviceId, accountId = accountId, comment = comment, noteType = noteType, assetIds = assetIds, tags = tags, permissionableType = permissionableType, permissionableId = permissionableId, appKey = appKey, locationDescription = locationDescription, latitude = latitude, longitude = longitude, metaData = metaData, returnFullResponse = returnFullResponse, active = active, updateAsset = updateAsset, assetReturnNulls = assetReturnNulls, assetAlbumId = assetAlbumId, assetCollectionId = assetCollectionId, assetAddToDefaultAlbum = assetAddToDefaultAlbum, assetAddToMediaLibrary = assetAddToMediaLibrary, assetVersionCode = assetVersionCode, assetVersionName = assetVersionName, assetMetaData = assetMetaData, assetCaption = assetCaption, assetMedia = assetMedia, assetMediaUrl = assetMediaUrl, assetMediaString = assetMediaString, assetMediaStringFileName = assetMediaStringFileName, assetMediaStringContentType = assetMediaStringContentType, assetAttachedMedia = assetAttachedMedia, assetAttachedMediaUrl = assetAttachedMediaUrl, assetAttachedMediaString = assetAttachedMediaString, assetAttachedMediaStringFileName = assetAttachedMediaStringFileName, assetAttachedMediaStringContentType = assetAttachedMediaStringContentType, assetLocationDescription = assetLocationDescription, assetApp = assetApp, assetSearchTags = assetSearchTags, assetLatitude = assetLatitude, assetLongitude = assetLongitude)
+    fun updateNote(noteId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, comment: kotlin.String? = null, noteType: kotlin.String? = null, assetIds: kotlin.String? = null, tags: kotlin.String? = null, permissionableType: kotlin.String? = null, permissionableId: kotlin.Long? = null, appKey: kotlin.String? = null, locationDescription: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, metaData: kotlin.String? = null, returnFullResponse: kotlin.Boolean? = null, active: kotlin.Boolean? = null, updateAsset: kotlin.Boolean? = null, assetReturnNulls: kotlin.Boolean? = null, assetAlbumId: kotlin.Long? = null, assetCollectionId: kotlin.Long? = null, assetAddToDefaultAlbum: kotlin.String? = null, assetAddToMediaLibrary: kotlin.Boolean? = null, assetVersionCode: kotlin.Int? = null, assetVersionName: kotlin.String? = null, assetMetaData: kotlin.String? = null, assetCaption: kotlin.String? = null, assetMedia: java.io.File? = null, assetMediaUrl: kotlin.String? = null, assetMediaString: kotlin.String? = null, assetMediaStringFileName: kotlin.String? = null, assetMediaStringContentType: kotlin.String? = null, assetAttachedMedia: java.io.File? = null, assetAttachedMediaUrl: kotlin.String? = null, assetAttachedMediaString: kotlin.String? = null, assetAttachedMediaStringFileName: kotlin.String? = null, assetAttachedMediaStringContentType: kotlin.String? = null, assetLocationDescription: kotlin.String? = null, assetApp: kotlin.String? = null, assetSearchTags: kotlin.String? = null, assetLatitude: kotlin.Double? = null, assetLongitude: kotlin.Double? = null) : NoteResponse {
+        val localVarResponse = updateNoteWithHttpInfo(noteId = noteId, deviceId = deviceId, accountId = accountId, comment = comment, noteType = noteType, assetIds = assetIds, tags = tags, permissionableType = permissionableType, permissionableId = permissionableId, appKey = appKey, locationDescription = locationDescription, latitude = latitude, longitude = longitude, metaData = metaData, returnFullResponse = returnFullResponse, active = active, updateAsset = updateAsset, assetReturnNulls = assetReturnNulls, assetAlbumId = assetAlbumId, assetCollectionId = assetCollectionId, assetAddToDefaultAlbum = assetAddToDefaultAlbum, assetAddToMediaLibrary = assetAddToMediaLibrary, assetVersionCode = assetVersionCode, assetVersionName = assetVersionName, assetMetaData = assetMetaData, assetCaption = assetCaption, assetMedia = assetMedia, assetMediaUrl = assetMediaUrl, assetMediaString = assetMediaString, assetMediaStringFileName = assetMediaStringFileName, assetMediaStringContentType = assetMediaStringContentType, assetAttachedMedia = assetAttachedMedia, assetAttachedMediaUrl = assetAttachedMediaUrl, assetAttachedMediaString = assetAttachedMediaString, assetAttachedMediaStringFileName = assetAttachedMediaStringFileName, assetAttachedMediaStringContentType = assetAttachedMediaStringContentType, assetLocationDescription = assetLocationDescription, assetApp = assetApp, assetSearchTags = assetSearchTags, assetLatitude = assetLatitude, assetLongitude = assetLongitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as NoteResponse
@@ -951,10 +935,9 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/note/update
+     * POST /note/update
      * Update Note
      * Update an existing comment (note). Only the creator of the note have permission to update.
-     * @param version 
      * @param noteId The id of the note, used when editing a comment
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -1002,8 +985,8 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateNoteWithHttpInfo(version: java.math.BigDecimal, noteId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, comment: kotlin.String?, noteType: kotlin.String?, assetIds: kotlin.String?, tags: kotlin.String?, permissionableType: kotlin.String?, permissionableId: kotlin.Long?, appKey: kotlin.String?, locationDescription: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, metaData: kotlin.String?, returnFullResponse: kotlin.Boolean?, active: kotlin.Boolean?, updateAsset: kotlin.Boolean?, assetReturnNulls: kotlin.Boolean?, assetAlbumId: kotlin.Long?, assetCollectionId: kotlin.Long?, assetAddToDefaultAlbum: kotlin.String?, assetAddToMediaLibrary: kotlin.Boolean?, assetVersionCode: kotlin.Int?, assetVersionName: kotlin.String?, assetMetaData: kotlin.String?, assetCaption: kotlin.String?, assetMedia: java.io.File?, assetMediaUrl: kotlin.String?, assetMediaString: kotlin.String?, assetMediaStringFileName: kotlin.String?, assetMediaStringContentType: kotlin.String?, assetAttachedMedia: java.io.File?, assetAttachedMediaUrl: kotlin.String?, assetAttachedMediaString: kotlin.String?, assetAttachedMediaStringFileName: kotlin.String?, assetAttachedMediaStringContentType: kotlin.String?, assetLocationDescription: kotlin.String?, assetApp: kotlin.String?, assetSearchTags: kotlin.String?, assetLatitude: kotlin.Double?, assetLongitude: kotlin.Double?) : ApiResponse<NoteResponse?> {
-        val localVariableConfig = updateNoteRequestConfig(version = version, noteId = noteId, deviceId = deviceId, accountId = accountId, comment = comment, noteType = noteType, assetIds = assetIds, tags = tags, permissionableType = permissionableType, permissionableId = permissionableId, appKey = appKey, locationDescription = locationDescription, latitude = latitude, longitude = longitude, metaData = metaData, returnFullResponse = returnFullResponse, active = active, updateAsset = updateAsset, assetReturnNulls = assetReturnNulls, assetAlbumId = assetAlbumId, assetCollectionId = assetCollectionId, assetAddToDefaultAlbum = assetAddToDefaultAlbum, assetAddToMediaLibrary = assetAddToMediaLibrary, assetVersionCode = assetVersionCode, assetVersionName = assetVersionName, assetMetaData = assetMetaData, assetCaption = assetCaption, assetMedia = assetMedia, assetMediaUrl = assetMediaUrl, assetMediaString = assetMediaString, assetMediaStringFileName = assetMediaStringFileName, assetMediaStringContentType = assetMediaStringContentType, assetAttachedMedia = assetAttachedMedia, assetAttachedMediaUrl = assetAttachedMediaUrl, assetAttachedMediaString = assetAttachedMediaString, assetAttachedMediaStringFileName = assetAttachedMediaStringFileName, assetAttachedMediaStringContentType = assetAttachedMediaStringContentType, assetLocationDescription = assetLocationDescription, assetApp = assetApp, assetSearchTags = assetSearchTags, assetLatitude = assetLatitude, assetLongitude = assetLongitude)
+    fun updateNoteWithHttpInfo(noteId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, comment: kotlin.String?, noteType: kotlin.String?, assetIds: kotlin.String?, tags: kotlin.String?, permissionableType: kotlin.String?, permissionableId: kotlin.Long?, appKey: kotlin.String?, locationDescription: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, metaData: kotlin.String?, returnFullResponse: kotlin.Boolean?, active: kotlin.Boolean?, updateAsset: kotlin.Boolean?, assetReturnNulls: kotlin.Boolean?, assetAlbumId: kotlin.Long?, assetCollectionId: kotlin.Long?, assetAddToDefaultAlbum: kotlin.String?, assetAddToMediaLibrary: kotlin.Boolean?, assetVersionCode: kotlin.Int?, assetVersionName: kotlin.String?, assetMetaData: kotlin.String?, assetCaption: kotlin.String?, assetMedia: java.io.File?, assetMediaUrl: kotlin.String?, assetMediaString: kotlin.String?, assetMediaStringFileName: kotlin.String?, assetMediaStringContentType: kotlin.String?, assetAttachedMedia: java.io.File?, assetAttachedMediaUrl: kotlin.String?, assetAttachedMediaString: kotlin.String?, assetAttachedMediaStringFileName: kotlin.String?, assetAttachedMediaStringContentType: kotlin.String?, assetLocationDescription: kotlin.String?, assetApp: kotlin.String?, assetSearchTags: kotlin.String?, assetLatitude: kotlin.Double?, assetLongitude: kotlin.Double?) : ApiResponse<NoteResponse?> {
+        val localVariableConfig = updateNoteRequestConfig(noteId = noteId, deviceId = deviceId, accountId = accountId, comment = comment, noteType = noteType, assetIds = assetIds, tags = tags, permissionableType = permissionableType, permissionableId = permissionableId, appKey = appKey, locationDescription = locationDescription, latitude = latitude, longitude = longitude, metaData = metaData, returnFullResponse = returnFullResponse, active = active, updateAsset = updateAsset, assetReturnNulls = assetReturnNulls, assetAlbumId = assetAlbumId, assetCollectionId = assetCollectionId, assetAddToDefaultAlbum = assetAddToDefaultAlbum, assetAddToMediaLibrary = assetAddToMediaLibrary, assetVersionCode = assetVersionCode, assetVersionName = assetVersionName, assetMetaData = assetMetaData, assetCaption = assetCaption, assetMedia = assetMedia, assetMediaUrl = assetMediaUrl, assetMediaString = assetMediaString, assetMediaStringFileName = assetMediaStringFileName, assetMediaStringContentType = assetMediaStringContentType, assetAttachedMedia = assetAttachedMedia, assetAttachedMediaUrl = assetAttachedMediaUrl, assetAttachedMediaString = assetAttachedMediaString, assetAttachedMediaStringFileName = assetAttachedMediaStringFileName, assetAttachedMediaStringContentType = assetAttachedMediaStringContentType, assetLocationDescription = assetLocationDescription, assetApp = assetApp, assetSearchTags = assetSearchTags, assetLatitude = assetLatitude, assetLongitude = assetLongitude)
 
         return request<Unit, NoteResponse>(
             localVariableConfig
@@ -1013,7 +996,6 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation updateNote
      *
-     * @param version 
      * @param noteId The id of the note, used when editing a comment
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -1057,7 +1039,7 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param assetLongitude the longitude of the asset (optional)
      * @return RequestConfig
      */
-    fun updateNoteRequestConfig(version: java.math.BigDecimal, noteId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, comment: kotlin.String?, noteType: kotlin.String?, assetIds: kotlin.String?, tags: kotlin.String?, permissionableType: kotlin.String?, permissionableId: kotlin.Long?, appKey: kotlin.String?, locationDescription: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, metaData: kotlin.String?, returnFullResponse: kotlin.Boolean?, active: kotlin.Boolean?, updateAsset: kotlin.Boolean?, assetReturnNulls: kotlin.Boolean?, assetAlbumId: kotlin.Long?, assetCollectionId: kotlin.Long?, assetAddToDefaultAlbum: kotlin.String?, assetAddToMediaLibrary: kotlin.Boolean?, assetVersionCode: kotlin.Int?, assetVersionName: kotlin.String?, assetMetaData: kotlin.String?, assetCaption: kotlin.String?, assetMedia: java.io.File?, assetMediaUrl: kotlin.String?, assetMediaString: kotlin.String?, assetMediaStringFileName: kotlin.String?, assetMediaStringContentType: kotlin.String?, assetAttachedMedia: java.io.File?, assetAttachedMediaUrl: kotlin.String?, assetAttachedMediaString: kotlin.String?, assetAttachedMediaStringFileName: kotlin.String?, assetAttachedMediaStringContentType: kotlin.String?, assetLocationDescription: kotlin.String?, assetApp: kotlin.String?, assetSearchTags: kotlin.String?, assetLatitude: kotlin.Double?, assetLongitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun updateNoteRequestConfig(noteId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, comment: kotlin.String?, noteType: kotlin.String?, assetIds: kotlin.String?, tags: kotlin.String?, permissionableType: kotlin.String?, permissionableId: kotlin.Long?, appKey: kotlin.String?, locationDescription: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, metaData: kotlin.String?, returnFullResponse: kotlin.Boolean?, active: kotlin.Boolean?, updateAsset: kotlin.Boolean?, assetReturnNulls: kotlin.Boolean?, assetAlbumId: kotlin.Long?, assetCollectionId: kotlin.Long?, assetAddToDefaultAlbum: kotlin.String?, assetAddToMediaLibrary: kotlin.Boolean?, assetVersionCode: kotlin.Int?, assetVersionName: kotlin.String?, assetMetaData: kotlin.String?, assetCaption: kotlin.String?, assetMedia: java.io.File?, assetMediaUrl: kotlin.String?, assetMediaString: kotlin.String?, assetMediaStringFileName: kotlin.String?, assetMediaStringContentType: kotlin.String?, assetAttachedMedia: java.io.File?, assetAttachedMediaUrl: kotlin.String?, assetAttachedMediaString: kotlin.String?, assetAttachedMediaStringFileName: kotlin.String?, assetAttachedMediaStringContentType: kotlin.String?, assetLocationDescription: kotlin.String?, assetApp: kotlin.String?, assetSearchTags: kotlin.String?, assetLatitude: kotlin.Double?, assetLongitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1187,7 +1169,7 @@ open class NoteApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/note/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/note/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

@@ -41,15 +41,14 @@ open class CargoTypeApi(basePath: kotlin.String = defaultBasePath, client: Call.
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/cargo/type
+     * POST /cargo/type
      * Create Cargo Type
      * Create new cargo type
-     * @param version 
      * @param body  (optional)
      * @return CargoType
      * @throws IllegalStateException If the request is not correctly configured
@@ -60,8 +59,8 @@ open class CargoTypeApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createCargoType(version: java.math.BigDecimal, body: CargoType? = null) : CargoType {
-        val localVarResponse = createCargoTypeWithHttpInfo(version = version, body = body)
+    fun createCargoType(body: CargoType? = null) : CargoType {
+        val localVarResponse = createCargoTypeWithHttpInfo(body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CargoType
@@ -79,10 +78,9 @@ open class CargoTypeApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/cargo/type
+     * POST /cargo/type
      * Create Cargo Type
      * Create new cargo type
-     * @param version 
      * @param body  (optional)
      * @return ApiResponse<CargoType?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -90,8 +88,8 @@ open class CargoTypeApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createCargoTypeWithHttpInfo(version: java.math.BigDecimal, body: CargoType?) : ApiResponse<CargoType?> {
-        val localVariableConfig = createCargoTypeRequestConfig(version = version, body = body)
+    fun createCargoTypeWithHttpInfo(body: CargoType?) : ApiResponse<CargoType?> {
+        val localVariableConfig = createCargoTypeRequestConfig(body = body)
 
         return request<CargoType, CargoType>(
             localVariableConfig
@@ -101,18 +99,17 @@ open class CargoTypeApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation createCargoType
      *
-     * @param version 
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun createCargoTypeRequestConfig(version: java.math.BigDecimal, body: CargoType?) : RequestConfig<CargoType> {
+    fun createCargoTypeRequestConfig(body: CargoType?) : RequestConfig<CargoType> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/cargo/type".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/cargo/type",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -121,10 +118,9 @@ open class CargoTypeApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * DELETE /api/{version}/cargo/type/{cargoTypeId}
+     * DELETE /cargo/type/{cargoTypeId}
      * Delete Cargo Type
      * Delete a type of cargo
-     * @param version 
      * @param cargoTypeId the ID of the cargo type
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
@@ -134,8 +130,8 @@ open class CargoTypeApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteCargoType(version: java.math.BigDecimal, cargoTypeId: kotlin.Long) : Unit {
-        val localVarResponse = deleteCargoTypeWithHttpInfo(version = version, cargoTypeId = cargoTypeId)
+    fun deleteCargoType(cargoTypeId: kotlin.Long) : Unit {
+        val localVarResponse = deleteCargoTypeWithHttpInfo(cargoTypeId = cargoTypeId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -153,18 +149,17 @@ open class CargoTypeApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * DELETE /api/{version}/cargo/type/{cargoTypeId}
+     * DELETE /cargo/type/{cargoTypeId}
      * Delete Cargo Type
      * Delete a type of cargo
-     * @param version 
      * @param cargoTypeId the ID of the cargo type
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteCargoTypeWithHttpInfo(version: java.math.BigDecimal, cargoTypeId: kotlin.Long) : ApiResponse<Unit?> {
-        val localVariableConfig = deleteCargoTypeRequestConfig(version = version, cargoTypeId = cargoTypeId)
+    fun deleteCargoTypeWithHttpInfo(cargoTypeId: kotlin.Long) : ApiResponse<Unit?> {
+        val localVariableConfig = deleteCargoTypeRequestConfig(cargoTypeId = cargoTypeId)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -174,18 +169,17 @@ open class CargoTypeApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation deleteCargoType
      *
-     * @param version 
      * @param cargoTypeId the ID of the cargo type
      * @return RequestConfig
      */
-    fun deleteCargoTypeRequestConfig(version: java.math.BigDecimal, cargoTypeId: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteCargoTypeRequestConfig(cargoTypeId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.DELETE,
-            path = "/api/{version}/cargo/type/{cargoTypeId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"cargoTypeId"+"}", encodeURIComponent(cargoTypeId.toString())),
+            path = "/cargo/type/{cargoTypeId}".replace("{"+"cargoTypeId"+"}", encodeURIComponent(cargoTypeId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -194,10 +188,9 @@ open class CargoTypeApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/cargo/type/{cargoTypeId}
+     * GET /cargo/type/{cargoTypeId}
      * Get Cargo Type
      * Get an existing cargo type
-     * @param version 
      * @param cargoTypeId the cargo type ID
      * @return CargoType
      * @throws IllegalStateException If the request is not correctly configured
@@ -208,8 +201,8 @@ open class CargoTypeApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCargoType(version: java.math.BigDecimal, cargoTypeId: kotlin.Long) : CargoType {
-        val localVarResponse = getCargoTypeWithHttpInfo(version = version, cargoTypeId = cargoTypeId)
+    fun getCargoType(cargoTypeId: kotlin.Long) : CargoType {
+        val localVarResponse = getCargoTypeWithHttpInfo(cargoTypeId = cargoTypeId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CargoType
@@ -227,10 +220,9 @@ open class CargoTypeApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/cargo/type/{cargoTypeId}
+     * GET /cargo/type/{cargoTypeId}
      * Get Cargo Type
      * Get an existing cargo type
-     * @param version 
      * @param cargoTypeId the cargo type ID
      * @return ApiResponse<CargoType?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -238,8 +230,8 @@ open class CargoTypeApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCargoTypeWithHttpInfo(version: java.math.BigDecimal, cargoTypeId: kotlin.Long) : ApiResponse<CargoType?> {
-        val localVariableConfig = getCargoTypeRequestConfig(version = version, cargoTypeId = cargoTypeId)
+    fun getCargoTypeWithHttpInfo(cargoTypeId: kotlin.Long) : ApiResponse<CargoType?> {
+        val localVariableConfig = getCargoTypeRequestConfig(cargoTypeId = cargoTypeId)
 
         return request<Unit, CargoType>(
             localVariableConfig
@@ -249,18 +241,17 @@ open class CargoTypeApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation getCargoType
      *
-     * @param version 
      * @param cargoTypeId the cargo type ID
      * @return RequestConfig
      */
-    fun getCargoTypeRequestConfig(version: java.math.BigDecimal, cargoTypeId: kotlin.Long) : RequestConfig<Unit> {
+    fun getCargoTypeRequestConfig(cargoTypeId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/cargo/type/{cargoTypeId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"cargoTypeId"+"}", encodeURIComponent(cargoTypeId.toString())),
+            path = "/cargo/type/{cargoTypeId}".replace("{"+"cargoTypeId"+"}", encodeURIComponent(cargoTypeId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -269,10 +260,9 @@ open class CargoTypeApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/cargo/type
+     * GET /cargo/type
      * Search Cargo Type
      * Search for types of cargo
-     * @param version 
      * @param sortField the sort field to use for the cargo type
      * @param descending if the cargo type should be should be in descending order
      * @param start the start of the search
@@ -289,8 +279,8 @@ open class CargoTypeApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchCargoTypes(version: java.math.BigDecimal, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, retailerId: kotlin.Long? = null, hubId: kotlin.Long? = null) : kotlin.collections.List<CargoType> {
-        val localVarResponse = searchCargoTypesWithHttpInfo(version = version, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, retailerId = retailerId, hubId = hubId)
+    fun searchCargoTypes(sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, retailerId: kotlin.Long? = null, hubId: kotlin.Long? = null) : kotlin.collections.List<CargoType> {
+        val localVarResponse = searchCargoTypesWithHttpInfo(sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, retailerId = retailerId, hubId = hubId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<CargoType>
@@ -308,10 +298,9 @@ open class CargoTypeApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/cargo/type
+     * GET /cargo/type
      * Search Cargo Type
      * Search for types of cargo
-     * @param version 
      * @param sortField the sort field to use for the cargo type
      * @param descending if the cargo type should be should be in descending order
      * @param start the start of the search
@@ -325,8 +314,8 @@ open class CargoTypeApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchCargoTypesWithHttpInfo(version: java.math.BigDecimal, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, retailerId: kotlin.Long?, hubId: kotlin.Long?) : ApiResponse<kotlin.collections.List<CargoType>?> {
-        val localVariableConfig = searchCargoTypesRequestConfig(version = version, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, retailerId = retailerId, hubId = hubId)
+    fun searchCargoTypesWithHttpInfo(sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, retailerId: kotlin.Long?, hubId: kotlin.Long?) : ApiResponse<kotlin.collections.List<CargoType>?> {
+        val localVariableConfig = searchCargoTypesRequestConfig(sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, retailerId = retailerId, hubId = hubId)
 
         return request<Unit, kotlin.collections.List<CargoType>>(
             localVariableConfig
@@ -336,7 +325,6 @@ open class CargoTypeApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation searchCargoTypes
      *
-     * @param version 
      * @param sortField the sort field to use for the cargo type
      * @param descending if the cargo type should be should be in descending order
      * @param start the start of the search
@@ -346,7 +334,7 @@ open class CargoTypeApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param hubId the ID of the hub (optional)
      * @return RequestConfig
      */
-    fun searchCargoTypesRequestConfig(version: java.math.BigDecimal, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, retailerId: kotlin.Long?, hubId: kotlin.Long?) : RequestConfig<Unit> {
+    fun searchCargoTypesRequestConfig(sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, retailerId: kotlin.Long?, hubId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -366,7 +354,7 @@ open class CargoTypeApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/cargo/type".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/cargo/type",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -375,10 +363,9 @@ open class CargoTypeApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * PUT /api/{version}/cargo/type/{cargoTypeId}
+     * PUT /cargo/type/{cargoTypeId}
      * Update Cargo Type
      * Update an existing cargo type
-     * @param version 
      * @param cargoTypeId the ID of the cargo type
      * @param body  (optional)
      * @return CargoType
@@ -390,8 +377,8 @@ open class CargoTypeApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateCargoType(version: java.math.BigDecimal, cargoTypeId: kotlin.Long, body: CargoType? = null) : CargoType {
-        val localVarResponse = updateCargoTypeWithHttpInfo(version = version, cargoTypeId = cargoTypeId, body = body)
+    fun updateCargoType(cargoTypeId: kotlin.Long, body: CargoType? = null) : CargoType {
+        val localVarResponse = updateCargoTypeWithHttpInfo(cargoTypeId = cargoTypeId, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CargoType
@@ -409,10 +396,9 @@ open class CargoTypeApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * PUT /api/{version}/cargo/type/{cargoTypeId}
+     * PUT /cargo/type/{cargoTypeId}
      * Update Cargo Type
      * Update an existing cargo type
-     * @param version 
      * @param cargoTypeId the ID of the cargo type
      * @param body  (optional)
      * @return ApiResponse<CargoType?>
@@ -421,8 +407,8 @@ open class CargoTypeApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateCargoTypeWithHttpInfo(version: java.math.BigDecimal, cargoTypeId: kotlin.Long, body: CargoType?) : ApiResponse<CargoType?> {
-        val localVariableConfig = updateCargoTypeRequestConfig(version = version, cargoTypeId = cargoTypeId, body = body)
+    fun updateCargoTypeWithHttpInfo(cargoTypeId: kotlin.Long, body: CargoType?) : ApiResponse<CargoType?> {
+        val localVariableConfig = updateCargoTypeRequestConfig(cargoTypeId = cargoTypeId, body = body)
 
         return request<CargoType, CargoType>(
             localVariableConfig
@@ -432,19 +418,18 @@ open class CargoTypeApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation updateCargoType
      *
-     * @param version 
      * @param cargoTypeId the ID of the cargo type
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun updateCargoTypeRequestConfig(version: java.math.BigDecimal, cargoTypeId: kotlin.Long, body: CargoType?) : RequestConfig<CargoType> {
+    fun updateCargoTypeRequestConfig(cargoTypeId: kotlin.Long, body: CargoType?) : RequestConfig<CargoType> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.PUT,
-            path = "/api/{version}/cargo/type/{cargoTypeId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"cargoTypeId"+"}", encodeURIComponent(cargoTypeId.toString())),
+            path = "/cargo/type/{cargoTypeId}".replace("{"+"cargoTypeId"+"}", encodeURIComponent(cargoTypeId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

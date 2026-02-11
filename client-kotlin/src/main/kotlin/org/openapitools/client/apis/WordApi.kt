@@ -42,15 +42,14 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/game/word/create
+     * POST /game/word/create
      * Create Word
      * Create a word by the given params.
-     * @param version 
      * @param accountId The logged in user.
      * @param word The text of the word.
      * @param definition The definition of the word.
@@ -69,8 +68,8 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createWord(version: java.math.BigDecimal, accountId: kotlin.Long, word: kotlin.String, definition: kotlin.String, active: kotlin.Boolean = false, allocateTickets: kotlin.Boolean = false, ticketCount: kotlin.Long = 0L, assetId: kotlin.Long? = null, ticketType: kotlin.String? = null, points: kotlin.Long? = null) : WordzWordResponse {
-        val localVarResponse = createWordWithHttpInfo(version = version, accountId = accountId, word = word, definition = definition, active = active, allocateTickets = allocateTickets, ticketCount = ticketCount, assetId = assetId, ticketType = ticketType, points = points)
+    fun createWord(accountId: kotlin.Long, word: kotlin.String, definition: kotlin.String, active: kotlin.Boolean = false, allocateTickets: kotlin.Boolean = false, ticketCount: kotlin.Long = 0L, assetId: kotlin.Long? = null, ticketType: kotlin.String? = null, points: kotlin.Long? = null) : WordzWordResponse {
+        val localVarResponse = createWordWithHttpInfo(accountId = accountId, word = word, definition = definition, active = active, allocateTickets = allocateTickets, ticketCount = ticketCount, assetId = assetId, ticketType = ticketType, points = points)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as WordzWordResponse
@@ -88,10 +87,9 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/game/word/create
+     * POST /game/word/create
      * Create Word
      * Create a word by the given params.
-     * @param version 
      * @param accountId The logged in user.
      * @param word The text of the word.
      * @param definition The definition of the word.
@@ -107,8 +105,8 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createWordWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, word: kotlin.String, definition: kotlin.String, active: kotlin.Boolean, allocateTickets: kotlin.Boolean, ticketCount: kotlin.Long, assetId: kotlin.Long?, ticketType: kotlin.String?, points: kotlin.Long?) : ApiResponse<WordzWordResponse?> {
-        val localVariableConfig = createWordRequestConfig(version = version, accountId = accountId, word = word, definition = definition, active = active, allocateTickets = allocateTickets, ticketCount = ticketCount, assetId = assetId, ticketType = ticketType, points = points)
+    fun createWordWithHttpInfo(accountId: kotlin.Long, word: kotlin.String, definition: kotlin.String, active: kotlin.Boolean, allocateTickets: kotlin.Boolean, ticketCount: kotlin.Long, assetId: kotlin.Long?, ticketType: kotlin.String?, points: kotlin.Long?) : ApiResponse<WordzWordResponse?> {
+        val localVariableConfig = createWordRequestConfig(accountId = accountId, word = word, definition = definition, active = active, allocateTickets = allocateTickets, ticketCount = ticketCount, assetId = assetId, ticketType = ticketType, points = points)
 
         return request<Unit, WordzWordResponse>(
             localVariableConfig
@@ -118,7 +116,6 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation createWord
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param word The text of the word.
      * @param definition The definition of the word.
@@ -130,7 +127,7 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param points The number of points to award for completing a mission (optional)
      * @return RequestConfig
      */
-    fun createWordRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, word: kotlin.String, definition: kotlin.String, active: kotlin.Boolean, allocateTickets: kotlin.Boolean, ticketCount: kotlin.Long, assetId: kotlin.Long?, ticketType: kotlin.String?, points: kotlin.Long?) : RequestConfig<Unit> {
+    fun createWordRequestConfig(accountId: kotlin.Long, word: kotlin.String, definition: kotlin.String, active: kotlin.Boolean, allocateTickets: kotlin.Boolean, ticketCount: kotlin.Long, assetId: kotlin.Long?, ticketType: kotlin.String?, points: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -154,7 +151,7 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/game/word/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/game/word/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -163,10 +160,9 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * DELETE /api/{version}/game/word/delete
+     * DELETE /game/word/delete
      * Delete Word
      * Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
-     * @param version 
      * @param wordId The id of the word to delete.
      * @param accountId The account vor validating permission
      * @return SirqulResponse
@@ -178,8 +174,8 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteWord(version: java.math.BigDecimal, wordId: kotlin.Long, accountId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = deleteWordWithHttpInfo(version = version, wordId = wordId, accountId = accountId)
+    fun deleteWord(wordId: kotlin.Long, accountId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = deleteWordWithHttpInfo(wordId = wordId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -197,10 +193,9 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * DELETE /api/{version}/game/word/delete
+     * DELETE /game/word/delete
      * Delete Word
      * Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
-     * @param version 
      * @param wordId The id of the word to delete.
      * @param accountId The account vor validating permission
      * @return ApiResponse<SirqulResponse?>
@@ -209,8 +204,8 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteWordWithHttpInfo(version: java.math.BigDecimal, wordId: kotlin.Long, accountId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteWordRequestConfig(version = version, wordId = wordId, accountId = accountId)
+    fun deleteWordWithHttpInfo(wordId: kotlin.Long, accountId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteWordRequestConfig(wordId = wordId, accountId = accountId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -220,12 +215,11 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation deleteWord
      *
-     * @param version 
      * @param wordId The id of the word to delete.
      * @param accountId The account vor validating permission
      * @return RequestConfig
      */
-    fun deleteWordRequestConfig(version: java.math.BigDecimal, wordId: kotlin.Long, accountId: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteWordRequestConfig(wordId: kotlin.Long, accountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -236,7 +230,7 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.DELETE,
-            path = "/api/{version}/game/word/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/game/word/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -245,10 +239,9 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/game/word/get
+     * GET /game/word/get
      * Get Word
      * Get a word by the given id.
-     * @param version 
      * @param wordId The id of the word to get.
      * @param accountId The logged in user.
      * @return WordzWordResponse
@@ -260,8 +253,8 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWord(version: java.math.BigDecimal, wordId: kotlin.Long, accountId: kotlin.Long) : WordzWordResponse {
-        val localVarResponse = getWordWithHttpInfo(version = version, wordId = wordId, accountId = accountId)
+    fun getWord(wordId: kotlin.Long, accountId: kotlin.Long) : WordzWordResponse {
+        val localVarResponse = getWordWithHttpInfo(wordId = wordId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as WordzWordResponse
@@ -279,10 +272,9 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/game/word/get
+     * GET /game/word/get
      * Get Word
      * Get a word by the given id.
-     * @param version 
      * @param wordId The id of the word to get.
      * @param accountId The logged in user.
      * @return ApiResponse<WordzWordResponse?>
@@ -291,8 +283,8 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWordWithHttpInfo(version: java.math.BigDecimal, wordId: kotlin.Long, accountId: kotlin.Long) : ApiResponse<WordzWordResponse?> {
-        val localVariableConfig = getWordRequestConfig(version = version, wordId = wordId, accountId = accountId)
+    fun getWordWithHttpInfo(wordId: kotlin.Long, accountId: kotlin.Long) : ApiResponse<WordzWordResponse?> {
+        val localVariableConfig = getWordRequestConfig(wordId = wordId, accountId = accountId)
 
         return request<Unit, WordzWordResponse>(
             localVariableConfig
@@ -302,12 +294,11 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation getWord
      *
-     * @param version 
      * @param wordId The id of the word to get.
      * @param accountId The logged in user.
      * @return RequestConfig
      */
-    fun getWordRequestConfig(version: java.math.BigDecimal, wordId: kotlin.Long, accountId: kotlin.Long) : RequestConfig<Unit> {
+    fun getWordRequestConfig(wordId: kotlin.Long, accountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -318,7 +309,7 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/game/word/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/game/word/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -327,10 +318,9 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/game/word/search
+     * GET /game/word/search
      * Search Words
      * Search for words by the given params.
-     * @param version 
      * @param accountId The logged in user.
      * @param sortField The column to sort the search on (default to "id")
      * @param descending The order to return the search results (default to false)
@@ -347,8 +337,8 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWords(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: kotlin.String = "id", descending: kotlin.Boolean = false, activeOnly: kotlin.Boolean = false, start: kotlin.Int = 0, limit: kotlin.Int = 20, keyword: kotlin.String? = null) : kotlin.collections.List<WordzWordResponse> {
-        val localVarResponse = getWordsWithHttpInfo(version = version, accountId = accountId, sortField = sortField, descending = descending, activeOnly = activeOnly, start = start, limit = limit, keyword = keyword)
+    fun getWords(accountId: kotlin.Long, sortField: kotlin.String = "id", descending: kotlin.Boolean = false, activeOnly: kotlin.Boolean = false, start: kotlin.Int = 0, limit: kotlin.Int = 20, keyword: kotlin.String? = null) : kotlin.collections.List<WordzWordResponse> {
+        val localVarResponse = getWordsWithHttpInfo(accountId = accountId, sortField = sortField, descending = descending, activeOnly = activeOnly, start = start, limit = limit, keyword = keyword)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<WordzWordResponse>
@@ -366,10 +356,9 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/game/word/search
+     * GET /game/word/search
      * Search Words
      * Search for words by the given params.
-     * @param version 
      * @param accountId The logged in user.
      * @param sortField The column to sort the search on (default to "id")
      * @param descending The order to return the search results (default to false)
@@ -383,8 +372,8 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWordsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, keyword: kotlin.String?) : ApiResponse<kotlin.collections.List<WordzWordResponse>?> {
-        val localVariableConfig = getWordsRequestConfig(version = version, accountId = accountId, sortField = sortField, descending = descending, activeOnly = activeOnly, start = start, limit = limit, keyword = keyword)
+    fun getWordsWithHttpInfo(accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, keyword: kotlin.String?) : ApiResponse<kotlin.collections.List<WordzWordResponse>?> {
+        val localVariableConfig = getWordsRequestConfig(accountId = accountId, sortField = sortField, descending = descending, activeOnly = activeOnly, start = start, limit = limit, keyword = keyword)
 
         return request<Unit, kotlin.collections.List<WordzWordResponse>>(
             localVariableConfig
@@ -394,7 +383,6 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation getWords
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param sortField The column to sort the search on (default to "id")
      * @param descending The order to return the search results (default to false)
@@ -404,7 +392,7 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param keyword The keyword for searching words with matching definition or word text. (optional)
      * @return RequestConfig
      */
-    fun getWordsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, keyword: kotlin.String?) : RequestConfig<Unit> {
+    fun getWordsRequestConfig(accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, keyword: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -422,7 +410,7 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/game/word/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/game/word/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -431,10 +419,9 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/game/word/update
+     * POST /game/word/update
      * Update Word
      * Update a word by the given params.
-     * @param version 
      * @param wordId The id of the word to update.
      * @param accountId The logged in user.
      * @param ticketCount The number of tickets to reward (default to 0L)
@@ -454,8 +441,8 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateWord(version: java.math.BigDecimal, wordId: kotlin.Long, accountId: kotlin.Long, ticketCount: kotlin.Long = 0L, wordText: kotlin.String? = null, definition: kotlin.String? = null, assetId: kotlin.Long? = null, active: kotlin.Boolean? = null, allocateTickets: kotlin.Boolean? = null, ticketType: kotlin.String? = null, points: kotlin.Long? = null) : WordzWordResponse {
-        val localVarResponse = updateWordWithHttpInfo(version = version, wordId = wordId, accountId = accountId, ticketCount = ticketCount, wordText = wordText, definition = definition, assetId = assetId, active = active, allocateTickets = allocateTickets, ticketType = ticketType, points = points)
+    fun updateWord(wordId: kotlin.Long, accountId: kotlin.Long, ticketCount: kotlin.Long = 0L, wordText: kotlin.String? = null, definition: kotlin.String? = null, assetId: kotlin.Long? = null, active: kotlin.Boolean? = null, allocateTickets: kotlin.Boolean? = null, ticketType: kotlin.String? = null, points: kotlin.Long? = null) : WordzWordResponse {
+        val localVarResponse = updateWordWithHttpInfo(wordId = wordId, accountId = accountId, ticketCount = ticketCount, wordText = wordText, definition = definition, assetId = assetId, active = active, allocateTickets = allocateTickets, ticketType = ticketType, points = points)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as WordzWordResponse
@@ -473,10 +460,9 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/game/word/update
+     * POST /game/word/update
      * Update Word
      * Update a word by the given params.
-     * @param version 
      * @param wordId The id of the word to update.
      * @param accountId The logged in user.
      * @param ticketCount The number of tickets to reward (default to 0L)
@@ -493,8 +479,8 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateWordWithHttpInfo(version: java.math.BigDecimal, wordId: kotlin.Long, accountId: kotlin.Long, ticketCount: kotlin.Long, wordText: kotlin.String?, definition: kotlin.String?, assetId: kotlin.Long?, active: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketType: kotlin.String?, points: kotlin.Long?) : ApiResponse<WordzWordResponse?> {
-        val localVariableConfig = updateWordRequestConfig(version = version, wordId = wordId, accountId = accountId, ticketCount = ticketCount, wordText = wordText, definition = definition, assetId = assetId, active = active, allocateTickets = allocateTickets, ticketType = ticketType, points = points)
+    fun updateWordWithHttpInfo(wordId: kotlin.Long, accountId: kotlin.Long, ticketCount: kotlin.Long, wordText: kotlin.String?, definition: kotlin.String?, assetId: kotlin.Long?, active: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketType: kotlin.String?, points: kotlin.Long?) : ApiResponse<WordzWordResponse?> {
+        val localVariableConfig = updateWordRequestConfig(wordId = wordId, accountId = accountId, ticketCount = ticketCount, wordText = wordText, definition = definition, assetId = assetId, active = active, allocateTickets = allocateTickets, ticketType = ticketType, points = points)
 
         return request<Unit, WordzWordResponse>(
             localVariableConfig
@@ -504,7 +490,6 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation updateWord
      *
-     * @param version 
      * @param wordId The id of the word to update.
      * @param accountId The logged in user.
      * @param ticketCount The number of tickets to reward (default to 0L)
@@ -517,7 +502,7 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param points The number of points to award for completing a mission (optional)
      * @return RequestConfig
      */
-    fun updateWordRequestConfig(version: java.math.BigDecimal, wordId: kotlin.Long, accountId: kotlin.Long, ticketCount: kotlin.Long, wordText: kotlin.String?, definition: kotlin.String?, assetId: kotlin.Long?, active: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketType: kotlin.String?, points: kotlin.Long?) : RequestConfig<Unit> {
+    fun updateWordRequestConfig(wordId: kotlin.Long, accountId: kotlin.Long, ticketCount: kotlin.Long, wordText: kotlin.String?, definition: kotlin.String?, assetId: kotlin.Long?, active: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketType: kotlin.String?, points: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -550,7 +535,7 @@ open class WordApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/game/word/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/game/word/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

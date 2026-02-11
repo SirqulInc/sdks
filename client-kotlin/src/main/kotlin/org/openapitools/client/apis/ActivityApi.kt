@@ -42,15 +42,14 @@ open class ActivityApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/entity/reference
+     * POST /entity/reference
      * Create an entity reference.
      * Creates a reference for an entity for syncing data between servers.
-     * @param version 
      * @param body The entity reference object
      * @return ActivityResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -61,8 +60,8 @@ open class ActivityApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createEntityReference(version: java.math.BigDecimal, body: EntityReference) : ActivityResponse {
-        val localVarResponse = createEntityReferenceWithHttpInfo(version = version, body = body)
+    fun createEntityReference(body: EntityReference) : ActivityResponse {
+        val localVarResponse = createEntityReferenceWithHttpInfo(body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ActivityResponse
@@ -80,10 +79,9 @@ open class ActivityApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/entity/reference
+     * POST /entity/reference
      * Create an entity reference.
      * Creates a reference for an entity for syncing data between servers.
-     * @param version 
      * @param body The entity reference object
      * @return ApiResponse<ActivityResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -91,8 +89,8 @@ open class ActivityApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createEntityReferenceWithHttpInfo(version: java.math.BigDecimal, body: EntityReference) : ApiResponse<ActivityResponse?> {
-        val localVariableConfig = createEntityReferenceRequestConfig(version = version, body = body)
+    fun createEntityReferenceWithHttpInfo(body: EntityReference) : ApiResponse<ActivityResponse?> {
+        val localVariableConfig = createEntityReferenceRequestConfig(body = body)
 
         return request<EntityReference, ActivityResponse>(
             localVariableConfig
@@ -102,11 +100,10 @@ open class ActivityApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation createEntityReference
      *
-     * @param version 
      * @param body The entity reference object
      * @return RequestConfig
      */
-    fun createEntityReferenceRequestConfig(version: java.math.BigDecimal, body: EntityReference) : RequestConfig<EntityReference> {
+    fun createEntityReferenceRequestConfig(body: EntityReference) : RequestConfig<EntityReference> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -115,7 +112,7 @@ open class ActivityApi(basePath: kotlin.String = defaultBasePath, client: Call.F
 
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/entity/reference".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/entity/reference",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

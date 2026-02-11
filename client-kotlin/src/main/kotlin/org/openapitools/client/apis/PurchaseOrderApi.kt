@@ -42,7 +42,7 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
@@ -69,10 +69,9 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
      }
 
     /**
-     * POST /api/{version}/order/create
+     * POST /order/create
      * Create Order
      * Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
-     * @param version 
      * @param appKey The application requesting the purchase
      * @param cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; 
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -94,8 +93,8 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createOrder(version: java.math.BigDecimal, appKey: kotlin.String, cart: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, description: kotlin.String? = null, currencyType: CurrencyTypeCreateOrder? = CurrencyTypeCreateOrder.CASH, paymentMethodId: kotlin.Long? = null, externalOrderId: kotlin.String? = null, externalPaymentId: kotlin.String? = null, remoteRefType: kotlin.String? = null, externalDate: kotlin.Long? = null, promoCode: kotlin.String? = null) : OrderResponse {
-        val localVarResponse = createOrderWithHttpInfo(version = version, appKey = appKey, cart = cart, deviceId = deviceId, accountId = accountId, description = description, currencyType = currencyType, paymentMethodId = paymentMethodId, externalOrderId = externalOrderId, externalPaymentId = externalPaymentId, remoteRefType = remoteRefType, externalDate = externalDate, promoCode = promoCode)
+    fun createOrder(appKey: kotlin.String, cart: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, description: kotlin.String? = null, currencyType: CurrencyTypeCreateOrder? = CurrencyTypeCreateOrder.CASH, paymentMethodId: kotlin.Long? = null, externalOrderId: kotlin.String? = null, externalPaymentId: kotlin.String? = null, remoteRefType: kotlin.String? = null, externalDate: kotlin.Long? = null, promoCode: kotlin.String? = null) : OrderResponse {
+        val localVarResponse = createOrderWithHttpInfo(appKey = appKey, cart = cart, deviceId = deviceId, accountId = accountId, description = description, currencyType = currencyType, paymentMethodId = paymentMethodId, externalOrderId = externalOrderId, externalPaymentId = externalPaymentId, remoteRefType = remoteRefType, externalDate = externalDate, promoCode = promoCode)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrderResponse
@@ -113,10 +112,9 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * POST /api/{version}/order/create
+     * POST /order/create
      * Create Order
      * Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
-     * @param version 
      * @param appKey The application requesting the purchase
      * @param cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; 
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -135,8 +133,8 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createOrderWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String, cart: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, description: kotlin.String?, currencyType: CurrencyTypeCreateOrder?, paymentMethodId: kotlin.Long?, externalOrderId: kotlin.String?, externalPaymentId: kotlin.String?, remoteRefType: kotlin.String?, externalDate: kotlin.Long?, promoCode: kotlin.String?) : ApiResponse<OrderResponse?> {
-        val localVariableConfig = createOrderRequestConfig(version = version, appKey = appKey, cart = cart, deviceId = deviceId, accountId = accountId, description = description, currencyType = currencyType, paymentMethodId = paymentMethodId, externalOrderId = externalOrderId, externalPaymentId = externalPaymentId, remoteRefType = remoteRefType, externalDate = externalDate, promoCode = promoCode)
+    fun createOrderWithHttpInfo(appKey: kotlin.String, cart: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, description: kotlin.String?, currencyType: CurrencyTypeCreateOrder?, paymentMethodId: kotlin.Long?, externalOrderId: kotlin.String?, externalPaymentId: kotlin.String?, remoteRefType: kotlin.String?, externalDate: kotlin.Long?, promoCode: kotlin.String?) : ApiResponse<OrderResponse?> {
+        val localVariableConfig = createOrderRequestConfig(appKey = appKey, cart = cart, deviceId = deviceId, accountId = accountId, description = description, currencyType = currencyType, paymentMethodId = paymentMethodId, externalOrderId = externalOrderId, externalPaymentId = externalPaymentId, remoteRefType = remoteRefType, externalDate = externalDate, promoCode = promoCode)
 
         return request<Unit, OrderResponse>(
             localVariableConfig
@@ -146,7 +144,6 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
     /**
      * To obtain the request config of the operation createOrder
      *
-     * @param version 
      * @param appKey The application requesting the purchase
      * @param cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; 
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -161,7 +158,7 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param promoCode The Promo Code (optional)
      * @return RequestConfig
      */
-    fun createOrderRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String, cart: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, description: kotlin.String?, currencyType: CurrencyTypeCreateOrder?, paymentMethodId: kotlin.Long?, externalOrderId: kotlin.String?, externalPaymentId: kotlin.String?, remoteRefType: kotlin.String?, externalDate: kotlin.Long?, promoCode: kotlin.String?) : RequestConfig<Unit> {
+    fun createOrderRequestConfig(appKey: kotlin.String, cart: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, description: kotlin.String?, currencyType: CurrencyTypeCreateOrder?, paymentMethodId: kotlin.Long?, externalOrderId: kotlin.String?, externalPaymentId: kotlin.String?, remoteRefType: kotlin.String?, externalDate: kotlin.Long?, promoCode: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -202,7 +199,7 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/order/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/order/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -211,10 +208,9 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * POST /api/{version}/order/delete
+     * POST /order/delete
      * Delete Order
      * Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-     * @param version 
      * @param orderId Order Id
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -227,8 +223,8 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteOrder(version: java.math.BigDecimal, orderId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = deleteOrderWithHttpInfo(version = version, orderId = orderId, deviceId = deviceId, accountId = accountId)
+    fun deleteOrder(orderId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = deleteOrderWithHttpInfo(orderId = orderId, deviceId = deviceId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -246,10 +242,9 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * POST /api/{version}/order/delete
+     * POST /order/delete
      * Delete Order
      * Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-     * @param version 
      * @param orderId Order Id
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -259,8 +254,8 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteOrderWithHttpInfo(version: java.math.BigDecimal, orderId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteOrderRequestConfig(version = version, orderId = orderId, deviceId = deviceId, accountId = accountId)
+    fun deleteOrderWithHttpInfo(orderId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteOrderRequestConfig(orderId = orderId, deviceId = deviceId, accountId = accountId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -270,13 +265,12 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
     /**
      * To obtain the request config of the operation deleteOrder
      *
-     * @param version 
      * @param orderId Order Id
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @return RequestConfig
      */
-    fun deleteOrderRequestConfig(version: java.math.BigDecimal, orderId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun deleteOrderRequestConfig(orderId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -292,7 +286,7 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/order/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/order/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -301,10 +295,9 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * GET /api/{version}/order/get
+     * GET /order/get
      * Get Order
      * Get an order record
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param orderId The order id to get details of, either orderId or externalOrderId must be provided (optional)
@@ -318,8 +311,8 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getOrder(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, orderId: kotlin.Long? = null, externalOrderId: kotlin.String? = null) : OrderResponse {
-        val localVarResponse = getOrderWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, orderId = orderId, externalOrderId = externalOrderId)
+    fun getOrder(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, orderId: kotlin.Long? = null, externalOrderId: kotlin.String? = null) : OrderResponse {
+        val localVarResponse = getOrderWithHttpInfo(deviceId = deviceId, accountId = accountId, orderId = orderId, externalOrderId = externalOrderId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrderResponse
@@ -337,10 +330,9 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * GET /api/{version}/order/get
+     * GET /order/get
      * Get Order
      * Get an order record
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param orderId The order id to get details of, either orderId or externalOrderId must be provided (optional)
@@ -351,8 +343,8 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getOrderWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, orderId: kotlin.Long?, externalOrderId: kotlin.String?) : ApiResponse<OrderResponse?> {
-        val localVariableConfig = getOrderRequestConfig(version = version, deviceId = deviceId, accountId = accountId, orderId = orderId, externalOrderId = externalOrderId)
+    fun getOrderWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, orderId: kotlin.Long?, externalOrderId: kotlin.String?) : ApiResponse<OrderResponse?> {
+        val localVariableConfig = getOrderRequestConfig(deviceId = deviceId, accountId = accountId, orderId = orderId, externalOrderId = externalOrderId)
 
         return request<Unit, OrderResponse>(
             localVariableConfig
@@ -362,14 +354,13 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
     /**
      * To obtain the request config of the operation getOrder
      *
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param orderId The order id to get details of, either orderId or externalOrderId must be provided (optional)
      * @param externalOrderId The external order id to get details of, either orderId or externalOrderId must be provided (optional)
      * @return RequestConfig
      */
-    fun getOrderRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, orderId: kotlin.Long?, externalOrderId: kotlin.String?) : RequestConfig<Unit> {
+    fun getOrderRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, orderId: kotlin.Long?, externalOrderId: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -390,7 +381,7 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/order/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/order/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -421,10 +412,9 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
      }
 
     /**
-     * POST /api/{version}/order/preview
+     * POST /order/preview
      * Preview Order
      * Previews a purchase to see the total cost before making it.
-     * @param version 
      * @param appKey The application requesting the purchase
      * @param cart A JSON list of items to purchase
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -446,8 +436,8 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun previewOrder(version: java.math.BigDecimal, appKey: kotlin.String, cart: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, description: kotlin.String? = null, currencyType: CurrencyTypePreviewOrder? = CurrencyTypePreviewOrder.CASH, paymentMethodId: kotlin.Long? = null, externalOrderId: kotlin.String? = null, externalPaymentId: kotlin.String? = null, remoteRefType: kotlin.String? = null, externalDate: kotlin.Long? = null, promoCode: kotlin.String? = null) : OrderResponse {
-        val localVarResponse = previewOrderWithHttpInfo(version = version, appKey = appKey, cart = cart, deviceId = deviceId, accountId = accountId, description = description, currencyType = currencyType, paymentMethodId = paymentMethodId, externalOrderId = externalOrderId, externalPaymentId = externalPaymentId, remoteRefType = remoteRefType, externalDate = externalDate, promoCode = promoCode)
+    fun previewOrder(appKey: kotlin.String, cart: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, description: kotlin.String? = null, currencyType: CurrencyTypePreviewOrder? = CurrencyTypePreviewOrder.CASH, paymentMethodId: kotlin.Long? = null, externalOrderId: kotlin.String? = null, externalPaymentId: kotlin.String? = null, remoteRefType: kotlin.String? = null, externalDate: kotlin.Long? = null, promoCode: kotlin.String? = null) : OrderResponse {
+        val localVarResponse = previewOrderWithHttpInfo(appKey = appKey, cart = cart, deviceId = deviceId, accountId = accountId, description = description, currencyType = currencyType, paymentMethodId = paymentMethodId, externalOrderId = externalOrderId, externalPaymentId = externalPaymentId, remoteRefType = remoteRefType, externalDate = externalDate, promoCode = promoCode)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrderResponse
@@ -465,10 +455,9 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * POST /api/{version}/order/preview
+     * POST /order/preview
      * Preview Order
      * Previews a purchase to see the total cost before making it.
-     * @param version 
      * @param appKey The application requesting the purchase
      * @param cart A JSON list of items to purchase
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -487,8 +476,8 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun previewOrderWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String, cart: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, description: kotlin.String?, currencyType: CurrencyTypePreviewOrder?, paymentMethodId: kotlin.Long?, externalOrderId: kotlin.String?, externalPaymentId: kotlin.String?, remoteRefType: kotlin.String?, externalDate: kotlin.Long?, promoCode: kotlin.String?) : ApiResponse<OrderResponse?> {
-        val localVariableConfig = previewOrderRequestConfig(version = version, appKey = appKey, cart = cart, deviceId = deviceId, accountId = accountId, description = description, currencyType = currencyType, paymentMethodId = paymentMethodId, externalOrderId = externalOrderId, externalPaymentId = externalPaymentId, remoteRefType = remoteRefType, externalDate = externalDate, promoCode = promoCode)
+    fun previewOrderWithHttpInfo(appKey: kotlin.String, cart: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, description: kotlin.String?, currencyType: CurrencyTypePreviewOrder?, paymentMethodId: kotlin.Long?, externalOrderId: kotlin.String?, externalPaymentId: kotlin.String?, remoteRefType: kotlin.String?, externalDate: kotlin.Long?, promoCode: kotlin.String?) : ApiResponse<OrderResponse?> {
+        val localVariableConfig = previewOrderRequestConfig(appKey = appKey, cart = cart, deviceId = deviceId, accountId = accountId, description = description, currencyType = currencyType, paymentMethodId = paymentMethodId, externalOrderId = externalOrderId, externalPaymentId = externalPaymentId, remoteRefType = remoteRefType, externalDate = externalDate, promoCode = promoCode)
 
         return request<Unit, OrderResponse>(
             localVariableConfig
@@ -498,7 +487,6 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
     /**
      * To obtain the request config of the operation previewOrder
      *
-     * @param version 
      * @param appKey The application requesting the purchase
      * @param cart A JSON list of items to purchase
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -513,7 +501,7 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param promoCode The Promo Code (optional)
      * @return RequestConfig
      */
-    fun previewOrderRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String, cart: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, description: kotlin.String?, currencyType: CurrencyTypePreviewOrder?, paymentMethodId: kotlin.Long?, externalOrderId: kotlin.String?, externalPaymentId: kotlin.String?, remoteRefType: kotlin.String?, externalDate: kotlin.Long?, promoCode: kotlin.String?) : RequestConfig<Unit> {
+    fun previewOrderRequestConfig(appKey: kotlin.String, cart: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, description: kotlin.String?, currencyType: CurrencyTypePreviewOrder?, paymentMethodId: kotlin.Long?, externalOrderId: kotlin.String?, externalPaymentId: kotlin.String?, remoteRefType: kotlin.String?, externalDate: kotlin.Long?, promoCode: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -554,7 +542,7 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/order/preview".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/order/preview",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -563,10 +551,9 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * GET /api/{version}/order/search
+     * GET /order/search
      * Search Orders
      * Search on active orders by customer
-     * @param version 
      * @param appKey The application requesting the purchase
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -607,8 +594,8 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchOrders(version: java.math.BigDecimal, appKey: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, descending: kotlin.Boolean? = true, activeOnly: kotlin.Boolean? = false, ignoreCustomerFilter: kotlin.Boolean? = false, orderItemTypes: kotlin.String? = null, orderItemIds: kotlin.String? = null, orderCustomTypes: kotlin.String? = null, orderCustomIds: kotlin.String? = null, sortField: kotlin.String? = "ID", offerTypes: kotlin.String? = null, specialOfferTypes: kotlin.String? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, offerAudienceIds: kotlin.String? = null, transactionAudienceIds: kotlin.String? = null, offerIds: kotlin.String? = null, offerLocationIds: kotlin.String? = null, retailerIds: kotlin.String? = null, retailerLocationIds: kotlin.String? = null, statuses: kotlin.String? = null, keyword: kotlin.String? = null, redeemableStartDate: kotlin.Long? = null, redeemableEndDate: kotlin.Long? = null, startedSince: kotlin.Long? = null, startedBefore: kotlin.Long? = null, endedSince: kotlin.Long? = null, endedBefore: kotlin.Long? = null) : kotlin.collections.List<OrderResponse> {
-        val localVarResponse = searchOrdersWithHttpInfo(version = version, appKey = appKey, deviceId = deviceId, accountId = accountId, start = start, limit = limit, descending = descending, activeOnly = activeOnly, ignoreCustomerFilter = ignoreCustomerFilter, orderItemTypes = orderItemTypes, orderItemIds = orderItemIds, orderCustomTypes = orderCustomTypes, orderCustomIds = orderCustomIds, sortField = sortField, offerTypes = offerTypes, specialOfferTypes = specialOfferTypes, categoryIds = categoryIds, filterIds = filterIds, offerAudienceIds = offerAudienceIds, transactionAudienceIds = transactionAudienceIds, offerIds = offerIds, offerLocationIds = offerLocationIds, retailerIds = retailerIds, retailerLocationIds = retailerLocationIds, statuses = statuses, keyword = keyword, redeemableStartDate = redeemableStartDate, redeemableEndDate = redeemableEndDate, startedSince = startedSince, startedBefore = startedBefore, endedSince = endedSince, endedBefore = endedBefore)
+    fun searchOrders(appKey: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, descending: kotlin.Boolean? = true, activeOnly: kotlin.Boolean? = false, ignoreCustomerFilter: kotlin.Boolean? = false, orderItemTypes: kotlin.String? = null, orderItemIds: kotlin.String? = null, orderCustomTypes: kotlin.String? = null, orderCustomIds: kotlin.String? = null, sortField: kotlin.String? = "ID", offerTypes: kotlin.String? = null, specialOfferTypes: kotlin.String? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, offerAudienceIds: kotlin.String? = null, transactionAudienceIds: kotlin.String? = null, offerIds: kotlin.String? = null, offerLocationIds: kotlin.String? = null, retailerIds: kotlin.String? = null, retailerLocationIds: kotlin.String? = null, statuses: kotlin.String? = null, keyword: kotlin.String? = null, redeemableStartDate: kotlin.Long? = null, redeemableEndDate: kotlin.Long? = null, startedSince: kotlin.Long? = null, startedBefore: kotlin.Long? = null, endedSince: kotlin.Long? = null, endedBefore: kotlin.Long? = null) : kotlin.collections.List<OrderResponse> {
+        val localVarResponse = searchOrdersWithHttpInfo(appKey = appKey, deviceId = deviceId, accountId = accountId, start = start, limit = limit, descending = descending, activeOnly = activeOnly, ignoreCustomerFilter = ignoreCustomerFilter, orderItemTypes = orderItemTypes, orderItemIds = orderItemIds, orderCustomTypes = orderCustomTypes, orderCustomIds = orderCustomIds, sortField = sortField, offerTypes = offerTypes, specialOfferTypes = specialOfferTypes, categoryIds = categoryIds, filterIds = filterIds, offerAudienceIds = offerAudienceIds, transactionAudienceIds = transactionAudienceIds, offerIds = offerIds, offerLocationIds = offerLocationIds, retailerIds = retailerIds, retailerLocationIds = retailerLocationIds, statuses = statuses, keyword = keyword, redeemableStartDate = redeemableStartDate, redeemableEndDate = redeemableEndDate, startedSince = startedSince, startedBefore = startedBefore, endedSince = endedSince, endedBefore = endedBefore)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<OrderResponse>
@@ -626,10 +613,9 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * GET /api/{version}/order/search
+     * GET /order/search
      * Search Orders
      * Search on active orders by customer
-     * @param version 
      * @param appKey The application requesting the purchase
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -667,8 +653,8 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchOrdersWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?, descending: kotlin.Boolean?, activeOnly: kotlin.Boolean?, ignoreCustomerFilter: kotlin.Boolean?, orderItemTypes: kotlin.String?, orderItemIds: kotlin.String?, orderCustomTypes: kotlin.String?, orderCustomIds: kotlin.String?, sortField: kotlin.String?, offerTypes: kotlin.String?, specialOfferTypes: kotlin.String?, categoryIds: kotlin.String?, filterIds: kotlin.String?, offerAudienceIds: kotlin.String?, transactionAudienceIds: kotlin.String?, offerIds: kotlin.String?, offerLocationIds: kotlin.String?, retailerIds: kotlin.String?, retailerLocationIds: kotlin.String?, statuses: kotlin.String?, keyword: kotlin.String?, redeemableStartDate: kotlin.Long?, redeemableEndDate: kotlin.Long?, startedSince: kotlin.Long?, startedBefore: kotlin.Long?, endedSince: kotlin.Long?, endedBefore: kotlin.Long?) : ApiResponse<kotlin.collections.List<OrderResponse>?> {
-        val localVariableConfig = searchOrdersRequestConfig(version = version, appKey = appKey, deviceId = deviceId, accountId = accountId, start = start, limit = limit, descending = descending, activeOnly = activeOnly, ignoreCustomerFilter = ignoreCustomerFilter, orderItemTypes = orderItemTypes, orderItemIds = orderItemIds, orderCustomTypes = orderCustomTypes, orderCustomIds = orderCustomIds, sortField = sortField, offerTypes = offerTypes, specialOfferTypes = specialOfferTypes, categoryIds = categoryIds, filterIds = filterIds, offerAudienceIds = offerAudienceIds, transactionAudienceIds = transactionAudienceIds, offerIds = offerIds, offerLocationIds = offerLocationIds, retailerIds = retailerIds, retailerLocationIds = retailerLocationIds, statuses = statuses, keyword = keyword, redeemableStartDate = redeemableStartDate, redeemableEndDate = redeemableEndDate, startedSince = startedSince, startedBefore = startedBefore, endedSince = endedSince, endedBefore = endedBefore)
+    fun searchOrdersWithHttpInfo(appKey: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?, descending: kotlin.Boolean?, activeOnly: kotlin.Boolean?, ignoreCustomerFilter: kotlin.Boolean?, orderItemTypes: kotlin.String?, orderItemIds: kotlin.String?, orderCustomTypes: kotlin.String?, orderCustomIds: kotlin.String?, sortField: kotlin.String?, offerTypes: kotlin.String?, specialOfferTypes: kotlin.String?, categoryIds: kotlin.String?, filterIds: kotlin.String?, offerAudienceIds: kotlin.String?, transactionAudienceIds: kotlin.String?, offerIds: kotlin.String?, offerLocationIds: kotlin.String?, retailerIds: kotlin.String?, retailerLocationIds: kotlin.String?, statuses: kotlin.String?, keyword: kotlin.String?, redeemableStartDate: kotlin.Long?, redeemableEndDate: kotlin.Long?, startedSince: kotlin.Long?, startedBefore: kotlin.Long?, endedSince: kotlin.Long?, endedBefore: kotlin.Long?) : ApiResponse<kotlin.collections.List<OrderResponse>?> {
+        val localVariableConfig = searchOrdersRequestConfig(appKey = appKey, deviceId = deviceId, accountId = accountId, start = start, limit = limit, descending = descending, activeOnly = activeOnly, ignoreCustomerFilter = ignoreCustomerFilter, orderItemTypes = orderItemTypes, orderItemIds = orderItemIds, orderCustomTypes = orderCustomTypes, orderCustomIds = orderCustomIds, sortField = sortField, offerTypes = offerTypes, specialOfferTypes = specialOfferTypes, categoryIds = categoryIds, filterIds = filterIds, offerAudienceIds = offerAudienceIds, transactionAudienceIds = transactionAudienceIds, offerIds = offerIds, offerLocationIds = offerLocationIds, retailerIds = retailerIds, retailerLocationIds = retailerLocationIds, statuses = statuses, keyword = keyword, redeemableStartDate = redeemableStartDate, redeemableEndDate = redeemableEndDate, startedSince = startedSince, startedBefore = startedBefore, endedSince = endedSince, endedBefore = endedBefore)
 
         return request<Unit, kotlin.collections.List<OrderResponse>>(
             localVariableConfig
@@ -678,7 +664,6 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
     /**
      * To obtain the request config of the operation searchOrders
      *
-     * @param version 
      * @param appKey The application requesting the purchase
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -712,7 +697,7 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param endedBefore Filter results by the offer end date (optional)
      * @return RequestConfig
      */
-    fun searchOrdersRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?, descending: kotlin.Boolean?, activeOnly: kotlin.Boolean?, ignoreCustomerFilter: kotlin.Boolean?, orderItemTypes: kotlin.String?, orderItemIds: kotlin.String?, orderCustomTypes: kotlin.String?, orderCustomIds: kotlin.String?, sortField: kotlin.String?, offerTypes: kotlin.String?, specialOfferTypes: kotlin.String?, categoryIds: kotlin.String?, filterIds: kotlin.String?, offerAudienceIds: kotlin.String?, transactionAudienceIds: kotlin.String?, offerIds: kotlin.String?, offerLocationIds: kotlin.String?, retailerIds: kotlin.String?, retailerLocationIds: kotlin.String?, statuses: kotlin.String?, keyword: kotlin.String?, redeemableStartDate: kotlin.Long?, redeemableEndDate: kotlin.Long?, startedSince: kotlin.Long?, startedBefore: kotlin.Long?, endedSince: kotlin.Long?, endedBefore: kotlin.Long?) : RequestConfig<Unit> {
+    fun searchOrdersRequestConfig(appKey: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?, descending: kotlin.Boolean?, activeOnly: kotlin.Boolean?, ignoreCustomerFilter: kotlin.Boolean?, orderItemTypes: kotlin.String?, orderItemIds: kotlin.String?, orderCustomTypes: kotlin.String?, orderCustomIds: kotlin.String?, sortField: kotlin.String?, offerTypes: kotlin.String?, specialOfferTypes: kotlin.String?, categoryIds: kotlin.String?, filterIds: kotlin.String?, offerAudienceIds: kotlin.String?, transactionAudienceIds: kotlin.String?, offerIds: kotlin.String?, offerLocationIds: kotlin.String?, retailerIds: kotlin.String?, retailerLocationIds: kotlin.String?, statuses: kotlin.String?, keyword: kotlin.String?, redeemableStartDate: kotlin.Long?, redeemableEndDate: kotlin.Long?, startedSince: kotlin.Long?, startedBefore: kotlin.Long?, endedSince: kotlin.Long?, endedBefore: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -812,7 +797,7 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/order/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/order/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -843,10 +828,9 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
      }
 
     /**
-     * POST /api/{version}/order/update
+     * POST /order/update
      * Update Order
      * Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
-     * @param version 
      * @param orderId The order to add the purchase to, leave null for new order.
      * @param appKey The application requesting the purchase
      * @param cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; 
@@ -867,8 +851,8 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateOrder(version: java.math.BigDecimal, orderId: kotlin.Long, appKey: kotlin.String, cart: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, paymentTransactionId: kotlin.Long? = null, description: kotlin.String? = null, currencyType: CurrencyTypeUpdateOrder? = CurrencyTypeUpdateOrder.CASH, paymentMethodId: kotlin.Long? = null, externalPaymentId: kotlin.String? = null, externalDate: kotlin.Long? = null) : OrderResponse {
-        val localVarResponse = updateOrderWithHttpInfo(version = version, orderId = orderId, appKey = appKey, cart = cart, deviceId = deviceId, accountId = accountId, paymentTransactionId = paymentTransactionId, description = description, currencyType = currencyType, paymentMethodId = paymentMethodId, externalPaymentId = externalPaymentId, externalDate = externalDate)
+    fun updateOrder(orderId: kotlin.Long, appKey: kotlin.String, cart: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, paymentTransactionId: kotlin.Long? = null, description: kotlin.String? = null, currencyType: CurrencyTypeUpdateOrder? = CurrencyTypeUpdateOrder.CASH, paymentMethodId: kotlin.Long? = null, externalPaymentId: kotlin.String? = null, externalDate: kotlin.Long? = null) : OrderResponse {
+        val localVarResponse = updateOrderWithHttpInfo(orderId = orderId, appKey = appKey, cart = cart, deviceId = deviceId, accountId = accountId, paymentTransactionId = paymentTransactionId, description = description, currencyType = currencyType, paymentMethodId = paymentMethodId, externalPaymentId = externalPaymentId, externalDate = externalDate)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrderResponse
@@ -886,10 +870,9 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * POST /api/{version}/order/update
+     * POST /order/update
      * Update Order
      * Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
-     * @param version 
      * @param orderId The order to add the purchase to, leave null for new order.
      * @param appKey The application requesting the purchase
      * @param cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; 
@@ -907,8 +890,8 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateOrderWithHttpInfo(version: java.math.BigDecimal, orderId: kotlin.Long, appKey: kotlin.String, cart: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, paymentTransactionId: kotlin.Long?, description: kotlin.String?, currencyType: CurrencyTypeUpdateOrder?, paymentMethodId: kotlin.Long?, externalPaymentId: kotlin.String?, externalDate: kotlin.Long?) : ApiResponse<OrderResponse?> {
-        val localVariableConfig = updateOrderRequestConfig(version = version, orderId = orderId, appKey = appKey, cart = cart, deviceId = deviceId, accountId = accountId, paymentTransactionId = paymentTransactionId, description = description, currencyType = currencyType, paymentMethodId = paymentMethodId, externalPaymentId = externalPaymentId, externalDate = externalDate)
+    fun updateOrderWithHttpInfo(orderId: kotlin.Long, appKey: kotlin.String, cart: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, paymentTransactionId: kotlin.Long?, description: kotlin.String?, currencyType: CurrencyTypeUpdateOrder?, paymentMethodId: kotlin.Long?, externalPaymentId: kotlin.String?, externalDate: kotlin.Long?) : ApiResponse<OrderResponse?> {
+        val localVariableConfig = updateOrderRequestConfig(orderId = orderId, appKey = appKey, cart = cart, deviceId = deviceId, accountId = accountId, paymentTransactionId = paymentTransactionId, description = description, currencyType = currencyType, paymentMethodId = paymentMethodId, externalPaymentId = externalPaymentId, externalDate = externalDate)
 
         return request<Unit, OrderResponse>(
             localVariableConfig
@@ -918,7 +901,6 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
     /**
      * To obtain the request config of the operation updateOrder
      *
-     * @param version 
      * @param orderId The order to add the purchase to, leave null for new order.
      * @param appKey The application requesting the purchase
      * @param cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; 
@@ -932,7 +914,7 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param externalDate External Date (optional)
      * @return RequestConfig
      */
-    fun updateOrderRequestConfig(version: java.math.BigDecimal, orderId: kotlin.Long, appKey: kotlin.String, cart: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, paymentTransactionId: kotlin.Long?, description: kotlin.String?, currencyType: CurrencyTypeUpdateOrder?, paymentMethodId: kotlin.Long?, externalPaymentId: kotlin.String?, externalDate: kotlin.Long?) : RequestConfig<Unit> {
+    fun updateOrderRequestConfig(orderId: kotlin.Long, appKey: kotlin.String, cart: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, paymentTransactionId: kotlin.Long?, description: kotlin.String?, currencyType: CurrencyTypeUpdateOrder?, paymentMethodId: kotlin.Long?, externalPaymentId: kotlin.String?, externalDate: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -968,7 +950,7 @@ open class PurchaseOrderApi(basePath: kotlin.String = defaultBasePath, client: C
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/order/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/order/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

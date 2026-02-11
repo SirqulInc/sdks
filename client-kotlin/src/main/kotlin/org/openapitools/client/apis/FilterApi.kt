@@ -43,15 +43,14 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/filter/create
+     * POST /filter/create
      * Create Filter
      * Create a filter
-     * @param version 
      * @param accountId The account id of the user (must have permissions to the target application)
      * @param name The name of the filter
      * @param appKey The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions) (optional)
@@ -70,8 +69,8 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createFilter(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, appKey: kotlin.String? = null, parentFilterId: kotlin.Long? = null, description: kotlin.String? = null, externalId: kotlin.String? = null, externalType: kotlin.String? = null, active: kotlin.Boolean? = null, metaData: kotlin.String? = null) : FilterTreeResponse {
-        val localVarResponse = createFilterWithHttpInfo(version = version, accountId = accountId, name = name, appKey = appKey, parentFilterId = parentFilterId, description = description, externalId = externalId, externalType = externalType, active = active, metaData = metaData)
+    fun createFilter(accountId: kotlin.Long, name: kotlin.String, appKey: kotlin.String? = null, parentFilterId: kotlin.Long? = null, description: kotlin.String? = null, externalId: kotlin.String? = null, externalType: kotlin.String? = null, active: kotlin.Boolean? = null, metaData: kotlin.String? = null) : FilterTreeResponse {
+        val localVarResponse = createFilterWithHttpInfo(accountId = accountId, name = name, appKey = appKey, parentFilterId = parentFilterId, description = description, externalId = externalId, externalType = externalType, active = active, metaData = metaData)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as FilterTreeResponse
@@ -89,10 +88,9 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/filter/create
+     * POST /filter/create
      * Create Filter
      * Create a filter
-     * @param version 
      * @param accountId The account id of the user (must have permissions to the target application)
      * @param name The name of the filter
      * @param appKey The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions) (optional)
@@ -108,8 +106,8 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createFilterWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, appKey: kotlin.String?, parentFilterId: kotlin.Long?, description: kotlin.String?, externalId: kotlin.String?, externalType: kotlin.String?, active: kotlin.Boolean?, metaData: kotlin.String?) : ApiResponse<FilterTreeResponse?> {
-        val localVariableConfig = createFilterRequestConfig(version = version, accountId = accountId, name = name, appKey = appKey, parentFilterId = parentFilterId, description = description, externalId = externalId, externalType = externalType, active = active, metaData = metaData)
+    fun createFilterWithHttpInfo(accountId: kotlin.Long, name: kotlin.String, appKey: kotlin.String?, parentFilterId: kotlin.Long?, description: kotlin.String?, externalId: kotlin.String?, externalType: kotlin.String?, active: kotlin.Boolean?, metaData: kotlin.String?) : ApiResponse<FilterTreeResponse?> {
+        val localVariableConfig = createFilterRequestConfig(accountId = accountId, name = name, appKey = appKey, parentFilterId = parentFilterId, description = description, externalId = externalId, externalType = externalType, active = active, metaData = metaData)
 
         return request<Unit, FilterTreeResponse>(
             localVariableConfig
@@ -119,7 +117,6 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation createFilter
      *
-     * @param version 
      * @param accountId The account id of the user (must have permissions to the target application)
      * @param name The name of the filter
      * @param appKey The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions) (optional)
@@ -131,7 +128,7 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param metaData external custom client defined data (optional)
      * @return RequestConfig
      */
-    fun createFilterRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, appKey: kotlin.String?, parentFilterId: kotlin.Long?, description: kotlin.String?, externalId: kotlin.String?, externalType: kotlin.String?, active: kotlin.Boolean?, metaData: kotlin.String?) : RequestConfig<Unit> {
+    fun createFilterRequestConfig(accountId: kotlin.Long, name: kotlin.String, appKey: kotlin.String?, parentFilterId: kotlin.Long?, description: kotlin.String?, externalId: kotlin.String?, externalType: kotlin.String?, active: kotlin.Boolean?, metaData: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -163,7 +160,7 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/filter/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/filter/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -172,10 +169,9 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/filter/delete
+     * POST /filter/delete
      * Delete Filter
      * Delete a filter.
-     * @param version 
      * @param accountId The account id of the user (must have permissions to the filter&#39;s assigned application)
      * @param filterId The ID of the filter to delete
      * @return SirqulResponse
@@ -187,8 +183,8 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteFilter(version: java.math.BigDecimal, accountId: kotlin.Long, filterId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = deleteFilterWithHttpInfo(version = version, accountId = accountId, filterId = filterId)
+    fun deleteFilter(accountId: kotlin.Long, filterId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = deleteFilterWithHttpInfo(accountId = accountId, filterId = filterId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -206,10 +202,9 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/filter/delete
+     * POST /filter/delete
      * Delete Filter
      * Delete a filter.
-     * @param version 
      * @param accountId The account id of the user (must have permissions to the filter&#39;s assigned application)
      * @param filterId The ID of the filter to delete
      * @return ApiResponse<SirqulResponse?>
@@ -218,8 +213,8 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteFilterWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, filterId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteFilterRequestConfig(version = version, accountId = accountId, filterId = filterId)
+    fun deleteFilterWithHttpInfo(accountId: kotlin.Long, filterId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteFilterRequestConfig(accountId = accountId, filterId = filterId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -229,12 +224,11 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation deleteFilter
      *
-     * @param version 
      * @param accountId The account id of the user (must have permissions to the filter&#39;s assigned application)
      * @param filterId The ID of the filter to delete
      * @return RequestConfig
      */
-    fun deleteFilterRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, filterId: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteFilterRequestConfig(accountId: kotlin.Long, filterId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -245,7 +239,7 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/filter/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/filter/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -254,10 +248,9 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * GET /api/{version}/filter/get
+     * GET /filter/get
      * Get Filter
      * Get the details of a specific filter. Recursively include all child filters and their children.
-     * @param version 
      * @param filterId the id of the filter to get
      * @return FilterTreeResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -268,8 +261,8 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getFilter(version: java.math.BigDecimal, filterId: kotlin.Long) : FilterTreeResponse {
-        val localVarResponse = getFilterWithHttpInfo(version = version, filterId = filterId)
+    fun getFilter(filterId: kotlin.Long) : FilterTreeResponse {
+        val localVarResponse = getFilterWithHttpInfo(filterId = filterId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as FilterTreeResponse
@@ -287,10 +280,9 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * GET /api/{version}/filter/get
+     * GET /filter/get
      * Get Filter
      * Get the details of a specific filter. Recursively include all child filters and their children.
-     * @param version 
      * @param filterId the id of the filter to get
      * @return ApiResponse<FilterTreeResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -298,8 +290,8 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getFilterWithHttpInfo(version: java.math.BigDecimal, filterId: kotlin.Long) : ApiResponse<FilterTreeResponse?> {
-        val localVariableConfig = getFilterRequestConfig(version = version, filterId = filterId)
+    fun getFilterWithHttpInfo(filterId: kotlin.Long) : ApiResponse<FilterTreeResponse?> {
+        val localVariableConfig = getFilterRequestConfig(filterId = filterId)
 
         return request<Unit, FilterTreeResponse>(
             localVariableConfig
@@ -309,11 +301,10 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation getFilter
      *
-     * @param version 
      * @param filterId the id of the filter to get
      * @return RequestConfig
      */
-    fun getFilterRequestConfig(version: java.math.BigDecimal, filterId: kotlin.Long) : RequestConfig<Unit> {
+    fun getFilterRequestConfig(filterId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -323,7 +314,7 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/filter/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/filter/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -373,10 +364,9 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      }
 
     /**
-     * GET /api/{version}/filter/search
+     * GET /filter/search
      * Search Filters
      * Search for filters.
-     * @param version 
      * @param accountId The account id of the user (optional)
      * @param keyword The string to search on (optional)
      * @param appKey the appKey of the application to retrieve filters for (optional)
@@ -396,8 +386,8 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchFilters(version: java.math.BigDecimal, accountId: kotlin.Long? = null, keyword: kotlin.String? = null, appKey: kotlin.String? = null, responseGroup: ResponseGroupSearchFilters? = null, rootOnly: kotlin.Boolean? = null, sortField: SortFieldSearchFilters? = SortFieldSearchFilters.DISPLAY, descending: kotlin.Boolean? = false, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, activeOnly: kotlin.Boolean? = true) : kotlin.collections.List<FilterResponse> {
-        val localVarResponse = searchFiltersWithHttpInfo(version = version, accountId = accountId, keyword = keyword, appKey = appKey, responseGroup = responseGroup, rootOnly = rootOnly, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
+    fun searchFilters(accountId: kotlin.Long? = null, keyword: kotlin.String? = null, appKey: kotlin.String? = null, responseGroup: ResponseGroupSearchFilters? = null, rootOnly: kotlin.Boolean? = null, sortField: SortFieldSearchFilters? = SortFieldSearchFilters.DISPLAY, descending: kotlin.Boolean? = false, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, activeOnly: kotlin.Boolean? = true) : kotlin.collections.List<FilterResponse> {
+        val localVarResponse = searchFiltersWithHttpInfo(accountId = accountId, keyword = keyword, appKey = appKey, responseGroup = responseGroup, rootOnly = rootOnly, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<FilterResponse>
@@ -415,10 +405,9 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * GET /api/{version}/filter/search
+     * GET /filter/search
      * Search Filters
      * Search for filters.
-     * @param version 
      * @param accountId The account id of the user (optional)
      * @param keyword The string to search on (optional)
      * @param appKey the appKey of the application to retrieve filters for (optional)
@@ -435,8 +424,8 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchFiltersWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long?, keyword: kotlin.String?, appKey: kotlin.String?, responseGroup: ResponseGroupSearchFilters?, rootOnly: kotlin.Boolean?, sortField: SortFieldSearchFilters?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<FilterResponse>?> {
-        val localVariableConfig = searchFiltersRequestConfig(version = version, accountId = accountId, keyword = keyword, appKey = appKey, responseGroup = responseGroup, rootOnly = rootOnly, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
+    fun searchFiltersWithHttpInfo(accountId: kotlin.Long?, keyword: kotlin.String?, appKey: kotlin.String?, responseGroup: ResponseGroupSearchFilters?, rootOnly: kotlin.Boolean?, sortField: SortFieldSearchFilters?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<FilterResponse>?> {
+        val localVariableConfig = searchFiltersRequestConfig(accountId = accountId, keyword = keyword, appKey = appKey, responseGroup = responseGroup, rootOnly = rootOnly, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
 
         return request<Unit, kotlin.collections.List<FilterResponse>>(
             localVariableConfig
@@ -446,7 +435,6 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation searchFilters
      *
-     * @param version 
      * @param accountId The account id of the user (optional)
      * @param keyword The string to search on (optional)
      * @param appKey the appKey of the application to retrieve filters for (optional)
@@ -459,7 +447,7 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param activeOnly Determines whether to return only active categories (optional, default to true)
      * @return RequestConfig
      */
-    fun searchFiltersRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long?, keyword: kotlin.String?, appKey: kotlin.String?, responseGroup: ResponseGroupSearchFilters?, rootOnly: kotlin.Boolean?, sortField: SortFieldSearchFilters?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchFiltersRequestConfig(accountId: kotlin.Long?, keyword: kotlin.String?, appKey: kotlin.String?, responseGroup: ResponseGroupSearchFilters?, rootOnly: kotlin.Boolean?, sortField: SortFieldSearchFilters?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -498,7 +486,7 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/filter/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/filter/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -507,10 +495,9 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/filter/update
+     * POST /filter/update
      * Update Filter
      * Update a filter.
-     * @param version 
      * @param accountId The account id of the user
      * @param filterId The ID of the filter to edit
      * @param parentFilterId The ID of the parent filter, if not provided then the parent filter will be null (optional)
@@ -529,8 +516,8 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateFilter(version: java.math.BigDecimal, accountId: kotlin.Long, filterId: kotlin.Long, parentFilterId: kotlin.Long? = null, name: kotlin.String? = null, description: kotlin.String? = null, externalId: kotlin.String? = null, externalType: kotlin.String? = null, active: kotlin.Boolean? = null, metaData: kotlin.String? = null) : FilterTreeResponse {
-        val localVarResponse = updateFilterWithHttpInfo(version = version, accountId = accountId, filterId = filterId, parentFilterId = parentFilterId, name = name, description = description, externalId = externalId, externalType = externalType, active = active, metaData = metaData)
+    fun updateFilter(accountId: kotlin.Long, filterId: kotlin.Long, parentFilterId: kotlin.Long? = null, name: kotlin.String? = null, description: kotlin.String? = null, externalId: kotlin.String? = null, externalType: kotlin.String? = null, active: kotlin.Boolean? = null, metaData: kotlin.String? = null) : FilterTreeResponse {
+        val localVarResponse = updateFilterWithHttpInfo(accountId = accountId, filterId = filterId, parentFilterId = parentFilterId, name = name, description = description, externalId = externalId, externalType = externalType, active = active, metaData = metaData)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as FilterTreeResponse
@@ -548,10 +535,9 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/filter/update
+     * POST /filter/update
      * Update Filter
      * Update a filter.
-     * @param version 
      * @param accountId The account id of the user
      * @param filterId The ID of the filter to edit
      * @param parentFilterId The ID of the parent filter, if not provided then the parent filter will be null (optional)
@@ -567,8 +553,8 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateFilterWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, filterId: kotlin.Long, parentFilterId: kotlin.Long?, name: kotlin.String?, description: kotlin.String?, externalId: kotlin.String?, externalType: kotlin.String?, active: kotlin.Boolean?, metaData: kotlin.String?) : ApiResponse<FilterTreeResponse?> {
-        val localVariableConfig = updateFilterRequestConfig(version = version, accountId = accountId, filterId = filterId, parentFilterId = parentFilterId, name = name, description = description, externalId = externalId, externalType = externalType, active = active, metaData = metaData)
+    fun updateFilterWithHttpInfo(accountId: kotlin.Long, filterId: kotlin.Long, parentFilterId: kotlin.Long?, name: kotlin.String?, description: kotlin.String?, externalId: kotlin.String?, externalType: kotlin.String?, active: kotlin.Boolean?, metaData: kotlin.String?) : ApiResponse<FilterTreeResponse?> {
+        val localVariableConfig = updateFilterRequestConfig(accountId = accountId, filterId = filterId, parentFilterId = parentFilterId, name = name, description = description, externalId = externalId, externalType = externalType, active = active, metaData = metaData)
 
         return request<Unit, FilterTreeResponse>(
             localVariableConfig
@@ -578,7 +564,6 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation updateFilter
      *
-     * @param version 
      * @param accountId The account id of the user
      * @param filterId The ID of the filter to edit
      * @param parentFilterId The ID of the parent filter, if not provided then the parent filter will be null (optional)
@@ -590,7 +575,7 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param metaData external custom client defined data (optional)
      * @return RequestConfig
      */
-    fun updateFilterRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, filterId: kotlin.Long, parentFilterId: kotlin.Long?, name: kotlin.String?, description: kotlin.String?, externalId: kotlin.String?, externalType: kotlin.String?, active: kotlin.Boolean?, metaData: kotlin.String?) : RequestConfig<Unit> {
+    fun updateFilterRequestConfig(accountId: kotlin.Long, filterId: kotlin.Long, parentFilterId: kotlin.Long?, name: kotlin.String?, description: kotlin.String?, externalId: kotlin.String?, externalType: kotlin.String?, active: kotlin.Boolean?, metaData: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -622,7 +607,7 @@ open class FilterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/filter/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/filter/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

@@ -41,15 +41,14 @@ open class TwilioApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/sms/buyoffer/{appKey}
+     * POST /sms/buyoffer/{appKey}
      * Buy Offer by SMS
      * Recieve an SMS payload from Twillio to purchase an offer.
-     * @param version 
      * @param appKey the application key
      * @param body the message of the text
      * @param from the sender of the sms
@@ -63,8 +62,8 @@ open class TwilioApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun smsBuyOffer(version: java.math.BigDecimal, appKey: kotlin.String, body: kotlin.String, from: kotlin.String, currencyType: kotlin.String) : TwiMLResponse {
-        val localVarResponse = smsBuyOfferWithHttpInfo(version = version, appKey = appKey, body = body, from = from, currencyType = currencyType)
+    fun smsBuyOffer(appKey: kotlin.String, body: kotlin.String, from: kotlin.String, currencyType: kotlin.String) : TwiMLResponse {
+        val localVarResponse = smsBuyOfferWithHttpInfo(appKey = appKey, body = body, from = from, currencyType = currencyType)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TwiMLResponse
@@ -82,10 +81,9 @@ open class TwilioApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/sms/buyoffer/{appKey}
+     * POST /sms/buyoffer/{appKey}
      * Buy Offer by SMS
      * Recieve an SMS payload from Twillio to purchase an offer.
-     * @param version 
      * @param appKey the application key
      * @param body the message of the text
      * @param from the sender of the sms
@@ -96,8 +94,8 @@ open class TwilioApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun smsBuyOfferWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String, body: kotlin.String, from: kotlin.String, currencyType: kotlin.String) : ApiResponse<TwiMLResponse?> {
-        val localVariableConfig = smsBuyOfferRequestConfig(version = version, appKey = appKey, body = body, from = from, currencyType = currencyType)
+    fun smsBuyOfferWithHttpInfo(appKey: kotlin.String, body: kotlin.String, from: kotlin.String, currencyType: kotlin.String) : ApiResponse<TwiMLResponse?> {
+        val localVariableConfig = smsBuyOfferRequestConfig(appKey = appKey, body = body, from = from, currencyType = currencyType)
 
         return request<Unit, TwiMLResponse>(
             localVariableConfig
@@ -107,14 +105,13 @@ open class TwilioApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation smsBuyOffer
      *
-     * @param version 
      * @param appKey the application key
      * @param body the message of the text
      * @param from the sender of the sms
      * @param currencyType the type of currency
      * @return RequestConfig
      */
-    fun smsBuyOfferRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String, body: kotlin.String, from: kotlin.String, currencyType: kotlin.String) : RequestConfig<Unit> {
+    fun smsBuyOfferRequestConfig(appKey: kotlin.String, body: kotlin.String, from: kotlin.String, currencyType: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -126,7 +123,7 @@ open class TwilioApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/sms/buyoffer/{appKey}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"appKey"+"}", encodeURIComponent(appKey.toString())),
+            path = "/sms/buyoffer/{appKey}".replace("{"+"appKey"+"}", encodeURIComponent(appKey.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

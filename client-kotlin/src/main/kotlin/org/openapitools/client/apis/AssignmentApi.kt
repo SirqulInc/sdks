@@ -44,15 +44,14 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * GET /api/{version}/assignment/assignee/search
+     * GET /assignment/assignee/search
      * Search Assignment Assignees
      * Search for avaiable users for creating or updating assignment.
-     * @param version 
      * @param accountId The account id sending the request
      * @param keyword The keyword to filter the returned results (optional)
      * @return kotlin.collections.List<AccountMiniResponse>
@@ -64,8 +63,8 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun assigmentAssigneeAccountSearch(version: java.math.BigDecimal, accountId: kotlin.Long, keyword: kotlin.String? = null) : kotlin.collections.List<AccountMiniResponse> {
-        val localVarResponse = assigmentAssigneeAccountSearchWithHttpInfo(version = version, accountId = accountId, keyword = keyword)
+    fun assigmentAssigneeAccountSearch(accountId: kotlin.Long, keyword: kotlin.String? = null) : kotlin.collections.List<AccountMiniResponse> {
+        val localVarResponse = assigmentAssigneeAccountSearchWithHttpInfo(accountId = accountId, keyword = keyword)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<AccountMiniResponse>
@@ -83,10 +82,9 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/assignment/assignee/search
+     * GET /assignment/assignee/search
      * Search Assignment Assignees
      * Search for avaiable users for creating or updating assignment.
-     * @param version 
      * @param accountId The account id sending the request
      * @param keyword The keyword to filter the returned results (optional)
      * @return ApiResponse<kotlin.collections.List<AccountMiniResponse>?>
@@ -95,8 +93,8 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun assigmentAssigneeAccountSearchWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, keyword: kotlin.String?) : ApiResponse<kotlin.collections.List<AccountMiniResponse>?> {
-        val localVariableConfig = assigmentAssigneeAccountSearchRequestConfig(version = version, accountId = accountId, keyword = keyword)
+    fun assigmentAssigneeAccountSearchWithHttpInfo(accountId: kotlin.Long, keyword: kotlin.String?) : ApiResponse<kotlin.collections.List<AccountMiniResponse>?> {
+        val localVariableConfig = assigmentAssigneeAccountSearchRequestConfig(accountId = accountId, keyword = keyword)
 
         return request<Unit, kotlin.collections.List<AccountMiniResponse>>(
             localVariableConfig
@@ -106,12 +104,11 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation assigmentAssigneeAccountSearch
      *
-     * @param version 
      * @param accountId The account id sending the request
      * @param keyword The keyword to filter the returned results (optional)
      * @return RequestConfig
      */
-    fun assigmentAssigneeAccountSearchRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, keyword: kotlin.String?) : RequestConfig<Unit> {
+    fun assigmentAssigneeAccountSearchRequestConfig(accountId: kotlin.Long, keyword: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -124,7 +121,7 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/assignment/assignee/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/assignment/assignee/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -133,10 +130,9 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/assignment/create
+     * POST /assignment/create
      * Create Assignment
      * Create an assignment.
-     * @param version 
      * @param accountId the user account id
      * @param name the name for the assignment
      * @param assigneeAccountId the account id to assign to
@@ -153,8 +149,8 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun assignmentCreate(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, assigneeAccountId: kotlin.Long, description: kotlin.String? = null, retailerLocationId: kotlin.Long? = null, tags: kotlin.String? = null, active: kotlin.Boolean? = null) : AssignmentResponse {
-        val localVarResponse = assignmentCreateWithHttpInfo(version = version, accountId = accountId, name = name, assigneeAccountId = assigneeAccountId, description = description, retailerLocationId = retailerLocationId, tags = tags, active = active)
+    fun assignmentCreate(accountId: kotlin.Long, name: kotlin.String, assigneeAccountId: kotlin.Long, description: kotlin.String? = null, retailerLocationId: kotlin.Long? = null, tags: kotlin.String? = null, active: kotlin.Boolean? = null) : AssignmentResponse {
+        val localVarResponse = assignmentCreateWithHttpInfo(accountId = accountId, name = name, assigneeAccountId = assigneeAccountId, description = description, retailerLocationId = retailerLocationId, tags = tags, active = active)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AssignmentResponse
@@ -172,10 +168,9 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/assignment/create
+     * POST /assignment/create
      * Create Assignment
      * Create an assignment.
-     * @param version 
      * @param accountId the user account id
      * @param name the name for the assignment
      * @param assigneeAccountId the account id to assign to
@@ -189,8 +184,8 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun assignmentCreateWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, assigneeAccountId: kotlin.Long, description: kotlin.String?, retailerLocationId: kotlin.Long?, tags: kotlin.String?, active: kotlin.Boolean?) : ApiResponse<AssignmentResponse?> {
-        val localVariableConfig = assignmentCreateRequestConfig(version = version, accountId = accountId, name = name, assigneeAccountId = assigneeAccountId, description = description, retailerLocationId = retailerLocationId, tags = tags, active = active)
+    fun assignmentCreateWithHttpInfo(accountId: kotlin.Long, name: kotlin.String, assigneeAccountId: kotlin.Long, description: kotlin.String?, retailerLocationId: kotlin.Long?, tags: kotlin.String?, active: kotlin.Boolean?) : ApiResponse<AssignmentResponse?> {
+        val localVariableConfig = assignmentCreateRequestConfig(accountId = accountId, name = name, assigneeAccountId = assigneeAccountId, description = description, retailerLocationId = retailerLocationId, tags = tags, active = active)
 
         return request<Unit, AssignmentResponse>(
             localVariableConfig
@@ -200,7 +195,6 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation assignmentCreate
      *
-     * @param version 
      * @param accountId the user account id
      * @param name the name for the assignment
      * @param assigneeAccountId the account id to assign to
@@ -210,7 +204,7 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param active determines whether the assignment is active or inactive (optional)
      * @return RequestConfig
      */
-    fun assignmentCreateRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, assigneeAccountId: kotlin.Long, description: kotlin.String?, retailerLocationId: kotlin.Long?, tags: kotlin.String?, active: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun assignmentCreateRequestConfig(accountId: kotlin.Long, name: kotlin.String, assigneeAccountId: kotlin.Long, description: kotlin.String?, retailerLocationId: kotlin.Long?, tags: kotlin.String?, active: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -234,7 +228,7 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/assignment/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/assignment/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -243,10 +237,9 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/assignment/delete
+     * POST /assignment/delete
      * Delete Assignment
      * Delete an assignment.
-     * @param version 
      * @param accountId the user account id
      * @param assignmentId the assignment id
      * @return SirqulResponse
@@ -258,8 +251,8 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun assignmentDelete(version: java.math.BigDecimal, accountId: kotlin.Long, assignmentId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = assignmentDeleteWithHttpInfo(version = version, accountId = accountId, assignmentId = assignmentId)
+    fun assignmentDelete(accountId: kotlin.Long, assignmentId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = assignmentDeleteWithHttpInfo(accountId = accountId, assignmentId = assignmentId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -277,10 +270,9 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/assignment/delete
+     * POST /assignment/delete
      * Delete Assignment
      * Delete an assignment.
-     * @param version 
      * @param accountId the user account id
      * @param assignmentId the assignment id
      * @return ApiResponse<SirqulResponse?>
@@ -289,8 +281,8 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun assignmentDeleteWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, assignmentId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = assignmentDeleteRequestConfig(version = version, accountId = accountId, assignmentId = assignmentId)
+    fun assignmentDeleteWithHttpInfo(accountId: kotlin.Long, assignmentId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = assignmentDeleteRequestConfig(accountId = accountId, assignmentId = assignmentId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -300,12 +292,11 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation assignmentDelete
      *
-     * @param version 
      * @param accountId the user account id
      * @param assignmentId the assignment id
      * @return RequestConfig
      */
-    fun assignmentDeleteRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, assignmentId: kotlin.Long) : RequestConfig<Unit> {
+    fun assignmentDeleteRequestConfig(accountId: kotlin.Long, assignmentId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -316,7 +307,7 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/assignment/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/assignment/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -325,10 +316,9 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/assignment/get
+     * GET /assignment/get
      * Get Assignment
      * Get the details of an assignment.
-     * @param version 
      * @param accountId the user account id
      * @param assignmentId the assignment id
      * @return AssignmentResponse
@@ -340,8 +330,8 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun assignmentGet(version: java.math.BigDecimal, accountId: kotlin.Long, assignmentId: kotlin.Long) : AssignmentResponse {
-        val localVarResponse = assignmentGetWithHttpInfo(version = version, accountId = accountId, assignmentId = assignmentId)
+    fun assignmentGet(accountId: kotlin.Long, assignmentId: kotlin.Long) : AssignmentResponse {
+        val localVarResponse = assignmentGetWithHttpInfo(accountId = accountId, assignmentId = assignmentId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AssignmentResponse
@@ -359,10 +349,9 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/assignment/get
+     * GET /assignment/get
      * Get Assignment
      * Get the details of an assignment.
-     * @param version 
      * @param accountId the user account id
      * @param assignmentId the assignment id
      * @return ApiResponse<AssignmentResponse?>
@@ -371,8 +360,8 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun assignmentGetWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, assignmentId: kotlin.Long) : ApiResponse<AssignmentResponse?> {
-        val localVariableConfig = assignmentGetRequestConfig(version = version, accountId = accountId, assignmentId = assignmentId)
+    fun assignmentGetWithHttpInfo(accountId: kotlin.Long, assignmentId: kotlin.Long) : ApiResponse<AssignmentResponse?> {
+        val localVariableConfig = assignmentGetRequestConfig(accountId = accountId, assignmentId = assignmentId)
 
         return request<Unit, AssignmentResponse>(
             localVariableConfig
@@ -382,12 +371,11 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation assignmentGet
      *
-     * @param version 
      * @param accountId the user account id
      * @param assignmentId the assignment id
      * @return RequestConfig
      */
-    fun assignmentGetRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, assignmentId: kotlin.Long) : RequestConfig<Unit> {
+    fun assignmentGetRequestConfig(accountId: kotlin.Long, assignmentId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -398,7 +386,7 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/assignment/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/assignment/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -454,10 +442,9 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      }
 
     /**
-     * GET /api/{version}/assignment/search
+     * GET /assignment/search
      * Search Assignments
      * Search for assignments by the given parameters.
-     * @param version 
      * @param accountId the account sending the request
      * @param sortField sort by table field
      * @param descending return results in descending order or not
@@ -478,8 +465,8 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun assignmentSearch(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: SortFieldAssignmentSearch, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, creatorAccountId: kotlin.Long? = null, assigneeAccountIds: kotlin.String? = null, retailerLocationIds: kotlin.String? = null, currentStatusType: CurrentStatusTypeAssignmentSearch? = null, keyword: kotlin.String? = null) : kotlin.collections.List<AssignmentResponse> {
-        val localVarResponse = assignmentSearchWithHttpInfo(version = version, accountId = accountId, sortField = sortField, descending = descending, activeOnly = activeOnly, start = start, limit = limit, creatorAccountId = creatorAccountId, assigneeAccountIds = assigneeAccountIds, retailerLocationIds = retailerLocationIds, currentStatusType = currentStatusType, keyword = keyword)
+    fun assignmentSearch(accountId: kotlin.Long, sortField: SortFieldAssignmentSearch, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, creatorAccountId: kotlin.Long? = null, assigneeAccountIds: kotlin.String? = null, retailerLocationIds: kotlin.String? = null, currentStatusType: CurrentStatusTypeAssignmentSearch? = null, keyword: kotlin.String? = null) : kotlin.collections.List<AssignmentResponse> {
+        val localVarResponse = assignmentSearchWithHttpInfo(accountId = accountId, sortField = sortField, descending = descending, activeOnly = activeOnly, start = start, limit = limit, creatorAccountId = creatorAccountId, assigneeAccountIds = assigneeAccountIds, retailerLocationIds = retailerLocationIds, currentStatusType = currentStatusType, keyword = keyword)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<AssignmentResponse>
@@ -497,10 +484,9 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/assignment/search
+     * GET /assignment/search
      * Search Assignments
      * Search for assignments by the given parameters.
-     * @param version 
      * @param accountId the account sending the request
      * @param sortField sort by table field
      * @param descending return results in descending order or not
@@ -518,8 +504,8 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun assignmentSearchWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: SortFieldAssignmentSearch, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, creatorAccountId: kotlin.Long?, assigneeAccountIds: kotlin.String?, retailerLocationIds: kotlin.String?, currentStatusType: CurrentStatusTypeAssignmentSearch?, keyword: kotlin.String?) : ApiResponse<kotlin.collections.List<AssignmentResponse>?> {
-        val localVariableConfig = assignmentSearchRequestConfig(version = version, accountId = accountId, sortField = sortField, descending = descending, activeOnly = activeOnly, start = start, limit = limit, creatorAccountId = creatorAccountId, assigneeAccountIds = assigneeAccountIds, retailerLocationIds = retailerLocationIds, currentStatusType = currentStatusType, keyword = keyword)
+    fun assignmentSearchWithHttpInfo(accountId: kotlin.Long, sortField: SortFieldAssignmentSearch, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, creatorAccountId: kotlin.Long?, assigneeAccountIds: kotlin.String?, retailerLocationIds: kotlin.String?, currentStatusType: CurrentStatusTypeAssignmentSearch?, keyword: kotlin.String?) : ApiResponse<kotlin.collections.List<AssignmentResponse>?> {
+        val localVariableConfig = assignmentSearchRequestConfig(accountId = accountId, sortField = sortField, descending = descending, activeOnly = activeOnly, start = start, limit = limit, creatorAccountId = creatorAccountId, assigneeAccountIds = assigneeAccountIds, retailerLocationIds = retailerLocationIds, currentStatusType = currentStatusType, keyword = keyword)
 
         return request<Unit, kotlin.collections.List<AssignmentResponse>>(
             localVariableConfig
@@ -529,7 +515,6 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation assignmentSearch
      *
-     * @param version 
      * @param accountId the account sending the request
      * @param sortField sort by table field
      * @param descending return results in descending order or not
@@ -543,7 +528,7 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param keyword filter results by keyword search that matches the assignee, creator, or retailer location name (optional)
      * @return RequestConfig
      */
-    fun assignmentSearchRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: SortFieldAssignmentSearch, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, creatorAccountId: kotlin.Long?, assigneeAccountIds: kotlin.String?, retailerLocationIds: kotlin.String?, currentStatusType: CurrentStatusTypeAssignmentSearch?, keyword: kotlin.String?) : RequestConfig<Unit> {
+    fun assignmentSearchRequestConfig(accountId: kotlin.Long, sortField: SortFieldAssignmentSearch, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, creatorAccountId: kotlin.Long?, assigneeAccountIds: kotlin.String?, retailerLocationIds: kotlin.String?, currentStatusType: CurrentStatusTypeAssignmentSearch?, keyword: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -573,7 +558,7 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/assignment/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/assignment/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -678,10 +663,9 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      }
 
     /**
-     * POST /api/{version}/assignment/status/create
+     * POST /assignment/status/create
      * Create Assignment Status
      * Create an assignment status.
-     * @param version 
      * @param accountId the user account id
      * @param assignmentId the assignment id
      * @param scheduledNotificationId the scheduled notification id for reminders (optional)
@@ -702,8 +686,8 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun assignmentStatusCreate(version: java.math.BigDecimal, accountId: kotlin.Long, assignmentId: kotlin.Long, scheduledNotificationId: kotlin.Long? = null, toDo: ToDoAssignmentStatusCreate? = null, connection: ConnectionAssignmentStatusCreate? = null, method: MethodAssignmentStatusCreate? = null, status: StatusAssignmentStatusCreate? = null, closure: ClosureAssignmentStatusCreate? = null, message: kotlin.String? = null, followUp: kotlin.Long? = null, active: kotlin.Boolean? = null) : AssignmentStatusResponse {
-        val localVarResponse = assignmentStatusCreateWithHttpInfo(version = version, accountId = accountId, assignmentId = assignmentId, scheduledNotificationId = scheduledNotificationId, toDo = toDo, connection = connection, method = method, status = status, closure = closure, message = message, followUp = followUp, active = active)
+    fun assignmentStatusCreate(accountId: kotlin.Long, assignmentId: kotlin.Long, scheduledNotificationId: kotlin.Long? = null, toDo: ToDoAssignmentStatusCreate? = null, connection: ConnectionAssignmentStatusCreate? = null, method: MethodAssignmentStatusCreate? = null, status: StatusAssignmentStatusCreate? = null, closure: ClosureAssignmentStatusCreate? = null, message: kotlin.String? = null, followUp: kotlin.Long? = null, active: kotlin.Boolean? = null) : AssignmentStatusResponse {
+        val localVarResponse = assignmentStatusCreateWithHttpInfo(accountId = accountId, assignmentId = assignmentId, scheduledNotificationId = scheduledNotificationId, toDo = toDo, connection = connection, method = method, status = status, closure = closure, message = message, followUp = followUp, active = active)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AssignmentStatusResponse
@@ -721,10 +705,9 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/assignment/status/create
+     * POST /assignment/status/create
      * Create Assignment Status
      * Create an assignment status.
-     * @param version 
      * @param accountId the user account id
      * @param assignmentId the assignment id
      * @param scheduledNotificationId the scheduled notification id for reminders (optional)
@@ -742,8 +725,8 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun assignmentStatusCreateWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, assignmentId: kotlin.Long, scheduledNotificationId: kotlin.Long?, toDo: ToDoAssignmentStatusCreate?, connection: ConnectionAssignmentStatusCreate?, method: MethodAssignmentStatusCreate?, status: StatusAssignmentStatusCreate?, closure: ClosureAssignmentStatusCreate?, message: kotlin.String?, followUp: kotlin.Long?, active: kotlin.Boolean?) : ApiResponse<AssignmentStatusResponse?> {
-        val localVariableConfig = assignmentStatusCreateRequestConfig(version = version, accountId = accountId, assignmentId = assignmentId, scheduledNotificationId = scheduledNotificationId, toDo = toDo, connection = connection, method = method, status = status, closure = closure, message = message, followUp = followUp, active = active)
+    fun assignmentStatusCreateWithHttpInfo(accountId: kotlin.Long, assignmentId: kotlin.Long, scheduledNotificationId: kotlin.Long?, toDo: ToDoAssignmentStatusCreate?, connection: ConnectionAssignmentStatusCreate?, method: MethodAssignmentStatusCreate?, status: StatusAssignmentStatusCreate?, closure: ClosureAssignmentStatusCreate?, message: kotlin.String?, followUp: kotlin.Long?, active: kotlin.Boolean?) : ApiResponse<AssignmentStatusResponse?> {
+        val localVariableConfig = assignmentStatusCreateRequestConfig(accountId = accountId, assignmentId = assignmentId, scheduledNotificationId = scheduledNotificationId, toDo = toDo, connection = connection, method = method, status = status, closure = closure, message = message, followUp = followUp, active = active)
 
         return request<Unit, AssignmentStatusResponse>(
             localVariableConfig
@@ -753,7 +736,6 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation assignmentStatusCreate
      *
-     * @param version 
      * @param accountId the user account id
      * @param assignmentId the assignment id
      * @param scheduledNotificationId the scheduled notification id for reminders (optional)
@@ -767,7 +749,7 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param active determines whether the assignment status is active or inactive (optional)
      * @return RequestConfig
      */
-    fun assignmentStatusCreateRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, assignmentId: kotlin.Long, scheduledNotificationId: kotlin.Long?, toDo: ToDoAssignmentStatusCreate?, connection: ConnectionAssignmentStatusCreate?, method: MethodAssignmentStatusCreate?, status: StatusAssignmentStatusCreate?, closure: ClosureAssignmentStatusCreate?, message: kotlin.String?, followUp: kotlin.Long?, active: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun assignmentStatusCreateRequestConfig(accountId: kotlin.Long, assignmentId: kotlin.Long, scheduledNotificationId: kotlin.Long?, toDo: ToDoAssignmentStatusCreate?, connection: ConnectionAssignmentStatusCreate?, method: MethodAssignmentStatusCreate?, status: StatusAssignmentStatusCreate?, closure: ClosureAssignmentStatusCreate?, message: kotlin.String?, followUp: kotlin.Long?, active: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -805,7 +787,7 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/assignment/status/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/assignment/status/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -814,10 +796,9 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/assignment/status/delete
+     * POST /assignment/status/delete
      * Deletes Assignment Status
      * Deletes an assignment status.
-     * @param version 
      * @param accountId the user account id
      * @param assignmentStatusId the assignment status id
      * @return SirqulResponse
@@ -829,8 +810,8 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun assignmentStatusDelete(version: java.math.BigDecimal, accountId: kotlin.Long, assignmentStatusId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = assignmentStatusDeleteWithHttpInfo(version = version, accountId = accountId, assignmentStatusId = assignmentStatusId)
+    fun assignmentStatusDelete(accountId: kotlin.Long, assignmentStatusId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = assignmentStatusDeleteWithHttpInfo(accountId = accountId, assignmentStatusId = assignmentStatusId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -848,10 +829,9 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/assignment/status/delete
+     * POST /assignment/status/delete
      * Deletes Assignment Status
      * Deletes an assignment status.
-     * @param version 
      * @param accountId the user account id
      * @param assignmentStatusId the assignment status id
      * @return ApiResponse<SirqulResponse?>
@@ -860,8 +840,8 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun assignmentStatusDeleteWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, assignmentStatusId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = assignmentStatusDeleteRequestConfig(version = version, accountId = accountId, assignmentStatusId = assignmentStatusId)
+    fun assignmentStatusDeleteWithHttpInfo(accountId: kotlin.Long, assignmentStatusId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = assignmentStatusDeleteRequestConfig(accountId = accountId, assignmentStatusId = assignmentStatusId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -871,12 +851,11 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation assignmentStatusDelete
      *
-     * @param version 
      * @param accountId the user account id
      * @param assignmentStatusId the assignment status id
      * @return RequestConfig
      */
-    fun assignmentStatusDeleteRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, assignmentStatusId: kotlin.Long) : RequestConfig<Unit> {
+    fun assignmentStatusDeleteRequestConfig(accountId: kotlin.Long, assignmentStatusId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -887,7 +866,7 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/assignment/status/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/assignment/status/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -896,10 +875,9 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/assignment/status/get
+     * GET /assignment/status/get
      * Get Assignment Status
      * Get an assignment status.
-     * @param version 
      * @param accountId the user account id
      * @param assignmentStatusId the assignment status id
      * @return AssignmentStatusResponse
@@ -911,8 +889,8 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun assignmentStatusGet(version: java.math.BigDecimal, accountId: kotlin.Long, assignmentStatusId: kotlin.Long) : AssignmentStatusResponse {
-        val localVarResponse = assignmentStatusGetWithHttpInfo(version = version, accountId = accountId, assignmentStatusId = assignmentStatusId)
+    fun assignmentStatusGet(accountId: kotlin.Long, assignmentStatusId: kotlin.Long) : AssignmentStatusResponse {
+        val localVarResponse = assignmentStatusGetWithHttpInfo(accountId = accountId, assignmentStatusId = assignmentStatusId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AssignmentStatusResponse
@@ -930,10 +908,9 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/assignment/status/get
+     * GET /assignment/status/get
      * Get Assignment Status
      * Get an assignment status.
-     * @param version 
      * @param accountId the user account id
      * @param assignmentStatusId the assignment status id
      * @return ApiResponse<AssignmentStatusResponse?>
@@ -942,8 +919,8 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun assignmentStatusGetWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, assignmentStatusId: kotlin.Long) : ApiResponse<AssignmentStatusResponse?> {
-        val localVariableConfig = assignmentStatusGetRequestConfig(version = version, accountId = accountId, assignmentStatusId = assignmentStatusId)
+    fun assignmentStatusGetWithHttpInfo(accountId: kotlin.Long, assignmentStatusId: kotlin.Long) : ApiResponse<AssignmentStatusResponse?> {
+        val localVariableConfig = assignmentStatusGetRequestConfig(accountId = accountId, assignmentStatusId = assignmentStatusId)
 
         return request<Unit, AssignmentStatusResponse>(
             localVariableConfig
@@ -953,12 +930,11 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation assignmentStatusGet
      *
-     * @param version 
      * @param accountId the user account id
      * @param assignmentStatusId the assignment status id
      * @return RequestConfig
      */
-    fun assignmentStatusGetRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, assignmentStatusId: kotlin.Long) : RequestConfig<Unit> {
+    fun assignmentStatusGetRequestConfig(accountId: kotlin.Long, assignmentStatusId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -969,7 +945,7 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/assignment/status/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/assignment/status/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1033,10 +1009,9 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      }
 
     /**
-     * GET /api/{version}/assignment/status/search
+     * GET /assignment/status/search
      * Search Assignment Statuses
      * Search on assignment statuses.
-     * @param version 
      * @param accountId the user account id
      * @param sortField the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP
      * @param descending determines whether the sorted list is in descending or ascending order
@@ -1058,8 +1033,8 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun assignmentStatusSearch(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: SortFieldAssignmentStatusSearch, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, assignmentId: kotlin.Long? = null, creatorAccountId: kotlin.Long? = null, assigneeAccountId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, statusType: StatusTypeAssignmentStatusSearch? = null, keyword: kotlin.String? = null) : kotlin.collections.List<AssignmentStatusResponse> {
-        val localVarResponse = assignmentStatusSearchWithHttpInfo(version = version, accountId = accountId, sortField = sortField, descending = descending, activeOnly = activeOnly, start = start, limit = limit, assignmentId = assignmentId, creatorAccountId = creatorAccountId, assigneeAccountId = assigneeAccountId, retailerLocationId = retailerLocationId, statusType = statusType, keyword = keyword)
+    fun assignmentStatusSearch(accountId: kotlin.Long, sortField: SortFieldAssignmentStatusSearch, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, assignmentId: kotlin.Long? = null, creatorAccountId: kotlin.Long? = null, assigneeAccountId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, statusType: StatusTypeAssignmentStatusSearch? = null, keyword: kotlin.String? = null) : kotlin.collections.List<AssignmentStatusResponse> {
+        val localVarResponse = assignmentStatusSearchWithHttpInfo(accountId = accountId, sortField = sortField, descending = descending, activeOnly = activeOnly, start = start, limit = limit, assignmentId = assignmentId, creatorAccountId = creatorAccountId, assigneeAccountId = assigneeAccountId, retailerLocationId = retailerLocationId, statusType = statusType, keyword = keyword)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<AssignmentStatusResponse>
@@ -1077,10 +1052,9 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/assignment/status/search
+     * GET /assignment/status/search
      * Search Assignment Statuses
      * Search on assignment statuses.
-     * @param version 
      * @param accountId the user account id
      * @param sortField the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP
      * @param descending determines whether the sorted list is in descending or ascending order
@@ -1099,8 +1073,8 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun assignmentStatusSearchWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: SortFieldAssignmentStatusSearch, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, assignmentId: kotlin.Long?, creatorAccountId: kotlin.Long?, assigneeAccountId: kotlin.Long?, retailerLocationId: kotlin.Long?, statusType: StatusTypeAssignmentStatusSearch?, keyword: kotlin.String?) : ApiResponse<kotlin.collections.List<AssignmentStatusResponse>?> {
-        val localVariableConfig = assignmentStatusSearchRequestConfig(version = version, accountId = accountId, sortField = sortField, descending = descending, activeOnly = activeOnly, start = start, limit = limit, assignmentId = assignmentId, creatorAccountId = creatorAccountId, assigneeAccountId = assigneeAccountId, retailerLocationId = retailerLocationId, statusType = statusType, keyword = keyword)
+    fun assignmentStatusSearchWithHttpInfo(accountId: kotlin.Long, sortField: SortFieldAssignmentStatusSearch, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, assignmentId: kotlin.Long?, creatorAccountId: kotlin.Long?, assigneeAccountId: kotlin.Long?, retailerLocationId: kotlin.Long?, statusType: StatusTypeAssignmentStatusSearch?, keyword: kotlin.String?) : ApiResponse<kotlin.collections.List<AssignmentStatusResponse>?> {
+        val localVariableConfig = assignmentStatusSearchRequestConfig(accountId = accountId, sortField = sortField, descending = descending, activeOnly = activeOnly, start = start, limit = limit, assignmentId = assignmentId, creatorAccountId = creatorAccountId, assigneeAccountId = assigneeAccountId, retailerLocationId = retailerLocationId, statusType = statusType, keyword = keyword)
 
         return request<Unit, kotlin.collections.List<AssignmentStatusResponse>>(
             localVariableConfig
@@ -1110,7 +1084,6 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation assignmentStatusSearch
      *
-     * @param version 
      * @param accountId the user account id
      * @param sortField the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP
      * @param descending determines whether the sorted list is in descending or ascending order
@@ -1125,7 +1098,7 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param keyword filter results by keyword search (optional)
      * @return RequestConfig
      */
-    fun assignmentStatusSearchRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: SortFieldAssignmentStatusSearch, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, assignmentId: kotlin.Long?, creatorAccountId: kotlin.Long?, assigneeAccountId: kotlin.Long?, retailerLocationId: kotlin.Long?, statusType: StatusTypeAssignmentStatusSearch?, keyword: kotlin.String?) : RequestConfig<Unit> {
+    fun assignmentStatusSearchRequestConfig(accountId: kotlin.Long, sortField: SortFieldAssignmentStatusSearch, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, assignmentId: kotlin.Long?, creatorAccountId: kotlin.Long?, assigneeAccountId: kotlin.Long?, retailerLocationId: kotlin.Long?, statusType: StatusTypeAssignmentStatusSearch?, keyword: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1158,7 +1131,7 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/assignment/status/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/assignment/status/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1263,10 +1236,9 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      }
 
     /**
-     * POST /api/{version}/assignment/status/update
+     * POST /assignment/status/update
      * Update Assignment Status
      * Updates an assignment status.
-     * @param version 
      * @param accountId the user account id
      * @param assignmentStatusId the assignment status id
      * @param scheduledNotificationId the scheduled notification id for reminders (optional)
@@ -1287,8 +1259,8 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun assignmentStatusUpdate(version: java.math.BigDecimal, accountId: kotlin.Long, assignmentStatusId: kotlin.Long, scheduledNotificationId: kotlin.Long? = null, toDo: ToDoAssignmentStatusUpdate? = null, connection: ConnectionAssignmentStatusUpdate? = null, method: MethodAssignmentStatusUpdate? = null, status: StatusAssignmentStatusUpdate? = null, closure: ClosureAssignmentStatusUpdate? = null, message: kotlin.String? = null, followUp: kotlin.Long? = null, active: kotlin.Boolean? = null) : AssignmentStatusResponse {
-        val localVarResponse = assignmentStatusUpdateWithHttpInfo(version = version, accountId = accountId, assignmentStatusId = assignmentStatusId, scheduledNotificationId = scheduledNotificationId, toDo = toDo, connection = connection, method = method, status = status, closure = closure, message = message, followUp = followUp, active = active)
+    fun assignmentStatusUpdate(accountId: kotlin.Long, assignmentStatusId: kotlin.Long, scheduledNotificationId: kotlin.Long? = null, toDo: ToDoAssignmentStatusUpdate? = null, connection: ConnectionAssignmentStatusUpdate? = null, method: MethodAssignmentStatusUpdate? = null, status: StatusAssignmentStatusUpdate? = null, closure: ClosureAssignmentStatusUpdate? = null, message: kotlin.String? = null, followUp: kotlin.Long? = null, active: kotlin.Boolean? = null) : AssignmentStatusResponse {
+        val localVarResponse = assignmentStatusUpdateWithHttpInfo(accountId = accountId, assignmentStatusId = assignmentStatusId, scheduledNotificationId = scheduledNotificationId, toDo = toDo, connection = connection, method = method, status = status, closure = closure, message = message, followUp = followUp, active = active)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AssignmentStatusResponse
@@ -1306,10 +1278,9 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/assignment/status/update
+     * POST /assignment/status/update
      * Update Assignment Status
      * Updates an assignment status.
-     * @param version 
      * @param accountId the user account id
      * @param assignmentStatusId the assignment status id
      * @param scheduledNotificationId the scheduled notification id for reminders (optional)
@@ -1327,8 +1298,8 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun assignmentStatusUpdateWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, assignmentStatusId: kotlin.Long, scheduledNotificationId: kotlin.Long?, toDo: ToDoAssignmentStatusUpdate?, connection: ConnectionAssignmentStatusUpdate?, method: MethodAssignmentStatusUpdate?, status: StatusAssignmentStatusUpdate?, closure: ClosureAssignmentStatusUpdate?, message: kotlin.String?, followUp: kotlin.Long?, active: kotlin.Boolean?) : ApiResponse<AssignmentStatusResponse?> {
-        val localVariableConfig = assignmentStatusUpdateRequestConfig(version = version, accountId = accountId, assignmentStatusId = assignmentStatusId, scheduledNotificationId = scheduledNotificationId, toDo = toDo, connection = connection, method = method, status = status, closure = closure, message = message, followUp = followUp, active = active)
+    fun assignmentStatusUpdateWithHttpInfo(accountId: kotlin.Long, assignmentStatusId: kotlin.Long, scheduledNotificationId: kotlin.Long?, toDo: ToDoAssignmentStatusUpdate?, connection: ConnectionAssignmentStatusUpdate?, method: MethodAssignmentStatusUpdate?, status: StatusAssignmentStatusUpdate?, closure: ClosureAssignmentStatusUpdate?, message: kotlin.String?, followUp: kotlin.Long?, active: kotlin.Boolean?) : ApiResponse<AssignmentStatusResponse?> {
+        val localVariableConfig = assignmentStatusUpdateRequestConfig(accountId = accountId, assignmentStatusId = assignmentStatusId, scheduledNotificationId = scheduledNotificationId, toDo = toDo, connection = connection, method = method, status = status, closure = closure, message = message, followUp = followUp, active = active)
 
         return request<Unit, AssignmentStatusResponse>(
             localVariableConfig
@@ -1338,7 +1309,6 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation assignmentStatusUpdate
      *
-     * @param version 
      * @param accountId the user account id
      * @param assignmentStatusId the assignment status id
      * @param scheduledNotificationId the scheduled notification id for reminders (optional)
@@ -1352,7 +1322,7 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param active determines whether the assignment status is active or inactive (optional)
      * @return RequestConfig
      */
-    fun assignmentStatusUpdateRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, assignmentStatusId: kotlin.Long, scheduledNotificationId: kotlin.Long?, toDo: ToDoAssignmentStatusUpdate?, connection: ConnectionAssignmentStatusUpdate?, method: MethodAssignmentStatusUpdate?, status: StatusAssignmentStatusUpdate?, closure: ClosureAssignmentStatusUpdate?, message: kotlin.String?, followUp: kotlin.Long?, active: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun assignmentStatusUpdateRequestConfig(accountId: kotlin.Long, assignmentStatusId: kotlin.Long, scheduledNotificationId: kotlin.Long?, toDo: ToDoAssignmentStatusUpdate?, connection: ConnectionAssignmentStatusUpdate?, method: MethodAssignmentStatusUpdate?, status: StatusAssignmentStatusUpdate?, closure: ClosureAssignmentStatusUpdate?, message: kotlin.String?, followUp: kotlin.Long?, active: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1390,7 +1360,7 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/assignment/status/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/assignment/status/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1399,10 +1369,9 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/assignment/update
+     * POST /assignment/update
      * Update Assignment
      * Updates an assignment.
-     * @param version 
      * @param accountId the user account id
      * @param assignmentId the assignment id
      * @param name the name of the assignment (optional)
@@ -1420,8 +1389,8 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun assignmentUpdate(version: java.math.BigDecimal, accountId: kotlin.Long, assignmentId: kotlin.Long, name: kotlin.String? = null, description: kotlin.String? = null, assigneeAccountId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, tags: kotlin.String? = null, active: kotlin.Boolean? = null) : AssignmentResponse {
-        val localVarResponse = assignmentUpdateWithHttpInfo(version = version, accountId = accountId, assignmentId = assignmentId, name = name, description = description, assigneeAccountId = assigneeAccountId, retailerLocationId = retailerLocationId, tags = tags, active = active)
+    fun assignmentUpdate(accountId: kotlin.Long, assignmentId: kotlin.Long, name: kotlin.String? = null, description: kotlin.String? = null, assigneeAccountId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, tags: kotlin.String? = null, active: kotlin.Boolean? = null) : AssignmentResponse {
+        val localVarResponse = assignmentUpdateWithHttpInfo(accountId = accountId, assignmentId = assignmentId, name = name, description = description, assigneeAccountId = assigneeAccountId, retailerLocationId = retailerLocationId, tags = tags, active = active)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AssignmentResponse
@@ -1439,10 +1408,9 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/assignment/update
+     * POST /assignment/update
      * Update Assignment
      * Updates an assignment.
-     * @param version 
      * @param accountId the user account id
      * @param assignmentId the assignment id
      * @param name the name of the assignment (optional)
@@ -1457,8 +1425,8 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun assignmentUpdateWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, assignmentId: kotlin.Long, name: kotlin.String?, description: kotlin.String?, assigneeAccountId: kotlin.Long?, retailerLocationId: kotlin.Long?, tags: kotlin.String?, active: kotlin.Boolean?) : ApiResponse<AssignmentResponse?> {
-        val localVariableConfig = assignmentUpdateRequestConfig(version = version, accountId = accountId, assignmentId = assignmentId, name = name, description = description, assigneeAccountId = assigneeAccountId, retailerLocationId = retailerLocationId, tags = tags, active = active)
+    fun assignmentUpdateWithHttpInfo(accountId: kotlin.Long, assignmentId: kotlin.Long, name: kotlin.String?, description: kotlin.String?, assigneeAccountId: kotlin.Long?, retailerLocationId: kotlin.Long?, tags: kotlin.String?, active: kotlin.Boolean?) : ApiResponse<AssignmentResponse?> {
+        val localVariableConfig = assignmentUpdateRequestConfig(accountId = accountId, assignmentId = assignmentId, name = name, description = description, assigneeAccountId = assigneeAccountId, retailerLocationId = retailerLocationId, tags = tags, active = active)
 
         return request<Unit, AssignmentResponse>(
             localVariableConfig
@@ -1468,7 +1436,6 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation assignmentUpdate
      *
-     * @param version 
      * @param accountId the user account id
      * @param assignmentId the assignment id
      * @param name the name of the assignment (optional)
@@ -1479,7 +1446,7 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param active determines whether the assignment is active or inactive (optional)
      * @return RequestConfig
      */
-    fun assignmentUpdateRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, assignmentId: kotlin.Long, name: kotlin.String?, description: kotlin.String?, assigneeAccountId: kotlin.Long?, retailerLocationId: kotlin.Long?, tags: kotlin.String?, active: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun assignmentUpdateRequestConfig(accountId: kotlin.Long, assignmentId: kotlin.Long, name: kotlin.String?, description: kotlin.String?, assigneeAccountId: kotlin.Long?, retailerLocationId: kotlin.Long?, tags: kotlin.String?, active: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1508,7 +1475,7 @@ open class AssignmentApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/assignment/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/assignment/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

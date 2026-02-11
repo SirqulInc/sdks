@@ -46,15 +46,14 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/audience/create
+     * POST /audience/create
      * Create Audience
      * Create a user defined audience.
-     * @param version 
      * @param accountId The logged in user.
      * @param name The name of the audience
      * @param description The description of the audience (optional)
@@ -93,8 +92,8 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createAudience(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, description: kotlin.String? = null, searchTags: kotlin.String? = null, gender: kotlin.String? = null, ageGroups: kotlin.String? = null, categoryIds: kotlin.String? = null, applicationIds: kotlin.String? = null, gameExperienceLevel: kotlin.String? = null, devices: kotlin.String? = null, deviceIds: kotlin.String? = null, deviceVersions: kotlin.String? = null, locations: kotlin.String? = null, radius: kotlin.String? = null, startTimeOffset: kotlin.Int? = null, endTimeOffset: kotlin.Int? = null, sendSuggestion: kotlin.Boolean? = true, associateDescription: kotlin.String? = null, associateType: kotlin.String? = null, associateId: kotlin.Long? = null, groupingId: kotlin.String? = null, metaData: kotlin.String? = null, visibility: kotlin.String? = null, audienceType: kotlin.String? = null, useOrder: kotlin.Boolean? = null, cohortRegionsData: kotlin.String? = null, appKey: kotlin.String? = null, trilaterationTypes: kotlin.String? = null, uniqueName: kotlin.Boolean? = null) : AudienceResponse {
-        val localVarResponse = createAudienceWithHttpInfo(version = version, accountId = accountId, name = name, description = description, searchTags = searchTags, gender = gender, ageGroups = ageGroups, categoryIds = categoryIds, applicationIds = applicationIds, gameExperienceLevel = gameExperienceLevel, devices = devices, deviceIds = deviceIds, deviceVersions = deviceVersions, locations = locations, radius = radius, startTimeOffset = startTimeOffset, endTimeOffset = endTimeOffset, sendSuggestion = sendSuggestion, associateDescription = associateDescription, associateType = associateType, associateId = associateId, groupingId = groupingId, metaData = metaData, visibility = visibility, audienceType = audienceType, useOrder = useOrder, cohortRegionsData = cohortRegionsData, appKey = appKey, trilaterationTypes = trilaterationTypes, uniqueName = uniqueName)
+    fun createAudience(accountId: kotlin.Long, name: kotlin.String, description: kotlin.String? = null, searchTags: kotlin.String? = null, gender: kotlin.String? = null, ageGroups: kotlin.String? = null, categoryIds: kotlin.String? = null, applicationIds: kotlin.String? = null, gameExperienceLevel: kotlin.String? = null, devices: kotlin.String? = null, deviceIds: kotlin.String? = null, deviceVersions: kotlin.String? = null, locations: kotlin.String? = null, radius: kotlin.String? = null, startTimeOffset: kotlin.Int? = null, endTimeOffset: kotlin.Int? = null, sendSuggestion: kotlin.Boolean? = true, associateDescription: kotlin.String? = null, associateType: kotlin.String? = null, associateId: kotlin.Long? = null, groupingId: kotlin.String? = null, metaData: kotlin.String? = null, visibility: kotlin.String? = null, audienceType: kotlin.String? = null, useOrder: kotlin.Boolean? = null, cohortRegionsData: kotlin.String? = null, appKey: kotlin.String? = null, trilaterationTypes: kotlin.String? = null, uniqueName: kotlin.Boolean? = null) : AudienceResponse {
+        val localVarResponse = createAudienceWithHttpInfo(accountId = accountId, name = name, description = description, searchTags = searchTags, gender = gender, ageGroups = ageGroups, categoryIds = categoryIds, applicationIds = applicationIds, gameExperienceLevel = gameExperienceLevel, devices = devices, deviceIds = deviceIds, deviceVersions = deviceVersions, locations = locations, radius = radius, startTimeOffset = startTimeOffset, endTimeOffset = endTimeOffset, sendSuggestion = sendSuggestion, associateDescription = associateDescription, associateType = associateType, associateId = associateId, groupingId = groupingId, metaData = metaData, visibility = visibility, audienceType = audienceType, useOrder = useOrder, cohortRegionsData = cohortRegionsData, appKey = appKey, trilaterationTypes = trilaterationTypes, uniqueName = uniqueName)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AudienceResponse
@@ -112,10 +111,9 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/audience/create
+     * POST /audience/create
      * Create Audience
      * Create a user defined audience.
-     * @param version 
      * @param accountId The logged in user.
      * @param name The name of the audience
      * @param description The description of the audience (optional)
@@ -151,8 +149,8 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createAudienceWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, description: kotlin.String?, searchTags: kotlin.String?, gender: kotlin.String?, ageGroups: kotlin.String?, categoryIds: kotlin.String?, applicationIds: kotlin.String?, gameExperienceLevel: kotlin.String?, devices: kotlin.String?, deviceIds: kotlin.String?, deviceVersions: kotlin.String?, locations: kotlin.String?, radius: kotlin.String?, startTimeOffset: kotlin.Int?, endTimeOffset: kotlin.Int?, sendSuggestion: kotlin.Boolean?, associateDescription: kotlin.String?, associateType: kotlin.String?, associateId: kotlin.Long?, groupingId: kotlin.String?, metaData: kotlin.String?, visibility: kotlin.String?, audienceType: kotlin.String?, useOrder: kotlin.Boolean?, cohortRegionsData: kotlin.String?, appKey: kotlin.String?, trilaterationTypes: kotlin.String?, uniqueName: kotlin.Boolean?) : ApiResponse<AudienceResponse?> {
-        val localVariableConfig = createAudienceRequestConfig(version = version, accountId = accountId, name = name, description = description, searchTags = searchTags, gender = gender, ageGroups = ageGroups, categoryIds = categoryIds, applicationIds = applicationIds, gameExperienceLevel = gameExperienceLevel, devices = devices, deviceIds = deviceIds, deviceVersions = deviceVersions, locations = locations, radius = radius, startTimeOffset = startTimeOffset, endTimeOffset = endTimeOffset, sendSuggestion = sendSuggestion, associateDescription = associateDescription, associateType = associateType, associateId = associateId, groupingId = groupingId, metaData = metaData, visibility = visibility, audienceType = audienceType, useOrder = useOrder, cohortRegionsData = cohortRegionsData, appKey = appKey, trilaterationTypes = trilaterationTypes, uniqueName = uniqueName)
+    fun createAudienceWithHttpInfo(accountId: kotlin.Long, name: kotlin.String, description: kotlin.String?, searchTags: kotlin.String?, gender: kotlin.String?, ageGroups: kotlin.String?, categoryIds: kotlin.String?, applicationIds: kotlin.String?, gameExperienceLevel: kotlin.String?, devices: kotlin.String?, deviceIds: kotlin.String?, deviceVersions: kotlin.String?, locations: kotlin.String?, radius: kotlin.String?, startTimeOffset: kotlin.Int?, endTimeOffset: kotlin.Int?, sendSuggestion: kotlin.Boolean?, associateDescription: kotlin.String?, associateType: kotlin.String?, associateId: kotlin.Long?, groupingId: kotlin.String?, metaData: kotlin.String?, visibility: kotlin.String?, audienceType: kotlin.String?, useOrder: kotlin.Boolean?, cohortRegionsData: kotlin.String?, appKey: kotlin.String?, trilaterationTypes: kotlin.String?, uniqueName: kotlin.Boolean?) : ApiResponse<AudienceResponse?> {
+        val localVariableConfig = createAudienceRequestConfig(accountId = accountId, name = name, description = description, searchTags = searchTags, gender = gender, ageGroups = ageGroups, categoryIds = categoryIds, applicationIds = applicationIds, gameExperienceLevel = gameExperienceLevel, devices = devices, deviceIds = deviceIds, deviceVersions = deviceVersions, locations = locations, radius = radius, startTimeOffset = startTimeOffset, endTimeOffset = endTimeOffset, sendSuggestion = sendSuggestion, associateDescription = associateDescription, associateType = associateType, associateId = associateId, groupingId = groupingId, metaData = metaData, visibility = visibility, audienceType = audienceType, useOrder = useOrder, cohortRegionsData = cohortRegionsData, appKey = appKey, trilaterationTypes = trilaterationTypes, uniqueName = uniqueName)
 
         return request<Unit, AudienceResponse>(
             localVariableConfig
@@ -162,7 +160,6 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation createAudience
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param name The name of the audience
      * @param description The description of the audience (optional)
@@ -194,7 +191,7 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param uniqueName If true, makes sure the audience name is unique (optional)
      * @return RequestConfig
      */
-    fun createAudienceRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, description: kotlin.String?, searchTags: kotlin.String?, gender: kotlin.String?, ageGroups: kotlin.String?, categoryIds: kotlin.String?, applicationIds: kotlin.String?, gameExperienceLevel: kotlin.String?, devices: kotlin.String?, deviceIds: kotlin.String?, deviceVersions: kotlin.String?, locations: kotlin.String?, radius: kotlin.String?, startTimeOffset: kotlin.Int?, endTimeOffset: kotlin.Int?, sendSuggestion: kotlin.Boolean?, associateDescription: kotlin.String?, associateType: kotlin.String?, associateId: kotlin.Long?, groupingId: kotlin.String?, metaData: kotlin.String?, visibility: kotlin.String?, audienceType: kotlin.String?, useOrder: kotlin.Boolean?, cohortRegionsData: kotlin.String?, appKey: kotlin.String?, trilaterationTypes: kotlin.String?, uniqueName: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun createAudienceRequestConfig(accountId: kotlin.Long, name: kotlin.String, description: kotlin.String?, searchTags: kotlin.String?, gender: kotlin.String?, ageGroups: kotlin.String?, categoryIds: kotlin.String?, applicationIds: kotlin.String?, gameExperienceLevel: kotlin.String?, devices: kotlin.String?, deviceIds: kotlin.String?, deviceVersions: kotlin.String?, locations: kotlin.String?, radius: kotlin.String?, startTimeOffset: kotlin.Int?, endTimeOffset: kotlin.Int?, sendSuggestion: kotlin.Boolean?, associateDescription: kotlin.String?, associateType: kotlin.String?, associateId: kotlin.Long?, groupingId: kotlin.String?, metaData: kotlin.String?, visibility: kotlin.String?, audienceType: kotlin.String?, useOrder: kotlin.Boolean?, cohortRegionsData: kotlin.String?, appKey: kotlin.String?, trilaterationTypes: kotlin.String?, uniqueName: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -286,7 +283,7 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/audience/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/audience/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -295,10 +292,9 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/audience/delete
+     * POST /audience/delete
      * Delete Audience
      * Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
-     * @param version 
      * @param accountId The logged in user.
      * @param audienceId The id of the audience to delete.
      * @return SirqulResponse
@@ -310,8 +306,8 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteAudience(version: java.math.BigDecimal, accountId: kotlin.Long, audienceId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = deleteAudienceWithHttpInfo(version = version, accountId = accountId, audienceId = audienceId)
+    fun deleteAudience(accountId: kotlin.Long, audienceId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = deleteAudienceWithHttpInfo(accountId = accountId, audienceId = audienceId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -329,10 +325,9 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/audience/delete
+     * POST /audience/delete
      * Delete Audience
      * Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
-     * @param version 
      * @param accountId The logged in user.
      * @param audienceId The id of the audience to delete.
      * @return ApiResponse<SirqulResponse?>
@@ -341,8 +336,8 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteAudienceWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, audienceId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteAudienceRequestConfig(version = version, accountId = accountId, audienceId = audienceId)
+    fun deleteAudienceWithHttpInfo(accountId: kotlin.Long, audienceId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteAudienceRequestConfig(accountId = accountId, audienceId = audienceId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -352,12 +347,11 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation deleteAudience
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param audienceId The id of the audience to delete.
      * @return RequestConfig
      */
-    fun deleteAudienceRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, audienceId: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteAudienceRequestConfig(accountId: kotlin.Long, audienceId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -368,7 +362,7 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/audience/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/audience/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -377,10 +371,9 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/audience/ageGroups
+     * GET /audience/ageGroups
      * Get Age Groups
      * Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
-     * @param version 
      * @return kotlin.collections.List<AgeGroupResponse>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -390,8 +383,8 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAgeGroups(version: java.math.BigDecimal) : kotlin.collections.List<AgeGroupResponse> {
-        val localVarResponse = getAgeGroupsWithHttpInfo(version = version)
+    fun getAgeGroups() : kotlin.collections.List<AgeGroupResponse> {
+        val localVarResponse = getAgeGroupsWithHttpInfo()
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<AgeGroupResponse>
@@ -409,18 +402,17 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/audience/ageGroups
+     * GET /audience/ageGroups
      * Get Age Groups
      * Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
-     * @param version 
      * @return ApiResponse<kotlin.collections.List<AgeGroupResponse>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAgeGroupsWithHttpInfo(version: java.math.BigDecimal) : ApiResponse<kotlin.collections.List<AgeGroupResponse>?> {
-        val localVariableConfig = getAgeGroupsRequestConfig(version = version)
+    fun getAgeGroupsWithHttpInfo() : ApiResponse<kotlin.collections.List<AgeGroupResponse>?> {
+        val localVariableConfig = getAgeGroupsRequestConfig()
 
         return request<Unit, kotlin.collections.List<AgeGroupResponse>>(
             localVariableConfig
@@ -430,17 +422,16 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation getAgeGroups
      *
-     * @param version 
      * @return RequestConfig
      */
-    fun getAgeGroupsRequestConfig(version: java.math.BigDecimal) : RequestConfig<Unit> {
+    fun getAgeGroupsRequestConfig() : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/audience/ageGroups".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/audience/ageGroups",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -449,10 +440,9 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/audience/get
+     * GET /audience/get
      * Get Audience
      * Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
-     * @param version 
      * @param accountId The logged in user.
      * @param audienceId The id of the audience to return.
      * @param appKey The application key (optional). If provided, results may be scoped to this application. (optional)
@@ -468,8 +458,8 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAudience(version: java.math.BigDecimal, accountId: kotlin.Long, audienceId: kotlin.Long, appKey: kotlin.String? = null, returnAccountCount: kotlin.Boolean? = false, returnAlbumCount: kotlin.Boolean? = false, albumTypesForCount: kotlin.String? = null) : AudienceResponse {
-        val localVarResponse = getAudienceWithHttpInfo(version = version, accountId = accountId, audienceId = audienceId, appKey = appKey, returnAccountCount = returnAccountCount, returnAlbumCount = returnAlbumCount, albumTypesForCount = albumTypesForCount)
+    fun getAudience(accountId: kotlin.Long, audienceId: kotlin.Long, appKey: kotlin.String? = null, returnAccountCount: kotlin.Boolean? = false, returnAlbumCount: kotlin.Boolean? = false, albumTypesForCount: kotlin.String? = null) : AudienceResponse {
+        val localVarResponse = getAudienceWithHttpInfo(accountId = accountId, audienceId = audienceId, appKey = appKey, returnAccountCount = returnAccountCount, returnAlbumCount = returnAlbumCount, albumTypesForCount = albumTypesForCount)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AudienceResponse
@@ -487,10 +477,9 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/audience/get
+     * GET /audience/get
      * Get Audience
      * Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
-     * @param version 
      * @param accountId The logged in user.
      * @param audienceId The id of the audience to return.
      * @param appKey The application key (optional). If provided, results may be scoped to this application. (optional)
@@ -503,8 +492,8 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAudienceWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, audienceId: kotlin.Long, appKey: kotlin.String?, returnAccountCount: kotlin.Boolean?, returnAlbumCount: kotlin.Boolean?, albumTypesForCount: kotlin.String?) : ApiResponse<AudienceResponse?> {
-        val localVariableConfig = getAudienceRequestConfig(version = version, accountId = accountId, audienceId = audienceId, appKey = appKey, returnAccountCount = returnAccountCount, returnAlbumCount = returnAlbumCount, albumTypesForCount = albumTypesForCount)
+    fun getAudienceWithHttpInfo(accountId: kotlin.Long, audienceId: kotlin.Long, appKey: kotlin.String?, returnAccountCount: kotlin.Boolean?, returnAlbumCount: kotlin.Boolean?, albumTypesForCount: kotlin.String?) : ApiResponse<AudienceResponse?> {
+        val localVariableConfig = getAudienceRequestConfig(accountId = accountId, audienceId = audienceId, appKey = appKey, returnAccountCount = returnAccountCount, returnAlbumCount = returnAlbumCount, albumTypesForCount = albumTypesForCount)
 
         return request<Unit, AudienceResponse>(
             localVariableConfig
@@ -514,7 +503,6 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation getAudience
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param audienceId The id of the audience to return.
      * @param appKey The application key (optional). If provided, results may be scoped to this application. (optional)
@@ -523,7 +511,7 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param albumTypesForCount (String) comma separated list, return an array with each item is the count of each album type. If not provided, \&quot;all_types\&quot; count is returned. (optional)
      * @return RequestConfig
      */
-    fun getAudienceRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, audienceId: kotlin.Long, appKey: kotlin.String?, returnAccountCount: kotlin.Boolean?, returnAlbumCount: kotlin.Boolean?, albumTypesForCount: kotlin.String?) : RequestConfig<Unit> {
+    fun getAudienceRequestConfig(accountId: kotlin.Long, audienceId: kotlin.Long, appKey: kotlin.String?, returnAccountCount: kotlin.Boolean?, returnAlbumCount: kotlin.Boolean?, albumTypesForCount: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -546,7 +534,7 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/audience/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/audience/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -582,10 +570,9 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      }
 
     /**
-     * GET /api/{version}/audience/search
+     * GET /audience/search
      * Search Audiences
      * Get the list audiences owned by the account
-     * @param version 
      * @param accountId The logged in user. (optional)
      * @param albumIds Comma separated list of album IDs to filter results with (optional)
      * @param keyword The keyword used to search (optional)
@@ -614,8 +601,8 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAudienceList(version: java.math.BigDecimal, accountId: kotlin.Long? = null, albumIds: kotlin.String? = null, keyword: kotlin.String? = null, keywordFields: kotlin.String? = "SEARCH_TAGS,NAME,DESCRIPTION", sortField: SortFieldGetAudienceList? = SortFieldGetAudienceList.NAME, descending: kotlin.Boolean? = false, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, sendSuggestion: kotlin.Boolean? = null, activeOnly: kotlin.Boolean? = null, groupByGroupingId: kotlin.Boolean? = null, appKey: kotlin.String? = null, returnGlobal: kotlin.Boolean? = null, exactKeyword: kotlin.Boolean? = null, audienceType: kotlin.String? = null, audienceTypes: kotlin.String? = null, returnAccountCount: kotlin.Boolean? = false, returnAlbumCount: kotlin.Boolean? = false, albumTypesForCount: kotlin.String? = null) : kotlin.collections.List<SearchResponse> {
-        val localVarResponse = getAudienceListWithHttpInfo(version = version, accountId = accountId, albumIds = albumIds, keyword = keyword, keywordFields = keywordFields, sortField = sortField, descending = descending, start = start, limit = limit, sendSuggestion = sendSuggestion, activeOnly = activeOnly, groupByGroupingId = groupByGroupingId, appKey = appKey, returnGlobal = returnGlobal, exactKeyword = exactKeyword, audienceType = audienceType, audienceTypes = audienceTypes, returnAccountCount = returnAccountCount, returnAlbumCount = returnAlbumCount, albumTypesForCount = albumTypesForCount)
+    fun getAudienceList(accountId: kotlin.Long? = null, albumIds: kotlin.String? = null, keyword: kotlin.String? = null, keywordFields: kotlin.String? = "SEARCH_TAGS,NAME,DESCRIPTION", sortField: SortFieldGetAudienceList? = SortFieldGetAudienceList.NAME, descending: kotlin.Boolean? = false, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, sendSuggestion: kotlin.Boolean? = null, activeOnly: kotlin.Boolean? = null, groupByGroupingId: kotlin.Boolean? = null, appKey: kotlin.String? = null, returnGlobal: kotlin.Boolean? = null, exactKeyword: kotlin.Boolean? = null, audienceType: kotlin.String? = null, audienceTypes: kotlin.String? = null, returnAccountCount: kotlin.Boolean? = false, returnAlbumCount: kotlin.Boolean? = false, albumTypesForCount: kotlin.String? = null) : kotlin.collections.List<SearchResponse> {
+        val localVarResponse = getAudienceListWithHttpInfo(accountId = accountId, albumIds = albumIds, keyword = keyword, keywordFields = keywordFields, sortField = sortField, descending = descending, start = start, limit = limit, sendSuggestion = sendSuggestion, activeOnly = activeOnly, groupByGroupingId = groupByGroupingId, appKey = appKey, returnGlobal = returnGlobal, exactKeyword = exactKeyword, audienceType = audienceType, audienceTypes = audienceTypes, returnAccountCount = returnAccountCount, returnAlbumCount = returnAlbumCount, albumTypesForCount = albumTypesForCount)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<SearchResponse>
@@ -633,10 +620,9 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/audience/search
+     * GET /audience/search
      * Search Audiences
      * Get the list audiences owned by the account
-     * @param version 
      * @param accountId The logged in user. (optional)
      * @param albumIds Comma separated list of album IDs to filter results with (optional)
      * @param keyword The keyword used to search (optional)
@@ -662,8 +648,8 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAudienceListWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long?, albumIds: kotlin.String?, keyword: kotlin.String?, keywordFields: kotlin.String?, sortField: SortFieldGetAudienceList?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, sendSuggestion: kotlin.Boolean?, activeOnly: kotlin.Boolean?, groupByGroupingId: kotlin.Boolean?, appKey: kotlin.String?, returnGlobal: kotlin.Boolean?, exactKeyword: kotlin.Boolean?, audienceType: kotlin.String?, audienceTypes: kotlin.String?, returnAccountCount: kotlin.Boolean?, returnAlbumCount: kotlin.Boolean?, albumTypesForCount: kotlin.String?) : ApiResponse<kotlin.collections.List<SearchResponse>?> {
-        val localVariableConfig = getAudienceListRequestConfig(version = version, accountId = accountId, albumIds = albumIds, keyword = keyword, keywordFields = keywordFields, sortField = sortField, descending = descending, start = start, limit = limit, sendSuggestion = sendSuggestion, activeOnly = activeOnly, groupByGroupingId = groupByGroupingId, appKey = appKey, returnGlobal = returnGlobal, exactKeyword = exactKeyword, audienceType = audienceType, audienceTypes = audienceTypes, returnAccountCount = returnAccountCount, returnAlbumCount = returnAlbumCount, albumTypesForCount = albumTypesForCount)
+    fun getAudienceListWithHttpInfo(accountId: kotlin.Long?, albumIds: kotlin.String?, keyword: kotlin.String?, keywordFields: kotlin.String?, sortField: SortFieldGetAudienceList?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, sendSuggestion: kotlin.Boolean?, activeOnly: kotlin.Boolean?, groupByGroupingId: kotlin.Boolean?, appKey: kotlin.String?, returnGlobal: kotlin.Boolean?, exactKeyword: kotlin.Boolean?, audienceType: kotlin.String?, audienceTypes: kotlin.String?, returnAccountCount: kotlin.Boolean?, returnAlbumCount: kotlin.Boolean?, albumTypesForCount: kotlin.String?) : ApiResponse<kotlin.collections.List<SearchResponse>?> {
+        val localVariableConfig = getAudienceListRequestConfig(accountId = accountId, albumIds = albumIds, keyword = keyword, keywordFields = keywordFields, sortField = sortField, descending = descending, start = start, limit = limit, sendSuggestion = sendSuggestion, activeOnly = activeOnly, groupByGroupingId = groupByGroupingId, appKey = appKey, returnGlobal = returnGlobal, exactKeyword = exactKeyword, audienceType = audienceType, audienceTypes = audienceTypes, returnAccountCount = returnAccountCount, returnAlbumCount = returnAlbumCount, albumTypesForCount = albumTypesForCount)
 
         return request<Unit, kotlin.collections.List<SearchResponse>>(
             localVariableConfig
@@ -673,7 +659,6 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation getAudienceList
      *
-     * @param version 
      * @param accountId The logged in user. (optional)
      * @param albumIds Comma separated list of album IDs to filter results with (optional)
      * @param keyword The keyword used to search (optional)
@@ -695,7 +680,7 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param albumTypesForCount (String) comma separated list, return an array with each item is the count of each album type. If not provided, \&quot;all_types\&quot; count is returned. (optional)
      * @return RequestConfig
      */
-    fun getAudienceListRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long?, albumIds: kotlin.String?, keyword: kotlin.String?, keywordFields: kotlin.String?, sortField: SortFieldGetAudienceList?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, sendSuggestion: kotlin.Boolean?, activeOnly: kotlin.Boolean?, groupByGroupingId: kotlin.Boolean?, appKey: kotlin.String?, returnGlobal: kotlin.Boolean?, exactKeyword: kotlin.Boolean?, audienceType: kotlin.String?, audienceTypes: kotlin.String?, returnAccountCount: kotlin.Boolean?, returnAlbumCount: kotlin.Boolean?, albumTypesForCount: kotlin.String?) : RequestConfig<Unit> {
+    fun getAudienceListRequestConfig(accountId: kotlin.Long?, albumIds: kotlin.String?, keyword: kotlin.String?, keywordFields: kotlin.String?, sortField: SortFieldGetAudienceList?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, sendSuggestion: kotlin.Boolean?, activeOnly: kotlin.Boolean?, groupByGroupingId: kotlin.Boolean?, appKey: kotlin.String?, returnGlobal: kotlin.Boolean?, exactKeyword: kotlin.Boolean?, audienceType: kotlin.String?, audienceTypes: kotlin.String?, returnAccountCount: kotlin.Boolean?, returnAlbumCount: kotlin.Boolean?, albumTypesForCount: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -761,7 +746,7 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/audience/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/audience/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -770,10 +755,9 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/audience/devices
+     * GET /audience/devices
      * Get Devices
      * Gets the list of available devices that can be selected by consumers and retailers.
-     * @param version 
      * @param includeInactive If true return inactive record as well. default is false.
      * @return kotlin.collections.List<AudienceDeviceResponse>
      * @throws IllegalStateException If the request is not correctly configured
@@ -784,8 +768,8 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getDevices(version: java.math.BigDecimal, includeInactive: kotlin.Boolean) : kotlin.collections.List<AudienceDeviceResponse> {
-        val localVarResponse = getDevicesWithHttpInfo(version = version, includeInactive = includeInactive)
+    fun getDevices(includeInactive: kotlin.Boolean) : kotlin.collections.List<AudienceDeviceResponse> {
+        val localVarResponse = getDevicesWithHttpInfo(includeInactive = includeInactive)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<AudienceDeviceResponse>
@@ -803,10 +787,9 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/audience/devices
+     * GET /audience/devices
      * Get Devices
      * Gets the list of available devices that can be selected by consumers and retailers.
-     * @param version 
      * @param includeInactive If true return inactive record as well. default is false.
      * @return ApiResponse<kotlin.collections.List<AudienceDeviceResponse>?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -814,8 +797,8 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getDevicesWithHttpInfo(version: java.math.BigDecimal, includeInactive: kotlin.Boolean) : ApiResponse<kotlin.collections.List<AudienceDeviceResponse>?> {
-        val localVariableConfig = getDevicesRequestConfig(version = version, includeInactive = includeInactive)
+    fun getDevicesWithHttpInfo(includeInactive: kotlin.Boolean) : ApiResponse<kotlin.collections.List<AudienceDeviceResponse>?> {
+        val localVariableConfig = getDevicesRequestConfig(includeInactive = includeInactive)
 
         return request<Unit, kotlin.collections.List<AudienceDeviceResponse>>(
             localVariableConfig
@@ -825,11 +808,10 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation getDevices
      *
-     * @param version 
      * @param includeInactive If true return inactive record as well. default is false.
      * @return RequestConfig
      */
-    fun getDevicesRequestConfig(version: java.math.BigDecimal, includeInactive: kotlin.Boolean) : RequestConfig<Unit> {
+    fun getDevicesRequestConfig(includeInactive: kotlin.Boolean) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -839,7 +821,7 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/audience/devices".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/audience/devices",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -848,10 +830,9 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/audience/experiences
+     * GET /audience/experiences
      * Get Experiences
      * Gets the list of available experiences that can be selected by consumers and retailers.
-     * @param version 
      * @return SirqulResponse
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -861,8 +842,8 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getExperiences(version: java.math.BigDecimal) : SirqulResponse {
-        val localVarResponse = getExperiencesWithHttpInfo(version = version)
+    fun getExperiences() : SirqulResponse {
+        val localVarResponse = getExperiencesWithHttpInfo()
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -880,18 +861,17 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/audience/experiences
+     * GET /audience/experiences
      * Get Experiences
      * Gets the list of available experiences that can be selected by consumers and retailers.
-     * @param version 
      * @return ApiResponse<SirqulResponse?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getExperiencesWithHttpInfo(version: java.math.BigDecimal) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = getExperiencesRequestConfig(version = version)
+    fun getExperiencesWithHttpInfo() : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = getExperiencesRequestConfig()
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -901,17 +881,16 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation getExperiences
      *
-     * @param version 
      * @return RequestConfig
      */
-    fun getExperiencesRequestConfig(version: java.math.BigDecimal) : RequestConfig<Unit> {
+    fun getExperiencesRequestConfig() : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/audience/experiences".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/audience/experiences",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -920,10 +899,9 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/audience/grouped/get
+     * GET /audience/grouped/get
      * Get GroupedAudiences
      * Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
-     * @param version 
      * @param accountId The logged in user.
      * @param audienceGroupingId The audience grouping id to return.
      * @return AudienceResponse
@@ -935,8 +913,8 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getGroupedAudiences(version: java.math.BigDecimal, accountId: kotlin.Long, audienceGroupingId: kotlin.String) : AudienceResponse {
-        val localVarResponse = getGroupedAudiencesWithHttpInfo(version = version, accountId = accountId, audienceGroupingId = audienceGroupingId)
+    fun getGroupedAudiences(accountId: kotlin.Long, audienceGroupingId: kotlin.String) : AudienceResponse {
+        val localVarResponse = getGroupedAudiencesWithHttpInfo(accountId = accountId, audienceGroupingId = audienceGroupingId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AudienceResponse
@@ -954,10 +932,9 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/audience/grouped/get
+     * GET /audience/grouped/get
      * Get GroupedAudiences
      * Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
-     * @param version 
      * @param accountId The logged in user.
      * @param audienceGroupingId The audience grouping id to return.
      * @return ApiResponse<AudienceResponse?>
@@ -966,8 +943,8 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getGroupedAudiencesWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, audienceGroupingId: kotlin.String) : ApiResponse<AudienceResponse?> {
-        val localVariableConfig = getGroupedAudiencesRequestConfig(version = version, accountId = accountId, audienceGroupingId = audienceGroupingId)
+    fun getGroupedAudiencesWithHttpInfo(accountId: kotlin.Long, audienceGroupingId: kotlin.String) : ApiResponse<AudienceResponse?> {
+        val localVariableConfig = getGroupedAudiencesRequestConfig(accountId = accountId, audienceGroupingId = audienceGroupingId)
 
         return request<Unit, AudienceResponse>(
             localVariableConfig
@@ -977,12 +954,11 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation getGroupedAudiences
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param audienceGroupingId The audience grouping id to return.
      * @return RequestConfig
      */
-    fun getGroupedAudiencesRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, audienceGroupingId: kotlin.String) : RequestConfig<Unit> {
+    fun getGroupedAudiencesRequestConfig(accountId: kotlin.Long, audienceGroupingId: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -993,7 +969,7 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/audience/grouped/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/audience/grouped/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1002,10 +978,9 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/audience/suggestion/list
+     * POST /audience/suggestion/list
      * List Suggestions by Audience
      * List either Missions or Offers that the user matches the assigned audience.
-     * @param version 
      * @param accountId The account to match offers for.
      * @param limit the limit of the index
      * @param suggestionType the type of suggestion
@@ -1018,8 +993,8 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listByAccount(version: java.math.BigDecimal, accountId: kotlin.Long, limit: kotlin.Int, suggestionType: kotlin.String) : OfferListResponse {
-        val localVarResponse = listByAccountWithHttpInfo(version = version, accountId = accountId, limit = limit, suggestionType = suggestionType)
+    fun listByAccount(accountId: kotlin.Long, limit: kotlin.Int, suggestionType: kotlin.String) : OfferListResponse {
+        val localVarResponse = listByAccountWithHttpInfo(accountId = accountId, limit = limit, suggestionType = suggestionType)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OfferListResponse
@@ -1037,10 +1012,9 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/audience/suggestion/list
+     * POST /audience/suggestion/list
      * List Suggestions by Audience
      * List either Missions or Offers that the user matches the assigned audience.
-     * @param version 
      * @param accountId The account to match offers for.
      * @param limit the limit of the index
      * @param suggestionType the type of suggestion
@@ -1050,8 +1024,8 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun listByAccountWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, limit: kotlin.Int, suggestionType: kotlin.String) : ApiResponse<OfferListResponse?> {
-        val localVariableConfig = listByAccountRequestConfig(version = version, accountId = accountId, limit = limit, suggestionType = suggestionType)
+    fun listByAccountWithHttpInfo(accountId: kotlin.Long, limit: kotlin.Int, suggestionType: kotlin.String) : ApiResponse<OfferListResponse?> {
+        val localVariableConfig = listByAccountRequestConfig(accountId = accountId, limit = limit, suggestionType = suggestionType)
 
         return request<Unit, OfferListResponse>(
             localVariableConfig
@@ -1061,13 +1035,12 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation listByAccount
      *
-     * @param version 
      * @param accountId The account to match offers for.
      * @param limit the limit of the index
      * @param suggestionType the type of suggestion
      * @return RequestConfig
      */
-    fun listByAccountRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, limit: kotlin.Int, suggestionType: kotlin.String) : RequestConfig<Unit> {
+    fun listByAccountRequestConfig(accountId: kotlin.Long, limit: kotlin.Int, suggestionType: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1079,7 +1052,7 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/audience/suggestion/list".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/audience/suggestion/list",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1088,10 +1061,9 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/audience/suggestion/offersByAudience
+     * GET /audience/suggestion/offersByAudience
      * List Offers by Audience
      * Get a list of offer locations based on audience information provided.
-     * @param version 
      * @param limit this is the limit of the index
      * @param gender this is the gender to list offers by (optional)
      * @param age this is the age to list offers by (optional)
@@ -1107,8 +1079,8 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listByAudience(version: java.math.BigDecimal, limit: kotlin.Int, gender: kotlin.String? = null, age: kotlin.Int? = null, categoryIds: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : OfferListResponse {
-        val localVarResponse = listByAudienceWithHttpInfo(version = version, limit = limit, gender = gender, age = age, categoryIds = categoryIds, latitude = latitude, longitude = longitude)
+    fun listByAudience(limit: kotlin.Int, gender: kotlin.String? = null, age: kotlin.Int? = null, categoryIds: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : OfferListResponse {
+        val localVarResponse = listByAudienceWithHttpInfo(limit = limit, gender = gender, age = age, categoryIds = categoryIds, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OfferListResponse
@@ -1126,10 +1098,9 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/audience/suggestion/offersByAudience
+     * GET /audience/suggestion/offersByAudience
      * List Offers by Audience
      * Get a list of offer locations based on audience information provided.
-     * @param version 
      * @param limit this is the limit of the index
      * @param gender this is the gender to list offers by (optional)
      * @param age this is the age to list offers by (optional)
@@ -1142,8 +1113,8 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun listByAudienceWithHttpInfo(version: java.math.BigDecimal, limit: kotlin.Int, gender: kotlin.String?, age: kotlin.Int?, categoryIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<OfferListResponse?> {
-        val localVariableConfig = listByAudienceRequestConfig(version = version, limit = limit, gender = gender, age = age, categoryIds = categoryIds, latitude = latitude, longitude = longitude)
+    fun listByAudienceWithHttpInfo(limit: kotlin.Int, gender: kotlin.String?, age: kotlin.Int?, categoryIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<OfferListResponse?> {
+        val localVariableConfig = listByAudienceRequestConfig(limit = limit, gender = gender, age = age, categoryIds = categoryIds, latitude = latitude, longitude = longitude)
 
         return request<Unit, OfferListResponse>(
             localVariableConfig
@@ -1153,7 +1124,6 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation listByAudience
      *
-     * @param version 
      * @param limit this is the limit of the index
      * @param gender this is the gender to list offers by (optional)
      * @param age this is the age to list offers by (optional)
@@ -1162,7 +1132,7 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param longitude this is the longitude to list offers by (optional)
      * @return RequestConfig
      */
-    fun listByAudienceRequestConfig(version: java.math.BigDecimal, limit: kotlin.Int, gender: kotlin.String?, age: kotlin.Int?, categoryIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun listByAudienceRequestConfig(limit: kotlin.Int, gender: kotlin.String?, age: kotlin.Int?, categoryIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1187,7 +1157,7 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/audience/suggestion/offersByAudience".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/audience/suggestion/offersByAudience",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1196,10 +1166,9 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/audience/suggestion/latest
+     * GET /audience/suggestion/latest
      * List Sent Suggestions 
      * Return list of recent trigger suggestions that have been sent to the user.
-     * @param version 
      * @param accountId The account to match offers for.
      * @param timeframe The timeframe in seconds of the latest suggestions
      * @param suggestionType The type of trigger suggestions to return
@@ -1212,8 +1181,8 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listLastestByAccount(version: java.math.BigDecimal, accountId: kotlin.Long, timeframe: kotlin.Int, suggestionType: kotlin.String) : OfferListResponse {
-        val localVarResponse = listLastestByAccountWithHttpInfo(version = version, accountId = accountId, timeframe = timeframe, suggestionType = suggestionType)
+    fun listLastestByAccount(accountId: kotlin.Long, timeframe: kotlin.Int, suggestionType: kotlin.String) : OfferListResponse {
+        val localVarResponse = listLastestByAccountWithHttpInfo(accountId = accountId, timeframe = timeframe, suggestionType = suggestionType)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OfferListResponse
@@ -1231,10 +1200,9 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/audience/suggestion/latest
+     * GET /audience/suggestion/latest
      * List Sent Suggestions 
      * Return list of recent trigger suggestions that have been sent to the user.
-     * @param version 
      * @param accountId The account to match offers for.
      * @param timeframe The timeframe in seconds of the latest suggestions
      * @param suggestionType The type of trigger suggestions to return
@@ -1244,8 +1212,8 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun listLastestByAccountWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, timeframe: kotlin.Int, suggestionType: kotlin.String) : ApiResponse<OfferListResponse?> {
-        val localVariableConfig = listLastestByAccountRequestConfig(version = version, accountId = accountId, timeframe = timeframe, suggestionType = suggestionType)
+    fun listLastestByAccountWithHttpInfo(accountId: kotlin.Long, timeframe: kotlin.Int, suggestionType: kotlin.String) : ApiResponse<OfferListResponse?> {
+        val localVariableConfig = listLastestByAccountRequestConfig(accountId = accountId, timeframe = timeframe, suggestionType = suggestionType)
 
         return request<Unit, OfferListResponse>(
             localVariableConfig
@@ -1255,13 +1223,12 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation listLastestByAccount
      *
-     * @param version 
      * @param accountId The account to match offers for.
      * @param timeframe The timeframe in seconds of the latest suggestions
      * @param suggestionType The type of trigger suggestions to return
      * @return RequestConfig
      */
-    fun listLastestByAccountRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, timeframe: kotlin.Int, suggestionType: kotlin.String) : RequestConfig<Unit> {
+    fun listLastestByAccountRequestConfig(accountId: kotlin.Long, timeframe: kotlin.Int, suggestionType: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1273,7 +1240,7 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/audience/suggestion/latest".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/audience/suggestion/latest",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1282,10 +1249,9 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/audience/suggestion/send
+     * POST /audience/suggestion/send
      * Send Suggestions
      * Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
-     * @param version 
      * @param accountId The account to match offers for.
      * @param latitude the latitude
      * @param longitude the longitude
@@ -1298,8 +1264,8 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun sendByAccount(version: java.math.BigDecimal, accountId: kotlin.Long, latitude: kotlin.Double, longitude: kotlin.Double) : SirqulResponse {
-        val localVarResponse = sendByAccountWithHttpInfo(version = version, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun sendByAccount(accountId: kotlin.Long, latitude: kotlin.Double, longitude: kotlin.Double) : SirqulResponse {
+        val localVarResponse = sendByAccountWithHttpInfo(accountId = accountId, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -1317,10 +1283,9 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/audience/suggestion/send
+     * POST /audience/suggestion/send
      * Send Suggestions
      * Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
-     * @param version 
      * @param accountId The account to match offers for.
      * @param latitude the latitude
      * @param longitude the longitude
@@ -1330,8 +1295,8 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun sendByAccountWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, latitude: kotlin.Double, longitude: kotlin.Double) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = sendByAccountRequestConfig(version = version, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun sendByAccountWithHttpInfo(accountId: kotlin.Long, latitude: kotlin.Double, longitude: kotlin.Double) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = sendByAccountRequestConfig(accountId = accountId, latitude = latitude, longitude = longitude)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -1341,13 +1306,12 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation sendByAccount
      *
-     * @param version 
      * @param accountId The account to match offers for.
      * @param latitude the latitude
      * @param longitude the longitude
      * @return RequestConfig
      */
-    fun sendByAccountRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, latitude: kotlin.Double, longitude: kotlin.Double) : RequestConfig<Unit> {
+    fun sendByAccountRequestConfig(accountId: kotlin.Long, latitude: kotlin.Double, longitude: kotlin.Double) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1359,7 +1323,7 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/audience/suggestion/send".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/audience/suggestion/send",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1368,10 +1332,9 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/audience/update
+     * POST /audience/update
      * Update Audience
      * Update a user defined audience.
-     * @param version 
      * @param accountId The logged in user.
      * @param audienceId The id of the audience to update.
      * @param name The name of the audience (optional)
@@ -1412,8 +1375,8 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateAudience(version: java.math.BigDecimal, accountId: kotlin.Long, audienceId: kotlin.Long, name: kotlin.String? = null, description: kotlin.String? = null, searchTags: kotlin.String? = null, gender: kotlin.String? = null, ageGroups: kotlin.String? = null, categoryIds: kotlin.String? = null, applicationIds: kotlin.String? = null, gameExperienceLevel: kotlin.String? = null, devices: kotlin.String? = null, deviceIds: kotlin.String? = null, deviceVersions: kotlin.String? = null, locations: kotlin.String? = null, radius: kotlin.String? = null, active: kotlin.Boolean? = null, sendSuggestion: kotlin.Boolean? = null, startTimeOffset: kotlin.Int? = null, endTimeOffset: kotlin.Int? = null, associateDescription: kotlin.String? = null, associateType: kotlin.String? = null, associateId: kotlin.Long? = null, groupingId: kotlin.String? = null, metaData: kotlin.String? = null, visibility: kotlin.String? = null, audienceType: kotlin.String? = null, useOrder: kotlin.Boolean? = null, cohortRegionsData: kotlin.String? = null, appKey: kotlin.String? = null, trilaterationTypes: kotlin.String? = null, uniqueName: kotlin.Boolean? = null) : AudienceResponse {
-        val localVarResponse = updateAudienceWithHttpInfo(version = version, accountId = accountId, audienceId = audienceId, name = name, description = description, searchTags = searchTags, gender = gender, ageGroups = ageGroups, categoryIds = categoryIds, applicationIds = applicationIds, gameExperienceLevel = gameExperienceLevel, devices = devices, deviceIds = deviceIds, deviceVersions = deviceVersions, locations = locations, radius = radius, active = active, sendSuggestion = sendSuggestion, startTimeOffset = startTimeOffset, endTimeOffset = endTimeOffset, associateDescription = associateDescription, associateType = associateType, associateId = associateId, groupingId = groupingId, metaData = metaData, visibility = visibility, audienceType = audienceType, useOrder = useOrder, cohortRegionsData = cohortRegionsData, appKey = appKey, trilaterationTypes = trilaterationTypes, uniqueName = uniqueName)
+    fun updateAudience(accountId: kotlin.Long, audienceId: kotlin.Long, name: kotlin.String? = null, description: kotlin.String? = null, searchTags: kotlin.String? = null, gender: kotlin.String? = null, ageGroups: kotlin.String? = null, categoryIds: kotlin.String? = null, applicationIds: kotlin.String? = null, gameExperienceLevel: kotlin.String? = null, devices: kotlin.String? = null, deviceIds: kotlin.String? = null, deviceVersions: kotlin.String? = null, locations: kotlin.String? = null, radius: kotlin.String? = null, active: kotlin.Boolean? = null, sendSuggestion: kotlin.Boolean? = null, startTimeOffset: kotlin.Int? = null, endTimeOffset: kotlin.Int? = null, associateDescription: kotlin.String? = null, associateType: kotlin.String? = null, associateId: kotlin.Long? = null, groupingId: kotlin.String? = null, metaData: kotlin.String? = null, visibility: kotlin.String? = null, audienceType: kotlin.String? = null, useOrder: kotlin.Boolean? = null, cohortRegionsData: kotlin.String? = null, appKey: kotlin.String? = null, trilaterationTypes: kotlin.String? = null, uniqueName: kotlin.Boolean? = null) : AudienceResponse {
+        val localVarResponse = updateAudienceWithHttpInfo(accountId = accountId, audienceId = audienceId, name = name, description = description, searchTags = searchTags, gender = gender, ageGroups = ageGroups, categoryIds = categoryIds, applicationIds = applicationIds, gameExperienceLevel = gameExperienceLevel, devices = devices, deviceIds = deviceIds, deviceVersions = deviceVersions, locations = locations, radius = radius, active = active, sendSuggestion = sendSuggestion, startTimeOffset = startTimeOffset, endTimeOffset = endTimeOffset, associateDescription = associateDescription, associateType = associateType, associateId = associateId, groupingId = groupingId, metaData = metaData, visibility = visibility, audienceType = audienceType, useOrder = useOrder, cohortRegionsData = cohortRegionsData, appKey = appKey, trilaterationTypes = trilaterationTypes, uniqueName = uniqueName)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AudienceResponse
@@ -1431,10 +1394,9 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/audience/update
+     * POST /audience/update
      * Update Audience
      * Update a user defined audience.
-     * @param version 
      * @param accountId The logged in user.
      * @param audienceId The id of the audience to update.
      * @param name The name of the audience (optional)
@@ -1472,8 +1434,8 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateAudienceWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, audienceId: kotlin.Long, name: kotlin.String?, description: kotlin.String?, searchTags: kotlin.String?, gender: kotlin.String?, ageGroups: kotlin.String?, categoryIds: kotlin.String?, applicationIds: kotlin.String?, gameExperienceLevel: kotlin.String?, devices: kotlin.String?, deviceIds: kotlin.String?, deviceVersions: kotlin.String?, locations: kotlin.String?, radius: kotlin.String?, active: kotlin.Boolean?, sendSuggestion: kotlin.Boolean?, startTimeOffset: kotlin.Int?, endTimeOffset: kotlin.Int?, associateDescription: kotlin.String?, associateType: kotlin.String?, associateId: kotlin.Long?, groupingId: kotlin.String?, metaData: kotlin.String?, visibility: kotlin.String?, audienceType: kotlin.String?, useOrder: kotlin.Boolean?, cohortRegionsData: kotlin.String?, appKey: kotlin.String?, trilaterationTypes: kotlin.String?, uniqueName: kotlin.Boolean?) : ApiResponse<AudienceResponse?> {
-        val localVariableConfig = updateAudienceRequestConfig(version = version, accountId = accountId, audienceId = audienceId, name = name, description = description, searchTags = searchTags, gender = gender, ageGroups = ageGroups, categoryIds = categoryIds, applicationIds = applicationIds, gameExperienceLevel = gameExperienceLevel, devices = devices, deviceIds = deviceIds, deviceVersions = deviceVersions, locations = locations, radius = radius, active = active, sendSuggestion = sendSuggestion, startTimeOffset = startTimeOffset, endTimeOffset = endTimeOffset, associateDescription = associateDescription, associateType = associateType, associateId = associateId, groupingId = groupingId, metaData = metaData, visibility = visibility, audienceType = audienceType, useOrder = useOrder, cohortRegionsData = cohortRegionsData, appKey = appKey, trilaterationTypes = trilaterationTypes, uniqueName = uniqueName)
+    fun updateAudienceWithHttpInfo(accountId: kotlin.Long, audienceId: kotlin.Long, name: kotlin.String?, description: kotlin.String?, searchTags: kotlin.String?, gender: kotlin.String?, ageGroups: kotlin.String?, categoryIds: kotlin.String?, applicationIds: kotlin.String?, gameExperienceLevel: kotlin.String?, devices: kotlin.String?, deviceIds: kotlin.String?, deviceVersions: kotlin.String?, locations: kotlin.String?, radius: kotlin.String?, active: kotlin.Boolean?, sendSuggestion: kotlin.Boolean?, startTimeOffset: kotlin.Int?, endTimeOffset: kotlin.Int?, associateDescription: kotlin.String?, associateType: kotlin.String?, associateId: kotlin.Long?, groupingId: kotlin.String?, metaData: kotlin.String?, visibility: kotlin.String?, audienceType: kotlin.String?, useOrder: kotlin.Boolean?, cohortRegionsData: kotlin.String?, appKey: kotlin.String?, trilaterationTypes: kotlin.String?, uniqueName: kotlin.Boolean?) : ApiResponse<AudienceResponse?> {
+        val localVariableConfig = updateAudienceRequestConfig(accountId = accountId, audienceId = audienceId, name = name, description = description, searchTags = searchTags, gender = gender, ageGroups = ageGroups, categoryIds = categoryIds, applicationIds = applicationIds, gameExperienceLevel = gameExperienceLevel, devices = devices, deviceIds = deviceIds, deviceVersions = deviceVersions, locations = locations, radius = radius, active = active, sendSuggestion = sendSuggestion, startTimeOffset = startTimeOffset, endTimeOffset = endTimeOffset, associateDescription = associateDescription, associateType = associateType, associateId = associateId, groupingId = groupingId, metaData = metaData, visibility = visibility, audienceType = audienceType, useOrder = useOrder, cohortRegionsData = cohortRegionsData, appKey = appKey, trilaterationTypes = trilaterationTypes, uniqueName = uniqueName)
 
         return request<Unit, AudienceResponse>(
             localVariableConfig
@@ -1483,7 +1445,6 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation updateAudience
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param audienceId The id of the audience to update.
      * @param name The name of the audience (optional)
@@ -1517,7 +1478,7 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param uniqueName If true, makes sure the audience name is unique (optional)
      * @return RequestConfig
      */
-    fun updateAudienceRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, audienceId: kotlin.Long, name: kotlin.String?, description: kotlin.String?, searchTags: kotlin.String?, gender: kotlin.String?, ageGroups: kotlin.String?, categoryIds: kotlin.String?, applicationIds: kotlin.String?, gameExperienceLevel: kotlin.String?, devices: kotlin.String?, deviceIds: kotlin.String?, deviceVersions: kotlin.String?, locations: kotlin.String?, radius: kotlin.String?, active: kotlin.Boolean?, sendSuggestion: kotlin.Boolean?, startTimeOffset: kotlin.Int?, endTimeOffset: kotlin.Int?, associateDescription: kotlin.String?, associateType: kotlin.String?, associateId: kotlin.Long?, groupingId: kotlin.String?, metaData: kotlin.String?, visibility: kotlin.String?, audienceType: kotlin.String?, useOrder: kotlin.Boolean?, cohortRegionsData: kotlin.String?, appKey: kotlin.String?, trilaterationTypes: kotlin.String?, uniqueName: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun updateAudienceRequestConfig(accountId: kotlin.Long, audienceId: kotlin.Long, name: kotlin.String?, description: kotlin.String?, searchTags: kotlin.String?, gender: kotlin.String?, ageGroups: kotlin.String?, categoryIds: kotlin.String?, applicationIds: kotlin.String?, gameExperienceLevel: kotlin.String?, devices: kotlin.String?, deviceIds: kotlin.String?, deviceVersions: kotlin.String?, locations: kotlin.String?, radius: kotlin.String?, active: kotlin.Boolean?, sendSuggestion: kotlin.Boolean?, startTimeOffset: kotlin.Int?, endTimeOffset: kotlin.Int?, associateDescription: kotlin.String?, associateType: kotlin.String?, associateId: kotlin.Long?, groupingId: kotlin.String?, metaData: kotlin.String?, visibility: kotlin.String?, audienceType: kotlin.String?, useOrder: kotlin.Boolean?, cohortRegionsData: kotlin.String?, appKey: kotlin.String?, trilaterationTypes: kotlin.String?, uniqueName: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1615,7 +1576,7 @@ open class AudienceApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/audience/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/audience/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

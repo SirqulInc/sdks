@@ -42,15 +42,14 @@ open class BidApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/bid/create
+     * POST /bid/create
      * Create Bid
      * Creates a bid on a biddable object
-     * @param version 
      * @param biddableType A biddable object type. Possible values include: CREATIVE (ads).
      * @param biddableId The id of the biddable object
      * @param amountPerView The bid amount for views. For ads, this is the amount that will be taken for each impression.
@@ -68,8 +67,8 @@ open class BidApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createBid(version: java.math.BigDecimal, biddableType: kotlin.String, biddableId: kotlin.Long, amountPerView: kotlin.Double, amountPerAction: kotlin.Double, budgetAmount: kotlin.Double, budgetSchedule: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : BidResponse {
-        val localVarResponse = createBidWithHttpInfo(version = version, biddableType = biddableType, biddableId = biddableId, amountPerView = amountPerView, amountPerAction = amountPerAction, budgetAmount = budgetAmount, budgetSchedule = budgetSchedule, deviceId = deviceId, accountId = accountId)
+    fun createBid(biddableType: kotlin.String, biddableId: kotlin.Long, amountPerView: kotlin.Double, amountPerAction: kotlin.Double, budgetAmount: kotlin.Double, budgetSchedule: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : BidResponse {
+        val localVarResponse = createBidWithHttpInfo(biddableType = biddableType, biddableId = biddableId, amountPerView = amountPerView, amountPerAction = amountPerAction, budgetAmount = budgetAmount, budgetSchedule = budgetSchedule, deviceId = deviceId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as BidResponse
@@ -87,10 +86,9 @@ open class BidApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * POST /api/{version}/bid/create
+     * POST /bid/create
      * Create Bid
      * Creates a bid on a biddable object
-     * @param version 
      * @param biddableType A biddable object type. Possible values include: CREATIVE (ads).
      * @param biddableId The id of the biddable object
      * @param amountPerView The bid amount for views. For ads, this is the amount that will be taken for each impression.
@@ -105,8 +103,8 @@ open class BidApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createBidWithHttpInfo(version: java.math.BigDecimal, biddableType: kotlin.String, biddableId: kotlin.Long, amountPerView: kotlin.Double, amountPerAction: kotlin.Double, budgetAmount: kotlin.Double, budgetSchedule: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<BidResponse?> {
-        val localVariableConfig = createBidRequestConfig(version = version, biddableType = biddableType, biddableId = biddableId, amountPerView = amountPerView, amountPerAction = amountPerAction, budgetAmount = budgetAmount, budgetSchedule = budgetSchedule, deviceId = deviceId, accountId = accountId)
+    fun createBidWithHttpInfo(biddableType: kotlin.String, biddableId: kotlin.Long, amountPerView: kotlin.Double, amountPerAction: kotlin.Double, budgetAmount: kotlin.Double, budgetSchedule: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<BidResponse?> {
+        val localVariableConfig = createBidRequestConfig(biddableType = biddableType, biddableId = biddableId, amountPerView = amountPerView, amountPerAction = amountPerAction, budgetAmount = budgetAmount, budgetSchedule = budgetSchedule, deviceId = deviceId, accountId = accountId)
 
         return request<Unit, BidResponse>(
             localVariableConfig
@@ -116,7 +114,6 @@ open class BidApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * To obtain the request config of the operation createBid
      *
-     * @param version 
      * @param biddableType A biddable object type. Possible values include: CREATIVE (ads).
      * @param biddableId The id of the biddable object
      * @param amountPerView The bid amount for views. For ads, this is the amount that will be taken for each impression.
@@ -127,7 +124,7 @@ open class BidApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @return RequestConfig
      */
-    fun createBidRequestConfig(version: java.math.BigDecimal, biddableType: kotlin.String, biddableId: kotlin.Long, amountPerView: kotlin.Double, amountPerAction: kotlin.Double, budgetAmount: kotlin.Double, budgetSchedule: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun createBidRequestConfig(biddableType: kotlin.String, biddableId: kotlin.Long, amountPerView: kotlin.Double, amountPerAction: kotlin.Double, budgetAmount: kotlin.Double, budgetSchedule: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -148,7 +145,7 @@ open class BidApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/bid/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/bid/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -157,10 +154,9 @@ open class BidApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * POST /api/{version}/bid/delete
+     * POST /bid/delete
      * Delete Bid
      * Deleted a bid on a biddable object
-     * @param version 
      * @param bidId The bid id
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -173,8 +169,8 @@ open class BidApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteBid(version: java.math.BigDecimal, bidId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = deleteBidWithHttpInfo(version = version, bidId = bidId, deviceId = deviceId, accountId = accountId)
+    fun deleteBid(bidId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = deleteBidWithHttpInfo(bidId = bidId, deviceId = deviceId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -192,10 +188,9 @@ open class BidApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * POST /api/{version}/bid/delete
+     * POST /bid/delete
      * Delete Bid
      * Deleted a bid on a biddable object
-     * @param version 
      * @param bidId The bid id
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -205,8 +200,8 @@ open class BidApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteBidWithHttpInfo(version: java.math.BigDecimal, bidId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteBidRequestConfig(version = version, bidId = bidId, deviceId = deviceId, accountId = accountId)
+    fun deleteBidWithHttpInfo(bidId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteBidRequestConfig(bidId = bidId, deviceId = deviceId, accountId = accountId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -216,13 +211,12 @@ open class BidApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * To obtain the request config of the operation deleteBid
      *
-     * @param version 
      * @param bidId The bid id
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @return RequestConfig
      */
-    fun deleteBidRequestConfig(version: java.math.BigDecimal, bidId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun deleteBidRequestConfig(bidId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -238,7 +232,7 @@ open class BidApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/bid/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/bid/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -247,10 +241,9 @@ open class BidApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * GET /api/{version}/bid/get
+     * GET /bid/get
      * Get Bid
      * Get the bid details of a biddable object
-     * @param version 
      * @param bidId The bid id
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -263,8 +256,8 @@ open class BidApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBid(version: java.math.BigDecimal, bidId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : BidResponse {
-        val localVarResponse = getBidWithHttpInfo(version = version, bidId = bidId, deviceId = deviceId, accountId = accountId)
+    fun getBid(bidId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : BidResponse {
+        val localVarResponse = getBidWithHttpInfo(bidId = bidId, deviceId = deviceId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as BidResponse
@@ -282,10 +275,9 @@ open class BidApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * GET /api/{version}/bid/get
+     * GET /bid/get
      * Get Bid
      * Get the bid details of a biddable object
-     * @param version 
      * @param bidId The bid id
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -295,8 +287,8 @@ open class BidApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBidWithHttpInfo(version: java.math.BigDecimal, bidId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<BidResponse?> {
-        val localVariableConfig = getBidRequestConfig(version = version, bidId = bidId, deviceId = deviceId, accountId = accountId)
+    fun getBidWithHttpInfo(bidId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<BidResponse?> {
+        val localVariableConfig = getBidRequestConfig(bidId = bidId, deviceId = deviceId, accountId = accountId)
 
         return request<Unit, BidResponse>(
             localVariableConfig
@@ -306,13 +298,12 @@ open class BidApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * To obtain the request config of the operation getBid
      *
-     * @param version 
      * @param bidId The bid id
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @return RequestConfig
      */
-    fun getBidRequestConfig(version: java.math.BigDecimal, bidId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun getBidRequestConfig(bidId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -328,7 +319,7 @@ open class BidApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/bid/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/bid/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -337,10 +328,9 @@ open class BidApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * POST /api/{version}/bid/update
+     * POST /bid/update
      * Update Bid
      * Updates a bid on a biddable object
-     * @param version 
      * @param bidId The bid id
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -357,8 +347,8 @@ open class BidApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateBid(version: java.math.BigDecimal, bidId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, amountPerView: kotlin.Double? = null, amountPerAction: kotlin.Double? = null, budgetAmount: kotlin.Double? = null, budgetSchedule: kotlin.String? = null) : BidResponse {
-        val localVarResponse = updateBidWithHttpInfo(version = version, bidId = bidId, deviceId = deviceId, accountId = accountId, amountPerView = amountPerView, amountPerAction = amountPerAction, budgetAmount = budgetAmount, budgetSchedule = budgetSchedule)
+    fun updateBid(bidId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, amountPerView: kotlin.Double? = null, amountPerAction: kotlin.Double? = null, budgetAmount: kotlin.Double? = null, budgetSchedule: kotlin.String? = null) : BidResponse {
+        val localVarResponse = updateBidWithHttpInfo(bidId = bidId, deviceId = deviceId, accountId = accountId, amountPerView = amountPerView, amountPerAction = amountPerAction, budgetAmount = budgetAmount, budgetSchedule = budgetSchedule)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as BidResponse
@@ -376,10 +366,9 @@ open class BidApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * POST /api/{version}/bid/update
+     * POST /bid/update
      * Update Bid
      * Updates a bid on a biddable object
-     * @param version 
      * @param bidId The bid id
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -393,8 +382,8 @@ open class BidApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateBidWithHttpInfo(version: java.math.BigDecimal, bidId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, amountPerView: kotlin.Double?, amountPerAction: kotlin.Double?, budgetAmount: kotlin.Double?, budgetSchedule: kotlin.String?) : ApiResponse<BidResponse?> {
-        val localVariableConfig = updateBidRequestConfig(version = version, bidId = bidId, deviceId = deviceId, accountId = accountId, amountPerView = amountPerView, amountPerAction = amountPerAction, budgetAmount = budgetAmount, budgetSchedule = budgetSchedule)
+    fun updateBidWithHttpInfo(bidId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, amountPerView: kotlin.Double?, amountPerAction: kotlin.Double?, budgetAmount: kotlin.Double?, budgetSchedule: kotlin.String?) : ApiResponse<BidResponse?> {
+        val localVariableConfig = updateBidRequestConfig(bidId = bidId, deviceId = deviceId, accountId = accountId, amountPerView = amountPerView, amountPerAction = amountPerAction, budgetAmount = budgetAmount, budgetSchedule = budgetSchedule)
 
         return request<Unit, BidResponse>(
             localVariableConfig
@@ -404,7 +393,6 @@ open class BidApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * To obtain the request config of the operation updateBid
      *
-     * @param version 
      * @param bidId The bid id
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -414,7 +402,7 @@ open class BidApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param budgetSchedule The schedule for when the allocated budget amount is reset (optional)
      * @return RequestConfig
      */
-    fun updateBidRequestConfig(version: java.math.BigDecimal, bidId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, amountPerView: kotlin.Double?, amountPerAction: kotlin.Double?, budgetAmount: kotlin.Double?, budgetSchedule: kotlin.String?) : RequestConfig<Unit> {
+    fun updateBidRequestConfig(bidId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, amountPerView: kotlin.Double?, amountPerAction: kotlin.Double?, budgetAmount: kotlin.Double?, budgetSchedule: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -442,7 +430,7 @@ open class BidApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/bid/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/bid/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

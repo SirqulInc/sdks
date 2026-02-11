@@ -41,15 +41,14 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/hub
+     * POST /hub
      * Create Service Hub
      * Create new service hub
-     * @param version 
      * @param body  (optional)
      * @return ServiceHub
      * @throws IllegalStateException If the request is not correctly configured
@@ -60,8 +59,8 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createServiceHub(version: java.math.BigDecimal, body: ServiceHub? = null) : ServiceHub {
-        val localVarResponse = createServiceHubWithHttpInfo(version = version, body = body)
+    fun createServiceHub(body: ServiceHub? = null) : ServiceHub {
+        val localVarResponse = createServiceHubWithHttpInfo(body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ServiceHub
@@ -79,10 +78,9 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/hub
+     * POST /hub
      * Create Service Hub
      * Create new service hub
-     * @param version 
      * @param body  (optional)
      * @return ApiResponse<ServiceHub?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -90,8 +88,8 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createServiceHubWithHttpInfo(version: java.math.BigDecimal, body: ServiceHub?) : ApiResponse<ServiceHub?> {
-        val localVariableConfig = createServiceHubRequestConfig(version = version, body = body)
+    fun createServiceHubWithHttpInfo(body: ServiceHub?) : ApiResponse<ServiceHub?> {
+        val localVariableConfig = createServiceHubRequestConfig(body = body)
 
         return request<ServiceHub, ServiceHub>(
             localVariableConfig
@@ -101,18 +99,17 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation createServiceHub
      *
-     * @param version 
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun createServiceHubRequestConfig(version: java.math.BigDecimal, body: ServiceHub?) : RequestConfig<ServiceHub> {
+    fun createServiceHubRequestConfig(body: ServiceHub?) : RequestConfig<ServiceHub> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/hub".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/hub",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -121,10 +118,9 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * DELETE /api/{version}/hub/{id}
+     * DELETE /hub/{id}
      * Delete Service Hub
      * Delete an existing service hub
-     * @param version 
      * @param id the id of the service hub to delete
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
@@ -134,8 +130,8 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteServiceHub(version: java.math.BigDecimal, id: kotlin.Long) : Unit {
-        val localVarResponse = deleteServiceHubWithHttpInfo(version = version, id = id)
+    fun deleteServiceHub(id: kotlin.Long) : Unit {
+        val localVarResponse = deleteServiceHubWithHttpInfo(id = id)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -153,18 +149,17 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * DELETE /api/{version}/hub/{id}
+     * DELETE /hub/{id}
      * Delete Service Hub
      * Delete an existing service hub
-     * @param version 
      * @param id the id of the service hub to delete
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteServiceHubWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long) : ApiResponse<Unit?> {
-        val localVariableConfig = deleteServiceHubRequestConfig(version = version, id = id)
+    fun deleteServiceHubWithHttpInfo(id: kotlin.Long) : ApiResponse<Unit?> {
+        val localVariableConfig = deleteServiceHubRequestConfig(id = id)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -174,18 +169,17 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation deleteServiceHub
      *
-     * @param version 
      * @param id the id of the service hub to delete
      * @return RequestConfig
      */
-    fun deleteServiceHubRequestConfig(version: java.math.BigDecimal, id: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteServiceHubRequestConfig(id: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.DELETE,
-            path = "/api/{version}/hub/{id}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/hub/{id}".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -194,10 +188,9 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/hub/{id}
+     * GET /hub/{id}
      * Get Service Hub
      * Get an existing service hub
-     * @param version 
      * @param id the id of the service hub to get
      * @return kotlin.Any
      * @throws IllegalStateException If the request is not correctly configured
@@ -208,8 +201,8 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getServiceHub(version: java.math.BigDecimal, id: kotlin.Long) : kotlin.Any {
-        val localVarResponse = getServiceHubWithHttpInfo(version = version, id = id)
+    fun getServiceHub(id: kotlin.Long) : kotlin.Any {
+        val localVarResponse = getServiceHubWithHttpInfo(id = id)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Any
@@ -227,10 +220,9 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/hub/{id}
+     * GET /hub/{id}
      * Get Service Hub
      * Get an existing service hub
-     * @param version 
      * @param id the id of the service hub to get
      * @return ApiResponse<kotlin.Any?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -238,8 +230,8 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getServiceHubWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long) : ApiResponse<kotlin.Any?> {
-        val localVariableConfig = getServiceHubRequestConfig(version = version, id = id)
+    fun getServiceHubWithHttpInfo(id: kotlin.Long) : ApiResponse<kotlin.Any?> {
+        val localVariableConfig = getServiceHubRequestConfig(id = id)
 
         return request<Unit, kotlin.Any>(
             localVariableConfig
@@ -249,18 +241,17 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation getServiceHub
      *
-     * @param version 
      * @param id the id of the service hub to get
      * @return RequestConfig
      */
-    fun getServiceHubRequestConfig(version: java.math.BigDecimal, id: kotlin.Long) : RequestConfig<Unit> {
+    fun getServiceHubRequestConfig(id: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/hub/{id}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/hub/{id}".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -269,10 +260,9 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/hub/{id}
+     * POST /hub/{id}
      * Update Service Hub
      * Update an existing service hub
-     * @param version 
      * @param id the id of the service hub
      * @param body  (optional)
      * @return ServiceHub
@@ -284,8 +274,8 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun postServiceHub(version: java.math.BigDecimal, id: kotlin.Long, body: ServiceHub? = null) : ServiceHub {
-        val localVarResponse = postServiceHubWithHttpInfo(version = version, id = id, body = body)
+    fun postServiceHub(id: kotlin.Long, body: ServiceHub? = null) : ServiceHub {
+        val localVarResponse = postServiceHubWithHttpInfo(id = id, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ServiceHub
@@ -303,10 +293,9 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/hub/{id}
+     * POST /hub/{id}
      * Update Service Hub
      * Update an existing service hub
-     * @param version 
      * @param id the id of the service hub
      * @param body  (optional)
      * @return ApiResponse<ServiceHub?>
@@ -315,8 +304,8 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun postServiceHubWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long, body: ServiceHub?) : ApiResponse<ServiceHub?> {
-        val localVariableConfig = postServiceHubRequestConfig(version = version, id = id, body = body)
+    fun postServiceHubWithHttpInfo(id: kotlin.Long, body: ServiceHub?) : ApiResponse<ServiceHub?> {
+        val localVariableConfig = postServiceHubRequestConfig(id = id, body = body)
 
         return request<ServiceHub, ServiceHub>(
             localVariableConfig
@@ -326,19 +315,18 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation postServiceHub
      *
-     * @param version 
      * @param id the id of the service hub
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun postServiceHubRequestConfig(version: java.math.BigDecimal, id: kotlin.Long, body: ServiceHub?) : RequestConfig<ServiceHub> {
+    fun postServiceHubRequestConfig(id: kotlin.Long, body: ServiceHub?) : RequestConfig<ServiceHub> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/hub/{id}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/hub/{id}".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -347,10 +335,9 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * PUT /api/{version}/hub/{id}
+     * PUT /hub/{id}
      * Update Service Hub
      * Update an existing service hub
-     * @param version 
      * @param id the id of the service hub
      * @param body  (optional)
      * @return ServiceHub
@@ -362,8 +349,8 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun putServiceHub(version: java.math.BigDecimal, id: kotlin.Long, body: ServiceHub? = null) : ServiceHub {
-        val localVarResponse = putServiceHubWithHttpInfo(version = version, id = id, body = body)
+    fun putServiceHub(id: kotlin.Long, body: ServiceHub? = null) : ServiceHub {
+        val localVarResponse = putServiceHubWithHttpInfo(id = id, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ServiceHub
@@ -381,10 +368,9 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * PUT /api/{version}/hub/{id}
+     * PUT /hub/{id}
      * Update Service Hub
      * Update an existing service hub
-     * @param version 
      * @param id the id of the service hub
      * @param body  (optional)
      * @return ApiResponse<ServiceHub?>
@@ -393,8 +379,8 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun putServiceHubWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long, body: ServiceHub?) : ApiResponse<ServiceHub?> {
-        val localVariableConfig = putServiceHubRequestConfig(version = version, id = id, body = body)
+    fun putServiceHubWithHttpInfo(id: kotlin.Long, body: ServiceHub?) : ApiResponse<ServiceHub?> {
+        val localVariableConfig = putServiceHubRequestConfig(id = id, body = body)
 
         return request<ServiceHub, ServiceHub>(
             localVariableConfig
@@ -404,19 +390,18 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation putServiceHub
      *
-     * @param version 
      * @param id the id of the service hub
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun putServiceHubRequestConfig(version: java.math.BigDecimal, id: kotlin.Long, body: ServiceHub?) : RequestConfig<ServiceHub> {
+    fun putServiceHubRequestConfig(id: kotlin.Long, body: ServiceHub?) : RequestConfig<ServiceHub> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.PUT,
-            path = "/api/{version}/hub/{id}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/hub/{id}".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -425,10 +410,9 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/hub
+     * GET /hub
      * Search Service Hubs
      * Search for service hubs.
-     * @param version 
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
      * @param start The start index for pagination
@@ -445,8 +429,8 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchServiceHubs(version: java.math.BigDecimal, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, keyword: kotlin.String? = null, retailerId: kotlin.Long? = null) : kotlin.collections.List<ServiceHub> {
-        val localVarResponse = searchServiceHubsWithHttpInfo(version = version, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, keyword = keyword, retailerId = retailerId)
+    fun searchServiceHubs(sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, keyword: kotlin.String? = null, retailerId: kotlin.Long? = null) : kotlin.collections.List<ServiceHub> {
+        val localVarResponse = searchServiceHubsWithHttpInfo(sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, keyword = keyword, retailerId = retailerId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<ServiceHub>
@@ -464,10 +448,9 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/hub
+     * GET /hub
      * Search Service Hubs
      * Search for service hubs.
-     * @param version 
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
      * @param start The start index for pagination
@@ -481,8 +464,8 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchServiceHubsWithHttpInfo(version: java.math.BigDecimal, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, keyword: kotlin.String?, retailerId: kotlin.Long?) : ApiResponse<kotlin.collections.List<ServiceHub>?> {
-        val localVariableConfig = searchServiceHubsRequestConfig(version = version, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, keyword = keyword, retailerId = retailerId)
+    fun searchServiceHubsWithHttpInfo(sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, keyword: kotlin.String?, retailerId: kotlin.Long?) : ApiResponse<kotlin.collections.List<ServiceHub>?> {
+        val localVariableConfig = searchServiceHubsRequestConfig(sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, keyword = keyword, retailerId = retailerId)
 
         return request<Unit, kotlin.collections.List<ServiceHub>>(
             localVariableConfig
@@ -492,7 +475,6 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation searchServiceHubs
      *
-     * @param version 
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
      * @param start The start index for pagination
@@ -502,7 +484,7 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param retailerId The retailer belongs to (optional)
      * @return RequestConfig
      */
-    fun searchServiceHubsRequestConfig(version: java.math.BigDecimal, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, keyword: kotlin.String?, retailerId: kotlin.Long?) : RequestConfig<Unit> {
+    fun searchServiceHubsRequestConfig(sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, keyword: kotlin.String?, retailerId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -522,7 +504,7 @@ open class ServiceHubApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/hub".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/hub",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

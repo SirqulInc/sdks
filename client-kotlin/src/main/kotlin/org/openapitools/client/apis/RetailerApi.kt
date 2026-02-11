@@ -44,7 +44,7 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
@@ -86,10 +86,9 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      }
 
     /**
-     * POST /api/{version}/retailer/create
+     * POST /retailer/create
      * Create Retailer
      * Create a retailer record. A billable entity must be created first before a retailer record can be made.
-     * @param version 
      * @param name The name of the retailer
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -132,8 +131,8 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createRetailer(version: java.math.BigDecimal, name: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, streetAddress: kotlin.String? = null, streetAddress2: kotlin.String? = null, city: kotlin.String? = null, state: kotlin.String? = null, postalCode: kotlin.String? = null, country: kotlin.String? = null, businessPhone: kotlin.String? = null, businessPhoneExt: kotlin.String? = null, website: kotlin.String? = null, email: kotlin.String? = null, facebookUrl: kotlin.String? = null, twitterUrl: kotlin.String? = null, logo: java.io.File? = null, logoAssetId: kotlin.Long? = null, picture1: java.io.File? = null, picture1AssetId: kotlin.Long? = null, picture2: java.io.File? = null, picture2AssetId: kotlin.Long? = null, categoryIds: kotlin.String? = null, categoryIdsToAdd: kotlin.String? = null, categoryIdsToRemove: kotlin.String? = null, filterIds: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, metaData: kotlin.String? = null, searchTags: kotlin.String? = null, retailerType: kotlin.String? = null, visibility: VisibilityCreateRetailer? = null, createDefaultLocation: kotlin.Boolean? = null, responseFormat: ResponseFormatCreateRetailer? = null) : RetailerFullResponse {
-        val localVarResponse = createRetailerWithHttpInfo(version = version, name = name, deviceId = deviceId, accountId = accountId, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, country = country, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, website = website, email = email, facebookUrl = facebookUrl, twitterUrl = twitterUrl, logo = logo, logoAssetId = logoAssetId, picture1 = picture1, picture1AssetId = picture1AssetId, picture2 = picture2, picture2AssetId = picture2AssetId, categoryIds = categoryIds, categoryIdsToAdd = categoryIdsToAdd, categoryIdsToRemove = categoryIdsToRemove, filterIds = filterIds, latitude = latitude, longitude = longitude, metaData = metaData, searchTags = searchTags, retailerType = retailerType, visibility = visibility, createDefaultLocation = createDefaultLocation, responseFormat = responseFormat)
+    fun createRetailer(name: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, streetAddress: kotlin.String? = null, streetAddress2: kotlin.String? = null, city: kotlin.String? = null, state: kotlin.String? = null, postalCode: kotlin.String? = null, country: kotlin.String? = null, businessPhone: kotlin.String? = null, businessPhoneExt: kotlin.String? = null, website: kotlin.String? = null, email: kotlin.String? = null, facebookUrl: kotlin.String? = null, twitterUrl: kotlin.String? = null, logo: java.io.File? = null, logoAssetId: kotlin.Long? = null, picture1: java.io.File? = null, picture1AssetId: kotlin.Long? = null, picture2: java.io.File? = null, picture2AssetId: kotlin.Long? = null, categoryIds: kotlin.String? = null, categoryIdsToAdd: kotlin.String? = null, categoryIdsToRemove: kotlin.String? = null, filterIds: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, metaData: kotlin.String? = null, searchTags: kotlin.String? = null, retailerType: kotlin.String? = null, visibility: VisibilityCreateRetailer? = null, createDefaultLocation: kotlin.Boolean? = null, responseFormat: ResponseFormatCreateRetailer? = null) : RetailerFullResponse {
+        val localVarResponse = createRetailerWithHttpInfo(name = name, deviceId = deviceId, accountId = accountId, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, country = country, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, website = website, email = email, facebookUrl = facebookUrl, twitterUrl = twitterUrl, logo = logo, logoAssetId = logoAssetId, picture1 = picture1, picture1AssetId = picture1AssetId, picture2 = picture2, picture2AssetId = picture2AssetId, categoryIds = categoryIds, categoryIdsToAdd = categoryIdsToAdd, categoryIdsToRemove = categoryIdsToRemove, filterIds = filterIds, latitude = latitude, longitude = longitude, metaData = metaData, searchTags = searchTags, retailerType = retailerType, visibility = visibility, createDefaultLocation = createDefaultLocation, responseFormat = responseFormat)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as RetailerFullResponse
@@ -151,10 +150,9 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/retailer/create
+     * POST /retailer/create
      * Create Retailer
      * Create a retailer record. A billable entity must be created first before a retailer record can be made.
-     * @param version 
      * @param name The name of the retailer
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -194,8 +192,8 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createRetailerWithHttpInfo(version: java.math.BigDecimal, name: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, country: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, website: kotlin.String?, email: kotlin.String?, facebookUrl: kotlin.String?, twitterUrl: kotlin.String?, logo: java.io.File?, logoAssetId: kotlin.Long?, picture1: java.io.File?, picture1AssetId: kotlin.Long?, picture2: java.io.File?, picture2AssetId: kotlin.Long?, categoryIds: kotlin.String?, categoryIdsToAdd: kotlin.String?, categoryIdsToRemove: kotlin.String?, filterIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, metaData: kotlin.String?, searchTags: kotlin.String?, retailerType: kotlin.String?, visibility: VisibilityCreateRetailer?, createDefaultLocation: kotlin.Boolean?, responseFormat: ResponseFormatCreateRetailer?) : ApiResponse<RetailerFullResponse?> {
-        val localVariableConfig = createRetailerRequestConfig(version = version, name = name, deviceId = deviceId, accountId = accountId, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, country = country, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, website = website, email = email, facebookUrl = facebookUrl, twitterUrl = twitterUrl, logo = logo, logoAssetId = logoAssetId, picture1 = picture1, picture1AssetId = picture1AssetId, picture2 = picture2, picture2AssetId = picture2AssetId, categoryIds = categoryIds, categoryIdsToAdd = categoryIdsToAdd, categoryIdsToRemove = categoryIdsToRemove, filterIds = filterIds, latitude = latitude, longitude = longitude, metaData = metaData, searchTags = searchTags, retailerType = retailerType, visibility = visibility, createDefaultLocation = createDefaultLocation, responseFormat = responseFormat)
+    fun createRetailerWithHttpInfo(name: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, country: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, website: kotlin.String?, email: kotlin.String?, facebookUrl: kotlin.String?, twitterUrl: kotlin.String?, logo: java.io.File?, logoAssetId: kotlin.Long?, picture1: java.io.File?, picture1AssetId: kotlin.Long?, picture2: java.io.File?, picture2AssetId: kotlin.Long?, categoryIds: kotlin.String?, categoryIdsToAdd: kotlin.String?, categoryIdsToRemove: kotlin.String?, filterIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, metaData: kotlin.String?, searchTags: kotlin.String?, retailerType: kotlin.String?, visibility: VisibilityCreateRetailer?, createDefaultLocation: kotlin.Boolean?, responseFormat: ResponseFormatCreateRetailer?) : ApiResponse<RetailerFullResponse?> {
+        val localVariableConfig = createRetailerRequestConfig(name = name, deviceId = deviceId, accountId = accountId, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, country = country, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, website = website, email = email, facebookUrl = facebookUrl, twitterUrl = twitterUrl, logo = logo, logoAssetId = logoAssetId, picture1 = picture1, picture1AssetId = picture1AssetId, picture2 = picture2, picture2AssetId = picture2AssetId, categoryIds = categoryIds, categoryIdsToAdd = categoryIdsToAdd, categoryIdsToRemove = categoryIdsToRemove, filterIds = filterIds, latitude = latitude, longitude = longitude, metaData = metaData, searchTags = searchTags, retailerType = retailerType, visibility = visibility, createDefaultLocation = createDefaultLocation, responseFormat = responseFormat)
 
         return request<Unit, RetailerFullResponse>(
             localVariableConfig
@@ -205,7 +203,6 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation createRetailer
      *
-     * @param version 
      * @param name The name of the retailer
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -241,7 +238,7 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param responseFormat The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets} (optional)
      * @return RequestConfig
      */
-    fun createRetailerRequestConfig(version: java.math.BigDecimal, name: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, country: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, website: kotlin.String?, email: kotlin.String?, facebookUrl: kotlin.String?, twitterUrl: kotlin.String?, logo: java.io.File?, logoAssetId: kotlin.Long?, picture1: java.io.File?, picture1AssetId: kotlin.Long?, picture2: java.io.File?, picture2AssetId: kotlin.Long?, categoryIds: kotlin.String?, categoryIdsToAdd: kotlin.String?, categoryIdsToRemove: kotlin.String?, filterIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, metaData: kotlin.String?, searchTags: kotlin.String?, retailerType: kotlin.String?, visibility: VisibilityCreateRetailer?, createDefaultLocation: kotlin.Boolean?, responseFormat: ResponseFormatCreateRetailer?) : RequestConfig<Unit> {
+    fun createRetailerRequestConfig(name: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, country: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, website: kotlin.String?, email: kotlin.String?, facebookUrl: kotlin.String?, twitterUrl: kotlin.String?, logo: java.io.File?, logoAssetId: kotlin.Long?, picture1: java.io.File?, picture1AssetId: kotlin.Long?, picture2: java.io.File?, picture2AssetId: kotlin.Long?, categoryIds: kotlin.String?, categoryIdsToAdd: kotlin.String?, categoryIdsToRemove: kotlin.String?, filterIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, metaData: kotlin.String?, searchTags: kotlin.String?, retailerType: kotlin.String?, visibility: VisibilityCreateRetailer?, createDefaultLocation: kotlin.Boolean?, responseFormat: ResponseFormatCreateRetailer?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -347,7 +344,7 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/retailer/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/retailer/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -356,10 +353,9 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/retailer/delete
+     * POST /retailer/delete
      * Delete Retailer
      * Set the deleted timestamp to current time.
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the retailer. (optional)
      * @param retailerId The ID of the retailer to be deleted (optional)
@@ -372,8 +368,8 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteRetailer(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, retailerId: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = deleteRetailerWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, retailerId = retailerId)
+    fun deleteRetailer(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, retailerId: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = deleteRetailerWithHttpInfo(deviceId = deviceId, accountId = accountId, retailerId = retailerId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -391,10 +387,9 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/retailer/delete
+     * POST /retailer/delete
      * Delete Retailer
      * Set the deleted timestamp to current time.
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the retailer. (optional)
      * @param retailerId The ID of the retailer to be deleted (optional)
@@ -404,8 +399,8 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteRetailerWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, retailerId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteRetailerRequestConfig(version = version, deviceId = deviceId, accountId = accountId, retailerId = retailerId)
+    fun deleteRetailerWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, retailerId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteRetailerRequestConfig(deviceId = deviceId, accountId = accountId, retailerId = retailerId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -415,13 +410,12 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation deleteRetailer
      *
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the retailer. (optional)
      * @param retailerId The ID of the retailer to be deleted (optional)
      * @return RequestConfig
      */
-    fun deleteRetailerRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, retailerId: kotlin.Long?) : RequestConfig<Unit> {
+    fun deleteRetailerRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, retailerId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -439,7 +433,7 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/retailer/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/retailer/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -448,10 +442,9 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/retailer/get
+     * GET /retailer/get
      * Get Retailer
      * Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-     * @param version 
      * @param retailerId the ID of the retailer
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -465,8 +458,8 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRetailer(version: java.math.BigDecimal, retailerId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, includeCounts: kotlin.Boolean? = null) : RetailerFullResponse {
-        val localVarResponse = getRetailerWithHttpInfo(version = version, retailerId = retailerId, deviceId = deviceId, accountId = accountId, includeCounts = includeCounts)
+    fun getRetailer(retailerId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, includeCounts: kotlin.Boolean? = null) : RetailerFullResponse {
+        val localVarResponse = getRetailerWithHttpInfo(retailerId = retailerId, deviceId = deviceId, accountId = accountId, includeCounts = includeCounts)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as RetailerFullResponse
@@ -484,10 +477,9 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/retailer/get
+     * GET /retailer/get
      * Get Retailer
      * Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-     * @param version 
      * @param retailerId the ID of the retailer
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -498,8 +490,8 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRetailerWithHttpInfo(version: java.math.BigDecimal, retailerId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, includeCounts: kotlin.Boolean?) : ApiResponse<RetailerFullResponse?> {
-        val localVariableConfig = getRetailerRequestConfig(version = version, retailerId = retailerId, deviceId = deviceId, accountId = accountId, includeCounts = includeCounts)
+    fun getRetailerWithHttpInfo(retailerId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, includeCounts: kotlin.Boolean?) : ApiResponse<RetailerFullResponse?> {
+        val localVariableConfig = getRetailerRequestConfig(retailerId = retailerId, deviceId = deviceId, accountId = accountId, includeCounts = includeCounts)
 
         return request<Unit, RetailerFullResponse>(
             localVariableConfig
@@ -509,14 +501,13 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation getRetailer
      *
-     * @param version 
      * @param retailerId the ID of the retailer
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param includeCounts Determines whether to include counts in the response (default true) (optional)
      * @return RequestConfig
      */
-    fun getRetailerRequestConfig(version: java.math.BigDecimal, retailerId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, includeCounts: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getRetailerRequestConfig(retailerId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, includeCounts: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -535,7 +526,7 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/retailer/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/retailer/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -595,10 +586,9 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      }
 
     /**
-     * GET /api/{version}/retailer/search
+     * GET /retailer/search
      * Search Retailers
      * earches on retailers that the account has access to.
-     * @param version 
      * @param visibility 
      * @param sortField The column to sort the search on
      * @param descending The order to return the search results
@@ -622,8 +612,8 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRetailers(version: java.math.BigDecimal, visibility: VisibilityGetRetailers, sortField: SortFieldGetRetailers, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, i: kotlin.Int? = null, l: kotlin.Int? = null) : kotlin.collections.List<RetailerResponse> {
-        val localVarResponse = getRetailersWithHttpInfo(version = version, visibility = visibility, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, deviceId = deviceId, accountId = accountId, q = q, keyword = keyword, categoryIds = categoryIds, filterIds = filterIds, i = i, l = l)
+    fun getRetailers(visibility: VisibilityGetRetailers, sortField: SortFieldGetRetailers, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, i: kotlin.Int? = null, l: kotlin.Int? = null) : kotlin.collections.List<RetailerResponse> {
+        val localVarResponse = getRetailersWithHttpInfo(visibility = visibility, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, deviceId = deviceId, accountId = accountId, q = q, keyword = keyword, categoryIds = categoryIds, filterIds = filterIds, i = i, l = l)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<RetailerResponse>
@@ -641,10 +631,9 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/retailer/search
+     * GET /retailer/search
      * Search Retailers
      * earches on retailers that the account has access to.
-     * @param version 
      * @param visibility 
      * @param sortField The column to sort the search on
      * @param descending The order to return the search results
@@ -665,8 +654,8 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRetailersWithHttpInfo(version: java.math.BigDecimal, visibility: VisibilityGetRetailers, sortField: SortFieldGetRetailers, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, categoryIds: kotlin.String?, filterIds: kotlin.String?, i: kotlin.Int?, l: kotlin.Int?) : ApiResponse<kotlin.collections.List<RetailerResponse>?> {
-        val localVariableConfig = getRetailersRequestConfig(version = version, visibility = visibility, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, deviceId = deviceId, accountId = accountId, q = q, keyword = keyword, categoryIds = categoryIds, filterIds = filterIds, i = i, l = l)
+    fun getRetailersWithHttpInfo(visibility: VisibilityGetRetailers, sortField: SortFieldGetRetailers, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, categoryIds: kotlin.String?, filterIds: kotlin.String?, i: kotlin.Int?, l: kotlin.Int?) : ApiResponse<kotlin.collections.List<RetailerResponse>?> {
+        val localVariableConfig = getRetailersRequestConfig(visibility = visibility, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, deviceId = deviceId, accountId = accountId, q = q, keyword = keyword, categoryIds = categoryIds, filterIds = filterIds, i = i, l = l)
 
         return request<Unit, kotlin.collections.List<RetailerResponse>>(
             localVariableConfig
@@ -676,7 +665,6 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation getRetailers
      *
-     * @param version 
      * @param visibility 
      * @param sortField The column to sort the search on
      * @param descending The order to return the search results
@@ -693,7 +681,7 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param l This parameter is deprecated. (optional)
      * @return RequestConfig
      */
-    fun getRetailersRequestConfig(version: java.math.BigDecimal, visibility: VisibilityGetRetailers, sortField: SortFieldGetRetailers, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, categoryIds: kotlin.String?, filterIds: kotlin.String?, i: kotlin.Int?, l: kotlin.Int?) : RequestConfig<Unit> {
+    fun getRetailersRequestConfig(visibility: VisibilityGetRetailers, sortField: SortFieldGetRetailers, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, categoryIds: kotlin.String?, filterIds: kotlin.String?, i: kotlin.Int?, l: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -732,7 +720,7 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/retailer/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/retailer/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -741,10 +729,9 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/retailer/login
+     * POST /retailer/login
      * Login Retailer
      * Retailer login check.
-     * @param version 
      * @param username the user&#39;s email address they used to sign-up
      * @param password the password
      * @param deviceId the device id (optional) (optional)
@@ -760,8 +747,8 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun retailerLoginCheck(version: java.math.BigDecimal, username: kotlin.String, password: kotlin.String, deviceId: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, appKey: kotlin.String? = null) : AccountLoginResponse {
-        val localVarResponse = retailerLoginCheckWithHttpInfo(version = version, username = username, password = password, deviceId = deviceId, latitude = latitude, longitude = longitude, appKey = appKey)
+    fun retailerLoginCheck(username: kotlin.String, password: kotlin.String, deviceId: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, appKey: kotlin.String? = null) : AccountLoginResponse {
+        val localVarResponse = retailerLoginCheckWithHttpInfo(username = username, password = password, deviceId = deviceId, latitude = latitude, longitude = longitude, appKey = appKey)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AccountLoginResponse
@@ -779,10 +766,9 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/retailer/login
+     * POST /retailer/login
      * Login Retailer
      * Retailer login check.
-     * @param version 
      * @param username the user&#39;s email address they used to sign-up
      * @param password the password
      * @param deviceId the device id (optional) (optional)
@@ -795,8 +781,8 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun retailerLoginCheckWithHttpInfo(version: java.math.BigDecimal, username: kotlin.String, password: kotlin.String, deviceId: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, appKey: kotlin.String?) : ApiResponse<AccountLoginResponse?> {
-        val localVariableConfig = retailerLoginCheckRequestConfig(version = version, username = username, password = password, deviceId = deviceId, latitude = latitude, longitude = longitude, appKey = appKey)
+    fun retailerLoginCheckWithHttpInfo(username: kotlin.String, password: kotlin.String, deviceId: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, appKey: kotlin.String?) : ApiResponse<AccountLoginResponse?> {
+        val localVariableConfig = retailerLoginCheckRequestConfig(username = username, password = password, deviceId = deviceId, latitude = latitude, longitude = longitude, appKey = appKey)
 
         return request<Unit, AccountLoginResponse>(
             localVariableConfig
@@ -806,7 +792,6 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation retailerLoginCheck
      *
-     * @param version 
      * @param username the user&#39;s email address they used to sign-up
      * @param password the password
      * @param deviceId the device id (optional) (optional)
@@ -815,7 +800,7 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param appKey the application key (optional)
      * @return RequestConfig
      */
-    fun retailerLoginCheckRequestConfig(version: java.math.BigDecimal, username: kotlin.String, password: kotlin.String, deviceId: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, appKey: kotlin.String?) : RequestConfig<Unit> {
+    fun retailerLoginCheckRequestConfig(username: kotlin.String, password: kotlin.String, deviceId: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, appKey: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -838,7 +823,7 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/retailer/login".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/retailer/login",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -884,10 +869,9 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      }
 
     /**
-     * POST /api/{version}/retailer/update
+     * POST /retailer/update
      * Update Retailer
      * Update a retailer record. Only the owner and the employees of the retailer have access to update its information.
-     * @param version 
      * @param retailerId The ID of the retailer to update
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -929,8 +913,8 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateRetailer(version: java.math.BigDecimal, retailerId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, name: kotlin.String? = null, streetAddress: kotlin.String? = null, streetAddress2: kotlin.String? = null, city: kotlin.String? = null, state: kotlin.String? = null, postalCode: kotlin.String? = null, country: kotlin.String? = null, businessPhone: kotlin.String? = null, businessPhoneExt: kotlin.String? = null, website: kotlin.String? = null, email: kotlin.String? = null, facebookUrl: kotlin.String? = null, twitterUrl: kotlin.String? = null, logo: java.io.File? = null, logoAssetId: kotlin.Long? = null, picture1: java.io.File? = null, picture1AssetId: kotlin.Long? = null, picture2: java.io.File? = null, picture2AssetId: kotlin.Long? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, metaData: kotlin.String? = null, searchTags: kotlin.String? = null, retailerType: kotlin.String? = null, visibility: VisibilityUpdateRetailer? = null, active: kotlin.Boolean? = null, responseFormat: ResponseFormatUpdateRetailer? = null) : RetailerFullResponse {
-        val localVarResponse = updateRetailerWithHttpInfo(version = version, retailerId = retailerId, deviceId = deviceId, accountId = accountId, name = name, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, country = country, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, website = website, email = email, facebookUrl = facebookUrl, twitterUrl = twitterUrl, logo = logo, logoAssetId = logoAssetId, picture1 = picture1, picture1AssetId = picture1AssetId, picture2 = picture2, picture2AssetId = picture2AssetId, categoryIds = categoryIds, filterIds = filterIds, latitude = latitude, longitude = longitude, metaData = metaData, searchTags = searchTags, retailerType = retailerType, visibility = visibility, active = active, responseFormat = responseFormat)
+    fun updateRetailer(retailerId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, name: kotlin.String? = null, streetAddress: kotlin.String? = null, streetAddress2: kotlin.String? = null, city: kotlin.String? = null, state: kotlin.String? = null, postalCode: kotlin.String? = null, country: kotlin.String? = null, businessPhone: kotlin.String? = null, businessPhoneExt: kotlin.String? = null, website: kotlin.String? = null, email: kotlin.String? = null, facebookUrl: kotlin.String? = null, twitterUrl: kotlin.String? = null, logo: java.io.File? = null, logoAssetId: kotlin.Long? = null, picture1: java.io.File? = null, picture1AssetId: kotlin.Long? = null, picture2: java.io.File? = null, picture2AssetId: kotlin.Long? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, metaData: kotlin.String? = null, searchTags: kotlin.String? = null, retailerType: kotlin.String? = null, visibility: VisibilityUpdateRetailer? = null, active: kotlin.Boolean? = null, responseFormat: ResponseFormatUpdateRetailer? = null) : RetailerFullResponse {
+        val localVarResponse = updateRetailerWithHttpInfo(retailerId = retailerId, deviceId = deviceId, accountId = accountId, name = name, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, country = country, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, website = website, email = email, facebookUrl = facebookUrl, twitterUrl = twitterUrl, logo = logo, logoAssetId = logoAssetId, picture1 = picture1, picture1AssetId = picture1AssetId, picture2 = picture2, picture2AssetId = picture2AssetId, categoryIds = categoryIds, filterIds = filterIds, latitude = latitude, longitude = longitude, metaData = metaData, searchTags = searchTags, retailerType = retailerType, visibility = visibility, active = active, responseFormat = responseFormat)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as RetailerFullResponse
@@ -948,10 +932,9 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/retailer/update
+     * POST /retailer/update
      * Update Retailer
      * Update a retailer record. Only the owner and the employees of the retailer have access to update its information.
-     * @param version 
      * @param retailerId The ID of the retailer to update
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -990,8 +973,8 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateRetailerWithHttpInfo(version: java.math.BigDecimal, retailerId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, country: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, website: kotlin.String?, email: kotlin.String?, facebookUrl: kotlin.String?, twitterUrl: kotlin.String?, logo: java.io.File?, logoAssetId: kotlin.Long?, picture1: java.io.File?, picture1AssetId: kotlin.Long?, picture2: java.io.File?, picture2AssetId: kotlin.Long?, categoryIds: kotlin.String?, filterIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, metaData: kotlin.String?, searchTags: kotlin.String?, retailerType: kotlin.String?, visibility: VisibilityUpdateRetailer?, active: kotlin.Boolean?, responseFormat: ResponseFormatUpdateRetailer?) : ApiResponse<RetailerFullResponse?> {
-        val localVariableConfig = updateRetailerRequestConfig(version = version, retailerId = retailerId, deviceId = deviceId, accountId = accountId, name = name, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, country = country, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, website = website, email = email, facebookUrl = facebookUrl, twitterUrl = twitterUrl, logo = logo, logoAssetId = logoAssetId, picture1 = picture1, picture1AssetId = picture1AssetId, picture2 = picture2, picture2AssetId = picture2AssetId, categoryIds = categoryIds, filterIds = filterIds, latitude = latitude, longitude = longitude, metaData = metaData, searchTags = searchTags, retailerType = retailerType, visibility = visibility, active = active, responseFormat = responseFormat)
+    fun updateRetailerWithHttpInfo(retailerId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, country: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, website: kotlin.String?, email: kotlin.String?, facebookUrl: kotlin.String?, twitterUrl: kotlin.String?, logo: java.io.File?, logoAssetId: kotlin.Long?, picture1: java.io.File?, picture1AssetId: kotlin.Long?, picture2: java.io.File?, picture2AssetId: kotlin.Long?, categoryIds: kotlin.String?, filterIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, metaData: kotlin.String?, searchTags: kotlin.String?, retailerType: kotlin.String?, visibility: VisibilityUpdateRetailer?, active: kotlin.Boolean?, responseFormat: ResponseFormatUpdateRetailer?) : ApiResponse<RetailerFullResponse?> {
+        val localVariableConfig = updateRetailerRequestConfig(retailerId = retailerId, deviceId = deviceId, accountId = accountId, name = name, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, country = country, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, website = website, email = email, facebookUrl = facebookUrl, twitterUrl = twitterUrl, logo = logo, logoAssetId = logoAssetId, picture1 = picture1, picture1AssetId = picture1AssetId, picture2 = picture2, picture2AssetId = picture2AssetId, categoryIds = categoryIds, filterIds = filterIds, latitude = latitude, longitude = longitude, metaData = metaData, searchTags = searchTags, retailerType = retailerType, visibility = visibility, active = active, responseFormat = responseFormat)
 
         return request<Unit, RetailerFullResponse>(
             localVariableConfig
@@ -1001,7 +984,6 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation updateRetailer
      *
-     * @param version 
      * @param retailerId The ID of the retailer to update
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1036,7 +1018,7 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param responseFormat The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets} (optional)
      * @return RequestConfig
      */
-    fun updateRetailerRequestConfig(version: java.math.BigDecimal, retailerId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, country: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, website: kotlin.String?, email: kotlin.String?, facebookUrl: kotlin.String?, twitterUrl: kotlin.String?, logo: java.io.File?, logoAssetId: kotlin.Long?, picture1: java.io.File?, picture1AssetId: kotlin.Long?, picture2: java.io.File?, picture2AssetId: kotlin.Long?, categoryIds: kotlin.String?, filterIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, metaData: kotlin.String?, searchTags: kotlin.String?, retailerType: kotlin.String?, visibility: VisibilityUpdateRetailer?, active: kotlin.Boolean?, responseFormat: ResponseFormatUpdateRetailer?) : RequestConfig<Unit> {
+    fun updateRetailerRequestConfig(retailerId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, country: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, website: kotlin.String?, email: kotlin.String?, facebookUrl: kotlin.String?, twitterUrl: kotlin.String?, logo: java.io.File?, logoAssetId: kotlin.Long?, picture1: java.io.File?, picture1AssetId: kotlin.Long?, picture2: java.io.File?, picture2AssetId: kotlin.Long?, categoryIds: kotlin.String?, filterIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, metaData: kotlin.String?, searchTags: kotlin.String?, retailerType: kotlin.String?, visibility: VisibilityUpdateRetailer?, active: kotlin.Boolean?, responseFormat: ResponseFormatUpdateRetailer?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1139,7 +1121,7 @@ open class RetailerApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/retailer/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/retailer/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

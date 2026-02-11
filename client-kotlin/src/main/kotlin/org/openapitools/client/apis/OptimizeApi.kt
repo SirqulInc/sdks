@@ -43,15 +43,14 @@ open class OptimizeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * GET /api/{version}/optimize/result/{batchID}
+     * GET /optimize/result/{batchID}
      * Get Optimization Result
      * Get the results of the import batch.
-     * @param version 
      * @param batchID The batchID for getting the import status of.
      * @param start The start index for pagination
      * @param limit The limit for pagination
@@ -64,8 +63,8 @@ open class OptimizeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getOptimizationResult(version: java.math.BigDecimal, batchID: kotlin.String, start: kotlin.Int, limit: kotlin.Int) : kotlin.collections.Map<kotlin.String, ShipmentOrder> {
-        val localVarResponse = getOptimizationResultWithHttpInfo(version = version, batchID = batchID, start = start, limit = limit)
+    fun getOptimizationResult(batchID: kotlin.String, start: kotlin.Int, limit: kotlin.Int) : kotlin.collections.Map<kotlin.String, ShipmentOrder> {
+        val localVarResponse = getOptimizationResultWithHttpInfo(batchID = batchID, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.Map<kotlin.String, ShipmentOrder>
@@ -83,10 +82,9 @@ open class OptimizeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/optimize/result/{batchID}
+     * GET /optimize/result/{batchID}
      * Get Optimization Result
      * Get the results of the import batch.
-     * @param version 
      * @param batchID The batchID for getting the import status of.
      * @param start The start index for pagination
      * @param limit The limit for pagination
@@ -96,8 +94,8 @@ open class OptimizeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getOptimizationResultWithHttpInfo(version: java.math.BigDecimal, batchID: kotlin.String, start: kotlin.Int, limit: kotlin.Int) : ApiResponse<kotlin.collections.Map<kotlin.String, ShipmentOrder>?> {
-        val localVariableConfig = getOptimizationResultRequestConfig(version = version, batchID = batchID, start = start, limit = limit)
+    fun getOptimizationResultWithHttpInfo(batchID: kotlin.String, start: kotlin.Int, limit: kotlin.Int) : ApiResponse<kotlin.collections.Map<kotlin.String, ShipmentOrder>?> {
+        val localVariableConfig = getOptimizationResultRequestConfig(batchID = batchID, start = start, limit = limit)
 
         return request<Unit, kotlin.collections.Map<kotlin.String, ShipmentOrder>>(
             localVariableConfig
@@ -107,13 +105,12 @@ open class OptimizeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation getOptimizationResult
      *
-     * @param version 
      * @param batchID The batchID for getting the import status of.
      * @param start The start index for pagination
      * @param limit The limit for pagination
      * @return RequestConfig
      */
-    fun getOptimizationResultRequestConfig(version: java.math.BigDecimal, batchID: kotlin.String, start: kotlin.Int, limit: kotlin.Int) : RequestConfig<Unit> {
+    fun getOptimizationResultRequestConfig(batchID: kotlin.String, start: kotlin.Int, limit: kotlin.Int) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -124,7 +121,7 @@ open class OptimizeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/optimize/result/{batchID}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"batchID"+"}", encodeURIComponent(batchID.toString())),
+            path = "/optimize/result/{batchID}".replace("{"+"batchID"+"}", encodeURIComponent(batchID.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -133,10 +130,9 @@ open class OptimizeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/optimize/request
+     * POST /optimize/request
      * Request Optimization
      * Request and upload of shipment orders and create ShipmentImportBatch for optimization.
-     * @param version 
      * @param body  (optional)
      * @return ImportStatuses
      * @throws IllegalStateException If the request is not correctly configured
@@ -147,8 +143,8 @@ open class OptimizeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun requestOptimization(version: java.math.BigDecimal, body: Orders? = null) : ImportStatuses {
-        val localVarResponse = requestOptimizationWithHttpInfo(version = version, body = body)
+    fun requestOptimization(body: Orders? = null) : ImportStatuses {
+        val localVarResponse = requestOptimizationWithHttpInfo(body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ImportStatuses
@@ -166,10 +162,9 @@ open class OptimizeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/optimize/request
+     * POST /optimize/request
      * Request Optimization
      * Request and upload of shipment orders and create ShipmentImportBatch for optimization.
-     * @param version 
      * @param body  (optional)
      * @return ApiResponse<ImportStatuses?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -177,8 +172,8 @@ open class OptimizeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun requestOptimizationWithHttpInfo(version: java.math.BigDecimal, body: Orders?) : ApiResponse<ImportStatuses?> {
-        val localVariableConfig = requestOptimizationRequestConfig(version = version, body = body)
+    fun requestOptimizationWithHttpInfo(body: Orders?) : ApiResponse<ImportStatuses?> {
+        val localVariableConfig = requestOptimizationRequestConfig(body = body)
 
         return request<Orders, ImportStatuses>(
             localVariableConfig
@@ -188,18 +183,17 @@ open class OptimizeApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation requestOptimization
      *
-     * @param version 
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun requestOptimizationRequestConfig(version: java.math.BigDecimal, body: Orders?) : RequestConfig<Orders> {
+    fun requestOptimizationRequestConfig(body: Orders?) : RequestConfig<Orders> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/optimize/request".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/optimize/request",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

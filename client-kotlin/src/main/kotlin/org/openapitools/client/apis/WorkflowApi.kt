@@ -41,15 +41,14 @@ open class WorkflowApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/workflow/run
+     * POST /workflow/run
      * Run Workflow
      * Runs a published executable workflow
-     * @param version 
      * @param accountId the account ID of the user
      * @param workflowId the workflow to run
      * @param skuId this runs a particular sku on the workflow (optional)
@@ -64,8 +63,8 @@ open class WorkflowApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun runWorkflow(version: java.math.BigDecimal, accountId: kotlin.Long, workflowId: kotlin.Long, skuId: kotlin.Long? = null, versionCode: kotlin.Int? = null, parameters: kotlin.String? = null) : SirqulResponse {
-        val localVarResponse = runWorkflowWithHttpInfo(version = version, accountId = accountId, workflowId = workflowId, skuId = skuId, versionCode = versionCode, parameters = parameters)
+    fun runWorkflow(accountId: kotlin.Long, workflowId: kotlin.Long, skuId: kotlin.Long? = null, versionCode: kotlin.Int? = null, parameters: kotlin.String? = null) : SirqulResponse {
+        val localVarResponse = runWorkflowWithHttpInfo(accountId = accountId, workflowId = workflowId, skuId = skuId, versionCode = versionCode, parameters = parameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -83,10 +82,9 @@ open class WorkflowApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/workflow/run
+     * POST /workflow/run
      * Run Workflow
      * Runs a published executable workflow
-     * @param version 
      * @param accountId the account ID of the user
      * @param workflowId the workflow to run
      * @param skuId this runs a particular sku on the workflow (optional)
@@ -98,8 +96,8 @@ open class WorkflowApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun runWorkflowWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, workflowId: kotlin.Long, skuId: kotlin.Long?, versionCode: kotlin.Int?, parameters: kotlin.String?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = runWorkflowRequestConfig(version = version, accountId = accountId, workflowId = workflowId, skuId = skuId, versionCode = versionCode, parameters = parameters)
+    fun runWorkflowWithHttpInfo(accountId: kotlin.Long, workflowId: kotlin.Long, skuId: kotlin.Long?, versionCode: kotlin.Int?, parameters: kotlin.String?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = runWorkflowRequestConfig(accountId = accountId, workflowId = workflowId, skuId = skuId, versionCode = versionCode, parameters = parameters)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -109,7 +107,6 @@ open class WorkflowApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation runWorkflow
      *
-     * @param version 
      * @param accountId the account ID of the user
      * @param workflowId the workflow to run
      * @param skuId this runs a particular sku on the workflow (optional)
@@ -117,7 +114,7 @@ open class WorkflowApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param parameters Override parameters in JSON format. Example: &#x60;&#x60;&#x60;json {   \&quot;arguments_81\&quot;: { \&quot;filter\&quot;: \&quot;PUBLIC\&quot; },   \&quot;arguments_87\&quot;: { \&quot;tag\&quot;: \&quot;custom_tag\&quot; } } &#x60;&#x60;&#x60;  (optional)
      * @return RequestConfig
      */
-    fun runWorkflowRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, workflowId: kotlin.Long, skuId: kotlin.Long?, versionCode: kotlin.Int?, parameters: kotlin.String?) : RequestConfig<Unit> {
+    fun runWorkflowRequestConfig(accountId: kotlin.Long, workflowId: kotlin.Long, skuId: kotlin.Long?, versionCode: kotlin.Int?, parameters: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -137,7 +134,7 @@ open class WorkflowApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/workflow/run".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/workflow/run",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

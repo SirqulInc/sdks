@@ -44,7 +44,7 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
@@ -86,10 +86,9 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      }
 
     /**
-     * POST /api/{version}/album/create
+     * POST /album/create
      * Create Album
      * Create an Album.
-     * @param version 
      * @param title the title of the album
      * @param coverAssetNullable determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image
      * @param includeCoverInAssetList determines whether the cover image should be added to the album asset list
@@ -145,8 +144,8 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun addAlbumCollection(version: java.math.BigDecimal, title: kotlin.String, coverAssetNullable: kotlin.Boolean, includeCoverInAssetList: kotlin.Boolean, publicRead: kotlin.Boolean, publicWrite: kotlin.Boolean, publicDelete: kotlin.Boolean, publicAdd: kotlin.Boolean, anonymous: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, assetsToAdd: kotlin.String? = null, media: java.io.File? = null, mediaURL: kotlin.String? = null, assetId: kotlin.Long? = null, attachedMedia: java.io.File? = null, attachedMediaURL: kotlin.String? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, tags: kotlin.String? = null, description: kotlin.String? = null, albumType: kotlin.String? = null, albumTypeId: kotlin.Long? = null, subType: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, locationDescription: kotlin.String? = null, visibility: VisibilityAddAlbumCollection? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, cellPhone: kotlin.String? = null, streetAddress: kotlin.String? = null, streetAddress2: kotlin.String? = null, city: kotlin.String? = null, state: kotlin.String? = null, postalCode: kotlin.String? = null, fullAddress: kotlin.String? = null, metaData: kotlin.String? = null, categoryIds: kotlin.String? = null, categoryFilterIds: kotlin.String? = null, audienceIds: kotlin.String? = null, includeAllAppUsersAsMembers: kotlin.Boolean? = null, includeAudiencesAsMembers: kotlin.Boolean? = null, audienceOperator: kotlin.String? = null, approvalStatus: ApprovalStatusAddAlbumCollection? = null, linkedObjectType: kotlin.String? = null, linkedObjectId: kotlin.Long? = null) : SearchResponse {
-        val localVarResponse = addAlbumCollectionWithHttpInfo(version = version, title = title, coverAssetNullable = coverAssetNullable, includeCoverInAssetList = includeCoverInAssetList, publicRead = publicRead, publicWrite = publicWrite, publicDelete = publicDelete, publicAdd = publicAdd, anonymous = anonymous, deviceId = deviceId, accountId = accountId, assetsToAdd = assetsToAdd, media = media, mediaURL = mediaURL, assetId = assetId, attachedMedia = attachedMedia, attachedMediaURL = attachedMediaURL, startDate = startDate, endDate = endDate, tags = tags, description = description, albumType = albumType, albumTypeId = albumTypeId, subType = subType, latitude = latitude, longitude = longitude, locationDescription = locationDescription, visibility = visibility, gameType = gameType, appKey = appKey, cellPhone = cellPhone, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, fullAddress = fullAddress, metaData = metaData, categoryIds = categoryIds, categoryFilterIds = categoryFilterIds, audienceIds = audienceIds, includeAllAppUsersAsMembers = includeAllAppUsersAsMembers, includeAudiencesAsMembers = includeAudiencesAsMembers, audienceOperator = audienceOperator, approvalStatus = approvalStatus, linkedObjectType = linkedObjectType, linkedObjectId = linkedObjectId)
+    fun addAlbumCollection(title: kotlin.String, coverAssetNullable: kotlin.Boolean, includeCoverInAssetList: kotlin.Boolean, publicRead: kotlin.Boolean, publicWrite: kotlin.Boolean, publicDelete: kotlin.Boolean, publicAdd: kotlin.Boolean, anonymous: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, assetsToAdd: kotlin.String? = null, media: java.io.File? = null, mediaURL: kotlin.String? = null, assetId: kotlin.Long? = null, attachedMedia: java.io.File? = null, attachedMediaURL: kotlin.String? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, tags: kotlin.String? = null, description: kotlin.String? = null, albumType: kotlin.String? = null, albumTypeId: kotlin.Long? = null, subType: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, locationDescription: kotlin.String? = null, visibility: VisibilityAddAlbumCollection? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, cellPhone: kotlin.String? = null, streetAddress: kotlin.String? = null, streetAddress2: kotlin.String? = null, city: kotlin.String? = null, state: kotlin.String? = null, postalCode: kotlin.String? = null, fullAddress: kotlin.String? = null, metaData: kotlin.String? = null, categoryIds: kotlin.String? = null, categoryFilterIds: kotlin.String? = null, audienceIds: kotlin.String? = null, includeAllAppUsersAsMembers: kotlin.Boolean? = null, includeAudiencesAsMembers: kotlin.Boolean? = null, audienceOperator: kotlin.String? = null, approvalStatus: ApprovalStatusAddAlbumCollection? = null, linkedObjectType: kotlin.String? = null, linkedObjectId: kotlin.Long? = null) : SearchResponse {
+        val localVarResponse = addAlbumCollectionWithHttpInfo(title = title, coverAssetNullable = coverAssetNullable, includeCoverInAssetList = includeCoverInAssetList, publicRead = publicRead, publicWrite = publicWrite, publicDelete = publicDelete, publicAdd = publicAdd, anonymous = anonymous, deviceId = deviceId, accountId = accountId, assetsToAdd = assetsToAdd, media = media, mediaURL = mediaURL, assetId = assetId, attachedMedia = attachedMedia, attachedMediaURL = attachedMediaURL, startDate = startDate, endDate = endDate, tags = tags, description = description, albumType = albumType, albumTypeId = albumTypeId, subType = subType, latitude = latitude, longitude = longitude, locationDescription = locationDescription, visibility = visibility, gameType = gameType, appKey = appKey, cellPhone = cellPhone, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, fullAddress = fullAddress, metaData = metaData, categoryIds = categoryIds, categoryFilterIds = categoryFilterIds, audienceIds = audienceIds, includeAllAppUsersAsMembers = includeAllAppUsersAsMembers, includeAudiencesAsMembers = includeAudiencesAsMembers, audienceOperator = audienceOperator, approvalStatus = approvalStatus, linkedObjectType = linkedObjectType, linkedObjectId = linkedObjectId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SearchResponse
@@ -164,10 +163,9 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/album/create
+     * POST /album/create
      * Create Album
      * Create an Album.
-     * @param version 
      * @param title the title of the album
      * @param coverAssetNullable determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image
      * @param includeCoverInAssetList determines whether the cover image should be added to the album asset list
@@ -220,8 +218,8 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun addAlbumCollectionWithHttpInfo(version: java.math.BigDecimal, title: kotlin.String, coverAssetNullable: kotlin.Boolean, includeCoverInAssetList: kotlin.Boolean, publicRead: kotlin.Boolean, publicWrite: kotlin.Boolean, publicDelete: kotlin.Boolean, publicAdd: kotlin.Boolean, anonymous: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, assetsToAdd: kotlin.String?, media: java.io.File?, mediaURL: kotlin.String?, assetId: kotlin.Long?, attachedMedia: java.io.File?, attachedMediaURL: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, tags: kotlin.String?, description: kotlin.String?, albumType: kotlin.String?, albumTypeId: kotlin.Long?, subType: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, locationDescription: kotlin.String?, visibility: VisibilityAddAlbumCollection?, gameType: kotlin.String?, appKey: kotlin.String?, cellPhone: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, fullAddress: kotlin.String?, metaData: kotlin.String?, categoryIds: kotlin.String?, categoryFilterIds: kotlin.String?, audienceIds: kotlin.String?, includeAllAppUsersAsMembers: kotlin.Boolean?, includeAudiencesAsMembers: kotlin.Boolean?, audienceOperator: kotlin.String?, approvalStatus: ApprovalStatusAddAlbumCollection?, linkedObjectType: kotlin.String?, linkedObjectId: kotlin.Long?) : ApiResponse<SearchResponse?> {
-        val localVariableConfig = addAlbumCollectionRequestConfig(version = version, title = title, coverAssetNullable = coverAssetNullable, includeCoverInAssetList = includeCoverInAssetList, publicRead = publicRead, publicWrite = publicWrite, publicDelete = publicDelete, publicAdd = publicAdd, anonymous = anonymous, deviceId = deviceId, accountId = accountId, assetsToAdd = assetsToAdd, media = media, mediaURL = mediaURL, assetId = assetId, attachedMedia = attachedMedia, attachedMediaURL = attachedMediaURL, startDate = startDate, endDate = endDate, tags = tags, description = description, albumType = albumType, albumTypeId = albumTypeId, subType = subType, latitude = latitude, longitude = longitude, locationDescription = locationDescription, visibility = visibility, gameType = gameType, appKey = appKey, cellPhone = cellPhone, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, fullAddress = fullAddress, metaData = metaData, categoryIds = categoryIds, categoryFilterIds = categoryFilterIds, audienceIds = audienceIds, includeAllAppUsersAsMembers = includeAllAppUsersAsMembers, includeAudiencesAsMembers = includeAudiencesAsMembers, audienceOperator = audienceOperator, approvalStatus = approvalStatus, linkedObjectType = linkedObjectType, linkedObjectId = linkedObjectId)
+    fun addAlbumCollectionWithHttpInfo(title: kotlin.String, coverAssetNullable: kotlin.Boolean, includeCoverInAssetList: kotlin.Boolean, publicRead: kotlin.Boolean, publicWrite: kotlin.Boolean, publicDelete: kotlin.Boolean, publicAdd: kotlin.Boolean, anonymous: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, assetsToAdd: kotlin.String?, media: java.io.File?, mediaURL: kotlin.String?, assetId: kotlin.Long?, attachedMedia: java.io.File?, attachedMediaURL: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, tags: kotlin.String?, description: kotlin.String?, albumType: kotlin.String?, albumTypeId: kotlin.Long?, subType: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, locationDescription: kotlin.String?, visibility: VisibilityAddAlbumCollection?, gameType: kotlin.String?, appKey: kotlin.String?, cellPhone: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, fullAddress: kotlin.String?, metaData: kotlin.String?, categoryIds: kotlin.String?, categoryFilterIds: kotlin.String?, audienceIds: kotlin.String?, includeAllAppUsersAsMembers: kotlin.Boolean?, includeAudiencesAsMembers: kotlin.Boolean?, audienceOperator: kotlin.String?, approvalStatus: ApprovalStatusAddAlbumCollection?, linkedObjectType: kotlin.String?, linkedObjectId: kotlin.Long?) : ApiResponse<SearchResponse?> {
+        val localVariableConfig = addAlbumCollectionRequestConfig(title = title, coverAssetNullable = coverAssetNullable, includeCoverInAssetList = includeCoverInAssetList, publicRead = publicRead, publicWrite = publicWrite, publicDelete = publicDelete, publicAdd = publicAdd, anonymous = anonymous, deviceId = deviceId, accountId = accountId, assetsToAdd = assetsToAdd, media = media, mediaURL = mediaURL, assetId = assetId, attachedMedia = attachedMedia, attachedMediaURL = attachedMediaURL, startDate = startDate, endDate = endDate, tags = tags, description = description, albumType = albumType, albumTypeId = albumTypeId, subType = subType, latitude = latitude, longitude = longitude, locationDescription = locationDescription, visibility = visibility, gameType = gameType, appKey = appKey, cellPhone = cellPhone, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, fullAddress = fullAddress, metaData = metaData, categoryIds = categoryIds, categoryFilterIds = categoryFilterIds, audienceIds = audienceIds, includeAllAppUsersAsMembers = includeAllAppUsersAsMembers, includeAudiencesAsMembers = includeAudiencesAsMembers, audienceOperator = audienceOperator, approvalStatus = approvalStatus, linkedObjectType = linkedObjectType, linkedObjectId = linkedObjectId)
 
         return request<Unit, SearchResponse>(
             localVariableConfig
@@ -231,7 +229,6 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation addAlbumCollection
      *
-     * @param version 
      * @param title the title of the album
      * @param coverAssetNullable determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image
      * @param includeCoverInAssetList determines whether the cover image should be added to the album asset list
@@ -280,7 +277,7 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param linkedObjectId sets a linked object id so that it can be returned as part of the album response (optional)
      * @return RequestConfig
      */
-    fun addAlbumCollectionRequestConfig(version: java.math.BigDecimal, title: kotlin.String, coverAssetNullable: kotlin.Boolean, includeCoverInAssetList: kotlin.Boolean, publicRead: kotlin.Boolean, publicWrite: kotlin.Boolean, publicDelete: kotlin.Boolean, publicAdd: kotlin.Boolean, anonymous: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, assetsToAdd: kotlin.String?, media: java.io.File?, mediaURL: kotlin.String?, assetId: kotlin.Long?, attachedMedia: java.io.File?, attachedMediaURL: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, tags: kotlin.String?, description: kotlin.String?, albumType: kotlin.String?, albumTypeId: kotlin.Long?, subType: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, locationDescription: kotlin.String?, visibility: VisibilityAddAlbumCollection?, gameType: kotlin.String?, appKey: kotlin.String?, cellPhone: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, fullAddress: kotlin.String?, metaData: kotlin.String?, categoryIds: kotlin.String?, categoryFilterIds: kotlin.String?, audienceIds: kotlin.String?, includeAllAppUsersAsMembers: kotlin.Boolean?, includeAudiencesAsMembers: kotlin.Boolean?, audienceOperator: kotlin.String?, approvalStatus: ApprovalStatusAddAlbumCollection?, linkedObjectType: kotlin.String?, linkedObjectId: kotlin.Long?) : RequestConfig<Unit> {
+    fun addAlbumCollectionRequestConfig(title: kotlin.String, coverAssetNullable: kotlin.Boolean, includeCoverInAssetList: kotlin.Boolean, publicRead: kotlin.Boolean, publicWrite: kotlin.Boolean, publicDelete: kotlin.Boolean, publicAdd: kotlin.Boolean, anonymous: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, assetsToAdd: kotlin.String?, media: java.io.File?, mediaURL: kotlin.String?, assetId: kotlin.Long?, attachedMedia: java.io.File?, attachedMediaURL: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, tags: kotlin.String?, description: kotlin.String?, albumType: kotlin.String?, albumTypeId: kotlin.Long?, subType: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, locationDescription: kotlin.String?, visibility: VisibilityAddAlbumCollection?, gameType: kotlin.String?, appKey: kotlin.String?, cellPhone: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, fullAddress: kotlin.String?, metaData: kotlin.String?, categoryIds: kotlin.String?, categoryFilterIds: kotlin.String?, audienceIds: kotlin.String?, includeAllAppUsersAsMembers: kotlin.Boolean?, includeAudiencesAsMembers: kotlin.Boolean?, audienceOperator: kotlin.String?, approvalStatus: ApprovalStatusAddAlbumCollection?, linkedObjectType: kotlin.String?, linkedObjectId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -411,7 +408,7 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/album/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/album/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -420,10 +417,9 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/album/user/add
+     * POST /album/user/add
      * Add Album Users
      * Add users to an album as participants.
-     * @param version 
      * @param albumId the album ID
      * @param includeFriendGroup determines whether to include all friends as participants
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -443,8 +439,8 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun addAlbumUsers(version: java.math.BigDecimal, albumId: kotlin.Long, includeFriendGroup: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, read: kotlin.Boolean? = null, write: kotlin.Boolean? = null, delete: kotlin.Boolean? = null, add: kotlin.Boolean? = null, connections: kotlin.String? = null, connectionGroups: kotlin.String? = null) : SirqulResponse {
-        val localVarResponse = addAlbumUsersWithHttpInfo(version = version, albumId = albumId, includeFriendGroup = includeFriendGroup, deviceId = deviceId, accountId = accountId, read = read, write = write, delete = delete, add = add, connections = connections, connectionGroups = connectionGroups)
+    fun addAlbumUsers(albumId: kotlin.Long, includeFriendGroup: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, read: kotlin.Boolean? = null, write: kotlin.Boolean? = null, delete: kotlin.Boolean? = null, add: kotlin.Boolean? = null, connections: kotlin.String? = null, connectionGroups: kotlin.String? = null) : SirqulResponse {
+        val localVarResponse = addAlbumUsersWithHttpInfo(albumId = albumId, includeFriendGroup = includeFriendGroup, deviceId = deviceId, accountId = accountId, read = read, write = write, delete = delete, add = add, connections = connections, connectionGroups = connectionGroups)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -462,10 +458,9 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/album/user/add
+     * POST /album/user/add
      * Add Album Users
      * Add users to an album as participants.
-     * @param version 
      * @param albumId the album ID
      * @param includeFriendGroup determines whether to include all friends as participants
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -482,8 +477,8 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun addAlbumUsersWithHttpInfo(version: java.math.BigDecimal, albumId: kotlin.Long, includeFriendGroup: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, read: kotlin.Boolean?, write: kotlin.Boolean?, delete: kotlin.Boolean?, add: kotlin.Boolean?, connections: kotlin.String?, connectionGroups: kotlin.String?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = addAlbumUsersRequestConfig(version = version, albumId = albumId, includeFriendGroup = includeFriendGroup, deviceId = deviceId, accountId = accountId, read = read, write = write, delete = delete, add = add, connections = connections, connectionGroups = connectionGroups)
+    fun addAlbumUsersWithHttpInfo(albumId: kotlin.Long, includeFriendGroup: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, read: kotlin.Boolean?, write: kotlin.Boolean?, delete: kotlin.Boolean?, add: kotlin.Boolean?, connections: kotlin.String?, connectionGroups: kotlin.String?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = addAlbumUsersRequestConfig(albumId = albumId, includeFriendGroup = includeFriendGroup, deviceId = deviceId, accountId = accountId, read = read, write = write, delete = delete, add = add, connections = connections, connectionGroups = connectionGroups)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -493,7 +488,6 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation addAlbumUsers
      *
-     * @param version 
      * @param albumId the album ID
      * @param includeFriendGroup determines whether to include all friends as participants
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -506,7 +500,7 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param connectionGroups comma separated list of connection group IDs (optional)
      * @return RequestConfig
      */
-    fun addAlbumUsersRequestConfig(version: java.math.BigDecimal, albumId: kotlin.Long, includeFriendGroup: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, read: kotlin.Boolean?, write: kotlin.Boolean?, delete: kotlin.Boolean?, add: kotlin.Boolean?, connections: kotlin.String?, connectionGroups: kotlin.String?) : RequestConfig<Unit> {
+    fun addAlbumUsersRequestConfig(albumId: kotlin.Long, includeFriendGroup: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, read: kotlin.Boolean?, write: kotlin.Boolean?, delete: kotlin.Boolean?, add: kotlin.Boolean?, connections: kotlin.String?, connectionGroups: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -541,7 +535,7 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/album/user/add".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/album/user/add",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -569,10 +563,9 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      }
 
     /**
-     * POST /api/{version}/album/approve
+     * POST /album/approve
      * Approve Album
      * Sets the approval status of an Album.
-     * @param version 
      * @param albumId The ID of the album
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
@@ -587,8 +580,8 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun approveAlbum(version: java.math.BigDecimal, albumId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, approvalStatus: ApprovalStatusApproveAlbum? = null, verified: kotlin.Boolean? = null) : SirqulResponse {
-        val localVarResponse = approveAlbumWithHttpInfo(version = version, albumId = albumId, deviceId = deviceId, accountId = accountId, approvalStatus = approvalStatus, verified = verified)
+    fun approveAlbum(albumId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, approvalStatus: ApprovalStatusApproveAlbum? = null, verified: kotlin.Boolean? = null) : SirqulResponse {
+        val localVarResponse = approveAlbumWithHttpInfo(albumId = albumId, deviceId = deviceId, accountId = accountId, approvalStatus = approvalStatus, verified = verified)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -606,10 +599,9 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/album/approve
+     * POST /album/approve
      * Approve Album
      * Sets the approval status of an Album.
-     * @param version 
      * @param albumId The ID of the album
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
@@ -621,8 +613,8 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun approveAlbumWithHttpInfo(version: java.math.BigDecimal, albumId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, approvalStatus: ApprovalStatusApproveAlbum?, verified: kotlin.Boolean?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = approveAlbumRequestConfig(version = version, albumId = albumId, deviceId = deviceId, accountId = accountId, approvalStatus = approvalStatus, verified = verified)
+    fun approveAlbumWithHttpInfo(albumId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, approvalStatus: ApprovalStatusApproveAlbum?, verified: kotlin.Boolean?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = approveAlbumRequestConfig(albumId = albumId, deviceId = deviceId, accountId = accountId, approvalStatus = approvalStatus, verified = verified)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -632,7 +624,6 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation approveAlbum
      *
-     * @param version 
      * @param albumId The ID of the album
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
@@ -640,7 +631,7 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param verified Sets whether the album should be marked as \&quot;verified\&quot; (optional)
      * @return RequestConfig
      */
-    fun approveAlbumRequestConfig(version: java.math.BigDecimal, albumId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, approvalStatus: ApprovalStatusApproveAlbum?, verified: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun approveAlbumRequestConfig(albumId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, approvalStatus: ApprovalStatusApproveAlbum?, verified: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -662,7 +653,7 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/album/approve".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/album/approve",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -671,10 +662,9 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/album/get
+     * GET /album/get
      *  Get Album
      * Get an Album.
-     * @param version 
      * @param returnNulls This parameter is deprecated.
      * @param albumId the album to look up
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -693,8 +683,8 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAlbumCollection(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, albumId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, likePreviewSize: kotlin.Int? = null, assetPreviewSize: kotlin.Int? = null, notePreviewSize: kotlin.Int? = null, connectionPreviewSize: kotlin.Int? = null, audiencePreviewSize: kotlin.Int? = null) : AlbumFullResponse {
-        val localVarResponse = getAlbumCollectionWithHttpInfo(version = version, returnNulls = returnNulls, albumId = albumId, deviceId = deviceId, accountId = accountId, likePreviewSize = likePreviewSize, assetPreviewSize = assetPreviewSize, notePreviewSize = notePreviewSize, connectionPreviewSize = connectionPreviewSize, audiencePreviewSize = audiencePreviewSize)
+    fun getAlbumCollection(returnNulls: kotlin.Boolean, albumId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, likePreviewSize: kotlin.Int? = null, assetPreviewSize: kotlin.Int? = null, notePreviewSize: kotlin.Int? = null, connectionPreviewSize: kotlin.Int? = null, audiencePreviewSize: kotlin.Int? = null) : AlbumFullResponse {
+        val localVarResponse = getAlbumCollectionWithHttpInfo(returnNulls = returnNulls, albumId = albumId, deviceId = deviceId, accountId = accountId, likePreviewSize = likePreviewSize, assetPreviewSize = assetPreviewSize, notePreviewSize = notePreviewSize, connectionPreviewSize = connectionPreviewSize, audiencePreviewSize = audiencePreviewSize)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AlbumFullResponse
@@ -712,10 +702,9 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/album/get
+     * GET /album/get
      *  Get Album
      * Get an Album.
-     * @param version 
      * @param returnNulls This parameter is deprecated.
      * @param albumId the album to look up
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -731,8 +720,8 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAlbumCollectionWithHttpInfo(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, albumId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, likePreviewSize: kotlin.Int?, assetPreviewSize: kotlin.Int?, notePreviewSize: kotlin.Int?, connectionPreviewSize: kotlin.Int?, audiencePreviewSize: kotlin.Int?) : ApiResponse<AlbumFullResponse?> {
-        val localVariableConfig = getAlbumCollectionRequestConfig(version = version, returnNulls = returnNulls, albumId = albumId, deviceId = deviceId, accountId = accountId, likePreviewSize = likePreviewSize, assetPreviewSize = assetPreviewSize, notePreviewSize = notePreviewSize, connectionPreviewSize = connectionPreviewSize, audiencePreviewSize = audiencePreviewSize)
+    fun getAlbumCollectionWithHttpInfo(returnNulls: kotlin.Boolean, albumId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, likePreviewSize: kotlin.Int?, assetPreviewSize: kotlin.Int?, notePreviewSize: kotlin.Int?, connectionPreviewSize: kotlin.Int?, audiencePreviewSize: kotlin.Int?) : ApiResponse<AlbumFullResponse?> {
+        val localVariableConfig = getAlbumCollectionRequestConfig(returnNulls = returnNulls, albumId = albumId, deviceId = deviceId, accountId = accountId, likePreviewSize = likePreviewSize, assetPreviewSize = assetPreviewSize, notePreviewSize = notePreviewSize, connectionPreviewSize = connectionPreviewSize, audiencePreviewSize = audiencePreviewSize)
 
         return request<Unit, AlbumFullResponse>(
             localVariableConfig
@@ -742,7 +731,6 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getAlbumCollection
      *
-     * @param version 
      * @param returnNulls This parameter is deprecated.
      * @param albumId the album to look up
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -754,7 +742,7 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param audiencePreviewSize returns the first X audiences. To search on and paginate the remaining audiences - please use the \&quot;/audience/search\&quot; endpoint. (optional)
      * @return RequestConfig
      */
-    fun getAlbumCollectionRequestConfig(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, albumId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, likePreviewSize: kotlin.Int?, assetPreviewSize: kotlin.Int?, notePreviewSize: kotlin.Int?, connectionPreviewSize: kotlin.Int?, audiencePreviewSize: kotlin.Int?) : RequestConfig<Unit> {
+    fun getAlbumCollectionRequestConfig(returnNulls: kotlin.Boolean, albumId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, likePreviewSize: kotlin.Int?, assetPreviewSize: kotlin.Int?, notePreviewSize: kotlin.Int?, connectionPreviewSize: kotlin.Int?, audiencePreviewSize: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -786,7 +774,7 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/album/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/album/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -795,10 +783,9 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/album/user/leave
+     * POST /album/user/leave
      * Leave Album
      *  Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
-     * @param version 
      * @param albumId the album ID
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -811,8 +798,8 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun leaveAlbum(version: java.math.BigDecimal, albumId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = leaveAlbumWithHttpInfo(version = version, albumId = albumId, deviceId = deviceId, accountId = accountId)
+    fun leaveAlbum(albumId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = leaveAlbumWithHttpInfo(albumId = albumId, deviceId = deviceId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -830,10 +817,9 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/album/user/leave
+     * POST /album/user/leave
      * Leave Album
      *  Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
-     * @param version 
      * @param albumId the album ID
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -843,8 +829,8 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun leaveAlbumWithHttpInfo(version: java.math.BigDecimal, albumId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = leaveAlbumRequestConfig(version = version, albumId = albumId, deviceId = deviceId, accountId = accountId)
+    fun leaveAlbumWithHttpInfo(albumId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = leaveAlbumRequestConfig(albumId = albumId, deviceId = deviceId, accountId = accountId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -854,13 +840,12 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation leaveAlbum
      *
-     * @param version 
      * @param albumId the album ID
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @return RequestConfig
      */
-    fun leaveAlbumRequestConfig(version: java.math.BigDecimal, albumId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun leaveAlbumRequestConfig(albumId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -876,7 +861,7 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/album/user/leave".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/album/user/leave",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -885,10 +870,9 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/album/delete
+     * POST /album/delete
      * Delete Album
      * Deletes an Album
-     * @param version 
      * @param albumId the album ID to delete
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -901,8 +885,8 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun removeAlbum(version: java.math.BigDecimal, albumId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = removeAlbumWithHttpInfo(version = version, albumId = albumId, deviceId = deviceId, accountId = accountId)
+    fun removeAlbum(albumId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = removeAlbumWithHttpInfo(albumId = albumId, deviceId = deviceId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -920,10 +904,9 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/album/delete
+     * POST /album/delete
      * Delete Album
      * Deletes an Album
-     * @param version 
      * @param albumId the album ID to delete
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -933,8 +916,8 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun removeAlbumWithHttpInfo(version: java.math.BigDecimal, albumId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = removeAlbumRequestConfig(version = version, albumId = albumId, deviceId = deviceId, accountId = accountId)
+    fun removeAlbumWithHttpInfo(albumId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = removeAlbumRequestConfig(albumId = albumId, deviceId = deviceId, accountId = accountId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -944,13 +927,12 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation removeAlbum
      *
-     * @param version 
      * @param albumId the album ID to delete
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @return RequestConfig
      */
-    fun removeAlbumRequestConfig(version: java.math.BigDecimal, albumId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun removeAlbumRequestConfig(albumId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -966,7 +948,7 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/album/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/album/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -975,10 +957,9 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/album/user/delete
+     * POST /album/user/delete
      * Remove Album Users
      * Remove participants of an album.
-     * @param version 
      * @param albumId the album ID
      * @param removeFriendGroup remove friend group
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -994,8 +975,8 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun removeAlbumUsers(version: java.math.BigDecimal, albumId: kotlin.Long, removeFriendGroup: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connections: kotlin.String? = null, connectionGroups: kotlin.String? = null) : SirqulResponse {
-        val localVarResponse = removeAlbumUsersWithHttpInfo(version = version, albumId = albumId, removeFriendGroup = removeFriendGroup, deviceId = deviceId, accountId = accountId, connections = connections, connectionGroups = connectionGroups)
+    fun removeAlbumUsers(albumId: kotlin.Long, removeFriendGroup: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connections: kotlin.String? = null, connectionGroups: kotlin.String? = null) : SirqulResponse {
+        val localVarResponse = removeAlbumUsersWithHttpInfo(albumId = albumId, removeFriendGroup = removeFriendGroup, deviceId = deviceId, accountId = accountId, connections = connections, connectionGroups = connectionGroups)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -1013,10 +994,9 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/album/user/delete
+     * POST /album/user/delete
      * Remove Album Users
      * Remove participants of an album.
-     * @param version 
      * @param albumId the album ID
      * @param removeFriendGroup remove friend group
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -1029,8 +1009,8 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun removeAlbumUsersWithHttpInfo(version: java.math.BigDecimal, albumId: kotlin.Long, removeFriendGroup: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, connections: kotlin.String?, connectionGroups: kotlin.String?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = removeAlbumUsersRequestConfig(version = version, albumId = albumId, removeFriendGroup = removeFriendGroup, deviceId = deviceId, accountId = accountId, connections = connections, connectionGroups = connectionGroups)
+    fun removeAlbumUsersWithHttpInfo(albumId: kotlin.Long, removeFriendGroup: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, connections: kotlin.String?, connectionGroups: kotlin.String?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = removeAlbumUsersRequestConfig(albumId = albumId, removeFriendGroup = removeFriendGroup, deviceId = deviceId, accountId = accountId, connections = connections, connectionGroups = connectionGroups)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -1040,7 +1020,6 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation removeAlbumUsers
      *
-     * @param version 
      * @param albumId the album ID
      * @param removeFriendGroup remove friend group
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -1049,7 +1028,7 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param connectionGroups comma separated list of connection group IDs (optional)
      * @return RequestConfig
      */
-    fun removeAlbumUsersRequestConfig(version: java.math.BigDecimal, albumId: kotlin.Long, removeFriendGroup: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, connections: kotlin.String?, connectionGroups: kotlin.String?) : RequestConfig<Unit> {
+    fun removeAlbumUsersRequestConfig(albumId: kotlin.Long, removeFriendGroup: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, connections: kotlin.String?, connectionGroups: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1072,7 +1051,7 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/album/user/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/album/user/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1081,10 +1060,9 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/album/search
+     * GET /album/search
      * Search Albums
      * Searches on Albums.
-     * @param version 
      * @param filter a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. 
      * @param albumTypeId id of custom albumType
      * @param subType filter albums with this album sub type
@@ -1154,8 +1132,8 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchAlbums(version: java.math.BigDecimal, filter: kotlin.String, albumTypeId: kotlin.Long, subType: kotlin.String, includeInactive: kotlin.Boolean, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, range: kotlin.Double, includeLiked: kotlin.Boolean, includeFavorited: kotlin.Boolean, includePermissions: kotlin.Boolean, likePreviewSize: kotlin.Int, assetPreviewSize: kotlin.Int, notePreviewSize: kotlin.Int, connectionPreviewSize: kotlin.Int, audiencePreviewSize: kotlin.Int, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionAccountId: kotlin.Long? = null, ownerId: kotlin.Long? = null, albumIds: kotlin.String? = null, excludeAlbumIds: kotlin.String? = null, mediaId: kotlin.Long? = null, keyword: kotlin.String? = null, albumType: kotlin.String? = null, limitPerAlbumType: kotlin.Int? = null, dateCreated: kotlin.Long? = null, updatedSince: kotlin.Long? = null, updatedBefore: kotlin.Long? = null, createdSince: kotlin.Long? = null, createdBefore: kotlin.Long? = null, startedSince: kotlin.Long? = null, startedBefore: kotlin.Long? = null, endedSince: kotlin.Long? = null, endedBefore: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, appKey: kotlin.String? = null, categoryIds: kotlin.String? = null, categoryFilterIds: kotlin.String? = null, audienceIds: kotlin.String? = null, excludeAudienceIds: kotlin.String? = null, includeCompletable: kotlin.Boolean? = null, includeRating: kotlin.Boolean? = null, searchMode: kotlin.String? = null, stackSearch: kotlin.Boolean? = null, stackWindowSize: kotlin.Int? = null, minStackPerPage: kotlin.Int? = null, stackPaginationIdentifier: kotlin.String? = null, stackDetails: kotlin.Boolean? = null, flagCountMinimum: kotlin.Long? = null, removeFlaggedContent: kotlin.Boolean? = true, verifiedFilter: kotlin.Boolean? = null, linkedObjectType: kotlin.String? = null, linkedObjectId: kotlin.Long? = null, orderAudienceId: kotlin.Long? = null, ignoreDefaultAppFilter: kotlin.Boolean? = null, searchExpression: kotlin.String? = null, generateAlbums: kotlin.Boolean? = null) : kotlin.collections.List<AlbumFullResponse> {
-        val localVarResponse = searchAlbumsWithHttpInfo(version = version, filter = filter, albumTypeId = albumTypeId, subType = subType, includeInactive = includeInactive, sortField = sortField, descending = descending, start = start, limit = limit, range = range, includeLiked = includeLiked, includeFavorited = includeFavorited, includePermissions = includePermissions, likePreviewSize = likePreviewSize, assetPreviewSize = assetPreviewSize, notePreviewSize = notePreviewSize, connectionPreviewSize = connectionPreviewSize, audiencePreviewSize = audiencePreviewSize, deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, ownerId = ownerId, albumIds = albumIds, excludeAlbumIds = excludeAlbumIds, mediaId = mediaId, keyword = keyword, albumType = albumType, limitPerAlbumType = limitPerAlbumType, dateCreated = dateCreated, updatedSince = updatedSince, updatedBefore = updatedBefore, createdSince = createdSince, createdBefore = createdBefore, startedSince = startedSince, startedBefore = startedBefore, endedSince = endedSince, endedBefore = endedBefore, latitude = latitude, longitude = longitude, appKey = appKey, categoryIds = categoryIds, categoryFilterIds = categoryFilterIds, audienceIds = audienceIds, excludeAudienceIds = excludeAudienceIds, includeCompletable = includeCompletable, includeRating = includeRating, searchMode = searchMode, stackSearch = stackSearch, stackWindowSize = stackWindowSize, minStackPerPage = minStackPerPage, stackPaginationIdentifier = stackPaginationIdentifier, stackDetails = stackDetails, flagCountMinimum = flagCountMinimum, removeFlaggedContent = removeFlaggedContent, verifiedFilter = verifiedFilter, linkedObjectType = linkedObjectType, linkedObjectId = linkedObjectId, orderAudienceId = orderAudienceId, ignoreDefaultAppFilter = ignoreDefaultAppFilter, searchExpression = searchExpression, generateAlbums = generateAlbums)
+    fun searchAlbums(filter: kotlin.String, albumTypeId: kotlin.Long, subType: kotlin.String, includeInactive: kotlin.Boolean, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, range: kotlin.Double, includeLiked: kotlin.Boolean, includeFavorited: kotlin.Boolean, includePermissions: kotlin.Boolean, likePreviewSize: kotlin.Int, assetPreviewSize: kotlin.Int, notePreviewSize: kotlin.Int, connectionPreviewSize: kotlin.Int, audiencePreviewSize: kotlin.Int, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionAccountId: kotlin.Long? = null, ownerId: kotlin.Long? = null, albumIds: kotlin.String? = null, excludeAlbumIds: kotlin.String? = null, mediaId: kotlin.Long? = null, keyword: kotlin.String? = null, albumType: kotlin.String? = null, limitPerAlbumType: kotlin.Int? = null, dateCreated: kotlin.Long? = null, updatedSince: kotlin.Long? = null, updatedBefore: kotlin.Long? = null, createdSince: kotlin.Long? = null, createdBefore: kotlin.Long? = null, startedSince: kotlin.Long? = null, startedBefore: kotlin.Long? = null, endedSince: kotlin.Long? = null, endedBefore: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, appKey: kotlin.String? = null, categoryIds: kotlin.String? = null, categoryFilterIds: kotlin.String? = null, audienceIds: kotlin.String? = null, excludeAudienceIds: kotlin.String? = null, includeCompletable: kotlin.Boolean? = null, includeRating: kotlin.Boolean? = null, searchMode: kotlin.String? = null, stackSearch: kotlin.Boolean? = null, stackWindowSize: kotlin.Int? = null, minStackPerPage: kotlin.Int? = null, stackPaginationIdentifier: kotlin.String? = null, stackDetails: kotlin.Boolean? = null, flagCountMinimum: kotlin.Long? = null, removeFlaggedContent: kotlin.Boolean? = true, verifiedFilter: kotlin.Boolean? = null, linkedObjectType: kotlin.String? = null, linkedObjectId: kotlin.Long? = null, orderAudienceId: kotlin.Long? = null, ignoreDefaultAppFilter: kotlin.Boolean? = null, searchExpression: kotlin.String? = null, generateAlbums: kotlin.Boolean? = null) : kotlin.collections.List<AlbumFullResponse> {
+        val localVarResponse = searchAlbumsWithHttpInfo(filter = filter, albumTypeId = albumTypeId, subType = subType, includeInactive = includeInactive, sortField = sortField, descending = descending, start = start, limit = limit, range = range, includeLiked = includeLiked, includeFavorited = includeFavorited, includePermissions = includePermissions, likePreviewSize = likePreviewSize, assetPreviewSize = assetPreviewSize, notePreviewSize = notePreviewSize, connectionPreviewSize = connectionPreviewSize, audiencePreviewSize = audiencePreviewSize, deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, ownerId = ownerId, albumIds = albumIds, excludeAlbumIds = excludeAlbumIds, mediaId = mediaId, keyword = keyword, albumType = albumType, limitPerAlbumType = limitPerAlbumType, dateCreated = dateCreated, updatedSince = updatedSince, updatedBefore = updatedBefore, createdSince = createdSince, createdBefore = createdBefore, startedSince = startedSince, startedBefore = startedBefore, endedSince = endedSince, endedBefore = endedBefore, latitude = latitude, longitude = longitude, appKey = appKey, categoryIds = categoryIds, categoryFilterIds = categoryFilterIds, audienceIds = audienceIds, excludeAudienceIds = excludeAudienceIds, includeCompletable = includeCompletable, includeRating = includeRating, searchMode = searchMode, stackSearch = stackSearch, stackWindowSize = stackWindowSize, minStackPerPage = minStackPerPage, stackPaginationIdentifier = stackPaginationIdentifier, stackDetails = stackDetails, flagCountMinimum = flagCountMinimum, removeFlaggedContent = removeFlaggedContent, verifiedFilter = verifiedFilter, linkedObjectType = linkedObjectType, linkedObjectId = linkedObjectId, orderAudienceId = orderAudienceId, ignoreDefaultAppFilter = ignoreDefaultAppFilter, searchExpression = searchExpression, generateAlbums = generateAlbums)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<AlbumFullResponse>
@@ -1173,10 +1151,9 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/album/search
+     * GET /album/search
      * Search Albums
      * Searches on Albums.
-     * @param version 
      * @param filter a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. 
      * @param albumTypeId id of custom albumType
      * @param subType filter albums with this album sub type
@@ -1243,8 +1220,8 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchAlbumsWithHttpInfo(version: java.math.BigDecimal, filter: kotlin.String, albumTypeId: kotlin.Long, subType: kotlin.String, includeInactive: kotlin.Boolean, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, range: kotlin.Double, includeLiked: kotlin.Boolean, includeFavorited: kotlin.Boolean, includePermissions: kotlin.Boolean, likePreviewSize: kotlin.Int, assetPreviewSize: kotlin.Int, notePreviewSize: kotlin.Int, connectionPreviewSize: kotlin.Int, audiencePreviewSize: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, ownerId: kotlin.Long?, albumIds: kotlin.String?, excludeAlbumIds: kotlin.String?, mediaId: kotlin.Long?, keyword: kotlin.String?, albumType: kotlin.String?, limitPerAlbumType: kotlin.Int?, dateCreated: kotlin.Long?, updatedSince: kotlin.Long?, updatedBefore: kotlin.Long?, createdSince: kotlin.Long?, createdBefore: kotlin.Long?, startedSince: kotlin.Long?, startedBefore: kotlin.Long?, endedSince: kotlin.Long?, endedBefore: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, appKey: kotlin.String?, categoryIds: kotlin.String?, categoryFilterIds: kotlin.String?, audienceIds: kotlin.String?, excludeAudienceIds: kotlin.String?, includeCompletable: kotlin.Boolean?, includeRating: kotlin.Boolean?, searchMode: kotlin.String?, stackSearch: kotlin.Boolean?, stackWindowSize: kotlin.Int?, minStackPerPage: kotlin.Int?, stackPaginationIdentifier: kotlin.String?, stackDetails: kotlin.Boolean?, flagCountMinimum: kotlin.Long?, removeFlaggedContent: kotlin.Boolean?, verifiedFilter: kotlin.Boolean?, linkedObjectType: kotlin.String?, linkedObjectId: kotlin.Long?, orderAudienceId: kotlin.Long?, ignoreDefaultAppFilter: kotlin.Boolean?, searchExpression: kotlin.String?, generateAlbums: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<AlbumFullResponse>?> {
-        val localVariableConfig = searchAlbumsRequestConfig(version = version, filter = filter, albumTypeId = albumTypeId, subType = subType, includeInactive = includeInactive, sortField = sortField, descending = descending, start = start, limit = limit, range = range, includeLiked = includeLiked, includeFavorited = includeFavorited, includePermissions = includePermissions, likePreviewSize = likePreviewSize, assetPreviewSize = assetPreviewSize, notePreviewSize = notePreviewSize, connectionPreviewSize = connectionPreviewSize, audiencePreviewSize = audiencePreviewSize, deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, ownerId = ownerId, albumIds = albumIds, excludeAlbumIds = excludeAlbumIds, mediaId = mediaId, keyword = keyword, albumType = albumType, limitPerAlbumType = limitPerAlbumType, dateCreated = dateCreated, updatedSince = updatedSince, updatedBefore = updatedBefore, createdSince = createdSince, createdBefore = createdBefore, startedSince = startedSince, startedBefore = startedBefore, endedSince = endedSince, endedBefore = endedBefore, latitude = latitude, longitude = longitude, appKey = appKey, categoryIds = categoryIds, categoryFilterIds = categoryFilterIds, audienceIds = audienceIds, excludeAudienceIds = excludeAudienceIds, includeCompletable = includeCompletable, includeRating = includeRating, searchMode = searchMode, stackSearch = stackSearch, stackWindowSize = stackWindowSize, minStackPerPage = minStackPerPage, stackPaginationIdentifier = stackPaginationIdentifier, stackDetails = stackDetails, flagCountMinimum = flagCountMinimum, removeFlaggedContent = removeFlaggedContent, verifiedFilter = verifiedFilter, linkedObjectType = linkedObjectType, linkedObjectId = linkedObjectId, orderAudienceId = orderAudienceId, ignoreDefaultAppFilter = ignoreDefaultAppFilter, searchExpression = searchExpression, generateAlbums = generateAlbums)
+    fun searchAlbumsWithHttpInfo(filter: kotlin.String, albumTypeId: kotlin.Long, subType: kotlin.String, includeInactive: kotlin.Boolean, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, range: kotlin.Double, includeLiked: kotlin.Boolean, includeFavorited: kotlin.Boolean, includePermissions: kotlin.Boolean, likePreviewSize: kotlin.Int, assetPreviewSize: kotlin.Int, notePreviewSize: kotlin.Int, connectionPreviewSize: kotlin.Int, audiencePreviewSize: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, ownerId: kotlin.Long?, albumIds: kotlin.String?, excludeAlbumIds: kotlin.String?, mediaId: kotlin.Long?, keyword: kotlin.String?, albumType: kotlin.String?, limitPerAlbumType: kotlin.Int?, dateCreated: kotlin.Long?, updatedSince: kotlin.Long?, updatedBefore: kotlin.Long?, createdSince: kotlin.Long?, createdBefore: kotlin.Long?, startedSince: kotlin.Long?, startedBefore: kotlin.Long?, endedSince: kotlin.Long?, endedBefore: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, appKey: kotlin.String?, categoryIds: kotlin.String?, categoryFilterIds: kotlin.String?, audienceIds: kotlin.String?, excludeAudienceIds: kotlin.String?, includeCompletable: kotlin.Boolean?, includeRating: kotlin.Boolean?, searchMode: kotlin.String?, stackSearch: kotlin.Boolean?, stackWindowSize: kotlin.Int?, minStackPerPage: kotlin.Int?, stackPaginationIdentifier: kotlin.String?, stackDetails: kotlin.Boolean?, flagCountMinimum: kotlin.Long?, removeFlaggedContent: kotlin.Boolean?, verifiedFilter: kotlin.Boolean?, linkedObjectType: kotlin.String?, linkedObjectId: kotlin.Long?, orderAudienceId: kotlin.Long?, ignoreDefaultAppFilter: kotlin.Boolean?, searchExpression: kotlin.String?, generateAlbums: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<AlbumFullResponse>?> {
+        val localVariableConfig = searchAlbumsRequestConfig(filter = filter, albumTypeId = albumTypeId, subType = subType, includeInactive = includeInactive, sortField = sortField, descending = descending, start = start, limit = limit, range = range, includeLiked = includeLiked, includeFavorited = includeFavorited, includePermissions = includePermissions, likePreviewSize = likePreviewSize, assetPreviewSize = assetPreviewSize, notePreviewSize = notePreviewSize, connectionPreviewSize = connectionPreviewSize, audiencePreviewSize = audiencePreviewSize, deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, ownerId = ownerId, albumIds = albumIds, excludeAlbumIds = excludeAlbumIds, mediaId = mediaId, keyword = keyword, albumType = albumType, limitPerAlbumType = limitPerAlbumType, dateCreated = dateCreated, updatedSince = updatedSince, updatedBefore = updatedBefore, createdSince = createdSince, createdBefore = createdBefore, startedSince = startedSince, startedBefore = startedBefore, endedSince = endedSince, endedBefore = endedBefore, latitude = latitude, longitude = longitude, appKey = appKey, categoryIds = categoryIds, categoryFilterIds = categoryFilterIds, audienceIds = audienceIds, excludeAudienceIds = excludeAudienceIds, includeCompletable = includeCompletable, includeRating = includeRating, searchMode = searchMode, stackSearch = stackSearch, stackWindowSize = stackWindowSize, minStackPerPage = minStackPerPage, stackPaginationIdentifier = stackPaginationIdentifier, stackDetails = stackDetails, flagCountMinimum = flagCountMinimum, removeFlaggedContent = removeFlaggedContent, verifiedFilter = verifiedFilter, linkedObjectType = linkedObjectType, linkedObjectId = linkedObjectId, orderAudienceId = orderAudienceId, ignoreDefaultAppFilter = ignoreDefaultAppFilter, searchExpression = searchExpression, generateAlbums = generateAlbums)
 
         return request<Unit, kotlin.collections.List<AlbumFullResponse>>(
             localVariableConfig
@@ -1254,7 +1231,6 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation searchAlbums
      *
-     * @param version 
      * @param filter a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. 
      * @param albumTypeId id of custom albumType
      * @param subType filter albums with this album sub type
@@ -1317,7 +1293,7 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param generateAlbums If true and results are empty, attempt to generate albums via templates (optional)
      * @return RequestConfig
      */
-    fun searchAlbumsRequestConfig(version: java.math.BigDecimal, filter: kotlin.String, albumTypeId: kotlin.Long, subType: kotlin.String, includeInactive: kotlin.Boolean, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, range: kotlin.Double, includeLiked: kotlin.Boolean, includeFavorited: kotlin.Boolean, includePermissions: kotlin.Boolean, likePreviewSize: kotlin.Int, assetPreviewSize: kotlin.Int, notePreviewSize: kotlin.Int, connectionPreviewSize: kotlin.Int, audiencePreviewSize: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, ownerId: kotlin.Long?, albumIds: kotlin.String?, excludeAlbumIds: kotlin.String?, mediaId: kotlin.Long?, keyword: kotlin.String?, albumType: kotlin.String?, limitPerAlbumType: kotlin.Int?, dateCreated: kotlin.Long?, updatedSince: kotlin.Long?, updatedBefore: kotlin.Long?, createdSince: kotlin.Long?, createdBefore: kotlin.Long?, startedSince: kotlin.Long?, startedBefore: kotlin.Long?, endedSince: kotlin.Long?, endedBefore: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, appKey: kotlin.String?, categoryIds: kotlin.String?, categoryFilterIds: kotlin.String?, audienceIds: kotlin.String?, excludeAudienceIds: kotlin.String?, includeCompletable: kotlin.Boolean?, includeRating: kotlin.Boolean?, searchMode: kotlin.String?, stackSearch: kotlin.Boolean?, stackWindowSize: kotlin.Int?, minStackPerPage: kotlin.Int?, stackPaginationIdentifier: kotlin.String?, stackDetails: kotlin.Boolean?, flagCountMinimum: kotlin.Long?, removeFlaggedContent: kotlin.Boolean?, verifiedFilter: kotlin.Boolean?, linkedObjectType: kotlin.String?, linkedObjectId: kotlin.Long?, orderAudienceId: kotlin.Long?, ignoreDefaultAppFilter: kotlin.Boolean?, searchExpression: kotlin.String?, generateAlbums: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchAlbumsRequestConfig(filter: kotlin.String, albumTypeId: kotlin.Long, subType: kotlin.String, includeInactive: kotlin.Boolean, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, range: kotlin.Double, includeLiked: kotlin.Boolean, includeFavorited: kotlin.Boolean, includePermissions: kotlin.Boolean, likePreviewSize: kotlin.Int, assetPreviewSize: kotlin.Int, notePreviewSize: kotlin.Int, connectionPreviewSize: kotlin.Int, audiencePreviewSize: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, ownerId: kotlin.Long?, albumIds: kotlin.String?, excludeAlbumIds: kotlin.String?, mediaId: kotlin.Long?, keyword: kotlin.String?, albumType: kotlin.String?, limitPerAlbumType: kotlin.Int?, dateCreated: kotlin.Long?, updatedSince: kotlin.Long?, updatedBefore: kotlin.Long?, createdSince: kotlin.Long?, createdBefore: kotlin.Long?, startedSince: kotlin.Long?, startedBefore: kotlin.Long?, endedSince: kotlin.Long?, endedBefore: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, appKey: kotlin.String?, categoryIds: kotlin.String?, categoryFilterIds: kotlin.String?, audienceIds: kotlin.String?, excludeAudienceIds: kotlin.String?, includeCompletable: kotlin.Boolean?, includeRating: kotlin.Boolean?, searchMode: kotlin.String?, stackSearch: kotlin.Boolean?, stackWindowSize: kotlin.Int?, minStackPerPage: kotlin.Int?, stackPaginationIdentifier: kotlin.String?, stackDetails: kotlin.Boolean?, flagCountMinimum: kotlin.Long?, removeFlaggedContent: kotlin.Boolean?, verifiedFilter: kotlin.Boolean?, linkedObjectType: kotlin.String?, linkedObjectId: kotlin.Long?, orderAudienceId: kotlin.Long?, ignoreDefaultAppFilter: kotlin.Boolean?, searchExpression: kotlin.String?, generateAlbums: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1472,7 +1448,7 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/album/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/album/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1499,10 +1475,9 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      }
 
     /**
-     * POST /api/{version}/album/update
+     * POST /album/update
      * Update Album
      * Update an Album.
-     * @param version 
      * @param albumId the ID of the album to update
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -1557,8 +1532,8 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateAlbumCollection(version: java.math.BigDecimal, albumId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, assetsToAdd: kotlin.String? = null, assetsToRemove: kotlin.String? = null, assetId: kotlin.Long? = null, media: java.io.File? = null, mediaURL: kotlin.String? = null, active: kotlin.Boolean? = null, title: kotlin.String? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, tags: kotlin.String? = null, description: kotlin.String? = null, albumType: kotlin.String? = null, albumTypeId: kotlin.Long? = null, subType: kotlin.String? = null, publicRead: kotlin.Boolean? = null, publicWrite: kotlin.Boolean? = null, publicDelete: kotlin.Boolean? = null, publicAdd: kotlin.Boolean? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, locationDescription: kotlin.String? = null, visibility: VisibilityUpdateAlbumCollection? = null, cellPhone: kotlin.String? = null, streetAddress: kotlin.String? = null, streetAddress2: kotlin.String? = null, city: kotlin.String? = null, state: kotlin.String? = null, postalCode: kotlin.String? = null, fullAddress: kotlin.String? = null, anonymous: kotlin.Boolean? = null, metaData: kotlin.String? = null, categoryIds: kotlin.String? = null, categoryFilterIds: kotlin.String? = null, audienceIds: kotlin.String? = null, audienceIdsToAdd: kotlin.String? = null, audienceIdsToRemove: kotlin.String? = null, includeAllAppUsersAsMembers: kotlin.Boolean? = null, includeAudiencesAsMembers: kotlin.Boolean? = null, audienceOperator: kotlin.String? = null, linkedObjectType: kotlin.String? = null, linkedObjectId: kotlin.Long? = null, indexNow: kotlin.Boolean? = null) : AlbumResponse {
-        val localVarResponse = updateAlbumCollectionWithHttpInfo(version = version, albumId = albumId, deviceId = deviceId, accountId = accountId, assetsToAdd = assetsToAdd, assetsToRemove = assetsToRemove, assetId = assetId, media = media, mediaURL = mediaURL, active = active, title = title, startDate = startDate, endDate = endDate, tags = tags, description = description, albumType = albumType, albumTypeId = albumTypeId, subType = subType, publicRead = publicRead, publicWrite = publicWrite, publicDelete = publicDelete, publicAdd = publicAdd, latitude = latitude, longitude = longitude, locationDescription = locationDescription, visibility = visibility, cellPhone = cellPhone, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, fullAddress = fullAddress, anonymous = anonymous, metaData = metaData, categoryIds = categoryIds, categoryFilterIds = categoryFilterIds, audienceIds = audienceIds, audienceIdsToAdd = audienceIdsToAdd, audienceIdsToRemove = audienceIdsToRemove, includeAllAppUsersAsMembers = includeAllAppUsersAsMembers, includeAudiencesAsMembers = includeAudiencesAsMembers, audienceOperator = audienceOperator, linkedObjectType = linkedObjectType, linkedObjectId = linkedObjectId, indexNow = indexNow)
+    fun updateAlbumCollection(albumId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, assetsToAdd: kotlin.String? = null, assetsToRemove: kotlin.String? = null, assetId: kotlin.Long? = null, media: java.io.File? = null, mediaURL: kotlin.String? = null, active: kotlin.Boolean? = null, title: kotlin.String? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, tags: kotlin.String? = null, description: kotlin.String? = null, albumType: kotlin.String? = null, albumTypeId: kotlin.Long? = null, subType: kotlin.String? = null, publicRead: kotlin.Boolean? = null, publicWrite: kotlin.Boolean? = null, publicDelete: kotlin.Boolean? = null, publicAdd: kotlin.Boolean? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, locationDescription: kotlin.String? = null, visibility: VisibilityUpdateAlbumCollection? = null, cellPhone: kotlin.String? = null, streetAddress: kotlin.String? = null, streetAddress2: kotlin.String? = null, city: kotlin.String? = null, state: kotlin.String? = null, postalCode: kotlin.String? = null, fullAddress: kotlin.String? = null, anonymous: kotlin.Boolean? = null, metaData: kotlin.String? = null, categoryIds: kotlin.String? = null, categoryFilterIds: kotlin.String? = null, audienceIds: kotlin.String? = null, audienceIdsToAdd: kotlin.String? = null, audienceIdsToRemove: kotlin.String? = null, includeAllAppUsersAsMembers: kotlin.Boolean? = null, includeAudiencesAsMembers: kotlin.Boolean? = null, audienceOperator: kotlin.String? = null, linkedObjectType: kotlin.String? = null, linkedObjectId: kotlin.Long? = null, indexNow: kotlin.Boolean? = null) : AlbumResponse {
+        val localVarResponse = updateAlbumCollectionWithHttpInfo(albumId = albumId, deviceId = deviceId, accountId = accountId, assetsToAdd = assetsToAdd, assetsToRemove = assetsToRemove, assetId = assetId, media = media, mediaURL = mediaURL, active = active, title = title, startDate = startDate, endDate = endDate, tags = tags, description = description, albumType = albumType, albumTypeId = albumTypeId, subType = subType, publicRead = publicRead, publicWrite = publicWrite, publicDelete = publicDelete, publicAdd = publicAdd, latitude = latitude, longitude = longitude, locationDescription = locationDescription, visibility = visibility, cellPhone = cellPhone, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, fullAddress = fullAddress, anonymous = anonymous, metaData = metaData, categoryIds = categoryIds, categoryFilterIds = categoryFilterIds, audienceIds = audienceIds, audienceIdsToAdd = audienceIdsToAdd, audienceIdsToRemove = audienceIdsToRemove, includeAllAppUsersAsMembers = includeAllAppUsersAsMembers, includeAudiencesAsMembers = includeAudiencesAsMembers, audienceOperator = audienceOperator, linkedObjectType = linkedObjectType, linkedObjectId = linkedObjectId, indexNow = indexNow)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AlbumResponse
@@ -1576,10 +1551,9 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/album/update
+     * POST /album/update
      * Update Album
      * Update an Album.
-     * @param version 
      * @param albumId the ID of the album to update
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -1631,8 +1605,8 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateAlbumCollectionWithHttpInfo(version: java.math.BigDecimal, albumId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, assetsToAdd: kotlin.String?, assetsToRemove: kotlin.String?, assetId: kotlin.Long?, media: java.io.File?, mediaURL: kotlin.String?, active: kotlin.Boolean?, title: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, tags: kotlin.String?, description: kotlin.String?, albumType: kotlin.String?, albumTypeId: kotlin.Long?, subType: kotlin.String?, publicRead: kotlin.Boolean?, publicWrite: kotlin.Boolean?, publicDelete: kotlin.Boolean?, publicAdd: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?, locationDescription: kotlin.String?, visibility: VisibilityUpdateAlbumCollection?, cellPhone: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, fullAddress: kotlin.String?, anonymous: kotlin.Boolean?, metaData: kotlin.String?, categoryIds: kotlin.String?, categoryFilterIds: kotlin.String?, audienceIds: kotlin.String?, audienceIdsToAdd: kotlin.String?, audienceIdsToRemove: kotlin.String?, includeAllAppUsersAsMembers: kotlin.Boolean?, includeAudiencesAsMembers: kotlin.Boolean?, audienceOperator: kotlin.String?, linkedObjectType: kotlin.String?, linkedObjectId: kotlin.Long?, indexNow: kotlin.Boolean?) : ApiResponse<AlbumResponse?> {
-        val localVariableConfig = updateAlbumCollectionRequestConfig(version = version, albumId = albumId, deviceId = deviceId, accountId = accountId, assetsToAdd = assetsToAdd, assetsToRemove = assetsToRemove, assetId = assetId, media = media, mediaURL = mediaURL, active = active, title = title, startDate = startDate, endDate = endDate, tags = tags, description = description, albumType = albumType, albumTypeId = albumTypeId, subType = subType, publicRead = publicRead, publicWrite = publicWrite, publicDelete = publicDelete, publicAdd = publicAdd, latitude = latitude, longitude = longitude, locationDescription = locationDescription, visibility = visibility, cellPhone = cellPhone, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, fullAddress = fullAddress, anonymous = anonymous, metaData = metaData, categoryIds = categoryIds, categoryFilterIds = categoryFilterIds, audienceIds = audienceIds, audienceIdsToAdd = audienceIdsToAdd, audienceIdsToRemove = audienceIdsToRemove, includeAllAppUsersAsMembers = includeAllAppUsersAsMembers, includeAudiencesAsMembers = includeAudiencesAsMembers, audienceOperator = audienceOperator, linkedObjectType = linkedObjectType, linkedObjectId = linkedObjectId, indexNow = indexNow)
+    fun updateAlbumCollectionWithHttpInfo(albumId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, assetsToAdd: kotlin.String?, assetsToRemove: kotlin.String?, assetId: kotlin.Long?, media: java.io.File?, mediaURL: kotlin.String?, active: kotlin.Boolean?, title: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, tags: kotlin.String?, description: kotlin.String?, albumType: kotlin.String?, albumTypeId: kotlin.Long?, subType: kotlin.String?, publicRead: kotlin.Boolean?, publicWrite: kotlin.Boolean?, publicDelete: kotlin.Boolean?, publicAdd: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?, locationDescription: kotlin.String?, visibility: VisibilityUpdateAlbumCollection?, cellPhone: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, fullAddress: kotlin.String?, anonymous: kotlin.Boolean?, metaData: kotlin.String?, categoryIds: kotlin.String?, categoryFilterIds: kotlin.String?, audienceIds: kotlin.String?, audienceIdsToAdd: kotlin.String?, audienceIdsToRemove: kotlin.String?, includeAllAppUsersAsMembers: kotlin.Boolean?, includeAudiencesAsMembers: kotlin.Boolean?, audienceOperator: kotlin.String?, linkedObjectType: kotlin.String?, linkedObjectId: kotlin.Long?, indexNow: kotlin.Boolean?) : ApiResponse<AlbumResponse?> {
+        val localVariableConfig = updateAlbumCollectionRequestConfig(albumId = albumId, deviceId = deviceId, accountId = accountId, assetsToAdd = assetsToAdd, assetsToRemove = assetsToRemove, assetId = assetId, media = media, mediaURL = mediaURL, active = active, title = title, startDate = startDate, endDate = endDate, tags = tags, description = description, albumType = albumType, albumTypeId = albumTypeId, subType = subType, publicRead = publicRead, publicWrite = publicWrite, publicDelete = publicDelete, publicAdd = publicAdd, latitude = latitude, longitude = longitude, locationDescription = locationDescription, visibility = visibility, cellPhone = cellPhone, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, fullAddress = fullAddress, anonymous = anonymous, metaData = metaData, categoryIds = categoryIds, categoryFilterIds = categoryFilterIds, audienceIds = audienceIds, audienceIdsToAdd = audienceIdsToAdd, audienceIdsToRemove = audienceIdsToRemove, includeAllAppUsersAsMembers = includeAllAppUsersAsMembers, includeAudiencesAsMembers = includeAudiencesAsMembers, audienceOperator = audienceOperator, linkedObjectType = linkedObjectType, linkedObjectId = linkedObjectId, indexNow = indexNow)
 
         return request<Unit, AlbumResponse>(
             localVariableConfig
@@ -1642,7 +1616,6 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation updateAlbumCollection
      *
-     * @param version 
      * @param albumId the ID of the album to update
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -1690,7 +1663,7 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param indexNow determines whether the album should be indexed immediately (optional)
      * @return RequestConfig
      */
-    fun updateAlbumCollectionRequestConfig(version: java.math.BigDecimal, albumId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, assetsToAdd: kotlin.String?, assetsToRemove: kotlin.String?, assetId: kotlin.Long?, media: java.io.File?, mediaURL: kotlin.String?, active: kotlin.Boolean?, title: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, tags: kotlin.String?, description: kotlin.String?, albumType: kotlin.String?, albumTypeId: kotlin.Long?, subType: kotlin.String?, publicRead: kotlin.Boolean?, publicWrite: kotlin.Boolean?, publicDelete: kotlin.Boolean?, publicAdd: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?, locationDescription: kotlin.String?, visibility: VisibilityUpdateAlbumCollection?, cellPhone: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, fullAddress: kotlin.String?, anonymous: kotlin.Boolean?, metaData: kotlin.String?, categoryIds: kotlin.String?, categoryFilterIds: kotlin.String?, audienceIds: kotlin.String?, audienceIdsToAdd: kotlin.String?, audienceIdsToRemove: kotlin.String?, includeAllAppUsersAsMembers: kotlin.Boolean?, includeAudiencesAsMembers: kotlin.Boolean?, audienceOperator: kotlin.String?, linkedObjectType: kotlin.String?, linkedObjectId: kotlin.Long?, indexNow: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun updateAlbumCollectionRequestConfig(albumId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, assetsToAdd: kotlin.String?, assetsToRemove: kotlin.String?, assetId: kotlin.Long?, media: java.io.File?, mediaURL: kotlin.String?, active: kotlin.Boolean?, title: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, tags: kotlin.String?, description: kotlin.String?, albumType: kotlin.String?, albumTypeId: kotlin.Long?, subType: kotlin.String?, publicRead: kotlin.Boolean?, publicWrite: kotlin.Boolean?, publicDelete: kotlin.Boolean?, publicAdd: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?, locationDescription: kotlin.String?, visibility: VisibilityUpdateAlbumCollection?, cellPhone: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, fullAddress: kotlin.String?, anonymous: kotlin.Boolean?, metaData: kotlin.String?, categoryIds: kotlin.String?, categoryFilterIds: kotlin.String?, audienceIds: kotlin.String?, audienceIdsToAdd: kotlin.String?, audienceIdsToRemove: kotlin.String?, includeAllAppUsersAsMembers: kotlin.Boolean?, includeAudiencesAsMembers: kotlin.Boolean?, audienceOperator: kotlin.String?, linkedObjectType: kotlin.String?, linkedObjectId: kotlin.Long?, indexNow: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1832,7 +1805,7 @@ open class AlbumApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/album/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/album/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

@@ -41,15 +41,14 @@ open class RoutingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/routing/compute
+     * POST /routing/compute
      * Compute Route
      * This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off. 
-     * @param version 
      * @param `data` Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest
      * @return RoutingListResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -60,8 +59,8 @@ open class RoutingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun computeRouting(version: java.math.BigDecimal, `data`: kotlin.String) : RoutingListResponse {
-        val localVarResponse = computeRoutingWithHttpInfo(version = version, `data` = `data`)
+    fun computeRouting(`data`: kotlin.String) : RoutingListResponse {
+        val localVarResponse = computeRoutingWithHttpInfo(`data` = `data`)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as RoutingListResponse
@@ -79,10 +78,9 @@ open class RoutingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/routing/compute
+     * POST /routing/compute
      * Compute Route
      * This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off. 
-     * @param version 
      * @param `data` Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest
      * @return ApiResponse<RoutingListResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -90,8 +88,8 @@ open class RoutingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun computeRoutingWithHttpInfo(version: java.math.BigDecimal, `data`: kotlin.String) : ApiResponse<RoutingListResponse?> {
-        val localVariableConfig = computeRoutingRequestConfig(version = version, `data` = `data`)
+    fun computeRoutingWithHttpInfo(`data`: kotlin.String) : ApiResponse<RoutingListResponse?> {
+        val localVariableConfig = computeRoutingRequestConfig(`data` = `data`)
 
         return request<Unit, RoutingListResponse>(
             localVariableConfig
@@ -101,11 +99,10 @@ open class RoutingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation computeRouting
      *
-     * @param version 
      * @param `data` Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest
      * @return RequestConfig
      */
-    fun computeRoutingRequestConfig(version: java.math.BigDecimal, `data`: kotlin.String) : RequestConfig<Unit> {
+    fun computeRoutingRequestConfig(`data`: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -115,7 +112,7 @@ open class RoutingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/routing/compute".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/routing/compute",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

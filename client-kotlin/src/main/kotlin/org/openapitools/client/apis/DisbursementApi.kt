@@ -41,15 +41,14 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * GET /api/{version}/disbursement/check
+     * GET /disbursement/check
      * Check Disbursements
      * Checks the status of a captured disbrusement to see if it has been settled.
-     * @param version 
      * @param disbursementId the ID of the disbursement being checked on
      * @return DisbursementResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -60,8 +59,8 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun checkDisbursements(version: java.math.BigDecimal, disbursementId: kotlin.Long) : DisbursementResponse {
-        val localVarResponse = checkDisbursementsWithHttpInfo(version = version, disbursementId = disbursementId)
+    fun checkDisbursements(disbursementId: kotlin.Long) : DisbursementResponse {
+        val localVarResponse = checkDisbursementsWithHttpInfo(disbursementId = disbursementId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as DisbursementResponse
@@ -79,10 +78,9 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/disbursement/check
+     * GET /disbursement/check
      * Check Disbursements
      * Checks the status of a captured disbrusement to see if it has been settled.
-     * @param version 
      * @param disbursementId the ID of the disbursement being checked on
      * @return ApiResponse<DisbursementResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -90,8 +88,8 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun checkDisbursementsWithHttpInfo(version: java.math.BigDecimal, disbursementId: kotlin.Long) : ApiResponse<DisbursementResponse?> {
-        val localVariableConfig = checkDisbursementsRequestConfig(version = version, disbursementId = disbursementId)
+    fun checkDisbursementsWithHttpInfo(disbursementId: kotlin.Long) : ApiResponse<DisbursementResponse?> {
+        val localVariableConfig = checkDisbursementsRequestConfig(disbursementId = disbursementId)
 
         return request<Unit, DisbursementResponse>(
             localVariableConfig
@@ -101,11 +99,10 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation checkDisbursements
      *
-     * @param version 
      * @param disbursementId the ID of the disbursement being checked on
      * @return RequestConfig
      */
-    fun checkDisbursementsRequestConfig(version: java.math.BigDecimal, disbursementId: kotlin.Long) : RequestConfig<Unit> {
+    fun checkDisbursementsRequestConfig(disbursementId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -115,7 +112,7 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/disbursement/check".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/disbursement/check",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -142,10 +139,9 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
      }
 
     /**
-     * POST /api/{version}/disbursement/create
+     * POST /disbursement/create
      * Create Disbursement
      * Creates a Disbursement for sending money to a retailer
-     * @param version 
      * @param accountId the ID of the logging in user (must be an EXECUTIVE account)
      * @param receiverAccountId the ID of the account receiving the disbursement
      * @param originalSenderAccountId the ID of the original sender account
@@ -165,8 +161,8 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createDisbursement(version: java.math.BigDecimal, accountId: kotlin.Long, receiverAccountId: kotlin.Long, originalSenderAccountId: kotlin.Long, amount: java.math.BigDecimal, provider: ProviderCreateDisbursement, scheduledDate: kotlin.Long? = null, title: kotlin.String? = null, comment: kotlin.String? = null, externalId: kotlin.String? = null, introspectionParams: kotlin.String? = null) : DisbursementResponse {
-        val localVarResponse = createDisbursementWithHttpInfo(version = version, accountId = accountId, receiverAccountId = receiverAccountId, originalSenderAccountId = originalSenderAccountId, amount = amount, provider = provider, scheduledDate = scheduledDate, title = title, comment = comment, externalId = externalId, introspectionParams = introspectionParams)
+    fun createDisbursement(accountId: kotlin.Long, receiverAccountId: kotlin.Long, originalSenderAccountId: kotlin.Long, amount: java.math.BigDecimal, provider: ProviderCreateDisbursement, scheduledDate: kotlin.Long? = null, title: kotlin.String? = null, comment: kotlin.String? = null, externalId: kotlin.String? = null, introspectionParams: kotlin.String? = null) : DisbursementResponse {
+        val localVarResponse = createDisbursementWithHttpInfo(accountId = accountId, receiverAccountId = receiverAccountId, originalSenderAccountId = originalSenderAccountId, amount = amount, provider = provider, scheduledDate = scheduledDate, title = title, comment = comment, externalId = externalId, introspectionParams = introspectionParams)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as DisbursementResponse
@@ -184,10 +180,9 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/disbursement/create
+     * POST /disbursement/create
      * Create Disbursement
      * Creates a Disbursement for sending money to a retailer
-     * @param version 
      * @param accountId the ID of the logging in user (must be an EXECUTIVE account)
      * @param receiverAccountId the ID of the account receiving the disbursement
      * @param originalSenderAccountId the ID of the original sender account
@@ -204,8 +199,8 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createDisbursementWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, receiverAccountId: kotlin.Long, originalSenderAccountId: kotlin.Long, amount: java.math.BigDecimal, provider: ProviderCreateDisbursement, scheduledDate: kotlin.Long?, title: kotlin.String?, comment: kotlin.String?, externalId: kotlin.String?, introspectionParams: kotlin.String?) : ApiResponse<DisbursementResponse?> {
-        val localVariableConfig = createDisbursementRequestConfig(version = version, accountId = accountId, receiverAccountId = receiverAccountId, originalSenderAccountId = originalSenderAccountId, amount = amount, provider = provider, scheduledDate = scheduledDate, title = title, comment = comment, externalId = externalId, introspectionParams = introspectionParams)
+    fun createDisbursementWithHttpInfo(accountId: kotlin.Long, receiverAccountId: kotlin.Long, originalSenderAccountId: kotlin.Long, amount: java.math.BigDecimal, provider: ProviderCreateDisbursement, scheduledDate: kotlin.Long?, title: kotlin.String?, comment: kotlin.String?, externalId: kotlin.String?, introspectionParams: kotlin.String?) : ApiResponse<DisbursementResponse?> {
+        val localVariableConfig = createDisbursementRequestConfig(accountId = accountId, receiverAccountId = receiverAccountId, originalSenderAccountId = originalSenderAccountId, amount = amount, provider = provider, scheduledDate = scheduledDate, title = title, comment = comment, externalId = externalId, introspectionParams = introspectionParams)
 
         return request<Unit, DisbursementResponse>(
             localVariableConfig
@@ -215,7 +210,6 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation createDisbursement
      *
-     * @param version 
      * @param accountId the ID of the logging in user (must be an EXECUTIVE account)
      * @param receiverAccountId the ID of the account receiving the disbursement
      * @param originalSenderAccountId the ID of the original sender account
@@ -228,7 +222,7 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param introspectionParams This is for specifying parameters to make an http callback request for validating that the disbursement is valid (optional)
      * @return RequestConfig
      */
-    fun createDisbursementRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, receiverAccountId: kotlin.Long, originalSenderAccountId: kotlin.Long, amount: java.math.BigDecimal, provider: ProviderCreateDisbursement, scheduledDate: kotlin.Long?, title: kotlin.String?, comment: kotlin.String?, externalId: kotlin.String?, introspectionParams: kotlin.String?) : RequestConfig<Unit> {
+    fun createDisbursementRequestConfig(accountId: kotlin.Long, receiverAccountId: kotlin.Long, originalSenderAccountId: kotlin.Long, amount: java.math.BigDecimal, provider: ProviderCreateDisbursement, scheduledDate: kotlin.Long?, title: kotlin.String?, comment: kotlin.String?, externalId: kotlin.String?, introspectionParams: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -257,7 +251,7 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/disbursement/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/disbursement/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -266,10 +260,9 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/disbursement/get
+     * GET /disbursement/get
      * Get Disbursement
      * Get Disbursement details
-     * @param version 
      * @param accountId The logged in user.
      * @param disbursementId the id of the disbursement
      * @return DisbursementResponse
@@ -281,8 +274,8 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getDisbursement(version: java.math.BigDecimal, accountId: kotlin.Long, disbursementId: kotlin.Long) : DisbursementResponse {
-        val localVarResponse = getDisbursementWithHttpInfo(version = version, accountId = accountId, disbursementId = disbursementId)
+    fun getDisbursement(accountId: kotlin.Long, disbursementId: kotlin.Long) : DisbursementResponse {
+        val localVarResponse = getDisbursementWithHttpInfo(accountId = accountId, disbursementId = disbursementId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as DisbursementResponse
@@ -300,10 +293,9 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/disbursement/get
+     * GET /disbursement/get
      * Get Disbursement
      * Get Disbursement details
-     * @param version 
      * @param accountId The logged in user.
      * @param disbursementId the id of the disbursement
      * @return ApiResponse<DisbursementResponse?>
@@ -312,8 +304,8 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getDisbursementWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, disbursementId: kotlin.Long) : ApiResponse<DisbursementResponse?> {
-        val localVariableConfig = getDisbursementRequestConfig(version = version, accountId = accountId, disbursementId = disbursementId)
+    fun getDisbursementWithHttpInfo(accountId: kotlin.Long, disbursementId: kotlin.Long) : ApiResponse<DisbursementResponse?> {
+        val localVariableConfig = getDisbursementRequestConfig(accountId = accountId, disbursementId = disbursementId)
 
         return request<Unit, DisbursementResponse>(
             localVariableConfig
@@ -323,12 +315,11 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation getDisbursement
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param disbursementId the id of the disbursement
      * @return RequestConfig
      */
-    fun getDisbursementRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, disbursementId: kotlin.Long) : RequestConfig<Unit> {
+    fun getDisbursementRequestConfig(accountId: kotlin.Long, disbursementId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -339,7 +330,7 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/disbursement/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/disbursement/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -348,10 +339,9 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/disbursement/search
+     * GET /disbursement/search
      * Search Disbursements
      * Search Disbursements
-     * @param version 
      * @param accountId the id of the logged in user
      * @param receiverAccountId filter results by the id of the account receiving the disbursement (optional)
      * @param statuses comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED (optional)
@@ -371,8 +361,8 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchDisbursements(version: java.math.BigDecimal, accountId: kotlin.Long, receiverAccountId: kotlin.Long? = null, statuses: kotlin.String? = null, providers: kotlin.String? = null, beforeDate: kotlin.Long? = null, afterDate: kotlin.Long? = null, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, activeOnly: kotlin.Boolean? = false, externalId: kotlin.String? = null) : kotlin.collections.List<DisbursementResponse> {
-        val localVarResponse = searchDisbursementsWithHttpInfo(version = version, accountId = accountId, receiverAccountId = receiverAccountId, statuses = statuses, providers = providers, beforeDate = beforeDate, afterDate = afterDate, start = start, limit = limit, activeOnly = activeOnly, externalId = externalId)
+    fun searchDisbursements(accountId: kotlin.Long, receiverAccountId: kotlin.Long? = null, statuses: kotlin.String? = null, providers: kotlin.String? = null, beforeDate: kotlin.Long? = null, afterDate: kotlin.Long? = null, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, activeOnly: kotlin.Boolean? = false, externalId: kotlin.String? = null) : kotlin.collections.List<DisbursementResponse> {
+        val localVarResponse = searchDisbursementsWithHttpInfo(accountId = accountId, receiverAccountId = receiverAccountId, statuses = statuses, providers = providers, beforeDate = beforeDate, afterDate = afterDate, start = start, limit = limit, activeOnly = activeOnly, externalId = externalId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<DisbursementResponse>
@@ -390,10 +380,9 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/disbursement/search
+     * GET /disbursement/search
      * Search Disbursements
      * Search Disbursements
-     * @param version 
      * @param accountId the id of the logged in user
      * @param receiverAccountId filter results by the id of the account receiving the disbursement (optional)
      * @param statuses comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED (optional)
@@ -410,8 +399,8 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchDisbursementsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, receiverAccountId: kotlin.Long?, statuses: kotlin.String?, providers: kotlin.String?, beforeDate: kotlin.Long?, afterDate: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?, externalId: kotlin.String?) : ApiResponse<kotlin.collections.List<DisbursementResponse>?> {
-        val localVariableConfig = searchDisbursementsRequestConfig(version = version, accountId = accountId, receiverAccountId = receiverAccountId, statuses = statuses, providers = providers, beforeDate = beforeDate, afterDate = afterDate, start = start, limit = limit, activeOnly = activeOnly, externalId = externalId)
+    fun searchDisbursementsWithHttpInfo(accountId: kotlin.Long, receiverAccountId: kotlin.Long?, statuses: kotlin.String?, providers: kotlin.String?, beforeDate: kotlin.Long?, afterDate: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?, externalId: kotlin.String?) : ApiResponse<kotlin.collections.List<DisbursementResponse>?> {
+        val localVariableConfig = searchDisbursementsRequestConfig(accountId = accountId, receiverAccountId = receiverAccountId, statuses = statuses, providers = providers, beforeDate = beforeDate, afterDate = afterDate, start = start, limit = limit, activeOnly = activeOnly, externalId = externalId)
 
         return request<Unit, kotlin.collections.List<DisbursementResponse>>(
             localVariableConfig
@@ -421,7 +410,6 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation searchDisbursements
      *
-     * @param version 
      * @param accountId the id of the logged in user
      * @param receiverAccountId filter results by the id of the account receiving the disbursement (optional)
      * @param statuses comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED (optional)
@@ -434,7 +422,7 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param externalId search results by this external ID (that can be used to reference the disbursement) (optional)
      * @return RequestConfig
      */
-    fun searchDisbursementsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, receiverAccountId: kotlin.Long?, statuses: kotlin.String?, providers: kotlin.String?, beforeDate: kotlin.Long?, afterDate: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?, externalId: kotlin.String?) : RequestConfig<Unit> {
+    fun searchDisbursementsRequestConfig(accountId: kotlin.Long, receiverAccountId: kotlin.Long?, statuses: kotlin.String?, providers: kotlin.String?, beforeDate: kotlin.Long?, afterDate: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?, externalId: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -471,7 +459,7 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/disbursement/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/disbursement/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -498,10 +486,9 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
      }
 
     /**
-     * POST /api/{version}/disbursement/update
+     * POST /disbursement/update
      * Update Disbursement
      * Update Disbursement
-     * @param version 
      * @param accountId the id of the logged in user
      * @param disbursementId the id of the disbursement being updated
      * @param amount the disbursement dollar amount being updated (optional)
@@ -521,8 +508,8 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateDisbursement(version: java.math.BigDecimal, accountId: kotlin.Long, disbursementId: kotlin.Long, amount: java.math.BigDecimal? = null, provider: ProviderUpdateDisbursement? = null, scheduledDate: kotlin.Long? = null, title: kotlin.String? = null, comment: kotlin.String? = null, externalId: kotlin.String? = null, retry: kotlin.Boolean? = null, introspectionParams: kotlin.String? = null) : DisbursementResponse {
-        val localVarResponse = updateDisbursementWithHttpInfo(version = version, accountId = accountId, disbursementId = disbursementId, amount = amount, provider = provider, scheduledDate = scheduledDate, title = title, comment = comment, externalId = externalId, retry = retry, introspectionParams = introspectionParams)
+    fun updateDisbursement(accountId: kotlin.Long, disbursementId: kotlin.Long, amount: java.math.BigDecimal? = null, provider: ProviderUpdateDisbursement? = null, scheduledDate: kotlin.Long? = null, title: kotlin.String? = null, comment: kotlin.String? = null, externalId: kotlin.String? = null, retry: kotlin.Boolean? = null, introspectionParams: kotlin.String? = null) : DisbursementResponse {
+        val localVarResponse = updateDisbursementWithHttpInfo(accountId = accountId, disbursementId = disbursementId, amount = amount, provider = provider, scheduledDate = scheduledDate, title = title, comment = comment, externalId = externalId, retry = retry, introspectionParams = introspectionParams)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as DisbursementResponse
@@ -540,10 +527,9 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/disbursement/update
+     * POST /disbursement/update
      * Update Disbursement
      * Update Disbursement
-     * @param version 
      * @param accountId the id of the logged in user
      * @param disbursementId the id of the disbursement being updated
      * @param amount the disbursement dollar amount being updated (optional)
@@ -560,8 +546,8 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateDisbursementWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, disbursementId: kotlin.Long, amount: java.math.BigDecimal?, provider: ProviderUpdateDisbursement?, scheduledDate: kotlin.Long?, title: kotlin.String?, comment: kotlin.String?, externalId: kotlin.String?, retry: kotlin.Boolean?, introspectionParams: kotlin.String?) : ApiResponse<DisbursementResponse?> {
-        val localVariableConfig = updateDisbursementRequestConfig(version = version, accountId = accountId, disbursementId = disbursementId, amount = amount, provider = provider, scheduledDate = scheduledDate, title = title, comment = comment, externalId = externalId, retry = retry, introspectionParams = introspectionParams)
+    fun updateDisbursementWithHttpInfo(accountId: kotlin.Long, disbursementId: kotlin.Long, amount: java.math.BigDecimal?, provider: ProviderUpdateDisbursement?, scheduledDate: kotlin.Long?, title: kotlin.String?, comment: kotlin.String?, externalId: kotlin.String?, retry: kotlin.Boolean?, introspectionParams: kotlin.String?) : ApiResponse<DisbursementResponse?> {
+        val localVariableConfig = updateDisbursementRequestConfig(accountId = accountId, disbursementId = disbursementId, amount = amount, provider = provider, scheduledDate = scheduledDate, title = title, comment = comment, externalId = externalId, retry = retry, introspectionParams = introspectionParams)
 
         return request<Unit, DisbursementResponse>(
             localVariableConfig
@@ -571,7 +557,6 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation updateDisbursement
      *
-     * @param version 
      * @param accountId the id of the logged in user
      * @param disbursementId the id of the disbursement being updated
      * @param amount the disbursement dollar amount being updated (optional)
@@ -584,7 +569,7 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param introspectionParams for specifying parameters to make an http callback request for validating that the disbursement is valid (optional)
      * @return RequestConfig
      */
-    fun updateDisbursementRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, disbursementId: kotlin.Long, amount: java.math.BigDecimal?, provider: ProviderUpdateDisbursement?, scheduledDate: kotlin.Long?, title: kotlin.String?, comment: kotlin.String?, externalId: kotlin.String?, retry: kotlin.Boolean?, introspectionParams: kotlin.String?) : RequestConfig<Unit> {
+    fun updateDisbursementRequestConfig(accountId: kotlin.Long, disbursementId: kotlin.Long, amount: java.math.BigDecimal?, provider: ProviderUpdateDisbursement?, scheduledDate: kotlin.Long?, title: kotlin.String?, comment: kotlin.String?, externalId: kotlin.String?, retry: kotlin.Boolean?, introspectionParams: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -619,7 +604,7 @@ open class DisbursementApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/disbursement/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/disbursement/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

@@ -51,15 +51,14 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/orson/ai/addMovie
+     * POST /orson/ai/addMovie
      * Add Movie
      * Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param movieName Movie Name
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -76,8 +75,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun addMovie(version: java.math.BigDecimal, accountId: kotlin.Long, movieName: kotlin.String, thirdPartyAccountId: kotlin.String? = null, tags: kotlin.String? = null, file: java.io.File? = null, url: kotlin.String? = null, paramCallback: kotlin.String? = null) : OrsonAiAddMovieResponse {
-        val localVarResponse = addMovieWithHttpInfo(version = version, accountId = accountId, movieName = movieName, thirdPartyAccountId = thirdPartyAccountId, tags = tags, file = file, url = url, paramCallback = paramCallback)
+    fun addMovie(accountId: kotlin.Long, movieName: kotlin.String, thirdPartyAccountId: kotlin.String? = null, tags: kotlin.String? = null, file: java.io.File? = null, url: kotlin.String? = null, paramCallback: kotlin.String? = null) : OrsonAiAddMovieResponse {
+        val localVarResponse = addMovieWithHttpInfo(accountId = accountId, movieName = movieName, thirdPartyAccountId = thirdPartyAccountId, tags = tags, file = file, url = url, paramCallback = paramCallback)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrsonAiAddMovieResponse
@@ -95,10 +94,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/orson/ai/addMovie
+     * POST /orson/ai/addMovie
      * Add Movie
      * Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param movieName Movie Name
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -112,8 +110,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun addMovieWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, movieName: kotlin.String, thirdPartyAccountId: kotlin.String?, tags: kotlin.String?, file: java.io.File?, url: kotlin.String?, paramCallback: kotlin.String?) : ApiResponse<OrsonAiAddMovieResponse?> {
-        val localVariableConfig = addMovieRequestConfig(version = version, accountId = accountId, movieName = movieName, thirdPartyAccountId = thirdPartyAccountId, tags = tags, file = file, url = url, paramCallback = paramCallback)
+    fun addMovieWithHttpInfo(accountId: kotlin.Long, movieName: kotlin.String, thirdPartyAccountId: kotlin.String?, tags: kotlin.String?, file: java.io.File?, url: kotlin.String?, paramCallback: kotlin.String?) : ApiResponse<OrsonAiAddMovieResponse?> {
+        val localVariableConfig = addMovieRequestConfig(accountId = accountId, movieName = movieName, thirdPartyAccountId = thirdPartyAccountId, tags = tags, file = file, url = url, paramCallback = paramCallback)
 
         return request<Unit, OrsonAiAddMovieResponse>(
             localVariableConfig
@@ -123,7 +121,6 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation addMovie
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param movieName Movie Name
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -133,7 +130,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param paramCallback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)
      * @return RequestConfig
      */
-    fun addMovieRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, movieName: kotlin.String, thirdPartyAccountId: kotlin.String?, tags: kotlin.String?, file: java.io.File?, url: kotlin.String?, paramCallback: kotlin.String?) : RequestConfig<Unit> {
+    fun addMovieRequestConfig(accountId: kotlin.Long, movieName: kotlin.String, thirdPartyAccountId: kotlin.String?, tags: kotlin.String?, file: java.io.File?, url: kotlin.String?, paramCallback: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -159,7 +156,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/orson/ai/addMovie".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/orson/ai/addMovie",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -168,10 +165,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/ai/docs
+     * GET /orson/ai/docs
      * Search Docs
      * Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param doc Doc
      * @param returnTopics Return Topics (optional)
@@ -186,8 +182,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun aiDocs(version: java.math.BigDecimal, accountId: kotlin.Long, doc: kotlin.String, returnTopics: kotlin.Boolean? = null, limit: kotlin.Int? = null, offset: kotlin.Int? = null) : OrsonAiProtoResponse {
-        val localVarResponse = aiDocsWithHttpInfo(version = version, accountId = accountId, doc = doc, returnTopics = returnTopics, limit = limit, offset = offset)
+    fun aiDocs(accountId: kotlin.Long, doc: kotlin.String, returnTopics: kotlin.Boolean? = null, limit: kotlin.Int? = null, offset: kotlin.Int? = null) : OrsonAiProtoResponse {
+        val localVarResponse = aiDocsWithHttpInfo(accountId = accountId, doc = doc, returnTopics = returnTopics, limit = limit, offset = offset)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrsonAiProtoResponse
@@ -205,10 +201,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/ai/docs
+     * GET /orson/ai/docs
      * Search Docs
      * Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param doc Doc
      * @param returnTopics Return Topics (optional)
@@ -220,8 +215,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun aiDocsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, doc: kotlin.String, returnTopics: kotlin.Boolean?, limit: kotlin.Int?, offset: kotlin.Int?) : ApiResponse<OrsonAiProtoResponse?> {
-        val localVariableConfig = aiDocsRequestConfig(version = version, accountId = accountId, doc = doc, returnTopics = returnTopics, limit = limit, offset = offset)
+    fun aiDocsWithHttpInfo(accountId: kotlin.Long, doc: kotlin.String, returnTopics: kotlin.Boolean?, limit: kotlin.Int?, offset: kotlin.Int?) : ApiResponse<OrsonAiProtoResponse?> {
+        val localVariableConfig = aiDocsRequestConfig(accountId = accountId, doc = doc, returnTopics = returnTopics, limit = limit, offset = offset)
 
         return request<Unit, OrsonAiProtoResponse>(
             localVariableConfig
@@ -231,7 +226,6 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation aiDocs
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param doc Doc
      * @param returnTopics Return Topics (optional)
@@ -239,7 +233,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param offset Offset (optional)
      * @return RequestConfig
      */
-    fun aiDocsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, doc: kotlin.String, returnTopics: kotlin.Boolean?, limit: kotlin.Int?, offset: kotlin.Int?) : RequestConfig<Unit> {
+    fun aiDocsRequestConfig(accountId: kotlin.Long, doc: kotlin.String, returnTopics: kotlin.Boolean?, limit: kotlin.Int?, offset: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -259,7 +253,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/orson/ai/docs".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/orson/ai/docs",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -268,10 +262,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/ai/img
+     * GET /orson/ai/img
      * Find images
      * Returns a list of URIs of images that match the text.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param text Text
      * @param parseFlag Parse Flag (optional)
@@ -286,8 +279,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun aiFindImages(version: java.math.BigDecimal, accountId: kotlin.Long, text: kotlin.String, parseFlag: kotlin.String? = null, fetchFlag: kotlin.String? = null, size: kotlin.String? = null) : OrsonAiProtoResponse {
-        val localVarResponse = aiFindImagesWithHttpInfo(version = version, accountId = accountId, text = text, parseFlag = parseFlag, fetchFlag = fetchFlag, size = size)
+    fun aiFindImages(accountId: kotlin.Long, text: kotlin.String, parseFlag: kotlin.String? = null, fetchFlag: kotlin.String? = null, size: kotlin.String? = null) : OrsonAiProtoResponse {
+        val localVarResponse = aiFindImagesWithHttpInfo(accountId = accountId, text = text, parseFlag = parseFlag, fetchFlag = fetchFlag, size = size)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrsonAiProtoResponse
@@ -305,10 +298,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/ai/img
+     * GET /orson/ai/img
      * Find images
      * Returns a list of URIs of images that match the text.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param text Text
      * @param parseFlag Parse Flag (optional)
@@ -320,8 +312,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun aiFindImagesWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, text: kotlin.String, parseFlag: kotlin.String?, fetchFlag: kotlin.String?, size: kotlin.String?) : ApiResponse<OrsonAiProtoResponse?> {
-        val localVariableConfig = aiFindImagesRequestConfig(version = version, accountId = accountId, text = text, parseFlag = parseFlag, fetchFlag = fetchFlag, size = size)
+    fun aiFindImagesWithHttpInfo(accountId: kotlin.Long, text: kotlin.String, parseFlag: kotlin.String?, fetchFlag: kotlin.String?, size: kotlin.String?) : ApiResponse<OrsonAiProtoResponse?> {
+        val localVariableConfig = aiFindImagesRequestConfig(accountId = accountId, text = text, parseFlag = parseFlag, fetchFlag = fetchFlag, size = size)
 
         return request<Unit, OrsonAiProtoResponse>(
             localVariableConfig
@@ -331,7 +323,6 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation aiFindImages
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param text Text
      * @param parseFlag Parse Flag (optional)
@@ -339,7 +330,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param size Size (optional)
      * @return RequestConfig
      */
-    fun aiFindImagesRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, text: kotlin.String, parseFlag: kotlin.String?, fetchFlag: kotlin.String?, size: kotlin.String?) : RequestConfig<Unit> {
+    fun aiFindImagesRequestConfig(accountId: kotlin.Long, text: kotlin.String, parseFlag: kotlin.String?, fetchFlag: kotlin.String?, size: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -359,7 +350,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/orson/ai/img".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/orson/ai/img",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -368,10 +359,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/ai/tags
+     * GET /orson/ai/tags
      * Search Tags
      * Search the tags column of user provided tags using this endpoint.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param tags Tags
      * @param conditional Conditional (optional)
@@ -386,8 +376,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun aiTags(version: java.math.BigDecimal, accountId: kotlin.Long, tags: kotlin.String, conditional: kotlin.String? = null, limit: kotlin.Int? = null, offset: kotlin.Int? = null) : OrsonAiProtoResponse {
-        val localVarResponse = aiTagsWithHttpInfo(version = version, accountId = accountId, tags = tags, conditional = conditional, limit = limit, offset = offset)
+    fun aiTags(accountId: kotlin.Long, tags: kotlin.String, conditional: kotlin.String? = null, limit: kotlin.Int? = null, offset: kotlin.Int? = null) : OrsonAiProtoResponse {
+        val localVarResponse = aiTagsWithHttpInfo(accountId = accountId, tags = tags, conditional = conditional, limit = limit, offset = offset)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrsonAiProtoResponse
@@ -405,10 +395,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/ai/tags
+     * GET /orson/ai/tags
      * Search Tags
      * Search the tags column of user provided tags using this endpoint.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param tags Tags
      * @param conditional Conditional (optional)
@@ -420,8 +409,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun aiTagsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, tags: kotlin.String, conditional: kotlin.String?, limit: kotlin.Int?, offset: kotlin.Int?) : ApiResponse<OrsonAiProtoResponse?> {
-        val localVariableConfig = aiTagsRequestConfig(version = version, accountId = accountId, tags = tags, conditional = conditional, limit = limit, offset = offset)
+    fun aiTagsWithHttpInfo(accountId: kotlin.Long, tags: kotlin.String, conditional: kotlin.String?, limit: kotlin.Int?, offset: kotlin.Int?) : ApiResponse<OrsonAiProtoResponse?> {
+        val localVariableConfig = aiTagsRequestConfig(accountId = accountId, tags = tags, conditional = conditional, limit = limit, offset = offset)
 
         return request<Unit, OrsonAiProtoResponse>(
             localVariableConfig
@@ -431,7 +420,6 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation aiTags
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param tags Tags
      * @param conditional Conditional (optional)
@@ -439,7 +427,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param offset Offset (optional)
      * @return RequestConfig
      */
-    fun aiTagsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, tags: kotlin.String, conditional: kotlin.String?, limit: kotlin.Int?, offset: kotlin.Int?) : RequestConfig<Unit> {
+    fun aiTagsRequestConfig(accountId: kotlin.Long, tags: kotlin.String, conditional: kotlin.String?, limit: kotlin.Int?, offset: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -459,7 +447,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/orson/ai/tags".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/orson/ai/tags",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -468,10 +456,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/ai/text
+     * GET /orson/ai/text
      * Search Text
      * Search the movie text column of movie text using this endpoint.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param terms Terms
      * @param conditional Conditional (optional)
@@ -486,8 +473,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun aiText(version: java.math.BigDecimal, accountId: kotlin.Long, terms: kotlin.String, conditional: kotlin.String? = null, limit: kotlin.Int? = null, offset: kotlin.Int? = null) : OrsonAiProtoResponse {
-        val localVarResponse = aiTextWithHttpInfo(version = version, accountId = accountId, terms = terms, conditional = conditional, limit = limit, offset = offset)
+    fun aiText(accountId: kotlin.Long, terms: kotlin.String, conditional: kotlin.String? = null, limit: kotlin.Int? = null, offset: kotlin.Int? = null) : OrsonAiProtoResponse {
+        val localVarResponse = aiTextWithHttpInfo(accountId = accountId, terms = terms, conditional = conditional, limit = limit, offset = offset)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrsonAiProtoResponse
@@ -505,10 +492,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/ai/text
+     * GET /orson/ai/text
      * Search Text
      * Search the movie text column of movie text using this endpoint.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param terms Terms
      * @param conditional Conditional (optional)
@@ -520,8 +506,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun aiTextWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, terms: kotlin.String, conditional: kotlin.String?, limit: kotlin.Int?, offset: kotlin.Int?) : ApiResponse<OrsonAiProtoResponse?> {
-        val localVariableConfig = aiTextRequestConfig(version = version, accountId = accountId, terms = terms, conditional = conditional, limit = limit, offset = offset)
+    fun aiTextWithHttpInfo(accountId: kotlin.Long, terms: kotlin.String, conditional: kotlin.String?, limit: kotlin.Int?, offset: kotlin.Int?) : ApiResponse<OrsonAiProtoResponse?> {
+        val localVariableConfig = aiTextRequestConfig(accountId = accountId, terms = terms, conditional = conditional, limit = limit, offset = offset)
 
         return request<Unit, OrsonAiProtoResponse>(
             localVariableConfig
@@ -531,7 +517,6 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation aiText
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param terms Terms
      * @param conditional Conditional (optional)
@@ -539,7 +524,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param offset Offset (optional)
      * @return RequestConfig
      */
-    fun aiTextRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, terms: kotlin.String, conditional: kotlin.String?, limit: kotlin.Int?, offset: kotlin.Int?) : RequestConfig<Unit> {
+    fun aiTextRequestConfig(accountId: kotlin.Long, terms: kotlin.String, conditional: kotlin.String?, limit: kotlin.Int?, offset: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -559,7 +544,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/orson/ai/text".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/orson/ai/text",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -568,10 +553,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/orson/ai/batch
+     * POST /orson/ai/batch
      * Batch Analysis
      * Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param limit The number of topics to return (optional)
@@ -588,8 +572,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun batch(version: java.math.BigDecimal, accountId: kotlin.Long, thirdPartyAccountId: kotlin.String? = null, limit: kotlin.Int? = null, operations: kotlin.String? = null, file: java.io.File? = null, url: kotlin.String? = null, paramCallback: kotlin.String? = null) : OrsonAiBatchResponse {
-        val localVarResponse = batchWithHttpInfo(version = version, accountId = accountId, thirdPartyAccountId = thirdPartyAccountId, limit = limit, operations = operations, file = file, url = url, paramCallback = paramCallback)
+    fun batch(accountId: kotlin.Long, thirdPartyAccountId: kotlin.String? = null, limit: kotlin.Int? = null, operations: kotlin.String? = null, file: java.io.File? = null, url: kotlin.String? = null, paramCallback: kotlin.String? = null) : OrsonAiBatchResponse {
+        val localVarResponse = batchWithHttpInfo(accountId = accountId, thirdPartyAccountId = thirdPartyAccountId, limit = limit, operations = operations, file = file, url = url, paramCallback = paramCallback)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrsonAiBatchResponse
@@ -607,10 +591,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/orson/ai/batch
+     * POST /orson/ai/batch
      * Batch Analysis
      * Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param limit The number of topics to return (optional)
@@ -624,8 +607,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun batchWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, thirdPartyAccountId: kotlin.String?, limit: kotlin.Int?, operations: kotlin.String?, file: java.io.File?, url: kotlin.String?, paramCallback: kotlin.String?) : ApiResponse<OrsonAiBatchResponse?> {
-        val localVariableConfig = batchRequestConfig(version = version, accountId = accountId, thirdPartyAccountId = thirdPartyAccountId, limit = limit, operations = operations, file = file, url = url, paramCallback = paramCallback)
+    fun batchWithHttpInfo(accountId: kotlin.Long, thirdPartyAccountId: kotlin.String?, limit: kotlin.Int?, operations: kotlin.String?, file: java.io.File?, url: kotlin.String?, paramCallback: kotlin.String?) : ApiResponse<OrsonAiBatchResponse?> {
+        val localVariableConfig = batchRequestConfig(accountId = accountId, thirdPartyAccountId = thirdPartyAccountId, limit = limit, operations = operations, file = file, url = url, paramCallback = paramCallback)
 
         return request<Unit, OrsonAiBatchResponse>(
             localVariableConfig
@@ -635,7 +618,6 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation batch
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param limit The number of topics to return (optional)
@@ -645,7 +627,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param paramCallback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)
      * @return RequestConfig
      */
-    fun batchRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, thirdPartyAccountId: kotlin.String?, limit: kotlin.Int?, operations: kotlin.String?, file: java.io.File?, url: kotlin.String?, paramCallback: kotlin.String?) : RequestConfig<Unit> {
+    fun batchRequestConfig(accountId: kotlin.Long, thirdPartyAccountId: kotlin.String?, limit: kotlin.Int?, operations: kotlin.String?, file: java.io.File?, url: kotlin.String?, paramCallback: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -673,7 +655,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/orson/ai/batch".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/orson/ai/batch",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -682,10 +664,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/orson/stories/episodes/instant
+     * POST /orson/stories/episodes/instant
      * Creates an instant episode
      * Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param `data` Request Data String
      * @return OrsonEpisodeResponse
@@ -697,8 +678,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createInstantEpisode(version: java.math.BigDecimal, accountId: kotlin.Long, `data`: kotlin.String) : OrsonEpisodeResponse {
-        val localVarResponse = createInstantEpisodeWithHttpInfo(version = version, accountId = accountId, `data` = `data`)
+    fun createInstantEpisode(accountId: kotlin.Long, `data`: kotlin.String) : OrsonEpisodeResponse {
+        val localVarResponse = createInstantEpisodeWithHttpInfo(accountId = accountId, `data` = `data`)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrsonEpisodeResponse
@@ -716,10 +697,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/orson/stories/episodes/instant
+     * POST /orson/stories/episodes/instant
      * Creates an instant episode
      * Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param `data` Request Data String
      * @return ApiResponse<OrsonEpisodeResponse?>
@@ -728,8 +708,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createInstantEpisodeWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, `data`: kotlin.String) : ApiResponse<OrsonEpisodeResponse?> {
-        val localVariableConfig = createInstantEpisodeRequestConfig(version = version, accountId = accountId, `data` = `data`)
+    fun createInstantEpisodeWithHttpInfo(accountId: kotlin.Long, `data`: kotlin.String) : ApiResponse<OrsonEpisodeResponse?> {
+        val localVariableConfig = createInstantEpisodeRequestConfig(accountId = accountId, `data` = `data`)
 
         return request<Unit, OrsonEpisodeResponse>(
             localVariableConfig
@@ -739,12 +719,11 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation createInstantEpisode
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param `data` Request Data String
      * @return RequestConfig
      */
-    fun createInstantEpisodeRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, `data`: kotlin.String) : RequestConfig<Unit> {
+    fun createInstantEpisodeRequestConfig(accountId: kotlin.Long, `data`: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -755,7 +734,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/orson/stories/episodes/instant".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/orson/stories/episodes/instant",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -764,10 +743,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/orson/ai/voiceCanvas
+     * POST /orson/ai/voiceCanvas
      * Create VoiceCanvas images
      * Create VoiceCanvas images for provided text, file upload, or file URL
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param dimensions Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot;
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -786,8 +764,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createVoiceCanvas(version: java.math.BigDecimal, accountId: kotlin.Long, dimensions: kotlin.String, thirdPartyAccountId: kotlin.String? = null, text: kotlin.String? = null, file: java.io.File? = null, url: kotlin.String? = null, parseFlag: kotlin.Boolean? = null, fetchFlag: kotlin.Boolean? = null, paramCallback: kotlin.String? = null) : OrsonAiVoiceCanvasResponse {
-        val localVarResponse = createVoiceCanvasWithHttpInfo(version = version, accountId = accountId, dimensions = dimensions, thirdPartyAccountId = thirdPartyAccountId, text = text, file = file, url = url, parseFlag = parseFlag, fetchFlag = fetchFlag, paramCallback = paramCallback)
+    fun createVoiceCanvas(accountId: kotlin.Long, dimensions: kotlin.String, thirdPartyAccountId: kotlin.String? = null, text: kotlin.String? = null, file: java.io.File? = null, url: kotlin.String? = null, parseFlag: kotlin.Boolean? = null, fetchFlag: kotlin.Boolean? = null, paramCallback: kotlin.String? = null) : OrsonAiVoiceCanvasResponse {
+        val localVarResponse = createVoiceCanvasWithHttpInfo(accountId = accountId, dimensions = dimensions, thirdPartyAccountId = thirdPartyAccountId, text = text, file = file, url = url, parseFlag = parseFlag, fetchFlag = fetchFlag, paramCallback = paramCallback)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrsonAiVoiceCanvasResponse
@@ -805,10 +783,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/orson/ai/voiceCanvas
+     * POST /orson/ai/voiceCanvas
      * Create VoiceCanvas images
      * Create VoiceCanvas images for provided text, file upload, or file URL
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param dimensions Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot;
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -824,8 +801,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createVoiceCanvasWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, dimensions: kotlin.String, thirdPartyAccountId: kotlin.String?, text: kotlin.String?, file: java.io.File?, url: kotlin.String?, parseFlag: kotlin.Boolean?, fetchFlag: kotlin.Boolean?, paramCallback: kotlin.String?) : ApiResponse<OrsonAiVoiceCanvasResponse?> {
-        val localVariableConfig = createVoiceCanvasRequestConfig(version = version, accountId = accountId, dimensions = dimensions, thirdPartyAccountId = thirdPartyAccountId, text = text, file = file, url = url, parseFlag = parseFlag, fetchFlag = fetchFlag, paramCallback = paramCallback)
+    fun createVoiceCanvasWithHttpInfo(accountId: kotlin.Long, dimensions: kotlin.String, thirdPartyAccountId: kotlin.String?, text: kotlin.String?, file: java.io.File?, url: kotlin.String?, parseFlag: kotlin.Boolean?, fetchFlag: kotlin.Boolean?, paramCallback: kotlin.String?) : ApiResponse<OrsonAiVoiceCanvasResponse?> {
+        val localVariableConfig = createVoiceCanvasRequestConfig(accountId = accountId, dimensions = dimensions, thirdPartyAccountId = thirdPartyAccountId, text = text, file = file, url = url, parseFlag = parseFlag, fetchFlag = fetchFlag, paramCallback = paramCallback)
 
         return request<Unit, OrsonAiVoiceCanvasResponse>(
             localVariableConfig
@@ -835,7 +812,6 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation createVoiceCanvas
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param dimensions Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot;
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -847,7 +823,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param paramCallback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)
      * @return RequestConfig
      */
-    fun createVoiceCanvasRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, dimensions: kotlin.String, thirdPartyAccountId: kotlin.String?, text: kotlin.String?, file: java.io.File?, url: kotlin.String?, parseFlag: kotlin.Boolean?, fetchFlag: kotlin.Boolean?, paramCallback: kotlin.String?) : RequestConfig<Unit> {
+    fun createVoiceCanvasRequestConfig(accountId: kotlin.Long, dimensions: kotlin.String, thirdPartyAccountId: kotlin.String?, text: kotlin.String?, file: java.io.File?, url: kotlin.String?, parseFlag: kotlin.Boolean?, fetchFlag: kotlin.Boolean?, paramCallback: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -879,7 +855,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/orson/ai/voiceCanvas".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/orson/ai/voiceCanvas",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -888,10 +864,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/orson/ai/emotion
+     * POST /orson/ai/emotion
      * Detect emotions
      * Detects emotions in an audio or video recording.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param file An uploaded recording to analyze (Currently limited to 10MB) (optional)
@@ -906,8 +881,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun emotion(version: java.math.BigDecimal, accountId: kotlin.Long, thirdPartyAccountId: kotlin.String? = null, file: java.io.File? = null, url: kotlin.String? = null, paramCallback: kotlin.String? = null) : OrsonAiEmotionsResponse {
-        val localVarResponse = emotionWithHttpInfo(version = version, accountId = accountId, thirdPartyAccountId = thirdPartyAccountId, file = file, url = url, paramCallback = paramCallback)
+    fun emotion(accountId: kotlin.Long, thirdPartyAccountId: kotlin.String? = null, file: java.io.File? = null, url: kotlin.String? = null, paramCallback: kotlin.String? = null) : OrsonAiEmotionsResponse {
+        val localVarResponse = emotionWithHttpInfo(accountId = accountId, thirdPartyAccountId = thirdPartyAccountId, file = file, url = url, paramCallback = paramCallback)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrsonAiEmotionsResponse
@@ -925,10 +900,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/orson/ai/emotion
+     * POST /orson/ai/emotion
      * Detect emotions
      * Detects emotions in an audio or video recording.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param file An uploaded recording to analyze (Currently limited to 10MB) (optional)
@@ -940,8 +914,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun emotionWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, thirdPartyAccountId: kotlin.String?, file: java.io.File?, url: kotlin.String?, paramCallback: kotlin.String?) : ApiResponse<OrsonAiEmotionsResponse?> {
-        val localVariableConfig = emotionRequestConfig(version = version, accountId = accountId, thirdPartyAccountId = thirdPartyAccountId, file = file, url = url, paramCallback = paramCallback)
+    fun emotionWithHttpInfo(accountId: kotlin.Long, thirdPartyAccountId: kotlin.String?, file: java.io.File?, url: kotlin.String?, paramCallback: kotlin.String?) : ApiResponse<OrsonAiEmotionsResponse?> {
+        val localVariableConfig = emotionRequestConfig(accountId = accountId, thirdPartyAccountId = thirdPartyAccountId, file = file, url = url, paramCallback = paramCallback)
 
         return request<Unit, OrsonAiEmotionsResponse>(
             localVariableConfig
@@ -951,7 +925,6 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation emotion
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param file An uploaded recording to analyze (Currently limited to 10MB) (optional)
@@ -959,7 +932,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param paramCallback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)
      * @return RequestConfig
      */
-    fun emotionRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, thirdPartyAccountId: kotlin.String?, file: java.io.File?, url: kotlin.String?, paramCallback: kotlin.String?) : RequestConfig<Unit> {
+    fun emotionRequestConfig(accountId: kotlin.Long, thirdPartyAccountId: kotlin.String?, file: java.io.File?, url: kotlin.String?, paramCallback: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -981,7 +954,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/orson/ai/emotion".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/orson/ai/emotion",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -990,10 +963,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/ai/addMovie/{requestId}
+     * GET /orson/ai/addMovie/{requestId}
      * Get Add Movie Result
      * Get the result of an in progress Add Movie request from an earlier POST.
-     * @param version 
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @return OrsonAiAddMovieResponse
@@ -1005,8 +977,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAddMovieResult(version: java.math.BigDecimal, requestId: kotlin.String, accountId: kotlin.Long) : OrsonAiAddMovieResponse {
-        val localVarResponse = getAddMovieResultWithHttpInfo(version = version, requestId = requestId, accountId = accountId)
+    fun getAddMovieResult(requestId: kotlin.String, accountId: kotlin.Long) : OrsonAiAddMovieResponse {
+        val localVarResponse = getAddMovieResultWithHttpInfo(requestId = requestId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrsonAiAddMovieResponse
@@ -1024,10 +996,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/ai/addMovie/{requestId}
+     * GET /orson/ai/addMovie/{requestId}
      * Get Add Movie Result
      * Get the result of an in progress Add Movie request from an earlier POST.
-     * @param version 
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @return ApiResponse<OrsonAiAddMovieResponse?>
@@ -1036,8 +1007,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAddMovieResultWithHttpInfo(version: java.math.BigDecimal, requestId: kotlin.String, accountId: kotlin.Long) : ApiResponse<OrsonAiAddMovieResponse?> {
-        val localVariableConfig = getAddMovieResultRequestConfig(version = version, requestId = requestId, accountId = accountId)
+    fun getAddMovieResultWithHttpInfo(requestId: kotlin.String, accountId: kotlin.Long) : ApiResponse<OrsonAiAddMovieResponse?> {
+        val localVariableConfig = getAddMovieResultRequestConfig(requestId = requestId, accountId = accountId)
 
         return request<Unit, OrsonAiAddMovieResponse>(
             localVariableConfig
@@ -1047,12 +1018,11 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getAddMovieResult
      *
-     * @param version 
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @return RequestConfig
      */
-    fun getAddMovieResultRequestConfig(version: java.math.BigDecimal, requestId: kotlin.String, accountId: kotlin.Long) : RequestConfig<Unit> {
+    fun getAddMovieResultRequestConfig(requestId: kotlin.String, accountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1062,7 +1032,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/orson/ai/addMovie/{requestId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"requestId"+"}", encodeURIComponent(requestId.toString())),
+            path = "/orson/ai/addMovie/{requestId}".replace("{"+"requestId"+"}", encodeURIComponent(requestId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1071,10 +1041,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/ai/batch/{requestId}
+     * GET /orson/ai/batch/{requestId}
      * Get Batch Analysis Results
      * Gets the completed Video Batch results, if done, or an error or status update if not.
-     * @param version 
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @return OrsonAiBatchResponse
@@ -1086,8 +1055,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBatch(version: java.math.BigDecimal, requestId: kotlin.String, accountId: kotlin.Long) : OrsonAiBatchResponse {
-        val localVarResponse = getBatchWithHttpInfo(version = version, requestId = requestId, accountId = accountId)
+    fun getBatch(requestId: kotlin.String, accountId: kotlin.Long) : OrsonAiBatchResponse {
+        val localVarResponse = getBatchWithHttpInfo(requestId = requestId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrsonAiBatchResponse
@@ -1105,10 +1074,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/ai/batch/{requestId}
+     * GET /orson/ai/batch/{requestId}
      * Get Batch Analysis Results
      * Gets the completed Video Batch results, if done, or an error or status update if not.
-     * @param version 
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @return ApiResponse<OrsonAiBatchResponse?>
@@ -1117,8 +1085,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBatchWithHttpInfo(version: java.math.BigDecimal, requestId: kotlin.String, accountId: kotlin.Long) : ApiResponse<OrsonAiBatchResponse?> {
-        val localVariableConfig = getBatchRequestConfig(version = version, requestId = requestId, accountId = accountId)
+    fun getBatchWithHttpInfo(requestId: kotlin.String, accountId: kotlin.Long) : ApiResponse<OrsonAiBatchResponse?> {
+        val localVariableConfig = getBatchRequestConfig(requestId = requestId, accountId = accountId)
 
         return request<Unit, OrsonAiBatchResponse>(
             localVariableConfig
@@ -1128,12 +1096,11 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getBatch
      *
-     * @param version 
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @return RequestConfig
      */
-    fun getBatchRequestConfig(version: java.math.BigDecimal, requestId: kotlin.String, accountId: kotlin.Long) : RequestConfig<Unit> {
+    fun getBatchRequestConfig(requestId: kotlin.String, accountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1143,7 +1110,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/orson/ai/batch/{requestId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"requestId"+"}", encodeURIComponent(requestId.toString())),
+            path = "/orson/ai/batch/{requestId}".replace("{"+"requestId"+"}", encodeURIComponent(requestId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1152,10 +1119,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/ai/emotion/{requestId}
+     * GET /orson/ai/emotion/{requestId}
      * Get Emotion Results
      * Checks the Emotion analysis and returns in progress, results, or error.
-     * @param version 
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @return OrsonAiEmotionsResponse
@@ -1167,8 +1133,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getEmotion(version: java.math.BigDecimal, requestId: kotlin.String, accountId: kotlin.Long) : OrsonAiEmotionsResponse {
-        val localVarResponse = getEmotionWithHttpInfo(version = version, requestId = requestId, accountId = accountId)
+    fun getEmotion(requestId: kotlin.String, accountId: kotlin.Long) : OrsonAiEmotionsResponse {
+        val localVarResponse = getEmotionWithHttpInfo(requestId = requestId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrsonAiEmotionsResponse
@@ -1186,10 +1152,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/ai/emotion/{requestId}
+     * GET /orson/ai/emotion/{requestId}
      * Get Emotion Results
      * Checks the Emotion analysis and returns in progress, results, or error.
-     * @param version 
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @return ApiResponse<OrsonAiEmotionsResponse?>
@@ -1198,8 +1163,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getEmotionWithHttpInfo(version: java.math.BigDecimal, requestId: kotlin.String, accountId: kotlin.Long) : ApiResponse<OrsonAiEmotionsResponse?> {
-        val localVariableConfig = getEmotionRequestConfig(version = version, requestId = requestId, accountId = accountId)
+    fun getEmotionWithHttpInfo(requestId: kotlin.String, accountId: kotlin.Long) : ApiResponse<OrsonAiEmotionsResponse?> {
+        val localVariableConfig = getEmotionRequestConfig(requestId = requestId, accountId = accountId)
 
         return request<Unit, OrsonAiEmotionsResponse>(
             localVariableConfig
@@ -1209,12 +1174,11 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getEmotion
      *
-     * @param version 
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @return RequestConfig
      */
-    fun getEmotionRequestConfig(version: java.math.BigDecimal, requestId: kotlin.String, accountId: kotlin.Long) : RequestConfig<Unit> {
+    fun getEmotionRequestConfig(requestId: kotlin.String, accountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1224,7 +1188,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/orson/ai/emotion/{requestId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"requestId"+"}", encodeURIComponent(requestId.toString())),
+            path = "/orson/ai/emotion/{requestId}".replace("{"+"requestId"+"}", encodeURIComponent(requestId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1233,10 +1197,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/stories/episodes/{episodeId}/status
+     * GET /orson/stories/episodes/{episodeId}/status
      * Check episode status
      * Gets a summary of the episode&#39;s status, including any renders.
-     * @param version 
      * @param episodeId Episode ID
      * @param accountId Sirqul Account Id
      * @return OrsonEpisodeResponse
@@ -1248,8 +1211,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getEpisodeStatus(version: java.math.BigDecimal, episodeId: kotlin.Long, accountId: kotlin.Long) : OrsonEpisodeResponse {
-        val localVarResponse = getEpisodeStatusWithHttpInfo(version = version, episodeId = episodeId, accountId = accountId)
+    fun getEpisodeStatus(episodeId: kotlin.Long, accountId: kotlin.Long) : OrsonEpisodeResponse {
+        val localVarResponse = getEpisodeStatusWithHttpInfo(episodeId = episodeId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrsonEpisodeResponse
@@ -1267,10 +1230,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/stories/episodes/{episodeId}/status
+     * GET /orson/stories/episodes/{episodeId}/status
      * Check episode status
      * Gets a summary of the episode&#39;s status, including any renders.
-     * @param version 
      * @param episodeId Episode ID
      * @param accountId Sirqul Account Id
      * @return ApiResponse<OrsonEpisodeResponse?>
@@ -1279,8 +1241,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getEpisodeStatusWithHttpInfo(version: java.math.BigDecimal, episodeId: kotlin.Long, accountId: kotlin.Long) : ApiResponse<OrsonEpisodeResponse?> {
-        val localVariableConfig = getEpisodeStatusRequestConfig(version = version, episodeId = episodeId, accountId = accountId)
+    fun getEpisodeStatusWithHttpInfo(episodeId: kotlin.Long, accountId: kotlin.Long) : ApiResponse<OrsonEpisodeResponse?> {
+        val localVariableConfig = getEpisodeStatusRequestConfig(episodeId = episodeId, accountId = accountId)
 
         return request<Unit, OrsonEpisodeResponse>(
             localVariableConfig
@@ -1290,12 +1252,11 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getEpisodeStatus
      *
-     * @param version 
      * @param episodeId Episode ID
      * @param accountId Sirqul Account Id
      * @return RequestConfig
      */
-    fun getEpisodeStatusRequestConfig(version: java.math.BigDecimal, episodeId: kotlin.Long, accountId: kotlin.Long) : RequestConfig<Unit> {
+    fun getEpisodeStatusRequestConfig(episodeId: kotlin.Long, accountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1305,7 +1266,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/orson/stories/episodes/{episodeId}/status".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"episodeId"+"}", encodeURIComponent(episodeId.toString())),
+            path = "/orson/stories/episodes/{episodeId}/status".replace("{"+"episodeId"+"}", encodeURIComponent(episodeId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1314,10 +1275,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/stories/renders/{renderId}/status
+     * GET /orson/stories/renders/{renderId}/status
      * Check episode status
      * Gets a summary of the episode&#39;s status, including any renders.
-     * @param version 
      * @param renderId Render ID
      * @param accountId Sirqul Account Id
      * @return OrsonRenderResponse
@@ -1329,8 +1289,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRenderStatus(version: java.math.BigDecimal, renderId: kotlin.String, accountId: kotlin.Long) : OrsonRenderResponse {
-        val localVarResponse = getRenderStatusWithHttpInfo(version = version, renderId = renderId, accountId = accountId)
+    fun getRenderStatus(renderId: kotlin.String, accountId: kotlin.Long) : OrsonRenderResponse {
+        val localVarResponse = getRenderStatusWithHttpInfo(renderId = renderId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrsonRenderResponse
@@ -1348,10 +1308,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/stories/renders/{renderId}/status
+     * GET /orson/stories/renders/{renderId}/status
      * Check episode status
      * Gets a summary of the episode&#39;s status, including any renders.
-     * @param version 
      * @param renderId Render ID
      * @param accountId Sirqul Account Id
      * @return ApiResponse<OrsonRenderResponse?>
@@ -1360,8 +1319,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRenderStatusWithHttpInfo(version: java.math.BigDecimal, renderId: kotlin.String, accountId: kotlin.Long) : ApiResponse<OrsonRenderResponse?> {
-        val localVariableConfig = getRenderStatusRequestConfig(version = version, renderId = renderId, accountId = accountId)
+    fun getRenderStatusWithHttpInfo(renderId: kotlin.String, accountId: kotlin.Long) : ApiResponse<OrsonRenderResponse?> {
+        val localVariableConfig = getRenderStatusRequestConfig(renderId = renderId, accountId = accountId)
 
         return request<Unit, OrsonRenderResponse>(
             localVariableConfig
@@ -1371,12 +1330,11 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getRenderStatus
      *
-     * @param version 
      * @param renderId Render ID
      * @param accountId Sirqul Account Id
      * @return RequestConfig
      */
-    fun getRenderStatusRequestConfig(version: java.math.BigDecimal, renderId: kotlin.String, accountId: kotlin.Long) : RequestConfig<Unit> {
+    fun getRenderStatusRequestConfig(renderId: kotlin.String, accountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1386,7 +1344,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/orson/stories/renders/{renderId}/status".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"renderId"+"}", encodeURIComponent(renderId.toString())),
+            path = "/orson/stories/renders/{renderId}/status".replace("{"+"renderId"+"}", encodeURIComponent(renderId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1395,10 +1353,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/ai/stt/{requestId}
+     * GET /orson/ai/stt/{requestId}
      * Get Speach to Text Result
      * The results of the video transcription and optional translation.
-     * @param version 
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @return OrsonAiSTTResponse
@@ -1410,8 +1367,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSTT(version: java.math.BigDecimal, requestId: kotlin.String, accountId: kotlin.Long) : OrsonAiSTTResponse {
-        val localVarResponse = getSTTWithHttpInfo(version = version, requestId = requestId, accountId = accountId)
+    fun getSTT(requestId: kotlin.String, accountId: kotlin.Long) : OrsonAiSTTResponse {
+        val localVarResponse = getSTTWithHttpInfo(requestId = requestId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrsonAiSTTResponse
@@ -1429,10 +1386,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/ai/stt/{requestId}
+     * GET /orson/ai/stt/{requestId}
      * Get Speach to Text Result
      * The results of the video transcription and optional translation.
-     * @param version 
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @return ApiResponse<OrsonAiSTTResponse?>
@@ -1441,8 +1397,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSTTWithHttpInfo(version: java.math.BigDecimal, requestId: kotlin.String, accountId: kotlin.Long) : ApiResponse<OrsonAiSTTResponse?> {
-        val localVariableConfig = getSTTRequestConfig(version = version, requestId = requestId, accountId = accountId)
+    fun getSTTWithHttpInfo(requestId: kotlin.String, accountId: kotlin.Long) : ApiResponse<OrsonAiSTTResponse?> {
+        val localVariableConfig = getSTTRequestConfig(requestId = requestId, accountId = accountId)
 
         return request<Unit, OrsonAiSTTResponse>(
             localVariableConfig
@@ -1452,12 +1408,11 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getSTT
      *
-     * @param version 
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @return RequestConfig
      */
-    fun getSTTRequestConfig(version: java.math.BigDecimal, requestId: kotlin.String, accountId: kotlin.Long) : RequestConfig<Unit> {
+    fun getSTTRequestConfig(requestId: kotlin.String, accountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1467,7 +1422,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/orson/ai/stt/{requestId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"requestId"+"}", encodeURIComponent(requestId.toString())),
+            path = "/orson/ai/stt/{requestId}".replace("{"+"requestId"+"}", encodeURIComponent(requestId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1476,10 +1431,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/ai/tts/{requestId}
+     * GET /orson/ai/tts/{requestId}
      * Get Text to Speach Result
      * Check the status of an in progress Text-to-Speech call or download the result.
-     * @param version 
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @return OrsonAiTTSResponse
@@ -1491,8 +1445,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTTS(version: java.math.BigDecimal, requestId: kotlin.String, accountId: kotlin.Long) : OrsonAiTTSResponse {
-        val localVarResponse = getTTSWithHttpInfo(version = version, requestId = requestId, accountId = accountId)
+    fun getTTS(requestId: kotlin.String, accountId: kotlin.Long) : OrsonAiTTSResponse {
+        val localVarResponse = getTTSWithHttpInfo(requestId = requestId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrsonAiTTSResponse
@@ -1510,10 +1464,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/ai/tts/{requestId}
+     * GET /orson/ai/tts/{requestId}
      * Get Text to Speach Result
      * Check the status of an in progress Text-to-Speech call or download the result.
-     * @param version 
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @return ApiResponse<OrsonAiTTSResponse?>
@@ -1522,8 +1475,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTTSWithHttpInfo(version: java.math.BigDecimal, requestId: kotlin.String, accountId: kotlin.Long) : ApiResponse<OrsonAiTTSResponse?> {
-        val localVariableConfig = getTTSRequestConfig(version = version, requestId = requestId, accountId = accountId)
+    fun getTTSWithHttpInfo(requestId: kotlin.String, accountId: kotlin.Long) : ApiResponse<OrsonAiTTSResponse?> {
+        val localVariableConfig = getTTSRequestConfig(requestId = requestId, accountId = accountId)
 
         return request<Unit, OrsonAiTTSResponse>(
             localVariableConfig
@@ -1533,12 +1486,11 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getTTS
      *
-     * @param version 
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @return RequestConfig
      */
-    fun getTTSRequestConfig(version: java.math.BigDecimal, requestId: kotlin.String, accountId: kotlin.Long) : RequestConfig<Unit> {
+    fun getTTSRequestConfig(requestId: kotlin.String, accountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1548,7 +1500,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/orson/ai/tts/{requestId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"requestId"+"}", encodeURIComponent(requestId.toString())),
+            path = "/orson/ai/tts/{requestId}".replace("{"+"requestId"+"}", encodeURIComponent(requestId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1557,10 +1509,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/ai/techTune/{requestId}
+     * GET /orson/ai/techTune/{requestId}
      * Get TechTune Results
      * Get a result or continue waiting for a pending request for TechTune analysis.
-     * @param version 
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @return OrsonAiTechTuneResponse
@@ -1572,8 +1523,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTechTune(version: java.math.BigDecimal, requestId: kotlin.String, accountId: kotlin.Long) : OrsonAiTechTuneResponse {
-        val localVarResponse = getTechTuneWithHttpInfo(version = version, requestId = requestId, accountId = accountId)
+    fun getTechTune(requestId: kotlin.String, accountId: kotlin.Long) : OrsonAiTechTuneResponse {
+        val localVarResponse = getTechTuneWithHttpInfo(requestId = requestId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrsonAiTechTuneResponse
@@ -1591,10 +1542,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/ai/techTune/{requestId}
+     * GET /orson/ai/techTune/{requestId}
      * Get TechTune Results
      * Get a result or continue waiting for a pending request for TechTune analysis.
-     * @param version 
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @return ApiResponse<OrsonAiTechTuneResponse?>
@@ -1603,8 +1553,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTechTuneWithHttpInfo(version: java.math.BigDecimal, requestId: kotlin.String, accountId: kotlin.Long) : ApiResponse<OrsonAiTechTuneResponse?> {
-        val localVariableConfig = getTechTuneRequestConfig(version = version, requestId = requestId, accountId = accountId)
+    fun getTechTuneWithHttpInfo(requestId: kotlin.String, accountId: kotlin.Long) : ApiResponse<OrsonAiTechTuneResponse?> {
+        val localVariableConfig = getTechTuneRequestConfig(requestId = requestId, accountId = accountId)
 
         return request<Unit, OrsonAiTechTuneResponse>(
             localVariableConfig
@@ -1614,12 +1564,11 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getTechTune
      *
-     * @param version 
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @return RequestConfig
      */
-    fun getTechTuneRequestConfig(version: java.math.BigDecimal, requestId: kotlin.String, accountId: kotlin.Long) : RequestConfig<Unit> {
+    fun getTechTuneRequestConfig(requestId: kotlin.String, accountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1629,7 +1578,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/orson/ai/techTune/{requestId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"requestId"+"}", encodeURIComponent(requestId.toString())),
+            path = "/orson/ai/techTune/{requestId}".replace("{"+"requestId"+"}", encodeURIComponent(requestId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1638,10 +1587,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/ai/topics/{requestId}
+     * GET /orson/ai/topics/{requestId}
      * Get Topics
      * Get the result of an in progress Topics Analysis from an earlier POST.
-     * @param version 
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @return OrsonAiTopicsResponse
@@ -1653,8 +1601,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTopics(version: java.math.BigDecimal, requestId: kotlin.String, accountId: kotlin.Long) : OrsonAiTopicsResponse {
-        val localVarResponse = getTopicsWithHttpInfo(version = version, requestId = requestId, accountId = accountId)
+    fun getTopics(requestId: kotlin.String, accountId: kotlin.Long) : OrsonAiTopicsResponse {
+        val localVarResponse = getTopicsWithHttpInfo(requestId = requestId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrsonAiTopicsResponse
@@ -1672,10 +1620,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/ai/topics/{requestId}
+     * GET /orson/ai/topics/{requestId}
      * Get Topics
      * Get the result of an in progress Topics Analysis from an earlier POST.
-     * @param version 
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @return ApiResponse<OrsonAiTopicsResponse?>
@@ -1684,8 +1631,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTopicsWithHttpInfo(version: java.math.BigDecimal, requestId: kotlin.String, accountId: kotlin.Long) : ApiResponse<OrsonAiTopicsResponse?> {
-        val localVariableConfig = getTopicsRequestConfig(version = version, requestId = requestId, accountId = accountId)
+    fun getTopicsWithHttpInfo(requestId: kotlin.String, accountId: kotlin.Long) : ApiResponse<OrsonAiTopicsResponse?> {
+        val localVariableConfig = getTopicsRequestConfig(requestId = requestId, accountId = accountId)
 
         return request<Unit, OrsonAiTopicsResponse>(
             localVariableConfig
@@ -1695,12 +1642,11 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getTopics
      *
-     * @param version 
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @return RequestConfig
      */
-    fun getTopicsRequestConfig(version: java.math.BigDecimal, requestId: kotlin.String, accountId: kotlin.Long) : RequestConfig<Unit> {
+    fun getTopicsRequestConfig(requestId: kotlin.String, accountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1710,7 +1656,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/orson/ai/topics/{requestId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"requestId"+"}", encodeURIComponent(requestId.toString())),
+            path = "/orson/ai/topics/{requestId}".replace("{"+"requestId"+"}", encodeURIComponent(requestId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1719,10 +1665,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/ai/voiceCanvas/{requestId}
+     * GET /orson/ai/voiceCanvas/{requestId}
      * Get VoiceCanvas images
      * Get a result or continue waiting for a pending request for VoiceCanvas Images.
-     * @param version 
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @return OrsonAiVoiceCanvasResponse
@@ -1734,8 +1679,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getVoiceCanvas(version: java.math.BigDecimal, requestId: kotlin.String, accountId: kotlin.Long) : OrsonAiVoiceCanvasResponse {
-        val localVarResponse = getVoiceCanvasWithHttpInfo(version = version, requestId = requestId, accountId = accountId)
+    fun getVoiceCanvas(requestId: kotlin.String, accountId: kotlin.Long) : OrsonAiVoiceCanvasResponse {
+        val localVarResponse = getVoiceCanvasWithHttpInfo(requestId = requestId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrsonAiVoiceCanvasResponse
@@ -1753,10 +1698,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/orson/ai/voiceCanvas/{requestId}
+     * GET /orson/ai/voiceCanvas/{requestId}
      * Get VoiceCanvas images
      * Get a result or continue waiting for a pending request for VoiceCanvas Images.
-     * @param version 
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @return ApiResponse<OrsonAiVoiceCanvasResponse?>
@@ -1765,8 +1709,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getVoiceCanvasWithHttpInfo(version: java.math.BigDecimal, requestId: kotlin.String, accountId: kotlin.Long) : ApiResponse<OrsonAiVoiceCanvasResponse?> {
-        val localVariableConfig = getVoiceCanvasRequestConfig(version = version, requestId = requestId, accountId = accountId)
+    fun getVoiceCanvasWithHttpInfo(requestId: kotlin.String, accountId: kotlin.Long) : ApiResponse<OrsonAiVoiceCanvasResponse?> {
+        val localVariableConfig = getVoiceCanvasRequestConfig(requestId = requestId, accountId = accountId)
 
         return request<Unit, OrsonAiVoiceCanvasResponse>(
             localVariableConfig
@@ -1776,12 +1720,11 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getVoiceCanvas
      *
-     * @param version 
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @return RequestConfig
      */
-    fun getVoiceCanvasRequestConfig(version: java.math.BigDecimal, requestId: kotlin.String, accountId: kotlin.Long) : RequestConfig<Unit> {
+    fun getVoiceCanvasRequestConfig(requestId: kotlin.String, accountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1791,7 +1734,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/orson/ai/voiceCanvas/{requestId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"requestId"+"}", encodeURIComponent(requestId.toString())),
+            path = "/orson/ai/voiceCanvas/{requestId}".replace("{"+"requestId"+"}", encodeURIComponent(requestId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1800,10 +1743,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/orson/stories/renders
+     * POST /orson/stories/renders
      * Starts a StoryStitch video render
      * Starts a StoryStitch video render to produce your final video, returning the status details.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param `data` Request Data String
      * @return OrsonRenderResponse
@@ -1815,8 +1757,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun startVideoRender(version: java.math.BigDecimal, accountId: kotlin.Long, `data`: kotlin.String) : OrsonRenderResponse {
-        val localVarResponse = startVideoRenderWithHttpInfo(version = version, accountId = accountId, `data` = `data`)
+    fun startVideoRender(accountId: kotlin.Long, `data`: kotlin.String) : OrsonRenderResponse {
+        val localVarResponse = startVideoRenderWithHttpInfo(accountId = accountId, `data` = `data`)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrsonRenderResponse
@@ -1834,10 +1776,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/orson/stories/renders
+     * POST /orson/stories/renders
      * Starts a StoryStitch video render
      * Starts a StoryStitch video render to produce your final video, returning the status details.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param `data` Request Data String
      * @return ApiResponse<OrsonRenderResponse?>
@@ -1846,8 +1787,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun startVideoRenderWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, `data`: kotlin.String) : ApiResponse<OrsonRenderResponse?> {
-        val localVariableConfig = startVideoRenderRequestConfig(version = version, accountId = accountId, `data` = `data`)
+    fun startVideoRenderWithHttpInfo(accountId: kotlin.Long, `data`: kotlin.String) : ApiResponse<OrsonRenderResponse?> {
+        val localVariableConfig = startVideoRenderRequestConfig(accountId = accountId, `data` = `data`)
 
         return request<Unit, OrsonRenderResponse>(
             localVariableConfig
@@ -1857,12 +1798,11 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation startVideoRender
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param `data` Request Data String
      * @return RequestConfig
      */
-    fun startVideoRenderRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, `data`: kotlin.String) : RequestConfig<Unit> {
+    fun startVideoRenderRequestConfig(accountId: kotlin.Long, `data`: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1873,7 +1813,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/orson/stories/renders".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/orson/stories/renders",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1882,10 +1822,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/orson/ai/stt
+     * POST /orson/ai/stt
      * Speach to Text
      * Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param sourceLanguage Source Language (optional)
@@ -1902,8 +1841,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun stt(version: java.math.BigDecimal, accountId: kotlin.Long, thirdPartyAccountId: kotlin.String? = null, sourceLanguage: kotlin.String? = null, targetLanguage: kotlin.String? = null, file: java.io.File? = null, url: kotlin.String? = null, paramCallback: kotlin.String? = null) : OrsonAiSTTResponse {
-        val localVarResponse = sttWithHttpInfo(version = version, accountId = accountId, thirdPartyAccountId = thirdPartyAccountId, sourceLanguage = sourceLanguage, targetLanguage = targetLanguage, file = file, url = url, paramCallback = paramCallback)
+    fun stt(accountId: kotlin.Long, thirdPartyAccountId: kotlin.String? = null, sourceLanguage: kotlin.String? = null, targetLanguage: kotlin.String? = null, file: java.io.File? = null, url: kotlin.String? = null, paramCallback: kotlin.String? = null) : OrsonAiSTTResponse {
+        val localVarResponse = sttWithHttpInfo(accountId = accountId, thirdPartyAccountId = thirdPartyAccountId, sourceLanguage = sourceLanguage, targetLanguage = targetLanguage, file = file, url = url, paramCallback = paramCallback)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrsonAiSTTResponse
@@ -1921,10 +1860,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/orson/ai/stt
+     * POST /orson/ai/stt
      * Speach to Text
      * Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param sourceLanguage Source Language (optional)
@@ -1938,8 +1876,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun sttWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, thirdPartyAccountId: kotlin.String?, sourceLanguage: kotlin.String?, targetLanguage: kotlin.String?, file: java.io.File?, url: kotlin.String?, paramCallback: kotlin.String?) : ApiResponse<OrsonAiSTTResponse?> {
-        val localVariableConfig = sttRequestConfig(version = version, accountId = accountId, thirdPartyAccountId = thirdPartyAccountId, sourceLanguage = sourceLanguage, targetLanguage = targetLanguage, file = file, url = url, paramCallback = paramCallback)
+    fun sttWithHttpInfo(accountId: kotlin.Long, thirdPartyAccountId: kotlin.String?, sourceLanguage: kotlin.String?, targetLanguage: kotlin.String?, file: java.io.File?, url: kotlin.String?, paramCallback: kotlin.String?) : ApiResponse<OrsonAiSTTResponse?> {
+        val localVariableConfig = sttRequestConfig(accountId = accountId, thirdPartyAccountId = thirdPartyAccountId, sourceLanguage = sourceLanguage, targetLanguage = targetLanguage, file = file, url = url, paramCallback = paramCallback)
 
         return request<Unit, OrsonAiSTTResponse>(
             localVariableConfig
@@ -1949,7 +1887,6 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation stt
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param sourceLanguage Source Language (optional)
@@ -1959,7 +1896,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param paramCallback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)
      * @return RequestConfig
      */
-    fun sttRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, thirdPartyAccountId: kotlin.String?, sourceLanguage: kotlin.String?, targetLanguage: kotlin.String?, file: java.io.File?, url: kotlin.String?, paramCallback: kotlin.String?) : RequestConfig<Unit> {
+    fun sttRequestConfig(accountId: kotlin.Long, thirdPartyAccountId: kotlin.String?, sourceLanguage: kotlin.String?, targetLanguage: kotlin.String?, file: java.io.File?, url: kotlin.String?, paramCallback: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1987,7 +1924,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/orson/ai/stt".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/orson/ai/stt",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1996,10 +1933,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/orson/ai/topics
+     * POST /orson/ai/topics
      * Summarize Topics
      * Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param doc The text to get topics for. (optional)
@@ -2017,8 +1953,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun summarizeTopics(version: java.math.BigDecimal, accountId: kotlin.Long, thirdPartyAccountId: kotlin.String? = null, doc: kotlin.String? = null, file: java.io.File? = null, url: kotlin.String? = null, limit: kotlin.Int? = null, offset: kotlin.Int? = null, paramCallback: kotlin.String? = null) : OrsonAiTopicsResponse {
-        val localVarResponse = summarizeTopicsWithHttpInfo(version = version, accountId = accountId, thirdPartyAccountId = thirdPartyAccountId, doc = doc, file = file, url = url, limit = limit, offset = offset, paramCallback = paramCallback)
+    fun summarizeTopics(accountId: kotlin.Long, thirdPartyAccountId: kotlin.String? = null, doc: kotlin.String? = null, file: java.io.File? = null, url: kotlin.String? = null, limit: kotlin.Int? = null, offset: kotlin.Int? = null, paramCallback: kotlin.String? = null) : OrsonAiTopicsResponse {
+        val localVarResponse = summarizeTopicsWithHttpInfo(accountId = accountId, thirdPartyAccountId = thirdPartyAccountId, doc = doc, file = file, url = url, limit = limit, offset = offset, paramCallback = paramCallback)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrsonAiTopicsResponse
@@ -2036,10 +1972,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/orson/ai/topics
+     * POST /orson/ai/topics
      * Summarize Topics
      * Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param doc The text to get topics for. (optional)
@@ -2054,8 +1989,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun summarizeTopicsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, thirdPartyAccountId: kotlin.String?, doc: kotlin.String?, file: java.io.File?, url: kotlin.String?, limit: kotlin.Int?, offset: kotlin.Int?, paramCallback: kotlin.String?) : ApiResponse<OrsonAiTopicsResponse?> {
-        val localVariableConfig = summarizeTopicsRequestConfig(version = version, accountId = accountId, thirdPartyAccountId = thirdPartyAccountId, doc = doc, file = file, url = url, limit = limit, offset = offset, paramCallback = paramCallback)
+    fun summarizeTopicsWithHttpInfo(accountId: kotlin.Long, thirdPartyAccountId: kotlin.String?, doc: kotlin.String?, file: java.io.File?, url: kotlin.String?, limit: kotlin.Int?, offset: kotlin.Int?, paramCallback: kotlin.String?) : ApiResponse<OrsonAiTopicsResponse?> {
+        val localVariableConfig = summarizeTopicsRequestConfig(accountId = accountId, thirdPartyAccountId = thirdPartyAccountId, doc = doc, file = file, url = url, limit = limit, offset = offset, paramCallback = paramCallback)
 
         return request<Unit, OrsonAiTopicsResponse>(
             localVariableConfig
@@ -2065,7 +2000,6 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation summarizeTopics
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param doc The text to get topics for. (optional)
@@ -2076,7 +2010,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param paramCallback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)
      * @return RequestConfig
      */
-    fun summarizeTopicsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, thirdPartyAccountId: kotlin.String?, doc: kotlin.String?, file: java.io.File?, url: kotlin.String?, limit: kotlin.Int?, offset: kotlin.Int?, paramCallback: kotlin.String?) : RequestConfig<Unit> {
+    fun summarizeTopicsRequestConfig(accountId: kotlin.Long, thirdPartyAccountId: kotlin.String?, doc: kotlin.String?, file: java.io.File?, url: kotlin.String?, limit: kotlin.Int?, offset: kotlin.Int?, paramCallback: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2107,7 +2041,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/orson/ai/topics".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/orson/ai/topics",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2116,10 +2050,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/orson/ai/techTune
+     * POST /orson/ai/techTune
      * Detect Technical Issues
      * Analyses a movie file to detect technical issues, such as too few people in frame.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param numFacesExpected Number of expected faces
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -2135,8 +2068,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun techTune(version: java.math.BigDecimal, accountId: kotlin.Long, numFacesExpected: kotlin.Int, thirdPartyAccountId: kotlin.String? = null, file: java.io.File? = null, url: kotlin.String? = null, paramCallback: kotlin.String? = null) : OrsonAiTechTuneResponse {
-        val localVarResponse = techTuneWithHttpInfo(version = version, accountId = accountId, numFacesExpected = numFacesExpected, thirdPartyAccountId = thirdPartyAccountId, file = file, url = url, paramCallback = paramCallback)
+    fun techTune(accountId: kotlin.Long, numFacesExpected: kotlin.Int, thirdPartyAccountId: kotlin.String? = null, file: java.io.File? = null, url: kotlin.String? = null, paramCallback: kotlin.String? = null) : OrsonAiTechTuneResponse {
+        val localVarResponse = techTuneWithHttpInfo(accountId = accountId, numFacesExpected = numFacesExpected, thirdPartyAccountId = thirdPartyAccountId, file = file, url = url, paramCallback = paramCallback)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrsonAiTechTuneResponse
@@ -2154,10 +2087,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/orson/ai/techTune
+     * POST /orson/ai/techTune
      * Detect Technical Issues
      * Analyses a movie file to detect technical issues, such as too few people in frame.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param numFacesExpected Number of expected faces
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -2170,8 +2102,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun techTuneWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, numFacesExpected: kotlin.Int, thirdPartyAccountId: kotlin.String?, file: java.io.File?, url: kotlin.String?, paramCallback: kotlin.String?) : ApiResponse<OrsonAiTechTuneResponse?> {
-        val localVariableConfig = techTuneRequestConfig(version = version, accountId = accountId, numFacesExpected = numFacesExpected, thirdPartyAccountId = thirdPartyAccountId, file = file, url = url, paramCallback = paramCallback)
+    fun techTuneWithHttpInfo(accountId: kotlin.Long, numFacesExpected: kotlin.Int, thirdPartyAccountId: kotlin.String?, file: java.io.File?, url: kotlin.String?, paramCallback: kotlin.String?) : ApiResponse<OrsonAiTechTuneResponse?> {
+        val localVariableConfig = techTuneRequestConfig(accountId = accountId, numFacesExpected = numFacesExpected, thirdPartyAccountId = thirdPartyAccountId, file = file, url = url, paramCallback = paramCallback)
 
         return request<Unit, OrsonAiTechTuneResponse>(
             localVariableConfig
@@ -2181,7 +2113,6 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation techTune
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param numFacesExpected Number of expected faces
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -2190,7 +2121,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param paramCallback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)
      * @return RequestConfig
      */
-    fun techTuneRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, numFacesExpected: kotlin.Int, thirdPartyAccountId: kotlin.String?, file: java.io.File?, url: kotlin.String?, paramCallback: kotlin.String?) : RequestConfig<Unit> {
+    fun techTuneRequestConfig(accountId: kotlin.Long, numFacesExpected: kotlin.Int, thirdPartyAccountId: kotlin.String?, file: java.io.File?, url: kotlin.String?, paramCallback: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2213,7 +2144,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/orson/ai/techTune".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/orson/ai/techTune",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2222,10 +2153,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/orson/ai/tts
+     * POST /orson/ai/tts
      * Text to Speach
      * Creates an audio file for the given text, with the option of language and voice selection.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param text Text
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -2241,8 +2171,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun tts(version: java.math.BigDecimal, accountId: kotlin.Long, text: kotlin.String, thirdPartyAccountId: kotlin.String? = null, language: kotlin.String? = null, voice: kotlin.String? = null, paramCallback: kotlin.String? = null) : OrsonAiTTSResponse {
-        val localVarResponse = ttsWithHttpInfo(version = version, accountId = accountId, text = text, thirdPartyAccountId = thirdPartyAccountId, language = language, voice = voice, paramCallback = paramCallback)
+    fun tts(accountId: kotlin.Long, text: kotlin.String, thirdPartyAccountId: kotlin.String? = null, language: kotlin.String? = null, voice: kotlin.String? = null, paramCallback: kotlin.String? = null) : OrsonAiTTSResponse {
+        val localVarResponse = ttsWithHttpInfo(accountId = accountId, text = text, thirdPartyAccountId = thirdPartyAccountId, language = language, voice = voice, paramCallback = paramCallback)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrsonAiTTSResponse
@@ -2260,10 +2190,9 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/orson/ai/tts
+     * POST /orson/ai/tts
      * Text to Speach
      * Creates an audio file for the given text, with the option of language and voice selection.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param text Text
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -2276,8 +2205,8 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun ttsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, text: kotlin.String, thirdPartyAccountId: kotlin.String?, language: kotlin.String?, voice: kotlin.String?, paramCallback: kotlin.String?) : ApiResponse<OrsonAiTTSResponse?> {
-        val localVariableConfig = ttsRequestConfig(version = version, accountId = accountId, text = text, thirdPartyAccountId = thirdPartyAccountId, language = language, voice = voice, paramCallback = paramCallback)
+    fun ttsWithHttpInfo(accountId: kotlin.Long, text: kotlin.String, thirdPartyAccountId: kotlin.String?, language: kotlin.String?, voice: kotlin.String?, paramCallback: kotlin.String?) : ApiResponse<OrsonAiTTSResponse?> {
+        val localVariableConfig = ttsRequestConfig(accountId = accountId, text = text, thirdPartyAccountId = thirdPartyAccountId, language = language, voice = voice, paramCallback = paramCallback)
 
         return request<Unit, OrsonAiTTSResponse>(
             localVariableConfig
@@ -2287,7 +2216,6 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation tts
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param text Text
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -2296,7 +2224,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param paramCallback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)
      * @return RequestConfig
      */
-    fun ttsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, text: kotlin.String, thirdPartyAccountId: kotlin.String?, language: kotlin.String?, voice: kotlin.String?, paramCallback: kotlin.String?) : RequestConfig<Unit> {
+    fun ttsRequestConfig(accountId: kotlin.Long, text: kotlin.String, thirdPartyAccountId: kotlin.String?, language: kotlin.String?, voice: kotlin.String?, paramCallback: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2319,7 +2247,7 @@ open class OrsonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/orson/ai/tts".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/orson/ai/tts",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

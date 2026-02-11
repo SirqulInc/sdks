@@ -41,15 +41,14 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/shipment/{id}/cancel
+     * POST /shipment/{id}/cancel
      * Cancel Shipment
      * Remove shipment from route
-     * @param version 
      * @param id the id of the shipment to cancel
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
@@ -59,8 +58,8 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun cancelShipment(version: java.math.BigDecimal, id: kotlin.Long) : Unit {
-        val localVarResponse = cancelShipmentWithHttpInfo(version = version, id = id)
+    fun cancelShipment(id: kotlin.Long) : Unit {
+        val localVarResponse = cancelShipmentWithHttpInfo(id = id)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -78,18 +77,17 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/shipment/{id}/cancel
+     * POST /shipment/{id}/cancel
      * Cancel Shipment
      * Remove shipment from route
-     * @param version 
      * @param id the id of the shipment to cancel
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun cancelShipmentWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long) : ApiResponse<Unit?> {
-        val localVariableConfig = cancelShipmentRequestConfig(version = version, id = id)
+    fun cancelShipmentWithHttpInfo(id: kotlin.Long) : ApiResponse<Unit?> {
+        val localVariableConfig = cancelShipmentRequestConfig(id = id)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -99,18 +97,17 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation cancelShipment
      *
-     * @param version 
      * @param id the id of the shipment to cancel
      * @return RequestConfig
      */
-    fun cancelShipmentRequestConfig(version: java.math.BigDecimal, id: kotlin.Long) : RequestConfig<Unit> {
+    fun cancelShipmentRequestConfig(id: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/shipment/{id}/cancel".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/shipment/{id}/cancel".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -119,10 +116,9 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/shipment
+     * POST /shipment
      * Create Shipment
      * Create new shipment
-     * @param version 
      * @param body  (optional)
      * @return Shipment
      * @throws IllegalStateException If the request is not correctly configured
@@ -133,8 +129,8 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createShipment(version: java.math.BigDecimal, body: Shipment? = null) : Shipment {
-        val localVarResponse = createShipmentWithHttpInfo(version = version, body = body)
+    fun createShipment(body: Shipment? = null) : Shipment {
+        val localVarResponse = createShipmentWithHttpInfo(body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Shipment
@@ -152,10 +148,9 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/shipment
+     * POST /shipment
      * Create Shipment
      * Create new shipment
-     * @param version 
      * @param body  (optional)
      * @return ApiResponse<Shipment?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -163,8 +158,8 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createShipmentWithHttpInfo(version: java.math.BigDecimal, body: Shipment?) : ApiResponse<Shipment?> {
-        val localVariableConfig = createShipmentRequestConfig(version = version, body = body)
+    fun createShipmentWithHttpInfo(body: Shipment?) : ApiResponse<Shipment?> {
+        val localVariableConfig = createShipmentRequestConfig(body = body)
 
         return request<Shipment, Shipment>(
             localVariableConfig
@@ -174,18 +169,17 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation createShipment
      *
-     * @param version 
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun createShipmentRequestConfig(version: java.math.BigDecimal, body: Shipment?) : RequestConfig<Shipment> {
+    fun createShipmentRequestConfig(body: Shipment?) : RequestConfig<Shipment> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/shipment".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/shipment",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -194,10 +188,9 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * DELETE /api/{version}/shipment/{id}
+     * DELETE /shipment/{id}
      * Delete Shipment
      * Delete an existing shipment
-     * @param version 
      * @param id the id of the shipment to delete
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
@@ -207,8 +200,8 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteShipment(version: java.math.BigDecimal, id: kotlin.Long) : Unit {
-        val localVarResponse = deleteShipmentWithHttpInfo(version = version, id = id)
+    fun deleteShipment(id: kotlin.Long) : Unit {
+        val localVarResponse = deleteShipmentWithHttpInfo(id = id)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -226,18 +219,17 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * DELETE /api/{version}/shipment/{id}
+     * DELETE /shipment/{id}
      * Delete Shipment
      * Delete an existing shipment
-     * @param version 
      * @param id the id of the shipment to delete
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteShipmentWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long) : ApiResponse<Unit?> {
-        val localVariableConfig = deleteShipmentRequestConfig(version = version, id = id)
+    fun deleteShipmentWithHttpInfo(id: kotlin.Long) : ApiResponse<Unit?> {
+        val localVariableConfig = deleteShipmentRequestConfig(id = id)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -247,18 +239,17 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation deleteShipment
      *
-     * @param version 
      * @param id the id of the shipment to delete
      * @return RequestConfig
      */
-    fun deleteShipmentRequestConfig(version: java.math.BigDecimal, id: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteShipmentRequestConfig(id: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.DELETE,
-            path = "/api/{version}/shipment/{id}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/shipment/{id}".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -267,10 +258,9 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/shipment/{id}
+     * GET /shipment/{id}
      * Get Shipment
      * Get an existing shipment
-     * @param version 
      * @param id the id of the shipment to get
      * @return Shipment
      * @throws IllegalStateException If the request is not correctly configured
@@ -281,8 +271,8 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getShipment(version: java.math.BigDecimal, id: kotlin.Long) : Shipment {
-        val localVarResponse = getShipmentWithHttpInfo(version = version, id = id)
+    fun getShipment(id: kotlin.Long) : Shipment {
+        val localVarResponse = getShipmentWithHttpInfo(id = id)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Shipment
@@ -300,10 +290,9 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/shipment/{id}
+     * GET /shipment/{id}
      * Get Shipment
      * Get an existing shipment
-     * @param version 
      * @param id the id of the shipment to get
      * @return ApiResponse<Shipment?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -311,8 +300,8 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getShipmentWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long) : ApiResponse<Shipment?> {
-        val localVariableConfig = getShipmentRequestConfig(version = version, id = id)
+    fun getShipmentWithHttpInfo(id: kotlin.Long) : ApiResponse<Shipment?> {
+        val localVariableConfig = getShipmentRequestConfig(id = id)
 
         return request<Unit, Shipment>(
             localVariableConfig
@@ -322,18 +311,17 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation getShipment
      *
-     * @param version 
      * @param id the id of the shipment to get
      * @return RequestConfig
      */
-    fun getShipmentRequestConfig(version: java.math.BigDecimal, id: kotlin.Long) : RequestConfig<Unit> {
+    fun getShipmentRequestConfig(id: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/shipment/{id}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/shipment/{id}".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -342,10 +330,9 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/shipment
+     * GET /shipment
      * Search Shipments
      * Search for shipments
-     * @param version 
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
      * @param start The start index for pagination
@@ -363,8 +350,8 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchShipments(version: java.math.BigDecimal, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, ownerId: kotlin.Long? = null, riderId: kotlin.Long? = null, routeId: kotlin.Long? = null) : kotlin.collections.List<Shipment> {
-        val localVarResponse = searchShipmentsWithHttpInfo(version = version, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, ownerId = ownerId, riderId = riderId, routeId = routeId)
+    fun searchShipments(sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, ownerId: kotlin.Long? = null, riderId: kotlin.Long? = null, routeId: kotlin.Long? = null) : kotlin.collections.List<Shipment> {
+        val localVarResponse = searchShipmentsWithHttpInfo(sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, ownerId = ownerId, riderId = riderId, routeId = routeId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<Shipment>
@@ -382,10 +369,9 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/shipment
+     * GET /shipment
      * Search Shipments
      * Search for shipments
-     * @param version 
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
      * @param start The start index for pagination
@@ -400,8 +386,8 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchShipmentsWithHttpInfo(version: java.math.BigDecimal, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, ownerId: kotlin.Long?, riderId: kotlin.Long?, routeId: kotlin.Long?) : ApiResponse<kotlin.collections.List<Shipment>?> {
-        val localVariableConfig = searchShipmentsRequestConfig(version = version, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, ownerId = ownerId, riderId = riderId, routeId = routeId)
+    fun searchShipmentsWithHttpInfo(sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, ownerId: kotlin.Long?, riderId: kotlin.Long?, routeId: kotlin.Long?) : ApiResponse<kotlin.collections.List<Shipment>?> {
+        val localVariableConfig = searchShipmentsRequestConfig(sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, ownerId = ownerId, riderId = riderId, routeId = routeId)
 
         return request<Unit, kotlin.collections.List<Shipment>>(
             localVariableConfig
@@ -411,7 +397,6 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation searchShipments
      *
-     * @param version 
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
      * @param start The start index for pagination
@@ -422,7 +407,7 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param routeId The route associate to this shipment (optional)
      * @return RequestConfig
      */
-    fun searchShipmentsRequestConfig(version: java.math.BigDecimal, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, ownerId: kotlin.Long?, riderId: kotlin.Long?, routeId: kotlin.Long?) : RequestConfig<Unit> {
+    fun searchShipmentsRequestConfig(sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, ownerId: kotlin.Long?, riderId: kotlin.Long?, routeId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -445,7 +430,7 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/shipment".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/shipment",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -454,10 +439,9 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * PUT /api/{version}/shipment/{id}
+     * PUT /shipment/{id}
      * Update Shipment
      * Update an existing shipment
-     * @param version 
      * @param id the id of the shipment to update
      * @param body  (optional)
      * @return Shipment
@@ -469,8 +453,8 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateShipment(version: java.math.BigDecimal, id: kotlin.Long, body: Shipment? = null) : Shipment {
-        val localVarResponse = updateShipmentWithHttpInfo(version = version, id = id, body = body)
+    fun updateShipment(id: kotlin.Long, body: Shipment? = null) : Shipment {
+        val localVarResponse = updateShipmentWithHttpInfo(id = id, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Shipment
@@ -488,10 +472,9 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * PUT /api/{version}/shipment/{id}
+     * PUT /shipment/{id}
      * Update Shipment
      * Update an existing shipment
-     * @param version 
      * @param id the id of the shipment to update
      * @param body  (optional)
      * @return ApiResponse<Shipment?>
@@ -500,8 +483,8 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateShipmentWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long, body: Shipment?) : ApiResponse<Shipment?> {
-        val localVariableConfig = updateShipmentRequestConfig(version = version, id = id, body = body)
+    fun updateShipmentWithHttpInfo(id: kotlin.Long, body: Shipment?) : ApiResponse<Shipment?> {
+        val localVariableConfig = updateShipmentRequestConfig(id = id, body = body)
 
         return request<Shipment, Shipment>(
             localVariableConfig
@@ -511,19 +494,18 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation updateShipment
      *
-     * @param version 
      * @param id the id of the shipment to update
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun updateShipmentRequestConfig(version: java.math.BigDecimal, id: kotlin.Long, body: Shipment?) : RequestConfig<Shipment> {
+    fun updateShipmentRequestConfig(id: kotlin.Long, body: Shipment?) : RequestConfig<Shipment> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.PUT,
-            path = "/api/{version}/shipment/{id}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/shipment/{id}".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -532,10 +514,9 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/shipment/{id}/status
+     * POST /shipment/{id}/status
      * Uupdate Shipment Status
      * Update status of an existing shipment
-     * @param version 
      * @param id the id of the shipment to update status
      * @param body  (optional)
      * @return void
@@ -546,8 +527,8 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateShipmentStatus(version: java.math.BigDecimal, id: kotlin.Long, body: kotlin.collections.Map<kotlin.String, kotlin.Boolean>? = null) : Unit {
-        val localVarResponse = updateShipmentStatusWithHttpInfo(version = version, id = id, body = body)
+    fun updateShipmentStatus(id: kotlin.Long, body: kotlin.collections.Map<kotlin.String, kotlin.Boolean>? = null) : Unit {
+        val localVarResponse = updateShipmentStatusWithHttpInfo(id = id, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -565,10 +546,9 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/shipment/{id}/status
+     * POST /shipment/{id}/status
      * Uupdate Shipment Status
      * Update status of an existing shipment
-     * @param version 
      * @param id the id of the shipment to update status
      * @param body  (optional)
      * @return ApiResponse<Unit?>
@@ -576,8 +556,8 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateShipmentStatusWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long, body: kotlin.collections.Map<kotlin.String, kotlin.Boolean>?) : ApiResponse<Unit?> {
-        val localVariableConfig = updateShipmentStatusRequestConfig(version = version, id = id, body = body)
+    fun updateShipmentStatusWithHttpInfo(id: kotlin.Long, body: kotlin.collections.Map<kotlin.String, kotlin.Boolean>?) : ApiResponse<Unit?> {
+        val localVariableConfig = updateShipmentStatusRequestConfig(id = id, body = body)
 
         return request<kotlin.collections.Map<kotlin.String, kotlin.Boolean>, Unit>(
             localVariableConfig
@@ -587,19 +567,18 @@ open class ShipmentApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation updateShipmentStatus
      *
-     * @param version 
      * @param id the id of the shipment to update status
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun updateShipmentStatusRequestConfig(version: java.math.BigDecimal, id: kotlin.Long, body: kotlin.collections.Map<kotlin.String, kotlin.Boolean>?) : RequestConfig<kotlin.collections.Map<kotlin.String, kotlin.Boolean>> {
+    fun updateShipmentStatusRequestConfig(id: kotlin.Long, body: kotlin.collections.Map<kotlin.String, kotlin.Boolean>?) : RequestConfig<kotlin.collections.Map<kotlin.String, kotlin.Boolean>> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/shipment/{id}/status".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/shipment/{id}/status".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

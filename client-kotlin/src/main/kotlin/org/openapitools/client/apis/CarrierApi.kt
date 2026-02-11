@@ -41,15 +41,14 @@ open class CarrierApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * GET /api/{version}/carrier/search
+     * GET /carrier/search
      * Search Carriers
      * Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
-     * @param version 
      * @param keyword The keyword to search on (optional)
      * @param descending Determines whether the sorted list is in descending or ascending order (optional, default to false)
      * @param start The start index for pagination (optional, default to 0)
@@ -64,8 +63,8 @@ open class CarrierApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchCarriers(version: java.math.BigDecimal, keyword: kotlin.String? = null, descending: kotlin.Boolean? = false, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, activeOnly: kotlin.Boolean? = true) : kotlin.collections.List<CellCarrierResponse> {
-        val localVarResponse = searchCarriersWithHttpInfo(version = version, keyword = keyword, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
+    fun searchCarriers(keyword: kotlin.String? = null, descending: kotlin.Boolean? = false, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, activeOnly: kotlin.Boolean? = true) : kotlin.collections.List<CellCarrierResponse> {
+        val localVarResponse = searchCarriersWithHttpInfo(keyword = keyword, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<CellCarrierResponse>
@@ -83,10 +82,9 @@ open class CarrierApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/carrier/search
+     * GET /carrier/search
      * Search Carriers
      * Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
-     * @param version 
      * @param keyword The keyword to search on (optional)
      * @param descending Determines whether the sorted list is in descending or ascending order (optional, default to false)
      * @param start The start index for pagination (optional, default to 0)
@@ -98,8 +96,8 @@ open class CarrierApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchCarriersWithHttpInfo(version: java.math.BigDecimal, keyword: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<CellCarrierResponse>?> {
-        val localVariableConfig = searchCarriersRequestConfig(version = version, keyword = keyword, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
+    fun searchCarriersWithHttpInfo(keyword: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<CellCarrierResponse>?> {
+        val localVariableConfig = searchCarriersRequestConfig(keyword = keyword, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
 
         return request<Unit, kotlin.collections.List<CellCarrierResponse>>(
             localVariableConfig
@@ -109,7 +107,6 @@ open class CarrierApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation searchCarriers
      *
-     * @param version 
      * @param keyword The keyword to search on (optional)
      * @param descending Determines whether the sorted list is in descending or ascending order (optional, default to false)
      * @param start The start index for pagination (optional, default to 0)
@@ -117,7 +114,7 @@ open class CarrierApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param activeOnly Determines whether to return inactive results (optional, default to true)
      * @return RequestConfig
      */
-    fun searchCarriersRequestConfig(version: java.math.BigDecimal, keyword: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchCarriersRequestConfig(keyword: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -141,7 +138,7 @@ open class CarrierApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/carrier/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/carrier/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

@@ -47,15 +47,14 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/tracking/batch/create
+     * POST /tracking/batch/create
      * Create Batch Tracking
      * Batch create tracking legs
-     * @param version 
      * @param `data` JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60; 
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -72,8 +71,8 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun batchSaveTracking(version: java.math.BigDecimal, `data`: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, generateAccounts: kotlin.Boolean? = null, updateAccountLocations: kotlin.Boolean? = null, defaultTag: kotlin.String? = "PASSIVE", slaveUID: kotlin.String? = null) : kotlin.collections.List<Leg> {
-        val localVarResponse = batchSaveTrackingWithHttpInfo(version = version, `data` = `data`, deviceId = deviceId, accountId = accountId, generateAccounts = generateAccounts, updateAccountLocations = updateAccountLocations, defaultTag = defaultTag, slaveUID = slaveUID)
+    fun batchSaveTracking(`data`: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, generateAccounts: kotlin.Boolean? = null, updateAccountLocations: kotlin.Boolean? = null, defaultTag: kotlin.String? = "PASSIVE", slaveUID: kotlin.String? = null) : kotlin.collections.List<Leg> {
+        val localVarResponse = batchSaveTrackingWithHttpInfo(`data` = `data`, deviceId = deviceId, accountId = accountId, generateAccounts = generateAccounts, updateAccountLocations = updateAccountLocations, defaultTag = defaultTag, slaveUID = slaveUID)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<Leg>
@@ -91,10 +90,9 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/tracking/batch/create
+     * POST /tracking/batch/create
      * Create Batch Tracking
      * Batch create tracking legs
-     * @param version 
      * @param `data` JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60; 
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -108,8 +106,8 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun batchSaveTrackingWithHttpInfo(version: java.math.BigDecimal, `data`: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, generateAccounts: kotlin.Boolean?, updateAccountLocations: kotlin.Boolean?, defaultTag: kotlin.String?, slaveUID: kotlin.String?) : ApiResponse<kotlin.collections.List<Leg>?> {
-        val localVariableConfig = batchSaveTrackingRequestConfig(version = version, `data` = `data`, deviceId = deviceId, accountId = accountId, generateAccounts = generateAccounts, updateAccountLocations = updateAccountLocations, defaultTag = defaultTag, slaveUID = slaveUID)
+    fun batchSaveTrackingWithHttpInfo(`data`: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, generateAccounts: kotlin.Boolean?, updateAccountLocations: kotlin.Boolean?, defaultTag: kotlin.String?, slaveUID: kotlin.String?) : ApiResponse<kotlin.collections.List<Leg>?> {
+        val localVariableConfig = batchSaveTrackingRequestConfig(`data` = `data`, deviceId = deviceId, accountId = accountId, generateAccounts = generateAccounts, updateAccountLocations = updateAccountLocations, defaultTag = defaultTag, slaveUID = slaveUID)
 
         return request<Unit, kotlin.collections.List<Leg>>(
             localVariableConfig
@@ -119,7 +117,6 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation batchSaveTracking
      *
-     * @param version 
      * @param `data` JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60; 
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -129,7 +126,7 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param slaveUID  (optional)
      * @return RequestConfig
      */
-    fun batchSaveTrackingRequestConfig(version: java.math.BigDecimal, `data`: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, generateAccounts: kotlin.Boolean?, updateAccountLocations: kotlin.Boolean?, defaultTag: kotlin.String?, slaveUID: kotlin.String?) : RequestConfig<Unit> {
+    fun batchSaveTrackingRequestConfig(`data`: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, generateAccounts: kotlin.Boolean?, updateAccountLocations: kotlin.Boolean?, defaultTag: kotlin.String?, slaveUID: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -157,7 +154,7 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/tracking/batch/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/tracking/batch/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -201,10 +198,9 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      }
 
     /**
-     * GET /api/{version}/tracking/predicted/get
+     * GET /tracking/predicted/get
      * Get Predicted Locations
      * Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
-     * @param version 
      * @param accountId The account id of the customer
      * @param latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
      * @param longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -223,8 +219,8 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getPredictedLocations(version: java.math.BigDecimal, accountId: kotlin.Long, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, dateCheck: kotlin.Long? = null, hourCheck: kotlin.String? = null, threshold: kotlin.Long? = 1L, distanceUnit: DistanceUnitGetPredictedLocations? = DistanceUnitGetPredictedLocations.MILES, searchRange: kotlin.Double? = 0.0, sortOrder: SortOrderGetPredictedLocations? = SortOrderGetPredictedLocations.MATCHES) : PredictedLocationResponse {
-        val localVarResponse = getPredictedLocationsWithHttpInfo(version = version, accountId = accountId, latitude = latitude, longitude = longitude, dateCheck = dateCheck, hourCheck = hourCheck, threshold = threshold, distanceUnit = distanceUnit, searchRange = searchRange, sortOrder = sortOrder)
+    fun getPredictedLocations(accountId: kotlin.Long, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, dateCheck: kotlin.Long? = null, hourCheck: kotlin.String? = null, threshold: kotlin.Long? = 1L, distanceUnit: DistanceUnitGetPredictedLocations? = DistanceUnitGetPredictedLocations.MILES, searchRange: kotlin.Double? = 0.0, sortOrder: SortOrderGetPredictedLocations? = SortOrderGetPredictedLocations.MATCHES) : PredictedLocationResponse {
+        val localVarResponse = getPredictedLocationsWithHttpInfo(accountId = accountId, latitude = latitude, longitude = longitude, dateCheck = dateCheck, hourCheck = hourCheck, threshold = threshold, distanceUnit = distanceUnit, searchRange = searchRange, sortOrder = sortOrder)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PredictedLocationResponse
@@ -242,10 +238,9 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/tracking/predicted/get
+     * GET /tracking/predicted/get
      * Get Predicted Locations
      * Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
-     * @param version 
      * @param accountId The account id of the customer
      * @param latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
      * @param longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -261,8 +256,8 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getPredictedLocationsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, latitude: kotlin.Double?, longitude: kotlin.Double?, dateCheck: kotlin.Long?, hourCheck: kotlin.String?, threshold: kotlin.Long?, distanceUnit: DistanceUnitGetPredictedLocations?, searchRange: kotlin.Double?, sortOrder: SortOrderGetPredictedLocations?) : ApiResponse<PredictedLocationResponse?> {
-        val localVariableConfig = getPredictedLocationsRequestConfig(version = version, accountId = accountId, latitude = latitude, longitude = longitude, dateCheck = dateCheck, hourCheck = hourCheck, threshold = threshold, distanceUnit = distanceUnit, searchRange = searchRange, sortOrder = sortOrder)
+    fun getPredictedLocationsWithHttpInfo(accountId: kotlin.Long, latitude: kotlin.Double?, longitude: kotlin.Double?, dateCheck: kotlin.Long?, hourCheck: kotlin.String?, threshold: kotlin.Long?, distanceUnit: DistanceUnitGetPredictedLocations?, searchRange: kotlin.Double?, sortOrder: SortOrderGetPredictedLocations?) : ApiResponse<PredictedLocationResponse?> {
+        val localVariableConfig = getPredictedLocationsRequestConfig(accountId = accountId, latitude = latitude, longitude = longitude, dateCheck = dateCheck, hourCheck = hourCheck, threshold = threshold, distanceUnit = distanceUnit, searchRange = searchRange, sortOrder = sortOrder)
 
         return request<Unit, PredictedLocationResponse>(
             localVariableConfig
@@ -272,7 +267,6 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation getPredictedLocations
      *
-     * @param version 
      * @param accountId The account id of the customer
      * @param latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
      * @param longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -284,7 +278,7 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param sortOrder The ordering algorithm for sorting the returned results: {MATCHES, DISTANCE, WEIGHTED} (optional, default to SortOrder.MATCHES)
      * @return RequestConfig
      */
-    fun getPredictedLocationsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, latitude: kotlin.Double?, longitude: kotlin.Double?, dateCheck: kotlin.Long?, hourCheck: kotlin.String?, threshold: kotlin.Long?, distanceUnit: DistanceUnitGetPredictedLocations?, searchRange: kotlin.Double?, sortOrder: SortOrderGetPredictedLocations?) : RequestConfig<Unit> {
+    fun getPredictedLocationsRequestConfig(accountId: kotlin.Long, latitude: kotlin.Double?, longitude: kotlin.Double?, dateCheck: kotlin.Long?, hourCheck: kotlin.String?, threshold: kotlin.Long?, distanceUnit: DistanceUnitGetPredictedLocations?, searchRange: kotlin.Double?, sortOrder: SortOrderGetPredictedLocations?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -318,7 +312,7 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/tracking/predicted/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/tracking/predicted/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -327,10 +321,9 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/tracking/path/get
+     * GET /tracking/path/get
      * Get Tracking Path
      * Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
-     * @param version 
      * @param accountId The account id of the customer
      * @param startStepId The stepId to begin from
      * @param endStepId The stepId to end with
@@ -343,8 +336,8 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getPredictedPath(version: java.math.BigDecimal, accountId: kotlin.Long, startStepId: kotlin.Long, endStepId: kotlin.Long) : kotlin.collections.List<StepResponse> {
-        val localVarResponse = getPredictedPathWithHttpInfo(version = version, accountId = accountId, startStepId = startStepId, endStepId = endStepId)
+    fun getPredictedPath(accountId: kotlin.Long, startStepId: kotlin.Long, endStepId: kotlin.Long) : kotlin.collections.List<StepResponse> {
+        val localVarResponse = getPredictedPathWithHttpInfo(accountId = accountId, startStepId = startStepId, endStepId = endStepId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<StepResponse>
@@ -362,10 +355,9 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/tracking/path/get
+     * GET /tracking/path/get
      * Get Tracking Path
      * Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
-     * @param version 
      * @param accountId The account id of the customer
      * @param startStepId The stepId to begin from
      * @param endStepId The stepId to end with
@@ -375,8 +367,8 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getPredictedPathWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, startStepId: kotlin.Long, endStepId: kotlin.Long) : ApiResponse<kotlin.collections.List<StepResponse>?> {
-        val localVariableConfig = getPredictedPathRequestConfig(version = version, accountId = accountId, startStepId = startStepId, endStepId = endStepId)
+    fun getPredictedPathWithHttpInfo(accountId: kotlin.Long, startStepId: kotlin.Long, endStepId: kotlin.Long) : ApiResponse<kotlin.collections.List<StepResponse>?> {
+        val localVariableConfig = getPredictedPathRequestConfig(accountId = accountId, startStepId = startStepId, endStepId = endStepId)
 
         return request<Unit, kotlin.collections.List<StepResponse>>(
             localVariableConfig
@@ -386,13 +378,12 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation getPredictedPath
      *
-     * @param version 
      * @param accountId The account id of the customer
      * @param startStepId The stepId to begin from
      * @param endStepId The stepId to end with
      * @return RequestConfig
      */
-    fun getPredictedPathRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, startStepId: kotlin.Long, endStepId: kotlin.Long) : RequestConfig<Unit> {
+    fun getPredictedPathRequestConfig(accountId: kotlin.Long, startStepId: kotlin.Long, endStepId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -404,7 +395,7 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/tracking/path/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/tracking/path/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -430,10 +421,9 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      }
 
     /**
-     * GET /api/{version}/tracking/preferred/search
+     * GET /tracking/preferred/search
      * Search Preferred Locations
      * Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
-     * @param version 
      * @param accountId The account id of the customer
      * @param latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
      * @param longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -454,8 +444,8 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getPreferredLocations(version: java.math.BigDecimal, accountId: kotlin.Long, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, dateCheck: kotlin.Long? = null, hourCheck: kotlin.String? = null, sortField: kotlin.String? = "PREFERRED_DATE", descending: kotlin.Boolean? = true, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, searchRange: kotlin.Double? = 0.0, distanceUnit: DistanceUnitGetPreferredLocations? = DistanceUnitGetPreferredLocations.MILES) : kotlin.collections.List<PreferredLocationResponse> {
-        val localVarResponse = getPreferredLocationsWithHttpInfo(version = version, accountId = accountId, latitude = latitude, longitude = longitude, dateCheck = dateCheck, hourCheck = hourCheck, sortField = sortField, descending = descending, start = start, limit = limit, searchRange = searchRange, distanceUnit = distanceUnit)
+    fun getPreferredLocations(accountId: kotlin.Long, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, dateCheck: kotlin.Long? = null, hourCheck: kotlin.String? = null, sortField: kotlin.String? = "PREFERRED_DATE", descending: kotlin.Boolean? = true, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, searchRange: kotlin.Double? = 0.0, distanceUnit: DistanceUnitGetPreferredLocations? = DistanceUnitGetPreferredLocations.MILES) : kotlin.collections.List<PreferredLocationResponse> {
+        val localVarResponse = getPreferredLocationsWithHttpInfo(accountId = accountId, latitude = latitude, longitude = longitude, dateCheck = dateCheck, hourCheck = hourCheck, sortField = sortField, descending = descending, start = start, limit = limit, searchRange = searchRange, distanceUnit = distanceUnit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<PreferredLocationResponse>
@@ -473,10 +463,9 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/tracking/preferred/search
+     * GET /tracking/preferred/search
      * Search Preferred Locations
      * Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
-     * @param version 
      * @param accountId The account id of the customer
      * @param latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
      * @param longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -494,8 +483,8 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getPreferredLocationsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, latitude: kotlin.Double?, longitude: kotlin.Double?, dateCheck: kotlin.Long?, hourCheck: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, searchRange: kotlin.Double?, distanceUnit: DistanceUnitGetPreferredLocations?) : ApiResponse<kotlin.collections.List<PreferredLocationResponse>?> {
-        val localVariableConfig = getPreferredLocationsRequestConfig(version = version, accountId = accountId, latitude = latitude, longitude = longitude, dateCheck = dateCheck, hourCheck = hourCheck, sortField = sortField, descending = descending, start = start, limit = limit, searchRange = searchRange, distanceUnit = distanceUnit)
+    fun getPreferredLocationsWithHttpInfo(accountId: kotlin.Long, latitude: kotlin.Double?, longitude: kotlin.Double?, dateCheck: kotlin.Long?, hourCheck: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, searchRange: kotlin.Double?, distanceUnit: DistanceUnitGetPreferredLocations?) : ApiResponse<kotlin.collections.List<PreferredLocationResponse>?> {
+        val localVariableConfig = getPreferredLocationsRequestConfig(accountId = accountId, latitude = latitude, longitude = longitude, dateCheck = dateCheck, hourCheck = hourCheck, sortField = sortField, descending = descending, start = start, limit = limit, searchRange = searchRange, distanceUnit = distanceUnit)
 
         return request<Unit, kotlin.collections.List<PreferredLocationResponse>>(
             localVariableConfig
@@ -505,7 +494,6 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation getPreferredLocations
      *
-     * @param version 
      * @param accountId The account id of the customer
      * @param latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
      * @param longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -519,7 +507,7 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param distanceUnit Determines which unit of measurement gets returned for distances: {MILES, KILOMETERS} (optional, default to DistanceUnit.MILES)
      * @return RequestConfig
      */
-    fun getPreferredLocationsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, latitude: kotlin.Double?, longitude: kotlin.Double?, dateCheck: kotlin.Long?, hourCheck: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, searchRange: kotlin.Double?, distanceUnit: DistanceUnitGetPreferredLocations?) : RequestConfig<Unit> {
+    fun getPreferredLocationsRequestConfig(accountId: kotlin.Long, latitude: kotlin.Double?, longitude: kotlin.Double?, dateCheck: kotlin.Long?, hourCheck: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, searchRange: kotlin.Double?, distanceUnit: DistanceUnitGetPreferredLocations?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -559,7 +547,7 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/tracking/preferred/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/tracking/preferred/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -568,10 +556,9 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/tracking/search
+     * GET /tracking/search
      * Search Tracking
      * Retrieve tracking data to be able to show where a user has been.
-     * @param version 
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param ownerId the account id of the person the user wants to tracking data for (optional)
@@ -589,8 +576,8 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTrackingLegs(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, ownerId: kotlin.Long? = null, trackingDeviceId: kotlin.String? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, tags: kotlin.String? = null, getLastPoint: kotlin.Boolean? = false) : kotlin.collections.List<LegResponse> {
-        val localVarResponse = getTrackingLegsWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, ownerId = ownerId, trackingDeviceId = trackingDeviceId, startDate = startDate, endDate = endDate, tags = tags, getLastPoint = getLastPoint)
+    fun getTrackingLegs(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, ownerId: kotlin.Long? = null, trackingDeviceId: kotlin.String? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, tags: kotlin.String? = null, getLastPoint: kotlin.Boolean? = false) : kotlin.collections.List<LegResponse> {
+        val localVarResponse = getTrackingLegsWithHttpInfo(deviceId = deviceId, accountId = accountId, ownerId = ownerId, trackingDeviceId = trackingDeviceId, startDate = startDate, endDate = endDate, tags = tags, getLastPoint = getLastPoint)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<LegResponse>
@@ -608,10 +595,9 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/tracking/search
+     * GET /tracking/search
      * Search Tracking
      * Retrieve tracking data to be able to show where a user has been.
-     * @param version 
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param ownerId the account id of the person the user wants to tracking data for (optional)
@@ -626,8 +612,8 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTrackingLegsWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, ownerId: kotlin.Long?, trackingDeviceId: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, tags: kotlin.String?, getLastPoint: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<LegResponse>?> {
-        val localVariableConfig = getTrackingLegsRequestConfig(version = version, deviceId = deviceId, accountId = accountId, ownerId = ownerId, trackingDeviceId = trackingDeviceId, startDate = startDate, endDate = endDate, tags = tags, getLastPoint = getLastPoint)
+    fun getTrackingLegsWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, ownerId: kotlin.Long?, trackingDeviceId: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, tags: kotlin.String?, getLastPoint: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<LegResponse>?> {
+        val localVariableConfig = getTrackingLegsRequestConfig(deviceId = deviceId, accountId = accountId, ownerId = ownerId, trackingDeviceId = trackingDeviceId, startDate = startDate, endDate = endDate, tags = tags, getLastPoint = getLastPoint)
 
         return request<Unit, kotlin.collections.List<LegResponse>>(
             localVariableConfig
@@ -637,7 +623,6 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation getTrackingLegs
      *
-     * @param version 
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param ownerId the account id of the person the user wants to tracking data for (optional)
@@ -648,7 +633,7 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param getLastPoint gets the last known location of the user (optional, default to false)
      * @return RequestConfig
      */
-    fun getTrackingLegsRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, ownerId: kotlin.Long?, trackingDeviceId: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, tags: kotlin.String?, getLastPoint: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getTrackingLegsRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, ownerId: kotlin.Long?, trackingDeviceId: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, tags: kotlin.String?, getLastPoint: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -681,7 +666,7 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/tracking/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/tracking/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -690,10 +675,9 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/tracking/leg/create
+     * POST /tracking/leg/create
      * Create Tracking Leg
      * Send tracking points to be able to generate pathing data
-     * @param version 
      * @param startLat the latitude of the first point
      * @param startLng the longitude of the first point
      * @param startDate the start date (in UTC milliseconds) of the first point
@@ -715,8 +699,8 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun saveTrackingLeg(version: java.math.BigDecimal, startLat: kotlin.Double, startLng: kotlin.Double, startDate: kotlin.Long, endLat: kotlin.Double, endLng: kotlin.Double, endDate: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, distance: kotlin.Double? = null, duration: kotlin.Long? = null, steps: kotlin.String? = null, tags: kotlin.String? = null) : SirqulResponse {
-        val localVarResponse = saveTrackingLegWithHttpInfo(version = version, startLat = startLat, startLng = startLng, startDate = startDate, endLat = endLat, endLng = endLng, endDate = endDate, deviceId = deviceId, accountId = accountId, distance = distance, duration = duration, steps = steps, tags = tags)
+    fun saveTrackingLeg(startLat: kotlin.Double, startLng: kotlin.Double, startDate: kotlin.Long, endLat: kotlin.Double, endLng: kotlin.Double, endDate: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, distance: kotlin.Double? = null, duration: kotlin.Long? = null, steps: kotlin.String? = null, tags: kotlin.String? = null) : SirqulResponse {
+        val localVarResponse = saveTrackingLegWithHttpInfo(startLat = startLat, startLng = startLng, startDate = startDate, endLat = endLat, endLng = endLng, endDate = endDate, deviceId = deviceId, accountId = accountId, distance = distance, duration = duration, steps = steps, tags = tags)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -734,10 +718,9 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/tracking/leg/create
+     * POST /tracking/leg/create
      * Create Tracking Leg
      * Send tracking points to be able to generate pathing data
-     * @param version 
      * @param startLat the latitude of the first point
      * @param startLng the longitude of the first point
      * @param startDate the start date (in UTC milliseconds) of the first point
@@ -756,8 +739,8 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun saveTrackingLegWithHttpInfo(version: java.math.BigDecimal, startLat: kotlin.Double, startLng: kotlin.Double, startDate: kotlin.Long, endLat: kotlin.Double, endLng: kotlin.Double, endDate: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, distance: kotlin.Double?, duration: kotlin.Long?, steps: kotlin.String?, tags: kotlin.String?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = saveTrackingLegRequestConfig(version = version, startLat = startLat, startLng = startLng, startDate = startDate, endLat = endLat, endLng = endLng, endDate = endDate, deviceId = deviceId, accountId = accountId, distance = distance, duration = duration, steps = steps, tags = tags)
+    fun saveTrackingLegWithHttpInfo(startLat: kotlin.Double, startLng: kotlin.Double, startDate: kotlin.Long, endLat: kotlin.Double, endLng: kotlin.Double, endDate: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, distance: kotlin.Double?, duration: kotlin.Long?, steps: kotlin.String?, tags: kotlin.String?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = saveTrackingLegRequestConfig(startLat = startLat, startLng = startLng, startDate = startDate, endLat = endLat, endLng = endLng, endDate = endDate, deviceId = deviceId, accountId = accountId, distance = distance, duration = duration, steps = steps, tags = tags)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -767,7 +750,6 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation saveTrackingLeg
      *
-     * @param version 
      * @param startLat the latitude of the first point
      * @param startLng the longitude of the first point
      * @param startDate the start date (in UTC milliseconds) of the first point
@@ -782,7 +764,7 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tags name the leg for searching (optional)
      * @return RequestConfig
      */
-    fun saveTrackingLegRequestConfig(version: java.math.BigDecimal, startLat: kotlin.Double, startLng: kotlin.Double, startDate: kotlin.Long, endLat: kotlin.Double, endLng: kotlin.Double, endDate: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, distance: kotlin.Double?, duration: kotlin.Long?, steps: kotlin.String?, tags: kotlin.String?) : RequestConfig<Unit> {
+    fun saveTrackingLegRequestConfig(startLat: kotlin.Double, startLng: kotlin.Double, startDate: kotlin.Long, endLat: kotlin.Double, endLng: kotlin.Double, endDate: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, distance: kotlin.Double?, duration: kotlin.Long?, steps: kotlin.String?, tags: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -815,7 +797,7 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/tracking/leg/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/tracking/leg/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -824,10 +806,9 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/tracking/step/create
+     * POST /tracking/step/create
      * Create Tracking Step
      * Send tracking points to be able to generate pathing data
-     * @param version 
      * @param legId the leg to add the step to
      * @param startLat the latitude of the first point
      * @param startLng the longitude of the first point
@@ -848,8 +829,8 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun saveTrackingStep(version: java.math.BigDecimal, legId: kotlin.Long, startLat: kotlin.Double, startLng: kotlin.Double, startDate: kotlin.Long, endLat: kotlin.Double, endLng: kotlin.Double, endDate: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, distance: kotlin.Double? = null, duration: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = saveTrackingStepWithHttpInfo(version = version, legId = legId, startLat = startLat, startLng = startLng, startDate = startDate, endLat = endLat, endLng = endLng, endDate = endDate, deviceId = deviceId, accountId = accountId, distance = distance, duration = duration)
+    fun saveTrackingStep(legId: kotlin.Long, startLat: kotlin.Double, startLng: kotlin.Double, startDate: kotlin.Long, endLat: kotlin.Double, endLng: kotlin.Double, endDate: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, distance: kotlin.Double? = null, duration: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = saveTrackingStepWithHttpInfo(legId = legId, startLat = startLat, startLng = startLng, startDate = startDate, endLat = endLat, endLng = endLng, endDate = endDate, deviceId = deviceId, accountId = accountId, distance = distance, duration = duration)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -867,10 +848,9 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/tracking/step/create
+     * POST /tracking/step/create
      * Create Tracking Step
      * Send tracking points to be able to generate pathing data
-     * @param version 
      * @param legId the leg to add the step to
      * @param startLat the latitude of the first point
      * @param startLng the longitude of the first point
@@ -888,8 +868,8 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun saveTrackingStepWithHttpInfo(version: java.math.BigDecimal, legId: kotlin.Long, startLat: kotlin.Double, startLng: kotlin.Double, startDate: kotlin.Long, endLat: kotlin.Double, endLng: kotlin.Double, endDate: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, distance: kotlin.Double?, duration: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = saveTrackingStepRequestConfig(version = version, legId = legId, startLat = startLat, startLng = startLng, startDate = startDate, endLat = endLat, endLng = endLng, endDate = endDate, deviceId = deviceId, accountId = accountId, distance = distance, duration = duration)
+    fun saveTrackingStepWithHttpInfo(legId: kotlin.Long, startLat: kotlin.Double, startLng: kotlin.Double, startDate: kotlin.Long, endLat: kotlin.Double, endLng: kotlin.Double, endDate: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, distance: kotlin.Double?, duration: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = saveTrackingStepRequestConfig(legId = legId, startLat = startLat, startLng = startLng, startDate = startDate, endLat = endLat, endLng = endLng, endDate = endDate, deviceId = deviceId, accountId = accountId, distance = distance, duration = duration)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -899,7 +879,6 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation saveTrackingStep
      *
-     * @param version 
      * @param legId the leg to add the step to
      * @param startLat the latitude of the first point
      * @param startLng the longitude of the first point
@@ -913,7 +892,7 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param duration the total duration (optional)
      * @return RequestConfig
      */
-    fun saveTrackingStepRequestConfig(version: java.math.BigDecimal, legId: kotlin.Long, startLat: kotlin.Double, startLng: kotlin.Double, startDate: kotlin.Long, endLat: kotlin.Double, endLng: kotlin.Double, endDate: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, distance: kotlin.Double?, duration: kotlin.Long?) : RequestConfig<Unit> {
+    fun saveTrackingStepRequestConfig(legId: kotlin.Long, startLat: kotlin.Double, startLng: kotlin.Double, startDate: kotlin.Long, endLat: kotlin.Double, endLng: kotlin.Double, endDate: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, distance: kotlin.Double?, duration: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -941,7 +920,7 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/tracking/step/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/tracking/step/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -950,10 +929,9 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/tracking/list
+     * GET /tracking/list
      * List Tracking
      * Search for all accounts that have tracking legs data by the given constraints.
-     * @param version 
      * @param accountId The account id of the user
      * @param keyword Used for LIKE search of first or last name on the acocunt (optional)
      * @param startDate Range to begin in UTC milliseconds (optional)
@@ -977,8 +955,8 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchAccountsWithTrackingLegs(version: java.math.BigDecimal, accountId: kotlin.Long, keyword: kotlin.String? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, tags: kotlin.String? = null, audienceIds: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, range: kotlin.Double? = 5.0, sortField: kotlin.String? = "LEG_START_DATE", descending: kotlin.Boolean? = true, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, activeOnly: kotlin.Boolean? = false) : kotlin.collections.List<AccountMiniResponse> {
-        val localVarResponse = searchAccountsWithTrackingLegsWithHttpInfo(version = version, accountId = accountId, keyword = keyword, startDate = startDate, endDate = endDate, tags = tags, audienceIds = audienceIds, latitude = latitude, longitude = longitude, range = range, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
+    fun searchAccountsWithTrackingLegs(accountId: kotlin.Long, keyword: kotlin.String? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, tags: kotlin.String? = null, audienceIds: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, range: kotlin.Double? = 5.0, sortField: kotlin.String? = "LEG_START_DATE", descending: kotlin.Boolean? = true, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, activeOnly: kotlin.Boolean? = false) : kotlin.collections.List<AccountMiniResponse> {
+        val localVarResponse = searchAccountsWithTrackingLegsWithHttpInfo(accountId = accountId, keyword = keyword, startDate = startDate, endDate = endDate, tags = tags, audienceIds = audienceIds, latitude = latitude, longitude = longitude, range = range, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<AccountMiniResponse>
@@ -996,10 +974,9 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/tracking/list
+     * GET /tracking/list
      * List Tracking
      * Search for all accounts that have tracking legs data by the given constraints.
-     * @param version 
      * @param accountId The account id of the user
      * @param keyword Used for LIKE search of first or last name on the acocunt (optional)
      * @param startDate Range to begin in UTC milliseconds (optional)
@@ -1020,8 +997,8 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchAccountsWithTrackingLegsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, keyword: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, tags: kotlin.String?, audienceIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, range: kotlin.Double?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<AccountMiniResponse>?> {
-        val localVariableConfig = searchAccountsWithTrackingLegsRequestConfig(version = version, accountId = accountId, keyword = keyword, startDate = startDate, endDate = endDate, tags = tags, audienceIds = audienceIds, latitude = latitude, longitude = longitude, range = range, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
+    fun searchAccountsWithTrackingLegsWithHttpInfo(accountId: kotlin.Long, keyword: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, tags: kotlin.String?, audienceIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, range: kotlin.Double?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<AccountMiniResponse>?> {
+        val localVariableConfig = searchAccountsWithTrackingLegsRequestConfig(accountId = accountId, keyword = keyword, startDate = startDate, endDate = endDate, tags = tags, audienceIds = audienceIds, latitude = latitude, longitude = longitude, range = range, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
 
         return request<Unit, kotlin.collections.List<AccountMiniResponse>>(
             localVariableConfig
@@ -1031,7 +1008,6 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation searchAccountsWithTrackingLegs
      *
-     * @param version 
      * @param accountId The account id of the user
      * @param keyword Used for LIKE search of first or last name on the acocunt (optional)
      * @param startDate Range to begin in UTC milliseconds (optional)
@@ -1048,7 +1024,7 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param activeOnly Determines whether to return only active results. Default is false. (optional, default to false)
      * @return RequestConfig
      */
-    fun searchAccountsWithTrackingLegsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, keyword: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, tags: kotlin.String?, audienceIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, range: kotlin.Double?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchAccountsWithTrackingLegsRequestConfig(accountId: kotlin.Long, keyword: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, tags: kotlin.String?, audienceIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, range: kotlin.Double?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1097,7 +1073,7 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/tracking/list".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/tracking/list",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1106,10 +1082,9 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/tracking/searchByBillable
+     * GET /tracking/searchByBillable
      * Search Tracking (Billable)
      * Retrieve tracking data for billable/account scoped queries.
-     * @param version 
      * @param accountId The account id to search tracking for
      * @param appKey The application key
      * @param trackingDeviceId The id of the tracking device (optional)
@@ -1127,8 +1102,8 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchTrackingLegs(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, trackingDeviceId: kotlin.String? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, tags: kotlin.String? = null, start: kotlin.Int? = 0, limit: kotlin.Int? = 100) : kotlin.collections.List<LegResponse> {
-        val localVarResponse = searchTrackingLegsWithHttpInfo(version = version, accountId = accountId, appKey = appKey, trackingDeviceId = trackingDeviceId, startDate = startDate, endDate = endDate, tags = tags, start = start, limit = limit)
+    fun searchTrackingLegs(accountId: kotlin.Long, appKey: kotlin.String, trackingDeviceId: kotlin.String? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, tags: kotlin.String? = null, start: kotlin.Int? = 0, limit: kotlin.Int? = 100) : kotlin.collections.List<LegResponse> {
+        val localVarResponse = searchTrackingLegsWithHttpInfo(accountId = accountId, appKey = appKey, trackingDeviceId = trackingDeviceId, startDate = startDate, endDate = endDate, tags = tags, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<LegResponse>
@@ -1146,10 +1121,9 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/tracking/searchByBillable
+     * GET /tracking/searchByBillable
      * Search Tracking (Billable)
      * Retrieve tracking data for billable/account scoped queries.
-     * @param version 
      * @param accountId The account id to search tracking for
      * @param appKey The application key
      * @param trackingDeviceId The id of the tracking device (optional)
@@ -1164,8 +1138,8 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchTrackingLegsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, trackingDeviceId: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, tags: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<LegResponse>?> {
-        val localVariableConfig = searchTrackingLegsRequestConfig(version = version, accountId = accountId, appKey = appKey, trackingDeviceId = trackingDeviceId, startDate = startDate, endDate = endDate, tags = tags, start = start, limit = limit)
+    fun searchTrackingLegsWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, trackingDeviceId: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, tags: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<LegResponse>?> {
+        val localVariableConfig = searchTrackingLegsRequestConfig(accountId = accountId, appKey = appKey, trackingDeviceId = trackingDeviceId, startDate = startDate, endDate = endDate, tags = tags, start = start, limit = limit)
 
         return request<Unit, kotlin.collections.List<LegResponse>>(
             localVariableConfig
@@ -1175,7 +1149,6 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation searchTrackingLegs
      *
-     * @param version 
      * @param accountId The account id to search tracking for
      * @param appKey The application key
      * @param trackingDeviceId The id of the tracking device (optional)
@@ -1186,7 +1159,7 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param limit The limit for pagination (optional, default to 100)
      * @return RequestConfig
      */
-    fun searchTrackingLegsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, trackingDeviceId: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, tags: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchTrackingLegsRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, trackingDeviceId: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, tags: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1215,7 +1188,7 @@ open class TrackingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/tracking/searchByBillable".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/tracking/searchByBillable",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

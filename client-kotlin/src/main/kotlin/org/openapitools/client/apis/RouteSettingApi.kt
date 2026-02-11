@@ -41,15 +41,14 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/route/setting
+     * POST /route/setting
      * Create Route Setting
      * Create a new route setting
-     * @param version 
      * @param body  (optional)
      * @return RouteSettings
      * @throws IllegalStateException If the request is not correctly configured
@@ -60,8 +59,8 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createRouteSettings(version: java.math.BigDecimal, body: RouteSettings? = null) : RouteSettings {
-        val localVarResponse = createRouteSettingsWithHttpInfo(version = version, body = body)
+    fun createRouteSettings(body: RouteSettings? = null) : RouteSettings {
+        val localVarResponse = createRouteSettingsWithHttpInfo(body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as RouteSettings
@@ -79,10 +78,9 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/route/setting
+     * POST /route/setting
      * Create Route Setting
      * Create a new route setting
-     * @param version 
      * @param body  (optional)
      * @return ApiResponse<RouteSettings?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -90,8 +88,8 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createRouteSettingsWithHttpInfo(version: java.math.BigDecimal, body: RouteSettings?) : ApiResponse<RouteSettings?> {
-        val localVariableConfig = createRouteSettingsRequestConfig(version = version, body = body)
+    fun createRouteSettingsWithHttpInfo(body: RouteSettings?) : ApiResponse<RouteSettings?> {
+        val localVariableConfig = createRouteSettingsRequestConfig(body = body)
 
         return request<RouteSettings, RouteSettings>(
             localVariableConfig
@@ -101,18 +99,17 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation createRouteSettings
      *
-     * @param version 
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun createRouteSettingsRequestConfig(version: java.math.BigDecimal, body: RouteSettings?) : RequestConfig<RouteSettings> {
+    fun createRouteSettingsRequestConfig(body: RouteSettings?) : RequestConfig<RouteSettings> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/route/setting".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/route/setting",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -121,10 +118,9 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * DELETE /api/{version}/route/setting/{routeSettingsId}
+     * DELETE /route/setting/{routeSettingsId}
      * Delete Route Setting
      * Delete an existing route setting
-     * @param version 
      * @param routeSettingsId the id of the route setting to delete
      * @return kotlin.Any
      * @throws IllegalStateException If the request is not correctly configured
@@ -135,8 +131,8 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteRouteSettings(version: java.math.BigDecimal, routeSettingsId: kotlin.Long) : kotlin.Any {
-        val localVarResponse = deleteRouteSettingsWithHttpInfo(version = version, routeSettingsId = routeSettingsId)
+    fun deleteRouteSettings(routeSettingsId: kotlin.Long) : kotlin.Any {
+        val localVarResponse = deleteRouteSettingsWithHttpInfo(routeSettingsId = routeSettingsId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Any
@@ -154,10 +150,9 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * DELETE /api/{version}/route/setting/{routeSettingsId}
+     * DELETE /route/setting/{routeSettingsId}
      * Delete Route Setting
      * Delete an existing route setting
-     * @param version 
      * @param routeSettingsId the id of the route setting to delete
      * @return ApiResponse<kotlin.Any?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -165,8 +160,8 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteRouteSettingsWithHttpInfo(version: java.math.BigDecimal, routeSettingsId: kotlin.Long) : ApiResponse<kotlin.Any?> {
-        val localVariableConfig = deleteRouteSettingsRequestConfig(version = version, routeSettingsId = routeSettingsId)
+    fun deleteRouteSettingsWithHttpInfo(routeSettingsId: kotlin.Long) : ApiResponse<kotlin.Any?> {
+        val localVariableConfig = deleteRouteSettingsRequestConfig(routeSettingsId = routeSettingsId)
 
         return request<Unit, kotlin.Any>(
             localVariableConfig
@@ -176,18 +171,17 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation deleteRouteSettings
      *
-     * @param version 
      * @param routeSettingsId the id of the route setting to delete
      * @return RequestConfig
      */
-    fun deleteRouteSettingsRequestConfig(version: java.math.BigDecimal, routeSettingsId: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteRouteSettingsRequestConfig(routeSettingsId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.DELETE,
-            path = "/api/{version}/route/setting/{routeSettingsId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"routeSettingsId"+"}", encodeURIComponent(routeSettingsId.toString())),
+            path = "/route/setting/{routeSettingsId}".replace("{"+"routeSettingsId"+"}", encodeURIComponent(routeSettingsId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -196,10 +190,9 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/route/setting/{routeSettingsId}
+     * GET /route/setting/{routeSettingsId}
      * Get Route Setting
      * Get an existing route settings
-     * @param version 
      * @param routeSettingsId the id of the route settings to get
      * @return RouteSettings
      * @throws IllegalStateException If the request is not correctly configured
@@ -210,8 +203,8 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRouteSettings(version: java.math.BigDecimal, routeSettingsId: kotlin.Long) : RouteSettings {
-        val localVarResponse = getRouteSettingsWithHttpInfo(version = version, routeSettingsId = routeSettingsId)
+    fun getRouteSettings(routeSettingsId: kotlin.Long) : RouteSettings {
+        val localVarResponse = getRouteSettingsWithHttpInfo(routeSettingsId = routeSettingsId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as RouteSettings
@@ -229,10 +222,9 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/route/setting/{routeSettingsId}
+     * GET /route/setting/{routeSettingsId}
      * Get Route Setting
      * Get an existing route settings
-     * @param version 
      * @param routeSettingsId the id of the route settings to get
      * @return ApiResponse<RouteSettings?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -240,8 +232,8 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRouteSettingsWithHttpInfo(version: java.math.BigDecimal, routeSettingsId: kotlin.Long) : ApiResponse<RouteSettings?> {
-        val localVariableConfig = getRouteSettingsRequestConfig(version = version, routeSettingsId = routeSettingsId)
+    fun getRouteSettingsWithHttpInfo(routeSettingsId: kotlin.Long) : ApiResponse<RouteSettings?> {
+        val localVariableConfig = getRouteSettingsRequestConfig(routeSettingsId = routeSettingsId)
 
         return request<Unit, RouteSettings>(
             localVariableConfig
@@ -251,18 +243,17 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation getRouteSettings
      *
-     * @param version 
      * @param routeSettingsId the id of the route settings to get
      * @return RequestConfig
      */
-    fun getRouteSettingsRequestConfig(version: java.math.BigDecimal, routeSettingsId: kotlin.Long) : RequestConfig<Unit> {
+    fun getRouteSettingsRequestConfig(routeSettingsId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/route/setting/{routeSettingsId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"routeSettingsId"+"}", encodeURIComponent(routeSettingsId.toString())),
+            path = "/route/setting/{routeSettingsId}".replace("{"+"routeSettingsId"+"}", encodeURIComponent(routeSettingsId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -271,10 +262,9 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/route/setting
+     * GET /route/setting
      * Search Route Settings
      * Search for route settings
-     * @param version 
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
      * @param start The start index for pagination
@@ -292,8 +282,8 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchRouteSettings(version: java.math.BigDecimal, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, hubId: kotlin.Long? = null, programId: kotlin.Long? = null, keyword: kotlin.String? = null) : kotlin.collections.List<RouteSettings> {
-        val localVarResponse = searchRouteSettingsWithHttpInfo(version = version, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, hubId = hubId, programId = programId, keyword = keyword)
+    fun searchRouteSettings(sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, hubId: kotlin.Long? = null, programId: kotlin.Long? = null, keyword: kotlin.String? = null) : kotlin.collections.List<RouteSettings> {
+        val localVarResponse = searchRouteSettingsWithHttpInfo(sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, hubId = hubId, programId = programId, keyword = keyword)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<RouteSettings>
@@ -311,10 +301,9 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/route/setting
+     * GET /route/setting
      * Search Route Settings
      * Search for route settings
-     * @param version 
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
      * @param start The start index for pagination
@@ -329,8 +318,8 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchRouteSettingsWithHttpInfo(version: java.math.BigDecimal, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, hubId: kotlin.Long?, programId: kotlin.Long?, keyword: kotlin.String?) : ApiResponse<kotlin.collections.List<RouteSettings>?> {
-        val localVariableConfig = searchRouteSettingsRequestConfig(version = version, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, hubId = hubId, programId = programId, keyword = keyword)
+    fun searchRouteSettingsWithHttpInfo(sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, hubId: kotlin.Long?, programId: kotlin.Long?, keyword: kotlin.String?) : ApiResponse<kotlin.collections.List<RouteSettings>?> {
+        val localVariableConfig = searchRouteSettingsRequestConfig(sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, hubId = hubId, programId = programId, keyword = keyword)
 
         return request<Unit, kotlin.collections.List<RouteSettings>>(
             localVariableConfig
@@ -340,7 +329,6 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation searchRouteSettings
      *
-     * @param version 
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
      * @param start The start index for pagination
@@ -351,7 +339,7 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param keyword The keyword to search for the route (optional)
      * @return RequestConfig
      */
-    fun searchRouteSettingsRequestConfig(version: java.math.BigDecimal, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, hubId: kotlin.Long?, programId: kotlin.Long?, keyword: kotlin.String?) : RequestConfig<Unit> {
+    fun searchRouteSettingsRequestConfig(sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, hubId: kotlin.Long?, programId: kotlin.Long?, keyword: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -374,7 +362,7 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/route/setting".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/route/setting",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -383,10 +371,9 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * PUT /api/{version}/route/setting/{routeSettingsId}
+     * PUT /route/setting/{routeSettingsId}
      * Update Route Setting
      * Update an existing route setting
-     * @param version 
      * @param routeSettingsId the id of the route settings to update
      * @param body  (optional)
      * @return RouteSettings
@@ -398,8 +385,8 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateRouteSettings(version: java.math.BigDecimal, routeSettingsId: kotlin.Long, body: RouteSettings? = null) : RouteSettings {
-        val localVarResponse = updateRouteSettingsWithHttpInfo(version = version, routeSettingsId = routeSettingsId, body = body)
+    fun updateRouteSettings(routeSettingsId: kotlin.Long, body: RouteSettings? = null) : RouteSettings {
+        val localVarResponse = updateRouteSettingsWithHttpInfo(routeSettingsId = routeSettingsId, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as RouteSettings
@@ -417,10 +404,9 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * PUT /api/{version}/route/setting/{routeSettingsId}
+     * PUT /route/setting/{routeSettingsId}
      * Update Route Setting
      * Update an existing route setting
-     * @param version 
      * @param routeSettingsId the id of the route settings to update
      * @param body  (optional)
      * @return ApiResponse<RouteSettings?>
@@ -429,8 +415,8 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateRouteSettingsWithHttpInfo(version: java.math.BigDecimal, routeSettingsId: kotlin.Long, body: RouteSettings?) : ApiResponse<RouteSettings?> {
-        val localVariableConfig = updateRouteSettingsRequestConfig(version = version, routeSettingsId = routeSettingsId, body = body)
+    fun updateRouteSettingsWithHttpInfo(routeSettingsId: kotlin.Long, body: RouteSettings?) : ApiResponse<RouteSettings?> {
+        val localVariableConfig = updateRouteSettingsRequestConfig(routeSettingsId = routeSettingsId, body = body)
 
         return request<RouteSettings, RouteSettings>(
             localVariableConfig
@@ -440,19 +426,18 @@ open class RouteSettingApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation updateRouteSettings
      *
-     * @param version 
      * @param routeSettingsId the id of the route settings to update
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun updateRouteSettingsRequestConfig(version: java.math.BigDecimal, routeSettingsId: kotlin.Long, body: RouteSettings?) : RequestConfig<RouteSettings> {
+    fun updateRouteSettingsRequestConfig(routeSettingsId: kotlin.Long, body: RouteSettings?) : RequestConfig<RouteSettings> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.PUT,
-            path = "/api/{version}/route/setting/{routeSettingsId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"routeSettingsId"+"}", encodeURIComponent(routeSettingsId.toString())),
+            path = "/route/setting/{routeSettingsId}".replace("{"+"routeSettingsId"+"}", encodeURIComponent(routeSettingsId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

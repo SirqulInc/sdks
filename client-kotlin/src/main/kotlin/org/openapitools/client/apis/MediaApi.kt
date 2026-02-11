@@ -42,7 +42,7 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
@@ -153,10 +153,9 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      }
 
     /**
-     * POST /api/{version}/media/create
+     * POST /media/create
      * Create Media
      * Create a media offering.
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param title The title (255 char limit)
      * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}
@@ -223,8 +222,8 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createMedia(version: java.math.BigDecimal, accountId: kotlin.Long, title: kotlin.String, barcodeType: BarcodeTypeCreateMedia, noExpiration: kotlin.Boolean, availableLimit: kotlin.Int, availableLimitPerUser: kotlin.Int, addedLimit: kotlin.Int, viewLimit: kotlin.Int, maxPrints: kotlin.Int, ticketPrice: kotlin.Long, fullPrice: kotlin.Double, discountPrice: kotlin.Double, specialOfferType: SpecialOfferTypeCreateMedia, offerVisibility: OfferVisibilityCreateMedia, active: kotlin.Boolean, retailerLocationIds: kotlin.String? = null, subTitle: kotlin.String? = null, details: kotlin.String? = null, subDetails: kotlin.String? = null, finePrint: kotlin.String? = null, barcodeEntry: kotlin.String? = null, externalRedeemOptions: kotlin.String? = null, externalUrl: kotlin.String? = null, ticketsRewardType: kotlin.String? = null, ticketsReward: kotlin.Long? = null, activated: kotlin.Long? = null, expires: kotlin.Long? = null, ticketPriceType: kotlin.String? = null, showRemaining: kotlin.Boolean? = null, showRedeemed: kotlin.Boolean? = null, replaced: kotlin.Boolean? = null, featured: kotlin.Boolean? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, barcodeAssetId: kotlin.Long? = null, imageAssetId: kotlin.Long? = null, imageAssetId1: kotlin.Long? = null, imageAssetId2: kotlin.Long? = null, imageAssetId3: kotlin.Long? = null, imageAssetId4: kotlin.Long? = null, imageAssetId5: kotlin.Long? = null, publisher: kotlin.String? = null, redeemableStart: kotlin.Long? = null, redeemableEnd: kotlin.Long? = null, conditionType: ConditionTypeCreateMedia? = null, isbn: kotlin.String? = null, asin: kotlin.String? = null, catalogNumbers: kotlin.String? = null, parentalRating: kotlin.String? = null, availabilityDate: kotlin.Long? = null, mediaType: MediaTypeCreateMedia? = null, duration: kotlin.Int? = null, author: kotlin.String? = null, releaseDate: kotlin.Long? = null, collectionIds: kotlin.String? = null, availability: kotlin.String? = null, availabilitySummary: kotlin.String? = null) : MediaOfferResponse {
-        val localVarResponse = createMediaWithHttpInfo(version = version, accountId = accountId, title = title, barcodeType = barcodeType, noExpiration = noExpiration, availableLimit = availableLimit, availableLimitPerUser = availableLimitPerUser, addedLimit = addedLimit, viewLimit = viewLimit, maxPrints = maxPrints, ticketPrice = ticketPrice, fullPrice = fullPrice, discountPrice = discountPrice, specialOfferType = specialOfferType, offerVisibility = offerVisibility, active = active, retailerLocationIds = retailerLocationIds, subTitle = subTitle, details = details, subDetails = subDetails, finePrint = finePrint, barcodeEntry = barcodeEntry, externalRedeemOptions = externalRedeemOptions, externalUrl = externalUrl, ticketsRewardType = ticketsRewardType, ticketsReward = ticketsReward, activated = activated, expires = expires, ticketPriceType = ticketPriceType, showRemaining = showRemaining, showRedeemed = showRedeemed, replaced = replaced, featured = featured, categoryIds = categoryIds, filterIds = filterIds, barcodeAssetId = barcodeAssetId, imageAssetId = imageAssetId, imageAssetId1 = imageAssetId1, imageAssetId2 = imageAssetId2, imageAssetId3 = imageAssetId3, imageAssetId4 = imageAssetId4, imageAssetId5 = imageAssetId5, publisher = publisher, redeemableStart = redeemableStart, redeemableEnd = redeemableEnd, conditionType = conditionType, isbn = isbn, asin = asin, catalogNumbers = catalogNumbers, parentalRating = parentalRating, availabilityDate = availabilityDate, mediaType = mediaType, duration = duration, author = author, releaseDate = releaseDate, collectionIds = collectionIds, availability = availability, availabilitySummary = availabilitySummary)
+    fun createMedia(accountId: kotlin.Long, title: kotlin.String, barcodeType: BarcodeTypeCreateMedia, noExpiration: kotlin.Boolean, availableLimit: kotlin.Int, availableLimitPerUser: kotlin.Int, addedLimit: kotlin.Int, viewLimit: kotlin.Int, maxPrints: kotlin.Int, ticketPrice: kotlin.Long, fullPrice: kotlin.Double, discountPrice: kotlin.Double, specialOfferType: SpecialOfferTypeCreateMedia, offerVisibility: OfferVisibilityCreateMedia, active: kotlin.Boolean, retailerLocationIds: kotlin.String? = null, subTitle: kotlin.String? = null, details: kotlin.String? = null, subDetails: kotlin.String? = null, finePrint: kotlin.String? = null, barcodeEntry: kotlin.String? = null, externalRedeemOptions: kotlin.String? = null, externalUrl: kotlin.String? = null, ticketsRewardType: kotlin.String? = null, ticketsReward: kotlin.Long? = null, activated: kotlin.Long? = null, expires: kotlin.Long? = null, ticketPriceType: kotlin.String? = null, showRemaining: kotlin.Boolean? = null, showRedeemed: kotlin.Boolean? = null, replaced: kotlin.Boolean? = null, featured: kotlin.Boolean? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, barcodeAssetId: kotlin.Long? = null, imageAssetId: kotlin.Long? = null, imageAssetId1: kotlin.Long? = null, imageAssetId2: kotlin.Long? = null, imageAssetId3: kotlin.Long? = null, imageAssetId4: kotlin.Long? = null, imageAssetId5: kotlin.Long? = null, publisher: kotlin.String? = null, redeemableStart: kotlin.Long? = null, redeemableEnd: kotlin.Long? = null, conditionType: ConditionTypeCreateMedia? = null, isbn: kotlin.String? = null, asin: kotlin.String? = null, catalogNumbers: kotlin.String? = null, parentalRating: kotlin.String? = null, availabilityDate: kotlin.Long? = null, mediaType: MediaTypeCreateMedia? = null, duration: kotlin.Int? = null, author: kotlin.String? = null, releaseDate: kotlin.Long? = null, collectionIds: kotlin.String? = null, availability: kotlin.String? = null, availabilitySummary: kotlin.String? = null) : MediaOfferResponse {
+        val localVarResponse = createMediaWithHttpInfo(accountId = accountId, title = title, barcodeType = barcodeType, noExpiration = noExpiration, availableLimit = availableLimit, availableLimitPerUser = availableLimitPerUser, addedLimit = addedLimit, viewLimit = viewLimit, maxPrints = maxPrints, ticketPrice = ticketPrice, fullPrice = fullPrice, discountPrice = discountPrice, specialOfferType = specialOfferType, offerVisibility = offerVisibility, active = active, retailerLocationIds = retailerLocationIds, subTitle = subTitle, details = details, subDetails = subDetails, finePrint = finePrint, barcodeEntry = barcodeEntry, externalRedeemOptions = externalRedeemOptions, externalUrl = externalUrl, ticketsRewardType = ticketsRewardType, ticketsReward = ticketsReward, activated = activated, expires = expires, ticketPriceType = ticketPriceType, showRemaining = showRemaining, showRedeemed = showRedeemed, replaced = replaced, featured = featured, categoryIds = categoryIds, filterIds = filterIds, barcodeAssetId = barcodeAssetId, imageAssetId = imageAssetId, imageAssetId1 = imageAssetId1, imageAssetId2 = imageAssetId2, imageAssetId3 = imageAssetId3, imageAssetId4 = imageAssetId4, imageAssetId5 = imageAssetId5, publisher = publisher, redeemableStart = redeemableStart, redeemableEnd = redeemableEnd, conditionType = conditionType, isbn = isbn, asin = asin, catalogNumbers = catalogNumbers, parentalRating = parentalRating, availabilityDate = availabilityDate, mediaType = mediaType, duration = duration, author = author, releaseDate = releaseDate, collectionIds = collectionIds, availability = availability, availabilitySummary = availabilitySummary)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MediaOfferResponse
@@ -242,10 +241,9 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/media/create
+     * POST /media/create
      * Create Media
      * Create a media offering.
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param title The title (255 char limit)
      * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}
@@ -309,8 +307,8 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createMediaWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, title: kotlin.String, barcodeType: BarcodeTypeCreateMedia, noExpiration: kotlin.Boolean, availableLimit: kotlin.Int, availableLimitPerUser: kotlin.Int, addedLimit: kotlin.Int, viewLimit: kotlin.Int, maxPrints: kotlin.Int, ticketPrice: kotlin.Long, fullPrice: kotlin.Double, discountPrice: kotlin.Double, specialOfferType: SpecialOfferTypeCreateMedia, offerVisibility: OfferVisibilityCreateMedia, active: kotlin.Boolean, retailerLocationIds: kotlin.String?, subTitle: kotlin.String?, details: kotlin.String?, subDetails: kotlin.String?, finePrint: kotlin.String?, barcodeEntry: kotlin.String?, externalRedeemOptions: kotlin.String?, externalUrl: kotlin.String?, ticketsRewardType: kotlin.String?, ticketsReward: kotlin.Long?, activated: kotlin.Long?, expires: kotlin.Long?, ticketPriceType: kotlin.String?, showRemaining: kotlin.Boolean?, showRedeemed: kotlin.Boolean?, replaced: kotlin.Boolean?, featured: kotlin.Boolean?, categoryIds: kotlin.String?, filterIds: kotlin.String?, barcodeAssetId: kotlin.Long?, imageAssetId: kotlin.Long?, imageAssetId1: kotlin.Long?, imageAssetId2: kotlin.Long?, imageAssetId3: kotlin.Long?, imageAssetId4: kotlin.Long?, imageAssetId5: kotlin.Long?, publisher: kotlin.String?, redeemableStart: kotlin.Long?, redeemableEnd: kotlin.Long?, conditionType: ConditionTypeCreateMedia?, isbn: kotlin.String?, asin: kotlin.String?, catalogNumbers: kotlin.String?, parentalRating: kotlin.String?, availabilityDate: kotlin.Long?, mediaType: MediaTypeCreateMedia?, duration: kotlin.Int?, author: kotlin.String?, releaseDate: kotlin.Long?, collectionIds: kotlin.String?, availability: kotlin.String?, availabilitySummary: kotlin.String?) : ApiResponse<MediaOfferResponse?> {
-        val localVariableConfig = createMediaRequestConfig(version = version, accountId = accountId, title = title, barcodeType = barcodeType, noExpiration = noExpiration, availableLimit = availableLimit, availableLimitPerUser = availableLimitPerUser, addedLimit = addedLimit, viewLimit = viewLimit, maxPrints = maxPrints, ticketPrice = ticketPrice, fullPrice = fullPrice, discountPrice = discountPrice, specialOfferType = specialOfferType, offerVisibility = offerVisibility, active = active, retailerLocationIds = retailerLocationIds, subTitle = subTitle, details = details, subDetails = subDetails, finePrint = finePrint, barcodeEntry = barcodeEntry, externalRedeemOptions = externalRedeemOptions, externalUrl = externalUrl, ticketsRewardType = ticketsRewardType, ticketsReward = ticketsReward, activated = activated, expires = expires, ticketPriceType = ticketPriceType, showRemaining = showRemaining, showRedeemed = showRedeemed, replaced = replaced, featured = featured, categoryIds = categoryIds, filterIds = filterIds, barcodeAssetId = barcodeAssetId, imageAssetId = imageAssetId, imageAssetId1 = imageAssetId1, imageAssetId2 = imageAssetId2, imageAssetId3 = imageAssetId3, imageAssetId4 = imageAssetId4, imageAssetId5 = imageAssetId5, publisher = publisher, redeemableStart = redeemableStart, redeemableEnd = redeemableEnd, conditionType = conditionType, isbn = isbn, asin = asin, catalogNumbers = catalogNumbers, parentalRating = parentalRating, availabilityDate = availabilityDate, mediaType = mediaType, duration = duration, author = author, releaseDate = releaseDate, collectionIds = collectionIds, availability = availability, availabilitySummary = availabilitySummary)
+    fun createMediaWithHttpInfo(accountId: kotlin.Long, title: kotlin.String, barcodeType: BarcodeTypeCreateMedia, noExpiration: kotlin.Boolean, availableLimit: kotlin.Int, availableLimitPerUser: kotlin.Int, addedLimit: kotlin.Int, viewLimit: kotlin.Int, maxPrints: kotlin.Int, ticketPrice: kotlin.Long, fullPrice: kotlin.Double, discountPrice: kotlin.Double, specialOfferType: SpecialOfferTypeCreateMedia, offerVisibility: OfferVisibilityCreateMedia, active: kotlin.Boolean, retailerLocationIds: kotlin.String?, subTitle: kotlin.String?, details: kotlin.String?, subDetails: kotlin.String?, finePrint: kotlin.String?, barcodeEntry: kotlin.String?, externalRedeemOptions: kotlin.String?, externalUrl: kotlin.String?, ticketsRewardType: kotlin.String?, ticketsReward: kotlin.Long?, activated: kotlin.Long?, expires: kotlin.Long?, ticketPriceType: kotlin.String?, showRemaining: kotlin.Boolean?, showRedeemed: kotlin.Boolean?, replaced: kotlin.Boolean?, featured: kotlin.Boolean?, categoryIds: kotlin.String?, filterIds: kotlin.String?, barcodeAssetId: kotlin.Long?, imageAssetId: kotlin.Long?, imageAssetId1: kotlin.Long?, imageAssetId2: kotlin.Long?, imageAssetId3: kotlin.Long?, imageAssetId4: kotlin.Long?, imageAssetId5: kotlin.Long?, publisher: kotlin.String?, redeemableStart: kotlin.Long?, redeemableEnd: kotlin.Long?, conditionType: ConditionTypeCreateMedia?, isbn: kotlin.String?, asin: kotlin.String?, catalogNumbers: kotlin.String?, parentalRating: kotlin.String?, availabilityDate: kotlin.Long?, mediaType: MediaTypeCreateMedia?, duration: kotlin.Int?, author: kotlin.String?, releaseDate: kotlin.Long?, collectionIds: kotlin.String?, availability: kotlin.String?, availabilitySummary: kotlin.String?) : ApiResponse<MediaOfferResponse?> {
+        val localVariableConfig = createMediaRequestConfig(accountId = accountId, title = title, barcodeType = barcodeType, noExpiration = noExpiration, availableLimit = availableLimit, availableLimitPerUser = availableLimitPerUser, addedLimit = addedLimit, viewLimit = viewLimit, maxPrints = maxPrints, ticketPrice = ticketPrice, fullPrice = fullPrice, discountPrice = discountPrice, specialOfferType = specialOfferType, offerVisibility = offerVisibility, active = active, retailerLocationIds = retailerLocationIds, subTitle = subTitle, details = details, subDetails = subDetails, finePrint = finePrint, barcodeEntry = barcodeEntry, externalRedeemOptions = externalRedeemOptions, externalUrl = externalUrl, ticketsRewardType = ticketsRewardType, ticketsReward = ticketsReward, activated = activated, expires = expires, ticketPriceType = ticketPriceType, showRemaining = showRemaining, showRedeemed = showRedeemed, replaced = replaced, featured = featured, categoryIds = categoryIds, filterIds = filterIds, barcodeAssetId = barcodeAssetId, imageAssetId = imageAssetId, imageAssetId1 = imageAssetId1, imageAssetId2 = imageAssetId2, imageAssetId3 = imageAssetId3, imageAssetId4 = imageAssetId4, imageAssetId5 = imageAssetId5, publisher = publisher, redeemableStart = redeemableStart, redeemableEnd = redeemableEnd, conditionType = conditionType, isbn = isbn, asin = asin, catalogNumbers = catalogNumbers, parentalRating = parentalRating, availabilityDate = availabilityDate, mediaType = mediaType, duration = duration, author = author, releaseDate = releaseDate, collectionIds = collectionIds, availability = availability, availabilitySummary = availabilitySummary)
 
         return request<Unit, MediaOfferResponse>(
             localVariableConfig
@@ -320,7 +318,6 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation createMedia
      *
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param title The title (255 char limit)
      * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}
@@ -380,7 +377,7 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param availabilitySummary ability to assign when the media expires (optional)
      * @return RequestConfig
      */
-    fun createMediaRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, title: kotlin.String, barcodeType: BarcodeTypeCreateMedia, noExpiration: kotlin.Boolean, availableLimit: kotlin.Int, availableLimitPerUser: kotlin.Int, addedLimit: kotlin.Int, viewLimit: kotlin.Int, maxPrints: kotlin.Int, ticketPrice: kotlin.Long, fullPrice: kotlin.Double, discountPrice: kotlin.Double, specialOfferType: SpecialOfferTypeCreateMedia, offerVisibility: OfferVisibilityCreateMedia, active: kotlin.Boolean, retailerLocationIds: kotlin.String?, subTitle: kotlin.String?, details: kotlin.String?, subDetails: kotlin.String?, finePrint: kotlin.String?, barcodeEntry: kotlin.String?, externalRedeemOptions: kotlin.String?, externalUrl: kotlin.String?, ticketsRewardType: kotlin.String?, ticketsReward: kotlin.Long?, activated: kotlin.Long?, expires: kotlin.Long?, ticketPriceType: kotlin.String?, showRemaining: kotlin.Boolean?, showRedeemed: kotlin.Boolean?, replaced: kotlin.Boolean?, featured: kotlin.Boolean?, categoryIds: kotlin.String?, filterIds: kotlin.String?, barcodeAssetId: kotlin.Long?, imageAssetId: kotlin.Long?, imageAssetId1: kotlin.Long?, imageAssetId2: kotlin.Long?, imageAssetId3: kotlin.Long?, imageAssetId4: kotlin.Long?, imageAssetId5: kotlin.Long?, publisher: kotlin.String?, redeemableStart: kotlin.Long?, redeemableEnd: kotlin.Long?, conditionType: ConditionTypeCreateMedia?, isbn: kotlin.String?, asin: kotlin.String?, catalogNumbers: kotlin.String?, parentalRating: kotlin.String?, availabilityDate: kotlin.Long?, mediaType: MediaTypeCreateMedia?, duration: kotlin.Int?, author: kotlin.String?, releaseDate: kotlin.Long?, collectionIds: kotlin.String?, availability: kotlin.String?, availabilitySummary: kotlin.String?) : RequestConfig<Unit> {
+    fun createMediaRequestConfig(accountId: kotlin.Long, title: kotlin.String, barcodeType: BarcodeTypeCreateMedia, noExpiration: kotlin.Boolean, availableLimit: kotlin.Int, availableLimitPerUser: kotlin.Int, addedLimit: kotlin.Int, viewLimit: kotlin.Int, maxPrints: kotlin.Int, ticketPrice: kotlin.Long, fullPrice: kotlin.Double, discountPrice: kotlin.Double, specialOfferType: SpecialOfferTypeCreateMedia, offerVisibility: OfferVisibilityCreateMedia, active: kotlin.Boolean, retailerLocationIds: kotlin.String?, subTitle: kotlin.String?, details: kotlin.String?, subDetails: kotlin.String?, finePrint: kotlin.String?, barcodeEntry: kotlin.String?, externalRedeemOptions: kotlin.String?, externalUrl: kotlin.String?, ticketsRewardType: kotlin.String?, ticketsReward: kotlin.Long?, activated: kotlin.Long?, expires: kotlin.Long?, ticketPriceType: kotlin.String?, showRemaining: kotlin.Boolean?, showRedeemed: kotlin.Boolean?, replaced: kotlin.Boolean?, featured: kotlin.Boolean?, categoryIds: kotlin.String?, filterIds: kotlin.String?, barcodeAssetId: kotlin.Long?, imageAssetId: kotlin.Long?, imageAssetId1: kotlin.Long?, imageAssetId2: kotlin.Long?, imageAssetId3: kotlin.Long?, imageAssetId4: kotlin.Long?, imageAssetId5: kotlin.Long?, publisher: kotlin.String?, redeemableStart: kotlin.Long?, redeemableEnd: kotlin.Long?, conditionType: ConditionTypeCreateMedia?, isbn: kotlin.String?, asin: kotlin.String?, catalogNumbers: kotlin.String?, parentalRating: kotlin.String?, availabilityDate: kotlin.Long?, mediaType: MediaTypeCreateMedia?, duration: kotlin.Int?, author: kotlin.String?, releaseDate: kotlin.Long?, collectionIds: kotlin.String?, availability: kotlin.String?, availabilitySummary: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -530,7 +527,7 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/media/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/media/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -539,10 +536,9 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/media/delete
+     * POST /media/delete
      * Delete Media
      * Delete a media offering that the user has permissions to.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param mediaId the ID of the media to delete
      * @return SirqulResponse
@@ -554,8 +550,8 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteMedia(version: java.math.BigDecimal, accountId: kotlin.Long, mediaId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = deleteMediaWithHttpInfo(version = version, accountId = accountId, mediaId = mediaId)
+    fun deleteMedia(accountId: kotlin.Long, mediaId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = deleteMediaWithHttpInfo(accountId = accountId, mediaId = mediaId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -573,10 +569,9 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/media/delete
+     * POST /media/delete
      * Delete Media
      * Delete a media offering that the user has permissions to.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param mediaId the ID of the media to delete
      * @return ApiResponse<SirqulResponse?>
@@ -585,8 +580,8 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteMediaWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, mediaId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteMediaRequestConfig(version = version, accountId = accountId, mediaId = mediaId)
+    fun deleteMediaWithHttpInfo(accountId: kotlin.Long, mediaId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteMediaRequestConfig(accountId = accountId, mediaId = mediaId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -596,12 +591,11 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation deleteMedia
      *
-     * @param version 
      * @param accountId the id of the logged in user
      * @param mediaId the ID of the media to delete
      * @return RequestConfig
      */
-    fun deleteMediaRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, mediaId: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteMediaRequestConfig(accountId: kotlin.Long, mediaId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -612,7 +606,7 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/media/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/media/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -621,10 +615,9 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/media/get
+     * GET /media/get
      * Media Get
      * Get a media offering.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param mediaId the id of the media to get
      * @return MediaOfferResponse
@@ -636,8 +629,8 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMedia(version: java.math.BigDecimal, accountId: kotlin.Long, mediaId: kotlin.Long) : MediaOfferResponse {
-        val localVarResponse = getMediaWithHttpInfo(version = version, accountId = accountId, mediaId = mediaId)
+    fun getMedia(accountId: kotlin.Long, mediaId: kotlin.Long) : MediaOfferResponse {
+        val localVarResponse = getMediaWithHttpInfo(accountId = accountId, mediaId = mediaId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MediaOfferResponse
@@ -655,10 +648,9 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/media/get
+     * GET /media/get
      * Media Get
      * Get a media offering.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param mediaId the id of the media to get
      * @return ApiResponse<MediaOfferResponse?>
@@ -667,8 +659,8 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMediaWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, mediaId: kotlin.Long) : ApiResponse<MediaOfferResponse?> {
-        val localVariableConfig = getMediaRequestConfig(version = version, accountId = accountId, mediaId = mediaId)
+    fun getMediaWithHttpInfo(accountId: kotlin.Long, mediaId: kotlin.Long) : ApiResponse<MediaOfferResponse?> {
+        val localVariableConfig = getMediaRequestConfig(accountId = accountId, mediaId = mediaId)
 
         return request<Unit, MediaOfferResponse>(
             localVariableConfig
@@ -678,12 +670,11 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getMedia
      *
-     * @param version 
      * @param accountId the id of the logged in user
      * @param mediaId the id of the media to get
      * @return RequestConfig
      */
-    fun getMediaRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, mediaId: kotlin.Long) : RequestConfig<Unit> {
+    fun getMediaRequestConfig(accountId: kotlin.Long, mediaId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -694,7 +685,7 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/media/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/media/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -749,10 +740,9 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      }
 
     /**
-     * GET /api/{version}/media/search
+     * GET /media/search
      * Search Media
      * Searches on events that the account has access to.
-     * @param version 
      * @param accountId The logged in user.
      * @param activeOnly Return only active results
      * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE
@@ -771,8 +761,8 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchMedia(version: java.math.BigDecimal, accountId: kotlin.Long, activeOnly: kotlin.Boolean, sortField: SortFieldSearchMedia, descending: kotlin.Boolean, keyword: kotlin.String? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null) : kotlin.collections.List<MediaOfferResponse> {
-        val localVarResponse = searchMediaWithHttpInfo(version = version, accountId = accountId, activeOnly = activeOnly, sortField = sortField, descending = descending, keyword = keyword, categoryIds = categoryIds, filterIds = filterIds, start = start, limit = limit)
+    fun searchMedia(accountId: kotlin.Long, activeOnly: kotlin.Boolean, sortField: SortFieldSearchMedia, descending: kotlin.Boolean, keyword: kotlin.String? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null) : kotlin.collections.List<MediaOfferResponse> {
+        val localVarResponse = searchMediaWithHttpInfo(accountId = accountId, activeOnly = activeOnly, sortField = sortField, descending = descending, keyword = keyword, categoryIds = categoryIds, filterIds = filterIds, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<MediaOfferResponse>
@@ -790,10 +780,9 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/media/search
+     * GET /media/search
      * Search Media
      * Searches on events that the account has access to.
-     * @param version 
      * @param accountId The logged in user.
      * @param activeOnly Return only active results
      * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE
@@ -809,8 +798,8 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchMediaWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, activeOnly: kotlin.Boolean, sortField: SortFieldSearchMedia, descending: kotlin.Boolean, keyword: kotlin.String?, categoryIds: kotlin.String?, filterIds: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<MediaOfferResponse>?> {
-        val localVariableConfig = searchMediaRequestConfig(version = version, accountId = accountId, activeOnly = activeOnly, sortField = sortField, descending = descending, keyword = keyword, categoryIds = categoryIds, filterIds = filterIds, start = start, limit = limit)
+    fun searchMediaWithHttpInfo(accountId: kotlin.Long, activeOnly: kotlin.Boolean, sortField: SortFieldSearchMedia, descending: kotlin.Boolean, keyword: kotlin.String?, categoryIds: kotlin.String?, filterIds: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<MediaOfferResponse>?> {
+        val localVariableConfig = searchMediaRequestConfig(accountId = accountId, activeOnly = activeOnly, sortField = sortField, descending = descending, keyword = keyword, categoryIds = categoryIds, filterIds = filterIds, start = start, limit = limit)
 
         return request<Unit, kotlin.collections.List<MediaOfferResponse>>(
             localVariableConfig
@@ -820,7 +809,6 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation searchMedia
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param activeOnly Return only active results
      * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE
@@ -832,7 +820,7 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param limit The number of records to return (optional)
      * @return RequestConfig
      */
-    fun searchMediaRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, activeOnly: kotlin.Boolean, sortField: SortFieldSearchMedia, descending: kotlin.Boolean, keyword: kotlin.String?, categoryIds: kotlin.String?, filterIds: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchMediaRequestConfig(accountId: kotlin.Long, activeOnly: kotlin.Boolean, sortField: SortFieldSearchMedia, descending: kotlin.Boolean, keyword: kotlin.String?, categoryIds: kotlin.String?, filterIds: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -860,7 +848,7 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/media/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/media/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -975,10 +963,9 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      }
 
     /**
-     * POST /api/{version}/media/update
+     * POST /media/update
      * Update Media
      * Update a media offering.
-     * @param version 
      * @param accountId The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)
      * @param mediaId 
      * @param retailerLocationIds Comma separated list of retailer location ids. This will assign the offer to these retailer locations. (optional)
@@ -1047,8 +1034,8 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateMedia(version: java.math.BigDecimal, accountId: kotlin.Long, mediaId: kotlin.Long, retailerLocationIds: kotlin.String? = null, offerLocations: kotlin.String? = null, title: kotlin.String? = null, subTitle: kotlin.String? = null, details: kotlin.String? = null, subDetails: kotlin.String? = null, finePrint: kotlin.String? = null, barcodeType: BarcodeTypeUpdateMedia? = null, barcodeEntry: kotlin.String? = null, externalRedeemOptions: kotlin.String? = null, externalUrl: kotlin.String? = null, ticketsRewardType: kotlin.String? = null, ticketsReward: kotlin.Long? = null, activated: kotlin.Long? = null, expires: kotlin.Long? = null, noExpiration: kotlin.Boolean? = null, availableLimit: kotlin.Int? = null, availableLimitPerUser: kotlin.Int? = null, addedLimit: kotlin.Int? = null, viewLimit: kotlin.Int? = null, maxPrints: kotlin.Int? = null, ticketPriceType: kotlin.String? = null, ticketPrice: kotlin.Long? = null, fullPrice: kotlin.Double? = null, discountPrice: kotlin.Double? = null, showRemaining: kotlin.Boolean? = null, showRedeemed: kotlin.Boolean? = null, replaced: kotlin.Boolean? = null, featured: kotlin.Boolean? = null, specialOfferType: SpecialOfferTypeUpdateMedia? = null, offerVisibility: OfferVisibilityUpdateMedia? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, active: kotlin.Boolean? = null, barcodeAssetId: kotlin.Long? = null, imageAssetId: kotlin.Long? = null, imageAssetId1: kotlin.Long? = null, imageAssetId2: kotlin.Long? = null, imageAssetId3: kotlin.Long? = null, imageAssetId4: kotlin.Long? = null, imageAssetId5: kotlin.Long? = null, publisher: kotlin.String? = null, redeemableStart: kotlin.Long? = null, redeemableEnd: kotlin.Long? = null, conditionType: ConditionTypeUpdateMedia? = null, isbn: kotlin.String? = null, asin: kotlin.String? = null, catalogNumbers: kotlin.String? = null, availabilityDate: kotlin.Long? = null, parentalRating: kotlin.String? = null, mediaType: MediaTypeUpdateMedia? = null, duration: kotlin.Int? = null, author: kotlin.String? = null, releaseDate: kotlin.Long? = null, collectionIds: kotlin.String? = null, availability: kotlin.String? = null, availabilitySummary: kotlin.String? = null) : MediaOfferResponse {
-        val localVarResponse = updateMediaWithHttpInfo(version = version, accountId = accountId, mediaId = mediaId, retailerLocationIds = retailerLocationIds, offerLocations = offerLocations, title = title, subTitle = subTitle, details = details, subDetails = subDetails, finePrint = finePrint, barcodeType = barcodeType, barcodeEntry = barcodeEntry, externalRedeemOptions = externalRedeemOptions, externalUrl = externalUrl, ticketsRewardType = ticketsRewardType, ticketsReward = ticketsReward, activated = activated, expires = expires, noExpiration = noExpiration, availableLimit = availableLimit, availableLimitPerUser = availableLimitPerUser, addedLimit = addedLimit, viewLimit = viewLimit, maxPrints = maxPrints, ticketPriceType = ticketPriceType, ticketPrice = ticketPrice, fullPrice = fullPrice, discountPrice = discountPrice, showRemaining = showRemaining, showRedeemed = showRedeemed, replaced = replaced, featured = featured, specialOfferType = specialOfferType, offerVisibility = offerVisibility, categoryIds = categoryIds, filterIds = filterIds, active = active, barcodeAssetId = barcodeAssetId, imageAssetId = imageAssetId, imageAssetId1 = imageAssetId1, imageAssetId2 = imageAssetId2, imageAssetId3 = imageAssetId3, imageAssetId4 = imageAssetId4, imageAssetId5 = imageAssetId5, publisher = publisher, redeemableStart = redeemableStart, redeemableEnd = redeemableEnd, conditionType = conditionType, isbn = isbn, asin = asin, catalogNumbers = catalogNumbers, availabilityDate = availabilityDate, parentalRating = parentalRating, mediaType = mediaType, duration = duration, author = author, releaseDate = releaseDate, collectionIds = collectionIds, availability = availability, availabilitySummary = availabilitySummary)
+    fun updateMedia(accountId: kotlin.Long, mediaId: kotlin.Long, retailerLocationIds: kotlin.String? = null, offerLocations: kotlin.String? = null, title: kotlin.String? = null, subTitle: kotlin.String? = null, details: kotlin.String? = null, subDetails: kotlin.String? = null, finePrint: kotlin.String? = null, barcodeType: BarcodeTypeUpdateMedia? = null, barcodeEntry: kotlin.String? = null, externalRedeemOptions: kotlin.String? = null, externalUrl: kotlin.String? = null, ticketsRewardType: kotlin.String? = null, ticketsReward: kotlin.Long? = null, activated: kotlin.Long? = null, expires: kotlin.Long? = null, noExpiration: kotlin.Boolean? = null, availableLimit: kotlin.Int? = null, availableLimitPerUser: kotlin.Int? = null, addedLimit: kotlin.Int? = null, viewLimit: kotlin.Int? = null, maxPrints: kotlin.Int? = null, ticketPriceType: kotlin.String? = null, ticketPrice: kotlin.Long? = null, fullPrice: kotlin.Double? = null, discountPrice: kotlin.Double? = null, showRemaining: kotlin.Boolean? = null, showRedeemed: kotlin.Boolean? = null, replaced: kotlin.Boolean? = null, featured: kotlin.Boolean? = null, specialOfferType: SpecialOfferTypeUpdateMedia? = null, offerVisibility: OfferVisibilityUpdateMedia? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, active: kotlin.Boolean? = null, barcodeAssetId: kotlin.Long? = null, imageAssetId: kotlin.Long? = null, imageAssetId1: kotlin.Long? = null, imageAssetId2: kotlin.Long? = null, imageAssetId3: kotlin.Long? = null, imageAssetId4: kotlin.Long? = null, imageAssetId5: kotlin.Long? = null, publisher: kotlin.String? = null, redeemableStart: kotlin.Long? = null, redeemableEnd: kotlin.Long? = null, conditionType: ConditionTypeUpdateMedia? = null, isbn: kotlin.String? = null, asin: kotlin.String? = null, catalogNumbers: kotlin.String? = null, availabilityDate: kotlin.Long? = null, parentalRating: kotlin.String? = null, mediaType: MediaTypeUpdateMedia? = null, duration: kotlin.Int? = null, author: kotlin.String? = null, releaseDate: kotlin.Long? = null, collectionIds: kotlin.String? = null, availability: kotlin.String? = null, availabilitySummary: kotlin.String? = null) : MediaOfferResponse {
+        val localVarResponse = updateMediaWithHttpInfo(accountId = accountId, mediaId = mediaId, retailerLocationIds = retailerLocationIds, offerLocations = offerLocations, title = title, subTitle = subTitle, details = details, subDetails = subDetails, finePrint = finePrint, barcodeType = barcodeType, barcodeEntry = barcodeEntry, externalRedeemOptions = externalRedeemOptions, externalUrl = externalUrl, ticketsRewardType = ticketsRewardType, ticketsReward = ticketsReward, activated = activated, expires = expires, noExpiration = noExpiration, availableLimit = availableLimit, availableLimitPerUser = availableLimitPerUser, addedLimit = addedLimit, viewLimit = viewLimit, maxPrints = maxPrints, ticketPriceType = ticketPriceType, ticketPrice = ticketPrice, fullPrice = fullPrice, discountPrice = discountPrice, showRemaining = showRemaining, showRedeemed = showRedeemed, replaced = replaced, featured = featured, specialOfferType = specialOfferType, offerVisibility = offerVisibility, categoryIds = categoryIds, filterIds = filterIds, active = active, barcodeAssetId = barcodeAssetId, imageAssetId = imageAssetId, imageAssetId1 = imageAssetId1, imageAssetId2 = imageAssetId2, imageAssetId3 = imageAssetId3, imageAssetId4 = imageAssetId4, imageAssetId5 = imageAssetId5, publisher = publisher, redeemableStart = redeemableStart, redeemableEnd = redeemableEnd, conditionType = conditionType, isbn = isbn, asin = asin, catalogNumbers = catalogNumbers, availabilityDate = availabilityDate, parentalRating = parentalRating, mediaType = mediaType, duration = duration, author = author, releaseDate = releaseDate, collectionIds = collectionIds, availability = availability, availabilitySummary = availabilitySummary)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MediaOfferResponse
@@ -1066,10 +1053,9 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/media/update
+     * POST /media/update
      * Update Media
      * Update a media offering.
-     * @param version 
      * @param accountId The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)
      * @param mediaId 
      * @param retailerLocationIds Comma separated list of retailer location ids. This will assign the offer to these retailer locations. (optional)
@@ -1135,8 +1121,8 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateMediaWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, mediaId: kotlin.Long, retailerLocationIds: kotlin.String?, offerLocations: kotlin.String?, title: kotlin.String?, subTitle: kotlin.String?, details: kotlin.String?, subDetails: kotlin.String?, finePrint: kotlin.String?, barcodeType: BarcodeTypeUpdateMedia?, barcodeEntry: kotlin.String?, externalRedeemOptions: kotlin.String?, externalUrl: kotlin.String?, ticketsRewardType: kotlin.String?, ticketsReward: kotlin.Long?, activated: kotlin.Long?, expires: kotlin.Long?, noExpiration: kotlin.Boolean?, availableLimit: kotlin.Int?, availableLimitPerUser: kotlin.Int?, addedLimit: kotlin.Int?, viewLimit: kotlin.Int?, maxPrints: kotlin.Int?, ticketPriceType: kotlin.String?, ticketPrice: kotlin.Long?, fullPrice: kotlin.Double?, discountPrice: kotlin.Double?, showRemaining: kotlin.Boolean?, showRedeemed: kotlin.Boolean?, replaced: kotlin.Boolean?, featured: kotlin.Boolean?, specialOfferType: SpecialOfferTypeUpdateMedia?, offerVisibility: OfferVisibilityUpdateMedia?, categoryIds: kotlin.String?, filterIds: kotlin.String?, active: kotlin.Boolean?, barcodeAssetId: kotlin.Long?, imageAssetId: kotlin.Long?, imageAssetId1: kotlin.Long?, imageAssetId2: kotlin.Long?, imageAssetId3: kotlin.Long?, imageAssetId4: kotlin.Long?, imageAssetId5: kotlin.Long?, publisher: kotlin.String?, redeemableStart: kotlin.Long?, redeemableEnd: kotlin.Long?, conditionType: ConditionTypeUpdateMedia?, isbn: kotlin.String?, asin: kotlin.String?, catalogNumbers: kotlin.String?, availabilityDate: kotlin.Long?, parentalRating: kotlin.String?, mediaType: MediaTypeUpdateMedia?, duration: kotlin.Int?, author: kotlin.String?, releaseDate: kotlin.Long?, collectionIds: kotlin.String?, availability: kotlin.String?, availabilitySummary: kotlin.String?) : ApiResponse<MediaOfferResponse?> {
-        val localVariableConfig = updateMediaRequestConfig(version = version, accountId = accountId, mediaId = mediaId, retailerLocationIds = retailerLocationIds, offerLocations = offerLocations, title = title, subTitle = subTitle, details = details, subDetails = subDetails, finePrint = finePrint, barcodeType = barcodeType, barcodeEntry = barcodeEntry, externalRedeemOptions = externalRedeemOptions, externalUrl = externalUrl, ticketsRewardType = ticketsRewardType, ticketsReward = ticketsReward, activated = activated, expires = expires, noExpiration = noExpiration, availableLimit = availableLimit, availableLimitPerUser = availableLimitPerUser, addedLimit = addedLimit, viewLimit = viewLimit, maxPrints = maxPrints, ticketPriceType = ticketPriceType, ticketPrice = ticketPrice, fullPrice = fullPrice, discountPrice = discountPrice, showRemaining = showRemaining, showRedeemed = showRedeemed, replaced = replaced, featured = featured, specialOfferType = specialOfferType, offerVisibility = offerVisibility, categoryIds = categoryIds, filterIds = filterIds, active = active, barcodeAssetId = barcodeAssetId, imageAssetId = imageAssetId, imageAssetId1 = imageAssetId1, imageAssetId2 = imageAssetId2, imageAssetId3 = imageAssetId3, imageAssetId4 = imageAssetId4, imageAssetId5 = imageAssetId5, publisher = publisher, redeemableStart = redeemableStart, redeemableEnd = redeemableEnd, conditionType = conditionType, isbn = isbn, asin = asin, catalogNumbers = catalogNumbers, availabilityDate = availabilityDate, parentalRating = parentalRating, mediaType = mediaType, duration = duration, author = author, releaseDate = releaseDate, collectionIds = collectionIds, availability = availability, availabilitySummary = availabilitySummary)
+    fun updateMediaWithHttpInfo(accountId: kotlin.Long, mediaId: kotlin.Long, retailerLocationIds: kotlin.String?, offerLocations: kotlin.String?, title: kotlin.String?, subTitle: kotlin.String?, details: kotlin.String?, subDetails: kotlin.String?, finePrint: kotlin.String?, barcodeType: BarcodeTypeUpdateMedia?, barcodeEntry: kotlin.String?, externalRedeemOptions: kotlin.String?, externalUrl: kotlin.String?, ticketsRewardType: kotlin.String?, ticketsReward: kotlin.Long?, activated: kotlin.Long?, expires: kotlin.Long?, noExpiration: kotlin.Boolean?, availableLimit: kotlin.Int?, availableLimitPerUser: kotlin.Int?, addedLimit: kotlin.Int?, viewLimit: kotlin.Int?, maxPrints: kotlin.Int?, ticketPriceType: kotlin.String?, ticketPrice: kotlin.Long?, fullPrice: kotlin.Double?, discountPrice: kotlin.Double?, showRemaining: kotlin.Boolean?, showRedeemed: kotlin.Boolean?, replaced: kotlin.Boolean?, featured: kotlin.Boolean?, specialOfferType: SpecialOfferTypeUpdateMedia?, offerVisibility: OfferVisibilityUpdateMedia?, categoryIds: kotlin.String?, filterIds: kotlin.String?, active: kotlin.Boolean?, barcodeAssetId: kotlin.Long?, imageAssetId: kotlin.Long?, imageAssetId1: kotlin.Long?, imageAssetId2: kotlin.Long?, imageAssetId3: kotlin.Long?, imageAssetId4: kotlin.Long?, imageAssetId5: kotlin.Long?, publisher: kotlin.String?, redeemableStart: kotlin.Long?, redeemableEnd: kotlin.Long?, conditionType: ConditionTypeUpdateMedia?, isbn: kotlin.String?, asin: kotlin.String?, catalogNumbers: kotlin.String?, availabilityDate: kotlin.Long?, parentalRating: kotlin.String?, mediaType: MediaTypeUpdateMedia?, duration: kotlin.Int?, author: kotlin.String?, releaseDate: kotlin.Long?, collectionIds: kotlin.String?, availability: kotlin.String?, availabilitySummary: kotlin.String?) : ApiResponse<MediaOfferResponse?> {
+        val localVariableConfig = updateMediaRequestConfig(accountId = accountId, mediaId = mediaId, retailerLocationIds = retailerLocationIds, offerLocations = offerLocations, title = title, subTitle = subTitle, details = details, subDetails = subDetails, finePrint = finePrint, barcodeType = barcodeType, barcodeEntry = barcodeEntry, externalRedeemOptions = externalRedeemOptions, externalUrl = externalUrl, ticketsRewardType = ticketsRewardType, ticketsReward = ticketsReward, activated = activated, expires = expires, noExpiration = noExpiration, availableLimit = availableLimit, availableLimitPerUser = availableLimitPerUser, addedLimit = addedLimit, viewLimit = viewLimit, maxPrints = maxPrints, ticketPriceType = ticketPriceType, ticketPrice = ticketPrice, fullPrice = fullPrice, discountPrice = discountPrice, showRemaining = showRemaining, showRedeemed = showRedeemed, replaced = replaced, featured = featured, specialOfferType = specialOfferType, offerVisibility = offerVisibility, categoryIds = categoryIds, filterIds = filterIds, active = active, barcodeAssetId = barcodeAssetId, imageAssetId = imageAssetId, imageAssetId1 = imageAssetId1, imageAssetId2 = imageAssetId2, imageAssetId3 = imageAssetId3, imageAssetId4 = imageAssetId4, imageAssetId5 = imageAssetId5, publisher = publisher, redeemableStart = redeemableStart, redeemableEnd = redeemableEnd, conditionType = conditionType, isbn = isbn, asin = asin, catalogNumbers = catalogNumbers, availabilityDate = availabilityDate, parentalRating = parentalRating, mediaType = mediaType, duration = duration, author = author, releaseDate = releaseDate, collectionIds = collectionIds, availability = availability, availabilitySummary = availabilitySummary)
 
         return request<Unit, MediaOfferResponse>(
             localVariableConfig
@@ -1146,7 +1132,6 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation updateMedia
      *
-     * @param version 
      * @param accountId The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)
      * @param mediaId 
      * @param retailerLocationIds Comma separated list of retailer location ids. This will assign the offer to these retailer locations. (optional)
@@ -1208,7 +1193,7 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param availabilitySummary  (optional)
      * @return RequestConfig
      */
-    fun updateMediaRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, mediaId: kotlin.Long, retailerLocationIds: kotlin.String?, offerLocations: kotlin.String?, title: kotlin.String?, subTitle: kotlin.String?, details: kotlin.String?, subDetails: kotlin.String?, finePrint: kotlin.String?, barcodeType: BarcodeTypeUpdateMedia?, barcodeEntry: kotlin.String?, externalRedeemOptions: kotlin.String?, externalUrl: kotlin.String?, ticketsRewardType: kotlin.String?, ticketsReward: kotlin.Long?, activated: kotlin.Long?, expires: kotlin.Long?, noExpiration: kotlin.Boolean?, availableLimit: kotlin.Int?, availableLimitPerUser: kotlin.Int?, addedLimit: kotlin.Int?, viewLimit: kotlin.Int?, maxPrints: kotlin.Int?, ticketPriceType: kotlin.String?, ticketPrice: kotlin.Long?, fullPrice: kotlin.Double?, discountPrice: kotlin.Double?, showRemaining: kotlin.Boolean?, showRedeemed: kotlin.Boolean?, replaced: kotlin.Boolean?, featured: kotlin.Boolean?, specialOfferType: SpecialOfferTypeUpdateMedia?, offerVisibility: OfferVisibilityUpdateMedia?, categoryIds: kotlin.String?, filterIds: kotlin.String?, active: kotlin.Boolean?, barcodeAssetId: kotlin.Long?, imageAssetId: kotlin.Long?, imageAssetId1: kotlin.Long?, imageAssetId2: kotlin.Long?, imageAssetId3: kotlin.Long?, imageAssetId4: kotlin.Long?, imageAssetId5: kotlin.Long?, publisher: kotlin.String?, redeemableStart: kotlin.Long?, redeemableEnd: kotlin.Long?, conditionType: ConditionTypeUpdateMedia?, isbn: kotlin.String?, asin: kotlin.String?, catalogNumbers: kotlin.String?, availabilityDate: kotlin.Long?, parentalRating: kotlin.String?, mediaType: MediaTypeUpdateMedia?, duration: kotlin.Int?, author: kotlin.String?, releaseDate: kotlin.Long?, collectionIds: kotlin.String?, availability: kotlin.String?, availabilitySummary: kotlin.String?) : RequestConfig<Unit> {
+    fun updateMediaRequestConfig(accountId: kotlin.Long, mediaId: kotlin.Long, retailerLocationIds: kotlin.String?, offerLocations: kotlin.String?, title: kotlin.String?, subTitle: kotlin.String?, details: kotlin.String?, subDetails: kotlin.String?, finePrint: kotlin.String?, barcodeType: BarcodeTypeUpdateMedia?, barcodeEntry: kotlin.String?, externalRedeemOptions: kotlin.String?, externalUrl: kotlin.String?, ticketsRewardType: kotlin.String?, ticketsReward: kotlin.Long?, activated: kotlin.Long?, expires: kotlin.Long?, noExpiration: kotlin.Boolean?, availableLimit: kotlin.Int?, availableLimitPerUser: kotlin.Int?, addedLimit: kotlin.Int?, viewLimit: kotlin.Int?, maxPrints: kotlin.Int?, ticketPriceType: kotlin.String?, ticketPrice: kotlin.Long?, fullPrice: kotlin.Double?, discountPrice: kotlin.Double?, showRemaining: kotlin.Boolean?, showRedeemed: kotlin.Boolean?, replaced: kotlin.Boolean?, featured: kotlin.Boolean?, specialOfferType: SpecialOfferTypeUpdateMedia?, offerVisibility: OfferVisibilityUpdateMedia?, categoryIds: kotlin.String?, filterIds: kotlin.String?, active: kotlin.Boolean?, barcodeAssetId: kotlin.Long?, imageAssetId: kotlin.Long?, imageAssetId1: kotlin.Long?, imageAssetId2: kotlin.Long?, imageAssetId3: kotlin.Long?, imageAssetId4: kotlin.Long?, imageAssetId5: kotlin.Long?, publisher: kotlin.String?, redeemableStart: kotlin.Long?, redeemableEnd: kotlin.Long?, conditionType: ConditionTypeUpdateMedia?, isbn: kotlin.String?, asin: kotlin.String?, catalogNumbers: kotlin.String?, availabilityDate: kotlin.Long?, parentalRating: kotlin.String?, mediaType: MediaTypeUpdateMedia?, duration: kotlin.Int?, author: kotlin.String?, releaseDate: kotlin.Long?, collectionIds: kotlin.String?, availability: kotlin.String?, availabilitySummary: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1390,7 +1375,7 @@ open class MediaApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/media/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/media/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

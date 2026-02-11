@@ -44,15 +44,14 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/event/attend
+     * POST /event/attend
      * Attend Event
      *  Specify whether the user is attending an event at a particular location. This can also be used as a \&quot;check-in\&quot; action.
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id (deviceId or accountId required) (optional)
      * @param appKey The application of where to send notifications about the attend action (optional)
@@ -72,8 +71,8 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun attendEvent(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, listingId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, offerLocationId: kotlin.Long? = null, transactionId: kotlin.Long? = null, status: kotlin.Int? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : OfferResponse {
-        val localVarResponse = attendEventWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, appKey = appKey, listingId = listingId, retailerLocationId = retailerLocationId, offerLocationId = offerLocationId, transactionId = transactionId, status = status, latitude = latitude, longitude = longitude)
+    fun attendEvent(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, listingId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, offerLocationId: kotlin.Long? = null, transactionId: kotlin.Long? = null, status: kotlin.Int? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : OfferResponse {
+        val localVarResponse = attendEventWithHttpInfo(deviceId = deviceId, accountId = accountId, appKey = appKey, listingId = listingId, retailerLocationId = retailerLocationId, offerLocationId = offerLocationId, transactionId = transactionId, status = status, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OfferResponse
@@ -91,10 +90,9 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/event/attend
+     * POST /event/attend
      * Attend Event
      *  Specify whether the user is attending an event at a particular location. This can also be used as a \&quot;check-in\&quot; action.
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id (deviceId or accountId required) (optional)
      * @param appKey The application of where to send notifications about the attend action (optional)
@@ -111,8 +109,8 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun attendEventWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, listingId: kotlin.Long?, retailerLocationId: kotlin.Long?, offerLocationId: kotlin.Long?, transactionId: kotlin.Long?, status: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<OfferResponse?> {
-        val localVariableConfig = attendEventRequestConfig(version = version, deviceId = deviceId, accountId = accountId, appKey = appKey, listingId = listingId, retailerLocationId = retailerLocationId, offerLocationId = offerLocationId, transactionId = transactionId, status = status, latitude = latitude, longitude = longitude)
+    fun attendEventWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, listingId: kotlin.Long?, retailerLocationId: kotlin.Long?, offerLocationId: kotlin.Long?, transactionId: kotlin.Long?, status: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<OfferResponse?> {
+        val localVariableConfig = attendEventRequestConfig(deviceId = deviceId, accountId = accountId, appKey = appKey, listingId = listingId, retailerLocationId = retailerLocationId, offerLocationId = offerLocationId, transactionId = transactionId, status = status, latitude = latitude, longitude = longitude)
 
         return request<Unit, OfferResponse>(
             localVariableConfig
@@ -122,7 +120,6 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation attendEvent
      *
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id (deviceId or accountId required) (optional)
      * @param appKey The application of where to send notifications about the attend action (optional)
@@ -135,7 +132,7 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param longitude The location of the status update (optional)
      * @return RequestConfig
      */
-    fun attendEventRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, listingId: kotlin.Long?, retailerLocationId: kotlin.Long?, offerLocationId: kotlin.Long?, transactionId: kotlin.Long?, status: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun attendEventRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, listingId: kotlin.Long?, retailerLocationId: kotlin.Long?, offerLocationId: kotlin.Long?, transactionId: kotlin.Long?, status: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -174,7 +171,7 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/event/attend".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/event/attend",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -183,10 +180,9 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/event/create
+     * POST /event/create
      * Create Event
      * Create a private event to share with associates.
-     * @param version 
      * @param accountId The logged in user.
      * @param title The event title
      * @param retailerLocationIds The retailer location to have the event at (optional)
@@ -208,8 +204,8 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createEvent(version: java.math.BigDecimal, accountId: kotlin.Long, title: kotlin.String, retailerLocationIds: kotlin.String? = null, subTitle: kotlin.String? = null, details: kotlin.String? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, active: kotlin.Boolean? = null, imageAssetId: kotlin.Long? = null, redeemableStart: kotlin.Long? = null, redeemableEnd: kotlin.Long? = null, metaData: kotlin.String? = null) : OfferResponse {
-        val localVarResponse = createEventWithHttpInfo(version = version, accountId = accountId, title = title, retailerLocationIds = retailerLocationIds, subTitle = subTitle, details = details, categoryIds = categoryIds, filterIds = filterIds, active = active, imageAssetId = imageAssetId, redeemableStart = redeemableStart, redeemableEnd = redeemableEnd, metaData = metaData)
+    fun createEvent(accountId: kotlin.Long, title: kotlin.String, retailerLocationIds: kotlin.String? = null, subTitle: kotlin.String? = null, details: kotlin.String? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, active: kotlin.Boolean? = null, imageAssetId: kotlin.Long? = null, redeemableStart: kotlin.Long? = null, redeemableEnd: kotlin.Long? = null, metaData: kotlin.String? = null) : OfferResponse {
+        val localVarResponse = createEventWithHttpInfo(accountId = accountId, title = title, retailerLocationIds = retailerLocationIds, subTitle = subTitle, details = details, categoryIds = categoryIds, filterIds = filterIds, active = active, imageAssetId = imageAssetId, redeemableStart = redeemableStart, redeemableEnd = redeemableEnd, metaData = metaData)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OfferResponse
@@ -227,10 +223,9 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/event/create
+     * POST /event/create
      * Create Event
      * Create a private event to share with associates.
-     * @param version 
      * @param accountId The logged in user.
      * @param title The event title
      * @param retailerLocationIds The retailer location to have the event at (optional)
@@ -249,8 +244,8 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createEventWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, title: kotlin.String, retailerLocationIds: kotlin.String?, subTitle: kotlin.String?, details: kotlin.String?, categoryIds: kotlin.String?, filterIds: kotlin.String?, active: kotlin.Boolean?, imageAssetId: kotlin.Long?, redeemableStart: kotlin.Long?, redeemableEnd: kotlin.Long?, metaData: kotlin.String?) : ApiResponse<OfferResponse?> {
-        val localVariableConfig = createEventRequestConfig(version = version, accountId = accountId, title = title, retailerLocationIds = retailerLocationIds, subTitle = subTitle, details = details, categoryIds = categoryIds, filterIds = filterIds, active = active, imageAssetId = imageAssetId, redeemableStart = redeemableStart, redeemableEnd = redeemableEnd, metaData = metaData)
+    fun createEventWithHttpInfo(accountId: kotlin.Long, title: kotlin.String, retailerLocationIds: kotlin.String?, subTitle: kotlin.String?, details: kotlin.String?, categoryIds: kotlin.String?, filterIds: kotlin.String?, active: kotlin.Boolean?, imageAssetId: kotlin.Long?, redeemableStart: kotlin.Long?, redeemableEnd: kotlin.Long?, metaData: kotlin.String?) : ApiResponse<OfferResponse?> {
+        val localVariableConfig = createEventRequestConfig(accountId = accountId, title = title, retailerLocationIds = retailerLocationIds, subTitle = subTitle, details = details, categoryIds = categoryIds, filterIds = filterIds, active = active, imageAssetId = imageAssetId, redeemableStart = redeemableStart, redeemableEnd = redeemableEnd, metaData = metaData)
 
         return request<Unit, OfferResponse>(
             localVariableConfig
@@ -260,7 +255,6 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation createEvent
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param title The event title
      * @param retailerLocationIds The retailer location to have the event at (optional)
@@ -275,7 +269,7 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param metaData external custom client defined data (optional)
      * @return RequestConfig
      */
-    fun createEventRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, title: kotlin.String, retailerLocationIds: kotlin.String?, subTitle: kotlin.String?, details: kotlin.String?, categoryIds: kotlin.String?, filterIds: kotlin.String?, active: kotlin.Boolean?, imageAssetId: kotlin.Long?, redeemableStart: kotlin.Long?, redeemableEnd: kotlin.Long?, metaData: kotlin.String?) : RequestConfig<Unit> {
+    fun createEventRequestConfig(accountId: kotlin.Long, title: kotlin.String, retailerLocationIds: kotlin.String?, subTitle: kotlin.String?, details: kotlin.String?, categoryIds: kotlin.String?, filterIds: kotlin.String?, active: kotlin.Boolean?, imageAssetId: kotlin.Long?, redeemableStart: kotlin.Long?, redeemableEnd: kotlin.Long?, metaData: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -316,7 +310,7 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/event/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/event/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -325,10 +319,9 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/event/delete
+     * POST /event/delete
      * Delete Event
      * Delete an event that the user has permissions to.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param eventId the id of the event to update
      * @return SirqulResponse
@@ -340,8 +333,8 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteEvent(version: java.math.BigDecimal, accountId: kotlin.Long, eventId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = deleteEventWithHttpInfo(version = version, accountId = accountId, eventId = eventId)
+    fun deleteEvent(accountId: kotlin.Long, eventId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = deleteEventWithHttpInfo(accountId = accountId, eventId = eventId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -359,10 +352,9 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/event/delete
+     * POST /event/delete
      * Delete Event
      * Delete an event that the user has permissions to.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param eventId the id of the event to update
      * @return ApiResponse<SirqulResponse?>
@@ -371,8 +363,8 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteEventWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, eventId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteEventRequestConfig(version = version, accountId = accountId, eventId = eventId)
+    fun deleteEventWithHttpInfo(accountId: kotlin.Long, eventId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteEventRequestConfig(accountId = accountId, eventId = eventId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -382,12 +374,11 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation deleteEvent
      *
-     * @param version 
      * @param accountId the id of the logged in user
      * @param eventId the id of the event to update
      * @return RequestConfig
      */
-    fun deleteEventRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, eventId: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteEventRequestConfig(accountId: kotlin.Long, eventId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -398,7 +389,7 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/event/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/event/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -407,10 +398,9 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/event/get
+     * GET /event/get
      * Get Event
      * Get an event.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param eventId The id of the event to return
      * @return OfferResponse
@@ -422,8 +412,8 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getEvent(version: java.math.BigDecimal, accountId: kotlin.Long, eventId: kotlin.Long) : OfferResponse {
-        val localVarResponse = getEventWithHttpInfo(version = version, accountId = accountId, eventId = eventId)
+    fun getEvent(accountId: kotlin.Long, eventId: kotlin.Long) : OfferResponse {
+        val localVarResponse = getEventWithHttpInfo(accountId = accountId, eventId = eventId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OfferResponse
@@ -441,10 +431,9 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/event/get
+     * GET /event/get
      * Get Event
      * Get an event.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param eventId The id of the event to return
      * @return ApiResponse<OfferResponse?>
@@ -453,8 +442,8 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getEventWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, eventId: kotlin.Long) : ApiResponse<OfferResponse?> {
-        val localVariableConfig = getEventRequestConfig(version = version, accountId = accountId, eventId = eventId)
+    fun getEventWithHttpInfo(accountId: kotlin.Long, eventId: kotlin.Long) : ApiResponse<OfferResponse?> {
+        val localVariableConfig = getEventRequestConfig(accountId = accountId, eventId = eventId)
 
         return request<Unit, OfferResponse>(
             localVariableConfig
@@ -464,12 +453,11 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getEvent
      *
-     * @param version 
      * @param accountId the id of the logged in user
      * @param eventId The id of the event to return
      * @return RequestConfig
      */
-    fun getEventRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, eventId: kotlin.Long) : RequestConfig<Unit> {
+    fun getEventRequestConfig(accountId: kotlin.Long, eventId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -480,7 +468,7 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/event/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/event/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -529,10 +517,9 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      }
 
     /**
-     * GET /api/{version}/event/attendance/search
+     * GET /event/attendance/search
      * Search Event Attendance
      * Searches on event type transactions. This can be used to see who is attending an event.
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param appKey The application key (optional)
@@ -561,8 +548,8 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchEventTransactions(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, keyword: kotlin.String? = null, retailerId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, excludeRetailerLocationId: kotlin.Long? = null, listingId: kotlin.Long? = null, offerId: kotlin.Long? = null, offerLocationId: kotlin.Long? = null, customerAccountIds: kotlin.String? = null, affiliatedCategoryIds: kotlin.String? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, statuses: kotlin.String? = null, sortField: SortFieldSearchEventTransactions? = null, descending: kotlin.Boolean? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null) : kotlin.collections.List<EventAttendanceResponse> {
-        val localVarResponse = searchEventTransactionsWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, appKey = appKey, keyword = keyword, retailerId = retailerId, retailerLocationId = retailerLocationId, excludeRetailerLocationId = excludeRetailerLocationId, listingId = listingId, offerId = offerId, offerLocationId = offerLocationId, customerAccountIds = customerAccountIds, affiliatedCategoryIds = affiliatedCategoryIds, startDate = startDate, endDate = endDate, statuses = statuses, sortField = sortField, descending = descending, start = start, limit = limit)
+    fun searchEventTransactions(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, keyword: kotlin.String? = null, retailerId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, excludeRetailerLocationId: kotlin.Long? = null, listingId: kotlin.Long? = null, offerId: kotlin.Long? = null, offerLocationId: kotlin.Long? = null, customerAccountIds: kotlin.String? = null, affiliatedCategoryIds: kotlin.String? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, statuses: kotlin.String? = null, sortField: SortFieldSearchEventTransactions? = null, descending: kotlin.Boolean? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null) : kotlin.collections.List<EventAttendanceResponse> {
+        val localVarResponse = searchEventTransactionsWithHttpInfo(deviceId = deviceId, accountId = accountId, appKey = appKey, keyword = keyword, retailerId = retailerId, retailerLocationId = retailerLocationId, excludeRetailerLocationId = excludeRetailerLocationId, listingId = listingId, offerId = offerId, offerLocationId = offerLocationId, customerAccountIds = customerAccountIds, affiliatedCategoryIds = affiliatedCategoryIds, startDate = startDate, endDate = endDate, statuses = statuses, sortField = sortField, descending = descending, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<EventAttendanceResponse>
@@ -580,10 +567,9 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/event/attendance/search
+     * GET /event/attendance/search
      * Search Event Attendance
      * Searches on event type transactions. This can be used to see who is attending an event.
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param appKey The application key (optional)
@@ -609,8 +595,8 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchEventTransactionsWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, keyword: kotlin.String?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, excludeRetailerLocationId: kotlin.Long?, listingId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, customerAccountIds: kotlin.String?, affiliatedCategoryIds: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, statuses: kotlin.String?, sortField: SortFieldSearchEventTransactions?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<EventAttendanceResponse>?> {
-        val localVariableConfig = searchEventTransactionsRequestConfig(version = version, deviceId = deviceId, accountId = accountId, appKey = appKey, keyword = keyword, retailerId = retailerId, retailerLocationId = retailerLocationId, excludeRetailerLocationId = excludeRetailerLocationId, listingId = listingId, offerId = offerId, offerLocationId = offerLocationId, customerAccountIds = customerAccountIds, affiliatedCategoryIds = affiliatedCategoryIds, startDate = startDate, endDate = endDate, statuses = statuses, sortField = sortField, descending = descending, start = start, limit = limit)
+    fun searchEventTransactionsWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, keyword: kotlin.String?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, excludeRetailerLocationId: kotlin.Long?, listingId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, customerAccountIds: kotlin.String?, affiliatedCategoryIds: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, statuses: kotlin.String?, sortField: SortFieldSearchEventTransactions?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<EventAttendanceResponse>?> {
+        val localVariableConfig = searchEventTransactionsRequestConfig(deviceId = deviceId, accountId = accountId, appKey = appKey, keyword = keyword, retailerId = retailerId, retailerLocationId = retailerLocationId, excludeRetailerLocationId = excludeRetailerLocationId, listingId = listingId, offerId = offerId, offerLocationId = offerLocationId, customerAccountIds = customerAccountIds, affiliatedCategoryIds = affiliatedCategoryIds, startDate = startDate, endDate = endDate, statuses = statuses, sortField = sortField, descending = descending, start = start, limit = limit)
 
         return request<Unit, kotlin.collections.List<EventAttendanceResponse>>(
             localVariableConfig
@@ -620,7 +606,6 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation searchEventTransactions
      *
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param appKey The application key (optional)
@@ -642,7 +627,7 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param limit The limit for pagination (optional)
      * @return RequestConfig
      */
-    fun searchEventTransactionsRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, keyword: kotlin.String?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, excludeRetailerLocationId: kotlin.Long?, listingId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, customerAccountIds: kotlin.String?, affiliatedCategoryIds: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, statuses: kotlin.String?, sortField: SortFieldSearchEventTransactions?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchEventTransactionsRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, keyword: kotlin.String?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, excludeRetailerLocationId: kotlin.Long?, listingId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, customerAccountIds: kotlin.String?, affiliatedCategoryIds: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, statuses: kotlin.String?, sortField: SortFieldSearchEventTransactions?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -708,7 +693,7 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/event/attendance/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/event/attendance/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -763,10 +748,9 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      }
 
     /**
-     * GET /api/{version}/event/search
+     * GET /event/search
      * Search Events
      * Searches on events that the account has access to.
-     * @param version 
      * @param accountId The logged in user.
      * @param keyword The keyword used to search (optional)
      * @param activeOnly Return only active results (optional)
@@ -789,8 +773,8 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchEvents(version: java.math.BigDecimal, accountId: kotlin.Long, keyword: kotlin.String? = null, activeOnly: kotlin.Boolean? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, offerAudienceIds: kotlin.String? = null, transactionAudienceIds: kotlin.String? = null, sortField: SortFieldSearchEvents? = null, descending: kotlin.Boolean? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null) : kotlin.collections.List<OfferShortResponse> {
-        val localVarResponse = searchEventsWithHttpInfo(version = version, accountId = accountId, keyword = keyword, activeOnly = activeOnly, categoryIds = categoryIds, filterIds = filterIds, offerAudienceIds = offerAudienceIds, transactionAudienceIds = transactionAudienceIds, sortField = sortField, descending = descending, startDate = startDate, endDate = endDate, start = start, limit = limit)
+    fun searchEvents(accountId: kotlin.Long, keyword: kotlin.String? = null, activeOnly: kotlin.Boolean? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, offerAudienceIds: kotlin.String? = null, transactionAudienceIds: kotlin.String? = null, sortField: SortFieldSearchEvents? = null, descending: kotlin.Boolean? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null) : kotlin.collections.List<OfferShortResponse> {
+        val localVarResponse = searchEventsWithHttpInfo(accountId = accountId, keyword = keyword, activeOnly = activeOnly, categoryIds = categoryIds, filterIds = filterIds, offerAudienceIds = offerAudienceIds, transactionAudienceIds = transactionAudienceIds, sortField = sortField, descending = descending, startDate = startDate, endDate = endDate, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<OfferShortResponse>
@@ -808,10 +792,9 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/event/search
+     * GET /event/search
      * Search Events
      * Searches on events that the account has access to.
-     * @param version 
      * @param accountId The logged in user.
      * @param keyword The keyword used to search (optional)
      * @param activeOnly Return only active results (optional)
@@ -831,8 +814,8 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchEventsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, keyword: kotlin.String?, activeOnly: kotlin.Boolean?, categoryIds: kotlin.String?, filterIds: kotlin.String?, offerAudienceIds: kotlin.String?, transactionAudienceIds: kotlin.String?, sortField: SortFieldSearchEvents?, descending: kotlin.Boolean?, startDate: kotlin.Long?, endDate: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<OfferShortResponse>?> {
-        val localVariableConfig = searchEventsRequestConfig(version = version, accountId = accountId, keyword = keyword, activeOnly = activeOnly, categoryIds = categoryIds, filterIds = filterIds, offerAudienceIds = offerAudienceIds, transactionAudienceIds = transactionAudienceIds, sortField = sortField, descending = descending, startDate = startDate, endDate = endDate, start = start, limit = limit)
+    fun searchEventsWithHttpInfo(accountId: kotlin.Long, keyword: kotlin.String?, activeOnly: kotlin.Boolean?, categoryIds: kotlin.String?, filterIds: kotlin.String?, offerAudienceIds: kotlin.String?, transactionAudienceIds: kotlin.String?, sortField: SortFieldSearchEvents?, descending: kotlin.Boolean?, startDate: kotlin.Long?, endDate: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<OfferShortResponse>?> {
+        val localVariableConfig = searchEventsRequestConfig(accountId = accountId, keyword = keyword, activeOnly = activeOnly, categoryIds = categoryIds, filterIds = filterIds, offerAudienceIds = offerAudienceIds, transactionAudienceIds = transactionAudienceIds, sortField = sortField, descending = descending, startDate = startDate, endDate = endDate, start = start, limit = limit)
 
         return request<Unit, kotlin.collections.List<OfferShortResponse>>(
             localVariableConfig
@@ -842,7 +825,6 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation searchEvents
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param keyword The keyword used to search (optional)
      * @param activeOnly Return only active results (optional)
@@ -858,7 +840,7 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param limit The number of records to return (optional)
      * @return RequestConfig
      */
-    fun searchEventsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, keyword: kotlin.String?, activeOnly: kotlin.Boolean?, categoryIds: kotlin.String?, filterIds: kotlin.String?, offerAudienceIds: kotlin.String?, transactionAudienceIds: kotlin.String?, sortField: SortFieldSearchEvents?, descending: kotlin.Boolean?, startDate: kotlin.Long?, endDate: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchEventsRequestConfig(accountId: kotlin.Long, keyword: kotlin.String?, activeOnly: kotlin.Boolean?, categoryIds: kotlin.String?, filterIds: kotlin.String?, offerAudienceIds: kotlin.String?, transactionAudienceIds: kotlin.String?, sortField: SortFieldSearchEvents?, descending: kotlin.Boolean?, startDate: kotlin.Long?, endDate: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -904,7 +886,7 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/event/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/event/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -913,10 +895,9 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/event/update
+     * POST /event/update
      * Update Event
      * Update a private event to share with associates.
-     * @param version 
      * @param accountId The logged in user.
      * @param eventId The id of the event to update
      * @param retailerLocationIds The retailer location to have the event at (optional)
@@ -938,8 +919,8 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateEvent(version: java.math.BigDecimal, accountId: kotlin.Long, eventId: kotlin.Long, retailerLocationIds: kotlin.String? = null, title: kotlin.String? = null, subTitle: kotlin.String? = null, details: kotlin.String? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, active: kotlin.Boolean? = null, imageAssetId: kotlin.Long? = null, redeemableStart: kotlin.Long? = null, redeemableEnd: kotlin.Long? = null) : OfferResponse {
-        val localVarResponse = updateEventWithHttpInfo(version = version, accountId = accountId, eventId = eventId, retailerLocationIds = retailerLocationIds, title = title, subTitle = subTitle, details = details, categoryIds = categoryIds, filterIds = filterIds, active = active, imageAssetId = imageAssetId, redeemableStart = redeemableStart, redeemableEnd = redeemableEnd)
+    fun updateEvent(accountId: kotlin.Long, eventId: kotlin.Long, retailerLocationIds: kotlin.String? = null, title: kotlin.String? = null, subTitle: kotlin.String? = null, details: kotlin.String? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, active: kotlin.Boolean? = null, imageAssetId: kotlin.Long? = null, redeemableStart: kotlin.Long? = null, redeemableEnd: kotlin.Long? = null) : OfferResponse {
+        val localVarResponse = updateEventWithHttpInfo(accountId = accountId, eventId = eventId, retailerLocationIds = retailerLocationIds, title = title, subTitle = subTitle, details = details, categoryIds = categoryIds, filterIds = filterIds, active = active, imageAssetId = imageAssetId, redeemableStart = redeemableStart, redeemableEnd = redeemableEnd)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OfferResponse
@@ -957,10 +938,9 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/event/update
+     * POST /event/update
      * Update Event
      * Update a private event to share with associates.
-     * @param version 
      * @param accountId The logged in user.
      * @param eventId The id of the event to update
      * @param retailerLocationIds The retailer location to have the event at (optional)
@@ -979,8 +959,8 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateEventWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, eventId: kotlin.Long, retailerLocationIds: kotlin.String?, title: kotlin.String?, subTitle: kotlin.String?, details: kotlin.String?, categoryIds: kotlin.String?, filterIds: kotlin.String?, active: kotlin.Boolean?, imageAssetId: kotlin.Long?, redeemableStart: kotlin.Long?, redeemableEnd: kotlin.Long?) : ApiResponse<OfferResponse?> {
-        val localVariableConfig = updateEventRequestConfig(version = version, accountId = accountId, eventId = eventId, retailerLocationIds = retailerLocationIds, title = title, subTitle = subTitle, details = details, categoryIds = categoryIds, filterIds = filterIds, active = active, imageAssetId = imageAssetId, redeemableStart = redeemableStart, redeemableEnd = redeemableEnd)
+    fun updateEventWithHttpInfo(accountId: kotlin.Long, eventId: kotlin.Long, retailerLocationIds: kotlin.String?, title: kotlin.String?, subTitle: kotlin.String?, details: kotlin.String?, categoryIds: kotlin.String?, filterIds: kotlin.String?, active: kotlin.Boolean?, imageAssetId: kotlin.Long?, redeemableStart: kotlin.Long?, redeemableEnd: kotlin.Long?) : ApiResponse<OfferResponse?> {
+        val localVariableConfig = updateEventRequestConfig(accountId = accountId, eventId = eventId, retailerLocationIds = retailerLocationIds, title = title, subTitle = subTitle, details = details, categoryIds = categoryIds, filterIds = filterIds, active = active, imageAssetId = imageAssetId, redeemableStart = redeemableStart, redeemableEnd = redeemableEnd)
 
         return request<Unit, OfferResponse>(
             localVariableConfig
@@ -990,7 +970,6 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation updateEvent
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param eventId The id of the event to update
      * @param retailerLocationIds The retailer location to have the event at (optional)
@@ -1005,7 +984,7 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param redeemableEnd The event end date/time (optional)
      * @return RequestConfig
      */
-    fun updateEventRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, eventId: kotlin.Long, retailerLocationIds: kotlin.String?, title: kotlin.String?, subTitle: kotlin.String?, details: kotlin.String?, categoryIds: kotlin.String?, filterIds: kotlin.String?, active: kotlin.Boolean?, imageAssetId: kotlin.Long?, redeemableStart: kotlin.Long?, redeemableEnd: kotlin.Long?) : RequestConfig<Unit> {
+    fun updateEventRequestConfig(accountId: kotlin.Long, eventId: kotlin.Long, retailerLocationIds: kotlin.String?, title: kotlin.String?, subTitle: kotlin.String?, details: kotlin.String?, categoryIds: kotlin.String?, filterIds: kotlin.String?, active: kotlin.Boolean?, imageAssetId: kotlin.Long?, redeemableStart: kotlin.Long?, redeemableEnd: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1046,7 +1025,7 @@ open class EventApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/event/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/event/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

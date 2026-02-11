@@ -42,7 +42,7 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
@@ -69,10 +69,9 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
      }
 
     /**
-     * POST /api/{version}/consumer/permissions/add
+     * POST /consumer/permissions/add
      * Add User
      * Adds a user to a permissionable object.
-     * @param version 
      * @param permissionableType the permissionable type of the object
      * @param permissionableId the id of the permissionable object
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -99,8 +98,8 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun addUsersToPermissionable(version: java.math.BigDecimal, permissionableType: PermissionableTypeAddUsersToPermissionable, permissionableId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, read: kotlin.Boolean? = true, write: kotlin.Boolean? = false, delete: kotlin.Boolean? = false, add: kotlin.Boolean? = false, connectionIds: kotlin.String? = null, connectionAccountIds: kotlin.String? = null, connectionGroupIds: kotlin.String? = null, pending: kotlin.Boolean? = false, admin: kotlin.Boolean? = null, includeFriendGroup: kotlin.Boolean? = false, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, audienceIds: kotlin.String? = null) : SirqulResponse {
-        val localVarResponse = addUsersToPermissionableWithHttpInfo(version = version, permissionableType = permissionableType, permissionableId = permissionableId, deviceId = deviceId, accountId = accountId, read = read, write = write, delete = delete, add = add, connectionIds = connectionIds, connectionAccountIds = connectionAccountIds, connectionGroupIds = connectionGroupIds, pending = pending, admin = admin, includeFriendGroup = includeFriendGroup, latitude = latitude, longitude = longitude, audienceIds = audienceIds)
+    fun addUsersToPermissionable(permissionableType: PermissionableTypeAddUsersToPermissionable, permissionableId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, read: kotlin.Boolean? = true, write: kotlin.Boolean? = false, delete: kotlin.Boolean? = false, add: kotlin.Boolean? = false, connectionIds: kotlin.String? = null, connectionAccountIds: kotlin.String? = null, connectionGroupIds: kotlin.String? = null, pending: kotlin.Boolean? = false, admin: kotlin.Boolean? = null, includeFriendGroup: kotlin.Boolean? = false, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, audienceIds: kotlin.String? = null) : SirqulResponse {
+        val localVarResponse = addUsersToPermissionableWithHttpInfo(permissionableType = permissionableType, permissionableId = permissionableId, deviceId = deviceId, accountId = accountId, read = read, write = write, delete = delete, add = add, connectionIds = connectionIds, connectionAccountIds = connectionAccountIds, connectionGroupIds = connectionGroupIds, pending = pending, admin = admin, includeFriendGroup = includeFriendGroup, latitude = latitude, longitude = longitude, audienceIds = audienceIds)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -118,10 +117,9 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
     }
 
     /**
-     * POST /api/{version}/consumer/permissions/add
+     * POST /consumer/permissions/add
      * Add User
      * Adds a user to a permissionable object.
-     * @param version 
      * @param permissionableType the permissionable type of the object
      * @param permissionableId the id of the permissionable object
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -145,8 +143,8 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun addUsersToPermissionableWithHttpInfo(version: java.math.BigDecimal, permissionableType: PermissionableTypeAddUsersToPermissionable, permissionableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, read: kotlin.Boolean?, write: kotlin.Boolean?, delete: kotlin.Boolean?, add: kotlin.Boolean?, connectionIds: kotlin.String?, connectionAccountIds: kotlin.String?, connectionGroupIds: kotlin.String?, pending: kotlin.Boolean?, admin: kotlin.Boolean?, includeFriendGroup: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?, audienceIds: kotlin.String?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = addUsersToPermissionableRequestConfig(version = version, permissionableType = permissionableType, permissionableId = permissionableId, deviceId = deviceId, accountId = accountId, read = read, write = write, delete = delete, add = add, connectionIds = connectionIds, connectionAccountIds = connectionAccountIds, connectionGroupIds = connectionGroupIds, pending = pending, admin = admin, includeFriendGroup = includeFriendGroup, latitude = latitude, longitude = longitude, audienceIds = audienceIds)
+    fun addUsersToPermissionableWithHttpInfo(permissionableType: PermissionableTypeAddUsersToPermissionable, permissionableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, read: kotlin.Boolean?, write: kotlin.Boolean?, delete: kotlin.Boolean?, add: kotlin.Boolean?, connectionIds: kotlin.String?, connectionAccountIds: kotlin.String?, connectionGroupIds: kotlin.String?, pending: kotlin.Boolean?, admin: kotlin.Boolean?, includeFriendGroup: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?, audienceIds: kotlin.String?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = addUsersToPermissionableRequestConfig(permissionableType = permissionableType, permissionableId = permissionableId, deviceId = deviceId, accountId = accountId, read = read, write = write, delete = delete, add = add, connectionIds = connectionIds, connectionAccountIds = connectionAccountIds, connectionGroupIds = connectionGroupIds, pending = pending, admin = admin, includeFriendGroup = includeFriendGroup, latitude = latitude, longitude = longitude, audienceIds = audienceIds)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -156,7 +154,6 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
     /**
      * To obtain the request config of the operation addUsersToPermissionable
      *
-     * @param version 
      * @param permissionableType the permissionable type of the object
      * @param permissionableId the id of the permissionable object
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -176,7 +173,7 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
      * @param audienceIds comma separated list of audience ids. This is a feature only available to the permissionable&#39;s application owner (and its employees). This will add all users from these audiences to the permissionable object. Notifications will not be sent to users if this feature is used. (optional)
      * @return RequestConfig
      */
-    fun addUsersToPermissionableRequestConfig(version: java.math.BigDecimal, permissionableType: PermissionableTypeAddUsersToPermissionable, permissionableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, read: kotlin.Boolean?, write: kotlin.Boolean?, delete: kotlin.Boolean?, add: kotlin.Boolean?, connectionIds: kotlin.String?, connectionAccountIds: kotlin.String?, connectionGroupIds: kotlin.String?, pending: kotlin.Boolean?, admin: kotlin.Boolean?, includeFriendGroup: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?, audienceIds: kotlin.String?) : RequestConfig<Unit> {
+    fun addUsersToPermissionableRequestConfig(permissionableType: PermissionableTypeAddUsersToPermissionable, permissionableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, read: kotlin.Boolean?, write: kotlin.Boolean?, delete: kotlin.Boolean?, add: kotlin.Boolean?, connectionIds: kotlin.String?, connectionAccountIds: kotlin.String?, connectionGroupIds: kotlin.String?, pending: kotlin.Boolean?, admin: kotlin.Boolean?, includeFriendGroup: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?, audienceIds: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -232,7 +229,7 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/consumer/permissions/add".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/permissions/add",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -282,10 +279,9 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
      }
 
     /**
-     * POST /api/{version}/permissionable/approve
+     * POST /permissionable/approve
      * Approve Permissionable
      * Sets the approval status of a permissionable object.
-     * @param version 
      * @param permissionableType The permissionable type of the object
      * @param permissionableId The id of the permissionable object
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -300,8 +296,8 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun approvePermissionable(version: java.math.BigDecimal, permissionableType: PermissionableTypeApprovePermissionable, permissionableId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, approvalStatus: ApprovalStatusApprovePermissionable? = ApprovalStatusApprovePermissionable.APPROVED) : SirqulResponse {
-        val localVarResponse = approvePermissionableWithHttpInfo(version = version, permissionableType = permissionableType, permissionableId = permissionableId, deviceId = deviceId, accountId = accountId, approvalStatus = approvalStatus)
+    fun approvePermissionable(permissionableType: PermissionableTypeApprovePermissionable, permissionableId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, approvalStatus: ApprovalStatusApprovePermissionable? = ApprovalStatusApprovePermissionable.APPROVED) : SirqulResponse {
+        val localVarResponse = approvePermissionableWithHttpInfo(permissionableType = permissionableType, permissionableId = permissionableId, deviceId = deviceId, accountId = accountId, approvalStatus = approvalStatus)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -319,10 +315,9 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
     }
 
     /**
-     * POST /api/{version}/permissionable/approve
+     * POST /permissionable/approve
      * Approve Permissionable
      * Sets the approval status of a permissionable object.
-     * @param version 
      * @param permissionableType The permissionable type of the object
      * @param permissionableId The id of the permissionable object
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -334,8 +329,8 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun approvePermissionableWithHttpInfo(version: java.math.BigDecimal, permissionableType: PermissionableTypeApprovePermissionable, permissionableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, approvalStatus: ApprovalStatusApprovePermissionable?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = approvePermissionableRequestConfig(version = version, permissionableType = permissionableType, permissionableId = permissionableId, deviceId = deviceId, accountId = accountId, approvalStatus = approvalStatus)
+    fun approvePermissionableWithHttpInfo(permissionableType: PermissionableTypeApprovePermissionable, permissionableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, approvalStatus: ApprovalStatusApprovePermissionable?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = approvePermissionableRequestConfig(permissionableType = permissionableType, permissionableId = permissionableId, deviceId = deviceId, accountId = accountId, approvalStatus = approvalStatus)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -345,7 +340,6 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
     /**
      * To obtain the request config of the operation approvePermissionable
      *
-     * @param version 
      * @param permissionableType The permissionable type of the object
      * @param permissionableId The id of the permissionable object
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -353,7 +347,7 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
      * @param approvalStatus The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} (optional, default to ApprovalStatus.APPROVED)
      * @return RequestConfig
      */
-    fun approvePermissionableRequestConfig(version: java.math.BigDecimal, permissionableType: PermissionableTypeApprovePermissionable, permissionableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, approvalStatus: ApprovalStatusApprovePermissionable?) : RequestConfig<Unit> {
+    fun approvePermissionableRequestConfig(permissionableType: PermissionableTypeApprovePermissionable, permissionableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, approvalStatus: ApprovalStatusApprovePermissionable?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -373,7 +367,7 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/permissionable/approve".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/permissionable/approve",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -382,10 +376,9 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
     }
 
     /**
-     * POST /api/{version}/consumer/permissions/leave
+     * POST /consumer/permissions/leave
      * Leave
      * Used when the user wants to leave from someone else&#39;s permissionable object
-     * @param version 
      * @param permissionableType the permissionable type PermissionableType
      * @param permissionableId the id of the permissionable object
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -401,8 +394,8 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun leaveFromPermissionable(version: java.math.BigDecimal, permissionableType: kotlin.String, permissionableId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
-        val localVarResponse = leaveFromPermissionableWithHttpInfo(version = version, permissionableType = permissionableType, permissionableId = permissionableId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun leaveFromPermissionable(permissionableType: kotlin.String, permissionableId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
+        val localVarResponse = leaveFromPermissionableWithHttpInfo(permissionableType = permissionableType, permissionableId = permissionableId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -420,10 +413,9 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
     }
 
     /**
-     * POST /api/{version}/consumer/permissions/leave
+     * POST /consumer/permissions/leave
      * Leave
      * Used when the user wants to leave from someone else&#39;s permissionable object
-     * @param version 
      * @param permissionableType the permissionable type PermissionableType
      * @param permissionableId the id of the permissionable object
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -436,8 +428,8 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun leaveFromPermissionableWithHttpInfo(version: java.math.BigDecimal, permissionableType: kotlin.String, permissionableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = leaveFromPermissionableRequestConfig(version = version, permissionableType = permissionableType, permissionableId = permissionableId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun leaveFromPermissionableWithHttpInfo(permissionableType: kotlin.String, permissionableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = leaveFromPermissionableRequestConfig(permissionableType = permissionableType, permissionableId = permissionableId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -447,7 +439,6 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
     /**
      * To obtain the request config of the operation leaveFromPermissionable
      *
-     * @param version 
      * @param permissionableType the permissionable type PermissionableType
      * @param permissionableId the id of the permissionable object
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -456,7 +447,7 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
      * @param longitude the current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun leaveFromPermissionableRequestConfig(version: java.math.BigDecimal, permissionableType: kotlin.String, permissionableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun leaveFromPermissionableRequestConfig(permissionableType: kotlin.String, permissionableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -479,7 +470,7 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/consumer/permissions/leave".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/permissions/leave",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -510,10 +501,9 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
      }
 
     /**
-     * POST /api/{version}/consumer/permissions/remove
+     * POST /consumer/permissions/remove
      * Remove User
      * Used to remove someone (assuming they have permission) from a permissionable object
-     * @param version 
      * @param permissionableType the permissionable type of the object
      * @param permissionableId the id of the permissionable object
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -534,8 +524,8 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun removeUsersFromPermissionable(version: java.math.BigDecimal, permissionableType: PermissionableTypeRemoveUsersFromPermissionable, permissionableId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionIds: kotlin.String? = null, connectionAccountIds: kotlin.String? = null, connectionGroupIds: kotlin.String? = null, removeFriendGroup: kotlin.Boolean? = false, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, audienceIds: kotlin.String? = null) : SirqulResponse {
-        val localVarResponse = removeUsersFromPermissionableWithHttpInfo(version = version, permissionableType = permissionableType, permissionableId = permissionableId, deviceId = deviceId, accountId = accountId, connectionIds = connectionIds, connectionAccountIds = connectionAccountIds, connectionGroupIds = connectionGroupIds, removeFriendGroup = removeFriendGroup, latitude = latitude, longitude = longitude, audienceIds = audienceIds)
+    fun removeUsersFromPermissionable(permissionableType: PermissionableTypeRemoveUsersFromPermissionable, permissionableId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionIds: kotlin.String? = null, connectionAccountIds: kotlin.String? = null, connectionGroupIds: kotlin.String? = null, removeFriendGroup: kotlin.Boolean? = false, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, audienceIds: kotlin.String? = null) : SirqulResponse {
+        val localVarResponse = removeUsersFromPermissionableWithHttpInfo(permissionableType = permissionableType, permissionableId = permissionableId, deviceId = deviceId, accountId = accountId, connectionIds = connectionIds, connectionAccountIds = connectionAccountIds, connectionGroupIds = connectionGroupIds, removeFriendGroup = removeFriendGroup, latitude = latitude, longitude = longitude, audienceIds = audienceIds)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -553,10 +543,9 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
     }
 
     /**
-     * POST /api/{version}/consumer/permissions/remove
+     * POST /consumer/permissions/remove
      * Remove User
      * Used to remove someone (assuming they have permission) from a permissionable object
-     * @param version 
      * @param permissionableType the permissionable type of the object
      * @param permissionableId the id of the permissionable object
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -574,8 +563,8 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun removeUsersFromPermissionableWithHttpInfo(version: java.math.BigDecimal, permissionableType: PermissionableTypeRemoveUsersFromPermissionable, permissionableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionIds: kotlin.String?, connectionAccountIds: kotlin.String?, connectionGroupIds: kotlin.String?, removeFriendGroup: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?, audienceIds: kotlin.String?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = removeUsersFromPermissionableRequestConfig(version = version, permissionableType = permissionableType, permissionableId = permissionableId, deviceId = deviceId, accountId = accountId, connectionIds = connectionIds, connectionAccountIds = connectionAccountIds, connectionGroupIds = connectionGroupIds, removeFriendGroup = removeFriendGroup, latitude = latitude, longitude = longitude, audienceIds = audienceIds)
+    fun removeUsersFromPermissionableWithHttpInfo(permissionableType: PermissionableTypeRemoveUsersFromPermissionable, permissionableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionIds: kotlin.String?, connectionAccountIds: kotlin.String?, connectionGroupIds: kotlin.String?, removeFriendGroup: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?, audienceIds: kotlin.String?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = removeUsersFromPermissionableRequestConfig(permissionableType = permissionableType, permissionableId = permissionableId, deviceId = deviceId, accountId = accountId, connectionIds = connectionIds, connectionAccountIds = connectionAccountIds, connectionGroupIds = connectionGroupIds, removeFriendGroup = removeFriendGroup, latitude = latitude, longitude = longitude, audienceIds = audienceIds)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -585,7 +574,6 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
     /**
      * To obtain the request config of the operation removeUsersFromPermissionable
      *
-     * @param version 
      * @param permissionableType the permissionable type of the object
      * @param permissionableId the id of the permissionable object
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -599,7 +587,7 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
      * @param audienceIds comma separated list of audience ids. This will remove all users from these audiences from the permissionable object. Notifications will not be sent to users if this feature is used. (optional)
      * @return RequestConfig
      */
-    fun removeUsersFromPermissionableRequestConfig(version: java.math.BigDecimal, permissionableType: PermissionableTypeRemoveUsersFromPermissionable, permissionableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionIds: kotlin.String?, connectionAccountIds: kotlin.String?, connectionGroupIds: kotlin.String?, removeFriendGroup: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?, audienceIds: kotlin.String?) : RequestConfig<Unit> {
+    fun removeUsersFromPermissionableRequestConfig(permissionableType: PermissionableTypeRemoveUsersFromPermissionable, permissionableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionIds: kotlin.String?, connectionAccountIds: kotlin.String?, connectionGroupIds: kotlin.String?, removeFriendGroup: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?, audienceIds: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -637,7 +625,7 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/consumer/permissions/remove".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/permissions/remove",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -668,10 +656,9 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
      }
 
     /**
-     * GET /api/{version}/permissions/search
+     * GET /permissions/search
      * Search Permissionables
      * Search on UserPermissions
-     * @param version 
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId Filter results for a specific user account (optional)
@@ -694,8 +681,8 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchPermissionables(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionAccountId: kotlin.Long? = null, connectionAccountIds: kotlin.String? = null, permissionableType: PermissionableTypeSearchPermissionables? = null, permissionableId: kotlin.Long? = null, keyword: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null, pending: kotlin.Boolean? = null, admin: kotlin.Boolean? = null, start: kotlin.Int? = 0, limit: kotlin.Int? = 20) : kotlin.collections.List<UserPermissionsResponse> {
-        val localVarResponse = searchPermissionablesWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, connectionAccountIds = connectionAccountIds, permissionableType = permissionableType, permissionableId = permissionableId, keyword = keyword, sortField = sortField, descending = descending, pending = pending, admin = admin, start = start, limit = limit)
+    fun searchPermissionables(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionAccountId: kotlin.Long? = null, connectionAccountIds: kotlin.String? = null, permissionableType: PermissionableTypeSearchPermissionables? = null, permissionableId: kotlin.Long? = null, keyword: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null, pending: kotlin.Boolean? = null, admin: kotlin.Boolean? = null, start: kotlin.Int? = 0, limit: kotlin.Int? = 20) : kotlin.collections.List<UserPermissionsResponse> {
+        val localVarResponse = searchPermissionablesWithHttpInfo(deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, connectionAccountIds = connectionAccountIds, permissionableType = permissionableType, permissionableId = permissionableId, keyword = keyword, sortField = sortField, descending = descending, pending = pending, admin = admin, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<UserPermissionsResponse>
@@ -713,10 +700,9 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
     }
 
     /**
-     * GET /api/{version}/permissions/search
+     * GET /permissions/search
      * Search Permissionables
      * Search on UserPermissions
-     * @param version 
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId Filter results for a specific user account (optional)
@@ -736,8 +722,8 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchPermissionablesWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, connectionAccountIds: kotlin.String?, permissionableType: PermissionableTypeSearchPermissionables?, permissionableId: kotlin.Long?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, pending: kotlin.Boolean?, admin: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<UserPermissionsResponse>?> {
-        val localVariableConfig = searchPermissionablesRequestConfig(version = version, deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, connectionAccountIds = connectionAccountIds, permissionableType = permissionableType, permissionableId = permissionableId, keyword = keyword, sortField = sortField, descending = descending, pending = pending, admin = admin, start = start, limit = limit)
+    fun searchPermissionablesWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, connectionAccountIds: kotlin.String?, permissionableType: PermissionableTypeSearchPermissionables?, permissionableId: kotlin.Long?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, pending: kotlin.Boolean?, admin: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<UserPermissionsResponse>?> {
+        val localVariableConfig = searchPermissionablesRequestConfig(deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, connectionAccountIds = connectionAccountIds, permissionableType = permissionableType, permissionableId = permissionableId, keyword = keyword, sortField = sortField, descending = descending, pending = pending, admin = admin, start = start, limit = limit)
 
         return request<Unit, kotlin.collections.List<UserPermissionsResponse>>(
             localVariableConfig
@@ -747,7 +733,6 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
     /**
      * To obtain the request config of the operation searchPermissionables
      *
-     * @param version 
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId Filter results for a specific user account (optional)
@@ -763,7 +748,7 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
      * @param limit the limit for pagination (optional, default to 20)
      * @return RequestConfig
      */
-    fun searchPermissionablesRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, connectionAccountIds: kotlin.String?, permissionableType: PermissionableTypeSearchPermissionables?, permissionableId: kotlin.Long?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, pending: kotlin.Boolean?, admin: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchPermissionablesRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, connectionAccountIds: kotlin.String?, permissionableType: PermissionableTypeSearchPermissionables?, permissionableId: kotlin.Long?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, pending: kotlin.Boolean?, admin: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -811,7 +796,7 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/permissions/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/permissions/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -842,10 +827,9 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
      }
 
     /**
-     * GET /api/{version}/permissions/distancesearch
+     * GET /permissions/distancesearch
      * Search Permissionables by Distnace
      * Search on UserPermissions by distance
-     * @param version 
      * @param latitude The latitude of the current account
      * @param longitude The longitude of the current account
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -869,8 +853,8 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchPermissionablesFollowingDistance(version: java.math.BigDecimal, latitude: kotlin.Double, longitude: kotlin.Double, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionAccountId: kotlin.Long? = null, connectionAccountIds: kotlin.String? = null, permissionableType: PermissionableTypeSearchPermissionablesFollowingDistance? = null, permissionableId: kotlin.Long? = null, searchRange: kotlin.Double? = 5.0, keyword: kotlin.String? = null, pending: kotlin.Boolean? = null, admin: kotlin.Boolean? = null, start: kotlin.Int? = 0, limit: kotlin.Int? = 20) : kotlin.collections.List<UserPermissionsResponse> {
-        val localVarResponse = searchPermissionablesFollowingDistanceWithHttpInfo(version = version, latitude = latitude, longitude = longitude, deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, connectionAccountIds = connectionAccountIds, permissionableType = permissionableType, permissionableId = permissionableId, searchRange = searchRange, keyword = keyword, pending = pending, admin = admin, start = start, limit = limit)
+    fun searchPermissionablesFollowingDistance(latitude: kotlin.Double, longitude: kotlin.Double, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionAccountId: kotlin.Long? = null, connectionAccountIds: kotlin.String? = null, permissionableType: PermissionableTypeSearchPermissionablesFollowingDistance? = null, permissionableId: kotlin.Long? = null, searchRange: kotlin.Double? = 5.0, keyword: kotlin.String? = null, pending: kotlin.Boolean? = null, admin: kotlin.Boolean? = null, start: kotlin.Int? = 0, limit: kotlin.Int? = 20) : kotlin.collections.List<UserPermissionsResponse> {
+        val localVarResponse = searchPermissionablesFollowingDistanceWithHttpInfo(latitude = latitude, longitude = longitude, deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, connectionAccountIds = connectionAccountIds, permissionableType = permissionableType, permissionableId = permissionableId, searchRange = searchRange, keyword = keyword, pending = pending, admin = admin, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<UserPermissionsResponse>
@@ -888,10 +872,9 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
     }
 
     /**
-     * GET /api/{version}/permissions/distancesearch
+     * GET /permissions/distancesearch
      * Search Permissionables by Distnace
      * Search on UserPermissions by distance
-     * @param version 
      * @param latitude The latitude of the current account
      * @param longitude The longitude of the current account
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -912,8 +895,8 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchPermissionablesFollowingDistanceWithHttpInfo(version: java.math.BigDecimal, latitude: kotlin.Double, longitude: kotlin.Double, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, connectionAccountIds: kotlin.String?, permissionableType: PermissionableTypeSearchPermissionablesFollowingDistance?, permissionableId: kotlin.Long?, searchRange: kotlin.Double?, keyword: kotlin.String?, pending: kotlin.Boolean?, admin: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<UserPermissionsResponse>?> {
-        val localVariableConfig = searchPermissionablesFollowingDistanceRequestConfig(version = version, latitude = latitude, longitude = longitude, deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, connectionAccountIds = connectionAccountIds, permissionableType = permissionableType, permissionableId = permissionableId, searchRange = searchRange, keyword = keyword, pending = pending, admin = admin, start = start, limit = limit)
+    fun searchPermissionablesFollowingDistanceWithHttpInfo(latitude: kotlin.Double, longitude: kotlin.Double, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, connectionAccountIds: kotlin.String?, permissionableType: PermissionableTypeSearchPermissionablesFollowingDistance?, permissionableId: kotlin.Long?, searchRange: kotlin.Double?, keyword: kotlin.String?, pending: kotlin.Boolean?, admin: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<UserPermissionsResponse>?> {
+        val localVariableConfig = searchPermissionablesFollowingDistanceRequestConfig(latitude = latitude, longitude = longitude, deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, connectionAccountIds = connectionAccountIds, permissionableType = permissionableType, permissionableId = permissionableId, searchRange = searchRange, keyword = keyword, pending = pending, admin = admin, start = start, limit = limit)
 
         return request<Unit, kotlin.collections.List<UserPermissionsResponse>>(
             localVariableConfig
@@ -923,7 +906,6 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
     /**
      * To obtain the request config of the operation searchPermissionablesFollowingDistance
      *
-     * @param version 
      * @param latitude The latitude of the current account
      * @param longitude The longitude of the current account
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -940,7 +922,7 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
      * @param limit The limit for pagination (optional, default to 20)
      * @return RequestConfig
      */
-    fun searchPermissionablesFollowingDistanceRequestConfig(version: java.math.BigDecimal, latitude: kotlin.Double, longitude: kotlin.Double, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, connectionAccountIds: kotlin.String?, permissionableType: PermissionableTypeSearchPermissionablesFollowingDistance?, permissionableId: kotlin.Long?, searchRange: kotlin.Double?, keyword: kotlin.String?, pending: kotlin.Boolean?, admin: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchPermissionablesFollowingDistanceRequestConfig(latitude: kotlin.Double, longitude: kotlin.Double, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, connectionAccountIds: kotlin.String?, permissionableType: PermissionableTypeSearchPermissionablesFollowingDistance?, permissionableId: kotlin.Long?, searchRange: kotlin.Double?, keyword: kotlin.String?, pending: kotlin.Boolean?, admin: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -987,7 +969,7 @@ open class UserPermissionsApi(basePath: kotlin.String = defaultBasePath, client:
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/permissions/distancesearch".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/permissions/distancesearch",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

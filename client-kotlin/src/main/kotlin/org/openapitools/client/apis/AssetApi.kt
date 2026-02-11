@@ -44,15 +44,14 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * GET /api/{version}/asset/download/{filename}
+     * GET /asset/download/{filename}
      * Download Asset
      * Downloads an asset from the server for assets that have been uploaded to the server.
-     * @param version 
      * @param filename the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}
      * @return SirqulResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -63,8 +62,8 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun assetDownload(version: java.math.BigDecimal, filename: kotlin.String) : SirqulResponse {
-        val localVarResponse = assetDownloadWithHttpInfo(version = version, filename = filename)
+    fun assetDownload(filename: kotlin.String) : SirqulResponse {
+        val localVarResponse = assetDownloadWithHttpInfo(filename = filename)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -82,10 +81,9 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/asset/download/{filename}
+     * GET /asset/download/{filename}
      * Download Asset
      * Downloads an asset from the server for assets that have been uploaded to the server.
-     * @param version 
      * @param filename the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}
      * @return ApiResponse<SirqulResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -93,8 +91,8 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun assetDownloadWithHttpInfo(version: java.math.BigDecimal, filename: kotlin.String) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = assetDownloadRequestConfig(version = version, filename = filename)
+    fun assetDownloadWithHttpInfo(filename: kotlin.String) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = assetDownloadRequestConfig(filename = filename)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -104,18 +102,17 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation assetDownload
      *
-     * @param version 
      * @param filename the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}
      * @return RequestConfig
      */
-    fun assetDownloadRequestConfig(version: java.math.BigDecimal, filename: kotlin.String) : RequestConfig<Unit> {
+    fun assetDownloadRequestConfig(filename: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/asset/download/{filename}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"filename"+"}", encodeURIComponent(filename.toString())),
+            path = "/asset/download/{filename}".replace("{"+"filename"+"}", encodeURIComponent(filename.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -156,10 +153,9 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      }
 
     /**
-     * POST /api/{version}/asset/morph
+     * POST /asset/morph
      * Convert Offer to Creative
      * Converts an offer image + text into a creative image.
-     * @param version 
      * @param offerId offer id used for inserting offer text/flavor
      * @param adSize the ad size used for selecting a format for the creative image
      * @param creativeId used for inserting the newly created image into (optional)
@@ -176,8 +172,8 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun assetMorph(version: java.math.BigDecimal, offerId: kotlin.Long, adSize: AdSizeAssetMorph, creativeId: kotlin.Long? = null, width: kotlin.Int? = null, height: kotlin.Int? = null, backgroundSize: kotlin.String? = null, template: kotlin.String? = null) : AssetShortResponse {
-        val localVarResponse = assetMorphWithHttpInfo(version = version, offerId = offerId, adSize = adSize, creativeId = creativeId, width = width, height = height, backgroundSize = backgroundSize, template = template)
+    fun assetMorph(offerId: kotlin.Long, adSize: AdSizeAssetMorph, creativeId: kotlin.Long? = null, width: kotlin.Int? = null, height: kotlin.Int? = null, backgroundSize: kotlin.String? = null, template: kotlin.String? = null) : AssetShortResponse {
+        val localVarResponse = assetMorphWithHttpInfo(offerId = offerId, adSize = adSize, creativeId = creativeId, width = width, height = height, backgroundSize = backgroundSize, template = template)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AssetShortResponse
@@ -195,10 +191,9 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/asset/morph
+     * POST /asset/morph
      * Convert Offer to Creative
      * Converts an offer image + text into a creative image.
-     * @param version 
      * @param offerId offer id used for inserting offer text/flavor
      * @param adSize the ad size used for selecting a format for the creative image
      * @param creativeId used for inserting the newly created image into (optional)
@@ -212,8 +207,8 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun assetMorphWithHttpInfo(version: java.math.BigDecimal, offerId: kotlin.Long, adSize: AdSizeAssetMorph, creativeId: kotlin.Long?, width: kotlin.Int?, height: kotlin.Int?, backgroundSize: kotlin.String?, template: kotlin.String?) : ApiResponse<AssetShortResponse?> {
-        val localVariableConfig = assetMorphRequestConfig(version = version, offerId = offerId, adSize = adSize, creativeId = creativeId, width = width, height = height, backgroundSize = backgroundSize, template = template)
+    fun assetMorphWithHttpInfo(offerId: kotlin.Long, adSize: AdSizeAssetMorph, creativeId: kotlin.Long?, width: kotlin.Int?, height: kotlin.Int?, backgroundSize: kotlin.String?, template: kotlin.String?) : ApiResponse<AssetShortResponse?> {
+        val localVariableConfig = assetMorphRequestConfig(offerId = offerId, adSize = adSize, creativeId = creativeId, width = width, height = height, backgroundSize = backgroundSize, template = template)
 
         return request<Unit, AssetShortResponse>(
             localVariableConfig
@@ -223,7 +218,6 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation assetMorph
      *
-     * @param version 
      * @param offerId offer id used for inserting offer text/flavor
      * @param adSize the ad size used for selecting a format for the creative image
      * @param creativeId used for inserting the newly created image into (optional)
@@ -233,7 +227,7 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param template the template to use (optional)
      * @return RequestConfig
      */
-    fun assetMorphRequestConfig(version: java.math.BigDecimal, offerId: kotlin.Long, adSize: AdSizeAssetMorph, creativeId: kotlin.Long?, width: kotlin.Int?, height: kotlin.Int?, backgroundSize: kotlin.String?, template: kotlin.String?) : RequestConfig<Unit> {
+    fun assetMorphRequestConfig(offerId: kotlin.Long, adSize: AdSizeAssetMorph, creativeId: kotlin.Long?, width: kotlin.Int?, height: kotlin.Int?, backgroundSize: kotlin.String?, template: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -259,7 +253,7 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/asset/morph".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/asset/morph",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -268,10 +262,9 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/asset/create
+     * POST /asset/create
      * Create Asset
      * Uploads an asset to server and returns an asset id which can be used to assign to various objects.
-     * @param version 
      * @param returnNulls to return nulls (optional)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -315,8 +308,8 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createAsset(version: java.math.BigDecimal, returnNulls: kotlin.Boolean? = null, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, albumId: kotlin.Long? = null, collectionId: kotlin.Long? = null, addToDefaultAlbum: kotlin.String? = null, addToMediaLibrary: kotlin.Boolean? = null, versionCode: kotlin.Int? = null, versionName: kotlin.String? = null, metaData: kotlin.String? = null, caption: kotlin.String? = null, assetType: kotlin.String? = null, approvalStatus: kotlin.String? = null, assignedAccountId: kotlin.Long? = null, media: java.io.File? = null, mediaUrl: kotlin.String? = null, mediaString: kotlin.String? = null, mediaStringFileName: kotlin.String? = null, mediaStringContentType: kotlin.String? = null, mediaHeight: kotlin.Int? = null, mediaWidth: kotlin.Int? = null, attachedMedia: java.io.File? = null, attachedMediaUrl: kotlin.String? = null, attachedMediaString: kotlin.String? = null, attachedMediaStringFileName: kotlin.String? = null, attachedMediaStringContentType: kotlin.String? = null, attachedMediaHeight: kotlin.Int? = null, attachedMediaWidth: kotlin.Int? = null, locationDescription: kotlin.String? = null, app: kotlin.String? = null, appKey: kotlin.String? = null, searchTags: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : AssetResponse {
-        val localVarResponse = createAssetWithHttpInfo(version = version, returnNulls = returnNulls, deviceId = deviceId, accountId = accountId, albumId = albumId, collectionId = collectionId, addToDefaultAlbum = addToDefaultAlbum, addToMediaLibrary = addToMediaLibrary, versionCode = versionCode, versionName = versionName, metaData = metaData, caption = caption, assetType = assetType, approvalStatus = approvalStatus, assignedAccountId = assignedAccountId, media = media, mediaUrl = mediaUrl, mediaString = mediaString, mediaStringFileName = mediaStringFileName, mediaStringContentType = mediaStringContentType, mediaHeight = mediaHeight, mediaWidth = mediaWidth, attachedMedia = attachedMedia, attachedMediaUrl = attachedMediaUrl, attachedMediaString = attachedMediaString, attachedMediaStringFileName = attachedMediaStringFileName, attachedMediaStringContentType = attachedMediaStringContentType, attachedMediaHeight = attachedMediaHeight, attachedMediaWidth = attachedMediaWidth, locationDescription = locationDescription, app = app, appKey = appKey, searchTags = searchTags, latitude = latitude, longitude = longitude)
+    fun createAsset(returnNulls: kotlin.Boolean? = null, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, albumId: kotlin.Long? = null, collectionId: kotlin.Long? = null, addToDefaultAlbum: kotlin.String? = null, addToMediaLibrary: kotlin.Boolean? = null, versionCode: kotlin.Int? = null, versionName: kotlin.String? = null, metaData: kotlin.String? = null, caption: kotlin.String? = null, assetType: kotlin.String? = null, approvalStatus: kotlin.String? = null, assignedAccountId: kotlin.Long? = null, media: java.io.File? = null, mediaUrl: kotlin.String? = null, mediaString: kotlin.String? = null, mediaStringFileName: kotlin.String? = null, mediaStringContentType: kotlin.String? = null, mediaHeight: kotlin.Int? = null, mediaWidth: kotlin.Int? = null, attachedMedia: java.io.File? = null, attachedMediaUrl: kotlin.String? = null, attachedMediaString: kotlin.String? = null, attachedMediaStringFileName: kotlin.String? = null, attachedMediaStringContentType: kotlin.String? = null, attachedMediaHeight: kotlin.Int? = null, attachedMediaWidth: kotlin.Int? = null, locationDescription: kotlin.String? = null, app: kotlin.String? = null, appKey: kotlin.String? = null, searchTags: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : AssetResponse {
+        val localVarResponse = createAssetWithHttpInfo(returnNulls = returnNulls, deviceId = deviceId, accountId = accountId, albumId = albumId, collectionId = collectionId, addToDefaultAlbum = addToDefaultAlbum, addToMediaLibrary = addToMediaLibrary, versionCode = versionCode, versionName = versionName, metaData = metaData, caption = caption, assetType = assetType, approvalStatus = approvalStatus, assignedAccountId = assignedAccountId, media = media, mediaUrl = mediaUrl, mediaString = mediaString, mediaStringFileName = mediaStringFileName, mediaStringContentType = mediaStringContentType, mediaHeight = mediaHeight, mediaWidth = mediaWidth, attachedMedia = attachedMedia, attachedMediaUrl = attachedMediaUrl, attachedMediaString = attachedMediaString, attachedMediaStringFileName = attachedMediaStringFileName, attachedMediaStringContentType = attachedMediaStringContentType, attachedMediaHeight = attachedMediaHeight, attachedMediaWidth = attachedMediaWidth, locationDescription = locationDescription, app = app, appKey = appKey, searchTags = searchTags, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AssetResponse
@@ -334,10 +327,9 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/asset/create
+     * POST /asset/create
      * Create Asset
      * Uploads an asset to server and returns an asset id which can be used to assign to various objects.
-     * @param version 
      * @param returnNulls to return nulls (optional)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -378,8 +370,8 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createAssetWithHttpInfo(version: java.math.BigDecimal, returnNulls: kotlin.Boolean?, deviceId: kotlin.String?, accountId: kotlin.Long?, albumId: kotlin.Long?, collectionId: kotlin.Long?, addToDefaultAlbum: kotlin.String?, addToMediaLibrary: kotlin.Boolean?, versionCode: kotlin.Int?, versionName: kotlin.String?, metaData: kotlin.String?, caption: kotlin.String?, assetType: kotlin.String?, approvalStatus: kotlin.String?, assignedAccountId: kotlin.Long?, media: java.io.File?, mediaUrl: kotlin.String?, mediaString: kotlin.String?, mediaStringFileName: kotlin.String?, mediaStringContentType: kotlin.String?, mediaHeight: kotlin.Int?, mediaWidth: kotlin.Int?, attachedMedia: java.io.File?, attachedMediaUrl: kotlin.String?, attachedMediaString: kotlin.String?, attachedMediaStringFileName: kotlin.String?, attachedMediaStringContentType: kotlin.String?, attachedMediaHeight: kotlin.Int?, attachedMediaWidth: kotlin.Int?, locationDescription: kotlin.String?, app: kotlin.String?, appKey: kotlin.String?, searchTags: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<AssetResponse?> {
-        val localVariableConfig = createAssetRequestConfig(version = version, returnNulls = returnNulls, deviceId = deviceId, accountId = accountId, albumId = albumId, collectionId = collectionId, addToDefaultAlbum = addToDefaultAlbum, addToMediaLibrary = addToMediaLibrary, versionCode = versionCode, versionName = versionName, metaData = metaData, caption = caption, assetType = assetType, approvalStatus = approvalStatus, assignedAccountId = assignedAccountId, media = media, mediaUrl = mediaUrl, mediaString = mediaString, mediaStringFileName = mediaStringFileName, mediaStringContentType = mediaStringContentType, mediaHeight = mediaHeight, mediaWidth = mediaWidth, attachedMedia = attachedMedia, attachedMediaUrl = attachedMediaUrl, attachedMediaString = attachedMediaString, attachedMediaStringFileName = attachedMediaStringFileName, attachedMediaStringContentType = attachedMediaStringContentType, attachedMediaHeight = attachedMediaHeight, attachedMediaWidth = attachedMediaWidth, locationDescription = locationDescription, app = app, appKey = appKey, searchTags = searchTags, latitude = latitude, longitude = longitude)
+    fun createAssetWithHttpInfo(returnNulls: kotlin.Boolean?, deviceId: kotlin.String?, accountId: kotlin.Long?, albumId: kotlin.Long?, collectionId: kotlin.Long?, addToDefaultAlbum: kotlin.String?, addToMediaLibrary: kotlin.Boolean?, versionCode: kotlin.Int?, versionName: kotlin.String?, metaData: kotlin.String?, caption: kotlin.String?, assetType: kotlin.String?, approvalStatus: kotlin.String?, assignedAccountId: kotlin.Long?, media: java.io.File?, mediaUrl: kotlin.String?, mediaString: kotlin.String?, mediaStringFileName: kotlin.String?, mediaStringContentType: kotlin.String?, mediaHeight: kotlin.Int?, mediaWidth: kotlin.Int?, attachedMedia: java.io.File?, attachedMediaUrl: kotlin.String?, attachedMediaString: kotlin.String?, attachedMediaStringFileName: kotlin.String?, attachedMediaStringContentType: kotlin.String?, attachedMediaHeight: kotlin.Int?, attachedMediaWidth: kotlin.Int?, locationDescription: kotlin.String?, app: kotlin.String?, appKey: kotlin.String?, searchTags: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<AssetResponse?> {
+        val localVariableConfig = createAssetRequestConfig(returnNulls = returnNulls, deviceId = deviceId, accountId = accountId, albumId = albumId, collectionId = collectionId, addToDefaultAlbum = addToDefaultAlbum, addToMediaLibrary = addToMediaLibrary, versionCode = versionCode, versionName = versionName, metaData = metaData, caption = caption, assetType = assetType, approvalStatus = approvalStatus, assignedAccountId = assignedAccountId, media = media, mediaUrl = mediaUrl, mediaString = mediaString, mediaStringFileName = mediaStringFileName, mediaStringContentType = mediaStringContentType, mediaHeight = mediaHeight, mediaWidth = mediaWidth, attachedMedia = attachedMedia, attachedMediaUrl = attachedMediaUrl, attachedMediaString = attachedMediaString, attachedMediaStringFileName = attachedMediaStringFileName, attachedMediaStringContentType = attachedMediaStringContentType, attachedMediaHeight = attachedMediaHeight, attachedMediaWidth = attachedMediaWidth, locationDescription = locationDescription, app = app, appKey = appKey, searchTags = searchTags, latitude = latitude, longitude = longitude)
 
         return request<Unit, AssetResponse>(
             localVariableConfig
@@ -389,7 +381,6 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation createAsset
      *
-     * @param version 
      * @param returnNulls to return nulls (optional)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -426,7 +417,7 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param longitude the longitude (optional) (optional)
      * @return RequestConfig
      */
-    fun createAssetRequestConfig(version: java.math.BigDecimal, returnNulls: kotlin.Boolean?, deviceId: kotlin.String?, accountId: kotlin.Long?, albumId: kotlin.Long?, collectionId: kotlin.Long?, addToDefaultAlbum: kotlin.String?, addToMediaLibrary: kotlin.Boolean?, versionCode: kotlin.Int?, versionName: kotlin.String?, metaData: kotlin.String?, caption: kotlin.String?, assetType: kotlin.String?, approvalStatus: kotlin.String?, assignedAccountId: kotlin.Long?, media: java.io.File?, mediaUrl: kotlin.String?, mediaString: kotlin.String?, mediaStringFileName: kotlin.String?, mediaStringContentType: kotlin.String?, mediaHeight: kotlin.Int?, mediaWidth: kotlin.Int?, attachedMedia: java.io.File?, attachedMediaUrl: kotlin.String?, attachedMediaString: kotlin.String?, attachedMediaStringFileName: kotlin.String?, attachedMediaStringContentType: kotlin.String?, attachedMediaHeight: kotlin.Int?, attachedMediaWidth: kotlin.Int?, locationDescription: kotlin.String?, app: kotlin.String?, appKey: kotlin.String?, searchTags: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun createAssetRequestConfig(returnNulls: kotlin.Boolean?, deviceId: kotlin.String?, accountId: kotlin.Long?, albumId: kotlin.Long?, collectionId: kotlin.Long?, addToDefaultAlbum: kotlin.String?, addToMediaLibrary: kotlin.Boolean?, versionCode: kotlin.Int?, versionName: kotlin.String?, metaData: kotlin.String?, caption: kotlin.String?, assetType: kotlin.String?, approvalStatus: kotlin.String?, assignedAccountId: kotlin.Long?, media: java.io.File?, mediaUrl: kotlin.String?, mediaString: kotlin.String?, mediaStringFileName: kotlin.String?, mediaStringContentType: kotlin.String?, mediaHeight: kotlin.Int?, mediaWidth: kotlin.Int?, attachedMedia: java.io.File?, attachedMediaUrl: kotlin.String?, attachedMediaString: kotlin.String?, attachedMediaStringFileName: kotlin.String?, attachedMediaStringContentType: kotlin.String?, attachedMediaHeight: kotlin.Int?, attachedMediaWidth: kotlin.Int?, locationDescription: kotlin.String?, app: kotlin.String?, appKey: kotlin.String?, searchTags: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -537,7 +528,7 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/asset/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/asset/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -546,10 +537,9 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/asset/delete
+     * POST /asset/delete
      * Delete Asset
      * Delete an asset.
-     * @param version 
      * @param assetId the id of the asset to delete
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -564,8 +554,8 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteAsset(version: java.math.BigDecimal, assetId: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
-        val localVarResponse = deleteAssetWithHttpInfo(version = version, assetId = assetId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun deleteAsset(assetId: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
+        val localVarResponse = deleteAssetWithHttpInfo(assetId = assetId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -583,10 +573,9 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/asset/delete
+     * POST /asset/delete
      * Delete Asset
      * Delete an asset.
-     * @param version 
      * @param assetId the id of the asset to delete
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -598,8 +587,8 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteAssetWithHttpInfo(version: java.math.BigDecimal, assetId: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteAssetRequestConfig(version = version, assetId = assetId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun deleteAssetWithHttpInfo(assetId: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteAssetRequestConfig(assetId = assetId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -609,7 +598,6 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation deleteAsset
      *
-     * @param version 
      * @param assetId the id of the asset to delete
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -617,7 +605,7 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param longitude longitude used to update the user&#39;s current location (optional)
      * @return RequestConfig
      */
-    fun deleteAssetRequestConfig(version: java.math.BigDecimal, assetId: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun deleteAssetRequestConfig(assetId: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -639,7 +627,7 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/asset/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/asset/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -648,10 +636,9 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/asset/get
+     * GET /asset/get
      * Get Asset
      * Gets the full asset response including attached likes and notes.
-     * @param version 
      * @param assetId the asset ID
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -665,8 +652,8 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAsset(version: java.math.BigDecimal, assetId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, noteDescending: kotlin.Boolean? = false) : AssetFullResponse {
-        val localVarResponse = getAssetWithHttpInfo(version = version, assetId = assetId, deviceId = deviceId, accountId = accountId, noteDescending = noteDescending)
+    fun getAsset(assetId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, noteDescending: kotlin.Boolean? = false) : AssetFullResponse {
+        val localVarResponse = getAssetWithHttpInfo(assetId = assetId, deviceId = deviceId, accountId = accountId, noteDescending = noteDescending)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AssetFullResponse
@@ -684,10 +671,9 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/asset/get
+     * GET /asset/get
      * Get Asset
      * Gets the full asset response including attached likes and notes.
-     * @param version 
      * @param assetId the asset ID
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -698,8 +684,8 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAssetWithHttpInfo(version: java.math.BigDecimal, assetId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, noteDescending: kotlin.Boolean?) : ApiResponse<AssetFullResponse?> {
-        val localVariableConfig = getAssetRequestConfig(version = version, assetId = assetId, deviceId = deviceId, accountId = accountId, noteDescending = noteDescending)
+    fun getAssetWithHttpInfo(assetId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, noteDescending: kotlin.Boolean?) : ApiResponse<AssetFullResponse?> {
+        val localVariableConfig = getAssetRequestConfig(assetId = assetId, deviceId = deviceId, accountId = accountId, noteDescending = noteDescending)
 
         return request<Unit, AssetFullResponse>(
             localVariableConfig
@@ -709,14 +695,13 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getAsset
      *
-     * @param version 
      * @param assetId the asset ID
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param noteDescending determines whether the notes on the asset are in descending order (optional, default to false)
      * @return RequestConfig
      */
-    fun getAssetRequestConfig(version: java.math.BigDecimal, assetId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, noteDescending: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getAssetRequestConfig(assetId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, noteDescending: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -735,7 +720,7 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/asset/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/asset/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -744,10 +729,9 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/asset/remove
+     * POST /asset/remove
      * Remove Asset from Collection
      * Remove assets from collections
-     * @param version 
      * @param assetId the id of the asset to remove
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -765,8 +749,8 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun removeAsset(version: java.math.BigDecimal, assetId: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, albumId: kotlin.Long? = null, collectionId: kotlin.Long? = null, removeFromDefaultAlbums: kotlin.Boolean? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
-        val localVarResponse = removeAssetWithHttpInfo(version = version, assetId = assetId, deviceId = deviceId, accountId = accountId, albumId = albumId, collectionId = collectionId, removeFromDefaultAlbums = removeFromDefaultAlbums, latitude = latitude, longitude = longitude)
+    fun removeAsset(assetId: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, albumId: kotlin.Long? = null, collectionId: kotlin.Long? = null, removeFromDefaultAlbums: kotlin.Boolean? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
+        val localVarResponse = removeAssetWithHttpInfo(assetId = assetId, deviceId = deviceId, accountId = accountId, albumId = albumId, collectionId = collectionId, removeFromDefaultAlbums = removeFromDefaultAlbums, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -784,10 +768,9 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/asset/remove
+     * POST /asset/remove
      * Remove Asset from Collection
      * Remove assets from collections
-     * @param version 
      * @param assetId the id of the asset to remove
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -802,8 +785,8 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun removeAssetWithHttpInfo(version: java.math.BigDecimal, assetId: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, albumId: kotlin.Long?, collectionId: kotlin.Long?, removeFromDefaultAlbums: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = removeAssetRequestConfig(version = version, assetId = assetId, deviceId = deviceId, accountId = accountId, albumId = albumId, collectionId = collectionId, removeFromDefaultAlbums = removeFromDefaultAlbums, latitude = latitude, longitude = longitude)
+    fun removeAssetWithHttpInfo(assetId: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, albumId: kotlin.Long?, collectionId: kotlin.Long?, removeFromDefaultAlbums: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = removeAssetRequestConfig(assetId = assetId, deviceId = deviceId, accountId = accountId, albumId = albumId, collectionId = collectionId, removeFromDefaultAlbums = removeFromDefaultAlbums, latitude = latitude, longitude = longitude)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -813,7 +796,6 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation removeAsset
      *
-     * @param version 
      * @param assetId the id of the asset to remove
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -824,7 +806,7 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param longitude longitude used to update the user&#39;s current location (optional)
      * @return RequestConfig
      */
-    fun removeAssetRequestConfig(version: java.math.BigDecimal, assetId: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, albumId: kotlin.Long?, collectionId: kotlin.Long?, removeFromDefaultAlbums: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun removeAssetRequestConfig(assetId: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, albumId: kotlin.Long?, collectionId: kotlin.Long?, removeFromDefaultAlbums: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -855,7 +837,7 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/asset/remove".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/asset/remove",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -864,10 +846,9 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/asset/search
+     * GET /asset/search
      * Search Assets
      * Searches for assets
-     * @param version 
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param albumIds comma separated list of album ids to search on (optional)
@@ -901,8 +882,8 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchAssets(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, albumIds: kotlin.String? = null, assetIds: kotlin.String? = null, appKey: kotlin.String? = null, mediaType: kotlin.String? = null, mimeType: kotlin.String? = null, keyword: kotlin.String? = null, versionCode: kotlin.Int? = null, versionName: kotlin.String? = null, updatedSince: kotlin.Long? = null, updatedBefore: kotlin.Long? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null, searchMediaLibrary: kotlin.Boolean? = null, filterByBillable: kotlin.Boolean? = null, activeOnly: kotlin.Boolean? = null, returnApp: kotlin.Boolean? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null, searchMode: kotlin.String? = null, assetType: kotlin.String? = null, approvalStatus: kotlin.String? = null, assignedAccountId: kotlin.Long? = null) : kotlin.collections.List<AssetResponse> {
-        val localVarResponse = searchAssetsWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, albumIds = albumIds, assetIds = assetIds, appKey = appKey, mediaType = mediaType, mimeType = mimeType, keyword = keyword, versionCode = versionCode, versionName = versionName, updatedSince = updatedSince, updatedBefore = updatedBefore, sortField = sortField, descending = descending, searchMediaLibrary = searchMediaLibrary, filterByBillable = filterByBillable, activeOnly = activeOnly, returnApp = returnApp, start = start, limit = limit, searchMode = searchMode, assetType = assetType, approvalStatus = approvalStatus, assignedAccountId = assignedAccountId)
+    fun searchAssets(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, albumIds: kotlin.String? = null, assetIds: kotlin.String? = null, appKey: kotlin.String? = null, mediaType: kotlin.String? = null, mimeType: kotlin.String? = null, keyword: kotlin.String? = null, versionCode: kotlin.Int? = null, versionName: kotlin.String? = null, updatedSince: kotlin.Long? = null, updatedBefore: kotlin.Long? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null, searchMediaLibrary: kotlin.Boolean? = null, filterByBillable: kotlin.Boolean? = null, activeOnly: kotlin.Boolean? = null, returnApp: kotlin.Boolean? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null, searchMode: kotlin.String? = null, assetType: kotlin.String? = null, approvalStatus: kotlin.String? = null, assignedAccountId: kotlin.Long? = null) : kotlin.collections.List<AssetResponse> {
+        val localVarResponse = searchAssetsWithHttpInfo(deviceId = deviceId, accountId = accountId, albumIds = albumIds, assetIds = assetIds, appKey = appKey, mediaType = mediaType, mimeType = mimeType, keyword = keyword, versionCode = versionCode, versionName = versionName, updatedSince = updatedSince, updatedBefore = updatedBefore, sortField = sortField, descending = descending, searchMediaLibrary = searchMediaLibrary, filterByBillable = filterByBillable, activeOnly = activeOnly, returnApp = returnApp, start = start, limit = limit, searchMode = searchMode, assetType = assetType, approvalStatus = approvalStatus, assignedAccountId = assignedAccountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<AssetResponse>
@@ -920,10 +901,9 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/asset/search
+     * GET /asset/search
      * Search Assets
      * Searches for assets
-     * @param version 
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param albumIds comma separated list of album ids to search on (optional)
@@ -954,8 +934,8 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchAssetsWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, albumIds: kotlin.String?, assetIds: kotlin.String?, appKey: kotlin.String?, mediaType: kotlin.String?, mimeType: kotlin.String?, keyword: kotlin.String?, versionCode: kotlin.Int?, versionName: kotlin.String?, updatedSince: kotlin.Long?, updatedBefore: kotlin.Long?, sortField: kotlin.String?, descending: kotlin.Boolean?, searchMediaLibrary: kotlin.Boolean?, filterByBillable: kotlin.Boolean?, activeOnly: kotlin.Boolean?, returnApp: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, searchMode: kotlin.String?, assetType: kotlin.String?, approvalStatus: kotlin.String?, assignedAccountId: kotlin.Long?) : ApiResponse<kotlin.collections.List<AssetResponse>?> {
-        val localVariableConfig = searchAssetsRequestConfig(version = version, deviceId = deviceId, accountId = accountId, albumIds = albumIds, assetIds = assetIds, appKey = appKey, mediaType = mediaType, mimeType = mimeType, keyword = keyword, versionCode = versionCode, versionName = versionName, updatedSince = updatedSince, updatedBefore = updatedBefore, sortField = sortField, descending = descending, searchMediaLibrary = searchMediaLibrary, filterByBillable = filterByBillable, activeOnly = activeOnly, returnApp = returnApp, start = start, limit = limit, searchMode = searchMode, assetType = assetType, approvalStatus = approvalStatus, assignedAccountId = assignedAccountId)
+    fun searchAssetsWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, albumIds: kotlin.String?, assetIds: kotlin.String?, appKey: kotlin.String?, mediaType: kotlin.String?, mimeType: kotlin.String?, keyword: kotlin.String?, versionCode: kotlin.Int?, versionName: kotlin.String?, updatedSince: kotlin.Long?, updatedBefore: kotlin.Long?, sortField: kotlin.String?, descending: kotlin.Boolean?, searchMediaLibrary: kotlin.Boolean?, filterByBillable: kotlin.Boolean?, activeOnly: kotlin.Boolean?, returnApp: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, searchMode: kotlin.String?, assetType: kotlin.String?, approvalStatus: kotlin.String?, assignedAccountId: kotlin.Long?) : ApiResponse<kotlin.collections.List<AssetResponse>?> {
+        val localVariableConfig = searchAssetsRequestConfig(deviceId = deviceId, accountId = accountId, albumIds = albumIds, assetIds = assetIds, appKey = appKey, mediaType = mediaType, mimeType = mimeType, keyword = keyword, versionCode = versionCode, versionName = versionName, updatedSince = updatedSince, updatedBefore = updatedBefore, sortField = sortField, descending = descending, searchMediaLibrary = searchMediaLibrary, filterByBillable = filterByBillable, activeOnly = activeOnly, returnApp = returnApp, start = start, limit = limit, searchMode = searchMode, assetType = assetType, approvalStatus = approvalStatus, assignedAccountId = assignedAccountId)
 
         return request<Unit, kotlin.collections.List<AssetResponse>>(
             localVariableConfig
@@ -965,7 +945,6 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation searchAssets
      *
-     * @param version 
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param albumIds comma separated list of album ids to search on (optional)
@@ -992,7 +971,7 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param assignedAccountId filter results by an assigned account id (optional)
      * @return RequestConfig
      */
-    fun searchAssetsRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, albumIds: kotlin.String?, assetIds: kotlin.String?, appKey: kotlin.String?, mediaType: kotlin.String?, mimeType: kotlin.String?, keyword: kotlin.String?, versionCode: kotlin.Int?, versionName: kotlin.String?, updatedSince: kotlin.Long?, updatedBefore: kotlin.Long?, sortField: kotlin.String?, descending: kotlin.Boolean?, searchMediaLibrary: kotlin.Boolean?, filterByBillable: kotlin.Boolean?, activeOnly: kotlin.Boolean?, returnApp: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, searchMode: kotlin.String?, assetType: kotlin.String?, approvalStatus: kotlin.String?, assignedAccountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun searchAssetsRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, albumIds: kotlin.String?, assetIds: kotlin.String?, appKey: kotlin.String?, mediaType: kotlin.String?, mimeType: kotlin.String?, keyword: kotlin.String?, versionCode: kotlin.Int?, versionName: kotlin.String?, updatedSince: kotlin.Long?, updatedBefore: kotlin.Long?, sortField: kotlin.String?, descending: kotlin.Boolean?, searchMediaLibrary: kotlin.Boolean?, filterByBillable: kotlin.Boolean?, activeOnly: kotlin.Boolean?, returnApp: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, searchMode: kotlin.String?, assetType: kotlin.String?, approvalStatus: kotlin.String?, assignedAccountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1073,7 +1052,7 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/asset/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/asset/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1082,10 +1061,9 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/asset/update
+     * POST /asset/update
      * Update Asset
      * Updates an asset&#39;s meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
-     * @param version 
      * @param assetId the ID of the asset to update
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -1126,8 +1104,8 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateAsset(version: java.math.BigDecimal, assetId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, albumId: kotlin.Long? = null, attachedAssetId: kotlin.Long? = null, versionCode: kotlin.Int? = null, versionName: kotlin.String? = null, metaData: kotlin.String? = null, caption: kotlin.String? = null, assetType: kotlin.String? = null, approvalStatus: kotlin.String? = null, assignedAccountId: kotlin.Long? = null, media: java.io.File? = null, mediaUrl: kotlin.String? = null, mediaString: kotlin.String? = null, mediaStringFileName: kotlin.String? = null, mediaStringContentType: kotlin.String? = null, mediaHeight: kotlin.Int? = null, mediaWidth: kotlin.Int? = null, attachedMedia: java.io.File? = null, attachedMediaUrl: kotlin.String? = null, attachedMediaString: kotlin.String? = null, attachedMediaStringFileName: kotlin.String? = null, attachedMediaStringContentType: kotlin.String? = null, attachedMediaHeight: kotlin.Int? = null, attachedMediaWidth: kotlin.Int? = null, locationDescription: kotlin.String? = null, searchTags: kotlin.String? = null, appKey: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
-        val localVarResponse = updateAssetWithHttpInfo(version = version, assetId = assetId, deviceId = deviceId, accountId = accountId, albumId = albumId, attachedAssetId = attachedAssetId, versionCode = versionCode, versionName = versionName, metaData = metaData, caption = caption, assetType = assetType, approvalStatus = approvalStatus, assignedAccountId = assignedAccountId, media = media, mediaUrl = mediaUrl, mediaString = mediaString, mediaStringFileName = mediaStringFileName, mediaStringContentType = mediaStringContentType, mediaHeight = mediaHeight, mediaWidth = mediaWidth, attachedMedia = attachedMedia, attachedMediaUrl = attachedMediaUrl, attachedMediaString = attachedMediaString, attachedMediaStringFileName = attachedMediaStringFileName, attachedMediaStringContentType = attachedMediaStringContentType, attachedMediaHeight = attachedMediaHeight, attachedMediaWidth = attachedMediaWidth, locationDescription = locationDescription, searchTags = searchTags, appKey = appKey, latitude = latitude, longitude = longitude)
+    fun updateAsset(assetId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, albumId: kotlin.Long? = null, attachedAssetId: kotlin.Long? = null, versionCode: kotlin.Int? = null, versionName: kotlin.String? = null, metaData: kotlin.String? = null, caption: kotlin.String? = null, assetType: kotlin.String? = null, approvalStatus: kotlin.String? = null, assignedAccountId: kotlin.Long? = null, media: java.io.File? = null, mediaUrl: kotlin.String? = null, mediaString: kotlin.String? = null, mediaStringFileName: kotlin.String? = null, mediaStringContentType: kotlin.String? = null, mediaHeight: kotlin.Int? = null, mediaWidth: kotlin.Int? = null, attachedMedia: java.io.File? = null, attachedMediaUrl: kotlin.String? = null, attachedMediaString: kotlin.String? = null, attachedMediaStringFileName: kotlin.String? = null, attachedMediaStringContentType: kotlin.String? = null, attachedMediaHeight: kotlin.Int? = null, attachedMediaWidth: kotlin.Int? = null, locationDescription: kotlin.String? = null, searchTags: kotlin.String? = null, appKey: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
+        val localVarResponse = updateAssetWithHttpInfo(assetId = assetId, deviceId = deviceId, accountId = accountId, albumId = albumId, attachedAssetId = attachedAssetId, versionCode = versionCode, versionName = versionName, metaData = metaData, caption = caption, assetType = assetType, approvalStatus = approvalStatus, assignedAccountId = assignedAccountId, media = media, mediaUrl = mediaUrl, mediaString = mediaString, mediaStringFileName = mediaStringFileName, mediaStringContentType = mediaStringContentType, mediaHeight = mediaHeight, mediaWidth = mediaWidth, attachedMedia = attachedMedia, attachedMediaUrl = attachedMediaUrl, attachedMediaString = attachedMediaString, attachedMediaStringFileName = attachedMediaStringFileName, attachedMediaStringContentType = attachedMediaStringContentType, attachedMediaHeight = attachedMediaHeight, attachedMediaWidth = attachedMediaWidth, locationDescription = locationDescription, searchTags = searchTags, appKey = appKey, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -1145,10 +1123,9 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/asset/update
+     * POST /asset/update
      * Update Asset
      * Updates an asset&#39;s meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
-     * @param version 
      * @param assetId the ID of the asset to update
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -1186,8 +1163,8 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateAssetWithHttpInfo(version: java.math.BigDecimal, assetId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, albumId: kotlin.Long?, attachedAssetId: kotlin.Long?, versionCode: kotlin.Int?, versionName: kotlin.String?, metaData: kotlin.String?, caption: kotlin.String?, assetType: kotlin.String?, approvalStatus: kotlin.String?, assignedAccountId: kotlin.Long?, media: java.io.File?, mediaUrl: kotlin.String?, mediaString: kotlin.String?, mediaStringFileName: kotlin.String?, mediaStringContentType: kotlin.String?, mediaHeight: kotlin.Int?, mediaWidth: kotlin.Int?, attachedMedia: java.io.File?, attachedMediaUrl: kotlin.String?, attachedMediaString: kotlin.String?, attachedMediaStringFileName: kotlin.String?, attachedMediaStringContentType: kotlin.String?, attachedMediaHeight: kotlin.Int?, attachedMediaWidth: kotlin.Int?, locationDescription: kotlin.String?, searchTags: kotlin.String?, appKey: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = updateAssetRequestConfig(version = version, assetId = assetId, deviceId = deviceId, accountId = accountId, albumId = albumId, attachedAssetId = attachedAssetId, versionCode = versionCode, versionName = versionName, metaData = metaData, caption = caption, assetType = assetType, approvalStatus = approvalStatus, assignedAccountId = assignedAccountId, media = media, mediaUrl = mediaUrl, mediaString = mediaString, mediaStringFileName = mediaStringFileName, mediaStringContentType = mediaStringContentType, mediaHeight = mediaHeight, mediaWidth = mediaWidth, attachedMedia = attachedMedia, attachedMediaUrl = attachedMediaUrl, attachedMediaString = attachedMediaString, attachedMediaStringFileName = attachedMediaStringFileName, attachedMediaStringContentType = attachedMediaStringContentType, attachedMediaHeight = attachedMediaHeight, attachedMediaWidth = attachedMediaWidth, locationDescription = locationDescription, searchTags = searchTags, appKey = appKey, latitude = latitude, longitude = longitude)
+    fun updateAssetWithHttpInfo(assetId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, albumId: kotlin.Long?, attachedAssetId: kotlin.Long?, versionCode: kotlin.Int?, versionName: kotlin.String?, metaData: kotlin.String?, caption: kotlin.String?, assetType: kotlin.String?, approvalStatus: kotlin.String?, assignedAccountId: kotlin.Long?, media: java.io.File?, mediaUrl: kotlin.String?, mediaString: kotlin.String?, mediaStringFileName: kotlin.String?, mediaStringContentType: kotlin.String?, mediaHeight: kotlin.Int?, mediaWidth: kotlin.Int?, attachedMedia: java.io.File?, attachedMediaUrl: kotlin.String?, attachedMediaString: kotlin.String?, attachedMediaStringFileName: kotlin.String?, attachedMediaStringContentType: kotlin.String?, attachedMediaHeight: kotlin.Int?, attachedMediaWidth: kotlin.Int?, locationDescription: kotlin.String?, searchTags: kotlin.String?, appKey: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = updateAssetRequestConfig(assetId = assetId, deviceId = deviceId, accountId = accountId, albumId = albumId, attachedAssetId = attachedAssetId, versionCode = versionCode, versionName = versionName, metaData = metaData, caption = caption, assetType = assetType, approvalStatus = approvalStatus, assignedAccountId = assignedAccountId, media = media, mediaUrl = mediaUrl, mediaString = mediaString, mediaStringFileName = mediaStringFileName, mediaStringContentType = mediaStringContentType, mediaHeight = mediaHeight, mediaWidth = mediaWidth, attachedMedia = attachedMedia, attachedMediaUrl = attachedMediaUrl, attachedMediaString = attachedMediaString, attachedMediaStringFileName = attachedMediaStringFileName, attachedMediaStringContentType = attachedMediaStringContentType, attachedMediaHeight = attachedMediaHeight, attachedMediaWidth = attachedMediaWidth, locationDescription = locationDescription, searchTags = searchTags, appKey = appKey, latitude = latitude, longitude = longitude)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -1197,7 +1174,6 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation updateAsset
      *
-     * @param version 
      * @param assetId the ID of the asset to update
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -1231,7 +1207,7 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param longitude longitude used to update the asset&#39;s location (optional)
      * @return RequestConfig
      */
-    fun updateAssetRequestConfig(version: java.math.BigDecimal, assetId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, albumId: kotlin.Long?, attachedAssetId: kotlin.Long?, versionCode: kotlin.Int?, versionName: kotlin.String?, metaData: kotlin.String?, caption: kotlin.String?, assetType: kotlin.String?, approvalStatus: kotlin.String?, assignedAccountId: kotlin.Long?, media: java.io.File?, mediaUrl: kotlin.String?, mediaString: kotlin.String?, mediaStringFileName: kotlin.String?, mediaStringContentType: kotlin.String?, mediaHeight: kotlin.Int?, mediaWidth: kotlin.Int?, attachedMedia: java.io.File?, attachedMediaUrl: kotlin.String?, attachedMediaString: kotlin.String?, attachedMediaStringFileName: kotlin.String?, attachedMediaStringContentType: kotlin.String?, attachedMediaHeight: kotlin.Int?, attachedMediaWidth: kotlin.Int?, locationDescription: kotlin.String?, searchTags: kotlin.String?, appKey: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun updateAssetRequestConfig(assetId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, albumId: kotlin.Long?, attachedAssetId: kotlin.Long?, versionCode: kotlin.Int?, versionName: kotlin.String?, metaData: kotlin.String?, caption: kotlin.String?, assetType: kotlin.String?, approvalStatus: kotlin.String?, assignedAccountId: kotlin.Long?, media: java.io.File?, mediaUrl: kotlin.String?, mediaString: kotlin.String?, mediaStringFileName: kotlin.String?, mediaStringContentType: kotlin.String?, mediaHeight: kotlin.Int?, mediaWidth: kotlin.Int?, attachedMedia: java.io.File?, attachedMediaUrl: kotlin.String?, attachedMediaString: kotlin.String?, attachedMediaStringFileName: kotlin.String?, attachedMediaStringContentType: kotlin.String?, attachedMediaHeight: kotlin.Int?, attachedMediaWidth: kotlin.Int?, locationDescription: kotlin.String?, searchTags: kotlin.String?, appKey: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1331,7 +1307,7 @@ open class AssetApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/asset/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/asset/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

@@ -41,15 +41,14 @@ open class OpenAIApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/openai/v1/images/generations
+     * POST /openai/v1/images/generations
      * Generate images with OpenAI
      * Generate images with OpenAI.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param postBody Post Body Parameters
      * @param returnRawResponse Return raw response (optional)
@@ -62,8 +61,8 @@ open class OpenAIApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun imageGeneration(version: java.math.BigDecimal, accountId: kotlin.Long, postBody: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : WrappedProxyItemResponse {
-        val localVarResponse = imageGenerationWithHttpInfo(version = version, accountId = accountId, postBody = postBody, returnRawResponse = returnRawResponse)
+    fun imageGeneration(accountId: kotlin.Long, postBody: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : WrappedProxyItemResponse {
+        val localVarResponse = imageGenerationWithHttpInfo(accountId = accountId, postBody = postBody, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as WrappedProxyItemResponse
@@ -81,10 +80,9 @@ open class OpenAIApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/openai/v1/images/generations
+     * POST /openai/v1/images/generations
      * Generate images with OpenAI
      * Generate images with OpenAI.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param postBody Post Body Parameters
      * @param returnRawResponse Return raw response (optional)
@@ -94,8 +92,8 @@ open class OpenAIApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun imageGenerationWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, postBody: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<WrappedProxyItemResponse?> {
-        val localVariableConfig = imageGenerationRequestConfig(version = version, accountId = accountId, postBody = postBody, returnRawResponse = returnRawResponse)
+    fun imageGenerationWithHttpInfo(accountId: kotlin.Long, postBody: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<WrappedProxyItemResponse?> {
+        val localVariableConfig = imageGenerationRequestConfig(accountId = accountId, postBody = postBody, returnRawResponse = returnRawResponse)
 
         return request<Unit, WrappedProxyItemResponse>(
             localVariableConfig
@@ -105,13 +103,12 @@ open class OpenAIApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation imageGeneration
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param postBody Post Body Parameters
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun imageGenerationRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, postBody: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun imageGenerationRequestConfig(accountId: kotlin.Long, postBody: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -125,7 +122,7 @@ open class OpenAIApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/openai/v1/images/generations".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/openai/v1/images/generations",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

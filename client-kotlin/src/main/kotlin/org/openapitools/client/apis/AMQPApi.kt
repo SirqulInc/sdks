@@ -42,15 +42,14 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/queue/consumer/create
+     * POST /queue/consumer/create
      * Create Consumer
      * Create a connection to an existing amqp queue and register as a consumer.
-     * @param version 
      * @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
      * @param name The name of the queue to connect to
      * @param hostname The hostname of the server the queue is hosted on
@@ -74,8 +73,8 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun consumerCreate(version: java.math.BigDecimal, appKey: kotlin.String, name: kotlin.String, hostname: kotlin.String, username: kotlin.String, password: kotlin.String, dataMapping: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, port: kotlin.Int? = 5672, virtualHost: kotlin.String? = null, exchanger: kotlin.String? = null, exchangerType: kotlin.String? = null, workers: kotlin.Int? = 1, useSSL: kotlin.Boolean? = null) : QueueResponse {
-        val localVarResponse = consumerCreateWithHttpInfo(version = version, appKey = appKey, name = name, hostname = hostname, username = username, password = password, dataMapping = dataMapping, deviceId = deviceId, accountId = accountId, port = port, virtualHost = virtualHost, exchanger = exchanger, exchangerType = exchangerType, workers = workers, useSSL = useSSL)
+    fun consumerCreate(appKey: kotlin.String, name: kotlin.String, hostname: kotlin.String, username: kotlin.String, password: kotlin.String, dataMapping: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, port: kotlin.Int? = 5672, virtualHost: kotlin.String? = null, exchanger: kotlin.String? = null, exchangerType: kotlin.String? = null, workers: kotlin.Int? = 1, useSSL: kotlin.Boolean? = null) : QueueResponse {
+        val localVarResponse = consumerCreateWithHttpInfo(appKey = appKey, name = name, hostname = hostname, username = username, password = password, dataMapping = dataMapping, deviceId = deviceId, accountId = accountId, port = port, virtualHost = virtualHost, exchanger = exchanger, exchangerType = exchangerType, workers = workers, useSSL = useSSL)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as QueueResponse
@@ -93,10 +92,9 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/queue/consumer/create
+     * POST /queue/consumer/create
      * Create Consumer
      * Create a connection to an existing amqp queue and register as a consumer.
-     * @param version 
      * @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
      * @param name The name of the queue to connect to
      * @param hostname The hostname of the server the queue is hosted on
@@ -117,8 +115,8 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun consumerCreateWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String, name: kotlin.String, hostname: kotlin.String, username: kotlin.String, password: kotlin.String, dataMapping: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, port: kotlin.Int?, virtualHost: kotlin.String?, exchanger: kotlin.String?, exchangerType: kotlin.String?, workers: kotlin.Int?, useSSL: kotlin.Boolean?) : ApiResponse<QueueResponse?> {
-        val localVariableConfig = consumerCreateRequestConfig(version = version, appKey = appKey, name = name, hostname = hostname, username = username, password = password, dataMapping = dataMapping, deviceId = deviceId, accountId = accountId, port = port, virtualHost = virtualHost, exchanger = exchanger, exchangerType = exchangerType, workers = workers, useSSL = useSSL)
+    fun consumerCreateWithHttpInfo(appKey: kotlin.String, name: kotlin.String, hostname: kotlin.String, username: kotlin.String, password: kotlin.String, dataMapping: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, port: kotlin.Int?, virtualHost: kotlin.String?, exchanger: kotlin.String?, exchangerType: kotlin.String?, workers: kotlin.Int?, useSSL: kotlin.Boolean?) : ApiResponse<QueueResponse?> {
+        val localVariableConfig = consumerCreateRequestConfig(appKey = appKey, name = name, hostname = hostname, username = username, password = password, dataMapping = dataMapping, deviceId = deviceId, accountId = accountId, port = port, virtualHost = virtualHost, exchanger = exchanger, exchangerType = exchangerType, workers = workers, useSSL = useSSL)
 
         return request<Unit, QueueResponse>(
             localVariableConfig
@@ -128,7 +126,6 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation consumerCreate
      *
-     * @param version 
      * @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
      * @param name The name of the queue to connect to
      * @param hostname The hostname of the server the queue is hosted on
@@ -145,7 +142,7 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param useSSL Use SSL (optional)
      * @return RequestConfig
      */
-    fun consumerCreateRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String, name: kotlin.String, hostname: kotlin.String, username: kotlin.String, password: kotlin.String, dataMapping: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, port: kotlin.Int?, virtualHost: kotlin.String?, exchanger: kotlin.String?, exchangerType: kotlin.String?, workers: kotlin.Int?, useSSL: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun consumerCreateRequestConfig(appKey: kotlin.String, name: kotlin.String, hostname: kotlin.String, username: kotlin.String, password: kotlin.String, dataMapping: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, port: kotlin.Int?, virtualHost: kotlin.String?, exchanger: kotlin.String?, exchangerType: kotlin.String?, workers: kotlin.Int?, useSSL: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -184,7 +181,7 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/queue/consumer/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/queue/consumer/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -193,10 +190,9 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/queue/consumer/update
+     * POST /queue/consumer/update
      * Update Consumer
      * Update an existing amqp queue&#39;s data mapping.
-     * @param version 
      * @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
      * @param queueId The queue to update
      * @param dataMapping The data mapping information in the format of AMQPRequest
@@ -212,8 +208,8 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun consumerUpdate(version: java.math.BigDecimal, appKey: kotlin.String, queueId: kotlin.Long, dataMapping: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, useSSL: kotlin.Boolean? = null) : QueueResponse {
-        val localVarResponse = consumerUpdateWithHttpInfo(version = version, appKey = appKey, queueId = queueId, dataMapping = dataMapping, deviceId = deviceId, accountId = accountId, useSSL = useSSL)
+    fun consumerUpdate(appKey: kotlin.String, queueId: kotlin.Long, dataMapping: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, useSSL: kotlin.Boolean? = null) : QueueResponse {
+        val localVarResponse = consumerUpdateWithHttpInfo(appKey = appKey, queueId = queueId, dataMapping = dataMapping, deviceId = deviceId, accountId = accountId, useSSL = useSSL)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as QueueResponse
@@ -231,10 +227,9 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/queue/consumer/update
+     * POST /queue/consumer/update
      * Update Consumer
      * Update an existing amqp queue&#39;s data mapping.
-     * @param version 
      * @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
      * @param queueId The queue to update
      * @param dataMapping The data mapping information in the format of AMQPRequest
@@ -247,8 +242,8 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun consumerUpdateWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String, queueId: kotlin.Long, dataMapping: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, useSSL: kotlin.Boolean?) : ApiResponse<QueueResponse?> {
-        val localVariableConfig = consumerUpdateRequestConfig(version = version, appKey = appKey, queueId = queueId, dataMapping = dataMapping, deviceId = deviceId, accountId = accountId, useSSL = useSSL)
+    fun consumerUpdateWithHttpInfo(appKey: kotlin.String, queueId: kotlin.Long, dataMapping: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, useSSL: kotlin.Boolean?) : ApiResponse<QueueResponse?> {
+        val localVariableConfig = consumerUpdateRequestConfig(appKey = appKey, queueId = queueId, dataMapping = dataMapping, deviceId = deviceId, accountId = accountId, useSSL = useSSL)
 
         return request<Unit, QueueResponse>(
             localVariableConfig
@@ -258,7 +253,6 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation consumerUpdate
      *
-     * @param version 
      * @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
      * @param queueId The queue to update
      * @param dataMapping The data mapping information in the format of AMQPRequest
@@ -267,7 +261,7 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param useSSL Use SSL (optional)
      * @return RequestConfig
      */
-    fun consumerUpdateRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String, queueId: kotlin.Long, dataMapping: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, useSSL: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun consumerUpdateRequestConfig(appKey: kotlin.String, queueId: kotlin.Long, dataMapping: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, useSSL: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -288,7 +282,7 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/queue/consumer/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/queue/consumer/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -297,10 +291,9 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/queue/create
+     * POST /queue/create
      * Create Queue
      * Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
-     * @param version 
      * @param appKey The application key unique to each application.
      * @param name The name of the queue to create
      * @param deviceId The client deviceID (optional)
@@ -322,8 +315,8 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun queueCreate(version: java.math.BigDecimal, appKey: kotlin.String, name: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, workers: kotlin.Int? = 1, analyticTags: kotlin.String? = null, hostname: kotlin.String? = null, port: kotlin.Int? = null, username: kotlin.String? = null, password: kotlin.String? = null, virtualHost: kotlin.String? = null, useSSL: kotlin.Boolean? = null) : QueueResponse {
-        val localVarResponse = queueCreateWithHttpInfo(version = version, appKey = appKey, name = name, deviceId = deviceId, accountId = accountId, workers = workers, analyticTags = analyticTags, hostname = hostname, port = port, username = username, password = password, virtualHost = virtualHost, useSSL = useSSL)
+    fun queueCreate(appKey: kotlin.String, name: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, workers: kotlin.Int? = 1, analyticTags: kotlin.String? = null, hostname: kotlin.String? = null, port: kotlin.Int? = null, username: kotlin.String? = null, password: kotlin.String? = null, virtualHost: kotlin.String? = null, useSSL: kotlin.Boolean? = null) : QueueResponse {
+        val localVarResponse = queueCreateWithHttpInfo(appKey = appKey, name = name, deviceId = deviceId, accountId = accountId, workers = workers, analyticTags = analyticTags, hostname = hostname, port = port, username = username, password = password, virtualHost = virtualHost, useSSL = useSSL)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as QueueResponse
@@ -341,10 +334,9 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/queue/create
+     * POST /queue/create
      * Create Queue
      * Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
-     * @param version 
      * @param appKey The application key unique to each application.
      * @param name The name of the queue to create
      * @param deviceId The client deviceID (optional)
@@ -363,8 +355,8 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun queueCreateWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String, name: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, workers: kotlin.Int?, analyticTags: kotlin.String?, hostname: kotlin.String?, port: kotlin.Int?, username: kotlin.String?, password: kotlin.String?, virtualHost: kotlin.String?, useSSL: kotlin.Boolean?) : ApiResponse<QueueResponse?> {
-        val localVariableConfig = queueCreateRequestConfig(version = version, appKey = appKey, name = name, deviceId = deviceId, accountId = accountId, workers = workers, analyticTags = analyticTags, hostname = hostname, port = port, username = username, password = password, virtualHost = virtualHost, useSSL = useSSL)
+    fun queueCreateWithHttpInfo(appKey: kotlin.String, name: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, workers: kotlin.Int?, analyticTags: kotlin.String?, hostname: kotlin.String?, port: kotlin.Int?, username: kotlin.String?, password: kotlin.String?, virtualHost: kotlin.String?, useSSL: kotlin.Boolean?) : ApiResponse<QueueResponse?> {
+        val localVariableConfig = queueCreateRequestConfig(appKey = appKey, name = name, deviceId = deviceId, accountId = accountId, workers = workers, analyticTags = analyticTags, hostname = hostname, port = port, username = username, password = password, virtualHost = virtualHost, useSSL = useSSL)
 
         return request<Unit, QueueResponse>(
             localVariableConfig
@@ -374,7 +366,6 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation queueCreate
      *
-     * @param version 
      * @param appKey The application key unique to each application.
      * @param name The name of the queue to create
      * @param deviceId The client deviceID (optional)
@@ -389,7 +380,7 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param useSSL Use SSL (optional)
      * @return RequestConfig
      */
-    fun queueCreateRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String, name: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, workers: kotlin.Int?, analyticTags: kotlin.String?, hostname: kotlin.String?, port: kotlin.Int?, username: kotlin.String?, password: kotlin.String?, virtualHost: kotlin.String?, useSSL: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun queueCreateRequestConfig(appKey: kotlin.String, name: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, workers: kotlin.Int?, analyticTags: kotlin.String?, hostname: kotlin.String?, port: kotlin.Int?, username: kotlin.String?, password: kotlin.String?, virtualHost: kotlin.String?, useSSL: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -430,7 +421,7 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/queue/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/queue/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -439,10 +430,9 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/queue/delete
+     * POST /queue/delete
      * Delete Queue
      * Delete the stored queue record and close any active connections to the AMQP servers.
-     * @param version 
      * @param queueId The id of the queue to find
      * @param deviceId The client device ID (optional)
      * @param accountId The logged in user ID (optional)
@@ -455,8 +445,8 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun queueDelete(version: java.math.BigDecimal, queueId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = queueDeleteWithHttpInfo(version = version, queueId = queueId, deviceId = deviceId, accountId = accountId)
+    fun queueDelete(queueId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = queueDeleteWithHttpInfo(queueId = queueId, deviceId = deviceId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -474,10 +464,9 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/queue/delete
+     * POST /queue/delete
      * Delete Queue
      * Delete the stored queue record and close any active connections to the AMQP servers.
-     * @param version 
      * @param queueId The id of the queue to find
      * @param deviceId The client device ID (optional)
      * @param accountId The logged in user ID (optional)
@@ -487,8 +476,8 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun queueDeleteWithHttpInfo(version: java.math.BigDecimal, queueId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = queueDeleteRequestConfig(version = version, queueId = queueId, deviceId = deviceId, accountId = accountId)
+    fun queueDeleteWithHttpInfo(queueId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = queueDeleteRequestConfig(queueId = queueId, deviceId = deviceId, accountId = accountId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -498,13 +487,12 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation queueDelete
      *
-     * @param version 
      * @param queueId The id of the queue to find
      * @param deviceId The client device ID (optional)
      * @param accountId The logged in user ID (optional)
      * @return RequestConfig
      */
-    fun queueDeleteRequestConfig(version: java.math.BigDecimal, queueId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun queueDeleteRequestConfig(queueId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -520,7 +508,7 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/queue/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/queue/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -529,10 +517,9 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/queue/get
+     * GET /queue/get
      * Get Queue
      * Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-     * @param version 
      * @param deviceId The client device ID (optional)
      * @param accountId The logged in user ID (optional)
      * @param queueId The id of the queue to find (optional)
@@ -549,8 +536,8 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun queueGet(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, queueId: kotlin.Long? = null, appKey: kotlin.String? = null, name: kotlin.String? = null, hostname: kotlin.String? = null, virtualHost: kotlin.String? = null) : QueueResponse {
-        val localVarResponse = queueGetWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, queueId = queueId, appKey = appKey, name = name, hostname = hostname, virtualHost = virtualHost)
+    fun queueGet(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, queueId: kotlin.Long? = null, appKey: kotlin.String? = null, name: kotlin.String? = null, hostname: kotlin.String? = null, virtualHost: kotlin.String? = null) : QueueResponse {
+        val localVarResponse = queueGetWithHttpInfo(deviceId = deviceId, accountId = accountId, queueId = queueId, appKey = appKey, name = name, hostname = hostname, virtualHost = virtualHost)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as QueueResponse
@@ -568,10 +555,9 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/queue/get
+     * GET /queue/get
      * Get Queue
      * Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-     * @param version 
      * @param deviceId The client device ID (optional)
      * @param accountId The logged in user ID (optional)
      * @param queueId The id of the queue to find (optional)
@@ -585,8 +571,8 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun queueGetWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, queueId: kotlin.Long?, appKey: kotlin.String?, name: kotlin.String?, hostname: kotlin.String?, virtualHost: kotlin.String?) : ApiResponse<QueueResponse?> {
-        val localVariableConfig = queueGetRequestConfig(version = version, deviceId = deviceId, accountId = accountId, queueId = queueId, appKey = appKey, name = name, hostname = hostname, virtualHost = virtualHost)
+    fun queueGetWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, queueId: kotlin.Long?, appKey: kotlin.String?, name: kotlin.String?, hostname: kotlin.String?, virtualHost: kotlin.String?) : ApiResponse<QueueResponse?> {
+        val localVariableConfig = queueGetRequestConfig(deviceId = deviceId, accountId = accountId, queueId = queueId, appKey = appKey, name = name, hostname = hostname, virtualHost = virtualHost)
 
         return request<Unit, QueueResponse>(
             localVariableConfig
@@ -596,7 +582,6 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation queueGet
      *
-     * @param version 
      * @param deviceId The client device ID (optional)
      * @param accountId The logged in user ID (optional)
      * @param queueId The id of the queue to find (optional)
@@ -606,7 +591,7 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param virtualHost The virtual host of the queue to find (optional)
      * @return RequestConfig
      */
-    fun queueGetRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, queueId: kotlin.Long?, appKey: kotlin.String?, name: kotlin.String?, hostname: kotlin.String?, virtualHost: kotlin.String?) : RequestConfig<Unit> {
+    fun queueGetRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, queueId: kotlin.Long?, appKey: kotlin.String?, name: kotlin.String?, hostname: kotlin.String?, virtualHost: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -636,7 +621,7 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/queue/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/queue/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -645,10 +630,9 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/queue/publish
+     * POST /queue/publish
      * Publish Queue
      * Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-     * @param version 
      * @param message The payload to send to the queue
      * @param queueId The id of the queue to publish to (optional)
      * @param appKey The application key the queue was assigned to (optional)
@@ -664,8 +648,8 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun queuePublish(version: java.math.BigDecimal, message: kotlin.String, queueId: kotlin.Long? = null, appKey: kotlin.String? = null, name: kotlin.String? = null, hostname: kotlin.String? = null, virtualHost: kotlin.String? = null) : SirqulResponse {
-        val localVarResponse = queuePublishWithHttpInfo(version = version, message = message, queueId = queueId, appKey = appKey, name = name, hostname = hostname, virtualHost = virtualHost)
+    fun queuePublish(message: kotlin.String, queueId: kotlin.Long? = null, appKey: kotlin.String? = null, name: kotlin.String? = null, hostname: kotlin.String? = null, virtualHost: kotlin.String? = null) : SirqulResponse {
+        val localVarResponse = queuePublishWithHttpInfo(message = message, queueId = queueId, appKey = appKey, name = name, hostname = hostname, virtualHost = virtualHost)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -683,10 +667,9 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/queue/publish
+     * POST /queue/publish
      * Publish Queue
      * Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-     * @param version 
      * @param message The payload to send to the queue
      * @param queueId The id of the queue to publish to (optional)
      * @param appKey The application key the queue was assigned to (optional)
@@ -699,8 +682,8 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun queuePublishWithHttpInfo(version: java.math.BigDecimal, message: kotlin.String, queueId: kotlin.Long?, appKey: kotlin.String?, name: kotlin.String?, hostname: kotlin.String?, virtualHost: kotlin.String?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = queuePublishRequestConfig(version = version, message = message, queueId = queueId, appKey = appKey, name = name, hostname = hostname, virtualHost = virtualHost)
+    fun queuePublishWithHttpInfo(message: kotlin.String, queueId: kotlin.Long?, appKey: kotlin.String?, name: kotlin.String?, hostname: kotlin.String?, virtualHost: kotlin.String?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = queuePublishRequestConfig(message = message, queueId = queueId, appKey = appKey, name = name, hostname = hostname, virtualHost = virtualHost)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -710,7 +693,6 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation queuePublish
      *
-     * @param version 
      * @param message The payload to send to the queue
      * @param queueId The id of the queue to publish to (optional)
      * @param appKey The application key the queue was assigned to (optional)
@@ -719,7 +701,7 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param virtualHost The virtual host defined on the server to queue (optional)
      * @return RequestConfig
      */
-    fun queuePublishRequestConfig(version: java.math.BigDecimal, message: kotlin.String, queueId: kotlin.Long?, appKey: kotlin.String?, name: kotlin.String?, hostname: kotlin.String?, virtualHost: kotlin.String?) : RequestConfig<Unit> {
+    fun queuePublishRequestConfig(message: kotlin.String, queueId: kotlin.Long?, appKey: kotlin.String?, name: kotlin.String?, hostname: kotlin.String?, virtualHost: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -744,7 +726,7 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/queue/publish".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/queue/publish",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -753,10 +735,9 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/queue/search
+     * GET /queue/search
      * Search Queue
      * Get the queues setup for the BillableEntity&#39;s applications.
-     * @param version 
      * @param queueId The id of the queue to find (optional)
      * @param deviceId The client device ID (optional)
      * @param accountId The logged in user ID (optional)
@@ -772,8 +753,8 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun queueSearch(version: java.math.BigDecimal, queueId: kotlin.Long? = null, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, name: kotlin.String? = null, start: kotlin.Int? = 0, limit: kotlin.Int? = 10) : QueueResponse {
-        val localVarResponse = queueSearchWithHttpInfo(version = version, queueId = queueId, deviceId = deviceId, accountId = accountId, name = name, start = start, limit = limit)
+    fun queueSearch(queueId: kotlin.Long? = null, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, name: kotlin.String? = null, start: kotlin.Int? = 0, limit: kotlin.Int? = 10) : QueueResponse {
+        val localVarResponse = queueSearchWithHttpInfo(queueId = queueId, deviceId = deviceId, accountId = accountId, name = name, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as QueueResponse
@@ -791,10 +772,9 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/queue/search
+     * GET /queue/search
      * Search Queue
      * Get the queues setup for the BillableEntity&#39;s applications.
-     * @param version 
      * @param queueId The id of the queue to find (optional)
      * @param deviceId The client device ID (optional)
      * @param accountId The logged in user ID (optional)
@@ -807,8 +787,8 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun queueSearchWithHttpInfo(version: java.math.BigDecimal, queueId: kotlin.Long?, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<QueueResponse?> {
-        val localVariableConfig = queueSearchRequestConfig(version = version, queueId = queueId, deviceId = deviceId, accountId = accountId, name = name, start = start, limit = limit)
+    fun queueSearchWithHttpInfo(queueId: kotlin.Long?, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<QueueResponse?> {
+        val localVariableConfig = queueSearchRequestConfig(queueId = queueId, deviceId = deviceId, accountId = accountId, name = name, start = start, limit = limit)
 
         return request<Unit, QueueResponse>(
             localVariableConfig
@@ -818,7 +798,6 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation queueSearch
      *
-     * @param version 
      * @param queueId The id of the queue to find (optional)
      * @param deviceId The client device ID (optional)
      * @param accountId The logged in user ID (optional)
@@ -827,7 +806,7 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param limit Limit of the index (optional, default to 10)
      * @return RequestConfig
      */
-    fun queueSearchRequestConfig(version: java.math.BigDecimal, queueId: kotlin.Long?, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun queueSearchRequestConfig(queueId: kotlin.Long?, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -854,7 +833,7 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/queue/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/queue/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -863,10 +842,9 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/queue/update
+     * POST /queue/update
      * Update Queue
      * Update the basic AMQP queue.
-     * @param version 
      * @param queueId The id of the queue to update
      * @param deviceId The client deviceID (optional)
      * @param accountId The logged in user ID (optional)
@@ -888,8 +866,8 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun queueUpdate(version: java.math.BigDecimal, queueId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, workers: kotlin.Int? = null, analyticTags: kotlin.String? = null, hostname: kotlin.String? = null, port: kotlin.Int? = null, username: kotlin.String? = null, password: kotlin.String? = null, virtualHost: kotlin.String? = null, useSSL: kotlin.Boolean? = null) : QueueResponse {
-        val localVarResponse = queueUpdateWithHttpInfo(version = version, queueId = queueId, deviceId = deviceId, accountId = accountId, appKey = appKey, workers = workers, analyticTags = analyticTags, hostname = hostname, port = port, username = username, password = password, virtualHost = virtualHost, useSSL = useSSL)
+    fun queueUpdate(queueId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, workers: kotlin.Int? = null, analyticTags: kotlin.String? = null, hostname: kotlin.String? = null, port: kotlin.Int? = null, username: kotlin.String? = null, password: kotlin.String? = null, virtualHost: kotlin.String? = null, useSSL: kotlin.Boolean? = null) : QueueResponse {
+        val localVarResponse = queueUpdateWithHttpInfo(queueId = queueId, deviceId = deviceId, accountId = accountId, appKey = appKey, workers = workers, analyticTags = analyticTags, hostname = hostname, port = port, username = username, password = password, virtualHost = virtualHost, useSSL = useSSL)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as QueueResponse
@@ -907,10 +885,9 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/queue/update
+     * POST /queue/update
      * Update Queue
      * Update the basic AMQP queue.
-     * @param version 
      * @param queueId The id of the queue to update
      * @param deviceId The client deviceID (optional)
      * @param accountId The logged in user ID (optional)
@@ -929,8 +906,8 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun queueUpdateWithHttpInfo(version: java.math.BigDecimal, queueId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, workers: kotlin.Int?, analyticTags: kotlin.String?, hostname: kotlin.String?, port: kotlin.Int?, username: kotlin.String?, password: kotlin.String?, virtualHost: kotlin.String?, useSSL: kotlin.Boolean?) : ApiResponse<QueueResponse?> {
-        val localVariableConfig = queueUpdateRequestConfig(version = version, queueId = queueId, deviceId = deviceId, accountId = accountId, appKey = appKey, workers = workers, analyticTags = analyticTags, hostname = hostname, port = port, username = username, password = password, virtualHost = virtualHost, useSSL = useSSL)
+    fun queueUpdateWithHttpInfo(queueId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, workers: kotlin.Int?, analyticTags: kotlin.String?, hostname: kotlin.String?, port: kotlin.Int?, username: kotlin.String?, password: kotlin.String?, virtualHost: kotlin.String?, useSSL: kotlin.Boolean?) : ApiResponse<QueueResponse?> {
+        val localVariableConfig = queueUpdateRequestConfig(queueId = queueId, deviceId = deviceId, accountId = accountId, appKey = appKey, workers = workers, analyticTags = analyticTags, hostname = hostname, port = port, username = username, password = password, virtualHost = virtualHost, useSSL = useSSL)
 
         return request<Unit, QueueResponse>(
             localVariableConfig
@@ -940,7 +917,6 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation queueUpdate
      *
-     * @param version 
      * @param queueId The id of the queue to update
      * @param deviceId The client deviceID (optional)
      * @param accountId The logged in user ID (optional)
@@ -955,7 +931,7 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param useSSL the SSL to use (optional)
      * @return RequestConfig
      */
-    fun queueUpdateRequestConfig(version: java.math.BigDecimal, queueId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, workers: kotlin.Int?, analyticTags: kotlin.String?, hostname: kotlin.String?, port: kotlin.Int?, username: kotlin.String?, password: kotlin.String?, virtualHost: kotlin.String?, useSSL: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun queueUpdateRequestConfig(queueId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, workers: kotlin.Int?, analyticTags: kotlin.String?, hostname: kotlin.String?, port: kotlin.Int?, username: kotlin.String?, password: kotlin.String?, virtualHost: kotlin.String?, useSSL: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -998,7 +974,7 @@ open class AMQPApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/queue/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/queue/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

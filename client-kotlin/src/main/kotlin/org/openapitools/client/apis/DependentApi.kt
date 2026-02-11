@@ -42,15 +42,14 @@ open class DependentApi(basePath: kotlin.String = defaultBasePath, client: Call.
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * PUT /api/{version}/cargo/dependent/{accountId}
+     * PUT /cargo/dependent/{accountId}
      * Create Dependent
      * Create dependent of the account
-     * @param version 
      * @param accountId the id of the parent account to create a dependent for
      * @param body  (optional)
      * @return SirqulResponse
@@ -62,8 +61,8 @@ open class DependentApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun create(version: java.math.BigDecimal, accountId: kotlin.Long, body: Account? = null) : SirqulResponse {
-        val localVarResponse = createWithHttpInfo(version = version, accountId = accountId, body = body)
+    fun create(accountId: kotlin.Long, body: Account? = null) : SirqulResponse {
+        val localVarResponse = createWithHttpInfo(accountId = accountId, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -81,10 +80,9 @@ open class DependentApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * PUT /api/{version}/cargo/dependent/{accountId}
+     * PUT /cargo/dependent/{accountId}
      * Create Dependent
      * Create dependent of the account
-     * @param version 
      * @param accountId the id of the parent account to create a dependent for
      * @param body  (optional)
      * @return ApiResponse<SirqulResponse?>
@@ -93,8 +91,8 @@ open class DependentApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, body: Account?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = createRequestConfig(version = version, accountId = accountId, body = body)
+    fun createWithHttpInfo(accountId: kotlin.Long, body: Account?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = createRequestConfig(accountId = accountId, body = body)
 
         return request<Account, SirqulResponse>(
             localVariableConfig
@@ -104,19 +102,18 @@ open class DependentApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation create
      *
-     * @param version 
      * @param accountId the id of the parent account to create a dependent for
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun createRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, body: Account?) : RequestConfig<Account> {
+    fun createRequestConfig(accountId: kotlin.Long, body: Account?) : RequestConfig<Account> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.PUT,
-            path = "/api/{version}/cargo/dependent/{accountId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"accountId"+"}", encodeURIComponent(accountId.toString())),
+            path = "/cargo/dependent/{accountId}".replace("{"+"accountId"+"}", encodeURIComponent(accountId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -125,10 +122,9 @@ open class DependentApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/cargo/dependent/{accountId}
+     * GET /cargo/dependent/{accountId}
      * Get dependent list of an account
      * Get the dependent list of an account
-     * @param version 
      * @param accountId the id of the parent account to get a list of dependents
      * @return SirqulResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -139,8 +135,8 @@ open class DependentApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getDependents(version: java.math.BigDecimal, accountId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = getDependentsWithHttpInfo(version = version, accountId = accountId)
+    fun getDependents(accountId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = getDependentsWithHttpInfo(accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -158,10 +154,9 @@ open class DependentApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/cargo/dependent/{accountId}
+     * GET /cargo/dependent/{accountId}
      * Get dependent list of an account
      * Get the dependent list of an account
-     * @param version 
      * @param accountId the id of the parent account to get a list of dependents
      * @return ApiResponse<SirqulResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -169,8 +164,8 @@ open class DependentApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getDependentsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = getDependentsRequestConfig(version = version, accountId = accountId)
+    fun getDependentsWithHttpInfo(accountId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = getDependentsRequestConfig(accountId = accountId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -180,18 +175,17 @@ open class DependentApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation getDependents
      *
-     * @param version 
      * @param accountId the id of the parent account to get a list of dependents
      * @return RequestConfig
      */
-    fun getDependentsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long) : RequestConfig<Unit> {
+    fun getDependentsRequestConfig(accountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/cargo/dependent/{accountId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"accountId"+"}", encodeURIComponent(accountId.toString())),
+            path = "/cargo/dependent/{accountId}".replace("{"+"accountId"+"}", encodeURIComponent(accountId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -200,10 +194,9 @@ open class DependentApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * DELETE /api/{version}/cargo/dependent/{accountId}
+     * DELETE /cargo/dependent/{accountId}
      * Delete Dependent
      * Delete the Dependent
-     * @param version 
      * @param accountId the id of the parent account tied to the dependent
      * @param dependentId the id of the dependent to delete
      * @return void
@@ -214,8 +207,8 @@ open class DependentApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun removeDependent(version: java.math.BigDecimal, accountId: kotlin.Long, dependentId: kotlin.Long) : Unit {
-        val localVarResponse = removeDependentWithHttpInfo(version = version, accountId = accountId, dependentId = dependentId)
+    fun removeDependent(accountId: kotlin.Long, dependentId: kotlin.Long) : Unit {
+        val localVarResponse = removeDependentWithHttpInfo(accountId = accountId, dependentId = dependentId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -233,10 +226,9 @@ open class DependentApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * DELETE /api/{version}/cargo/dependent/{accountId}
+     * DELETE /cargo/dependent/{accountId}
      * Delete Dependent
      * Delete the Dependent
-     * @param version 
      * @param accountId the id of the parent account tied to the dependent
      * @param dependentId the id of the dependent to delete
      * @return ApiResponse<Unit?>
@@ -244,8 +236,8 @@ open class DependentApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun removeDependentWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, dependentId: kotlin.Long) : ApiResponse<Unit?> {
-        val localVariableConfig = removeDependentRequestConfig(version = version, accountId = accountId, dependentId = dependentId)
+    fun removeDependentWithHttpInfo(accountId: kotlin.Long, dependentId: kotlin.Long) : ApiResponse<Unit?> {
+        val localVariableConfig = removeDependentRequestConfig(accountId = accountId, dependentId = dependentId)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -255,19 +247,18 @@ open class DependentApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation removeDependent
      *
-     * @param version 
      * @param accountId the id of the parent account tied to the dependent
      * @param dependentId the id of the dependent to delete
      * @return RequestConfig
      */
-    fun removeDependentRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, dependentId: kotlin.Long) : RequestConfig<Unit> {
+    fun removeDependentRequestConfig(accountId: kotlin.Long, dependentId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.DELETE,
-            path = "/api/{version}/cargo/dependent/{accountId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"accountId"+"}", encodeURIComponent(accountId.toString())).replace("{"+"dependentId"+"}", encodeURIComponent(dependentId.toString())),
+            path = "/cargo/dependent/{accountId}".replace("{"+"accountId"+"}", encodeURIComponent(accountId.toString())).replace("{"+"dependentId"+"}", encodeURIComponent(dependentId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

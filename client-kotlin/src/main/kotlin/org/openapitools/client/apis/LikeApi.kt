@@ -42,15 +42,14 @@ open class LikeApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/like
+     * POST /like
      * Create Like
      * Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
-     * @param version 
      * @param likableType The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
      * @param likableId The id of the likable object
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -72,8 +71,8 @@ open class LikeApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun registerLike(version: java.math.BigDecimal, likableType: kotlin.String, likableId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, permissionableType: kotlin.String? = null, permissionableId: kotlin.Long? = null, like: kotlin.Boolean? = null, app: kotlin.String? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : LikableResponse {
-        val localVarResponse = registerLikeWithHttpInfo(version = version, likableType = likableType, likableId = likableId, deviceId = deviceId, accountId = accountId, permissionableType = permissionableType, permissionableId = permissionableId, like = like, app = app, gameType = gameType, appKey = appKey, latitude = latitude, longitude = longitude)
+    fun registerLike(likableType: kotlin.String, likableId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, permissionableType: kotlin.String? = null, permissionableId: kotlin.Long? = null, like: kotlin.Boolean? = null, app: kotlin.String? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : LikableResponse {
+        val localVarResponse = registerLikeWithHttpInfo(likableType = likableType, likableId = likableId, deviceId = deviceId, accountId = accountId, permissionableType = permissionableType, permissionableId = permissionableId, like = like, app = app, gameType = gameType, appKey = appKey, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as LikableResponse
@@ -91,10 +90,9 @@ open class LikeApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/like
+     * POST /like
      * Create Like
      * Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
-     * @param version 
      * @param likableType The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
      * @param likableId The id of the likable object
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -113,8 +111,8 @@ open class LikeApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun registerLikeWithHttpInfo(version: java.math.BigDecimal, likableType: kotlin.String, likableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, permissionableType: kotlin.String?, permissionableId: kotlin.Long?, like: kotlin.Boolean?, app: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<LikableResponse?> {
-        val localVariableConfig = registerLikeRequestConfig(version = version, likableType = likableType, likableId = likableId, deviceId = deviceId, accountId = accountId, permissionableType = permissionableType, permissionableId = permissionableId, like = like, app = app, gameType = gameType, appKey = appKey, latitude = latitude, longitude = longitude)
+    fun registerLikeWithHttpInfo(likableType: kotlin.String, likableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, permissionableType: kotlin.String?, permissionableId: kotlin.Long?, like: kotlin.Boolean?, app: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<LikableResponse?> {
+        val localVariableConfig = registerLikeRequestConfig(likableType = likableType, likableId = likableId, deviceId = deviceId, accountId = accountId, permissionableType = permissionableType, permissionableId = permissionableId, like = like, app = app, gameType = gameType, appKey = appKey, latitude = latitude, longitude = longitude)
 
         return request<Unit, LikableResponse>(
             localVariableConfig
@@ -124,7 +122,6 @@ open class LikeApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation registerLike
      *
-     * @param version 
      * @param likableType The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
      * @param likableId The id of the likable object
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -139,7 +136,7 @@ open class LikeApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param longitude The current location of the user (optional)
      * @return RequestConfig
      */
-    fun registerLikeRequestConfig(version: java.math.BigDecimal, likableType: kotlin.String, likableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, permissionableType: kotlin.String?, permissionableId: kotlin.Long?, like: kotlin.Boolean?, app: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun registerLikeRequestConfig(likableType: kotlin.String, likableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, permissionableType: kotlin.String?, permissionableId: kotlin.Long?, like: kotlin.Boolean?, app: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -180,7 +177,7 @@ open class LikeApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/like".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/like",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -189,10 +186,9 @@ open class LikeApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/like/delete
+     * POST /like/delete
      * Delete Like
      * Removes a like. This will make the user \&quot;neutral\&quot;.
-     * @param version 
      * @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
      * @param likableId The id of the likable object
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -208,8 +204,8 @@ open class LikeApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun removeLike(version: java.math.BigDecimal, likableType: kotlin.String, likableId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : LikableResponse {
-        val localVarResponse = removeLikeWithHttpInfo(version = version, likableType = likableType, likableId = likableId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun removeLike(likableType: kotlin.String, likableId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : LikableResponse {
+        val localVarResponse = removeLikeWithHttpInfo(likableType = likableType, likableId = likableId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as LikableResponse
@@ -227,10 +223,9 @@ open class LikeApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/like/delete
+     * POST /like/delete
      * Delete Like
      * Removes a like. This will make the user \&quot;neutral\&quot;.
-     * @param version 
      * @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
      * @param likableId The id of the likable object
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -243,8 +238,8 @@ open class LikeApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun removeLikeWithHttpInfo(version: java.math.BigDecimal, likableType: kotlin.String, likableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<LikableResponse?> {
-        val localVariableConfig = removeLikeRequestConfig(version = version, likableType = likableType, likableId = likableId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun removeLikeWithHttpInfo(likableType: kotlin.String, likableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<LikableResponse?> {
+        val localVariableConfig = removeLikeRequestConfig(likableType = likableType, likableId = likableId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return request<Unit, LikableResponse>(
             localVariableConfig
@@ -254,7 +249,6 @@ open class LikeApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation removeLike
      *
-     * @param version 
      * @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
      * @param likableId The id of the likable object
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -263,7 +257,7 @@ open class LikeApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param longitude The current location of the user (optional)
      * @return RequestConfig
      */
-    fun removeLikeRequestConfig(version: java.math.BigDecimal, likableType: kotlin.String, likableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun removeLikeRequestConfig(likableType: kotlin.String, likableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -286,7 +280,7 @@ open class LikeApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/like/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/like/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -295,10 +289,9 @@ open class LikeApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/like/search
+     * GET /like/search
      * Search Likes
      * Search for likes on a likable object.
-     * @param version 
      * @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
      * @param likableId The id of the likable object
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -319,8 +312,8 @@ open class LikeApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchLikes(version: java.math.BigDecimal, likableType: kotlin.String, likableId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionAccountIds: kotlin.String? = null, sortField: kotlin.String? = "ID", descending: kotlin.Boolean? = true, updatedSince: kotlin.Long? = null, updatedBefore: kotlin.Long? = null, start: kotlin.Int? = 0, limit: kotlin.Int? = 20) : SearchResponse {
-        val localVarResponse = searchLikesWithHttpInfo(version = version, likableType = likableType, likableId = likableId, deviceId = deviceId, accountId = accountId, connectionAccountIds = connectionAccountIds, sortField = sortField, descending = descending, updatedSince = updatedSince, updatedBefore = updatedBefore, start = start, limit = limit)
+    fun searchLikes(likableType: kotlin.String, likableId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionAccountIds: kotlin.String? = null, sortField: kotlin.String? = "ID", descending: kotlin.Boolean? = true, updatedSince: kotlin.Long? = null, updatedBefore: kotlin.Long? = null, start: kotlin.Int? = 0, limit: kotlin.Int? = 20) : SearchResponse {
+        val localVarResponse = searchLikesWithHttpInfo(likableType = likableType, likableId = likableId, deviceId = deviceId, accountId = accountId, connectionAccountIds = connectionAccountIds, sortField = sortField, descending = descending, updatedSince = updatedSince, updatedBefore = updatedBefore, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SearchResponse
@@ -338,10 +331,9 @@ open class LikeApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/like/search
+     * GET /like/search
      * Search Likes
      * Search for likes on a likable object.
-     * @param version 
      * @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
      * @param likableId The id of the likable object
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -359,8 +351,8 @@ open class LikeApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchLikesWithHttpInfo(version: java.math.BigDecimal, likableType: kotlin.String, likableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountIds: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, updatedSince: kotlin.Long?, updatedBefore: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<SearchResponse?> {
-        val localVariableConfig = searchLikesRequestConfig(version = version, likableType = likableType, likableId = likableId, deviceId = deviceId, accountId = accountId, connectionAccountIds = connectionAccountIds, sortField = sortField, descending = descending, updatedSince = updatedSince, updatedBefore = updatedBefore, start = start, limit = limit)
+    fun searchLikesWithHttpInfo(likableType: kotlin.String, likableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountIds: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, updatedSince: kotlin.Long?, updatedBefore: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<SearchResponse?> {
+        val localVariableConfig = searchLikesRequestConfig(likableType = likableType, likableId = likableId, deviceId = deviceId, accountId = accountId, connectionAccountIds = connectionAccountIds, sortField = sortField, descending = descending, updatedSince = updatedSince, updatedBefore = updatedBefore, start = start, limit = limit)
 
         return request<Unit, SearchResponse>(
             localVariableConfig
@@ -370,7 +362,6 @@ open class LikeApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation searchLikes
      *
-     * @param version 
      * @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
      * @param likableId The id of the likable object
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -384,7 +375,7 @@ open class LikeApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param limit the limit for pagination (optional, default to 20)
      * @return RequestConfig
      */
-    fun searchLikesRequestConfig(version: java.math.BigDecimal, likableType: kotlin.String, likableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountIds: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, updatedSince: kotlin.Long?, updatedBefore: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchLikesRequestConfig(likableType: kotlin.String, likableId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountIds: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, updatedSince: kotlin.Long?, updatedBefore: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -422,7 +413,7 @@ open class LikeApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/like/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/like/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

@@ -41,15 +41,14 @@ open class ParticipantsApi(basePath: kotlin.String = defaultBasePath, client: Ca
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/participant/process/all
+     * POST /participant/process/all
      * Process All Participant Feeds
      * Processes all supported participant feeds.
-     * @param version 
      * @param accountId The account id of the user
      * @param appKey The application key used to identify the application (optional)
      * @param useShortNameAsID Whether to use short name as the participant ID (optional)
@@ -62,8 +61,8 @@ open class ParticipantsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun processAllParticipants(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String? = null, useShortNameAsID: kotlin.Boolean? = null) : SirqulResponse {
-        val localVarResponse = processAllParticipantsWithHttpInfo(version = version, accountId = accountId, appKey = appKey, useShortNameAsID = useShortNameAsID)
+    fun processAllParticipants(accountId: kotlin.Long, appKey: kotlin.String? = null, useShortNameAsID: kotlin.Boolean? = null) : SirqulResponse {
+        val localVarResponse = processAllParticipantsWithHttpInfo(accountId = accountId, appKey = appKey, useShortNameAsID = useShortNameAsID)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -81,10 +80,9 @@ open class ParticipantsApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/participant/process/all
+     * POST /participant/process/all
      * Process All Participant Feeds
      * Processes all supported participant feeds.
-     * @param version 
      * @param accountId The account id of the user
      * @param appKey The application key used to identify the application (optional)
      * @param useShortNameAsID Whether to use short name as the participant ID (optional)
@@ -94,8 +92,8 @@ open class ParticipantsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun processAllParticipantsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String?, useShortNameAsID: kotlin.Boolean?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = processAllParticipantsRequestConfig(version = version, accountId = accountId, appKey = appKey, useShortNameAsID = useShortNameAsID)
+    fun processAllParticipantsWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String?, useShortNameAsID: kotlin.Boolean?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = processAllParticipantsRequestConfig(accountId = accountId, appKey = appKey, useShortNameAsID = useShortNameAsID)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -105,13 +103,12 @@ open class ParticipantsApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation processAllParticipants
      *
-     * @param version 
      * @param accountId The account id of the user
      * @param appKey The application key used to identify the application (optional)
      * @param useShortNameAsID Whether to use short name as the participant ID (optional)
      * @return RequestConfig
      */
-    fun processAllParticipantsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String?, useShortNameAsID: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun processAllParticipantsRequestConfig(accountId: kotlin.Long, appKey: kotlin.String?, useShortNameAsID: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -127,7 +124,7 @@ open class ParticipantsApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/participant/process/all".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/participant/process/all",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -136,10 +133,9 @@ open class ParticipantsApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/participant/process
+     * POST /participant/process
      * Process Participants Feed
      * Processes a participant feed or uploaded file for a specific league.
-     * @param version 
      * @param accountId The account id of the user
      * @param league The league identifier to process
      * @param appKey The application key used to identify the application (optional)
@@ -154,8 +150,8 @@ open class ParticipantsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun processParticipants(version: java.math.BigDecimal, accountId: kotlin.Long, league: kotlin.String, appKey: kotlin.String? = null, useShortNameAsID: kotlin.Boolean? = null, file: java.io.File? = null) : SirqulResponse {
-        val localVarResponse = processParticipantsWithHttpInfo(version = version, accountId = accountId, league = league, appKey = appKey, useShortNameAsID = useShortNameAsID, file = file)
+    fun processParticipants(accountId: kotlin.Long, league: kotlin.String, appKey: kotlin.String? = null, useShortNameAsID: kotlin.Boolean? = null, file: java.io.File? = null) : SirqulResponse {
+        val localVarResponse = processParticipantsWithHttpInfo(accountId = accountId, league = league, appKey = appKey, useShortNameAsID = useShortNameAsID, file = file)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -173,10 +169,9 @@ open class ParticipantsApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/participant/process
+     * POST /participant/process
      * Process Participants Feed
      * Processes a participant feed or uploaded file for a specific league.
-     * @param version 
      * @param accountId The account id of the user
      * @param league The league identifier to process
      * @param appKey The application key used to identify the application (optional)
@@ -188,8 +183,8 @@ open class ParticipantsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun processParticipantsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, league: kotlin.String, appKey: kotlin.String?, useShortNameAsID: kotlin.Boolean?, file: java.io.File?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = processParticipantsRequestConfig(version = version, accountId = accountId, league = league, appKey = appKey, useShortNameAsID = useShortNameAsID, file = file)
+    fun processParticipantsWithHttpInfo(accountId: kotlin.Long, league: kotlin.String, appKey: kotlin.String?, useShortNameAsID: kotlin.Boolean?, file: java.io.File?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = processParticipantsRequestConfig(accountId = accountId, league = league, appKey = appKey, useShortNameAsID = useShortNameAsID, file = file)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -199,7 +194,6 @@ open class ParticipantsApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation processParticipants
      *
-     * @param version 
      * @param accountId The account id of the user
      * @param league The league identifier to process
      * @param appKey The application key used to identify the application (optional)
@@ -207,7 +201,7 @@ open class ParticipantsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param file Multipart file containing participant feed contents (optional)
      * @return RequestConfig
      */
-    fun processParticipantsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, league: kotlin.String, appKey: kotlin.String?, useShortNameAsID: kotlin.Boolean?, file: java.io.File?) : RequestConfig<Unit> {
+    fun processParticipantsRequestConfig(accountId: kotlin.Long, league: kotlin.String, appKey: kotlin.String?, useShortNameAsID: kotlin.Boolean?, file: java.io.File?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -227,7 +221,7 @@ open class ParticipantsApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/participant/process".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/participant/process",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

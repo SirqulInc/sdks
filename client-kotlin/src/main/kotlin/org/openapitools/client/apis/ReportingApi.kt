@@ -45,7 +45,7 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
@@ -72,10 +72,9 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
      }
 
     /**
-     * POST /api/{version}/report/batch/create
+     * POST /report/batch/create
      * Create Offline Report
      * Create an entry for the batch for offline report
-     * @param version 
      * @param accountId The account id of the user for passing account related params
      * @param status the status of the report
      * @param previewLimit the limit on how much you can preview of the batch report
@@ -96,8 +95,8 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createBatch(version: java.math.BigDecimal, accountId: kotlin.Long, status: StatusCreateBatch, previewLimit: kotlin.Int, appKey: kotlin.String? = null, endpoint: kotlin.String? = null, parameters: kotlin.String? = null, name: kotlin.String? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, description: kotlin.String? = null, pageUrl: kotlin.String? = null) : ReportBatchResponse {
-        val localVarResponse = createBatchWithHttpInfo(version = version, accountId = accountId, status = status, previewLimit = previewLimit, appKey = appKey, endpoint = endpoint, parameters = parameters, name = name, startDate = startDate, endDate = endDate, description = description, pageUrl = pageUrl)
+    fun createBatch(accountId: kotlin.Long, status: StatusCreateBatch, previewLimit: kotlin.Int, appKey: kotlin.String? = null, endpoint: kotlin.String? = null, parameters: kotlin.String? = null, name: kotlin.String? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, description: kotlin.String? = null, pageUrl: kotlin.String? = null) : ReportBatchResponse {
+        val localVarResponse = createBatchWithHttpInfo(accountId = accountId, status = status, previewLimit = previewLimit, appKey = appKey, endpoint = endpoint, parameters = parameters, name = name, startDate = startDate, endDate = endDate, description = description, pageUrl = pageUrl)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ReportBatchResponse
@@ -115,10 +114,9 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/report/batch/create
+     * POST /report/batch/create
      * Create Offline Report
      * Create an entry for the batch for offline report
-     * @param version 
      * @param accountId The account id of the user for passing account related params
      * @param status the status of the report
      * @param previewLimit the limit on how much you can preview of the batch report
@@ -136,8 +134,8 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createBatchWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, status: StatusCreateBatch, previewLimit: kotlin.Int, appKey: kotlin.String?, endpoint: kotlin.String?, parameters: kotlin.String?, name: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, description: kotlin.String?, pageUrl: kotlin.String?) : ApiResponse<ReportBatchResponse?> {
-        val localVariableConfig = createBatchRequestConfig(version = version, accountId = accountId, status = status, previewLimit = previewLimit, appKey = appKey, endpoint = endpoint, parameters = parameters, name = name, startDate = startDate, endDate = endDate, description = description, pageUrl = pageUrl)
+    fun createBatchWithHttpInfo(accountId: kotlin.Long, status: StatusCreateBatch, previewLimit: kotlin.Int, appKey: kotlin.String?, endpoint: kotlin.String?, parameters: kotlin.String?, name: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, description: kotlin.String?, pageUrl: kotlin.String?) : ApiResponse<ReportBatchResponse?> {
+        val localVariableConfig = createBatchRequestConfig(accountId = accountId, status = status, previewLimit = previewLimit, appKey = appKey, endpoint = endpoint, parameters = parameters, name = name, startDate = startDate, endDate = endDate, description = description, pageUrl = pageUrl)
 
         return request<Unit, ReportBatchResponse>(
             localVariableConfig
@@ -147,7 +145,6 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation createBatch
      *
-     * @param version 
      * @param accountId The account id of the user for passing account related params
      * @param status the status of the report
      * @param previewLimit the limit on how much you can preview of the batch report
@@ -161,7 +158,7 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param pageUrl  (optional)
      * @return RequestConfig
      */
-    fun createBatchRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, status: StatusCreateBatch, previewLimit: kotlin.Int, appKey: kotlin.String?, endpoint: kotlin.String?, parameters: kotlin.String?, name: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, description: kotlin.String?, pageUrl: kotlin.String?) : RequestConfig<Unit> {
+    fun createBatchRequestConfig(accountId: kotlin.Long, status: StatusCreateBatch, previewLimit: kotlin.Int, appKey: kotlin.String?, endpoint: kotlin.String?, parameters: kotlin.String?, name: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, description: kotlin.String?, pageUrl: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -197,7 +194,7 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/report/batch/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/report/batch/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -206,10 +203,9 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/report/region/summary/batch
+     * POST /report/region/summary/batch
      * Create Offline Report
      * Create an entry for the batch for offline report
-     * @param version 
      * @param body  (optional)
      * @return ReportRegionLegSummaryBatchResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -220,8 +216,8 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createRegionLegSummaryBatch(version: java.math.BigDecimal, body: kotlin.collections.List<RegionLegSummary>? = null) : ReportRegionLegSummaryBatchResponse {
-        val localVarResponse = createRegionLegSummaryBatchWithHttpInfo(version = version, body = body)
+    fun createRegionLegSummaryBatch(body: kotlin.collections.List<RegionLegSummary>? = null) : ReportRegionLegSummaryBatchResponse {
+        val localVarResponse = createRegionLegSummaryBatchWithHttpInfo(body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ReportRegionLegSummaryBatchResponse
@@ -239,10 +235,9 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/report/region/summary/batch
+     * POST /report/region/summary/batch
      * Create Offline Report
      * Create an entry for the batch for offline report
-     * @param version 
      * @param body  (optional)
      * @return ApiResponse<ReportRegionLegSummaryBatchResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -250,8 +245,8 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createRegionLegSummaryBatchWithHttpInfo(version: java.math.BigDecimal, body: kotlin.collections.List<RegionLegSummary>?) : ApiResponse<ReportRegionLegSummaryBatchResponse?> {
-        val localVariableConfig = createRegionLegSummaryBatchRequestConfig(version = version, body = body)
+    fun createRegionLegSummaryBatchWithHttpInfo(body: kotlin.collections.List<RegionLegSummary>?) : ApiResponse<ReportRegionLegSummaryBatchResponse?> {
+        val localVariableConfig = createRegionLegSummaryBatchRequestConfig(body = body)
 
         return request<kotlin.collections.List<RegionLegSummary>, ReportRegionLegSummaryBatchResponse>(
             localVariableConfig
@@ -261,18 +256,17 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation createRegionLegSummaryBatch
      *
-     * @param version 
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun createRegionLegSummaryBatchRequestConfig(version: java.math.BigDecimal, body: kotlin.collections.List<RegionLegSummary>?) : RequestConfig<kotlin.collections.List<RegionLegSummary>> {
+    fun createRegionLegSummaryBatchRequestConfig(body: kotlin.collections.List<RegionLegSummary>?) : RequestConfig<kotlin.collections.List<RegionLegSummary>> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/report/region/summary/batch".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/report/region/summary/batch",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -281,10 +275,9 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/report/batch/delete
+     * POST /report/batch/delete
      * Delete Offline Report
      * Deletes a batch report.
-     * @param version 
      * @param accountId the id of the account
      * @param batchId the id of the batch to delete
      * @return SirqulResponse
@@ -296,8 +289,8 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteBatch(version: java.math.BigDecimal, accountId: kotlin.Long, batchId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = deleteBatchWithHttpInfo(version = version, accountId = accountId, batchId = batchId)
+    fun deleteBatch(accountId: kotlin.Long, batchId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = deleteBatchWithHttpInfo(accountId = accountId, batchId = batchId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -315,10 +308,9 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/report/batch/delete
+     * POST /report/batch/delete
      * Delete Offline Report
      * Deletes a batch report.
-     * @param version 
      * @param accountId the id of the account
      * @param batchId the id of the batch to delete
      * @return ApiResponse<SirqulResponse?>
@@ -327,8 +319,8 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteBatchWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, batchId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteBatchRequestConfig(version = version, accountId = accountId, batchId = batchId)
+    fun deleteBatchWithHttpInfo(accountId: kotlin.Long, batchId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteBatchRequestConfig(accountId = accountId, batchId = batchId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -338,12 +330,11 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation deleteBatch
      *
-     * @param version 
      * @param accountId the id of the account
      * @param batchId the id of the batch to delete
      * @return RequestConfig
      */
-    fun deleteBatchRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, batchId: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteBatchRequestConfig(accountId: kotlin.Long, batchId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -354,7 +345,7 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/report/batch/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/report/batch/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -363,10 +354,9 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/report/batch/get
+     * GET /report/batch/get
      * Get Offline Report
      * Checks status of batch report.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param batchId returned by /report/batch/create
      * @param allResults whether to return all batch results or not
@@ -379,8 +369,8 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getReportBatch(version: java.math.BigDecimal, accountId: kotlin.Long, batchId: kotlin.Long, allResults: kotlin.Boolean) : ReportBatchResponse {
-        val localVarResponse = getReportBatchWithHttpInfo(version = version, accountId = accountId, batchId = batchId, allResults = allResults)
+    fun getReportBatch(accountId: kotlin.Long, batchId: kotlin.Long, allResults: kotlin.Boolean) : ReportBatchResponse {
+        val localVarResponse = getReportBatchWithHttpInfo(accountId = accountId, batchId = batchId, allResults = allResults)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ReportBatchResponse
@@ -398,10 +388,9 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/report/batch/get
+     * GET /report/batch/get
      * Get Offline Report
      * Checks status of batch report.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param batchId returned by /report/batch/create
      * @param allResults whether to return all batch results or not
@@ -411,8 +400,8 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getReportBatchWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, batchId: kotlin.Long, allResults: kotlin.Boolean) : ApiResponse<ReportBatchResponse?> {
-        val localVariableConfig = getReportBatchRequestConfig(version = version, accountId = accountId, batchId = batchId, allResults = allResults)
+    fun getReportBatchWithHttpInfo(accountId: kotlin.Long, batchId: kotlin.Long, allResults: kotlin.Boolean) : ApiResponse<ReportBatchResponse?> {
+        val localVariableConfig = getReportBatchRequestConfig(accountId = accountId, batchId = batchId, allResults = allResults)
 
         return request<Unit, ReportBatchResponse>(
             localVariableConfig
@@ -422,13 +411,12 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation getReportBatch
      *
-     * @param version 
      * @param accountId the id of the logged in user
      * @param batchId returned by /report/batch/create
      * @param allResults whether to return all batch results or not
      * @return RequestConfig
      */
-    fun getReportBatchRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, batchId: kotlin.Long, allResults: kotlin.Boolean) : RequestConfig<Unit> {
+    fun getReportBatchRequestConfig(accountId: kotlin.Long, batchId: kotlin.Long, allResults: kotlin.Boolean) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -440,7 +428,7 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/report/batch/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/report/batch/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -468,10 +456,9 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
      }
 
     /**
-     * POST /api/{version}/report/run
+     * POST /report/run
      * Run Report
      *  This endpoint allows you to run a set of predefined reports that can be used to understand your users&#39; behavior as well as trends within your application.
-     * @param version 
      * @param desc If true then descending order, false is ascending
      * @param accountId The account id of the user for passing account related params (optional)
      * @param query The named identifier of the query (optional)
@@ -489,8 +476,8 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun runReport(version: java.math.BigDecimal, desc: kotlin.Boolean, accountId: kotlin.Long? = null, query: kotlin.String? = null, parameters: kotlin.String? = null, order: kotlin.String? = null, start: kotlin.Long? = null, limit: kotlin.Long? = null, responseFormat: ResponseFormatRunReport? = null) : ReportResponse {
-        val localVarResponse = runReportWithHttpInfo(version = version, desc = desc, accountId = accountId, query = query, parameters = parameters, order = order, start = start, limit = limit, responseFormat = responseFormat)
+    fun runReport(desc: kotlin.Boolean, accountId: kotlin.Long? = null, query: kotlin.String? = null, parameters: kotlin.String? = null, order: kotlin.String? = null, start: kotlin.Long? = null, limit: kotlin.Long? = null, responseFormat: ResponseFormatRunReport? = null) : ReportResponse {
+        val localVarResponse = runReportWithHttpInfo(desc = desc, accountId = accountId, query = query, parameters = parameters, order = order, start = start, limit = limit, responseFormat = responseFormat)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ReportResponse
@@ -508,10 +495,9 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/report/run
+     * POST /report/run
      * Run Report
      *  This endpoint allows you to run a set of predefined reports that can be used to understand your users&#39; behavior as well as trends within your application.
-     * @param version 
      * @param desc If true then descending order, false is ascending
      * @param accountId The account id of the user for passing account related params (optional)
      * @param query The named identifier of the query (optional)
@@ -526,8 +512,8 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun runReportWithHttpInfo(version: java.math.BigDecimal, desc: kotlin.Boolean, accountId: kotlin.Long?, query: kotlin.String?, parameters: kotlin.String?, order: kotlin.String?, start: kotlin.Long?, limit: kotlin.Long?, responseFormat: ResponseFormatRunReport?) : ApiResponse<ReportResponse?> {
-        val localVariableConfig = runReportRequestConfig(version = version, desc = desc, accountId = accountId, query = query, parameters = parameters, order = order, start = start, limit = limit, responseFormat = responseFormat)
+    fun runReportWithHttpInfo(desc: kotlin.Boolean, accountId: kotlin.Long?, query: kotlin.String?, parameters: kotlin.String?, order: kotlin.String?, start: kotlin.Long?, limit: kotlin.Long?, responseFormat: ResponseFormatRunReport?) : ApiResponse<ReportResponse?> {
+        val localVariableConfig = runReportRequestConfig(desc = desc, accountId = accountId, query = query, parameters = parameters, order = order, start = start, limit = limit, responseFormat = responseFormat)
 
         return request<Unit, ReportResponse>(
             localVariableConfig
@@ -537,7 +523,6 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation runReport
      *
-     * @param version 
      * @param desc If true then descending order, false is ascending
      * @param accountId The account id of the user for passing account related params (optional)
      * @param query The named identifier of the query (optional)
@@ -548,7 +533,7 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param responseFormat Determines what response format to return. Options are: JSON or CSV (optional)
      * @return RequestConfig
      */
-    fun runReportRequestConfig(version: java.math.BigDecimal, desc: kotlin.Boolean, accountId: kotlin.Long?, query: kotlin.String?, parameters: kotlin.String?, order: kotlin.String?, start: kotlin.Long?, limit: kotlin.Long?, responseFormat: ResponseFormatRunReport?) : RequestConfig<Unit> {
+    fun runReportRequestConfig(desc: kotlin.Boolean, accountId: kotlin.Long?, query: kotlin.String?, parameters: kotlin.String?, order: kotlin.String?, start: kotlin.Long?, limit: kotlin.Long?, responseFormat: ResponseFormatRunReport?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -579,7 +564,7 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/report/run".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/report/run",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -610,10 +595,9 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
      }
 
     /**
-     * GET /api/{version}/report/batch/search
+     * GET /report/batch/search
      * Search Offline Reports
      * Retrieves batches for a user..
-     * @param version 
      * @param accountId the id of the account logged in
      * @param start the start of the index and/or pagination
      * @param limit the limit of the index and/or pagination
@@ -632,8 +616,8 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchBatch(version: java.math.BigDecimal, accountId: kotlin.Long, start: kotlin.Int, limit: kotlin.Int, names: kotlin.String? = null, appKey: kotlin.String? = null, status: StatusSearchBatch? = null, globalAppSearch: kotlin.Boolean? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null) : kotlin.collections.List<ReportBatchResponse> {
-        val localVarResponse = searchBatchWithHttpInfo(version = version, accountId = accountId, start = start, limit = limit, names = names, appKey = appKey, status = status, globalAppSearch = globalAppSearch, startDate = startDate, endDate = endDate)
+    fun searchBatch(accountId: kotlin.Long, start: kotlin.Int, limit: kotlin.Int, names: kotlin.String? = null, appKey: kotlin.String? = null, status: StatusSearchBatch? = null, globalAppSearch: kotlin.Boolean? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null) : kotlin.collections.List<ReportBatchResponse> {
+        val localVarResponse = searchBatchWithHttpInfo(accountId = accountId, start = start, limit = limit, names = names, appKey = appKey, status = status, globalAppSearch = globalAppSearch, startDate = startDate, endDate = endDate)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<ReportBatchResponse>
@@ -651,10 +635,9 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/report/batch/search
+     * GET /report/batch/search
      * Search Offline Reports
      * Retrieves batches for a user..
-     * @param version 
      * @param accountId the id of the account logged in
      * @param start the start of the index and/or pagination
      * @param limit the limit of the index and/or pagination
@@ -670,8 +653,8 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchBatchWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, start: kotlin.Int, limit: kotlin.Int, names: kotlin.String?, appKey: kotlin.String?, status: StatusSearchBatch?, globalAppSearch: kotlin.Boolean?, startDate: kotlin.Long?, endDate: kotlin.Long?) : ApiResponse<kotlin.collections.List<ReportBatchResponse>?> {
-        val localVariableConfig = searchBatchRequestConfig(version = version, accountId = accountId, start = start, limit = limit, names = names, appKey = appKey, status = status, globalAppSearch = globalAppSearch, startDate = startDate, endDate = endDate)
+    fun searchBatchWithHttpInfo(accountId: kotlin.Long, start: kotlin.Int, limit: kotlin.Int, names: kotlin.String?, appKey: kotlin.String?, status: StatusSearchBatch?, globalAppSearch: kotlin.Boolean?, startDate: kotlin.Long?, endDate: kotlin.Long?) : ApiResponse<kotlin.collections.List<ReportBatchResponse>?> {
+        val localVariableConfig = searchBatchRequestConfig(accountId = accountId, start = start, limit = limit, names = names, appKey = appKey, status = status, globalAppSearch = globalAppSearch, startDate = startDate, endDate = endDate)
 
         return request<Unit, kotlin.collections.List<ReportBatchResponse>>(
             localVariableConfig
@@ -681,7 +664,6 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation searchBatch
      *
-     * @param version 
      * @param accountId the id of the account logged in
      * @param start the start of the index and/or pagination
      * @param limit the limit of the index and/or pagination
@@ -693,7 +675,7 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param endDate the end date of the report batch to search on (optional)
      * @return RequestConfig
      */
-    fun searchBatchRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, start: kotlin.Int, limit: kotlin.Int, names: kotlin.String?, appKey: kotlin.String?, status: StatusSearchBatch?, globalAppSearch: kotlin.Boolean?, startDate: kotlin.Long?, endDate: kotlin.Long?) : RequestConfig<Unit> {
+    fun searchBatchRequestConfig(accountId: kotlin.Long, start: kotlin.Int, limit: kotlin.Int, names: kotlin.String?, appKey: kotlin.String?, status: StatusSearchBatch?, globalAppSearch: kotlin.Boolean?, startDate: kotlin.Long?, endDate: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -723,7 +705,7 @@ open class ReportingApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/report/batch/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/report/batch/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

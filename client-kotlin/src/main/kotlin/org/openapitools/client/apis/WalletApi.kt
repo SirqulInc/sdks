@@ -42,15 +42,14 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/wallet/create
+     * POST /wallet/create
      * Create Wallet Offers
      * Adds offers to the wallet
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param offerId The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -71,8 +70,8 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createOfferTransaction(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, offerId: kotlin.Long? = null, offerLocationId: kotlin.Long? = null, offerCart: kotlin.String? = null, promoCode: kotlin.String? = null, currencyType: kotlin.String? = "CASH", usePoints: kotlin.Boolean? = null, metaData: kotlin.String? = null, appKey: kotlin.String? = null, status: kotlin.Int? = null) : kotlin.collections.List<OfferTransactionResponse> {
-        val localVarResponse = createOfferTransactionWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, offerId = offerId, offerLocationId = offerLocationId, offerCart = offerCart, promoCode = promoCode, currencyType = currencyType, usePoints = usePoints, metaData = metaData, appKey = appKey, status = status)
+    fun createOfferTransaction(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, offerId: kotlin.Long? = null, offerLocationId: kotlin.Long? = null, offerCart: kotlin.String? = null, promoCode: kotlin.String? = null, currencyType: kotlin.String? = "CASH", usePoints: kotlin.Boolean? = null, metaData: kotlin.String? = null, appKey: kotlin.String? = null, status: kotlin.Int? = null) : kotlin.collections.List<OfferTransactionResponse> {
+        val localVarResponse = createOfferTransactionWithHttpInfo(deviceId = deviceId, accountId = accountId, offerId = offerId, offerLocationId = offerLocationId, offerCart = offerCart, promoCode = promoCode, currencyType = currencyType, usePoints = usePoints, metaData = metaData, appKey = appKey, status = status)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<OfferTransactionResponse>
@@ -90,10 +89,9 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/wallet/create
+     * POST /wallet/create
      * Create Wallet Offers
      * Adds offers to the wallet
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param offerId The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -111,8 +109,8 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createOfferTransactionWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, offerCart: kotlin.String?, promoCode: kotlin.String?, currencyType: kotlin.String?, usePoints: kotlin.Boolean?, metaData: kotlin.String?, appKey: kotlin.String?, status: kotlin.Int?) : ApiResponse<kotlin.collections.List<OfferTransactionResponse>?> {
-        val localVariableConfig = createOfferTransactionRequestConfig(version = version, deviceId = deviceId, accountId = accountId, offerId = offerId, offerLocationId = offerLocationId, offerCart = offerCart, promoCode = promoCode, currencyType = currencyType, usePoints = usePoints, metaData = metaData, appKey = appKey, status = status)
+    fun createOfferTransactionWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, offerCart: kotlin.String?, promoCode: kotlin.String?, currencyType: kotlin.String?, usePoints: kotlin.Boolean?, metaData: kotlin.String?, appKey: kotlin.String?, status: kotlin.Int?) : ApiResponse<kotlin.collections.List<OfferTransactionResponse>?> {
+        val localVariableConfig = createOfferTransactionRequestConfig(deviceId = deviceId, accountId = accountId, offerId = offerId, offerLocationId = offerLocationId, offerCart = offerCart, promoCode = promoCode, currencyType = currencyType, usePoints = usePoints, metaData = metaData, appKey = appKey, status = status)
 
         return request<Unit, kotlin.collections.List<OfferTransactionResponse>>(
             localVariableConfig
@@ -122,7 +120,6 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation createOfferTransaction
      *
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param offerId The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -136,7 +133,7 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param status Custom status value to change to (0 or 1 for redeem, 5 or 6 for membership) (optional)
      * @return RequestConfig
      */
-    fun createOfferTransactionRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, offerCart: kotlin.String?, promoCode: kotlin.String?, currencyType: kotlin.String?, usePoints: kotlin.Boolean?, metaData: kotlin.String?, appKey: kotlin.String?, status: kotlin.Int?) : RequestConfig<Unit> {
+    fun createOfferTransactionRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, offerCart: kotlin.String?, promoCode: kotlin.String?, currencyType: kotlin.String?, usePoints: kotlin.Boolean?, metaData: kotlin.String?, appKey: kotlin.String?, status: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -178,7 +175,7 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/wallet/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/wallet/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -187,10 +184,9 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/wallet/delete
+     * POST /wallet/delete
      * Delete Wallet Offer
      * Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-     * @param version 
      * @param transactionId The offer transaction id to remove
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -203,8 +199,8 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteOfferTransaction(version: java.math.BigDecimal, transactionId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = deleteOfferTransactionWithHttpInfo(version = version, transactionId = transactionId, deviceId = deviceId, accountId = accountId)
+    fun deleteOfferTransaction(transactionId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = deleteOfferTransactionWithHttpInfo(transactionId = transactionId, deviceId = deviceId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -222,10 +218,9 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/wallet/delete
+     * POST /wallet/delete
      * Delete Wallet Offer
      * Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-     * @param version 
      * @param transactionId The offer transaction id to remove
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -235,8 +230,8 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteOfferTransactionWithHttpInfo(version: java.math.BigDecimal, transactionId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteOfferTransactionRequestConfig(version = version, transactionId = transactionId, deviceId = deviceId, accountId = accountId)
+    fun deleteOfferTransactionWithHttpInfo(transactionId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteOfferTransactionRequestConfig(transactionId = transactionId, deviceId = deviceId, accountId = accountId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -246,13 +241,12 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation deleteOfferTransaction
      *
-     * @param version 
      * @param transactionId The offer transaction id to remove
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @return RequestConfig
      */
-    fun deleteOfferTransactionRequestConfig(version: java.math.BigDecimal, transactionId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun deleteOfferTransactionRequestConfig(transactionId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -268,7 +262,7 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/wallet/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/wallet/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -277,10 +271,9 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * GET /api/{version}/wallet/get
+     * GET /wallet/get
      * Get Wallet Offer
      * 
-     * @param version 
      * @param transactionId The offer transaction id to get details of
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -297,8 +290,8 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getOfferTransaction(version: java.math.BigDecimal, transactionId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, includeMission: kotlin.Boolean? = false, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, returnFullResponse: kotlin.Boolean? = true) : OfferTransactionResponse {
-        val localVarResponse = getOfferTransactionWithHttpInfo(version = version, transactionId = transactionId, deviceId = deviceId, accountId = accountId, includeMission = includeMission, latitude = latitude, longitude = longitude, returnFullResponse = returnFullResponse)
+    fun getOfferTransaction(transactionId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, includeMission: kotlin.Boolean? = false, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, returnFullResponse: kotlin.Boolean? = true) : OfferTransactionResponse {
+        val localVarResponse = getOfferTransactionWithHttpInfo(transactionId = transactionId, deviceId = deviceId, accountId = accountId, includeMission = includeMission, latitude = latitude, longitude = longitude, returnFullResponse = returnFullResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OfferTransactionResponse
@@ -316,10 +309,9 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * GET /api/{version}/wallet/get
+     * GET /wallet/get
      * Get Wallet Offer
      * 
-     * @param version 
      * @param transactionId The offer transaction id to get details of
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -333,8 +325,8 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getOfferTransactionWithHttpInfo(version: java.math.BigDecimal, transactionId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, includeMission: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?, returnFullResponse: kotlin.Boolean?) : ApiResponse<OfferTransactionResponse?> {
-        val localVariableConfig = getOfferTransactionRequestConfig(version = version, transactionId = transactionId, deviceId = deviceId, accountId = accountId, includeMission = includeMission, latitude = latitude, longitude = longitude, returnFullResponse = returnFullResponse)
+    fun getOfferTransactionWithHttpInfo(transactionId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, includeMission: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?, returnFullResponse: kotlin.Boolean?) : ApiResponse<OfferTransactionResponse?> {
+        val localVariableConfig = getOfferTransactionRequestConfig(transactionId = transactionId, deviceId = deviceId, accountId = accountId, includeMission = includeMission, latitude = latitude, longitude = longitude, returnFullResponse = returnFullResponse)
 
         return request<Unit, OfferTransactionResponse>(
             localVariableConfig
@@ -344,7 +336,6 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation getOfferTransaction
      *
-     * @param version 
      * @param transactionId The offer transaction id to get details of
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -354,7 +345,7 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param returnFullResponse Determines whether to return a detailed version of the response (optional, default to true)
      * @return RequestConfig
      */
-    fun getOfferTransactionRequestConfig(version: java.math.BigDecimal, transactionId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, includeMission: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?, returnFullResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getOfferTransactionRequestConfig(transactionId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, includeMission: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?, returnFullResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -382,7 +373,7 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/wallet/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/wallet/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -391,10 +382,9 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/wallet/preview
+     * POST /wallet/preview
      * Preview Wallet Offers
      * Preview the final cost of a transaction without charging the user
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param offerId The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -414,8 +404,8 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun previewOfferTransaction(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, offerId: kotlin.Long? = null, offerLocationId: kotlin.Long? = null, offerCart: kotlin.String? = null, promoCode: kotlin.String? = null, currencyType: kotlin.String? = "CASH", usePoints: kotlin.Boolean? = null, metaData: kotlin.String? = null, appKey: kotlin.String? = null) : kotlin.collections.List<OfferTransactionResponse> {
-        val localVarResponse = previewOfferTransactionWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, offerId = offerId, offerLocationId = offerLocationId, offerCart = offerCart, promoCode = promoCode, currencyType = currencyType, usePoints = usePoints, metaData = metaData, appKey = appKey)
+    fun previewOfferTransaction(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, offerId: kotlin.Long? = null, offerLocationId: kotlin.Long? = null, offerCart: kotlin.String? = null, promoCode: kotlin.String? = null, currencyType: kotlin.String? = "CASH", usePoints: kotlin.Boolean? = null, metaData: kotlin.String? = null, appKey: kotlin.String? = null) : kotlin.collections.List<OfferTransactionResponse> {
+        val localVarResponse = previewOfferTransactionWithHttpInfo(deviceId = deviceId, accountId = accountId, offerId = offerId, offerLocationId = offerLocationId, offerCart = offerCart, promoCode = promoCode, currencyType = currencyType, usePoints = usePoints, metaData = metaData, appKey = appKey)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<OfferTransactionResponse>
@@ -433,10 +423,9 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/wallet/preview
+     * POST /wallet/preview
      * Preview Wallet Offers
      * Preview the final cost of a transaction without charging the user
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param offerId The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -453,8 +442,8 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun previewOfferTransactionWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, offerCart: kotlin.String?, promoCode: kotlin.String?, currencyType: kotlin.String?, usePoints: kotlin.Boolean?, metaData: kotlin.String?, appKey: kotlin.String?) : ApiResponse<kotlin.collections.List<OfferTransactionResponse>?> {
-        val localVariableConfig = previewOfferTransactionRequestConfig(version = version, deviceId = deviceId, accountId = accountId, offerId = offerId, offerLocationId = offerLocationId, offerCart = offerCart, promoCode = promoCode, currencyType = currencyType, usePoints = usePoints, metaData = metaData, appKey = appKey)
+    fun previewOfferTransactionWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, offerCart: kotlin.String?, promoCode: kotlin.String?, currencyType: kotlin.String?, usePoints: kotlin.Boolean?, metaData: kotlin.String?, appKey: kotlin.String?) : ApiResponse<kotlin.collections.List<OfferTransactionResponse>?> {
+        val localVariableConfig = previewOfferTransactionRequestConfig(deviceId = deviceId, accountId = accountId, offerId = offerId, offerLocationId = offerLocationId, offerCart = offerCart, promoCode = promoCode, currencyType = currencyType, usePoints = usePoints, metaData = metaData, appKey = appKey)
 
         return request<Unit, kotlin.collections.List<OfferTransactionResponse>>(
             localVariableConfig
@@ -464,7 +453,6 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation previewOfferTransaction
      *
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param offerId The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -477,7 +465,7 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param appKey The application requesting the purchase, required when currencyType is TICKETS (optional)
      * @return RequestConfig
      */
-    fun previewOfferTransactionRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, offerCart: kotlin.String?, promoCode: kotlin.String?, currencyType: kotlin.String?, usePoints: kotlin.Boolean?, metaData: kotlin.String?, appKey: kotlin.String?) : RequestConfig<Unit> {
+    fun previewOfferTransactionRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, offerCart: kotlin.String?, promoCode: kotlin.String?, currencyType: kotlin.String?, usePoints: kotlin.Boolean?, metaData: kotlin.String?, appKey: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -516,7 +504,7 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/wallet/preview".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/wallet/preview",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -586,10 +574,9 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      }
 
     /**
-     * GET /api/{version}/wallet/search
+     * GET /wallet/search
      * Search Wallet Offers
      * Search on active offers currently in the user&#39;s wallet, or past offers the user has already redeemed.
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param keyword The keyword to search for (optional)
@@ -640,8 +627,8 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchOfferTransactions(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, keyword: kotlin.String? = null, retailerId: kotlin.Long? = null, retailerIds: kotlin.String? = null, retailerLocationId: kotlin.Long? = null, retailerLocationIds: kotlin.String? = null, excludeRetailerLocationIds: kotlin.String? = null, offerId: kotlin.Long? = null, offerIds: kotlin.String? = null, offerLocationId: kotlin.Long? = null, offerLocationIds: kotlin.String? = null, offerType: OfferTypeSearchOfferTransactions? = null, offerTypes: kotlin.String? = null, specialOfferType: kotlin.String? = null, specialOfferTypes: kotlin.String? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, offerAudienceIds: kotlin.String? = null, sortField: SortFieldSearchOfferTransactions? = SortFieldSearchOfferTransactions.CREATED, descending: kotlin.Boolean? = true, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, redeemableStartDate: kotlin.Long? = null, redeemableEndDate: kotlin.Long? = null, filterByParentOffer: kotlin.Boolean? = false, startedSince: kotlin.Long? = null, startedBefore: kotlin.Long? = null, endedSince: kotlin.Long? = null, endedBefore: kotlin.Long? = null, redeemed: kotlin.Boolean? = false, statuses: kotlin.String? = null, reservationsOnly: kotlin.Boolean? = false, activeOnly: kotlin.Boolean? = false, returnFullResponse: kotlin.Boolean? = false, recurringStartedSince: kotlin.Long? = null, recurringStartedBefore: kotlin.Long? = null, recurringExpirationSince: kotlin.Long? = null, recurringExpirationBefore: kotlin.Long? = null) : kotlin.collections.List<OfferTransactionResponse> {
-        val localVarResponse = searchOfferTransactionsWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, keyword = keyword, retailerId = retailerId, retailerIds = retailerIds, retailerLocationId = retailerLocationId, retailerLocationIds = retailerLocationIds, excludeRetailerLocationIds = excludeRetailerLocationIds, offerId = offerId, offerIds = offerIds, offerLocationId = offerLocationId, offerLocationIds = offerLocationIds, offerType = offerType, offerTypes = offerTypes, specialOfferType = specialOfferType, specialOfferTypes = specialOfferTypes, categoryIds = categoryIds, filterIds = filterIds, offerAudienceIds = offerAudienceIds, sortField = sortField, descending = descending, start = start, limit = limit, latitude = latitude, longitude = longitude, redeemableStartDate = redeemableStartDate, redeemableEndDate = redeemableEndDate, filterByParentOffer = filterByParentOffer, startedSince = startedSince, startedBefore = startedBefore, endedSince = endedSince, endedBefore = endedBefore, redeemed = redeemed, statuses = statuses, reservationsOnly = reservationsOnly, activeOnly = activeOnly, returnFullResponse = returnFullResponse, recurringStartedSince = recurringStartedSince, recurringStartedBefore = recurringStartedBefore, recurringExpirationSince = recurringExpirationSince, recurringExpirationBefore = recurringExpirationBefore)
+    fun searchOfferTransactions(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, keyword: kotlin.String? = null, retailerId: kotlin.Long? = null, retailerIds: kotlin.String? = null, retailerLocationId: kotlin.Long? = null, retailerLocationIds: kotlin.String? = null, excludeRetailerLocationIds: kotlin.String? = null, offerId: kotlin.Long? = null, offerIds: kotlin.String? = null, offerLocationId: kotlin.Long? = null, offerLocationIds: kotlin.String? = null, offerType: OfferTypeSearchOfferTransactions? = null, offerTypes: kotlin.String? = null, specialOfferType: kotlin.String? = null, specialOfferTypes: kotlin.String? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, offerAudienceIds: kotlin.String? = null, sortField: SortFieldSearchOfferTransactions? = SortFieldSearchOfferTransactions.CREATED, descending: kotlin.Boolean? = true, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, redeemableStartDate: kotlin.Long? = null, redeemableEndDate: kotlin.Long? = null, filterByParentOffer: kotlin.Boolean? = false, startedSince: kotlin.Long? = null, startedBefore: kotlin.Long? = null, endedSince: kotlin.Long? = null, endedBefore: kotlin.Long? = null, redeemed: kotlin.Boolean? = false, statuses: kotlin.String? = null, reservationsOnly: kotlin.Boolean? = false, activeOnly: kotlin.Boolean? = false, returnFullResponse: kotlin.Boolean? = false, recurringStartedSince: kotlin.Long? = null, recurringStartedBefore: kotlin.Long? = null, recurringExpirationSince: kotlin.Long? = null, recurringExpirationBefore: kotlin.Long? = null) : kotlin.collections.List<OfferTransactionResponse> {
+        val localVarResponse = searchOfferTransactionsWithHttpInfo(deviceId = deviceId, accountId = accountId, keyword = keyword, retailerId = retailerId, retailerIds = retailerIds, retailerLocationId = retailerLocationId, retailerLocationIds = retailerLocationIds, excludeRetailerLocationIds = excludeRetailerLocationIds, offerId = offerId, offerIds = offerIds, offerLocationId = offerLocationId, offerLocationIds = offerLocationIds, offerType = offerType, offerTypes = offerTypes, specialOfferType = specialOfferType, specialOfferTypes = specialOfferTypes, categoryIds = categoryIds, filterIds = filterIds, offerAudienceIds = offerAudienceIds, sortField = sortField, descending = descending, start = start, limit = limit, latitude = latitude, longitude = longitude, redeemableStartDate = redeemableStartDate, redeemableEndDate = redeemableEndDate, filterByParentOffer = filterByParentOffer, startedSince = startedSince, startedBefore = startedBefore, endedSince = endedSince, endedBefore = endedBefore, redeemed = redeemed, statuses = statuses, reservationsOnly = reservationsOnly, activeOnly = activeOnly, returnFullResponse = returnFullResponse, recurringStartedSince = recurringStartedSince, recurringStartedBefore = recurringStartedBefore, recurringExpirationSince = recurringExpirationSince, recurringExpirationBefore = recurringExpirationBefore)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<OfferTransactionResponse>
@@ -659,10 +646,9 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * GET /api/{version}/wallet/search
+     * GET /wallet/search
      * Search Wallet Offers
      * Search on active offers currently in the user&#39;s wallet, or past offers the user has already redeemed.
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param keyword The keyword to search for (optional)
@@ -710,8 +696,8 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchOfferTransactionsWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, keyword: kotlin.String?, retailerId: kotlin.Long?, retailerIds: kotlin.String?, retailerLocationId: kotlin.Long?, retailerLocationIds: kotlin.String?, excludeRetailerLocationIds: kotlin.String?, offerId: kotlin.Long?, offerIds: kotlin.String?, offerLocationId: kotlin.Long?, offerLocationIds: kotlin.String?, offerType: OfferTypeSearchOfferTransactions?, offerTypes: kotlin.String?, specialOfferType: kotlin.String?, specialOfferTypes: kotlin.String?, categoryIds: kotlin.String?, filterIds: kotlin.String?, offerAudienceIds: kotlin.String?, sortField: SortFieldSearchOfferTransactions?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?, redeemableStartDate: kotlin.Long?, redeemableEndDate: kotlin.Long?, filterByParentOffer: kotlin.Boolean?, startedSince: kotlin.Long?, startedBefore: kotlin.Long?, endedSince: kotlin.Long?, endedBefore: kotlin.Long?, redeemed: kotlin.Boolean?, statuses: kotlin.String?, reservationsOnly: kotlin.Boolean?, activeOnly: kotlin.Boolean?, returnFullResponse: kotlin.Boolean?, recurringStartedSince: kotlin.Long?, recurringStartedBefore: kotlin.Long?, recurringExpirationSince: kotlin.Long?, recurringExpirationBefore: kotlin.Long?) : ApiResponse<kotlin.collections.List<OfferTransactionResponse>?> {
-        val localVariableConfig = searchOfferTransactionsRequestConfig(version = version, deviceId = deviceId, accountId = accountId, keyword = keyword, retailerId = retailerId, retailerIds = retailerIds, retailerLocationId = retailerLocationId, retailerLocationIds = retailerLocationIds, excludeRetailerLocationIds = excludeRetailerLocationIds, offerId = offerId, offerIds = offerIds, offerLocationId = offerLocationId, offerLocationIds = offerLocationIds, offerType = offerType, offerTypes = offerTypes, specialOfferType = specialOfferType, specialOfferTypes = specialOfferTypes, categoryIds = categoryIds, filterIds = filterIds, offerAudienceIds = offerAudienceIds, sortField = sortField, descending = descending, start = start, limit = limit, latitude = latitude, longitude = longitude, redeemableStartDate = redeemableStartDate, redeemableEndDate = redeemableEndDate, filterByParentOffer = filterByParentOffer, startedSince = startedSince, startedBefore = startedBefore, endedSince = endedSince, endedBefore = endedBefore, redeemed = redeemed, statuses = statuses, reservationsOnly = reservationsOnly, activeOnly = activeOnly, returnFullResponse = returnFullResponse, recurringStartedSince = recurringStartedSince, recurringStartedBefore = recurringStartedBefore, recurringExpirationSince = recurringExpirationSince, recurringExpirationBefore = recurringExpirationBefore)
+    fun searchOfferTransactionsWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, keyword: kotlin.String?, retailerId: kotlin.Long?, retailerIds: kotlin.String?, retailerLocationId: kotlin.Long?, retailerLocationIds: kotlin.String?, excludeRetailerLocationIds: kotlin.String?, offerId: kotlin.Long?, offerIds: kotlin.String?, offerLocationId: kotlin.Long?, offerLocationIds: kotlin.String?, offerType: OfferTypeSearchOfferTransactions?, offerTypes: kotlin.String?, specialOfferType: kotlin.String?, specialOfferTypes: kotlin.String?, categoryIds: kotlin.String?, filterIds: kotlin.String?, offerAudienceIds: kotlin.String?, sortField: SortFieldSearchOfferTransactions?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?, redeemableStartDate: kotlin.Long?, redeemableEndDate: kotlin.Long?, filterByParentOffer: kotlin.Boolean?, startedSince: kotlin.Long?, startedBefore: kotlin.Long?, endedSince: kotlin.Long?, endedBefore: kotlin.Long?, redeemed: kotlin.Boolean?, statuses: kotlin.String?, reservationsOnly: kotlin.Boolean?, activeOnly: kotlin.Boolean?, returnFullResponse: kotlin.Boolean?, recurringStartedSince: kotlin.Long?, recurringStartedBefore: kotlin.Long?, recurringExpirationSince: kotlin.Long?, recurringExpirationBefore: kotlin.Long?) : ApiResponse<kotlin.collections.List<OfferTransactionResponse>?> {
+        val localVariableConfig = searchOfferTransactionsRequestConfig(deviceId = deviceId, accountId = accountId, keyword = keyword, retailerId = retailerId, retailerIds = retailerIds, retailerLocationId = retailerLocationId, retailerLocationIds = retailerLocationIds, excludeRetailerLocationIds = excludeRetailerLocationIds, offerId = offerId, offerIds = offerIds, offerLocationId = offerLocationId, offerLocationIds = offerLocationIds, offerType = offerType, offerTypes = offerTypes, specialOfferType = specialOfferType, specialOfferTypes = specialOfferTypes, categoryIds = categoryIds, filterIds = filterIds, offerAudienceIds = offerAudienceIds, sortField = sortField, descending = descending, start = start, limit = limit, latitude = latitude, longitude = longitude, redeemableStartDate = redeemableStartDate, redeemableEndDate = redeemableEndDate, filterByParentOffer = filterByParentOffer, startedSince = startedSince, startedBefore = startedBefore, endedSince = endedSince, endedBefore = endedBefore, redeemed = redeemed, statuses = statuses, reservationsOnly = reservationsOnly, activeOnly = activeOnly, returnFullResponse = returnFullResponse, recurringStartedSince = recurringStartedSince, recurringStartedBefore = recurringStartedBefore, recurringExpirationSince = recurringExpirationSince, recurringExpirationBefore = recurringExpirationBefore)
 
         return request<Unit, kotlin.collections.List<OfferTransactionResponse>>(
             localVariableConfig
@@ -721,7 +707,6 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation searchOfferTransactions
      *
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param keyword The keyword to search for (optional)
@@ -765,7 +750,7 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param recurringExpirationBefore Filter results by the recurring billing expiration date (optional)
      * @return RequestConfig
      */
-    fun searchOfferTransactionsRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, keyword: kotlin.String?, retailerId: kotlin.Long?, retailerIds: kotlin.String?, retailerLocationId: kotlin.Long?, retailerLocationIds: kotlin.String?, excludeRetailerLocationIds: kotlin.String?, offerId: kotlin.Long?, offerIds: kotlin.String?, offerLocationId: kotlin.Long?, offerLocationIds: kotlin.String?, offerType: OfferTypeSearchOfferTransactions?, offerTypes: kotlin.String?, specialOfferType: kotlin.String?, specialOfferTypes: kotlin.String?, categoryIds: kotlin.String?, filterIds: kotlin.String?, offerAudienceIds: kotlin.String?, sortField: SortFieldSearchOfferTransactions?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?, redeemableStartDate: kotlin.Long?, redeemableEndDate: kotlin.Long?, filterByParentOffer: kotlin.Boolean?, startedSince: kotlin.Long?, startedBefore: kotlin.Long?, endedSince: kotlin.Long?, endedBefore: kotlin.Long?, redeemed: kotlin.Boolean?, statuses: kotlin.String?, reservationsOnly: kotlin.Boolean?, activeOnly: kotlin.Boolean?, returnFullResponse: kotlin.Boolean?, recurringStartedSince: kotlin.Long?, recurringStartedBefore: kotlin.Long?, recurringExpirationSince: kotlin.Long?, recurringExpirationBefore: kotlin.Long?) : RequestConfig<Unit> {
+    fun searchOfferTransactionsRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, keyword: kotlin.String?, retailerId: kotlin.Long?, retailerIds: kotlin.String?, retailerLocationId: kotlin.Long?, retailerLocationIds: kotlin.String?, excludeRetailerLocationIds: kotlin.String?, offerId: kotlin.Long?, offerIds: kotlin.String?, offerLocationId: kotlin.Long?, offerLocationIds: kotlin.String?, offerType: OfferTypeSearchOfferTransactions?, offerTypes: kotlin.String?, specialOfferType: kotlin.String?, specialOfferTypes: kotlin.String?, categoryIds: kotlin.String?, filterIds: kotlin.String?, offerAudienceIds: kotlin.String?, sortField: SortFieldSearchOfferTransactions?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?, redeemableStartDate: kotlin.Long?, redeemableEndDate: kotlin.Long?, filterByParentOffer: kotlin.Boolean?, startedSince: kotlin.Long?, startedBefore: kotlin.Long?, endedSince: kotlin.Long?, endedBefore: kotlin.Long?, redeemed: kotlin.Boolean?, statuses: kotlin.String?, reservationsOnly: kotlin.Boolean?, activeOnly: kotlin.Boolean?, returnFullResponse: kotlin.Boolean?, recurringStartedSince: kotlin.Long?, recurringStartedBefore: kotlin.Long?, recurringExpirationSince: kotlin.Long?, recurringExpirationBefore: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -897,7 +882,7 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/wallet/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/wallet/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -906,10 +891,9 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/wallet/update
+     * POST /wallet/update
      * Update Wallet Offer
      * Update offer status. The status values are: 0 - not redeemable, 1 - redeemable.  Not redeemable means the customer has received the offer but has not decided to use (or print) it yet.  Until they choose to do this the merchant cannot redeem the offer (has not been given permission yet).   Redeemable means the customer has chosen to use the offer and wishes to redeem it.  Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
-     * @param version 
      * @param transactionId The offer transaction id to remove
      * @param status The status value to change to (0 or 1)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -932,8 +916,8 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateOfferTransaction(version: java.math.BigDecimal, transactionId: kotlin.Long, status: kotlin.Int, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, offerLocationId: kotlin.Long? = null, currencyType: kotlin.String? = "CASH", usePoints: kotlin.Boolean? = null, appKey: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, metaData: kotlin.String? = null, returnFullResponse: kotlin.Boolean? = false, exceptionMembershipOfferIds: kotlin.String? = null) : OfferTransactionResponse {
-        val localVarResponse = updateOfferTransactionWithHttpInfo(version = version, transactionId = transactionId, status = status, deviceId = deviceId, accountId = accountId, offerLocationId = offerLocationId, currencyType = currencyType, usePoints = usePoints, appKey = appKey, latitude = latitude, longitude = longitude, metaData = metaData, returnFullResponse = returnFullResponse, exceptionMembershipOfferIds = exceptionMembershipOfferIds)
+    fun updateOfferTransaction(transactionId: kotlin.Long, status: kotlin.Int, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, offerLocationId: kotlin.Long? = null, currencyType: kotlin.String? = "CASH", usePoints: kotlin.Boolean? = null, appKey: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, metaData: kotlin.String? = null, returnFullResponse: kotlin.Boolean? = false, exceptionMembershipOfferIds: kotlin.String? = null) : OfferTransactionResponse {
+        val localVarResponse = updateOfferTransactionWithHttpInfo(transactionId = transactionId, status = status, deviceId = deviceId, accountId = accountId, offerLocationId = offerLocationId, currencyType = currencyType, usePoints = usePoints, appKey = appKey, latitude = latitude, longitude = longitude, metaData = metaData, returnFullResponse = returnFullResponse, exceptionMembershipOfferIds = exceptionMembershipOfferIds)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OfferTransactionResponse
@@ -951,10 +935,9 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/wallet/update
+     * POST /wallet/update
      * Update Wallet Offer
      * Update offer status. The status values are: 0 - not redeemable, 1 - redeemable.  Not redeemable means the customer has received the offer but has not decided to use (or print) it yet.  Until they choose to do this the merchant cannot redeem the offer (has not been given permission yet).   Redeemable means the customer has chosen to use the offer and wishes to redeem it.  Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
-     * @param version 
      * @param transactionId The offer transaction id to remove
      * @param status The status value to change to (0 or 1)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -974,8 +957,8 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateOfferTransactionWithHttpInfo(version: java.math.BigDecimal, transactionId: kotlin.Long, status: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, offerLocationId: kotlin.Long?, currencyType: kotlin.String?, usePoints: kotlin.Boolean?, appKey: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, metaData: kotlin.String?, returnFullResponse: kotlin.Boolean?, exceptionMembershipOfferIds: kotlin.String?) : ApiResponse<OfferTransactionResponse?> {
-        val localVariableConfig = updateOfferTransactionRequestConfig(version = version, transactionId = transactionId, status = status, deviceId = deviceId, accountId = accountId, offerLocationId = offerLocationId, currencyType = currencyType, usePoints = usePoints, appKey = appKey, latitude = latitude, longitude = longitude, metaData = metaData, returnFullResponse = returnFullResponse, exceptionMembershipOfferIds = exceptionMembershipOfferIds)
+    fun updateOfferTransactionWithHttpInfo(transactionId: kotlin.Long, status: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, offerLocationId: kotlin.Long?, currencyType: kotlin.String?, usePoints: kotlin.Boolean?, appKey: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, metaData: kotlin.String?, returnFullResponse: kotlin.Boolean?, exceptionMembershipOfferIds: kotlin.String?) : ApiResponse<OfferTransactionResponse?> {
+        val localVariableConfig = updateOfferTransactionRequestConfig(transactionId = transactionId, status = status, deviceId = deviceId, accountId = accountId, offerLocationId = offerLocationId, currencyType = currencyType, usePoints = usePoints, appKey = appKey, latitude = latitude, longitude = longitude, metaData = metaData, returnFullResponse = returnFullResponse, exceptionMembershipOfferIds = exceptionMembershipOfferIds)
 
         return request<Unit, OfferTransactionResponse>(
             localVariableConfig
@@ -985,7 +968,6 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation updateOfferTransaction
      *
-     * @param version 
      * @param transactionId The offer transaction id to remove
      * @param status The status value to change to (0 or 1)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -1001,7 +983,7 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param exceptionMembershipOfferIds Exception Offers, transaction audiences of these offers won&#39;t be removed out of the account when up (optional)
      * @return RequestConfig
      */
-    fun updateOfferTransactionRequestConfig(version: java.math.BigDecimal, transactionId: kotlin.Long, status: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, offerLocationId: kotlin.Long?, currencyType: kotlin.String?, usePoints: kotlin.Boolean?, appKey: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, metaData: kotlin.String?, returnFullResponse: kotlin.Boolean?, exceptionMembershipOfferIds: kotlin.String?) : RequestConfig<Unit> {
+    fun updateOfferTransactionRequestConfig(transactionId: kotlin.Long, status: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, offerLocationId: kotlin.Long?, currencyType: kotlin.String?, usePoints: kotlin.Boolean?, appKey: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, metaData: kotlin.String?, returnFullResponse: kotlin.Boolean?, exceptionMembershipOfferIds: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1045,7 +1027,7 @@ open class WalletApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/wallet/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/wallet/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

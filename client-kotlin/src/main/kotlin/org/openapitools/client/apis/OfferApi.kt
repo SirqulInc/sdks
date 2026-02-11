@@ -47,15 +47,14 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/retailer/offer/location/batchUpdate
+     * POST /retailer/offer/location/batchUpdate
      * Update Offer Locations
      * Batch update offer locations.
-     * @param version 
      * @param `data` JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60; 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -68,8 +67,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun batchUpdateOfferLocations(version: java.math.BigDecimal, `data`: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = batchUpdateOfferLocationsWithHttpInfo(version = version, `data` = `data`, deviceId = deviceId, accountId = accountId)
+    fun batchUpdateOfferLocations(`data`: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = batchUpdateOfferLocationsWithHttpInfo(`data` = `data`, deviceId = deviceId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -87,10 +86,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/retailer/offer/location/batchUpdate
+     * POST /retailer/offer/location/batchUpdate
      * Update Offer Locations
      * Batch update offer locations.
-     * @param version 
      * @param `data` JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60; 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -100,8 +98,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun batchUpdateOfferLocationsWithHttpInfo(version: java.math.BigDecimal, `data`: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = batchUpdateOfferLocationsRequestConfig(version = version, `data` = `data`, deviceId = deviceId, accountId = accountId)
+    fun batchUpdateOfferLocationsWithHttpInfo(`data`: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = batchUpdateOfferLocationsRequestConfig(`data` = `data`, deviceId = deviceId, accountId = accountId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -111,13 +109,12 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation batchUpdateOfferLocations
      *
-     * @param version 
      * @param `data` JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60; 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @return RequestConfig
      */
-    fun batchUpdateOfferLocationsRequestConfig(version: java.math.BigDecimal, `data`: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun batchUpdateOfferLocationsRequestConfig(`data`: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -133,7 +130,7 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/retailer/offer/location/batchUpdate".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/retailer/offer/location/batchUpdate",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -343,10 +340,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      }
 
     /**
-     * POST /api/{version}/retailer/offer/create
+     * POST /retailer/offer/create
      * Create Offer
      * Create an offer and assign it to the provided retailer locations.
-     * @param version 
      * @param includeOfferLocations If true return all the offer locations associated with the offer
      * @param title The title (255 char limit)
      * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}
@@ -442,8 +438,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createOffer(version: java.math.BigDecimal, includeOfferLocations: kotlin.Boolean, title: kotlin.String, barcodeType: BarcodeTypeCreateOffer, noExpiration: kotlin.Boolean, availableLimit: kotlin.Int, availableLimitPerUser: kotlin.Int, addedLimit: kotlin.Int, viewLimit: kotlin.Int, maxPrints: kotlin.Int, ticketPrice: kotlin.Long, fullPrice: kotlin.Double, discountPrice: kotlin.Double, offerType: OfferTypeCreateOffer, specialOfferType: SpecialOfferTypeCreateOffer, offerVisibility: OfferVisibilityCreateOffer, active: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, tags: kotlin.String? = null, parentOfferId: kotlin.Long? = null, retailerLocationIds: kotlin.String? = null, offerLocations: kotlin.String? = null, subTitle: kotlin.String? = null, details: kotlin.String? = null, subDetails: kotlin.String? = null, finePrint: kotlin.String? = null, barcodeEntry: kotlin.String? = null, externalRedeemOptions: kotlin.String? = null, externalUrl: kotlin.String? = null, externalId: kotlin.String? = null, ticketsRewardType: kotlin.String? = null, ticketsReward: kotlin.Long? = null, activated: kotlin.Long? = null, expires: kotlin.Long? = null, ticketPriceType: kotlin.String? = null, showRemaining: kotlin.Boolean? = null, showRedeemed: kotlin.Boolean? = null, replaced: kotlin.Boolean? = null, featured: kotlin.Boolean? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, barcodeAssetId: kotlin.Long? = null, imageAssetId: kotlin.Long? = null, imageAssetId1: kotlin.Long? = null, imageAssetId2: kotlin.Long? = null, imageAssetId3: kotlin.Long? = null, imageAssetId4: kotlin.Long? = null, imageAssetId5: kotlin.Long? = null, publisher: kotlin.String? = null, redeemableStart: kotlin.Long? = null, redeemableEnd: kotlin.Long? = null, brand: kotlin.String? = null, productType: ProductTypeCreateOffer? = null, conditionType: ConditionTypeCreateOffer? = null, isbn: kotlin.String? = null, asin: kotlin.String? = null, catalogNumbers: kotlin.String? = null, department: kotlin.String? = null, features: kotlin.String? = null, minimumPrice: kotlin.Double? = null, width: kotlin.Double? = null, height: kotlin.Double? = null, depth: kotlin.Double? = null, weight: kotlin.Double? = null, unit: UnitCreateOffer? = null, studio: kotlin.String? = null, parentalRating: kotlin.String? = null, publishDate: kotlin.Long? = null, availabilityDate: kotlin.Long? = null, sizeId: kotlin.Long? = null, listingId: kotlin.Long? = null, mediaType: MediaTypeCreateOffer? = null, duration: kotlin.Int? = null, author: kotlin.String? = null, releaseDate: kotlin.Long? = null, collectionIds: kotlin.String? = null, rebootTimeHour: kotlin.Int? = null, rebootTimeMinute: kotlin.Int? = null, idleTimeoutInSecond: kotlin.Int? = null, serialNumber: kotlin.String? = null, udid: kotlin.String? = null, deviceType: kotlin.String? = null, devicePower: kotlin.Double? = null, deviceInterference: kotlin.Double? = null, availability: kotlin.String? = null, availabilitySummary: kotlin.String? = null) : RetailerOfferResponse {
-        val localVarResponse = createOfferWithHttpInfo(version = version, includeOfferLocations = includeOfferLocations, title = title, barcodeType = barcodeType, noExpiration = noExpiration, availableLimit = availableLimit, availableLimitPerUser = availableLimitPerUser, addedLimit = addedLimit, viewLimit = viewLimit, maxPrints = maxPrints, ticketPrice = ticketPrice, fullPrice = fullPrice, discountPrice = discountPrice, offerType = offerType, specialOfferType = specialOfferType, offerVisibility = offerVisibility, active = active, deviceId = deviceId, accountId = accountId, tags = tags, parentOfferId = parentOfferId, retailerLocationIds = retailerLocationIds, offerLocations = offerLocations, subTitle = subTitle, details = details, subDetails = subDetails, finePrint = finePrint, barcodeEntry = barcodeEntry, externalRedeemOptions = externalRedeemOptions, externalUrl = externalUrl, externalId = externalId, ticketsRewardType = ticketsRewardType, ticketsReward = ticketsReward, activated = activated, expires = expires, ticketPriceType = ticketPriceType, showRemaining = showRemaining, showRedeemed = showRedeemed, replaced = replaced, featured = featured, categoryIds = categoryIds, filterIds = filterIds, barcodeAssetId = barcodeAssetId, imageAssetId = imageAssetId, imageAssetId1 = imageAssetId1, imageAssetId2 = imageAssetId2, imageAssetId3 = imageAssetId3, imageAssetId4 = imageAssetId4, imageAssetId5 = imageAssetId5, publisher = publisher, redeemableStart = redeemableStart, redeemableEnd = redeemableEnd, brand = brand, productType = productType, conditionType = conditionType, isbn = isbn, asin = asin, catalogNumbers = catalogNumbers, department = department, features = features, minimumPrice = minimumPrice, width = width, height = height, depth = depth, weight = weight, unit = unit, studio = studio, parentalRating = parentalRating, publishDate = publishDate, availabilityDate = availabilityDate, sizeId = sizeId, listingId = listingId, mediaType = mediaType, duration = duration, author = author, releaseDate = releaseDate, collectionIds = collectionIds, rebootTimeHour = rebootTimeHour, rebootTimeMinute = rebootTimeMinute, idleTimeoutInSecond = idleTimeoutInSecond, serialNumber = serialNumber, udid = udid, deviceType = deviceType, devicePower = devicePower, deviceInterference = deviceInterference, availability = availability, availabilitySummary = availabilitySummary)
+    fun createOffer(includeOfferLocations: kotlin.Boolean, title: kotlin.String, barcodeType: BarcodeTypeCreateOffer, noExpiration: kotlin.Boolean, availableLimit: kotlin.Int, availableLimitPerUser: kotlin.Int, addedLimit: kotlin.Int, viewLimit: kotlin.Int, maxPrints: kotlin.Int, ticketPrice: kotlin.Long, fullPrice: kotlin.Double, discountPrice: kotlin.Double, offerType: OfferTypeCreateOffer, specialOfferType: SpecialOfferTypeCreateOffer, offerVisibility: OfferVisibilityCreateOffer, active: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, tags: kotlin.String? = null, parentOfferId: kotlin.Long? = null, retailerLocationIds: kotlin.String? = null, offerLocations: kotlin.String? = null, subTitle: kotlin.String? = null, details: kotlin.String? = null, subDetails: kotlin.String? = null, finePrint: kotlin.String? = null, barcodeEntry: kotlin.String? = null, externalRedeemOptions: kotlin.String? = null, externalUrl: kotlin.String? = null, externalId: kotlin.String? = null, ticketsRewardType: kotlin.String? = null, ticketsReward: kotlin.Long? = null, activated: kotlin.Long? = null, expires: kotlin.Long? = null, ticketPriceType: kotlin.String? = null, showRemaining: kotlin.Boolean? = null, showRedeemed: kotlin.Boolean? = null, replaced: kotlin.Boolean? = null, featured: kotlin.Boolean? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, barcodeAssetId: kotlin.Long? = null, imageAssetId: kotlin.Long? = null, imageAssetId1: kotlin.Long? = null, imageAssetId2: kotlin.Long? = null, imageAssetId3: kotlin.Long? = null, imageAssetId4: kotlin.Long? = null, imageAssetId5: kotlin.Long? = null, publisher: kotlin.String? = null, redeemableStart: kotlin.Long? = null, redeemableEnd: kotlin.Long? = null, brand: kotlin.String? = null, productType: ProductTypeCreateOffer? = null, conditionType: ConditionTypeCreateOffer? = null, isbn: kotlin.String? = null, asin: kotlin.String? = null, catalogNumbers: kotlin.String? = null, department: kotlin.String? = null, features: kotlin.String? = null, minimumPrice: kotlin.Double? = null, width: kotlin.Double? = null, height: kotlin.Double? = null, depth: kotlin.Double? = null, weight: kotlin.Double? = null, unit: UnitCreateOffer? = null, studio: kotlin.String? = null, parentalRating: kotlin.String? = null, publishDate: kotlin.Long? = null, availabilityDate: kotlin.Long? = null, sizeId: kotlin.Long? = null, listingId: kotlin.Long? = null, mediaType: MediaTypeCreateOffer? = null, duration: kotlin.Int? = null, author: kotlin.String? = null, releaseDate: kotlin.Long? = null, collectionIds: kotlin.String? = null, rebootTimeHour: kotlin.Int? = null, rebootTimeMinute: kotlin.Int? = null, idleTimeoutInSecond: kotlin.Int? = null, serialNumber: kotlin.String? = null, udid: kotlin.String? = null, deviceType: kotlin.String? = null, devicePower: kotlin.Double? = null, deviceInterference: kotlin.Double? = null, availability: kotlin.String? = null, availabilitySummary: kotlin.String? = null) : RetailerOfferResponse {
+        val localVarResponse = createOfferWithHttpInfo(includeOfferLocations = includeOfferLocations, title = title, barcodeType = barcodeType, noExpiration = noExpiration, availableLimit = availableLimit, availableLimitPerUser = availableLimitPerUser, addedLimit = addedLimit, viewLimit = viewLimit, maxPrints = maxPrints, ticketPrice = ticketPrice, fullPrice = fullPrice, discountPrice = discountPrice, offerType = offerType, specialOfferType = specialOfferType, offerVisibility = offerVisibility, active = active, deviceId = deviceId, accountId = accountId, tags = tags, parentOfferId = parentOfferId, retailerLocationIds = retailerLocationIds, offerLocations = offerLocations, subTitle = subTitle, details = details, subDetails = subDetails, finePrint = finePrint, barcodeEntry = barcodeEntry, externalRedeemOptions = externalRedeemOptions, externalUrl = externalUrl, externalId = externalId, ticketsRewardType = ticketsRewardType, ticketsReward = ticketsReward, activated = activated, expires = expires, ticketPriceType = ticketPriceType, showRemaining = showRemaining, showRedeemed = showRedeemed, replaced = replaced, featured = featured, categoryIds = categoryIds, filterIds = filterIds, barcodeAssetId = barcodeAssetId, imageAssetId = imageAssetId, imageAssetId1 = imageAssetId1, imageAssetId2 = imageAssetId2, imageAssetId3 = imageAssetId3, imageAssetId4 = imageAssetId4, imageAssetId5 = imageAssetId5, publisher = publisher, redeemableStart = redeemableStart, redeemableEnd = redeemableEnd, brand = brand, productType = productType, conditionType = conditionType, isbn = isbn, asin = asin, catalogNumbers = catalogNumbers, department = department, features = features, minimumPrice = minimumPrice, width = width, height = height, depth = depth, weight = weight, unit = unit, studio = studio, parentalRating = parentalRating, publishDate = publishDate, availabilityDate = availabilityDate, sizeId = sizeId, listingId = listingId, mediaType = mediaType, duration = duration, author = author, releaseDate = releaseDate, collectionIds = collectionIds, rebootTimeHour = rebootTimeHour, rebootTimeMinute = rebootTimeMinute, idleTimeoutInSecond = idleTimeoutInSecond, serialNumber = serialNumber, udid = udid, deviceType = deviceType, devicePower = devicePower, deviceInterference = deviceInterference, availability = availability, availabilitySummary = availabilitySummary)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as RetailerOfferResponse
@@ -461,10 +457,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/retailer/offer/create
+     * POST /retailer/offer/create
      * Create Offer
      * Create an offer and assign it to the provided retailer locations.
-     * @param version 
      * @param includeOfferLocations If true return all the offer locations associated with the offer
      * @param title The title (255 char limit)
      * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}
@@ -557,8 +552,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createOfferWithHttpInfo(version: java.math.BigDecimal, includeOfferLocations: kotlin.Boolean, title: kotlin.String, barcodeType: BarcodeTypeCreateOffer, noExpiration: kotlin.Boolean, availableLimit: kotlin.Int, availableLimitPerUser: kotlin.Int, addedLimit: kotlin.Int, viewLimit: kotlin.Int, maxPrints: kotlin.Int, ticketPrice: kotlin.Long, fullPrice: kotlin.Double, discountPrice: kotlin.Double, offerType: OfferTypeCreateOffer, specialOfferType: SpecialOfferTypeCreateOffer, offerVisibility: OfferVisibilityCreateOffer, active: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, tags: kotlin.String?, parentOfferId: kotlin.Long?, retailerLocationIds: kotlin.String?, offerLocations: kotlin.String?, subTitle: kotlin.String?, details: kotlin.String?, subDetails: kotlin.String?, finePrint: kotlin.String?, barcodeEntry: kotlin.String?, externalRedeemOptions: kotlin.String?, externalUrl: kotlin.String?, externalId: kotlin.String?, ticketsRewardType: kotlin.String?, ticketsReward: kotlin.Long?, activated: kotlin.Long?, expires: kotlin.Long?, ticketPriceType: kotlin.String?, showRemaining: kotlin.Boolean?, showRedeemed: kotlin.Boolean?, replaced: kotlin.Boolean?, featured: kotlin.Boolean?, categoryIds: kotlin.String?, filterIds: kotlin.String?, barcodeAssetId: kotlin.Long?, imageAssetId: kotlin.Long?, imageAssetId1: kotlin.Long?, imageAssetId2: kotlin.Long?, imageAssetId3: kotlin.Long?, imageAssetId4: kotlin.Long?, imageAssetId5: kotlin.Long?, publisher: kotlin.String?, redeemableStart: kotlin.Long?, redeemableEnd: kotlin.Long?, brand: kotlin.String?, productType: ProductTypeCreateOffer?, conditionType: ConditionTypeCreateOffer?, isbn: kotlin.String?, asin: kotlin.String?, catalogNumbers: kotlin.String?, department: kotlin.String?, features: kotlin.String?, minimumPrice: kotlin.Double?, width: kotlin.Double?, height: kotlin.Double?, depth: kotlin.Double?, weight: kotlin.Double?, unit: UnitCreateOffer?, studio: kotlin.String?, parentalRating: kotlin.String?, publishDate: kotlin.Long?, availabilityDate: kotlin.Long?, sizeId: kotlin.Long?, listingId: kotlin.Long?, mediaType: MediaTypeCreateOffer?, duration: kotlin.Int?, author: kotlin.String?, releaseDate: kotlin.Long?, collectionIds: kotlin.String?, rebootTimeHour: kotlin.Int?, rebootTimeMinute: kotlin.Int?, idleTimeoutInSecond: kotlin.Int?, serialNumber: kotlin.String?, udid: kotlin.String?, deviceType: kotlin.String?, devicePower: kotlin.Double?, deviceInterference: kotlin.Double?, availability: kotlin.String?, availabilitySummary: kotlin.String?) : ApiResponse<RetailerOfferResponse?> {
-        val localVariableConfig = createOfferRequestConfig(version = version, includeOfferLocations = includeOfferLocations, title = title, barcodeType = barcodeType, noExpiration = noExpiration, availableLimit = availableLimit, availableLimitPerUser = availableLimitPerUser, addedLimit = addedLimit, viewLimit = viewLimit, maxPrints = maxPrints, ticketPrice = ticketPrice, fullPrice = fullPrice, discountPrice = discountPrice, offerType = offerType, specialOfferType = specialOfferType, offerVisibility = offerVisibility, active = active, deviceId = deviceId, accountId = accountId, tags = tags, parentOfferId = parentOfferId, retailerLocationIds = retailerLocationIds, offerLocations = offerLocations, subTitle = subTitle, details = details, subDetails = subDetails, finePrint = finePrint, barcodeEntry = barcodeEntry, externalRedeemOptions = externalRedeemOptions, externalUrl = externalUrl, externalId = externalId, ticketsRewardType = ticketsRewardType, ticketsReward = ticketsReward, activated = activated, expires = expires, ticketPriceType = ticketPriceType, showRemaining = showRemaining, showRedeemed = showRedeemed, replaced = replaced, featured = featured, categoryIds = categoryIds, filterIds = filterIds, barcodeAssetId = barcodeAssetId, imageAssetId = imageAssetId, imageAssetId1 = imageAssetId1, imageAssetId2 = imageAssetId2, imageAssetId3 = imageAssetId3, imageAssetId4 = imageAssetId4, imageAssetId5 = imageAssetId5, publisher = publisher, redeemableStart = redeemableStart, redeemableEnd = redeemableEnd, brand = brand, productType = productType, conditionType = conditionType, isbn = isbn, asin = asin, catalogNumbers = catalogNumbers, department = department, features = features, minimumPrice = minimumPrice, width = width, height = height, depth = depth, weight = weight, unit = unit, studio = studio, parentalRating = parentalRating, publishDate = publishDate, availabilityDate = availabilityDate, sizeId = sizeId, listingId = listingId, mediaType = mediaType, duration = duration, author = author, releaseDate = releaseDate, collectionIds = collectionIds, rebootTimeHour = rebootTimeHour, rebootTimeMinute = rebootTimeMinute, idleTimeoutInSecond = idleTimeoutInSecond, serialNumber = serialNumber, udid = udid, deviceType = deviceType, devicePower = devicePower, deviceInterference = deviceInterference, availability = availability, availabilitySummary = availabilitySummary)
+    fun createOfferWithHttpInfo(includeOfferLocations: kotlin.Boolean, title: kotlin.String, barcodeType: BarcodeTypeCreateOffer, noExpiration: kotlin.Boolean, availableLimit: kotlin.Int, availableLimitPerUser: kotlin.Int, addedLimit: kotlin.Int, viewLimit: kotlin.Int, maxPrints: kotlin.Int, ticketPrice: kotlin.Long, fullPrice: kotlin.Double, discountPrice: kotlin.Double, offerType: OfferTypeCreateOffer, specialOfferType: SpecialOfferTypeCreateOffer, offerVisibility: OfferVisibilityCreateOffer, active: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, tags: kotlin.String?, parentOfferId: kotlin.Long?, retailerLocationIds: kotlin.String?, offerLocations: kotlin.String?, subTitle: kotlin.String?, details: kotlin.String?, subDetails: kotlin.String?, finePrint: kotlin.String?, barcodeEntry: kotlin.String?, externalRedeemOptions: kotlin.String?, externalUrl: kotlin.String?, externalId: kotlin.String?, ticketsRewardType: kotlin.String?, ticketsReward: kotlin.Long?, activated: kotlin.Long?, expires: kotlin.Long?, ticketPriceType: kotlin.String?, showRemaining: kotlin.Boolean?, showRedeemed: kotlin.Boolean?, replaced: kotlin.Boolean?, featured: kotlin.Boolean?, categoryIds: kotlin.String?, filterIds: kotlin.String?, barcodeAssetId: kotlin.Long?, imageAssetId: kotlin.Long?, imageAssetId1: kotlin.Long?, imageAssetId2: kotlin.Long?, imageAssetId3: kotlin.Long?, imageAssetId4: kotlin.Long?, imageAssetId5: kotlin.Long?, publisher: kotlin.String?, redeemableStart: kotlin.Long?, redeemableEnd: kotlin.Long?, brand: kotlin.String?, productType: ProductTypeCreateOffer?, conditionType: ConditionTypeCreateOffer?, isbn: kotlin.String?, asin: kotlin.String?, catalogNumbers: kotlin.String?, department: kotlin.String?, features: kotlin.String?, minimumPrice: kotlin.Double?, width: kotlin.Double?, height: kotlin.Double?, depth: kotlin.Double?, weight: kotlin.Double?, unit: UnitCreateOffer?, studio: kotlin.String?, parentalRating: kotlin.String?, publishDate: kotlin.Long?, availabilityDate: kotlin.Long?, sizeId: kotlin.Long?, listingId: kotlin.Long?, mediaType: MediaTypeCreateOffer?, duration: kotlin.Int?, author: kotlin.String?, releaseDate: kotlin.Long?, collectionIds: kotlin.String?, rebootTimeHour: kotlin.Int?, rebootTimeMinute: kotlin.Int?, idleTimeoutInSecond: kotlin.Int?, serialNumber: kotlin.String?, udid: kotlin.String?, deviceType: kotlin.String?, devicePower: kotlin.Double?, deviceInterference: kotlin.Double?, availability: kotlin.String?, availabilitySummary: kotlin.String?) : ApiResponse<RetailerOfferResponse?> {
+        val localVariableConfig = createOfferRequestConfig(includeOfferLocations = includeOfferLocations, title = title, barcodeType = barcodeType, noExpiration = noExpiration, availableLimit = availableLimit, availableLimitPerUser = availableLimitPerUser, addedLimit = addedLimit, viewLimit = viewLimit, maxPrints = maxPrints, ticketPrice = ticketPrice, fullPrice = fullPrice, discountPrice = discountPrice, offerType = offerType, specialOfferType = specialOfferType, offerVisibility = offerVisibility, active = active, deviceId = deviceId, accountId = accountId, tags = tags, parentOfferId = parentOfferId, retailerLocationIds = retailerLocationIds, offerLocations = offerLocations, subTitle = subTitle, details = details, subDetails = subDetails, finePrint = finePrint, barcodeEntry = barcodeEntry, externalRedeemOptions = externalRedeemOptions, externalUrl = externalUrl, externalId = externalId, ticketsRewardType = ticketsRewardType, ticketsReward = ticketsReward, activated = activated, expires = expires, ticketPriceType = ticketPriceType, showRemaining = showRemaining, showRedeemed = showRedeemed, replaced = replaced, featured = featured, categoryIds = categoryIds, filterIds = filterIds, barcodeAssetId = barcodeAssetId, imageAssetId = imageAssetId, imageAssetId1 = imageAssetId1, imageAssetId2 = imageAssetId2, imageAssetId3 = imageAssetId3, imageAssetId4 = imageAssetId4, imageAssetId5 = imageAssetId5, publisher = publisher, redeemableStart = redeemableStart, redeemableEnd = redeemableEnd, brand = brand, productType = productType, conditionType = conditionType, isbn = isbn, asin = asin, catalogNumbers = catalogNumbers, department = department, features = features, minimumPrice = minimumPrice, width = width, height = height, depth = depth, weight = weight, unit = unit, studio = studio, parentalRating = parentalRating, publishDate = publishDate, availabilityDate = availabilityDate, sizeId = sizeId, listingId = listingId, mediaType = mediaType, duration = duration, author = author, releaseDate = releaseDate, collectionIds = collectionIds, rebootTimeHour = rebootTimeHour, rebootTimeMinute = rebootTimeMinute, idleTimeoutInSecond = idleTimeoutInSecond, serialNumber = serialNumber, udid = udid, deviceType = deviceType, devicePower = devicePower, deviceInterference = deviceInterference, availability = availability, availabilitySummary = availabilitySummary)
 
         return request<Unit, RetailerOfferResponse>(
             localVariableConfig
@@ -568,7 +563,6 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation createOffer
      *
-     * @param version 
      * @param includeOfferLocations If true return all the offer locations associated with the offer
      * @param title The title (255 char limit)
      * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}
@@ -657,7 +651,7 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param availabilitySummary  (optional)
      * @return RequestConfig
      */
-    fun createOfferRequestConfig(version: java.math.BigDecimal, includeOfferLocations: kotlin.Boolean, title: kotlin.String, barcodeType: BarcodeTypeCreateOffer, noExpiration: kotlin.Boolean, availableLimit: kotlin.Int, availableLimitPerUser: kotlin.Int, addedLimit: kotlin.Int, viewLimit: kotlin.Int, maxPrints: kotlin.Int, ticketPrice: kotlin.Long, fullPrice: kotlin.Double, discountPrice: kotlin.Double, offerType: OfferTypeCreateOffer, specialOfferType: SpecialOfferTypeCreateOffer, offerVisibility: OfferVisibilityCreateOffer, active: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, tags: kotlin.String?, parentOfferId: kotlin.Long?, retailerLocationIds: kotlin.String?, offerLocations: kotlin.String?, subTitle: kotlin.String?, details: kotlin.String?, subDetails: kotlin.String?, finePrint: kotlin.String?, barcodeEntry: kotlin.String?, externalRedeemOptions: kotlin.String?, externalUrl: kotlin.String?, externalId: kotlin.String?, ticketsRewardType: kotlin.String?, ticketsReward: kotlin.Long?, activated: kotlin.Long?, expires: kotlin.Long?, ticketPriceType: kotlin.String?, showRemaining: kotlin.Boolean?, showRedeemed: kotlin.Boolean?, replaced: kotlin.Boolean?, featured: kotlin.Boolean?, categoryIds: kotlin.String?, filterIds: kotlin.String?, barcodeAssetId: kotlin.Long?, imageAssetId: kotlin.Long?, imageAssetId1: kotlin.Long?, imageAssetId2: kotlin.Long?, imageAssetId3: kotlin.Long?, imageAssetId4: kotlin.Long?, imageAssetId5: kotlin.Long?, publisher: kotlin.String?, redeemableStart: kotlin.Long?, redeemableEnd: kotlin.Long?, brand: kotlin.String?, productType: ProductTypeCreateOffer?, conditionType: ConditionTypeCreateOffer?, isbn: kotlin.String?, asin: kotlin.String?, catalogNumbers: kotlin.String?, department: kotlin.String?, features: kotlin.String?, minimumPrice: kotlin.Double?, width: kotlin.Double?, height: kotlin.Double?, depth: kotlin.Double?, weight: kotlin.Double?, unit: UnitCreateOffer?, studio: kotlin.String?, parentalRating: kotlin.String?, publishDate: kotlin.Long?, availabilityDate: kotlin.Long?, sizeId: kotlin.Long?, listingId: kotlin.Long?, mediaType: MediaTypeCreateOffer?, duration: kotlin.Int?, author: kotlin.String?, releaseDate: kotlin.Long?, collectionIds: kotlin.String?, rebootTimeHour: kotlin.Int?, rebootTimeMinute: kotlin.Int?, idleTimeoutInSecond: kotlin.Int?, serialNumber: kotlin.String?, udid: kotlin.String?, deviceType: kotlin.String?, devicePower: kotlin.Double?, deviceInterference: kotlin.Double?, availability: kotlin.String?, availabilitySummary: kotlin.String?) : RequestConfig<Unit> {
+    fun createOfferRequestConfig(includeOfferLocations: kotlin.Boolean, title: kotlin.String, barcodeType: BarcodeTypeCreateOffer, noExpiration: kotlin.Boolean, availableLimit: kotlin.Int, availableLimitPerUser: kotlin.Int, addedLimit: kotlin.Int, viewLimit: kotlin.Int, maxPrints: kotlin.Int, ticketPrice: kotlin.Long, fullPrice: kotlin.Double, discountPrice: kotlin.Double, offerType: OfferTypeCreateOffer, specialOfferType: SpecialOfferTypeCreateOffer, offerVisibility: OfferVisibilityCreateOffer, active: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, tags: kotlin.String?, parentOfferId: kotlin.Long?, retailerLocationIds: kotlin.String?, offerLocations: kotlin.String?, subTitle: kotlin.String?, details: kotlin.String?, subDetails: kotlin.String?, finePrint: kotlin.String?, barcodeEntry: kotlin.String?, externalRedeemOptions: kotlin.String?, externalUrl: kotlin.String?, externalId: kotlin.String?, ticketsRewardType: kotlin.String?, ticketsReward: kotlin.Long?, activated: kotlin.Long?, expires: kotlin.Long?, ticketPriceType: kotlin.String?, showRemaining: kotlin.Boolean?, showRedeemed: kotlin.Boolean?, replaced: kotlin.Boolean?, featured: kotlin.Boolean?, categoryIds: kotlin.String?, filterIds: kotlin.String?, barcodeAssetId: kotlin.Long?, imageAssetId: kotlin.Long?, imageAssetId1: kotlin.Long?, imageAssetId2: kotlin.Long?, imageAssetId3: kotlin.Long?, imageAssetId4: kotlin.Long?, imageAssetId5: kotlin.Long?, publisher: kotlin.String?, redeemableStart: kotlin.Long?, redeemableEnd: kotlin.Long?, brand: kotlin.String?, productType: ProductTypeCreateOffer?, conditionType: ConditionTypeCreateOffer?, isbn: kotlin.String?, asin: kotlin.String?, catalogNumbers: kotlin.String?, department: kotlin.String?, features: kotlin.String?, minimumPrice: kotlin.Double?, width: kotlin.Double?, height: kotlin.Double?, depth: kotlin.Double?, weight: kotlin.Double?, unit: UnitCreateOffer?, studio: kotlin.String?, parentalRating: kotlin.String?, publishDate: kotlin.Long?, availabilityDate: kotlin.Long?, sizeId: kotlin.Long?, listingId: kotlin.Long?, mediaType: MediaTypeCreateOffer?, duration: kotlin.Int?, author: kotlin.String?, releaseDate: kotlin.Long?, collectionIds: kotlin.String?, rebootTimeHour: kotlin.Int?, rebootTimeMinute: kotlin.Int?, idleTimeoutInSecond: kotlin.Int?, serialNumber: kotlin.String?, udid: kotlin.String?, deviceType: kotlin.String?, devicePower: kotlin.Double?, deviceInterference: kotlin.Double?, availability: kotlin.String?, availabilitySummary: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -892,7 +886,7 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/retailer/offer/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/retailer/offer/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -901,10 +895,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/retailer/offer/delete
+     * POST /retailer/offer/delete
      * Delete Offer
      * Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
-     * @param version 
      * @param offerId The ID of the offer to be deleted
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the offer. (optional)
@@ -917,8 +910,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteOffer(version: java.math.BigDecimal, offerId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = deleteOfferWithHttpInfo(version = version, offerId = offerId, deviceId = deviceId, accountId = accountId)
+    fun deleteOffer(offerId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = deleteOfferWithHttpInfo(offerId = offerId, deviceId = deviceId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -936,10 +929,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/retailer/offer/delete
+     * POST /retailer/offer/delete
      * Delete Offer
      * Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
-     * @param version 
      * @param offerId The ID of the offer to be deleted
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the offer. (optional)
@@ -949,8 +941,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteOfferWithHttpInfo(version: java.math.BigDecimal, offerId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteOfferRequestConfig(version = version, offerId = offerId, deviceId = deviceId, accountId = accountId)
+    fun deleteOfferWithHttpInfo(offerId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteOfferRequestConfig(offerId = offerId, deviceId = deviceId, accountId = accountId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -960,13 +952,12 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation deleteOffer
      *
-     * @param version 
      * @param offerId The ID of the offer to be deleted
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the offer. (optional)
      * @return RequestConfig
      */
-    fun deleteOfferRequestConfig(version: java.math.BigDecimal, offerId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun deleteOfferRequestConfig(offerId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -982,7 +973,7 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/retailer/offer/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/retailer/offer/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -991,10 +982,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/retailer/offer/location/delete
+     * POST /retailer/offer/location/delete
      * Delete Offer Location
      * Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
-     * @param version 
      * @param offerLocationId The ID of the offer location to be deleted
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the offer location. (optional)
@@ -1007,8 +997,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteOfferLocation(version: java.math.BigDecimal, offerLocationId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = deleteOfferLocationWithHttpInfo(version = version, offerLocationId = offerLocationId, deviceId = deviceId, accountId = accountId)
+    fun deleteOfferLocation(offerLocationId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = deleteOfferLocationWithHttpInfo(offerLocationId = offerLocationId, deviceId = deviceId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -1026,10 +1016,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/retailer/offer/location/delete
+     * POST /retailer/offer/location/delete
      * Delete Offer Location
      * Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
-     * @param version 
      * @param offerLocationId The ID of the offer location to be deleted
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the offer location. (optional)
@@ -1039,8 +1028,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteOfferLocationWithHttpInfo(version: java.math.BigDecimal, offerLocationId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteOfferLocationRequestConfig(version = version, offerLocationId = offerLocationId, deviceId = deviceId, accountId = accountId)
+    fun deleteOfferLocationWithHttpInfo(offerLocationId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteOfferLocationRequestConfig(offerLocationId = offerLocationId, deviceId = deviceId, accountId = accountId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -1050,13 +1039,12 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation deleteOfferLocation
      *
-     * @param version 
      * @param offerLocationId The ID of the offer location to be deleted
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the offer location. (optional)
      * @return RequestConfig
      */
-    fun deleteOfferLocationRequestConfig(version: java.math.BigDecimal, offerLocationId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun deleteOfferLocationRequestConfig(offerLocationId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1072,7 +1060,7 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/retailer/offer/location/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/retailer/offer/location/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1081,10 +1069,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/retailer/offer/get
+     * GET /retailer/offer/get
      * Get Offer
      * Gets the details of an offer that the user has access to.
-     * @param version 
      * @param offerId The id of the offer
      * @param includeOfferLocations 
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -1098,8 +1085,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getOffer(version: java.math.BigDecimal, offerId: kotlin.Long, includeOfferLocations: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : RetailerOfferResponse {
-        val localVarResponse = getOfferWithHttpInfo(version = version, offerId = offerId, includeOfferLocations = includeOfferLocations, deviceId = deviceId, accountId = accountId)
+    fun getOffer(offerId: kotlin.Long, includeOfferLocations: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : RetailerOfferResponse {
+        val localVarResponse = getOfferWithHttpInfo(offerId = offerId, includeOfferLocations = includeOfferLocations, deviceId = deviceId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as RetailerOfferResponse
@@ -1117,10 +1104,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/retailer/offer/get
+     * GET /retailer/offer/get
      * Get Offer
      * Gets the details of an offer that the user has access to.
-     * @param version 
      * @param offerId The id of the offer
      * @param includeOfferLocations 
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -1131,8 +1117,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getOfferWithHttpInfo(version: java.math.BigDecimal, offerId: kotlin.Long, includeOfferLocations: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<RetailerOfferResponse?> {
-        val localVariableConfig = getOfferRequestConfig(version = version, offerId = offerId, includeOfferLocations = includeOfferLocations, deviceId = deviceId, accountId = accountId)
+    fun getOfferWithHttpInfo(offerId: kotlin.Long, includeOfferLocations: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<RetailerOfferResponse?> {
+        val localVariableConfig = getOfferRequestConfig(offerId = offerId, includeOfferLocations = includeOfferLocations, deviceId = deviceId, accountId = accountId)
 
         return request<Unit, RetailerOfferResponse>(
             localVariableConfig
@@ -1142,14 +1128,13 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getOffer
      *
-     * @param version 
      * @param offerId The id of the offer
      * @param includeOfferLocations 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id (deviceId or accountId required) (optional)
      * @return RequestConfig
      */
-    fun getOfferRequestConfig(version: java.math.BigDecimal, offerId: kotlin.Long, includeOfferLocations: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun getOfferRequestConfig(offerId: kotlin.Long, includeOfferLocations: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1166,7 +1151,7 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/retailer/offer/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/retailer/offer/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1175,10 +1160,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/offer/get
+     * GET /offer/get
      * Get Offer
      * Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
-     * @param version 
      * @param deviceId The device id for returning account information (i.e. favorites) (optional)
      * @param accountId The account id for returning account information (i.e. favorites) (optional)
      * @param offerId The offer id (either offeLocationId or offerId must be provided) (optional)
@@ -1198,8 +1182,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getOfferDetails(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, offerId: kotlin.Long? = null, offerLocationId: kotlin.Long? = null, distance: kotlin.Double? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, includeOfferLocations: kotlin.Boolean? = false, includeRetailerLocations: kotlin.Boolean? = false, includeChildOffers: kotlin.Boolean? = false) : OfferResponse {
-        val localVarResponse = getOfferDetailsWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, offerId = offerId, offerLocationId = offerLocationId, distance = distance, latitude = latitude, longitude = longitude, includeOfferLocations = includeOfferLocations, includeRetailerLocations = includeRetailerLocations, includeChildOffers = includeChildOffers)
+    fun getOfferDetails(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, offerId: kotlin.Long? = null, offerLocationId: kotlin.Long? = null, distance: kotlin.Double? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, includeOfferLocations: kotlin.Boolean? = false, includeRetailerLocations: kotlin.Boolean? = false, includeChildOffers: kotlin.Boolean? = false) : OfferResponse {
+        val localVarResponse = getOfferDetailsWithHttpInfo(deviceId = deviceId, accountId = accountId, offerId = offerId, offerLocationId = offerLocationId, distance = distance, latitude = latitude, longitude = longitude, includeOfferLocations = includeOfferLocations, includeRetailerLocations = includeRetailerLocations, includeChildOffers = includeChildOffers)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OfferResponse
@@ -1217,10 +1201,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/offer/get
+     * GET /offer/get
      * Get Offer
      * Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
-     * @param version 
      * @param deviceId The device id for returning account information (i.e. favorites) (optional)
      * @param accountId The account id for returning account information (i.e. favorites) (optional)
      * @param offerId The offer id (either offeLocationId or offerId must be provided) (optional)
@@ -1237,8 +1220,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getOfferDetailsWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, distance: kotlin.Double?, latitude: kotlin.Double?, longitude: kotlin.Double?, includeOfferLocations: kotlin.Boolean?, includeRetailerLocations: kotlin.Boolean?, includeChildOffers: kotlin.Boolean?) : ApiResponse<OfferResponse?> {
-        val localVariableConfig = getOfferDetailsRequestConfig(version = version, deviceId = deviceId, accountId = accountId, offerId = offerId, offerLocationId = offerLocationId, distance = distance, latitude = latitude, longitude = longitude, includeOfferLocations = includeOfferLocations, includeRetailerLocations = includeRetailerLocations, includeChildOffers = includeChildOffers)
+    fun getOfferDetailsWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, distance: kotlin.Double?, latitude: kotlin.Double?, longitude: kotlin.Double?, includeOfferLocations: kotlin.Boolean?, includeRetailerLocations: kotlin.Boolean?, includeChildOffers: kotlin.Boolean?) : ApiResponse<OfferResponse?> {
+        val localVariableConfig = getOfferDetailsRequestConfig(deviceId = deviceId, accountId = accountId, offerId = offerId, offerLocationId = offerLocationId, distance = distance, latitude = latitude, longitude = longitude, includeOfferLocations = includeOfferLocations, includeRetailerLocations = includeRetailerLocations, includeChildOffers = includeChildOffers)
 
         return request<Unit, OfferResponse>(
             localVariableConfig
@@ -1248,7 +1231,6 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getOfferDetails
      *
-     * @param version 
      * @param deviceId The device id for returning account information (i.e. favorites) (optional)
      * @param accountId The account id for returning account information (i.e. favorites) (optional)
      * @param offerId The offer id (either offeLocationId or offerId must be provided) (optional)
@@ -1261,7 +1243,7 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param includeChildOffers Determines whether to include child offers in the response (optional, default to false)
      * @return RequestConfig
      */
-    fun getOfferDetailsRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, distance: kotlin.Double?, latitude: kotlin.Double?, longitude: kotlin.Double?, includeOfferLocations: kotlin.Boolean?, includeRetailerLocations: kotlin.Boolean?, includeChildOffers: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getOfferDetailsRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, distance: kotlin.Double?, latitude: kotlin.Double?, longitude: kotlin.Double?, includeOfferLocations: kotlin.Boolean?, includeRetailerLocations: kotlin.Boolean?, includeChildOffers: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1300,7 +1282,7 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/offer/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/offer/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1326,10 +1308,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      }
 
     /**
-     * GET /api/{version}/offer/lists/count
+     * GET /offer/lists/count
      * Get Offers (Counts)
      * Gets the offer list counts.
-     * @param version 
      * @param latitude The latitude of where the search will center at
      * @param longitude The longitude of where the search will center at
      * @param searchRange The range of the search (optional, default to 5)
@@ -1343,8 +1324,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getOfferListCounts(version: java.math.BigDecimal, latitude: kotlin.Double, longitude: kotlin.Double, searchRange: java.math.BigDecimal? = java.math.BigDecimal("5"), distanceUnit: DistanceUnitGetOfferListCounts? = DistanceUnitGetOfferListCounts.MILES) : ListCountResponse {
-        val localVarResponse = getOfferListCountsWithHttpInfo(version = version, latitude = latitude, longitude = longitude, searchRange = searchRange, distanceUnit = distanceUnit)
+    fun getOfferListCounts(latitude: kotlin.Double, longitude: kotlin.Double, searchRange: java.math.BigDecimal? = java.math.BigDecimal("5"), distanceUnit: DistanceUnitGetOfferListCounts? = DistanceUnitGetOfferListCounts.MILES) : ListCountResponse {
+        val localVarResponse = getOfferListCountsWithHttpInfo(latitude = latitude, longitude = longitude, searchRange = searchRange, distanceUnit = distanceUnit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ListCountResponse
@@ -1362,10 +1343,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/offer/lists/count
+     * GET /offer/lists/count
      * Get Offers (Counts)
      * Gets the offer list counts.
-     * @param version 
      * @param latitude The latitude of where the search will center at
      * @param longitude The longitude of where the search will center at
      * @param searchRange The range of the search (optional, default to 5)
@@ -1376,8 +1356,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getOfferListCountsWithHttpInfo(version: java.math.BigDecimal, latitude: kotlin.Double, longitude: kotlin.Double, searchRange: java.math.BigDecimal?, distanceUnit: DistanceUnitGetOfferListCounts?) : ApiResponse<ListCountResponse?> {
-        val localVariableConfig = getOfferListCountsRequestConfig(version = version, latitude = latitude, longitude = longitude, searchRange = searchRange, distanceUnit = distanceUnit)
+    fun getOfferListCountsWithHttpInfo(latitude: kotlin.Double, longitude: kotlin.Double, searchRange: java.math.BigDecimal?, distanceUnit: DistanceUnitGetOfferListCounts?) : ApiResponse<ListCountResponse?> {
+        val localVariableConfig = getOfferListCountsRequestConfig(latitude = latitude, longitude = longitude, searchRange = searchRange, distanceUnit = distanceUnit)
 
         return request<Unit, ListCountResponse>(
             localVariableConfig
@@ -1387,14 +1367,13 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getOfferListCounts
      *
-     * @param version 
      * @param latitude The latitude of where the search will center at
      * @param longitude The longitude of where the search will center at
      * @param searchRange The range of the search (optional, default to 5)
      * @param distanceUnit The units to use for distance calculations (e.g. MILES, KILOMETERS) (optional, default to DistanceUnit.MILES)
      * @return RequestConfig
      */
-    fun getOfferListCountsRequestConfig(version: java.math.BigDecimal, latitude: kotlin.Double, longitude: kotlin.Double, searchRange: java.math.BigDecimal?, distanceUnit: DistanceUnitGetOfferListCounts?) : RequestConfig<Unit> {
+    fun getOfferListCountsRequestConfig(latitude: kotlin.Double, longitude: kotlin.Double, searchRange: java.math.BigDecimal?, distanceUnit: DistanceUnitGetOfferListCounts?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1411,7 +1390,7 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/offer/lists/count".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/offer/lists/count",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1420,10 +1399,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/offer/location/get
+     * GET /offer/location/get
      * Get Offer Location
      * Gets the offer location by offer location id or udid (of a device)
-     * @param version 
      * @param offerLocationId the id of the offer location to get (optional)
      * @param udid the UDID of the device (optional)
      * @return OfferShortResponse
@@ -1435,8 +1413,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getOfferLocation(version: java.math.BigDecimal, offerLocationId: kotlin.Long? = null, udid: kotlin.String? = null) : OfferShortResponse {
-        val localVarResponse = getOfferLocationWithHttpInfo(version = version, offerLocationId = offerLocationId, udid = udid)
+    fun getOfferLocation(offerLocationId: kotlin.Long? = null, udid: kotlin.String? = null) : OfferShortResponse {
+        val localVarResponse = getOfferLocationWithHttpInfo(offerLocationId = offerLocationId, udid = udid)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OfferShortResponse
@@ -1454,10 +1432,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/offer/location/get
+     * GET /offer/location/get
      * Get Offer Location
      * Gets the offer location by offer location id or udid (of a device)
-     * @param version 
      * @param offerLocationId the id of the offer location to get (optional)
      * @param udid the UDID of the device (optional)
      * @return ApiResponse<OfferShortResponse?>
@@ -1466,8 +1443,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getOfferLocationWithHttpInfo(version: java.math.BigDecimal, offerLocationId: kotlin.Long?, udid: kotlin.String?) : ApiResponse<OfferShortResponse?> {
-        val localVariableConfig = getOfferLocationRequestConfig(version = version, offerLocationId = offerLocationId, udid = udid)
+    fun getOfferLocationWithHttpInfo(offerLocationId: kotlin.Long?, udid: kotlin.String?) : ApiResponse<OfferShortResponse?> {
+        val localVariableConfig = getOfferLocationRequestConfig(offerLocationId = offerLocationId, udid = udid)
 
         return request<Unit, OfferShortResponse>(
             localVariableConfig
@@ -1477,12 +1454,11 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getOfferLocation
      *
-     * @param version 
      * @param offerLocationId the id of the offer location to get (optional)
      * @param udid the UDID of the device (optional)
      * @return RequestConfig
      */
-    fun getOfferLocationRequestConfig(version: java.math.BigDecimal, offerLocationId: kotlin.Long?, udid: kotlin.String?) : RequestConfig<Unit> {
+    fun getOfferLocationRequestConfig(offerLocationId: kotlin.Long?, udid: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1497,7 +1473,7 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/offer/location/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/offer/location/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1603,10 +1579,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      }
 
     /**
-     * GET /api/{version}/retailer/offer/location/search
+     * GET /retailer/offer/location/search
      * Search Offer Locations
      * Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
-     * @param version 
      * @param sortField The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
      * @param descending The order to return the results. Default is false, which will return the results in ascending order.
      * @param start The index into the record set to start with. Default is 0.
@@ -1636,8 +1611,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getOfferLocationsForRetailers(version: java.math.BigDecimal, sortField: SortFieldGetOfferLocationsForRetailers, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, includeRetailerLocation: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, keyword: kotlin.String? = null, retailerId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, offerType: OfferTypeGetOfferLocationsForRetailers? = null, specialOfferType: SpecialOfferTypeGetOfferLocationsForRetailers? = null, barcodeType: kotlin.String? = null, barcodeEntry: kotlin.String? = null, isbn: kotlin.String? = null, asin: kotlin.String? = null, deviceStatus: DeviceStatusGetOfferLocationsForRetailers? = null, needsNotificationSent: kotlin.Boolean? = null, lastNotificationSent: kotlin.Long? = null) : kotlin.collections.List<OfferShortResponse> {
-        val localVarResponse = getOfferLocationsForRetailersWithHttpInfo(version = version, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, includeRetailerLocation = includeRetailerLocation, deviceId = deviceId, accountId = accountId, keyword = keyword, retailerId = retailerId, retailerLocationId = retailerLocationId, offerType = offerType, specialOfferType = specialOfferType, barcodeType = barcodeType, barcodeEntry = barcodeEntry, isbn = isbn, asin = asin, deviceStatus = deviceStatus, needsNotificationSent = needsNotificationSent, lastNotificationSent = lastNotificationSent)
+    fun getOfferLocationsForRetailers(sortField: SortFieldGetOfferLocationsForRetailers, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, includeRetailerLocation: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, keyword: kotlin.String? = null, retailerId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, offerType: OfferTypeGetOfferLocationsForRetailers? = null, specialOfferType: SpecialOfferTypeGetOfferLocationsForRetailers? = null, barcodeType: kotlin.String? = null, barcodeEntry: kotlin.String? = null, isbn: kotlin.String? = null, asin: kotlin.String? = null, deviceStatus: DeviceStatusGetOfferLocationsForRetailers? = null, needsNotificationSent: kotlin.Boolean? = null, lastNotificationSent: kotlin.Long? = null) : kotlin.collections.List<OfferShortResponse> {
+        val localVarResponse = getOfferLocationsForRetailersWithHttpInfo(sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, includeRetailerLocation = includeRetailerLocation, deviceId = deviceId, accountId = accountId, keyword = keyword, retailerId = retailerId, retailerLocationId = retailerLocationId, offerType = offerType, specialOfferType = specialOfferType, barcodeType = barcodeType, barcodeEntry = barcodeEntry, isbn = isbn, asin = asin, deviceStatus = deviceStatus, needsNotificationSent = needsNotificationSent, lastNotificationSent = lastNotificationSent)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<OfferShortResponse>
@@ -1655,10 +1630,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/retailer/offer/location/search
+     * GET /retailer/offer/location/search
      * Search Offer Locations
      * Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
-     * @param version 
      * @param sortField The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
      * @param descending The order to return the results. Default is false, which will return the results in ascending order.
      * @param start The index into the record set to start with. Default is 0.
@@ -1685,8 +1659,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getOfferLocationsForRetailersWithHttpInfo(version: java.math.BigDecimal, sortField: SortFieldGetOfferLocationsForRetailers, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, includeRetailerLocation: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, keyword: kotlin.String?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, offerType: OfferTypeGetOfferLocationsForRetailers?, specialOfferType: SpecialOfferTypeGetOfferLocationsForRetailers?, barcodeType: kotlin.String?, barcodeEntry: kotlin.String?, isbn: kotlin.String?, asin: kotlin.String?, deviceStatus: DeviceStatusGetOfferLocationsForRetailers?, needsNotificationSent: kotlin.Boolean?, lastNotificationSent: kotlin.Long?) : ApiResponse<kotlin.collections.List<OfferShortResponse>?> {
-        val localVariableConfig = getOfferLocationsForRetailersRequestConfig(version = version, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, includeRetailerLocation = includeRetailerLocation, deviceId = deviceId, accountId = accountId, keyword = keyword, retailerId = retailerId, retailerLocationId = retailerLocationId, offerType = offerType, specialOfferType = specialOfferType, barcodeType = barcodeType, barcodeEntry = barcodeEntry, isbn = isbn, asin = asin, deviceStatus = deviceStatus, needsNotificationSent = needsNotificationSent, lastNotificationSent = lastNotificationSent)
+    fun getOfferLocationsForRetailersWithHttpInfo(sortField: SortFieldGetOfferLocationsForRetailers, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, includeRetailerLocation: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, keyword: kotlin.String?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, offerType: OfferTypeGetOfferLocationsForRetailers?, specialOfferType: SpecialOfferTypeGetOfferLocationsForRetailers?, barcodeType: kotlin.String?, barcodeEntry: kotlin.String?, isbn: kotlin.String?, asin: kotlin.String?, deviceStatus: DeviceStatusGetOfferLocationsForRetailers?, needsNotificationSent: kotlin.Boolean?, lastNotificationSent: kotlin.Long?) : ApiResponse<kotlin.collections.List<OfferShortResponse>?> {
+        val localVariableConfig = getOfferLocationsForRetailersRequestConfig(sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, includeRetailerLocation = includeRetailerLocation, deviceId = deviceId, accountId = accountId, keyword = keyword, retailerId = retailerId, retailerLocationId = retailerLocationId, offerType = offerType, specialOfferType = specialOfferType, barcodeType = barcodeType, barcodeEntry = barcodeEntry, isbn = isbn, asin = asin, deviceStatus = deviceStatus, needsNotificationSent = needsNotificationSent, lastNotificationSent = lastNotificationSent)
 
         return request<Unit, kotlin.collections.List<OfferShortResponse>>(
             localVariableConfig
@@ -1696,7 +1670,6 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getOfferLocationsForRetailers
      *
-     * @param version 
      * @param sortField The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
      * @param descending The order to return the results. Default is false, which will return the results in ascending order.
      * @param start The index into the record set to start with. Default is 0.
@@ -1719,7 +1692,7 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param lastNotificationSent  (optional)
      * @return RequestConfig
      */
-    fun getOfferLocationsForRetailersRequestConfig(version: java.math.BigDecimal, sortField: SortFieldGetOfferLocationsForRetailers, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, includeRetailerLocation: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, keyword: kotlin.String?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, offerType: OfferTypeGetOfferLocationsForRetailers?, specialOfferType: SpecialOfferTypeGetOfferLocationsForRetailers?, barcodeType: kotlin.String?, barcodeEntry: kotlin.String?, isbn: kotlin.String?, asin: kotlin.String?, deviceStatus: DeviceStatusGetOfferLocationsForRetailers?, needsNotificationSent: kotlin.Boolean?, lastNotificationSent: kotlin.Long?) : RequestConfig<Unit> {
+    fun getOfferLocationsForRetailersRequestConfig(sortField: SortFieldGetOfferLocationsForRetailers, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, includeRetailerLocation: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, keyword: kotlin.String?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, offerType: OfferTypeGetOfferLocationsForRetailers?, specialOfferType: SpecialOfferTypeGetOfferLocationsForRetailers?, barcodeType: kotlin.String?, barcodeEntry: kotlin.String?, isbn: kotlin.String?, asin: kotlin.String?, deviceStatus: DeviceStatusGetOfferLocationsForRetailers?, needsNotificationSent: kotlin.Boolean?, lastNotificationSent: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1776,7 +1749,7 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/retailer/offer/location/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/retailer/offer/location/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1934,10 +1907,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      }
 
     /**
-     * GET /api/{version}/retailer/offer/search
+     * GET /retailer/offer/search
      * Search Offers
      * Searches on offers that the account has access to.
-     * @param version 
      * @param offerVisibility 
      * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY
      * @param descending The order to return the search results
@@ -1978,8 +1950,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getOffersForRetailers(version: java.math.BigDecimal, offerVisibility: OfferVisibilityGetOffersForRetailers, sortField: SortFieldGetOffersForRetailers, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, availableOnly: kotlin.Boolean, activeOnly: kotlin.Boolean, includeCategories: kotlin.Boolean, includeFilters: kotlin.Boolean, includeOfferLocations: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, retailerId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, couponType: CouponTypeGetOffersForRetailers? = null, offerType: OfferTypeGetOffersForRetailers? = null, offerTypes: kotlin.String? = null, specialOfferType: SpecialOfferTypeGetOffersForRetailers? = null, i: kotlin.Int? = null, l: kotlin.Int? = null, barcodeType: kotlin.String? = null, barcodeEntry: kotlin.String? = null, isbn: kotlin.String? = null, asin: kotlin.String? = null, deviceStatus: DeviceStatusGetOffersForRetailers? = null, needsNotificationSent: kotlin.Boolean? = null, lastNotificationSent: kotlin.Long? = null) : kotlin.collections.List<OfferResponse> {
-        val localVarResponse = getOffersForRetailersWithHttpInfo(version = version, offerVisibility = offerVisibility, sortField = sortField, descending = descending, start = start, limit = limit, availableOnly = availableOnly, activeOnly = activeOnly, includeCategories = includeCategories, includeFilters = includeFilters, includeOfferLocations = includeOfferLocations, deviceId = deviceId, accountId = accountId, categoryIds = categoryIds, filterIds = filterIds, q = q, keyword = keyword, retailerId = retailerId, retailerLocationId = retailerLocationId, couponType = couponType, offerType = offerType, offerTypes = offerTypes, specialOfferType = specialOfferType, i = i, l = l, barcodeType = barcodeType, barcodeEntry = barcodeEntry, isbn = isbn, asin = asin, deviceStatus = deviceStatus, needsNotificationSent = needsNotificationSent, lastNotificationSent = lastNotificationSent)
+    fun getOffersForRetailers(offerVisibility: OfferVisibilityGetOffersForRetailers, sortField: SortFieldGetOffersForRetailers, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, availableOnly: kotlin.Boolean, activeOnly: kotlin.Boolean, includeCategories: kotlin.Boolean, includeFilters: kotlin.Boolean, includeOfferLocations: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, retailerId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, couponType: CouponTypeGetOffersForRetailers? = null, offerType: OfferTypeGetOffersForRetailers? = null, offerTypes: kotlin.String? = null, specialOfferType: SpecialOfferTypeGetOffersForRetailers? = null, i: kotlin.Int? = null, l: kotlin.Int? = null, barcodeType: kotlin.String? = null, barcodeEntry: kotlin.String? = null, isbn: kotlin.String? = null, asin: kotlin.String? = null, deviceStatus: DeviceStatusGetOffersForRetailers? = null, needsNotificationSent: kotlin.Boolean? = null, lastNotificationSent: kotlin.Long? = null) : kotlin.collections.List<OfferResponse> {
+        val localVarResponse = getOffersForRetailersWithHttpInfo(offerVisibility = offerVisibility, sortField = sortField, descending = descending, start = start, limit = limit, availableOnly = availableOnly, activeOnly = activeOnly, includeCategories = includeCategories, includeFilters = includeFilters, includeOfferLocations = includeOfferLocations, deviceId = deviceId, accountId = accountId, categoryIds = categoryIds, filterIds = filterIds, q = q, keyword = keyword, retailerId = retailerId, retailerLocationId = retailerLocationId, couponType = couponType, offerType = offerType, offerTypes = offerTypes, specialOfferType = specialOfferType, i = i, l = l, barcodeType = barcodeType, barcodeEntry = barcodeEntry, isbn = isbn, asin = asin, deviceStatus = deviceStatus, needsNotificationSent = needsNotificationSent, lastNotificationSent = lastNotificationSent)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<OfferResponse>
@@ -1997,10 +1969,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/retailer/offer/search
+     * GET /retailer/offer/search
      * Search Offers
      * Searches on offers that the account has access to.
-     * @param version 
      * @param offerVisibility 
      * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY
      * @param descending The order to return the search results
@@ -2038,8 +2009,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getOffersForRetailersWithHttpInfo(version: java.math.BigDecimal, offerVisibility: OfferVisibilityGetOffersForRetailers, sortField: SortFieldGetOffersForRetailers, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, availableOnly: kotlin.Boolean, activeOnly: kotlin.Boolean, includeCategories: kotlin.Boolean, includeFilters: kotlin.Boolean, includeOfferLocations: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, categoryIds: kotlin.String?, filterIds: kotlin.String?, q: kotlin.String?, keyword: kotlin.String?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, couponType: CouponTypeGetOffersForRetailers?, offerType: OfferTypeGetOffersForRetailers?, offerTypes: kotlin.String?, specialOfferType: SpecialOfferTypeGetOffersForRetailers?, i: kotlin.Int?, l: kotlin.Int?, barcodeType: kotlin.String?, barcodeEntry: kotlin.String?, isbn: kotlin.String?, asin: kotlin.String?, deviceStatus: DeviceStatusGetOffersForRetailers?, needsNotificationSent: kotlin.Boolean?, lastNotificationSent: kotlin.Long?) : ApiResponse<kotlin.collections.List<OfferResponse>?> {
-        val localVariableConfig = getOffersForRetailersRequestConfig(version = version, offerVisibility = offerVisibility, sortField = sortField, descending = descending, start = start, limit = limit, availableOnly = availableOnly, activeOnly = activeOnly, includeCategories = includeCategories, includeFilters = includeFilters, includeOfferLocations = includeOfferLocations, deviceId = deviceId, accountId = accountId, categoryIds = categoryIds, filterIds = filterIds, q = q, keyword = keyword, retailerId = retailerId, retailerLocationId = retailerLocationId, couponType = couponType, offerType = offerType, offerTypes = offerTypes, specialOfferType = specialOfferType, i = i, l = l, barcodeType = barcodeType, barcodeEntry = barcodeEntry, isbn = isbn, asin = asin, deviceStatus = deviceStatus, needsNotificationSent = needsNotificationSent, lastNotificationSent = lastNotificationSent)
+    fun getOffersForRetailersWithHttpInfo(offerVisibility: OfferVisibilityGetOffersForRetailers, sortField: SortFieldGetOffersForRetailers, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, availableOnly: kotlin.Boolean, activeOnly: kotlin.Boolean, includeCategories: kotlin.Boolean, includeFilters: kotlin.Boolean, includeOfferLocations: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, categoryIds: kotlin.String?, filterIds: kotlin.String?, q: kotlin.String?, keyword: kotlin.String?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, couponType: CouponTypeGetOffersForRetailers?, offerType: OfferTypeGetOffersForRetailers?, offerTypes: kotlin.String?, specialOfferType: SpecialOfferTypeGetOffersForRetailers?, i: kotlin.Int?, l: kotlin.Int?, barcodeType: kotlin.String?, barcodeEntry: kotlin.String?, isbn: kotlin.String?, asin: kotlin.String?, deviceStatus: DeviceStatusGetOffersForRetailers?, needsNotificationSent: kotlin.Boolean?, lastNotificationSent: kotlin.Long?) : ApiResponse<kotlin.collections.List<OfferResponse>?> {
+        val localVariableConfig = getOffersForRetailersRequestConfig(offerVisibility = offerVisibility, sortField = sortField, descending = descending, start = start, limit = limit, availableOnly = availableOnly, activeOnly = activeOnly, includeCategories = includeCategories, includeFilters = includeFilters, includeOfferLocations = includeOfferLocations, deviceId = deviceId, accountId = accountId, categoryIds = categoryIds, filterIds = filterIds, q = q, keyword = keyword, retailerId = retailerId, retailerLocationId = retailerLocationId, couponType = couponType, offerType = offerType, offerTypes = offerTypes, specialOfferType = specialOfferType, i = i, l = l, barcodeType = barcodeType, barcodeEntry = barcodeEntry, isbn = isbn, asin = asin, deviceStatus = deviceStatus, needsNotificationSent = needsNotificationSent, lastNotificationSent = lastNotificationSent)
 
         return request<Unit, kotlin.collections.List<OfferResponse>>(
             localVariableConfig
@@ -2049,7 +2020,6 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getOffersForRetailers
      *
-     * @param version 
      * @param offerVisibility 
      * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY
      * @param descending The order to return the search results
@@ -2083,7 +2053,7 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param lastNotificationSent  (optional)
      * @return RequestConfig
      */
-    fun getOffersForRetailersRequestConfig(version: java.math.BigDecimal, offerVisibility: OfferVisibilityGetOffersForRetailers, sortField: SortFieldGetOffersForRetailers, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, availableOnly: kotlin.Boolean, activeOnly: kotlin.Boolean, includeCategories: kotlin.Boolean, includeFilters: kotlin.Boolean, includeOfferLocations: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, categoryIds: kotlin.String?, filterIds: kotlin.String?, q: kotlin.String?, keyword: kotlin.String?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, couponType: CouponTypeGetOffersForRetailers?, offerType: OfferTypeGetOffersForRetailers?, offerTypes: kotlin.String?, specialOfferType: SpecialOfferTypeGetOffersForRetailers?, i: kotlin.Int?, l: kotlin.Int?, barcodeType: kotlin.String?, barcodeEntry: kotlin.String?, isbn: kotlin.String?, asin: kotlin.String?, deviceStatus: DeviceStatusGetOffersForRetailers?, needsNotificationSent: kotlin.Boolean?, lastNotificationSent: kotlin.Long?) : RequestConfig<Unit> {
+    fun getOffersForRetailersRequestConfig(offerVisibility: OfferVisibilityGetOffersForRetailers, sortField: SortFieldGetOffersForRetailers, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, availableOnly: kotlin.Boolean, activeOnly: kotlin.Boolean, includeCategories: kotlin.Boolean, includeFilters: kotlin.Boolean, includeOfferLocations: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, categoryIds: kotlin.String?, filterIds: kotlin.String?, q: kotlin.String?, keyword: kotlin.String?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, couponType: CouponTypeGetOffersForRetailers?, offerType: OfferTypeGetOffersForRetailers?, offerTypes: kotlin.String?, specialOfferType: SpecialOfferTypeGetOffersForRetailers?, i: kotlin.Int?, l: kotlin.Int?, barcodeType: kotlin.String?, barcodeEntry: kotlin.String?, isbn: kotlin.String?, asin: kotlin.String?, deviceStatus: DeviceStatusGetOffersForRetailers?, needsNotificationSent: kotlin.Boolean?, lastNotificationSent: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2165,7 +2135,7 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/retailer/offer/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/retailer/offer/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2174,10 +2144,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/retailer/offer/transaction/update
+     * POST /retailer/offer/transaction/update
      * Update Offer Transaction
      * Redeems an offer.
-     * @param version 
      * @param offerTransactionId the OfferTransaction ID of the transaction being redeemed
      * @param status the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -2192,8 +2161,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun redeemOfferTransaction(version: java.math.BigDecimal, offerTransactionId: kotlin.Long, status: kotlin.Int, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, offerLocationId: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = redeemOfferTransactionWithHttpInfo(version = version, offerTransactionId = offerTransactionId, status = status, deviceId = deviceId, accountId = accountId, offerLocationId = offerLocationId)
+    fun redeemOfferTransaction(offerTransactionId: kotlin.Long, status: kotlin.Int, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, offerLocationId: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = redeemOfferTransactionWithHttpInfo(offerTransactionId = offerTransactionId, status = status, deviceId = deviceId, accountId = accountId, offerLocationId = offerLocationId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -2211,10 +2180,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/retailer/offer/transaction/update
+     * POST /retailer/offer/transaction/update
      * Update Offer Transaction
      * Redeems an offer.
-     * @param version 
      * @param offerTransactionId the OfferTransaction ID of the transaction being redeemed
      * @param status the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -2226,8 +2194,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun redeemOfferTransactionWithHttpInfo(version: java.math.BigDecimal, offerTransactionId: kotlin.Long, status: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, offerLocationId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = redeemOfferTransactionRequestConfig(version = version, offerTransactionId = offerTransactionId, status = status, deviceId = deviceId, accountId = accountId, offerLocationId = offerLocationId)
+    fun redeemOfferTransactionWithHttpInfo(offerTransactionId: kotlin.Long, status: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, offerLocationId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = redeemOfferTransactionRequestConfig(offerTransactionId = offerTransactionId, status = status, deviceId = deviceId, accountId = accountId, offerLocationId = offerLocationId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -2237,7 +2205,6 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation redeemOfferTransaction
      *
-     * @param version 
      * @param offerTransactionId the OfferTransaction ID of the transaction being redeemed
      * @param status the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -2245,7 +2212,7 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param offerLocationId the OfferLocation ID where the offer is being redeemed (optional)
      * @return RequestConfig
      */
-    fun redeemOfferTransactionRequestConfig(version: java.math.BigDecimal, offerTransactionId: kotlin.Long, status: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, offerLocationId: kotlin.Long?) : RequestConfig<Unit> {
+    fun redeemOfferTransactionRequestConfig(offerTransactionId: kotlin.Long, status: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, offerLocationId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2265,7 +2232,7 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/retailer/offer/transaction/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/retailer/offer/transaction/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2379,10 +2346,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      }
 
     /**
-     * GET /api/{version}/retailer/offer/transaction/search
+     * GET /retailer/offer/transaction/search
      * Search Offer Transactions
      * Searches on offer transactions for offers that the account has access to.
-     * @param version 
      * @param sortField Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
      * @param descending Determines whether the results are in descending order
      * @param start The start index for pagination
@@ -2416,8 +2382,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchOfferTransactionsForRetailers(version: java.math.BigDecimal, sortField: SortFieldSearchOfferTransactionsForRetailers, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, retailerId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, offerId: kotlin.Long? = null, offerLocationId: kotlin.Long? = null, redeemed: kotlin.Boolean? = null, reservationsOnly: kotlin.Boolean? = null, couponType: CouponTypeSearchOfferTransactionsForRetailers? = null, offerType: OfferTypeSearchOfferTransactionsForRetailers? = null, specialOfferType: SpecialOfferTypeSearchOfferTransactionsForRetailers? = null, customerAccountIds: kotlin.String? = null, categoryIds: kotlin.String? = null, redeemableStartDate: kotlin.Long? = null, redeemableEndDate: kotlin.Long? = null, i: kotlin.Int? = null, l: kotlin.Int? = null) : kotlin.collections.List<OfferTransactionResponse> {
-        val localVarResponse = searchOfferTransactionsForRetailersWithHttpInfo(version = version, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, deviceId = deviceId, accountId = accountId, q = q, keyword = keyword, retailerId = retailerId, retailerLocationId = retailerLocationId, offerId = offerId, offerLocationId = offerLocationId, redeemed = redeemed, reservationsOnly = reservationsOnly, couponType = couponType, offerType = offerType, specialOfferType = specialOfferType, customerAccountIds = customerAccountIds, categoryIds = categoryIds, redeemableStartDate = redeemableStartDate, redeemableEndDate = redeemableEndDate, i = i, l = l)
+    fun searchOfferTransactionsForRetailers(sortField: SortFieldSearchOfferTransactionsForRetailers, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, retailerId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, offerId: kotlin.Long? = null, offerLocationId: kotlin.Long? = null, redeemed: kotlin.Boolean? = null, reservationsOnly: kotlin.Boolean? = null, couponType: CouponTypeSearchOfferTransactionsForRetailers? = null, offerType: OfferTypeSearchOfferTransactionsForRetailers? = null, specialOfferType: SpecialOfferTypeSearchOfferTransactionsForRetailers? = null, customerAccountIds: kotlin.String? = null, categoryIds: kotlin.String? = null, redeemableStartDate: kotlin.Long? = null, redeemableEndDate: kotlin.Long? = null, i: kotlin.Int? = null, l: kotlin.Int? = null) : kotlin.collections.List<OfferTransactionResponse> {
+        val localVarResponse = searchOfferTransactionsForRetailersWithHttpInfo(sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, deviceId = deviceId, accountId = accountId, q = q, keyword = keyword, retailerId = retailerId, retailerLocationId = retailerLocationId, offerId = offerId, offerLocationId = offerLocationId, redeemed = redeemed, reservationsOnly = reservationsOnly, couponType = couponType, offerType = offerType, specialOfferType = specialOfferType, customerAccountIds = customerAccountIds, categoryIds = categoryIds, redeemableStartDate = redeemableStartDate, redeemableEndDate = redeemableEndDate, i = i, l = l)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<OfferTransactionResponse>
@@ -2435,10 +2401,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/retailer/offer/transaction/search
+     * GET /retailer/offer/transaction/search
      * Search Offer Transactions
      * Searches on offer transactions for offers that the account has access to.
-     * @param version 
      * @param sortField Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
      * @param descending Determines whether the results are in descending order
      * @param start The start index for pagination
@@ -2469,8 +2434,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchOfferTransactionsForRetailersWithHttpInfo(version: java.math.BigDecimal, sortField: SortFieldSearchOfferTransactionsForRetailers, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, redeemed: kotlin.Boolean?, reservationsOnly: kotlin.Boolean?, couponType: CouponTypeSearchOfferTransactionsForRetailers?, offerType: OfferTypeSearchOfferTransactionsForRetailers?, specialOfferType: SpecialOfferTypeSearchOfferTransactionsForRetailers?, customerAccountIds: kotlin.String?, categoryIds: kotlin.String?, redeemableStartDate: kotlin.Long?, redeemableEndDate: kotlin.Long?, i: kotlin.Int?, l: kotlin.Int?) : ApiResponse<kotlin.collections.List<OfferTransactionResponse>?> {
-        val localVariableConfig = searchOfferTransactionsForRetailersRequestConfig(version = version, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, deviceId = deviceId, accountId = accountId, q = q, keyword = keyword, retailerId = retailerId, retailerLocationId = retailerLocationId, offerId = offerId, offerLocationId = offerLocationId, redeemed = redeemed, reservationsOnly = reservationsOnly, couponType = couponType, offerType = offerType, specialOfferType = specialOfferType, customerAccountIds = customerAccountIds, categoryIds = categoryIds, redeemableStartDate = redeemableStartDate, redeemableEndDate = redeemableEndDate, i = i, l = l)
+    fun searchOfferTransactionsForRetailersWithHttpInfo(sortField: SortFieldSearchOfferTransactionsForRetailers, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, redeemed: kotlin.Boolean?, reservationsOnly: kotlin.Boolean?, couponType: CouponTypeSearchOfferTransactionsForRetailers?, offerType: OfferTypeSearchOfferTransactionsForRetailers?, specialOfferType: SpecialOfferTypeSearchOfferTransactionsForRetailers?, customerAccountIds: kotlin.String?, categoryIds: kotlin.String?, redeemableStartDate: kotlin.Long?, redeemableEndDate: kotlin.Long?, i: kotlin.Int?, l: kotlin.Int?) : ApiResponse<kotlin.collections.List<OfferTransactionResponse>?> {
+        val localVariableConfig = searchOfferTransactionsForRetailersRequestConfig(sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, deviceId = deviceId, accountId = accountId, q = q, keyword = keyword, retailerId = retailerId, retailerLocationId = retailerLocationId, offerId = offerId, offerLocationId = offerLocationId, redeemed = redeemed, reservationsOnly = reservationsOnly, couponType = couponType, offerType = offerType, specialOfferType = specialOfferType, customerAccountIds = customerAccountIds, categoryIds = categoryIds, redeemableStartDate = redeemableStartDate, redeemableEndDate = redeemableEndDate, i = i, l = l)
 
         return request<Unit, kotlin.collections.List<OfferTransactionResponse>>(
             localVariableConfig
@@ -2480,7 +2445,6 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation searchOfferTransactionsForRetailers
      *
-     * @param version 
      * @param sortField Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
      * @param descending Determines whether the results are in descending order
      * @param start The start index for pagination
@@ -2507,7 +2471,7 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param l This parameter is deprecated. (optional)
      * @return RequestConfig
      */
-    fun searchOfferTransactionsForRetailersRequestConfig(version: java.math.BigDecimal, sortField: SortFieldSearchOfferTransactionsForRetailers, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, redeemed: kotlin.Boolean?, reservationsOnly: kotlin.Boolean?, couponType: CouponTypeSearchOfferTransactionsForRetailers?, offerType: OfferTypeSearchOfferTransactionsForRetailers?, specialOfferType: SpecialOfferTypeSearchOfferTransactionsForRetailers?, customerAccountIds: kotlin.String?, categoryIds: kotlin.String?, redeemableStartDate: kotlin.Long?, redeemableEndDate: kotlin.Long?, i: kotlin.Int?, l: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchOfferTransactionsForRetailersRequestConfig(sortField: SortFieldSearchOfferTransactionsForRetailers, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, redeemed: kotlin.Boolean?, reservationsOnly: kotlin.Boolean?, couponType: CouponTypeSearchOfferTransactionsForRetailers?, offerType: OfferTypeSearchOfferTransactionsForRetailers?, specialOfferType: SpecialOfferTypeSearchOfferTransactionsForRetailers?, customerAccountIds: kotlin.String?, categoryIds: kotlin.String?, redeemableStartDate: kotlin.Long?, redeemableEndDate: kotlin.Long?, i: kotlin.Int?, l: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2578,7 +2542,7 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/retailer/offer/transaction/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/retailer/offer/transaction/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2657,10 +2621,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      }
 
     /**
-     * GET /api/{version}/offer/lists
+     * GET /offer/lists
      * Search Offers
      * Searches for offers as a consumer.
-     * @param version 
      * @param latitude The latitude of where the search will center at
      * @param longitude The longitude of where the search will center at
      * @param recommendationType The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available
@@ -2701,8 +2664,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchOffersForConsumer(version: java.math.BigDecimal, latitude: kotlin.Double, longitude: kotlin.Double, recommendationType: RecommendationTypeSearchOffersForConsumer, locationId: kotlin.Long, start: kotlin.Int, limit: kotlin.Int, maxRecommendations: kotlin.Int, distanceUnit: DistanceUnitSearchOffersForConsumer, appKey: kotlin.String? = null, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, searchRange: kotlin.Double? = 5.0, tags: kotlin.String? = null, supportedPostalCodes: kotlin.String? = null, keyword: kotlin.String? = null, categories: kotlin.String? = null, filters: kotlin.String? = null, offerTypes: kotlin.String? = "COUPON, VOUCHER", type: kotlin.String? = null, sortField: kotlin.String? = null, recommendOfferIds: kotlin.String? = null, retailerLocationIds: kotlin.String? = null, offerId: kotlin.Long? = null, includeMission: kotlin.Boolean? = null, includeCategories: kotlin.Boolean? = null, includeFilters: kotlin.Boolean? = null, includeExpired: kotlin.Boolean? = null, includeFavorite: kotlin.Boolean? = null, closestOfferOnly: kotlin.Boolean? = null, searchExpression: kotlin.String? = null, groupBy: GroupBySearchOffersForConsumer? = null) : OfferListResponse {
-        val localVarResponse = searchOffersForConsumerWithHttpInfo(version = version, latitude = latitude, longitude = longitude, recommendationType = recommendationType, locationId = locationId, start = start, limit = limit, maxRecommendations = maxRecommendations, distanceUnit = distanceUnit, appKey = appKey, deviceId = deviceId, accountId = accountId, searchRange = searchRange, tags = tags, supportedPostalCodes = supportedPostalCodes, keyword = keyword, categories = categories, filters = filters, offerTypes = offerTypes, type = type, sortField = sortField, recommendOfferIds = recommendOfferIds, retailerLocationIds = retailerLocationIds, offerId = offerId, includeMission = includeMission, includeCategories = includeCategories, includeFilters = includeFilters, includeExpired = includeExpired, includeFavorite = includeFavorite, closestOfferOnly = closestOfferOnly, searchExpression = searchExpression, groupBy = groupBy)
+    fun searchOffersForConsumer(latitude: kotlin.Double, longitude: kotlin.Double, recommendationType: RecommendationTypeSearchOffersForConsumer, locationId: kotlin.Long, start: kotlin.Int, limit: kotlin.Int, maxRecommendations: kotlin.Int, distanceUnit: DistanceUnitSearchOffersForConsumer, appKey: kotlin.String? = null, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, searchRange: kotlin.Double? = 5.0, tags: kotlin.String? = null, supportedPostalCodes: kotlin.String? = null, keyword: kotlin.String? = null, categories: kotlin.String? = null, filters: kotlin.String? = null, offerTypes: kotlin.String? = "COUPON, VOUCHER", type: kotlin.String? = null, sortField: kotlin.String? = null, recommendOfferIds: kotlin.String? = null, retailerLocationIds: kotlin.String? = null, offerId: kotlin.Long? = null, includeMission: kotlin.Boolean? = null, includeCategories: kotlin.Boolean? = null, includeFilters: kotlin.Boolean? = null, includeExpired: kotlin.Boolean? = null, includeFavorite: kotlin.Boolean? = null, closestOfferOnly: kotlin.Boolean? = null, searchExpression: kotlin.String? = null, groupBy: GroupBySearchOffersForConsumer? = null) : OfferListResponse {
+        val localVarResponse = searchOffersForConsumerWithHttpInfo(latitude = latitude, longitude = longitude, recommendationType = recommendationType, locationId = locationId, start = start, limit = limit, maxRecommendations = maxRecommendations, distanceUnit = distanceUnit, appKey = appKey, deviceId = deviceId, accountId = accountId, searchRange = searchRange, tags = tags, supportedPostalCodes = supportedPostalCodes, keyword = keyword, categories = categories, filters = filters, offerTypes = offerTypes, type = type, sortField = sortField, recommendOfferIds = recommendOfferIds, retailerLocationIds = retailerLocationIds, offerId = offerId, includeMission = includeMission, includeCategories = includeCategories, includeFilters = includeFilters, includeExpired = includeExpired, includeFavorite = includeFavorite, closestOfferOnly = closestOfferOnly, searchExpression = searchExpression, groupBy = groupBy)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OfferListResponse
@@ -2720,10 +2683,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/offer/lists
+     * GET /offer/lists
      * Search Offers
      * Searches for offers as a consumer.
-     * @param version 
      * @param latitude The latitude of where the search will center at
      * @param longitude The longitude of where the search will center at
      * @param recommendationType The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available
@@ -2761,8 +2723,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchOffersForConsumerWithHttpInfo(version: java.math.BigDecimal, latitude: kotlin.Double, longitude: kotlin.Double, recommendationType: RecommendationTypeSearchOffersForConsumer, locationId: kotlin.Long, start: kotlin.Int, limit: kotlin.Int, maxRecommendations: kotlin.Int, distanceUnit: DistanceUnitSearchOffersForConsumer, appKey: kotlin.String?, deviceId: kotlin.String?, accountId: kotlin.Long?, searchRange: kotlin.Double?, tags: kotlin.String?, supportedPostalCodes: kotlin.String?, keyword: kotlin.String?, categories: kotlin.String?, filters: kotlin.String?, offerTypes: kotlin.String?, type: kotlin.String?, sortField: kotlin.String?, recommendOfferIds: kotlin.String?, retailerLocationIds: kotlin.String?, offerId: kotlin.Long?, includeMission: kotlin.Boolean?, includeCategories: kotlin.Boolean?, includeFilters: kotlin.Boolean?, includeExpired: kotlin.Boolean?, includeFavorite: kotlin.Boolean?, closestOfferOnly: kotlin.Boolean?, searchExpression: kotlin.String?, groupBy: GroupBySearchOffersForConsumer?) : ApiResponse<OfferListResponse?> {
-        val localVariableConfig = searchOffersForConsumerRequestConfig(version = version, latitude = latitude, longitude = longitude, recommendationType = recommendationType, locationId = locationId, start = start, limit = limit, maxRecommendations = maxRecommendations, distanceUnit = distanceUnit, appKey = appKey, deviceId = deviceId, accountId = accountId, searchRange = searchRange, tags = tags, supportedPostalCodes = supportedPostalCodes, keyword = keyword, categories = categories, filters = filters, offerTypes = offerTypes, type = type, sortField = sortField, recommendOfferIds = recommendOfferIds, retailerLocationIds = retailerLocationIds, offerId = offerId, includeMission = includeMission, includeCategories = includeCategories, includeFilters = includeFilters, includeExpired = includeExpired, includeFavorite = includeFavorite, closestOfferOnly = closestOfferOnly, searchExpression = searchExpression, groupBy = groupBy)
+    fun searchOffersForConsumerWithHttpInfo(latitude: kotlin.Double, longitude: kotlin.Double, recommendationType: RecommendationTypeSearchOffersForConsumer, locationId: kotlin.Long, start: kotlin.Int, limit: kotlin.Int, maxRecommendations: kotlin.Int, distanceUnit: DistanceUnitSearchOffersForConsumer, appKey: kotlin.String?, deviceId: kotlin.String?, accountId: kotlin.Long?, searchRange: kotlin.Double?, tags: kotlin.String?, supportedPostalCodes: kotlin.String?, keyword: kotlin.String?, categories: kotlin.String?, filters: kotlin.String?, offerTypes: kotlin.String?, type: kotlin.String?, sortField: kotlin.String?, recommendOfferIds: kotlin.String?, retailerLocationIds: kotlin.String?, offerId: kotlin.Long?, includeMission: kotlin.Boolean?, includeCategories: kotlin.Boolean?, includeFilters: kotlin.Boolean?, includeExpired: kotlin.Boolean?, includeFavorite: kotlin.Boolean?, closestOfferOnly: kotlin.Boolean?, searchExpression: kotlin.String?, groupBy: GroupBySearchOffersForConsumer?) : ApiResponse<OfferListResponse?> {
+        val localVariableConfig = searchOffersForConsumerRequestConfig(latitude = latitude, longitude = longitude, recommendationType = recommendationType, locationId = locationId, start = start, limit = limit, maxRecommendations = maxRecommendations, distanceUnit = distanceUnit, appKey = appKey, deviceId = deviceId, accountId = accountId, searchRange = searchRange, tags = tags, supportedPostalCodes = supportedPostalCodes, keyword = keyword, categories = categories, filters = filters, offerTypes = offerTypes, type = type, sortField = sortField, recommendOfferIds = recommendOfferIds, retailerLocationIds = retailerLocationIds, offerId = offerId, includeMission = includeMission, includeCategories = includeCategories, includeFilters = includeFilters, includeExpired = includeExpired, includeFavorite = includeFavorite, closestOfferOnly = closestOfferOnly, searchExpression = searchExpression, groupBy = groupBy)
 
         return request<Unit, OfferListResponse>(
             localVariableConfig
@@ -2772,7 +2734,6 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation searchOffersForConsumer
      *
-     * @param version 
      * @param latitude The latitude of where the search will center at
      * @param longitude The longitude of where the search will center at
      * @param recommendationType The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available
@@ -2806,7 +2767,7 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param groupBy groups the results by a certain field. For example, if you want to return the closest offer location of an offer, then pass in groupBy&#x3D;OFFER_ID and sortField&#x3D;DISTANCE (to sort by distance). (optional)
      * @return RequestConfig
      */
-    fun searchOffersForConsumerRequestConfig(version: java.math.BigDecimal, latitude: kotlin.Double, longitude: kotlin.Double, recommendationType: RecommendationTypeSearchOffersForConsumer, locationId: kotlin.Long, start: kotlin.Int, limit: kotlin.Int, maxRecommendations: kotlin.Int, distanceUnit: DistanceUnitSearchOffersForConsumer, appKey: kotlin.String?, deviceId: kotlin.String?, accountId: kotlin.Long?, searchRange: kotlin.Double?, tags: kotlin.String?, supportedPostalCodes: kotlin.String?, keyword: kotlin.String?, categories: kotlin.String?, filters: kotlin.String?, offerTypes: kotlin.String?, type: kotlin.String?, sortField: kotlin.String?, recommendOfferIds: kotlin.String?, retailerLocationIds: kotlin.String?, offerId: kotlin.Long?, includeMission: kotlin.Boolean?, includeCategories: kotlin.Boolean?, includeFilters: kotlin.Boolean?, includeExpired: kotlin.Boolean?, includeFavorite: kotlin.Boolean?, closestOfferOnly: kotlin.Boolean?, searchExpression: kotlin.String?, groupBy: GroupBySearchOffersForConsumer?) : RequestConfig<Unit> {
+    fun searchOffersForConsumerRequestConfig(latitude: kotlin.Double, longitude: kotlin.Double, recommendationType: RecommendationTypeSearchOffersForConsumer, locationId: kotlin.Long, start: kotlin.Int, limit: kotlin.Int, maxRecommendations: kotlin.Int, distanceUnit: DistanceUnitSearchOffersForConsumer, appKey: kotlin.String?, deviceId: kotlin.String?, accountId: kotlin.Long?, searchRange: kotlin.Double?, tags: kotlin.String?, supportedPostalCodes: kotlin.String?, keyword: kotlin.String?, categories: kotlin.String?, filters: kotlin.String?, offerTypes: kotlin.String?, type: kotlin.String?, sortField: kotlin.String?, recommendOfferIds: kotlin.String?, retailerLocationIds: kotlin.String?, offerId: kotlin.Long?, includeMission: kotlin.Boolean?, includeCategories: kotlin.Boolean?, includeFilters: kotlin.Boolean?, includeExpired: kotlin.Boolean?, includeFavorite: kotlin.Boolean?, closestOfferOnly: kotlin.Boolean?, searchExpression: kotlin.String?, groupBy: GroupBySearchOffersForConsumer?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2892,7 +2853,7 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/offer/lists".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/offer/lists",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2901,10 +2862,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/offer/top
+     * GET /offer/top
      * Get Offers (Top)
      * Gets the top active offers.
-     * @param version 
      * @param start The index into the record set to start with. Default is 0. (optional, default to 0)
      * @param limit The total number of record to return. Default id 20. (optional, default to 20)
      * @return OfferListResponse
@@ -2916,8 +2876,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun topOfferTransactions(version: java.math.BigDecimal, start: kotlin.Int? = 0, limit: kotlin.Int? = 20) : OfferListResponse {
-        val localVarResponse = topOfferTransactionsWithHttpInfo(version = version, start = start, limit = limit)
+    fun topOfferTransactions(start: kotlin.Int? = 0, limit: kotlin.Int? = 20) : OfferListResponse {
+        val localVarResponse = topOfferTransactionsWithHttpInfo(start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OfferListResponse
@@ -2935,10 +2895,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/offer/top
+     * GET /offer/top
      * Get Offers (Top)
      * Gets the top active offers.
-     * @param version 
      * @param start The index into the record set to start with. Default is 0. (optional, default to 0)
      * @param limit The total number of record to return. Default id 20. (optional, default to 20)
      * @return ApiResponse<OfferListResponse?>
@@ -2947,8 +2906,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun topOfferTransactionsWithHttpInfo(version: java.math.BigDecimal, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<OfferListResponse?> {
-        val localVariableConfig = topOfferTransactionsRequestConfig(version = version, start = start, limit = limit)
+    fun topOfferTransactionsWithHttpInfo(start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<OfferListResponse?> {
+        val localVariableConfig = topOfferTransactionsRequestConfig(start = start, limit = limit)
 
         return request<Unit, OfferListResponse>(
             localVariableConfig
@@ -2958,12 +2917,11 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation topOfferTransactions
      *
-     * @param version 
      * @param start The index into the record set to start with. Default is 0. (optional, default to 0)
      * @param limit The total number of record to return. Default id 20. (optional, default to 20)
      * @return RequestConfig
      */
-    fun topOfferTransactionsRequestConfig(version: java.math.BigDecimal, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun topOfferTransactionsRequestConfig(start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2978,7 +2936,7 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/offer/top".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/offer/top",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -3188,10 +3146,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      }
 
     /**
-     * POST /api/{version}/retailer/offer/update
+     * POST /retailer/offer/update
      * Update Offer
      * Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
-     * @param version 
      * @param offerId The offer to update
      * @param includeOfferLocations If true return all the offer locations associated with the offer
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -3288,8 +3245,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateOffer(version: java.math.BigDecimal, offerId: kotlin.Long, includeOfferLocations: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, parentOfferId: kotlin.Long? = null, retailerLocationIds: kotlin.String? = null, offerLocations: kotlin.String? = null, tags: kotlin.String? = null, title: kotlin.String? = null, subTitle: kotlin.String? = null, details: kotlin.String? = null, subDetails: kotlin.String? = null, finePrint: kotlin.String? = null, barcodeType: BarcodeTypeUpdateOffer? = null, barcodeEntry: kotlin.String? = null, externalRedeemOptions: kotlin.String? = null, externalUrl: kotlin.String? = null, externalId: kotlin.String? = null, ticketsRewardType: kotlin.String? = null, ticketsReward: kotlin.Long? = null, activated: kotlin.Long? = null, expires: kotlin.Long? = null, noExpiration: kotlin.Boolean? = null, availableLimit: kotlin.Int? = null, availableLimitPerUser: kotlin.Int? = null, addedLimit: kotlin.Int? = null, viewLimit: kotlin.Int? = null, maxPrints: kotlin.Int? = null, ticketPriceType: kotlin.String? = null, ticketPrice: kotlin.Long? = null, fullPrice: kotlin.Double? = null, discountPrice: kotlin.Double? = null, showRemaining: kotlin.Boolean? = null, showRedeemed: kotlin.Boolean? = null, replaced: kotlin.Boolean? = null, featured: kotlin.Boolean? = null, offerType: OfferTypeUpdateOffer? = null, specialOfferType: SpecialOfferTypeUpdateOffer? = null, offerVisibility: OfferVisibilityUpdateOffer? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, active: kotlin.Boolean? = null, barcodeAssetId: kotlin.Long? = null, imageAssetId: kotlin.Long? = null, imageAssetId1: kotlin.Long? = null, imageAssetId2: kotlin.Long? = null, imageAssetId3: kotlin.Long? = null, imageAssetId4: kotlin.Long? = null, imageAssetId5: kotlin.Long? = null, publisher: kotlin.String? = null, redeemableStart: kotlin.Long? = null, redeemableEnd: kotlin.Long? = null, brand: kotlin.String? = null, productType: ProductTypeUpdateOffer? = null, conditionType: ConditionTypeUpdateOffer? = null, isbn: kotlin.String? = null, asin: kotlin.String? = null, catalogNumbers: kotlin.String? = null, department: kotlin.String? = null, features: kotlin.String? = null, minimumPrice: kotlin.Double? = null, width: kotlin.Double? = null, height: kotlin.Double? = null, depth: kotlin.Double? = null, weight: kotlin.Double? = null, unit: UnitUpdateOffer? = null, studio: kotlin.String? = null, parentalRating: kotlin.String? = null, publishDate: kotlin.Long? = null, availabilityDate: kotlin.Long? = null, sizeId: kotlin.Long? = null, listingId: kotlin.Long? = null, mediaType: MediaTypeUpdateOffer? = null, duration: kotlin.Int? = null, author: kotlin.String? = null, releaseDate: kotlin.Long? = null, collectionIds: kotlin.String? = null, rebootTimeHour: kotlin.Int? = null, rebootTimeMinute: kotlin.Int? = null, idleTimeoutInSecond: kotlin.Int? = null, serialNumber: kotlin.String? = null, udid: kotlin.String? = null, deviceType: kotlin.String? = null, devicePower: kotlin.Double? = null, deviceInterference: kotlin.Double? = null, availability: kotlin.String? = null, availabilitySummary: kotlin.String? = null) : RetailerOfferResponse {
-        val localVarResponse = updateOfferWithHttpInfo(version = version, offerId = offerId, includeOfferLocations = includeOfferLocations, deviceId = deviceId, accountId = accountId, parentOfferId = parentOfferId, retailerLocationIds = retailerLocationIds, offerLocations = offerLocations, tags = tags, title = title, subTitle = subTitle, details = details, subDetails = subDetails, finePrint = finePrint, barcodeType = barcodeType, barcodeEntry = barcodeEntry, externalRedeemOptions = externalRedeemOptions, externalUrl = externalUrl, externalId = externalId, ticketsRewardType = ticketsRewardType, ticketsReward = ticketsReward, activated = activated, expires = expires, noExpiration = noExpiration, availableLimit = availableLimit, availableLimitPerUser = availableLimitPerUser, addedLimit = addedLimit, viewLimit = viewLimit, maxPrints = maxPrints, ticketPriceType = ticketPriceType, ticketPrice = ticketPrice, fullPrice = fullPrice, discountPrice = discountPrice, showRemaining = showRemaining, showRedeemed = showRedeemed, replaced = replaced, featured = featured, offerType = offerType, specialOfferType = specialOfferType, offerVisibility = offerVisibility, categoryIds = categoryIds, filterIds = filterIds, active = active, barcodeAssetId = barcodeAssetId, imageAssetId = imageAssetId, imageAssetId1 = imageAssetId1, imageAssetId2 = imageAssetId2, imageAssetId3 = imageAssetId3, imageAssetId4 = imageAssetId4, imageAssetId5 = imageAssetId5, publisher = publisher, redeemableStart = redeemableStart, redeemableEnd = redeemableEnd, brand = brand, productType = productType, conditionType = conditionType, isbn = isbn, asin = asin, catalogNumbers = catalogNumbers, department = department, features = features, minimumPrice = minimumPrice, width = width, height = height, depth = depth, weight = weight, unit = unit, studio = studio, parentalRating = parentalRating, publishDate = publishDate, availabilityDate = availabilityDate, sizeId = sizeId, listingId = listingId, mediaType = mediaType, duration = duration, author = author, releaseDate = releaseDate, collectionIds = collectionIds, rebootTimeHour = rebootTimeHour, rebootTimeMinute = rebootTimeMinute, idleTimeoutInSecond = idleTimeoutInSecond, serialNumber = serialNumber, udid = udid, deviceType = deviceType, devicePower = devicePower, deviceInterference = deviceInterference, availability = availability, availabilitySummary = availabilitySummary)
+    fun updateOffer(offerId: kotlin.Long, includeOfferLocations: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, parentOfferId: kotlin.Long? = null, retailerLocationIds: kotlin.String? = null, offerLocations: kotlin.String? = null, tags: kotlin.String? = null, title: kotlin.String? = null, subTitle: kotlin.String? = null, details: kotlin.String? = null, subDetails: kotlin.String? = null, finePrint: kotlin.String? = null, barcodeType: BarcodeTypeUpdateOffer? = null, barcodeEntry: kotlin.String? = null, externalRedeemOptions: kotlin.String? = null, externalUrl: kotlin.String? = null, externalId: kotlin.String? = null, ticketsRewardType: kotlin.String? = null, ticketsReward: kotlin.Long? = null, activated: kotlin.Long? = null, expires: kotlin.Long? = null, noExpiration: kotlin.Boolean? = null, availableLimit: kotlin.Int? = null, availableLimitPerUser: kotlin.Int? = null, addedLimit: kotlin.Int? = null, viewLimit: kotlin.Int? = null, maxPrints: kotlin.Int? = null, ticketPriceType: kotlin.String? = null, ticketPrice: kotlin.Long? = null, fullPrice: kotlin.Double? = null, discountPrice: kotlin.Double? = null, showRemaining: kotlin.Boolean? = null, showRedeemed: kotlin.Boolean? = null, replaced: kotlin.Boolean? = null, featured: kotlin.Boolean? = null, offerType: OfferTypeUpdateOffer? = null, specialOfferType: SpecialOfferTypeUpdateOffer? = null, offerVisibility: OfferVisibilityUpdateOffer? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, active: kotlin.Boolean? = null, barcodeAssetId: kotlin.Long? = null, imageAssetId: kotlin.Long? = null, imageAssetId1: kotlin.Long? = null, imageAssetId2: kotlin.Long? = null, imageAssetId3: kotlin.Long? = null, imageAssetId4: kotlin.Long? = null, imageAssetId5: kotlin.Long? = null, publisher: kotlin.String? = null, redeemableStart: kotlin.Long? = null, redeemableEnd: kotlin.Long? = null, brand: kotlin.String? = null, productType: ProductTypeUpdateOffer? = null, conditionType: ConditionTypeUpdateOffer? = null, isbn: kotlin.String? = null, asin: kotlin.String? = null, catalogNumbers: kotlin.String? = null, department: kotlin.String? = null, features: kotlin.String? = null, minimumPrice: kotlin.Double? = null, width: kotlin.Double? = null, height: kotlin.Double? = null, depth: kotlin.Double? = null, weight: kotlin.Double? = null, unit: UnitUpdateOffer? = null, studio: kotlin.String? = null, parentalRating: kotlin.String? = null, publishDate: kotlin.Long? = null, availabilityDate: kotlin.Long? = null, sizeId: kotlin.Long? = null, listingId: kotlin.Long? = null, mediaType: MediaTypeUpdateOffer? = null, duration: kotlin.Int? = null, author: kotlin.String? = null, releaseDate: kotlin.Long? = null, collectionIds: kotlin.String? = null, rebootTimeHour: kotlin.Int? = null, rebootTimeMinute: kotlin.Int? = null, idleTimeoutInSecond: kotlin.Int? = null, serialNumber: kotlin.String? = null, udid: kotlin.String? = null, deviceType: kotlin.String? = null, devicePower: kotlin.Double? = null, deviceInterference: kotlin.Double? = null, availability: kotlin.String? = null, availabilitySummary: kotlin.String? = null) : RetailerOfferResponse {
+        val localVarResponse = updateOfferWithHttpInfo(offerId = offerId, includeOfferLocations = includeOfferLocations, deviceId = deviceId, accountId = accountId, parentOfferId = parentOfferId, retailerLocationIds = retailerLocationIds, offerLocations = offerLocations, tags = tags, title = title, subTitle = subTitle, details = details, subDetails = subDetails, finePrint = finePrint, barcodeType = barcodeType, barcodeEntry = barcodeEntry, externalRedeemOptions = externalRedeemOptions, externalUrl = externalUrl, externalId = externalId, ticketsRewardType = ticketsRewardType, ticketsReward = ticketsReward, activated = activated, expires = expires, noExpiration = noExpiration, availableLimit = availableLimit, availableLimitPerUser = availableLimitPerUser, addedLimit = addedLimit, viewLimit = viewLimit, maxPrints = maxPrints, ticketPriceType = ticketPriceType, ticketPrice = ticketPrice, fullPrice = fullPrice, discountPrice = discountPrice, showRemaining = showRemaining, showRedeemed = showRedeemed, replaced = replaced, featured = featured, offerType = offerType, specialOfferType = specialOfferType, offerVisibility = offerVisibility, categoryIds = categoryIds, filterIds = filterIds, active = active, barcodeAssetId = barcodeAssetId, imageAssetId = imageAssetId, imageAssetId1 = imageAssetId1, imageAssetId2 = imageAssetId2, imageAssetId3 = imageAssetId3, imageAssetId4 = imageAssetId4, imageAssetId5 = imageAssetId5, publisher = publisher, redeemableStart = redeemableStart, redeemableEnd = redeemableEnd, brand = brand, productType = productType, conditionType = conditionType, isbn = isbn, asin = asin, catalogNumbers = catalogNumbers, department = department, features = features, minimumPrice = minimumPrice, width = width, height = height, depth = depth, weight = weight, unit = unit, studio = studio, parentalRating = parentalRating, publishDate = publishDate, availabilityDate = availabilityDate, sizeId = sizeId, listingId = listingId, mediaType = mediaType, duration = duration, author = author, releaseDate = releaseDate, collectionIds = collectionIds, rebootTimeHour = rebootTimeHour, rebootTimeMinute = rebootTimeMinute, idleTimeoutInSecond = idleTimeoutInSecond, serialNumber = serialNumber, udid = udid, deviceType = deviceType, devicePower = devicePower, deviceInterference = deviceInterference, availability = availability, availabilitySummary = availabilitySummary)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as RetailerOfferResponse
@@ -3307,10 +3264,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/retailer/offer/update
+     * POST /retailer/offer/update
      * Update Offer
      * Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
-     * @param version 
      * @param offerId The offer to update
      * @param includeOfferLocations If true return all the offer locations associated with the offer
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -3404,8 +3360,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateOfferWithHttpInfo(version: java.math.BigDecimal, offerId: kotlin.Long, includeOfferLocations: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, parentOfferId: kotlin.Long?, retailerLocationIds: kotlin.String?, offerLocations: kotlin.String?, tags: kotlin.String?, title: kotlin.String?, subTitle: kotlin.String?, details: kotlin.String?, subDetails: kotlin.String?, finePrint: kotlin.String?, barcodeType: BarcodeTypeUpdateOffer?, barcodeEntry: kotlin.String?, externalRedeemOptions: kotlin.String?, externalUrl: kotlin.String?, externalId: kotlin.String?, ticketsRewardType: kotlin.String?, ticketsReward: kotlin.Long?, activated: kotlin.Long?, expires: kotlin.Long?, noExpiration: kotlin.Boolean?, availableLimit: kotlin.Int?, availableLimitPerUser: kotlin.Int?, addedLimit: kotlin.Int?, viewLimit: kotlin.Int?, maxPrints: kotlin.Int?, ticketPriceType: kotlin.String?, ticketPrice: kotlin.Long?, fullPrice: kotlin.Double?, discountPrice: kotlin.Double?, showRemaining: kotlin.Boolean?, showRedeemed: kotlin.Boolean?, replaced: kotlin.Boolean?, featured: kotlin.Boolean?, offerType: OfferTypeUpdateOffer?, specialOfferType: SpecialOfferTypeUpdateOffer?, offerVisibility: OfferVisibilityUpdateOffer?, categoryIds: kotlin.String?, filterIds: kotlin.String?, active: kotlin.Boolean?, barcodeAssetId: kotlin.Long?, imageAssetId: kotlin.Long?, imageAssetId1: kotlin.Long?, imageAssetId2: kotlin.Long?, imageAssetId3: kotlin.Long?, imageAssetId4: kotlin.Long?, imageAssetId5: kotlin.Long?, publisher: kotlin.String?, redeemableStart: kotlin.Long?, redeemableEnd: kotlin.Long?, brand: kotlin.String?, productType: ProductTypeUpdateOffer?, conditionType: ConditionTypeUpdateOffer?, isbn: kotlin.String?, asin: kotlin.String?, catalogNumbers: kotlin.String?, department: kotlin.String?, features: kotlin.String?, minimumPrice: kotlin.Double?, width: kotlin.Double?, height: kotlin.Double?, depth: kotlin.Double?, weight: kotlin.Double?, unit: UnitUpdateOffer?, studio: kotlin.String?, parentalRating: kotlin.String?, publishDate: kotlin.Long?, availabilityDate: kotlin.Long?, sizeId: kotlin.Long?, listingId: kotlin.Long?, mediaType: MediaTypeUpdateOffer?, duration: kotlin.Int?, author: kotlin.String?, releaseDate: kotlin.Long?, collectionIds: kotlin.String?, rebootTimeHour: kotlin.Int?, rebootTimeMinute: kotlin.Int?, idleTimeoutInSecond: kotlin.Int?, serialNumber: kotlin.String?, udid: kotlin.String?, deviceType: kotlin.String?, devicePower: kotlin.Double?, deviceInterference: kotlin.Double?, availability: kotlin.String?, availabilitySummary: kotlin.String?) : ApiResponse<RetailerOfferResponse?> {
-        val localVariableConfig = updateOfferRequestConfig(version = version, offerId = offerId, includeOfferLocations = includeOfferLocations, deviceId = deviceId, accountId = accountId, parentOfferId = parentOfferId, retailerLocationIds = retailerLocationIds, offerLocations = offerLocations, tags = tags, title = title, subTitle = subTitle, details = details, subDetails = subDetails, finePrint = finePrint, barcodeType = barcodeType, barcodeEntry = barcodeEntry, externalRedeemOptions = externalRedeemOptions, externalUrl = externalUrl, externalId = externalId, ticketsRewardType = ticketsRewardType, ticketsReward = ticketsReward, activated = activated, expires = expires, noExpiration = noExpiration, availableLimit = availableLimit, availableLimitPerUser = availableLimitPerUser, addedLimit = addedLimit, viewLimit = viewLimit, maxPrints = maxPrints, ticketPriceType = ticketPriceType, ticketPrice = ticketPrice, fullPrice = fullPrice, discountPrice = discountPrice, showRemaining = showRemaining, showRedeemed = showRedeemed, replaced = replaced, featured = featured, offerType = offerType, specialOfferType = specialOfferType, offerVisibility = offerVisibility, categoryIds = categoryIds, filterIds = filterIds, active = active, barcodeAssetId = barcodeAssetId, imageAssetId = imageAssetId, imageAssetId1 = imageAssetId1, imageAssetId2 = imageAssetId2, imageAssetId3 = imageAssetId3, imageAssetId4 = imageAssetId4, imageAssetId5 = imageAssetId5, publisher = publisher, redeemableStart = redeemableStart, redeemableEnd = redeemableEnd, brand = brand, productType = productType, conditionType = conditionType, isbn = isbn, asin = asin, catalogNumbers = catalogNumbers, department = department, features = features, minimumPrice = minimumPrice, width = width, height = height, depth = depth, weight = weight, unit = unit, studio = studio, parentalRating = parentalRating, publishDate = publishDate, availabilityDate = availabilityDate, sizeId = sizeId, listingId = listingId, mediaType = mediaType, duration = duration, author = author, releaseDate = releaseDate, collectionIds = collectionIds, rebootTimeHour = rebootTimeHour, rebootTimeMinute = rebootTimeMinute, idleTimeoutInSecond = idleTimeoutInSecond, serialNumber = serialNumber, udid = udid, deviceType = deviceType, devicePower = devicePower, deviceInterference = deviceInterference, availability = availability, availabilitySummary = availabilitySummary)
+    fun updateOfferWithHttpInfo(offerId: kotlin.Long, includeOfferLocations: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, parentOfferId: kotlin.Long?, retailerLocationIds: kotlin.String?, offerLocations: kotlin.String?, tags: kotlin.String?, title: kotlin.String?, subTitle: kotlin.String?, details: kotlin.String?, subDetails: kotlin.String?, finePrint: kotlin.String?, barcodeType: BarcodeTypeUpdateOffer?, barcodeEntry: kotlin.String?, externalRedeemOptions: kotlin.String?, externalUrl: kotlin.String?, externalId: kotlin.String?, ticketsRewardType: kotlin.String?, ticketsReward: kotlin.Long?, activated: kotlin.Long?, expires: kotlin.Long?, noExpiration: kotlin.Boolean?, availableLimit: kotlin.Int?, availableLimitPerUser: kotlin.Int?, addedLimit: kotlin.Int?, viewLimit: kotlin.Int?, maxPrints: kotlin.Int?, ticketPriceType: kotlin.String?, ticketPrice: kotlin.Long?, fullPrice: kotlin.Double?, discountPrice: kotlin.Double?, showRemaining: kotlin.Boolean?, showRedeemed: kotlin.Boolean?, replaced: kotlin.Boolean?, featured: kotlin.Boolean?, offerType: OfferTypeUpdateOffer?, specialOfferType: SpecialOfferTypeUpdateOffer?, offerVisibility: OfferVisibilityUpdateOffer?, categoryIds: kotlin.String?, filterIds: kotlin.String?, active: kotlin.Boolean?, barcodeAssetId: kotlin.Long?, imageAssetId: kotlin.Long?, imageAssetId1: kotlin.Long?, imageAssetId2: kotlin.Long?, imageAssetId3: kotlin.Long?, imageAssetId4: kotlin.Long?, imageAssetId5: kotlin.Long?, publisher: kotlin.String?, redeemableStart: kotlin.Long?, redeemableEnd: kotlin.Long?, brand: kotlin.String?, productType: ProductTypeUpdateOffer?, conditionType: ConditionTypeUpdateOffer?, isbn: kotlin.String?, asin: kotlin.String?, catalogNumbers: kotlin.String?, department: kotlin.String?, features: kotlin.String?, minimumPrice: kotlin.Double?, width: kotlin.Double?, height: kotlin.Double?, depth: kotlin.Double?, weight: kotlin.Double?, unit: UnitUpdateOffer?, studio: kotlin.String?, parentalRating: kotlin.String?, publishDate: kotlin.Long?, availabilityDate: kotlin.Long?, sizeId: kotlin.Long?, listingId: kotlin.Long?, mediaType: MediaTypeUpdateOffer?, duration: kotlin.Int?, author: kotlin.String?, releaseDate: kotlin.Long?, collectionIds: kotlin.String?, rebootTimeHour: kotlin.Int?, rebootTimeMinute: kotlin.Int?, idleTimeoutInSecond: kotlin.Int?, serialNumber: kotlin.String?, udid: kotlin.String?, deviceType: kotlin.String?, devicePower: kotlin.Double?, deviceInterference: kotlin.Double?, availability: kotlin.String?, availabilitySummary: kotlin.String?) : ApiResponse<RetailerOfferResponse?> {
+        val localVariableConfig = updateOfferRequestConfig(offerId = offerId, includeOfferLocations = includeOfferLocations, deviceId = deviceId, accountId = accountId, parentOfferId = parentOfferId, retailerLocationIds = retailerLocationIds, offerLocations = offerLocations, tags = tags, title = title, subTitle = subTitle, details = details, subDetails = subDetails, finePrint = finePrint, barcodeType = barcodeType, barcodeEntry = barcodeEntry, externalRedeemOptions = externalRedeemOptions, externalUrl = externalUrl, externalId = externalId, ticketsRewardType = ticketsRewardType, ticketsReward = ticketsReward, activated = activated, expires = expires, noExpiration = noExpiration, availableLimit = availableLimit, availableLimitPerUser = availableLimitPerUser, addedLimit = addedLimit, viewLimit = viewLimit, maxPrints = maxPrints, ticketPriceType = ticketPriceType, ticketPrice = ticketPrice, fullPrice = fullPrice, discountPrice = discountPrice, showRemaining = showRemaining, showRedeemed = showRedeemed, replaced = replaced, featured = featured, offerType = offerType, specialOfferType = specialOfferType, offerVisibility = offerVisibility, categoryIds = categoryIds, filterIds = filterIds, active = active, barcodeAssetId = barcodeAssetId, imageAssetId = imageAssetId, imageAssetId1 = imageAssetId1, imageAssetId2 = imageAssetId2, imageAssetId3 = imageAssetId3, imageAssetId4 = imageAssetId4, imageAssetId5 = imageAssetId5, publisher = publisher, redeemableStart = redeemableStart, redeemableEnd = redeemableEnd, brand = brand, productType = productType, conditionType = conditionType, isbn = isbn, asin = asin, catalogNumbers = catalogNumbers, department = department, features = features, minimumPrice = minimumPrice, width = width, height = height, depth = depth, weight = weight, unit = unit, studio = studio, parentalRating = parentalRating, publishDate = publishDate, availabilityDate = availabilityDate, sizeId = sizeId, listingId = listingId, mediaType = mediaType, duration = duration, author = author, releaseDate = releaseDate, collectionIds = collectionIds, rebootTimeHour = rebootTimeHour, rebootTimeMinute = rebootTimeMinute, idleTimeoutInSecond = idleTimeoutInSecond, serialNumber = serialNumber, udid = udid, deviceType = deviceType, devicePower = devicePower, deviceInterference = deviceInterference, availability = availability, availabilitySummary = availabilitySummary)
 
         return request<Unit, RetailerOfferResponse>(
             localVariableConfig
@@ -3415,7 +3371,6 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation updateOffer
      *
-     * @param version 
      * @param offerId The offer to update
      * @param includeOfferLocations If true return all the offer locations associated with the offer
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -3505,7 +3460,7 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param availabilitySummary  (optional)
      * @return RequestConfig
      */
-    fun updateOfferRequestConfig(version: java.math.BigDecimal, offerId: kotlin.Long, includeOfferLocations: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, parentOfferId: kotlin.Long?, retailerLocationIds: kotlin.String?, offerLocations: kotlin.String?, tags: kotlin.String?, title: kotlin.String?, subTitle: kotlin.String?, details: kotlin.String?, subDetails: kotlin.String?, finePrint: kotlin.String?, barcodeType: BarcodeTypeUpdateOffer?, barcodeEntry: kotlin.String?, externalRedeemOptions: kotlin.String?, externalUrl: kotlin.String?, externalId: kotlin.String?, ticketsRewardType: kotlin.String?, ticketsReward: kotlin.Long?, activated: kotlin.Long?, expires: kotlin.Long?, noExpiration: kotlin.Boolean?, availableLimit: kotlin.Int?, availableLimitPerUser: kotlin.Int?, addedLimit: kotlin.Int?, viewLimit: kotlin.Int?, maxPrints: kotlin.Int?, ticketPriceType: kotlin.String?, ticketPrice: kotlin.Long?, fullPrice: kotlin.Double?, discountPrice: kotlin.Double?, showRemaining: kotlin.Boolean?, showRedeemed: kotlin.Boolean?, replaced: kotlin.Boolean?, featured: kotlin.Boolean?, offerType: OfferTypeUpdateOffer?, specialOfferType: SpecialOfferTypeUpdateOffer?, offerVisibility: OfferVisibilityUpdateOffer?, categoryIds: kotlin.String?, filterIds: kotlin.String?, active: kotlin.Boolean?, barcodeAssetId: kotlin.Long?, imageAssetId: kotlin.Long?, imageAssetId1: kotlin.Long?, imageAssetId2: kotlin.Long?, imageAssetId3: kotlin.Long?, imageAssetId4: kotlin.Long?, imageAssetId5: kotlin.Long?, publisher: kotlin.String?, redeemableStart: kotlin.Long?, redeemableEnd: kotlin.Long?, brand: kotlin.String?, productType: ProductTypeUpdateOffer?, conditionType: ConditionTypeUpdateOffer?, isbn: kotlin.String?, asin: kotlin.String?, catalogNumbers: kotlin.String?, department: kotlin.String?, features: kotlin.String?, minimumPrice: kotlin.Double?, width: kotlin.Double?, height: kotlin.Double?, depth: kotlin.Double?, weight: kotlin.Double?, unit: UnitUpdateOffer?, studio: kotlin.String?, parentalRating: kotlin.String?, publishDate: kotlin.Long?, availabilityDate: kotlin.Long?, sizeId: kotlin.Long?, listingId: kotlin.Long?, mediaType: MediaTypeUpdateOffer?, duration: kotlin.Int?, author: kotlin.String?, releaseDate: kotlin.Long?, collectionIds: kotlin.String?, rebootTimeHour: kotlin.Int?, rebootTimeMinute: kotlin.Int?, idleTimeoutInSecond: kotlin.Int?, serialNumber: kotlin.String?, udid: kotlin.String?, deviceType: kotlin.String?, devicePower: kotlin.Double?, deviceInterference: kotlin.Double?, availability: kotlin.String?, availabilitySummary: kotlin.String?) : RequestConfig<Unit> {
+    fun updateOfferRequestConfig(offerId: kotlin.Long, includeOfferLocations: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, parentOfferId: kotlin.Long?, retailerLocationIds: kotlin.String?, offerLocations: kotlin.String?, tags: kotlin.String?, title: kotlin.String?, subTitle: kotlin.String?, details: kotlin.String?, subDetails: kotlin.String?, finePrint: kotlin.String?, barcodeType: BarcodeTypeUpdateOffer?, barcodeEntry: kotlin.String?, externalRedeemOptions: kotlin.String?, externalUrl: kotlin.String?, externalId: kotlin.String?, ticketsRewardType: kotlin.String?, ticketsReward: kotlin.Long?, activated: kotlin.Long?, expires: kotlin.Long?, noExpiration: kotlin.Boolean?, availableLimit: kotlin.Int?, availableLimitPerUser: kotlin.Int?, addedLimit: kotlin.Int?, viewLimit: kotlin.Int?, maxPrints: kotlin.Int?, ticketPriceType: kotlin.String?, ticketPrice: kotlin.Long?, fullPrice: kotlin.Double?, discountPrice: kotlin.Double?, showRemaining: kotlin.Boolean?, showRedeemed: kotlin.Boolean?, replaced: kotlin.Boolean?, featured: kotlin.Boolean?, offerType: OfferTypeUpdateOffer?, specialOfferType: SpecialOfferTypeUpdateOffer?, offerVisibility: OfferVisibilityUpdateOffer?, categoryIds: kotlin.String?, filterIds: kotlin.String?, active: kotlin.Boolean?, barcodeAssetId: kotlin.Long?, imageAssetId: kotlin.Long?, imageAssetId1: kotlin.Long?, imageAssetId2: kotlin.Long?, imageAssetId3: kotlin.Long?, imageAssetId4: kotlin.Long?, imageAssetId5: kotlin.Long?, publisher: kotlin.String?, redeemableStart: kotlin.Long?, redeemableEnd: kotlin.Long?, brand: kotlin.String?, productType: ProductTypeUpdateOffer?, conditionType: ConditionTypeUpdateOffer?, isbn: kotlin.String?, asin: kotlin.String?, catalogNumbers: kotlin.String?, department: kotlin.String?, features: kotlin.String?, minimumPrice: kotlin.Double?, width: kotlin.Double?, height: kotlin.Double?, depth: kotlin.Double?, weight: kotlin.Double?, unit: UnitUpdateOffer?, studio: kotlin.String?, parentalRating: kotlin.String?, publishDate: kotlin.Long?, availabilityDate: kotlin.Long?, sizeId: kotlin.Long?, listingId: kotlin.Long?, mediaType: MediaTypeUpdateOffer?, duration: kotlin.Int?, author: kotlin.String?, releaseDate: kotlin.Long?, collectionIds: kotlin.String?, rebootTimeHour: kotlin.Int?, rebootTimeMinute: kotlin.Int?, idleTimeoutInSecond: kotlin.Int?, serialNumber: kotlin.String?, udid: kotlin.String?, deviceType: kotlin.String?, devicePower: kotlin.Double?, deviceInterference: kotlin.Double?, availability: kotlin.String?, availabilitySummary: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -3771,7 +3726,7 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/retailer/offer/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/retailer/offer/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -3780,10 +3735,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/retailer/offer/status
+     * POST /retailer/offer/status
      * Activate Offer
      * Sets the activated date on offers. This will make offers visible for consumers.
-     * @param version 
      * @param offerIds Comma separated list of offer ids
      * @param active Determines whether to make the offer active as well
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -3797,8 +3751,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateOfferStatus(version: java.math.BigDecimal, offerIds: kotlin.String, active: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = updateOfferStatusWithHttpInfo(version = version, offerIds = offerIds, active = active, deviceId = deviceId, accountId = accountId)
+    fun updateOfferStatus(offerIds: kotlin.String, active: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = updateOfferStatusWithHttpInfo(offerIds = offerIds, active = active, deviceId = deviceId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -3816,10 +3770,9 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/retailer/offer/status
+     * POST /retailer/offer/status
      * Activate Offer
      * Sets the activated date on offers. This will make offers visible for consumers.
-     * @param version 
      * @param offerIds Comma separated list of offer ids
      * @param active Determines whether to make the offer active as well
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -3830,8 +3783,8 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateOfferStatusWithHttpInfo(version: java.math.BigDecimal, offerIds: kotlin.String, active: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = updateOfferStatusRequestConfig(version = version, offerIds = offerIds, active = active, deviceId = deviceId, accountId = accountId)
+    fun updateOfferStatusWithHttpInfo(offerIds: kotlin.String, active: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = updateOfferStatusRequestConfig(offerIds = offerIds, active = active, deviceId = deviceId, accountId = accountId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -3841,14 +3794,13 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation updateOfferStatus
      *
-     * @param version 
      * @param offerIds Comma separated list of offer ids
      * @param active Determines whether to make the offer active as well
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the activation, must have rights to edit the offer. (optional)
      * @return RequestConfig
      */
-    fun updateOfferStatusRequestConfig(version: java.math.BigDecimal, offerIds: kotlin.String, active: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun updateOfferStatusRequestConfig(offerIds: kotlin.String, active: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -3865,7 +3817,7 @@ open class OfferApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/retailer/offer/status".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/retailer/offer/status",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

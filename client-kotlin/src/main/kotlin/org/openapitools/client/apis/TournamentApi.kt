@@ -43,7 +43,7 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
@@ -105,10 +105,9 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      }
 
     /**
-     * POST /api/{version}/tournament/create
+     * POST /tournament/create
      * Create Tournament
      * Create a tournament.
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey The appKey the tournament is created for.
      * @param title The title of the tournament
@@ -153,8 +152,8 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createTournament(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, title: kotlin.String, costToPlay: kotlin.Int, startDate: kotlin.Long, subType: kotlin.String? = null, imageAssetId: kotlin.Long? = null, secondsBetweenLevels: kotlin.Int? = 600, secondsForTieBreaker: kotlin.Int? = 600, secondsBetweenPacks: kotlin.Int? = 86400, maximumLevelLength: kotlin.Int? = 1800, costToPlayType: kotlin.String? = null, minimumToPlay: kotlin.Int? = 1, startingLimit: kotlin.Int? = null, availableLimit: kotlin.Int? = null, description: kotlin.String? = null, metaData: kotlin.String? = null, audienceIds: kotlin.String? = null, active: kotlin.Boolean? = null, enableBuyBack: kotlin.Boolean? = false, offerIds: kotlin.String? = null, offerAssetId: kotlin.Long? = null, fixedReward: kotlin.Boolean? = false, splitReward: SplitRewardCreateTournament? = SplitRewardCreateTournament.ALL, allocateTickets: kotlin.Boolean? = null, tournamentData: kotlin.String? = null, missionType: MissionTypeCreateTournament? = MissionTypeCreateTournament.MULTISTAGE, visibility: VisibilityCreateTournament? = VisibilityCreateTournament.PUBLIC, preliminaryGroups: kotlin.Int? = 1, preliminaryGroupAdvancements: kotlin.String? = "1", enableMultipleEntries: kotlin.Boolean? = false, enableMultipleVotes: kotlin.Boolean? = false, featured: kotlin.Boolean? = false, winnerTag: kotlin.String? = null, tieTag: kotlin.String? = null) : TournamentResponse {
-        val localVarResponse = createTournamentWithHttpInfo(version = version, accountId = accountId, appKey = appKey, title = title, costToPlay = costToPlay, startDate = startDate, subType = subType, imageAssetId = imageAssetId, secondsBetweenLevels = secondsBetweenLevels, secondsForTieBreaker = secondsForTieBreaker, secondsBetweenPacks = secondsBetweenPacks, maximumLevelLength = maximumLevelLength, costToPlayType = costToPlayType, minimumToPlay = minimumToPlay, startingLimit = startingLimit, availableLimit = availableLimit, description = description, metaData = metaData, audienceIds = audienceIds, active = active, enableBuyBack = enableBuyBack, offerIds = offerIds, offerAssetId = offerAssetId, fixedReward = fixedReward, splitReward = splitReward, allocateTickets = allocateTickets, tournamentData = tournamentData, missionType = missionType, visibility = visibility, preliminaryGroups = preliminaryGroups, preliminaryGroupAdvancements = preliminaryGroupAdvancements, enableMultipleEntries = enableMultipleEntries, enableMultipleVotes = enableMultipleVotes, featured = featured, winnerTag = winnerTag, tieTag = tieTag)
+    fun createTournament(accountId: kotlin.Long, appKey: kotlin.String, title: kotlin.String, costToPlay: kotlin.Int, startDate: kotlin.Long, subType: kotlin.String? = null, imageAssetId: kotlin.Long? = null, secondsBetweenLevels: kotlin.Int? = 600, secondsForTieBreaker: kotlin.Int? = 600, secondsBetweenPacks: kotlin.Int? = 86400, maximumLevelLength: kotlin.Int? = 1800, costToPlayType: kotlin.String? = null, minimumToPlay: kotlin.Int? = 1, startingLimit: kotlin.Int? = null, availableLimit: kotlin.Int? = null, description: kotlin.String? = null, metaData: kotlin.String? = null, audienceIds: kotlin.String? = null, active: kotlin.Boolean? = null, enableBuyBack: kotlin.Boolean? = false, offerIds: kotlin.String? = null, offerAssetId: kotlin.Long? = null, fixedReward: kotlin.Boolean? = false, splitReward: SplitRewardCreateTournament? = SplitRewardCreateTournament.ALL, allocateTickets: kotlin.Boolean? = null, tournamentData: kotlin.String? = null, missionType: MissionTypeCreateTournament? = MissionTypeCreateTournament.MULTISTAGE, visibility: VisibilityCreateTournament? = VisibilityCreateTournament.PUBLIC, preliminaryGroups: kotlin.Int? = 1, preliminaryGroupAdvancements: kotlin.String? = "1", enableMultipleEntries: kotlin.Boolean? = false, enableMultipleVotes: kotlin.Boolean? = false, featured: kotlin.Boolean? = false, winnerTag: kotlin.String? = null, tieTag: kotlin.String? = null) : TournamentResponse {
+        val localVarResponse = createTournamentWithHttpInfo(accountId = accountId, appKey = appKey, title = title, costToPlay = costToPlay, startDate = startDate, subType = subType, imageAssetId = imageAssetId, secondsBetweenLevels = secondsBetweenLevels, secondsForTieBreaker = secondsForTieBreaker, secondsBetweenPacks = secondsBetweenPacks, maximumLevelLength = maximumLevelLength, costToPlayType = costToPlayType, minimumToPlay = minimumToPlay, startingLimit = startingLimit, availableLimit = availableLimit, description = description, metaData = metaData, audienceIds = audienceIds, active = active, enableBuyBack = enableBuyBack, offerIds = offerIds, offerAssetId = offerAssetId, fixedReward = fixedReward, splitReward = splitReward, allocateTickets = allocateTickets, tournamentData = tournamentData, missionType = missionType, visibility = visibility, preliminaryGroups = preliminaryGroups, preliminaryGroupAdvancements = preliminaryGroupAdvancements, enableMultipleEntries = enableMultipleEntries, enableMultipleVotes = enableMultipleVotes, featured = featured, winnerTag = winnerTag, tieTag = tieTag)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TournamentResponse
@@ -172,10 +171,9 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/tournament/create
+     * POST /tournament/create
      * Create Tournament
      * Create a tournament.
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey The appKey the tournament is created for.
      * @param title The title of the tournament
@@ -217,8 +215,8 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createTournamentWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, title: kotlin.String, costToPlay: kotlin.Int, startDate: kotlin.Long, subType: kotlin.String?, imageAssetId: kotlin.Long?, secondsBetweenLevels: kotlin.Int?, secondsForTieBreaker: kotlin.Int?, secondsBetweenPacks: kotlin.Int?, maximumLevelLength: kotlin.Int?, costToPlayType: kotlin.String?, minimumToPlay: kotlin.Int?, startingLimit: kotlin.Int?, availableLimit: kotlin.Int?, description: kotlin.String?, metaData: kotlin.String?, audienceIds: kotlin.String?, active: kotlin.Boolean?, enableBuyBack: kotlin.Boolean?, offerIds: kotlin.String?, offerAssetId: kotlin.Long?, fixedReward: kotlin.Boolean?, splitReward: SplitRewardCreateTournament?, allocateTickets: kotlin.Boolean?, tournamentData: kotlin.String?, missionType: MissionTypeCreateTournament?, visibility: VisibilityCreateTournament?, preliminaryGroups: kotlin.Int?, preliminaryGroupAdvancements: kotlin.String?, enableMultipleEntries: kotlin.Boolean?, enableMultipleVotes: kotlin.Boolean?, featured: kotlin.Boolean?, winnerTag: kotlin.String?, tieTag: kotlin.String?) : ApiResponse<TournamentResponse?> {
-        val localVariableConfig = createTournamentRequestConfig(version = version, accountId = accountId, appKey = appKey, title = title, costToPlay = costToPlay, startDate = startDate, subType = subType, imageAssetId = imageAssetId, secondsBetweenLevels = secondsBetweenLevels, secondsForTieBreaker = secondsForTieBreaker, secondsBetweenPacks = secondsBetweenPacks, maximumLevelLength = maximumLevelLength, costToPlayType = costToPlayType, minimumToPlay = minimumToPlay, startingLimit = startingLimit, availableLimit = availableLimit, description = description, metaData = metaData, audienceIds = audienceIds, active = active, enableBuyBack = enableBuyBack, offerIds = offerIds, offerAssetId = offerAssetId, fixedReward = fixedReward, splitReward = splitReward, allocateTickets = allocateTickets, tournamentData = tournamentData, missionType = missionType, visibility = visibility, preliminaryGroups = preliminaryGroups, preliminaryGroupAdvancements = preliminaryGroupAdvancements, enableMultipleEntries = enableMultipleEntries, enableMultipleVotes = enableMultipleVotes, featured = featured, winnerTag = winnerTag, tieTag = tieTag)
+    fun createTournamentWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, title: kotlin.String, costToPlay: kotlin.Int, startDate: kotlin.Long, subType: kotlin.String?, imageAssetId: kotlin.Long?, secondsBetweenLevels: kotlin.Int?, secondsForTieBreaker: kotlin.Int?, secondsBetweenPacks: kotlin.Int?, maximumLevelLength: kotlin.Int?, costToPlayType: kotlin.String?, minimumToPlay: kotlin.Int?, startingLimit: kotlin.Int?, availableLimit: kotlin.Int?, description: kotlin.String?, metaData: kotlin.String?, audienceIds: kotlin.String?, active: kotlin.Boolean?, enableBuyBack: kotlin.Boolean?, offerIds: kotlin.String?, offerAssetId: kotlin.Long?, fixedReward: kotlin.Boolean?, splitReward: SplitRewardCreateTournament?, allocateTickets: kotlin.Boolean?, tournamentData: kotlin.String?, missionType: MissionTypeCreateTournament?, visibility: VisibilityCreateTournament?, preliminaryGroups: kotlin.Int?, preliminaryGroupAdvancements: kotlin.String?, enableMultipleEntries: kotlin.Boolean?, enableMultipleVotes: kotlin.Boolean?, featured: kotlin.Boolean?, winnerTag: kotlin.String?, tieTag: kotlin.String?) : ApiResponse<TournamentResponse?> {
+        val localVariableConfig = createTournamentRequestConfig(accountId = accountId, appKey = appKey, title = title, costToPlay = costToPlay, startDate = startDate, subType = subType, imageAssetId = imageAssetId, secondsBetweenLevels = secondsBetweenLevels, secondsForTieBreaker = secondsForTieBreaker, secondsBetweenPacks = secondsBetweenPacks, maximumLevelLength = maximumLevelLength, costToPlayType = costToPlayType, minimumToPlay = minimumToPlay, startingLimit = startingLimit, availableLimit = availableLimit, description = description, metaData = metaData, audienceIds = audienceIds, active = active, enableBuyBack = enableBuyBack, offerIds = offerIds, offerAssetId = offerAssetId, fixedReward = fixedReward, splitReward = splitReward, allocateTickets = allocateTickets, tournamentData = tournamentData, missionType = missionType, visibility = visibility, preliminaryGroups = preliminaryGroups, preliminaryGroupAdvancements = preliminaryGroupAdvancements, enableMultipleEntries = enableMultipleEntries, enableMultipleVotes = enableMultipleVotes, featured = featured, winnerTag = winnerTag, tieTag = tieTag)
 
         return request<Unit, TournamentResponse>(
             localVariableConfig
@@ -228,7 +226,6 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation createTournament
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey The appKey the tournament is created for.
      * @param title The title of the tournament
@@ -266,7 +263,7 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param tieTag This sets what analytic tag is used when a tie has occurred (optional)
      * @return RequestConfig
      */
-    fun createTournamentRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, title: kotlin.String, costToPlay: kotlin.Int, startDate: kotlin.Long, subType: kotlin.String?, imageAssetId: kotlin.Long?, secondsBetweenLevels: kotlin.Int?, secondsForTieBreaker: kotlin.Int?, secondsBetweenPacks: kotlin.Int?, maximumLevelLength: kotlin.Int?, costToPlayType: kotlin.String?, minimumToPlay: kotlin.Int?, startingLimit: kotlin.Int?, availableLimit: kotlin.Int?, description: kotlin.String?, metaData: kotlin.String?, audienceIds: kotlin.String?, active: kotlin.Boolean?, enableBuyBack: kotlin.Boolean?, offerIds: kotlin.String?, offerAssetId: kotlin.Long?, fixedReward: kotlin.Boolean?, splitReward: SplitRewardCreateTournament?, allocateTickets: kotlin.Boolean?, tournamentData: kotlin.String?, missionType: MissionTypeCreateTournament?, visibility: VisibilityCreateTournament?, preliminaryGroups: kotlin.Int?, preliminaryGroupAdvancements: kotlin.String?, enableMultipleEntries: kotlin.Boolean?, enableMultipleVotes: kotlin.Boolean?, featured: kotlin.Boolean?, winnerTag: kotlin.String?, tieTag: kotlin.String?) : RequestConfig<Unit> {
+    fun createTournamentRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, title: kotlin.String, costToPlay: kotlin.Int, startDate: kotlin.Long, subType: kotlin.String?, imageAssetId: kotlin.Long?, secondsBetweenLevels: kotlin.Int?, secondsForTieBreaker: kotlin.Int?, secondsBetweenPacks: kotlin.Int?, maximumLevelLength: kotlin.Int?, costToPlayType: kotlin.String?, minimumToPlay: kotlin.Int?, startingLimit: kotlin.Int?, availableLimit: kotlin.Int?, description: kotlin.String?, metaData: kotlin.String?, audienceIds: kotlin.String?, active: kotlin.Boolean?, enableBuyBack: kotlin.Boolean?, offerIds: kotlin.String?, offerAssetId: kotlin.Long?, fixedReward: kotlin.Boolean?, splitReward: SplitRewardCreateTournament?, allocateTickets: kotlin.Boolean?, tournamentData: kotlin.String?, missionType: MissionTypeCreateTournament?, visibility: VisibilityCreateTournament?, preliminaryGroups: kotlin.Int?, preliminaryGroupAdvancements: kotlin.String?, enableMultipleEntries: kotlin.Boolean?, enableMultipleVotes: kotlin.Boolean?, featured: kotlin.Boolean?, winnerTag: kotlin.String?, tieTag: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -370,7 +367,7 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/tournament/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/tournament/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -379,10 +376,9 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/tournament/delete
+     * POST /tournament/delete
      * Delete Tournament
      * Delete a tournament.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param missionId the id of the mission to delete
      * @return SirqulResponse
@@ -394,8 +390,8 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteTournament(version: java.math.BigDecimal, accountId: kotlin.Long, missionId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = deleteTournamentWithHttpInfo(version = version, accountId = accountId, missionId = missionId)
+    fun deleteTournament(accountId: kotlin.Long, missionId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = deleteTournamentWithHttpInfo(accountId = accountId, missionId = missionId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -413,10 +409,9 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/tournament/delete
+     * POST /tournament/delete
      * Delete Tournament
      * Delete a tournament.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param missionId the id of the mission to delete
      * @return ApiResponse<SirqulResponse?>
@@ -425,8 +420,8 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteTournamentWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, missionId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteTournamentRequestConfig(version = version, accountId = accountId, missionId = missionId)
+    fun deleteTournamentWithHttpInfo(accountId: kotlin.Long, missionId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteTournamentRequestConfig(accountId = accountId, missionId = missionId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -436,12 +431,11 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation deleteTournament
      *
-     * @param version 
      * @param accountId the id of the logged in user
      * @param missionId the id of the mission to delete
      * @return RequestConfig
      */
-    fun deleteTournamentRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, missionId: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteTournamentRequestConfig(accountId: kotlin.Long, missionId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -452,7 +446,7 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/tournament/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/tournament/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -478,10 +472,9 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      }
 
     /**
-     * GET /api/{version}/tournament/get
+     * GET /tournament/get
      * Get Tournament
      * Get a tournament.
-     * @param version 
      * @param accountId The id of the logged in user
      * @param missionId The id of the mission to return (either missionId or joinCode is required) (optional)
      * @param joinCode Optional identifier for getting the tournament (either missionId or joinCode is required) (optional)
@@ -496,8 +489,8 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTournament(version: java.math.BigDecimal, accountId: kotlin.Long, missionId: kotlin.Long? = null, joinCode: kotlin.String? = null, includeScores: IncludeScoresGetTournament? = null, objectPreviewSize: kotlin.Int? = 50) : TournamentResponse {
-        val localVarResponse = getTournamentWithHttpInfo(version = version, accountId = accountId, missionId = missionId, joinCode = joinCode, includeScores = includeScores, objectPreviewSize = objectPreviewSize)
+    fun getTournament(accountId: kotlin.Long, missionId: kotlin.Long? = null, joinCode: kotlin.String? = null, includeScores: IncludeScoresGetTournament? = null, objectPreviewSize: kotlin.Int? = 50) : TournamentResponse {
+        val localVarResponse = getTournamentWithHttpInfo(accountId = accountId, missionId = missionId, joinCode = joinCode, includeScores = includeScores, objectPreviewSize = objectPreviewSize)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TournamentResponse
@@ -515,10 +508,9 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/tournament/get
+     * GET /tournament/get
      * Get Tournament
      * Get a tournament.
-     * @param version 
      * @param accountId The id of the logged in user
      * @param missionId The id of the mission to return (either missionId or joinCode is required) (optional)
      * @param joinCode Optional identifier for getting the tournament (either missionId or joinCode is required) (optional)
@@ -530,8 +522,8 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTournamentWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, missionId: kotlin.Long?, joinCode: kotlin.String?, includeScores: IncludeScoresGetTournament?, objectPreviewSize: kotlin.Int?) : ApiResponse<TournamentResponse?> {
-        val localVariableConfig = getTournamentRequestConfig(version = version, accountId = accountId, missionId = missionId, joinCode = joinCode, includeScores = includeScores, objectPreviewSize = objectPreviewSize)
+    fun getTournamentWithHttpInfo(accountId: kotlin.Long, missionId: kotlin.Long?, joinCode: kotlin.String?, includeScores: IncludeScoresGetTournament?, objectPreviewSize: kotlin.Int?) : ApiResponse<TournamentResponse?> {
+        val localVariableConfig = getTournamentRequestConfig(accountId = accountId, missionId = missionId, joinCode = joinCode, includeScores = includeScores, objectPreviewSize = objectPreviewSize)
 
         return request<Unit, TournamentResponse>(
             localVariableConfig
@@ -541,7 +533,6 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation getTournament
      *
-     * @param version 
      * @param accountId The id of the logged in user
      * @param missionId The id of the mission to return (either missionId or joinCode is required) (optional)
      * @param joinCode Optional identifier for getting the tournament (either missionId or joinCode is required) (optional)
@@ -549,7 +540,7 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param objectPreviewSize Determines the max number of game objects that will get returned for each game level response (optional, default to 50)
      * @return RequestConfig
      */
-    fun getTournamentRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, missionId: kotlin.Long?, joinCode: kotlin.String?, includeScores: IncludeScoresGetTournament?, objectPreviewSize: kotlin.Int?) : RequestConfig<Unit> {
+    fun getTournamentRequestConfig(accountId: kotlin.Long, missionId: kotlin.Long?, joinCode: kotlin.String?, includeScores: IncludeScoresGetTournament?, objectPreviewSize: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -571,7 +562,7 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/tournament/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/tournament/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -597,10 +588,9 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      }
 
     /**
-     * GET /api/{version}/tournament/object/search
+     * GET /tournament/object/search
      * Search Tournament Objects
      * Search on game objects of tournaments
-     * @param version 
      * @param accountId the account ID
      * @param gameLevelId the game level id to filter results by
      * @param sortField the field to sort by (optional, default to SortField.PLAYER_SCORE_COUNT)
@@ -616,8 +606,8 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchObjects(version: java.math.BigDecimal, accountId: kotlin.Long, gameLevelId: kotlin.Long, sortField: SortFieldSearchObjects? = SortFieldSearchObjects.PLAYER_SCORE_COUNT, descending: kotlin.Boolean? = true, start: kotlin.Int? = 0, limit: kotlin.Int? = 20) : SirqulResponse {
-        val localVarResponse = searchObjectsWithHttpInfo(version = version, accountId = accountId, gameLevelId = gameLevelId, sortField = sortField, descending = descending, start = start, limit = limit)
+    fun searchObjects(accountId: kotlin.Long, gameLevelId: kotlin.Long, sortField: SortFieldSearchObjects? = SortFieldSearchObjects.PLAYER_SCORE_COUNT, descending: kotlin.Boolean? = true, start: kotlin.Int? = 0, limit: kotlin.Int? = 20) : SirqulResponse {
+        val localVarResponse = searchObjectsWithHttpInfo(accountId = accountId, gameLevelId = gameLevelId, sortField = sortField, descending = descending, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -635,10 +625,9 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/tournament/object/search
+     * GET /tournament/object/search
      * Search Tournament Objects
      * Search on game objects of tournaments
-     * @param version 
      * @param accountId the account ID
      * @param gameLevelId the game level id to filter results by
      * @param sortField the field to sort by (optional, default to SortField.PLAYER_SCORE_COUNT)
@@ -651,8 +640,8 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchObjectsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, gameLevelId: kotlin.Long, sortField: SortFieldSearchObjects?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = searchObjectsRequestConfig(version = version, accountId = accountId, gameLevelId = gameLevelId, sortField = sortField, descending = descending, start = start, limit = limit)
+    fun searchObjectsWithHttpInfo(accountId: kotlin.Long, gameLevelId: kotlin.Long, sortField: SortFieldSearchObjects?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = searchObjectsRequestConfig(accountId = accountId, gameLevelId = gameLevelId, sortField = sortField, descending = descending, start = start, limit = limit)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -662,7 +651,6 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation searchObjects
      *
-     * @param version 
      * @param accountId the account ID
      * @param gameLevelId the game level id to filter results by
      * @param sortField the field to sort by (optional, default to SortField.PLAYER_SCORE_COUNT)
@@ -671,7 +659,7 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param limit the limit for pagination (optional, default to 20)
      * @return RequestConfig
      */
-    fun searchObjectsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, gameLevelId: kotlin.Long, sortField: SortFieldSearchObjects?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchObjectsRequestConfig(accountId: kotlin.Long, gameLevelId: kotlin.Long, sortField: SortFieldSearchObjects?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -694,7 +682,7 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/tournament/object/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/tournament/object/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -720,10 +708,9 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      }
 
     /**
-     * GET /api/{version}/tournament/round/search
+     * GET /tournament/round/search
      * Search Tournament Rounds
      * Search for the user&#39;s tournament games.
-     * @param version 
      * @param accountId the account ID
      * @param appKey the application key
      * @param status comma separated list of statuses to filter results by (optional, default to "ACCEPTED,ACTIVE")
@@ -741,8 +728,8 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchRounds(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, status: kotlin.String? = "ACCEPTED,ACTIVE", missionType: MissionTypeSearchRounds? = null, currentOnly: kotlin.Boolean? = true, visibilities: kotlin.String? = "PUBLIC", start: kotlin.Int? = 0, limit: kotlin.Int? = 20) : SirqulResponse {
-        val localVarResponse = searchRoundsWithHttpInfo(version = version, accountId = accountId, appKey = appKey, status = status, missionType = missionType, currentOnly = currentOnly, visibilities = visibilities, start = start, limit = limit)
+    fun searchRounds(accountId: kotlin.Long, appKey: kotlin.String, status: kotlin.String? = "ACCEPTED,ACTIVE", missionType: MissionTypeSearchRounds? = null, currentOnly: kotlin.Boolean? = true, visibilities: kotlin.String? = "PUBLIC", start: kotlin.Int? = 0, limit: kotlin.Int? = 20) : SirqulResponse {
+        val localVarResponse = searchRoundsWithHttpInfo(accountId = accountId, appKey = appKey, status = status, missionType = missionType, currentOnly = currentOnly, visibilities = visibilities, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -760,10 +747,9 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/tournament/round/search
+     * GET /tournament/round/search
      * Search Tournament Rounds
      * Search for the user&#39;s tournament games.
-     * @param version 
      * @param accountId the account ID
      * @param appKey the application key
      * @param status comma separated list of statuses to filter results by (optional, default to "ACCEPTED,ACTIVE")
@@ -778,8 +764,8 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchRoundsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, status: kotlin.String?, missionType: MissionTypeSearchRounds?, currentOnly: kotlin.Boolean?, visibilities: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = searchRoundsRequestConfig(version = version, accountId = accountId, appKey = appKey, status = status, missionType = missionType, currentOnly = currentOnly, visibilities = visibilities, start = start, limit = limit)
+    fun searchRoundsWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, status: kotlin.String?, missionType: MissionTypeSearchRounds?, currentOnly: kotlin.Boolean?, visibilities: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = searchRoundsRequestConfig(accountId = accountId, appKey = appKey, status = status, missionType = missionType, currentOnly = currentOnly, visibilities = visibilities, start = start, limit = limit)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -789,7 +775,6 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation searchRounds
      *
-     * @param version 
      * @param accountId the account ID
      * @param appKey the application key
      * @param status comma separated list of statuses to filter results by (optional, default to "ACCEPTED,ACTIVE")
@@ -800,7 +785,7 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param limit the limit for pagination (optional, default to 20)
      * @return RequestConfig
      */
-    fun searchRoundsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, status: kotlin.String?, missionType: MissionTypeSearchRounds?, currentOnly: kotlin.Boolean?, visibilities: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchRoundsRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, status: kotlin.String?, missionType: MissionTypeSearchRounds?, currentOnly: kotlin.Boolean?, visibilities: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -829,7 +814,7 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/tournament/round/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/tournament/round/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -886,10 +871,9 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      }
 
     /**
-     * GET /api/{version}/tournament/search
+     * GET /tournament/search
      * Search Tournaments
      * Search for tournaments
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey The application key
      * @param keyword the keyword to search tournament on (optional)
@@ -911,8 +895,8 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchTournaments(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, keyword: kotlin.String? = null, subType: kotlin.String? = null, includeInactive: kotlin.Boolean? = false, missionTypes: kotlin.String? = "MULTISTAGE,TOURNAMENT,POOLPLAY", filter: FilterSearchTournaments? = FilterSearchTournaments.UPCOMING, sortField: SortFieldSearchTournaments? = SortFieldSearchTournaments.START_DATE, descending: kotlin.Boolean? = null, visibility: kotlin.String? = "PUBLIC", start: kotlin.Int? = 0, limit: kotlin.Int? = 20) : MissionShortResponse {
-        val localVarResponse = searchTournamentsWithHttpInfo(version = version, accountId = accountId, appKey = appKey, keyword = keyword, subType = subType, includeInactive = includeInactive, missionTypes = missionTypes, filter = filter, sortField = sortField, descending = descending, visibility = visibility, start = start, limit = limit)
+    fun searchTournaments(accountId: kotlin.Long, appKey: kotlin.String, keyword: kotlin.String? = null, subType: kotlin.String? = null, includeInactive: kotlin.Boolean? = false, missionTypes: kotlin.String? = "MULTISTAGE,TOURNAMENT,POOLPLAY", filter: FilterSearchTournaments? = FilterSearchTournaments.UPCOMING, sortField: SortFieldSearchTournaments? = SortFieldSearchTournaments.START_DATE, descending: kotlin.Boolean? = null, visibility: kotlin.String? = "PUBLIC", start: kotlin.Int? = 0, limit: kotlin.Int? = 20) : MissionShortResponse {
+        val localVarResponse = searchTournamentsWithHttpInfo(accountId = accountId, appKey = appKey, keyword = keyword, subType = subType, includeInactive = includeInactive, missionTypes = missionTypes, filter = filter, sortField = sortField, descending = descending, visibility = visibility, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MissionShortResponse
@@ -930,10 +914,9 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/tournament/search
+     * GET /tournament/search
      * Search Tournaments
      * Search for tournaments
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey The application key
      * @param keyword the keyword to search tournament on (optional)
@@ -952,8 +935,8 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchTournamentsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, keyword: kotlin.String?, subType: kotlin.String?, includeInactive: kotlin.Boolean?, missionTypes: kotlin.String?, filter: FilterSearchTournaments?, sortField: SortFieldSearchTournaments?, descending: kotlin.Boolean?, visibility: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<MissionShortResponse?> {
-        val localVariableConfig = searchTournamentsRequestConfig(version = version, accountId = accountId, appKey = appKey, keyword = keyword, subType = subType, includeInactive = includeInactive, missionTypes = missionTypes, filter = filter, sortField = sortField, descending = descending, visibility = visibility, start = start, limit = limit)
+    fun searchTournamentsWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, keyword: kotlin.String?, subType: kotlin.String?, includeInactive: kotlin.Boolean?, missionTypes: kotlin.String?, filter: FilterSearchTournaments?, sortField: SortFieldSearchTournaments?, descending: kotlin.Boolean?, visibility: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<MissionShortResponse?> {
+        val localVariableConfig = searchTournamentsRequestConfig(accountId = accountId, appKey = appKey, keyword = keyword, subType = subType, includeInactive = includeInactive, missionTypes = missionTypes, filter = filter, sortField = sortField, descending = descending, visibility = visibility, start = start, limit = limit)
 
         return request<Unit, MissionShortResponse>(
             localVariableConfig
@@ -963,7 +946,6 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation searchTournaments
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey The application key
      * @param keyword the keyword to search tournament on (optional)
@@ -978,7 +960,7 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param limit Limit the result to some number (optional, default to 20)
      * @return RequestConfig
      */
-    fun searchTournamentsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, keyword: kotlin.String?, subType: kotlin.String?, includeInactive: kotlin.Boolean?, missionTypes: kotlin.String?, filter: FilterSearchTournaments?, sortField: SortFieldSearchTournaments?, descending: kotlin.Boolean?, visibility: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchTournamentsRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, keyword: kotlin.String?, subType: kotlin.String?, includeInactive: kotlin.Boolean?, missionTypes: kotlin.String?, filter: FilterSearchTournaments?, sortField: SortFieldSearchTournaments?, descending: kotlin.Boolean?, visibility: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1019,7 +1001,7 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/tournament/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/tournament/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1028,10 +1010,9 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/tournament/score
+     * POST /tournament/score
      * Submit Tournament Score
      * Submit an array of scores for a tournament match. 
-     * @param version 
      * @param accountId The logged in user account ID.
      * @param appKey The application key.
      * @param missionId The missionId to score for
@@ -1048,8 +1029,8 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun submitTournamentScore(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, missionId: kotlin.Long, gameId: kotlin.Long, packId: kotlin.Long, scores: kotlin.String, gameLevelId: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = submitTournamentScoreWithHttpInfo(version = version, accountId = accountId, appKey = appKey, missionId = missionId, gameId = gameId, packId = packId, scores = scores, gameLevelId = gameLevelId)
+    fun submitTournamentScore(accountId: kotlin.Long, appKey: kotlin.String, missionId: kotlin.Long, gameId: kotlin.Long, packId: kotlin.Long, scores: kotlin.String, gameLevelId: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = submitTournamentScoreWithHttpInfo(accountId = accountId, appKey = appKey, missionId = missionId, gameId = gameId, packId = packId, scores = scores, gameLevelId = gameLevelId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -1067,10 +1048,9 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/tournament/score
+     * POST /tournament/score
      * Submit Tournament Score
      * Submit an array of scores for a tournament match. 
-     * @param version 
      * @param accountId The logged in user account ID.
      * @param appKey The application key.
      * @param missionId The missionId to score for
@@ -1084,8 +1064,8 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun submitTournamentScoreWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, missionId: kotlin.Long, gameId: kotlin.Long, packId: kotlin.Long, scores: kotlin.String, gameLevelId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = submitTournamentScoreRequestConfig(version = version, accountId = accountId, appKey = appKey, missionId = missionId, gameId = gameId, packId = packId, scores = scores, gameLevelId = gameLevelId)
+    fun submitTournamentScoreWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, missionId: kotlin.Long, gameId: kotlin.Long, packId: kotlin.Long, scores: kotlin.String, gameLevelId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = submitTournamentScoreRequestConfig(accountId = accountId, appKey = appKey, missionId = missionId, gameId = gameId, packId = packId, scores = scores, gameLevelId = gameLevelId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -1095,7 +1075,6 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation submitTournamentScore
      *
-     * @param version 
      * @param accountId The logged in user account ID.
      * @param appKey The application key.
      * @param missionId The missionId to score for
@@ -1105,7 +1084,7 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param gameLevelId The gameLevelId to score for (optional)
      * @return RequestConfig
      */
-    fun submitTournamentScoreRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, missionId: kotlin.Long, gameId: kotlin.Long, packId: kotlin.Long, scores: kotlin.String, gameLevelId: kotlin.Long?) : RequestConfig<Unit> {
+    fun submitTournamentScoreRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, missionId: kotlin.Long, gameId: kotlin.Long, packId: kotlin.Long, scores: kotlin.String, gameLevelId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1123,7 +1102,7 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/tournament/score".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/tournament/score",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1132,10 +1111,9 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/tournament/vote
+     * POST /tournament/vote
      * Submit a vote for a multi-stage album tournament.
      * Submit a vote for a multi-stage album tournament.
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey The application to target
      * @param missionId The tournament&#39;s primary id
@@ -1151,8 +1129,8 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun submitTournamentVote(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, missionId: kotlin.Long, gameObjectId: kotlin.Long, deviceId: kotlin.String? = null, checkIfDeviceAlreadyVoted: kotlin.Boolean? = false) : SirqulResponse {
-        val localVarResponse = submitTournamentVoteWithHttpInfo(version = version, accountId = accountId, appKey = appKey, missionId = missionId, gameObjectId = gameObjectId, deviceId = deviceId, checkIfDeviceAlreadyVoted = checkIfDeviceAlreadyVoted)
+    fun submitTournamentVote(accountId: kotlin.Long, appKey: kotlin.String, missionId: kotlin.Long, gameObjectId: kotlin.Long, deviceId: kotlin.String? = null, checkIfDeviceAlreadyVoted: kotlin.Boolean? = false) : SirqulResponse {
+        val localVarResponse = submitTournamentVoteWithHttpInfo(accountId = accountId, appKey = appKey, missionId = missionId, gameObjectId = gameObjectId, deviceId = deviceId, checkIfDeviceAlreadyVoted = checkIfDeviceAlreadyVoted)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -1170,10 +1148,9 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/tournament/vote
+     * POST /tournament/vote
      * Submit a vote for a multi-stage album tournament.
      * Submit a vote for a multi-stage album tournament.
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey The application to target
      * @param missionId The tournament&#39;s primary id
@@ -1186,8 +1163,8 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun submitTournamentVoteWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, missionId: kotlin.Long, gameObjectId: kotlin.Long, deviceId: kotlin.String?, checkIfDeviceAlreadyVoted: kotlin.Boolean?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = submitTournamentVoteRequestConfig(version = version, accountId = accountId, appKey = appKey, missionId = missionId, gameObjectId = gameObjectId, deviceId = deviceId, checkIfDeviceAlreadyVoted = checkIfDeviceAlreadyVoted)
+    fun submitTournamentVoteWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, missionId: kotlin.Long, gameObjectId: kotlin.Long, deviceId: kotlin.String?, checkIfDeviceAlreadyVoted: kotlin.Boolean?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = submitTournamentVoteRequestConfig(accountId = accountId, appKey = appKey, missionId = missionId, gameObjectId = gameObjectId, deviceId = deviceId, checkIfDeviceAlreadyVoted = checkIfDeviceAlreadyVoted)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -1197,7 +1174,6 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation submitTournamentVote
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey The application to target
      * @param missionId The tournament&#39;s primary id
@@ -1206,7 +1182,7 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param checkIfDeviceAlreadyVoted When true, check if the device already voted to prevent duplicate votes from the same device (optional, default to false)
      * @return RequestConfig
      */
-    fun submitTournamentVoteRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, missionId: kotlin.Long, gameObjectId: kotlin.Long, deviceId: kotlin.String?, checkIfDeviceAlreadyVoted: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun submitTournamentVoteRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, missionId: kotlin.Long, gameObjectId: kotlin.Long, deviceId: kotlin.String?, checkIfDeviceAlreadyVoted: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1225,7 +1201,7 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/tournament/vote".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/tournament/vote",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1234,10 +1210,9 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/tournament/substitute
+     * POST /tournament/substitute
      * Substitute Tournament Player
      * Service to replace the user&#39;s opponent in the current level - pack - mission with an AI account.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param missionId the id of the mission
      * @param packId the id of the pack
@@ -1251,8 +1226,8 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun substituteTournamentPlayer(version: java.math.BigDecimal, accountId: kotlin.Long, missionId: kotlin.Long, packId: kotlin.Long, gameLevelId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = substituteTournamentPlayerWithHttpInfo(version = version, accountId = accountId, missionId = missionId, packId = packId, gameLevelId = gameLevelId)
+    fun substituteTournamentPlayer(accountId: kotlin.Long, missionId: kotlin.Long, packId: kotlin.Long, gameLevelId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = substituteTournamentPlayerWithHttpInfo(accountId = accountId, missionId = missionId, packId = packId, gameLevelId = gameLevelId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -1270,10 +1245,9 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/tournament/substitute
+     * POST /tournament/substitute
      * Substitute Tournament Player
      * Service to replace the user&#39;s opponent in the current level - pack - mission with an AI account.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param missionId the id of the mission
      * @param packId the id of the pack
@@ -1284,8 +1258,8 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun substituteTournamentPlayerWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, missionId: kotlin.Long, packId: kotlin.Long, gameLevelId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = substituteTournamentPlayerRequestConfig(version = version, accountId = accountId, missionId = missionId, packId = packId, gameLevelId = gameLevelId)
+    fun substituteTournamentPlayerWithHttpInfo(accountId: kotlin.Long, missionId: kotlin.Long, packId: kotlin.Long, gameLevelId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = substituteTournamentPlayerRequestConfig(accountId = accountId, missionId = missionId, packId = packId, gameLevelId = gameLevelId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -1295,14 +1269,13 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation substituteTournamentPlayer
      *
-     * @param version 
      * @param accountId the id of the logged in user
      * @param missionId the id of the mission
      * @param packId the id of the pack
      * @param gameLevelId the id of the game level
      * @return RequestConfig
      */
-    fun substituteTournamentPlayerRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, missionId: kotlin.Long, packId: kotlin.Long, gameLevelId: kotlin.Long) : RequestConfig<Unit> {
+    fun substituteTournamentPlayerRequestConfig(accountId: kotlin.Long, missionId: kotlin.Long, packId: kotlin.Long, gameLevelId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1315,7 +1288,7 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/tournament/substitute".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/tournament/substitute",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1363,10 +1336,9 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      }
 
     /**
-     * POST /api/{version}/tournament/update
+     * POST /tournament/update
      * Update Tournament
      * Update a tournament.
-     * @param version 
      * @param accountId The logged in user.
      * @param missionId The mission/tournament to update
      * @param title The title of the tournament (optional)
@@ -1410,8 +1382,8 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateTournament(version: java.math.BigDecimal, accountId: kotlin.Long, missionId: kotlin.Long, title: kotlin.String? = null, subType: kotlin.String? = null, imageAssetId: kotlin.Long? = null, secondsBetweenLevels: kotlin.Int? = null, secondsForTieBreaker: kotlin.Int? = null, secondsBetweenPacks: kotlin.Int? = null, maximumLevelLength: kotlin.Int? = null, costToPlay: kotlin.Int? = null, costToPlayType: kotlin.String? = null, minimumToPlay: kotlin.Int? = null, startingLimit: kotlin.Int? = null, availableLimit: kotlin.Int? = null, description: kotlin.String? = null, metaData: kotlin.String? = null, startDate: kotlin.Long? = null, audienceIds: kotlin.String? = null, active: kotlin.Boolean? = null, enableBuyBack: kotlin.Boolean? = null, offerIds: kotlin.String? = null, offerAssetId: kotlin.Long? = null, fixedReward: kotlin.Boolean? = null, splitReward: SplitRewardUpdateTournament? = null, allocateTickets: kotlin.Boolean? = null, tournamentData: kotlin.String? = null, visibility: VisibilityUpdateTournament? = null, preliminaryGroups: kotlin.Int? = null, preliminaryGroupAdvancements: kotlin.String? = null, enableMultipleEntries: kotlin.Boolean? = null, enableMultipleVotes: kotlin.Boolean? = null, featured: kotlin.Boolean? = null, winnerTag: kotlin.String? = null, tieTag: kotlin.String? = null) : TournamentResponse {
-        val localVarResponse = updateTournamentWithHttpInfo(version = version, accountId = accountId, missionId = missionId, title = title, subType = subType, imageAssetId = imageAssetId, secondsBetweenLevels = secondsBetweenLevels, secondsForTieBreaker = secondsForTieBreaker, secondsBetweenPacks = secondsBetweenPacks, maximumLevelLength = maximumLevelLength, costToPlay = costToPlay, costToPlayType = costToPlayType, minimumToPlay = minimumToPlay, startingLimit = startingLimit, availableLimit = availableLimit, description = description, metaData = metaData, startDate = startDate, audienceIds = audienceIds, active = active, enableBuyBack = enableBuyBack, offerIds = offerIds, offerAssetId = offerAssetId, fixedReward = fixedReward, splitReward = splitReward, allocateTickets = allocateTickets, tournamentData = tournamentData, visibility = visibility, preliminaryGroups = preliminaryGroups, preliminaryGroupAdvancements = preliminaryGroupAdvancements, enableMultipleEntries = enableMultipleEntries, enableMultipleVotes = enableMultipleVotes, featured = featured, winnerTag = winnerTag, tieTag = tieTag)
+    fun updateTournament(accountId: kotlin.Long, missionId: kotlin.Long, title: kotlin.String? = null, subType: kotlin.String? = null, imageAssetId: kotlin.Long? = null, secondsBetweenLevels: kotlin.Int? = null, secondsForTieBreaker: kotlin.Int? = null, secondsBetweenPacks: kotlin.Int? = null, maximumLevelLength: kotlin.Int? = null, costToPlay: kotlin.Int? = null, costToPlayType: kotlin.String? = null, minimumToPlay: kotlin.Int? = null, startingLimit: kotlin.Int? = null, availableLimit: kotlin.Int? = null, description: kotlin.String? = null, metaData: kotlin.String? = null, startDate: kotlin.Long? = null, audienceIds: kotlin.String? = null, active: kotlin.Boolean? = null, enableBuyBack: kotlin.Boolean? = null, offerIds: kotlin.String? = null, offerAssetId: kotlin.Long? = null, fixedReward: kotlin.Boolean? = null, splitReward: SplitRewardUpdateTournament? = null, allocateTickets: kotlin.Boolean? = null, tournamentData: kotlin.String? = null, visibility: VisibilityUpdateTournament? = null, preliminaryGroups: kotlin.Int? = null, preliminaryGroupAdvancements: kotlin.String? = null, enableMultipleEntries: kotlin.Boolean? = null, enableMultipleVotes: kotlin.Boolean? = null, featured: kotlin.Boolean? = null, winnerTag: kotlin.String? = null, tieTag: kotlin.String? = null) : TournamentResponse {
+        val localVarResponse = updateTournamentWithHttpInfo(accountId = accountId, missionId = missionId, title = title, subType = subType, imageAssetId = imageAssetId, secondsBetweenLevels = secondsBetweenLevels, secondsForTieBreaker = secondsForTieBreaker, secondsBetweenPacks = secondsBetweenPacks, maximumLevelLength = maximumLevelLength, costToPlay = costToPlay, costToPlayType = costToPlayType, minimumToPlay = minimumToPlay, startingLimit = startingLimit, availableLimit = availableLimit, description = description, metaData = metaData, startDate = startDate, audienceIds = audienceIds, active = active, enableBuyBack = enableBuyBack, offerIds = offerIds, offerAssetId = offerAssetId, fixedReward = fixedReward, splitReward = splitReward, allocateTickets = allocateTickets, tournamentData = tournamentData, visibility = visibility, preliminaryGroups = preliminaryGroups, preliminaryGroupAdvancements = preliminaryGroupAdvancements, enableMultipleEntries = enableMultipleEntries, enableMultipleVotes = enableMultipleVotes, featured = featured, winnerTag = winnerTag, tieTag = tieTag)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TournamentResponse
@@ -1429,10 +1401,9 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/tournament/update
+     * POST /tournament/update
      * Update Tournament
      * Update a tournament.
-     * @param version 
      * @param accountId The logged in user.
      * @param missionId The mission/tournament to update
      * @param title The title of the tournament (optional)
@@ -1473,8 +1444,8 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateTournamentWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, missionId: kotlin.Long, title: kotlin.String?, subType: kotlin.String?, imageAssetId: kotlin.Long?, secondsBetweenLevels: kotlin.Int?, secondsForTieBreaker: kotlin.Int?, secondsBetweenPacks: kotlin.Int?, maximumLevelLength: kotlin.Int?, costToPlay: kotlin.Int?, costToPlayType: kotlin.String?, minimumToPlay: kotlin.Int?, startingLimit: kotlin.Int?, availableLimit: kotlin.Int?, description: kotlin.String?, metaData: kotlin.String?, startDate: kotlin.Long?, audienceIds: kotlin.String?, active: kotlin.Boolean?, enableBuyBack: kotlin.Boolean?, offerIds: kotlin.String?, offerAssetId: kotlin.Long?, fixedReward: kotlin.Boolean?, splitReward: SplitRewardUpdateTournament?, allocateTickets: kotlin.Boolean?, tournamentData: kotlin.String?, visibility: VisibilityUpdateTournament?, preliminaryGroups: kotlin.Int?, preliminaryGroupAdvancements: kotlin.String?, enableMultipleEntries: kotlin.Boolean?, enableMultipleVotes: kotlin.Boolean?, featured: kotlin.Boolean?, winnerTag: kotlin.String?, tieTag: kotlin.String?) : ApiResponse<TournamentResponse?> {
-        val localVariableConfig = updateTournamentRequestConfig(version = version, accountId = accountId, missionId = missionId, title = title, subType = subType, imageAssetId = imageAssetId, secondsBetweenLevels = secondsBetweenLevels, secondsForTieBreaker = secondsForTieBreaker, secondsBetweenPacks = secondsBetweenPacks, maximumLevelLength = maximumLevelLength, costToPlay = costToPlay, costToPlayType = costToPlayType, minimumToPlay = minimumToPlay, startingLimit = startingLimit, availableLimit = availableLimit, description = description, metaData = metaData, startDate = startDate, audienceIds = audienceIds, active = active, enableBuyBack = enableBuyBack, offerIds = offerIds, offerAssetId = offerAssetId, fixedReward = fixedReward, splitReward = splitReward, allocateTickets = allocateTickets, tournamentData = tournamentData, visibility = visibility, preliminaryGroups = preliminaryGroups, preliminaryGroupAdvancements = preliminaryGroupAdvancements, enableMultipleEntries = enableMultipleEntries, enableMultipleVotes = enableMultipleVotes, featured = featured, winnerTag = winnerTag, tieTag = tieTag)
+    fun updateTournamentWithHttpInfo(accountId: kotlin.Long, missionId: kotlin.Long, title: kotlin.String?, subType: kotlin.String?, imageAssetId: kotlin.Long?, secondsBetweenLevels: kotlin.Int?, secondsForTieBreaker: kotlin.Int?, secondsBetweenPacks: kotlin.Int?, maximumLevelLength: kotlin.Int?, costToPlay: kotlin.Int?, costToPlayType: kotlin.String?, minimumToPlay: kotlin.Int?, startingLimit: kotlin.Int?, availableLimit: kotlin.Int?, description: kotlin.String?, metaData: kotlin.String?, startDate: kotlin.Long?, audienceIds: kotlin.String?, active: kotlin.Boolean?, enableBuyBack: kotlin.Boolean?, offerIds: kotlin.String?, offerAssetId: kotlin.Long?, fixedReward: kotlin.Boolean?, splitReward: SplitRewardUpdateTournament?, allocateTickets: kotlin.Boolean?, tournamentData: kotlin.String?, visibility: VisibilityUpdateTournament?, preliminaryGroups: kotlin.Int?, preliminaryGroupAdvancements: kotlin.String?, enableMultipleEntries: kotlin.Boolean?, enableMultipleVotes: kotlin.Boolean?, featured: kotlin.Boolean?, winnerTag: kotlin.String?, tieTag: kotlin.String?) : ApiResponse<TournamentResponse?> {
+        val localVariableConfig = updateTournamentRequestConfig(accountId = accountId, missionId = missionId, title = title, subType = subType, imageAssetId = imageAssetId, secondsBetweenLevels = secondsBetweenLevels, secondsForTieBreaker = secondsForTieBreaker, secondsBetweenPacks = secondsBetweenPacks, maximumLevelLength = maximumLevelLength, costToPlay = costToPlay, costToPlayType = costToPlayType, minimumToPlay = minimumToPlay, startingLimit = startingLimit, availableLimit = availableLimit, description = description, metaData = metaData, startDate = startDate, audienceIds = audienceIds, active = active, enableBuyBack = enableBuyBack, offerIds = offerIds, offerAssetId = offerAssetId, fixedReward = fixedReward, splitReward = splitReward, allocateTickets = allocateTickets, tournamentData = tournamentData, visibility = visibility, preliminaryGroups = preliminaryGroups, preliminaryGroupAdvancements = preliminaryGroupAdvancements, enableMultipleEntries = enableMultipleEntries, enableMultipleVotes = enableMultipleVotes, featured = featured, winnerTag = winnerTag, tieTag = tieTag)
 
         return request<Unit, TournamentResponse>(
             localVariableConfig
@@ -1484,7 +1455,6 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation updateTournament
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param missionId The mission/tournament to update
      * @param title The title of the tournament (optional)
@@ -1521,7 +1491,7 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param tieTag This sets what analytic tag is used when a winner is determined (optional)
      * @return RequestConfig
      */
-    fun updateTournamentRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, missionId: kotlin.Long, title: kotlin.String?, subType: kotlin.String?, imageAssetId: kotlin.Long?, secondsBetweenLevels: kotlin.Int?, secondsForTieBreaker: kotlin.Int?, secondsBetweenPacks: kotlin.Int?, maximumLevelLength: kotlin.Int?, costToPlay: kotlin.Int?, costToPlayType: kotlin.String?, minimumToPlay: kotlin.Int?, startingLimit: kotlin.Int?, availableLimit: kotlin.Int?, description: kotlin.String?, metaData: kotlin.String?, startDate: kotlin.Long?, audienceIds: kotlin.String?, active: kotlin.Boolean?, enableBuyBack: kotlin.Boolean?, offerIds: kotlin.String?, offerAssetId: kotlin.Long?, fixedReward: kotlin.Boolean?, splitReward: SplitRewardUpdateTournament?, allocateTickets: kotlin.Boolean?, tournamentData: kotlin.String?, visibility: VisibilityUpdateTournament?, preliminaryGroups: kotlin.Int?, preliminaryGroupAdvancements: kotlin.String?, enableMultipleEntries: kotlin.Boolean?, enableMultipleVotes: kotlin.Boolean?, featured: kotlin.Boolean?, winnerTag: kotlin.String?, tieTag: kotlin.String?) : RequestConfig<Unit> {
+    fun updateTournamentRequestConfig(accountId: kotlin.Long, missionId: kotlin.Long, title: kotlin.String?, subType: kotlin.String?, imageAssetId: kotlin.Long?, secondsBetweenLevels: kotlin.Int?, secondsForTieBreaker: kotlin.Int?, secondsBetweenPacks: kotlin.Int?, maximumLevelLength: kotlin.Int?, costToPlay: kotlin.Int?, costToPlayType: kotlin.String?, minimumToPlay: kotlin.Int?, startingLimit: kotlin.Int?, availableLimit: kotlin.Int?, description: kotlin.String?, metaData: kotlin.String?, startDate: kotlin.Long?, audienceIds: kotlin.String?, active: kotlin.Boolean?, enableBuyBack: kotlin.Boolean?, offerIds: kotlin.String?, offerAssetId: kotlin.Long?, fixedReward: kotlin.Boolean?, splitReward: SplitRewardUpdateTournament?, allocateTickets: kotlin.Boolean?, tournamentData: kotlin.String?, visibility: VisibilityUpdateTournament?, preliminaryGroups: kotlin.Int?, preliminaryGroupAdvancements: kotlin.String?, enableMultipleEntries: kotlin.Boolean?, enableMultipleVotes: kotlin.Boolean?, featured: kotlin.Boolean?, winnerTag: kotlin.String?, tieTag: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1628,7 +1598,7 @@ open class TournamentApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/tournament/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/tournament/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

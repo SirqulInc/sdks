@@ -42,15 +42,14 @@ open class AppDataApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * GET /api/{version}/app/get
+     * GET /app/get
      * Get App Data
      * Get the application data structure.  The basic structure is a   node tree, with the root node being a AppResponse.  The response contains   the user&#39;s profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.     Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user&#39;s   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application.
-     * @param version 
      * @param start start the search results at a record.
      * @param limit limit the search results to some number.
      * @param deviceId the device id (deviceId or accountId required). (optional)
@@ -85,8 +84,8 @@ open class AppDataApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAppData(version: java.math.BigDecimal, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, includeGameData: kotlin.Boolean? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null, i: kotlin.Int? = null, l: kotlin.Int? = null, gameObjectCount: kotlin.Boolean? = null, filter: kotlin.String? = null, dateCreated: kotlin.Long? = null, ownerId: kotlin.Long? = null, missionIds: kotlin.String? = null, gameIds: kotlin.String? = null, packIds: kotlin.String? = null, gameLevelIds: kotlin.String? = null, appVersion: kotlin.String? = null, includeHigherVersionPacks: kotlin.Boolean? = null, includeHigherVersionLevels: kotlin.Boolean? = null, responseGroups: kotlin.String? = null, purchaseType: kotlin.String? = null) : AppResponse {
-        val localVarResponse = getAppDataWithHttpInfo(version = version, start = start, limit = limit, deviceId = deviceId, accountId = accountId, gameType = gameType, includeGameData = includeGameData, q = q, keyword = keyword, sortField = sortField, descending = descending, i = i, l = l, gameObjectCount = gameObjectCount, filter = filter, dateCreated = dateCreated, ownerId = ownerId, missionIds = missionIds, gameIds = gameIds, packIds = packIds, gameLevelIds = gameLevelIds, appVersion = appVersion, includeHigherVersionPacks = includeHigherVersionPacks, includeHigherVersionLevels = includeHigherVersionLevels, responseGroups = responseGroups, purchaseType = purchaseType)
+    fun getAppData(start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, includeGameData: kotlin.Boolean? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null, i: kotlin.Int? = null, l: kotlin.Int? = null, gameObjectCount: kotlin.Boolean? = null, filter: kotlin.String? = null, dateCreated: kotlin.Long? = null, ownerId: kotlin.Long? = null, missionIds: kotlin.String? = null, gameIds: kotlin.String? = null, packIds: kotlin.String? = null, gameLevelIds: kotlin.String? = null, appVersion: kotlin.String? = null, includeHigherVersionPacks: kotlin.Boolean? = null, includeHigherVersionLevels: kotlin.Boolean? = null, responseGroups: kotlin.String? = null, purchaseType: kotlin.String? = null) : AppResponse {
+        val localVarResponse = getAppDataWithHttpInfo(start = start, limit = limit, deviceId = deviceId, accountId = accountId, gameType = gameType, includeGameData = includeGameData, q = q, keyword = keyword, sortField = sortField, descending = descending, i = i, l = l, gameObjectCount = gameObjectCount, filter = filter, dateCreated = dateCreated, ownerId = ownerId, missionIds = missionIds, gameIds = gameIds, packIds = packIds, gameLevelIds = gameLevelIds, appVersion = appVersion, includeHigherVersionPacks = includeHigherVersionPacks, includeHigherVersionLevels = includeHigherVersionLevels, responseGroups = responseGroups, purchaseType = purchaseType)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AppResponse
@@ -104,10 +103,9 @@ open class AppDataApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/app/get
+     * GET /app/get
      * Get App Data
      * Get the application data structure.  The basic structure is a   node tree, with the root node being a AppResponse.  The response contains   the user&#39;s profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.     Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user&#39;s   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application.
-     * @param version 
      * @param start start the search results at a record.
      * @param limit limit the search results to some number.
      * @param deviceId the device id (deviceId or accountId required). (optional)
@@ -139,8 +137,8 @@ open class AppDataApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAppDataWithHttpInfo(version: java.math.BigDecimal, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, includeGameData: kotlin.Boolean?, q: kotlin.String?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, i: kotlin.Int?, l: kotlin.Int?, gameObjectCount: kotlin.Boolean?, filter: kotlin.String?, dateCreated: kotlin.Long?, ownerId: kotlin.Long?, missionIds: kotlin.String?, gameIds: kotlin.String?, packIds: kotlin.String?, gameLevelIds: kotlin.String?, appVersion: kotlin.String?, includeHigherVersionPacks: kotlin.Boolean?, includeHigherVersionLevels: kotlin.Boolean?, responseGroups: kotlin.String?, purchaseType: kotlin.String?) : ApiResponse<AppResponse?> {
-        val localVariableConfig = getAppDataRequestConfig(version = version, start = start, limit = limit, deviceId = deviceId, accountId = accountId, gameType = gameType, includeGameData = includeGameData, q = q, keyword = keyword, sortField = sortField, descending = descending, i = i, l = l, gameObjectCount = gameObjectCount, filter = filter, dateCreated = dateCreated, ownerId = ownerId, missionIds = missionIds, gameIds = gameIds, packIds = packIds, gameLevelIds = gameLevelIds, appVersion = appVersion, includeHigherVersionPacks = includeHigherVersionPacks, includeHigherVersionLevels = includeHigherVersionLevels, responseGroups = responseGroups, purchaseType = purchaseType)
+    fun getAppDataWithHttpInfo(start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, includeGameData: kotlin.Boolean?, q: kotlin.String?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, i: kotlin.Int?, l: kotlin.Int?, gameObjectCount: kotlin.Boolean?, filter: kotlin.String?, dateCreated: kotlin.Long?, ownerId: kotlin.Long?, missionIds: kotlin.String?, gameIds: kotlin.String?, packIds: kotlin.String?, gameLevelIds: kotlin.String?, appVersion: kotlin.String?, includeHigherVersionPacks: kotlin.Boolean?, includeHigherVersionLevels: kotlin.Boolean?, responseGroups: kotlin.String?, purchaseType: kotlin.String?) : ApiResponse<AppResponse?> {
+        val localVariableConfig = getAppDataRequestConfig(start = start, limit = limit, deviceId = deviceId, accountId = accountId, gameType = gameType, includeGameData = includeGameData, q = q, keyword = keyword, sortField = sortField, descending = descending, i = i, l = l, gameObjectCount = gameObjectCount, filter = filter, dateCreated = dateCreated, ownerId = ownerId, missionIds = missionIds, gameIds = gameIds, packIds = packIds, gameLevelIds = gameLevelIds, appVersion = appVersion, includeHigherVersionPacks = includeHigherVersionPacks, includeHigherVersionLevels = includeHigherVersionLevels, responseGroups = responseGroups, purchaseType = purchaseType)
 
         return request<Unit, AppResponse>(
             localVariableConfig
@@ -150,7 +148,6 @@ open class AppDataApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation getAppData
      *
-     * @param version 
      * @param start start the search results at a record.
      * @param limit limit the search results to some number.
      * @param deviceId the device id (deviceId or accountId required). (optional)
@@ -178,7 +175,7 @@ open class AppDataApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param purchaseType the will return the correct in app purchases for the device, possible values are: * SIRQUL (default) - purchasing from the sirqul store using tickets * IOS - purchasing from the itunes store for iPhone, iPod, iPod Touch * GOOGLE - purchasing from the google android store * AMAZON - purchasing from the amazon android store * MAC - purchasing from the itunes store for OSX * FREE - the item is free to purchase  (optional)
      * @return RequestConfig
      */
-    fun getAppDataRequestConfig(version: java.math.BigDecimal, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, includeGameData: kotlin.Boolean?, q: kotlin.String?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, i: kotlin.Int?, l: kotlin.Int?, gameObjectCount: kotlin.Boolean?, filter: kotlin.String?, dateCreated: kotlin.Long?, ownerId: kotlin.Long?, missionIds: kotlin.String?, gameIds: kotlin.String?, packIds: kotlin.String?, gameLevelIds: kotlin.String?, appVersion: kotlin.String?, includeHigherVersionPacks: kotlin.Boolean?, includeHigherVersionLevels: kotlin.Boolean?, responseGroups: kotlin.String?, purchaseType: kotlin.String?) : RequestConfig<Unit> {
+    fun getAppDataRequestConfig(start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, includeGameData: kotlin.Boolean?, q: kotlin.String?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, i: kotlin.Int?, l: kotlin.Int?, gameObjectCount: kotlin.Boolean?, filter: kotlin.String?, dateCreated: kotlin.Long?, ownerId: kotlin.Long?, missionIds: kotlin.String?, gameIds: kotlin.String?, packIds: kotlin.String?, gameLevelIds: kotlin.String?, appVersion: kotlin.String?, includeHigherVersionPacks: kotlin.Boolean?, includeHigherVersionLevels: kotlin.Boolean?, responseGroups: kotlin.String?, purchaseType: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -258,7 +255,7 @@ open class AppDataApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/app/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/app/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -267,10 +264,9 @@ open class AppDataApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/app/post
+     * POST /app/post
      * Create App Data
      * Publish the application data structure.  Can be used to save levels   and scores.  It then returns the application data structure.  The basic   structure is a node tree, with the root node being a AppResponse.  The response   contains the user&#39;s profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.      Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user&#39;s   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application
-     * @param version 
      * @param gameType the game to retrieve the data for, use your application key.
      * @param start start the search results at a record.
      * @param limit limit the search results to some number.
@@ -306,8 +302,8 @@ open class AppDataApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun postAppData(version: java.math.BigDecimal, gameType: kotlin.String, start: kotlin.Int, limit: kotlin.Int, `data`: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, includeGameData: kotlin.Boolean? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null, i: kotlin.Int? = null, l: kotlin.Int? = null, gameObjectCount: kotlin.Boolean? = null, filter: kotlin.String? = null, dateCreated: kotlin.Long? = null, ownerId: kotlin.Long? = null, missionIds: kotlin.String? = null, gameIds: kotlin.String? = null, packIds: kotlin.String? = null, gameLevelIds: kotlin.String? = null, appVersion: kotlin.String? = null, includeHigherVersionPacks: kotlin.Boolean? = null, includeHigherVersionLevels: kotlin.Boolean? = null, responseGroups: kotlin.String? = null, purchaseType: kotlin.String? = null) : AppResponse {
-        val localVarResponse = postAppDataWithHttpInfo(version = version, gameType = gameType, start = start, limit = limit, `data` = `data`, deviceId = deviceId, accountId = accountId, includeGameData = includeGameData, q = q, keyword = keyword, sortField = sortField, descending = descending, i = i, l = l, gameObjectCount = gameObjectCount, filter = filter, dateCreated = dateCreated, ownerId = ownerId, missionIds = missionIds, gameIds = gameIds, packIds = packIds, gameLevelIds = gameLevelIds, appVersion = appVersion, includeHigherVersionPacks = includeHigherVersionPacks, includeHigherVersionLevels = includeHigherVersionLevels, responseGroups = responseGroups, purchaseType = purchaseType)
+    fun postAppData(gameType: kotlin.String, start: kotlin.Int, limit: kotlin.Int, `data`: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, includeGameData: kotlin.Boolean? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null, i: kotlin.Int? = null, l: kotlin.Int? = null, gameObjectCount: kotlin.Boolean? = null, filter: kotlin.String? = null, dateCreated: kotlin.Long? = null, ownerId: kotlin.Long? = null, missionIds: kotlin.String? = null, gameIds: kotlin.String? = null, packIds: kotlin.String? = null, gameLevelIds: kotlin.String? = null, appVersion: kotlin.String? = null, includeHigherVersionPacks: kotlin.Boolean? = null, includeHigherVersionLevels: kotlin.Boolean? = null, responseGroups: kotlin.String? = null, purchaseType: kotlin.String? = null) : AppResponse {
+        val localVarResponse = postAppDataWithHttpInfo(gameType = gameType, start = start, limit = limit, `data` = `data`, deviceId = deviceId, accountId = accountId, includeGameData = includeGameData, q = q, keyword = keyword, sortField = sortField, descending = descending, i = i, l = l, gameObjectCount = gameObjectCount, filter = filter, dateCreated = dateCreated, ownerId = ownerId, missionIds = missionIds, gameIds = gameIds, packIds = packIds, gameLevelIds = gameLevelIds, appVersion = appVersion, includeHigherVersionPacks = includeHigherVersionPacks, includeHigherVersionLevels = includeHigherVersionLevels, responseGroups = responseGroups, purchaseType = purchaseType)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AppResponse
@@ -325,10 +321,9 @@ open class AppDataApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/app/post
+     * POST /app/post
      * Create App Data
      * Publish the application data structure.  Can be used to save levels   and scores.  It then returns the application data structure.  The basic   structure is a node tree, with the root node being a AppResponse.  The response   contains the user&#39;s profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.      Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user&#39;s   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application
-     * @param version 
      * @param gameType the game to retrieve the data for, use your application key.
      * @param start start the search results at a record.
      * @param limit limit the search results to some number.
@@ -361,8 +356,8 @@ open class AppDataApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun postAppDataWithHttpInfo(version: java.math.BigDecimal, gameType: kotlin.String, start: kotlin.Int, limit: kotlin.Int, `data`: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, includeGameData: kotlin.Boolean?, q: kotlin.String?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, i: kotlin.Int?, l: kotlin.Int?, gameObjectCount: kotlin.Boolean?, filter: kotlin.String?, dateCreated: kotlin.Long?, ownerId: kotlin.Long?, missionIds: kotlin.String?, gameIds: kotlin.String?, packIds: kotlin.String?, gameLevelIds: kotlin.String?, appVersion: kotlin.String?, includeHigherVersionPacks: kotlin.Boolean?, includeHigherVersionLevels: kotlin.Boolean?, responseGroups: kotlin.String?, purchaseType: kotlin.String?) : ApiResponse<AppResponse?> {
-        val localVariableConfig = postAppDataRequestConfig(version = version, gameType = gameType, start = start, limit = limit, `data` = `data`, deviceId = deviceId, accountId = accountId, includeGameData = includeGameData, q = q, keyword = keyword, sortField = sortField, descending = descending, i = i, l = l, gameObjectCount = gameObjectCount, filter = filter, dateCreated = dateCreated, ownerId = ownerId, missionIds = missionIds, gameIds = gameIds, packIds = packIds, gameLevelIds = gameLevelIds, appVersion = appVersion, includeHigherVersionPacks = includeHigherVersionPacks, includeHigherVersionLevels = includeHigherVersionLevels, responseGroups = responseGroups, purchaseType = purchaseType)
+    fun postAppDataWithHttpInfo(gameType: kotlin.String, start: kotlin.Int, limit: kotlin.Int, `data`: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, includeGameData: kotlin.Boolean?, q: kotlin.String?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, i: kotlin.Int?, l: kotlin.Int?, gameObjectCount: kotlin.Boolean?, filter: kotlin.String?, dateCreated: kotlin.Long?, ownerId: kotlin.Long?, missionIds: kotlin.String?, gameIds: kotlin.String?, packIds: kotlin.String?, gameLevelIds: kotlin.String?, appVersion: kotlin.String?, includeHigherVersionPacks: kotlin.Boolean?, includeHigherVersionLevels: kotlin.Boolean?, responseGroups: kotlin.String?, purchaseType: kotlin.String?) : ApiResponse<AppResponse?> {
+        val localVariableConfig = postAppDataRequestConfig(gameType = gameType, start = start, limit = limit, `data` = `data`, deviceId = deviceId, accountId = accountId, includeGameData = includeGameData, q = q, keyword = keyword, sortField = sortField, descending = descending, i = i, l = l, gameObjectCount = gameObjectCount, filter = filter, dateCreated = dateCreated, ownerId = ownerId, missionIds = missionIds, gameIds = gameIds, packIds = packIds, gameLevelIds = gameLevelIds, appVersion = appVersion, includeHigherVersionPacks = includeHigherVersionPacks, includeHigherVersionLevels = includeHigherVersionLevels, responseGroups = responseGroups, purchaseType = purchaseType)
 
         return request<Unit, AppResponse>(
             localVariableConfig
@@ -372,7 +367,6 @@ open class AppDataApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation postAppData
      *
-     * @param version 
      * @param gameType the game to retrieve the data for, use your application key.
      * @param start start the search results at a record.
      * @param limit limit the search results to some number.
@@ -401,7 +395,7 @@ open class AppDataApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param purchaseType the will return the correct in app purchases for the device, possible values are: * SIRQUL (default) - purchasing from the sirqul store using tickets * IOS - purchasing from the itunes store for iPhone, iPod, iPod Touch * GOOGLE - purchasing from the google android store * AMAZON - purchasing from the amazon android store * MAC - purchasing from the itunes store for OSX * FREE - the item is free to purchase  (optional)
      * @return RequestConfig
      */
-    fun postAppDataRequestConfig(version: java.math.BigDecimal, gameType: kotlin.String, start: kotlin.Int, limit: kotlin.Int, `data`: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, includeGameData: kotlin.Boolean?, q: kotlin.String?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, i: kotlin.Int?, l: kotlin.Int?, gameObjectCount: kotlin.Boolean?, filter: kotlin.String?, dateCreated: kotlin.Long?, ownerId: kotlin.Long?, missionIds: kotlin.String?, gameIds: kotlin.String?, packIds: kotlin.String?, gameLevelIds: kotlin.String?, appVersion: kotlin.String?, includeHigherVersionPacks: kotlin.Boolean?, includeHigherVersionLevels: kotlin.Boolean?, responseGroups: kotlin.String?, purchaseType: kotlin.String?) : RequestConfig<Unit> {
+    fun postAppDataRequestConfig(gameType: kotlin.String, start: kotlin.Int, limit: kotlin.Int, `data`: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, includeGameData: kotlin.Boolean?, q: kotlin.String?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, i: kotlin.Int?, l: kotlin.Int?, gameObjectCount: kotlin.Boolean?, filter: kotlin.String?, dateCreated: kotlin.Long?, ownerId: kotlin.Long?, missionIds: kotlin.String?, gameIds: kotlin.String?, packIds: kotlin.String?, gameLevelIds: kotlin.String?, appVersion: kotlin.String?, includeHigherVersionPacks: kotlin.Boolean?, includeHigherVersionLevels: kotlin.Boolean?, responseGroups: kotlin.String?, purchaseType: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -480,7 +474,7 @@ open class AppDataApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/app/post".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/app/post",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -489,10 +483,9 @@ open class AppDataApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/app/regen
+     * POST /app/regen
      * Regenerate App Data
      * Regenerate the app data cache for apps
-     * @param version 
      * @param accountId the account id of the user (optional)
      * @param appKey process a specific application, if null process all apps with caches (optional)
      * @param buildVersion create a specific version, if null use current version. Be careful if processing all (optional)
@@ -506,8 +499,8 @@ open class AppDataApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun regenAppData(version: java.math.BigDecimal, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, buildVersion: kotlin.String? = null, apiVersion: kotlin.String? = null) : SirqulResponse {
-        val localVarResponse = regenAppDataWithHttpInfo(version = version, accountId = accountId, appKey = appKey, buildVersion = buildVersion, apiVersion = apiVersion)
+    fun regenAppData(accountId: kotlin.Long? = null, appKey: kotlin.String? = null, buildVersion: kotlin.String? = null, apiVersion: kotlin.String? = null) : SirqulResponse {
+        val localVarResponse = regenAppDataWithHttpInfo(accountId = accountId, appKey = appKey, buildVersion = buildVersion, apiVersion = apiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -525,10 +518,9 @@ open class AppDataApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/app/regen
+     * POST /app/regen
      * Regenerate App Data
      * Regenerate the app data cache for apps
-     * @param version 
      * @param accountId the account id of the user (optional)
      * @param appKey process a specific application, if null process all apps with caches (optional)
      * @param buildVersion create a specific version, if null use current version. Be careful if processing all (optional)
@@ -539,8 +531,8 @@ open class AppDataApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun regenAppDataWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long?, appKey: kotlin.String?, buildVersion: kotlin.String?, apiVersion: kotlin.String?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = regenAppDataRequestConfig(version = version, accountId = accountId, appKey = appKey, buildVersion = buildVersion, apiVersion = apiVersion)
+    fun regenAppDataWithHttpInfo(accountId: kotlin.Long?, appKey: kotlin.String?, buildVersion: kotlin.String?, apiVersion: kotlin.String?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = regenAppDataRequestConfig(accountId = accountId, appKey = appKey, buildVersion = buildVersion, apiVersion = apiVersion)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -550,14 +542,13 @@ open class AppDataApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation regenAppData
      *
-     * @param version 
      * @param accountId the account id of the user (optional)
      * @param appKey process a specific application, if null process all apps with caches (optional)
      * @param buildVersion create a specific version, if null use current version. Be careful if processing all (optional)
      * @param apiVersion create a specific version, if null use current version. Be careful if processing all (optional)
      * @return RequestConfig
      */
-    fun regenAppDataRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long?, appKey: kotlin.String?, buildVersion: kotlin.String?, apiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun regenAppDataRequestConfig(accountId: kotlin.Long?, appKey: kotlin.String?, buildVersion: kotlin.String?, apiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -578,7 +569,7 @@ open class AppDataApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/app/regen".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/app/regen",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

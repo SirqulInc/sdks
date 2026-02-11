@@ -41,15 +41,14 @@ open class RetailerV2Api(basePath: kotlin.String = defaultBasePath, client: Call
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * GET /api/{version}/retailer
+     * GET /retailer
      * Get Retailer
      * Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-     * @param version 
      * @param retailerId the id of the retailer
      * @param activeOnly whether to return results that are active only or all (default to true)
      * @param keyword the keyword to search on to get retailer (optional)
@@ -65,8 +64,8 @@ open class RetailerV2Api(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRetaokiler(version: java.math.BigDecimal, retailerId: kotlin.Long, activeOnly: kotlin.Boolean = true, keyword: kotlin.String? = null, sortField: kotlin.String? = "id", start: kotlin.Long? = 0L, limit: kotlin.Long? = 20L) : SirqulResponse {
-        val localVarResponse = getRetaokilerWithHttpInfo(version = version, retailerId = retailerId, activeOnly = activeOnly, keyword = keyword, sortField = sortField, start = start, limit = limit)
+    fun getRetaokiler(retailerId: kotlin.Long, activeOnly: kotlin.Boolean = true, keyword: kotlin.String? = null, sortField: kotlin.String? = "id", start: kotlin.Long? = 0L, limit: kotlin.Long? = 20L) : SirqulResponse {
+        val localVarResponse = getRetaokilerWithHttpInfo(retailerId = retailerId, activeOnly = activeOnly, keyword = keyword, sortField = sortField, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -84,10 +83,9 @@ open class RetailerV2Api(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/retailer
+     * GET /retailer
      * Get Retailer
      * Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-     * @param version 
      * @param retailerId the id of the retailer
      * @param activeOnly whether to return results that are active only or all (default to true)
      * @param keyword the keyword to search on to get retailer (optional)
@@ -100,8 +98,8 @@ open class RetailerV2Api(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRetaokilerWithHttpInfo(version: java.math.BigDecimal, retailerId: kotlin.Long, activeOnly: kotlin.Boolean, keyword: kotlin.String?, sortField: kotlin.String?, start: kotlin.Long?, limit: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = getRetaokilerRequestConfig(version = version, retailerId = retailerId, activeOnly = activeOnly, keyword = keyword, sortField = sortField, start = start, limit = limit)
+    fun getRetaokilerWithHttpInfo(retailerId: kotlin.Long, activeOnly: kotlin.Boolean, keyword: kotlin.String?, sortField: kotlin.String?, start: kotlin.Long?, limit: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = getRetaokilerRequestConfig(retailerId = retailerId, activeOnly = activeOnly, keyword = keyword, sortField = sortField, start = start, limit = limit)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -111,7 +109,6 @@ open class RetailerV2Api(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation getRetaokiler
      *
-     * @param version 
      * @param retailerId the id of the retailer
      * @param activeOnly whether to return results that are active only or all (default to true)
      * @param keyword the keyword to search on to get retailer (optional)
@@ -120,7 +117,7 @@ open class RetailerV2Api(basePath: kotlin.String = defaultBasePath, client: Call
      * @param limit the limit of the index and/or pagination (optional, default to 20L)
      * @return RequestConfig
      */
-    fun getRetaokilerRequestConfig(version: java.math.BigDecimal, retailerId: kotlin.Long, activeOnly: kotlin.Boolean, keyword: kotlin.String?, sortField: kotlin.String?, start: kotlin.Long?, limit: kotlin.Long?) : RequestConfig<Unit> {
+    fun getRetaokilerRequestConfig(retailerId: kotlin.Long, activeOnly: kotlin.Boolean, keyword: kotlin.String?, sortField: kotlin.String?, start: kotlin.Long?, limit: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -143,7 +140,7 @@ open class RetailerV2Api(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/retailer".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/retailer",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

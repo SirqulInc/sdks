@@ -43,7 +43,7 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
@@ -89,10 +89,9 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      }
 
     /**
-     * GET /api/{version}/category/distancesearch
+     * GET /category/distancesearch
      * Search Categories by Distance
      * Search for categories by distance.
-     * @param version 
      * @param accountId The account id of the user (optional)
      * @param keyword The keyword string to search on (optional)
      * @param appKey the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -122,8 +121,8 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun categoryDistanceSearch(version: java.math.BigDecimal, accountId: kotlin.Long? = null, keyword: kotlin.String? = null, appKey: kotlin.String? = null, categoryIds: kotlin.String? = null, parentCategoryIds: kotlin.String? = null, rootOnly: kotlin.Boolean? = null, sortField: SortFieldCategoryDistanceSearch? = SortFieldCategoryDistanceSearch.DISPLAY, responseGroup: ResponseGroupCategoryDistanceSearch? = null, descending: kotlin.Boolean? = false, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, activeOnly: kotlin.Boolean? = true, returnExternal: kotlin.Boolean? = null, exactMatch: kotlin.Boolean? = null, type: kotlin.String? = null, externalType: kotlin.String? = null, minOfferCount: kotlin.Int? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, range: kotlin.Double? = null) : kotlin.collections.List<CategoryResponse> {
-        val localVarResponse = categoryDistanceSearchWithHttpInfo(version = version, accountId = accountId, keyword = keyword, appKey = appKey, categoryIds = categoryIds, parentCategoryIds = parentCategoryIds, rootOnly = rootOnly, sortField = sortField, responseGroup = responseGroup, descending = descending, start = start, limit = limit, activeOnly = activeOnly, returnExternal = returnExternal, exactMatch = exactMatch, type = type, externalType = externalType, minOfferCount = minOfferCount, latitude = latitude, longitude = longitude, range = range)
+    fun categoryDistanceSearch(accountId: kotlin.Long? = null, keyword: kotlin.String? = null, appKey: kotlin.String? = null, categoryIds: kotlin.String? = null, parentCategoryIds: kotlin.String? = null, rootOnly: kotlin.Boolean? = null, sortField: SortFieldCategoryDistanceSearch? = SortFieldCategoryDistanceSearch.DISPLAY, responseGroup: ResponseGroupCategoryDistanceSearch? = null, descending: kotlin.Boolean? = false, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, activeOnly: kotlin.Boolean? = true, returnExternal: kotlin.Boolean? = null, exactMatch: kotlin.Boolean? = null, type: kotlin.String? = null, externalType: kotlin.String? = null, minOfferCount: kotlin.Int? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, range: kotlin.Double? = null) : kotlin.collections.List<CategoryResponse> {
+        val localVarResponse = categoryDistanceSearchWithHttpInfo(accountId = accountId, keyword = keyword, appKey = appKey, categoryIds = categoryIds, parentCategoryIds = parentCategoryIds, rootOnly = rootOnly, sortField = sortField, responseGroup = responseGroup, descending = descending, start = start, limit = limit, activeOnly = activeOnly, returnExternal = returnExternal, exactMatch = exactMatch, type = type, externalType = externalType, minOfferCount = minOfferCount, latitude = latitude, longitude = longitude, range = range)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<CategoryResponse>
@@ -141,10 +140,9 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/category/distancesearch
+     * GET /category/distancesearch
      * Search Categories by Distance
      * Search for categories by distance.
-     * @param version 
      * @param accountId The account id of the user (optional)
      * @param keyword The keyword string to search on (optional)
      * @param appKey the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -171,8 +169,8 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun categoryDistanceSearchWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long?, keyword: kotlin.String?, appKey: kotlin.String?, categoryIds: kotlin.String?, parentCategoryIds: kotlin.String?, rootOnly: kotlin.Boolean?, sortField: SortFieldCategoryDistanceSearch?, responseGroup: ResponseGroupCategoryDistanceSearch?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?, returnExternal: kotlin.Boolean?, exactMatch: kotlin.Boolean?, type: kotlin.String?, externalType: kotlin.String?, minOfferCount: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?, range: kotlin.Double?) : ApiResponse<kotlin.collections.List<CategoryResponse>?> {
-        val localVariableConfig = categoryDistanceSearchRequestConfig(version = version, accountId = accountId, keyword = keyword, appKey = appKey, categoryIds = categoryIds, parentCategoryIds = parentCategoryIds, rootOnly = rootOnly, sortField = sortField, responseGroup = responseGroup, descending = descending, start = start, limit = limit, activeOnly = activeOnly, returnExternal = returnExternal, exactMatch = exactMatch, type = type, externalType = externalType, minOfferCount = minOfferCount, latitude = latitude, longitude = longitude, range = range)
+    fun categoryDistanceSearchWithHttpInfo(accountId: kotlin.Long?, keyword: kotlin.String?, appKey: kotlin.String?, categoryIds: kotlin.String?, parentCategoryIds: kotlin.String?, rootOnly: kotlin.Boolean?, sortField: SortFieldCategoryDistanceSearch?, responseGroup: ResponseGroupCategoryDistanceSearch?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?, returnExternal: kotlin.Boolean?, exactMatch: kotlin.Boolean?, type: kotlin.String?, externalType: kotlin.String?, minOfferCount: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?, range: kotlin.Double?) : ApiResponse<kotlin.collections.List<CategoryResponse>?> {
+        val localVariableConfig = categoryDistanceSearchRequestConfig(accountId = accountId, keyword = keyword, appKey = appKey, categoryIds = categoryIds, parentCategoryIds = parentCategoryIds, rootOnly = rootOnly, sortField = sortField, responseGroup = responseGroup, descending = descending, start = start, limit = limit, activeOnly = activeOnly, returnExternal = returnExternal, exactMatch = exactMatch, type = type, externalType = externalType, minOfferCount = minOfferCount, latitude = latitude, longitude = longitude, range = range)
 
         return request<Unit, kotlin.collections.List<CategoryResponse>>(
             localVariableConfig
@@ -182,7 +180,6 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation categoryDistanceSearch
      *
-     * @param version 
      * @param accountId The account id of the user (optional)
      * @param keyword The keyword string to search on (optional)
      * @param appKey the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -205,7 +202,7 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param range the maximum range the category can be from the center (optional)
      * @return RequestConfig
      */
-    fun categoryDistanceSearchRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long?, keyword: kotlin.String?, appKey: kotlin.String?, categoryIds: kotlin.String?, parentCategoryIds: kotlin.String?, rootOnly: kotlin.Boolean?, sortField: SortFieldCategoryDistanceSearch?, responseGroup: ResponseGroupCategoryDistanceSearch?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?, returnExternal: kotlin.Boolean?, exactMatch: kotlin.Boolean?, type: kotlin.String?, externalType: kotlin.String?, minOfferCount: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?, range: kotlin.Double?) : RequestConfig<Unit> {
+    fun categoryDistanceSearchRequestConfig(accountId: kotlin.Long?, keyword: kotlin.String?, appKey: kotlin.String?, categoryIds: kotlin.String?, parentCategoryIds: kotlin.String?, rootOnly: kotlin.Boolean?, sortField: SortFieldCategoryDistanceSearch?, responseGroup: ResponseGroupCategoryDistanceSearch?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?, returnExternal: kotlin.Boolean?, exactMatch: kotlin.Boolean?, type: kotlin.String?, externalType: kotlin.String?, minOfferCount: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?, range: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -274,7 +271,7 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/category/distancesearch".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/category/distancesearch",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -283,10 +280,9 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/category/create
+     * POST /category/create
      * Create Category
      * Create a new category.
-     * @param version 
      * @param accountId The account id of the user (must have permissions to the target application)
      * @param name The name of the category
      * @param appKey The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions) (optional)
@@ -310,8 +306,8 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createCategory(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, appKey: kotlin.String? = null, parentCategoryId: kotlin.Long? = null, description: kotlin.String? = null, type: kotlin.String? = null, assetId: kotlin.Long? = null, externalId: kotlin.String? = null, externalType: kotlin.String? = null, externalCategorySlug: kotlin.String? = null, sqootSlug: kotlin.String? = null, active: kotlin.Boolean? = null, metaData: kotlin.String? = null, searchTags: kotlin.String? = null) : CategoryTreeResponse {
-        val localVarResponse = createCategoryWithHttpInfo(version = version, accountId = accountId, name = name, appKey = appKey, parentCategoryId = parentCategoryId, description = description, type = type, assetId = assetId, externalId = externalId, externalType = externalType, externalCategorySlug = externalCategorySlug, sqootSlug = sqootSlug, active = active, metaData = metaData, searchTags = searchTags)
+    fun createCategory(accountId: kotlin.Long, name: kotlin.String, appKey: kotlin.String? = null, parentCategoryId: kotlin.Long? = null, description: kotlin.String? = null, type: kotlin.String? = null, assetId: kotlin.Long? = null, externalId: kotlin.String? = null, externalType: kotlin.String? = null, externalCategorySlug: kotlin.String? = null, sqootSlug: kotlin.String? = null, active: kotlin.Boolean? = null, metaData: kotlin.String? = null, searchTags: kotlin.String? = null) : CategoryTreeResponse {
+        val localVarResponse = createCategoryWithHttpInfo(accountId = accountId, name = name, appKey = appKey, parentCategoryId = parentCategoryId, description = description, type = type, assetId = assetId, externalId = externalId, externalType = externalType, externalCategorySlug = externalCategorySlug, sqootSlug = sqootSlug, active = active, metaData = metaData, searchTags = searchTags)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CategoryTreeResponse
@@ -329,10 +325,9 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/category/create
+     * POST /category/create
      * Create Category
      * Create a new category.
-     * @param version 
      * @param accountId The account id of the user (must have permissions to the target application)
      * @param name The name of the category
      * @param appKey The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions) (optional)
@@ -353,8 +348,8 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createCategoryWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, appKey: kotlin.String?, parentCategoryId: kotlin.Long?, description: kotlin.String?, type: kotlin.String?, assetId: kotlin.Long?, externalId: kotlin.String?, externalType: kotlin.String?, externalCategorySlug: kotlin.String?, sqootSlug: kotlin.String?, active: kotlin.Boolean?, metaData: kotlin.String?, searchTags: kotlin.String?) : ApiResponse<CategoryTreeResponse?> {
-        val localVariableConfig = createCategoryRequestConfig(version = version, accountId = accountId, name = name, appKey = appKey, parentCategoryId = parentCategoryId, description = description, type = type, assetId = assetId, externalId = externalId, externalType = externalType, externalCategorySlug = externalCategorySlug, sqootSlug = sqootSlug, active = active, metaData = metaData, searchTags = searchTags)
+    fun createCategoryWithHttpInfo(accountId: kotlin.Long, name: kotlin.String, appKey: kotlin.String?, parentCategoryId: kotlin.Long?, description: kotlin.String?, type: kotlin.String?, assetId: kotlin.Long?, externalId: kotlin.String?, externalType: kotlin.String?, externalCategorySlug: kotlin.String?, sqootSlug: kotlin.String?, active: kotlin.Boolean?, metaData: kotlin.String?, searchTags: kotlin.String?) : ApiResponse<CategoryTreeResponse?> {
+        val localVariableConfig = createCategoryRequestConfig(accountId = accountId, name = name, appKey = appKey, parentCategoryId = parentCategoryId, description = description, type = type, assetId = assetId, externalId = externalId, externalType = externalType, externalCategorySlug = externalCategorySlug, sqootSlug = sqootSlug, active = active, metaData = metaData, searchTags = searchTags)
 
         return request<Unit, CategoryTreeResponse>(
             localVariableConfig
@@ -364,7 +359,6 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation createCategory
      *
-     * @param version 
      * @param accountId The account id of the user (must have permissions to the target application)
      * @param name The name of the category
      * @param appKey The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions) (optional)
@@ -381,7 +375,7 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param searchTags user defined strings for searching (optional)
      * @return RequestConfig
      */
-    fun createCategoryRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, appKey: kotlin.String?, parentCategoryId: kotlin.Long?, description: kotlin.String?, type: kotlin.String?, assetId: kotlin.Long?, externalId: kotlin.String?, externalType: kotlin.String?, externalCategorySlug: kotlin.String?, sqootSlug: kotlin.String?, active: kotlin.Boolean?, metaData: kotlin.String?, searchTags: kotlin.String?) : RequestConfig<Unit> {
+    fun createCategoryRequestConfig(accountId: kotlin.Long, name: kotlin.String, appKey: kotlin.String?, parentCategoryId: kotlin.Long?, description: kotlin.String?, type: kotlin.String?, assetId: kotlin.Long?, externalId: kotlin.String?, externalType: kotlin.String?, externalCategorySlug: kotlin.String?, sqootSlug: kotlin.String?, active: kotlin.Boolean?, metaData: kotlin.String?, searchTags: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -428,7 +422,7 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/category/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/category/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -437,10 +431,9 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/category/delete
+     * POST /category/delete
      * Delete Category
      * Delete a category.
-     * @param version 
      * @param accountId the ID of the account
      * @param categoryId the ID of the category
      * @return SirqulResponse
@@ -452,8 +445,8 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteCategory(version: java.math.BigDecimal, accountId: kotlin.Long, categoryId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = deleteCategoryWithHttpInfo(version = version, accountId = accountId, categoryId = categoryId)
+    fun deleteCategory(accountId: kotlin.Long, categoryId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = deleteCategoryWithHttpInfo(accountId = accountId, categoryId = categoryId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -471,10 +464,9 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/category/delete
+     * POST /category/delete
      * Delete Category
      * Delete a category.
-     * @param version 
      * @param accountId the ID of the account
      * @param categoryId the ID of the category
      * @return ApiResponse<SirqulResponse?>
@@ -483,8 +475,8 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteCategoryWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, categoryId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteCategoryRequestConfig(version = version, accountId = accountId, categoryId = categoryId)
+    fun deleteCategoryWithHttpInfo(accountId: kotlin.Long, categoryId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteCategoryRequestConfig(accountId = accountId, categoryId = categoryId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -494,12 +486,11 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation deleteCategory
      *
-     * @param version 
      * @param accountId the ID of the account
      * @param categoryId the ID of the category
      * @return RequestConfig
      */
-    fun deleteCategoryRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, categoryId: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteCategoryRequestConfig(accountId: kotlin.Long, categoryId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -510,7 +501,7 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/category/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/category/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -519,10 +510,9 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/category/duplicate
+     * POST /category/duplicate
      * Duplicate Category
      * Duplicate a category, including all its children.
-     * @param version 
      * @param accountId The account id of the user (must have permissions to the target application)
      * @param categoryId The category ID to duplicate (includes all children)
      * @param appKey The application to assign the new category to, may be different then the application the source category is assigned to (optional)
@@ -536,8 +526,8 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun duplicateCategory(version: java.math.BigDecimal, accountId: kotlin.Long, categoryId: kotlin.Long, appKey: kotlin.String? = null, parentCategoryId: kotlin.Long? = null) : CategoryTreeResponse {
-        val localVarResponse = duplicateCategoryWithHttpInfo(version = version, accountId = accountId, categoryId = categoryId, appKey = appKey, parentCategoryId = parentCategoryId)
+    fun duplicateCategory(accountId: kotlin.Long, categoryId: kotlin.Long, appKey: kotlin.String? = null, parentCategoryId: kotlin.Long? = null) : CategoryTreeResponse {
+        val localVarResponse = duplicateCategoryWithHttpInfo(accountId = accountId, categoryId = categoryId, appKey = appKey, parentCategoryId = parentCategoryId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CategoryTreeResponse
@@ -555,10 +545,9 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/category/duplicate
+     * POST /category/duplicate
      * Duplicate Category
      * Duplicate a category, including all its children.
-     * @param version 
      * @param accountId The account id of the user (must have permissions to the target application)
      * @param categoryId The category ID to duplicate (includes all children)
      * @param appKey The application to assign the new category to, may be different then the application the source category is assigned to (optional)
@@ -569,8 +558,8 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun duplicateCategoryWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, categoryId: kotlin.Long, appKey: kotlin.String?, parentCategoryId: kotlin.Long?) : ApiResponse<CategoryTreeResponse?> {
-        val localVariableConfig = duplicateCategoryRequestConfig(version = version, accountId = accountId, categoryId = categoryId, appKey = appKey, parentCategoryId = parentCategoryId)
+    fun duplicateCategoryWithHttpInfo(accountId: kotlin.Long, categoryId: kotlin.Long, appKey: kotlin.String?, parentCategoryId: kotlin.Long?) : ApiResponse<CategoryTreeResponse?> {
+        val localVariableConfig = duplicateCategoryRequestConfig(accountId = accountId, categoryId = categoryId, appKey = appKey, parentCategoryId = parentCategoryId)
 
         return request<Unit, CategoryTreeResponse>(
             localVariableConfig
@@ -580,14 +569,13 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation duplicateCategory
      *
-     * @param version 
      * @param accountId The account id of the user (must have permissions to the target application)
      * @param categoryId The category ID to duplicate (includes all children)
      * @param appKey The application to assign the new category to, may be different then the application the source category is assigned to (optional)
      * @param parentCategoryId The parent category ID to add the target category to. (optional)
      * @return RequestConfig
      */
-    fun duplicateCategoryRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, categoryId: kotlin.Long, appKey: kotlin.String?, parentCategoryId: kotlin.Long?) : RequestConfig<Unit> {
+    fun duplicateCategoryRequestConfig(accountId: kotlin.Long, categoryId: kotlin.Long, appKey: kotlin.String?, parentCategoryId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -604,7 +592,7 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/category/duplicate".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/category/duplicate",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -613,10 +601,9 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/category/get
+     * GET /category/get
      * Get Category
      * Get the details of a specific category. Recursively include all child categories and their children.
-     * @param version 
      * @param categoryId the ID of the category
      * @param returnExternal Determines whether to return extra info about the category&#39;s \&quot;Participant\&quot; reference (optional, default to true)
      * @return CategoryTreeResponse
@@ -628,8 +615,8 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCategory(version: java.math.BigDecimal, categoryId: kotlin.Long, returnExternal: kotlin.Boolean? = true) : CategoryTreeResponse {
-        val localVarResponse = getCategoryWithHttpInfo(version = version, categoryId = categoryId, returnExternal = returnExternal)
+    fun getCategory(categoryId: kotlin.Long, returnExternal: kotlin.Boolean? = true) : CategoryTreeResponse {
+        val localVarResponse = getCategoryWithHttpInfo(categoryId = categoryId, returnExternal = returnExternal)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CategoryTreeResponse
@@ -647,10 +634,9 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/category/get
+     * GET /category/get
      * Get Category
      * Get the details of a specific category. Recursively include all child categories and their children.
-     * @param version 
      * @param categoryId the ID of the category
      * @param returnExternal Determines whether to return extra info about the category&#39;s \&quot;Participant\&quot; reference (optional, default to true)
      * @return ApiResponse<CategoryTreeResponse?>
@@ -659,8 +645,8 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCategoryWithHttpInfo(version: java.math.BigDecimal, categoryId: kotlin.Long, returnExternal: kotlin.Boolean?) : ApiResponse<CategoryTreeResponse?> {
-        val localVariableConfig = getCategoryRequestConfig(version = version, categoryId = categoryId, returnExternal = returnExternal)
+    fun getCategoryWithHttpInfo(categoryId: kotlin.Long, returnExternal: kotlin.Boolean?) : ApiResponse<CategoryTreeResponse?> {
+        val localVariableConfig = getCategoryRequestConfig(categoryId = categoryId, returnExternal = returnExternal)
 
         return request<Unit, CategoryTreeResponse>(
             localVariableConfig
@@ -670,12 +656,11 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation getCategory
      *
-     * @param version 
      * @param categoryId the ID of the category
      * @param returnExternal Determines whether to return extra info about the category&#39;s \&quot;Participant\&quot; reference (optional, default to true)
      * @return RequestConfig
      */
-    fun getCategoryRequestConfig(version: java.math.BigDecimal, categoryId: kotlin.Long, returnExternal: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getCategoryRequestConfig(categoryId: kotlin.Long, returnExternal: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -688,7 +673,7 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/category/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/category/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -738,10 +723,9 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      }
 
     /**
-     * GET /api/{version}/category/search
+     * GET /category/search
      * Search Categories
      * Search for categories.
-     * @param version 
      * @param accountId The account id of the user (optional)
      * @param keyword The string to search on (optional)
      * @param appKey the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -772,8 +756,8 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchCategories(version: java.math.BigDecimal, accountId: kotlin.Long? = null, keyword: kotlin.String? = null, appKey: kotlin.String? = null, categoryId: kotlin.String? = null, categoryIds: kotlin.String? = null, parentCategoryIds: kotlin.String? = null, rootOnly: kotlin.Boolean? = null, sortField: SortFieldSearchCategories? = SortFieldSearchCategories.DISPLAY, responseGroup: ResponseGroupSearchCategories? = null, descending: kotlin.Boolean? = false, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, activeOnly: kotlin.Boolean? = true, returnExternal: kotlin.Boolean? = true, exactMatch: kotlin.Boolean? = false, type: kotlin.String? = null, externalType: kotlin.String? = null, excludeExternalType: kotlin.Boolean? = null, minOfferCount: kotlin.Int? = null, searchDepth: kotlin.Int? = 4, searchMode: kotlin.String? = null) : kotlin.collections.List<CategoryResponse> {
-        val localVarResponse = searchCategoriesWithHttpInfo(version = version, accountId = accountId, keyword = keyword, appKey = appKey, categoryId = categoryId, categoryIds = categoryIds, parentCategoryIds = parentCategoryIds, rootOnly = rootOnly, sortField = sortField, responseGroup = responseGroup, descending = descending, start = start, limit = limit, activeOnly = activeOnly, returnExternal = returnExternal, exactMatch = exactMatch, type = type, externalType = externalType, excludeExternalType = excludeExternalType, minOfferCount = minOfferCount, searchDepth = searchDepth, searchMode = searchMode)
+    fun searchCategories(accountId: kotlin.Long? = null, keyword: kotlin.String? = null, appKey: kotlin.String? = null, categoryId: kotlin.String? = null, categoryIds: kotlin.String? = null, parentCategoryIds: kotlin.String? = null, rootOnly: kotlin.Boolean? = null, sortField: SortFieldSearchCategories? = SortFieldSearchCategories.DISPLAY, responseGroup: ResponseGroupSearchCategories? = null, descending: kotlin.Boolean? = false, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, activeOnly: kotlin.Boolean? = true, returnExternal: kotlin.Boolean? = true, exactMatch: kotlin.Boolean? = false, type: kotlin.String? = null, externalType: kotlin.String? = null, excludeExternalType: kotlin.Boolean? = null, minOfferCount: kotlin.Int? = null, searchDepth: kotlin.Int? = 4, searchMode: kotlin.String? = null) : kotlin.collections.List<CategoryResponse> {
+        val localVarResponse = searchCategoriesWithHttpInfo(accountId = accountId, keyword = keyword, appKey = appKey, categoryId = categoryId, categoryIds = categoryIds, parentCategoryIds = parentCategoryIds, rootOnly = rootOnly, sortField = sortField, responseGroup = responseGroup, descending = descending, start = start, limit = limit, activeOnly = activeOnly, returnExternal = returnExternal, exactMatch = exactMatch, type = type, externalType = externalType, excludeExternalType = excludeExternalType, minOfferCount = minOfferCount, searchDepth = searchDepth, searchMode = searchMode)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<CategoryResponse>
@@ -791,10 +775,9 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/category/search
+     * GET /category/search
      * Search Categories
      * Search for categories.
-     * @param version 
      * @param accountId The account id of the user (optional)
      * @param keyword The string to search on (optional)
      * @param appKey the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -822,8 +805,8 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchCategoriesWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long?, keyword: kotlin.String?, appKey: kotlin.String?, categoryId: kotlin.String?, categoryIds: kotlin.String?, parentCategoryIds: kotlin.String?, rootOnly: kotlin.Boolean?, sortField: SortFieldSearchCategories?, responseGroup: ResponseGroupSearchCategories?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?, returnExternal: kotlin.Boolean?, exactMatch: kotlin.Boolean?, type: kotlin.String?, externalType: kotlin.String?, excludeExternalType: kotlin.Boolean?, minOfferCount: kotlin.Int?, searchDepth: kotlin.Int?, searchMode: kotlin.String?) : ApiResponse<kotlin.collections.List<CategoryResponse>?> {
-        val localVariableConfig = searchCategoriesRequestConfig(version = version, accountId = accountId, keyword = keyword, appKey = appKey, categoryId = categoryId, categoryIds = categoryIds, parentCategoryIds = parentCategoryIds, rootOnly = rootOnly, sortField = sortField, responseGroup = responseGroup, descending = descending, start = start, limit = limit, activeOnly = activeOnly, returnExternal = returnExternal, exactMatch = exactMatch, type = type, externalType = externalType, excludeExternalType = excludeExternalType, minOfferCount = minOfferCount, searchDepth = searchDepth, searchMode = searchMode)
+    fun searchCategoriesWithHttpInfo(accountId: kotlin.Long?, keyword: kotlin.String?, appKey: kotlin.String?, categoryId: kotlin.String?, categoryIds: kotlin.String?, parentCategoryIds: kotlin.String?, rootOnly: kotlin.Boolean?, sortField: SortFieldSearchCategories?, responseGroup: ResponseGroupSearchCategories?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?, returnExternal: kotlin.Boolean?, exactMatch: kotlin.Boolean?, type: kotlin.String?, externalType: kotlin.String?, excludeExternalType: kotlin.Boolean?, minOfferCount: kotlin.Int?, searchDepth: kotlin.Int?, searchMode: kotlin.String?) : ApiResponse<kotlin.collections.List<CategoryResponse>?> {
+        val localVariableConfig = searchCategoriesRequestConfig(accountId = accountId, keyword = keyword, appKey = appKey, categoryId = categoryId, categoryIds = categoryIds, parentCategoryIds = parentCategoryIds, rootOnly = rootOnly, sortField = sortField, responseGroup = responseGroup, descending = descending, start = start, limit = limit, activeOnly = activeOnly, returnExternal = returnExternal, exactMatch = exactMatch, type = type, externalType = externalType, excludeExternalType = excludeExternalType, minOfferCount = minOfferCount, searchDepth = searchDepth, searchMode = searchMode)
 
         return request<Unit, kotlin.collections.List<CategoryResponse>>(
             localVariableConfig
@@ -833,7 +816,6 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation searchCategories
      *
-     * @param version 
      * @param accountId The account id of the user (optional)
      * @param keyword The string to search on (optional)
      * @param appKey the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -857,7 +839,7 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param searchMode The search index mode to use (e.g. OPENSEARCH or RDS) (optional)
      * @return RequestConfig
      */
-    fun searchCategoriesRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long?, keyword: kotlin.String?, appKey: kotlin.String?, categoryId: kotlin.String?, categoryIds: kotlin.String?, parentCategoryIds: kotlin.String?, rootOnly: kotlin.Boolean?, sortField: SortFieldSearchCategories?, responseGroup: ResponseGroupSearchCategories?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?, returnExternal: kotlin.Boolean?, exactMatch: kotlin.Boolean?, type: kotlin.String?, externalType: kotlin.String?, excludeExternalType: kotlin.Boolean?, minOfferCount: kotlin.Int?, searchDepth: kotlin.Int?, searchMode: kotlin.String?) : RequestConfig<Unit> {
+    fun searchCategoriesRequestConfig(accountId: kotlin.Long?, keyword: kotlin.String?, appKey: kotlin.String?, categoryId: kotlin.String?, categoryIds: kotlin.String?, parentCategoryIds: kotlin.String?, rootOnly: kotlin.Boolean?, sortField: SortFieldSearchCategories?, responseGroup: ResponseGroupSearchCategories?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?, returnExternal: kotlin.Boolean?, exactMatch: kotlin.Boolean?, type: kotlin.String?, externalType: kotlin.String?, excludeExternalType: kotlin.Boolean?, minOfferCount: kotlin.Int?, searchDepth: kotlin.Int?, searchMode: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -929,7 +911,7 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/category/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/category/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -938,10 +920,9 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/category/update
+     * POST /category/update
      * Update Category
      * Update a category.
-     * @param version 
      * @param accountId The account id of the user
      * @param categoryId The ID of the category to edit
      * @param parentCategoryId The ID of the parent category, if not provided then the parent category will be null (optional)
@@ -965,8 +946,8 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateCategory(version: java.math.BigDecimal, accountId: kotlin.Long, categoryId: kotlin.Long, parentCategoryId: kotlin.Long? = null, name: kotlin.String? = null, description: kotlin.String? = null, type: kotlin.String? = null, assetId: kotlin.Long? = null, externalId: kotlin.String? = null, externalType: kotlin.String? = null, externalCategorySlug: kotlin.String? = null, sqootSlug: kotlin.String? = null, active: kotlin.Boolean? = null, metaData: kotlin.String? = null, searchTags: kotlin.String? = null) : CategoryTreeResponse {
-        val localVarResponse = updateCategoryWithHttpInfo(version = version, accountId = accountId, categoryId = categoryId, parentCategoryId = parentCategoryId, name = name, description = description, type = type, assetId = assetId, externalId = externalId, externalType = externalType, externalCategorySlug = externalCategorySlug, sqootSlug = sqootSlug, active = active, metaData = metaData, searchTags = searchTags)
+    fun updateCategory(accountId: kotlin.Long, categoryId: kotlin.Long, parentCategoryId: kotlin.Long? = null, name: kotlin.String? = null, description: kotlin.String? = null, type: kotlin.String? = null, assetId: kotlin.Long? = null, externalId: kotlin.String? = null, externalType: kotlin.String? = null, externalCategorySlug: kotlin.String? = null, sqootSlug: kotlin.String? = null, active: kotlin.Boolean? = null, metaData: kotlin.String? = null, searchTags: kotlin.String? = null) : CategoryTreeResponse {
+        val localVarResponse = updateCategoryWithHttpInfo(accountId = accountId, categoryId = categoryId, parentCategoryId = parentCategoryId, name = name, description = description, type = type, assetId = assetId, externalId = externalId, externalType = externalType, externalCategorySlug = externalCategorySlug, sqootSlug = sqootSlug, active = active, metaData = metaData, searchTags = searchTags)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CategoryTreeResponse
@@ -984,10 +965,9 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/category/update
+     * POST /category/update
      * Update Category
      * Update a category.
-     * @param version 
      * @param accountId The account id of the user
      * @param categoryId The ID of the category to edit
      * @param parentCategoryId The ID of the parent category, if not provided then the parent category will be null (optional)
@@ -1008,8 +988,8 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateCategoryWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, categoryId: kotlin.Long, parentCategoryId: kotlin.Long?, name: kotlin.String?, description: kotlin.String?, type: kotlin.String?, assetId: kotlin.Long?, externalId: kotlin.String?, externalType: kotlin.String?, externalCategorySlug: kotlin.String?, sqootSlug: kotlin.String?, active: kotlin.Boolean?, metaData: kotlin.String?, searchTags: kotlin.String?) : ApiResponse<CategoryTreeResponse?> {
-        val localVariableConfig = updateCategoryRequestConfig(version = version, accountId = accountId, categoryId = categoryId, parentCategoryId = parentCategoryId, name = name, description = description, type = type, assetId = assetId, externalId = externalId, externalType = externalType, externalCategorySlug = externalCategorySlug, sqootSlug = sqootSlug, active = active, metaData = metaData, searchTags = searchTags)
+    fun updateCategoryWithHttpInfo(accountId: kotlin.Long, categoryId: kotlin.Long, parentCategoryId: kotlin.Long?, name: kotlin.String?, description: kotlin.String?, type: kotlin.String?, assetId: kotlin.Long?, externalId: kotlin.String?, externalType: kotlin.String?, externalCategorySlug: kotlin.String?, sqootSlug: kotlin.String?, active: kotlin.Boolean?, metaData: kotlin.String?, searchTags: kotlin.String?) : ApiResponse<CategoryTreeResponse?> {
+        val localVariableConfig = updateCategoryRequestConfig(accountId = accountId, categoryId = categoryId, parentCategoryId = parentCategoryId, name = name, description = description, type = type, assetId = assetId, externalId = externalId, externalType = externalType, externalCategorySlug = externalCategorySlug, sqootSlug = sqootSlug, active = active, metaData = metaData, searchTags = searchTags)
 
         return request<Unit, CategoryTreeResponse>(
             localVariableConfig
@@ -1019,7 +999,6 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation updateCategory
      *
-     * @param version 
      * @param accountId The account id of the user
      * @param categoryId The ID of the category to edit
      * @param parentCategoryId The ID of the parent category, if not provided then the parent category will be null (optional)
@@ -1036,7 +1015,7 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param searchTags user defined strings for searching (optional)
      * @return RequestConfig
      */
-    fun updateCategoryRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, categoryId: kotlin.Long, parentCategoryId: kotlin.Long?, name: kotlin.String?, description: kotlin.String?, type: kotlin.String?, assetId: kotlin.Long?, externalId: kotlin.String?, externalType: kotlin.String?, externalCategorySlug: kotlin.String?, sqootSlug: kotlin.String?, active: kotlin.Boolean?, metaData: kotlin.String?, searchTags: kotlin.String?) : RequestConfig<Unit> {
+    fun updateCategoryRequestConfig(accountId: kotlin.Long, categoryId: kotlin.Long, parentCategoryId: kotlin.Long?, name: kotlin.String?, description: kotlin.String?, type: kotlin.String?, assetId: kotlin.Long?, externalId: kotlin.String?, externalType: kotlin.String?, externalCategorySlug: kotlin.String?, sqootSlug: kotlin.String?, active: kotlin.Boolean?, metaData: kotlin.String?, searchTags: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1083,7 +1062,7 @@ open class CategoryApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/category/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/category/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

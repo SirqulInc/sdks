@@ -41,15 +41,14 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/object/field/add
+     * POST /object/field/add
      * Create Field
      * Add a field to a specific object.  The field name should be camel   case with the first letter lower case, for example: myFieldName.  Duplicate   field names are not allowed.   The field name cannot be any of the following   reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE,   BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE,   CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE,   CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP,   CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE,   DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE,   DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE,   ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4,   FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY,   HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE,   INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER,   INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT,   LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG,   LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT,   MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND,   MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC,   ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION,   PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES,   REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN,   REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE,   SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION,   SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT,   SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT,   TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED,   UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY,   VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH,   ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW.     The following field names are reserved (cannot be used directly) and are automatically   included during object creation: ID, OBJECTID, CREATED, UPDATED, DELETED.   Additionally the field names must start with a letter or number.
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param appKey The application key for updating an existing application
      * @param objectName The name of the object to add the field to
@@ -64,8 +63,8 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun addField(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String, fieldName: kotlin.String, fieldType: kotlin.String) : ObjectStoreResponse {
-        val localVarResponse = addFieldWithHttpInfo(version = version, accountId = accountId, appKey = appKey, objectName = objectName, fieldName = fieldName, fieldType = fieldType)
+    fun addField(accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String, fieldName: kotlin.String, fieldType: kotlin.String) : ObjectStoreResponse {
+        val localVarResponse = addFieldWithHttpInfo(accountId = accountId, appKey = appKey, objectName = objectName, fieldName = fieldName, fieldType = fieldType)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ObjectStoreResponse
@@ -83,10 +82,9 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/object/field/add
+     * POST /object/field/add
      * Create Field
      * Add a field to a specific object.  The field name should be camel   case with the first letter lower case, for example: myFieldName.  Duplicate   field names are not allowed.   The field name cannot be any of the following   reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE,   BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE,   CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE,   CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP,   CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE,   DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE,   DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE,   ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4,   FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY,   HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE,   INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER,   INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT,   LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG,   LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT,   MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND,   MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC,   ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION,   PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES,   REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN,   REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE,   SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION,   SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT,   SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT,   TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED,   UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY,   VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH,   ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW.     The following field names are reserved (cannot be used directly) and are automatically   included during object creation: ID, OBJECTID, CREATED, UPDATED, DELETED.   Additionally the field names must start with a letter or number.
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param appKey The application key for updating an existing application
      * @param objectName The name of the object to add the field to
@@ -98,8 +96,8 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun addFieldWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String, fieldName: kotlin.String, fieldType: kotlin.String) : ApiResponse<ObjectStoreResponse?> {
-        val localVariableConfig = addFieldRequestConfig(version = version, accountId = accountId, appKey = appKey, objectName = objectName, fieldName = fieldName, fieldType = fieldType)
+    fun addFieldWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String, fieldName: kotlin.String, fieldType: kotlin.String) : ApiResponse<ObjectStoreResponse?> {
+        val localVariableConfig = addFieldRequestConfig(accountId = accountId, appKey = appKey, objectName = objectName, fieldName = fieldName, fieldType = fieldType)
 
         return request<Unit, ObjectStoreResponse>(
             localVariableConfig
@@ -109,7 +107,6 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation addField
      *
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param appKey The application key for updating an existing application
      * @param objectName The name of the object to add the field to
@@ -117,7 +114,7 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param fieldType field type The field type to create, supported types are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY
      * @return RequestConfig
      */
-    fun addFieldRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String, fieldName: kotlin.String, fieldType: kotlin.String) : RequestConfig<Unit> {
+    fun addFieldRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String, fieldName: kotlin.String, fieldType: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -131,7 +128,7 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/object/field/add".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/object/field/add",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -140,10 +137,9 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/object/data/{objectName}
+     * POST /object/data/{objectName}
      * Create Data
      * Create a record for the specified object.  If the object does not exist then a new one will be created prior to inserting the record.  If any of the fields included does not exist for the object then they are added to the object. 
-     * @param version 
      * @param objectName the name of the object to create data for
      * @param accountId the account id (optional)
      * @param body  (optional)
@@ -156,8 +152,8 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createData(version: java.math.BigDecimal, objectName: kotlin.String, accountId: kotlin.Long? = null, body: kotlin.String? = null) : ObjectStoreResponse {
-        val localVarResponse = createDataWithHttpInfo(version = version, objectName = objectName, accountId = accountId, body = body)
+    fun createData(objectName: kotlin.String, accountId: kotlin.Long? = null, body: kotlin.String? = null) : ObjectStoreResponse {
+        val localVarResponse = createDataWithHttpInfo(objectName = objectName, accountId = accountId, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ObjectStoreResponse
@@ -175,10 +171,9 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/object/data/{objectName}
+     * POST /object/data/{objectName}
      * Create Data
      * Create a record for the specified object.  If the object does not exist then a new one will be created prior to inserting the record.  If any of the fields included does not exist for the object then they are added to the object. 
-     * @param version 
      * @param objectName the name of the object to create data for
      * @param accountId the account id (optional)
      * @param body  (optional)
@@ -188,8 +183,8 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createDataWithHttpInfo(version: java.math.BigDecimal, objectName: kotlin.String, accountId: kotlin.Long?, body: kotlin.String?) : ApiResponse<ObjectStoreResponse?> {
-        val localVariableConfig = createDataRequestConfig(version = version, objectName = objectName, accountId = accountId, body = body)
+    fun createDataWithHttpInfo(objectName: kotlin.String, accountId: kotlin.Long?, body: kotlin.String?) : ApiResponse<ObjectStoreResponse?> {
+        val localVariableConfig = createDataRequestConfig(objectName = objectName, accountId = accountId, body = body)
 
         return request<kotlin.String, ObjectStoreResponse>(
             localVariableConfig
@@ -199,13 +194,12 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation createData
      *
-     * @param version 
      * @param objectName the name of the object to create data for
      * @param accountId the account id (optional)
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun createDataRequestConfig(version: java.math.BigDecimal, objectName: kotlin.String, accountId: kotlin.Long?, body: kotlin.String?) : RequestConfig<kotlin.String> {
+    fun createDataRequestConfig(objectName: kotlin.String, accountId: kotlin.Long?, body: kotlin.String?) : RequestConfig<kotlin.String> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -217,7 +211,7 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/object/data/{objectName}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"objectName"+"}", encodeURIComponent(objectName.toString())),
+            path = "/object/data/{objectName}".replace("{"+"objectName"+"}", encodeURIComponent(objectName.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -226,10 +220,9 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/object/create
+     * POST /object/create
      * Create Object
      * Create an Object Store table.  By default tables will have the columns: id, created, updated, deleted.  Names og objects should be camel case with the first letter capitalized, for example: MyTableName.   Duplicate object names are not allowed.   The object name cannot be any of the following reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE, BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE, CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE, CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP, CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE, DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE, DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE, ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4, FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY, HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE, INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER, INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT, LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG, LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT, MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND, MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC, ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION, PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES, REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN, REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE, SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION, SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT, SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT, TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED, UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY, VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH, ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW. 
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param appKey The application key for updating an existing application
      * @param objectName The name of the object to create
@@ -242,8 +235,8 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createObject(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String) : ObjectStoreResponse {
-        val localVarResponse = createObjectWithHttpInfo(version = version, accountId = accountId, appKey = appKey, objectName = objectName)
+    fun createObject(accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String) : ObjectStoreResponse {
+        val localVarResponse = createObjectWithHttpInfo(accountId = accountId, appKey = appKey, objectName = objectName)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ObjectStoreResponse
@@ -261,10 +254,9 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/object/create
+     * POST /object/create
      * Create Object
      * Create an Object Store table.  By default tables will have the columns: id, created, updated, deleted.  Names og objects should be camel case with the first letter capitalized, for example: MyTableName.   Duplicate object names are not allowed.   The object name cannot be any of the following reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE, BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE, CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE, CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP, CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE, DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE, DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE, ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4, FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY, HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE, INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER, INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT, LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG, LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT, MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND, MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC, ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION, PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES, REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN, REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE, SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION, SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT, SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT, TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED, UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY, VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH, ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW. 
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param appKey The application key for updating an existing application
      * @param objectName The name of the object to create
@@ -274,8 +266,8 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createObjectWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String) : ApiResponse<ObjectStoreResponse?> {
-        val localVariableConfig = createObjectRequestConfig(version = version, accountId = accountId, appKey = appKey, objectName = objectName)
+    fun createObjectWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String) : ApiResponse<ObjectStoreResponse?> {
+        val localVariableConfig = createObjectRequestConfig(accountId = accountId, appKey = appKey, objectName = objectName)
 
         return request<Unit, ObjectStoreResponse>(
             localVariableConfig
@@ -285,13 +277,12 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation createObject
      *
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param appKey The application key for updating an existing application
      * @param objectName The name of the object to create
      * @return RequestConfig
      */
-    fun createObjectRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String) : RequestConfig<Unit> {
+    fun createObjectRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -303,7 +294,7 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/object/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/object/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -312,10 +303,9 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * DELETE /api/{version}/object/data/{objectName}/{objectId}
+     * DELETE /object/data/{objectName}/{objectId}
      * Delete Data
      * Delete a record for the specified object. Cannot be undone so use only when abolutely sure.
-     * @param version 
      * @param objectName The name of the object to search upon
      * @param objectId objectId The id of the record to return
      * @param accountId The account id of the logged in user (optional)
@@ -328,8 +318,8 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteData(version: java.math.BigDecimal, objectName: kotlin.String, objectId: kotlin.String, accountId: kotlin.Long? = null) : ObjectStoreResponse {
-        val localVarResponse = deleteDataWithHttpInfo(version = version, objectName = objectName, objectId = objectId, accountId = accountId)
+    fun deleteData(objectName: kotlin.String, objectId: kotlin.String, accountId: kotlin.Long? = null) : ObjectStoreResponse {
+        val localVarResponse = deleteDataWithHttpInfo(objectName = objectName, objectId = objectId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ObjectStoreResponse
@@ -347,10 +337,9 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * DELETE /api/{version}/object/data/{objectName}/{objectId}
+     * DELETE /object/data/{objectName}/{objectId}
      * Delete Data
      * Delete a record for the specified object. Cannot be undone so use only when abolutely sure.
-     * @param version 
      * @param objectName The name of the object to search upon
      * @param objectId objectId The id of the record to return
      * @param accountId The account id of the logged in user (optional)
@@ -360,8 +349,8 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteDataWithHttpInfo(version: java.math.BigDecimal, objectName: kotlin.String, objectId: kotlin.String, accountId: kotlin.Long?) : ApiResponse<ObjectStoreResponse?> {
-        val localVariableConfig = deleteDataRequestConfig(version = version, objectName = objectName, objectId = objectId, accountId = accountId)
+    fun deleteDataWithHttpInfo(objectName: kotlin.String, objectId: kotlin.String, accountId: kotlin.Long?) : ApiResponse<ObjectStoreResponse?> {
+        val localVariableConfig = deleteDataRequestConfig(objectName = objectName, objectId = objectId, accountId = accountId)
 
         return request<Unit, ObjectStoreResponse>(
             localVariableConfig
@@ -371,13 +360,12 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation deleteData
      *
-     * @param version 
      * @param objectName The name of the object to search upon
      * @param objectId objectId The id of the record to return
      * @param accountId The account id of the logged in user (optional)
      * @return RequestConfig
      */
-    fun deleteDataRequestConfig(version: java.math.BigDecimal, objectName: kotlin.String, objectId: kotlin.String, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun deleteDataRequestConfig(objectName: kotlin.String, objectId: kotlin.String, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -389,7 +377,7 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.DELETE,
-            path = "/api/{version}/object/data/{objectName}/{objectId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"objectName"+"}", encodeURIComponent(objectName.toString())).replace("{"+"objectId"+"}", encodeURIComponent(objectId.toString())),
+            path = "/object/data/{objectName}/{objectId}".replace("{"+"objectName"+"}", encodeURIComponent(objectName.toString())).replace("{"+"objectId"+"}", encodeURIComponent(objectId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -398,10 +386,9 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/object/field/delete
+     * POST /object/field/delete
      * Delete Field
      * Delete a field from an object.  This will remove the field, indexes,   and foreign keys associated with the field.   The following field names   are reserved and cannot be removed from the object: ID, OBJECTID, CREATED,   UPDATED, DELETED
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param appKey The application key for updating an existing application
      * @param objectName The name of the object to remove the field from
@@ -415,8 +402,8 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteField(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String, fieldName: kotlin.String) : ObjectStoreResponse {
-        val localVarResponse = deleteFieldWithHttpInfo(version = version, accountId = accountId, appKey = appKey, objectName = objectName, fieldName = fieldName)
+    fun deleteField(accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String, fieldName: kotlin.String) : ObjectStoreResponse {
+        val localVarResponse = deleteFieldWithHttpInfo(accountId = accountId, appKey = appKey, objectName = objectName, fieldName = fieldName)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ObjectStoreResponse
@@ -434,10 +421,9 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/object/field/delete
+     * POST /object/field/delete
      * Delete Field
      * Delete a field from an object.  This will remove the field, indexes,   and foreign keys associated with the field.   The following field names   are reserved and cannot be removed from the object: ID, OBJECTID, CREATED,   UPDATED, DELETED
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param appKey The application key for updating an existing application
      * @param objectName The name of the object to remove the field from
@@ -448,8 +434,8 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteFieldWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String, fieldName: kotlin.String) : ApiResponse<ObjectStoreResponse?> {
-        val localVariableConfig = deleteFieldRequestConfig(version = version, accountId = accountId, appKey = appKey, objectName = objectName, fieldName = fieldName)
+    fun deleteFieldWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String, fieldName: kotlin.String) : ApiResponse<ObjectStoreResponse?> {
+        val localVariableConfig = deleteFieldRequestConfig(accountId = accountId, appKey = appKey, objectName = objectName, fieldName = fieldName)
 
         return request<Unit, ObjectStoreResponse>(
             localVariableConfig
@@ -459,14 +445,13 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation deleteField
      *
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param appKey The application key for updating an existing application
      * @param objectName The name of the object to remove the field from
      * @param fieldName field name The name of the field to remove.
      * @return RequestConfig
      */
-    fun deleteFieldRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String, fieldName: kotlin.String) : RequestConfig<Unit> {
+    fun deleteFieldRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String, fieldName: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -479,7 +464,7 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/object/field/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/object/field/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -488,10 +473,9 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/object/delete
+     * POST /object/delete
      * Delete Object
      * Delete and Object in the store.  This will delete the table and clean up and foreign keys referencing it. Cannot be undone so use only when abolutely sure.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param appKey the application key
      * @param objectName the name of the object to delete
@@ -504,8 +488,8 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteObject(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String) : ObjectStoreResponse {
-        val localVarResponse = deleteObjectWithHttpInfo(version = version, accountId = accountId, appKey = appKey, objectName = objectName)
+    fun deleteObject(accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String) : ObjectStoreResponse {
+        val localVarResponse = deleteObjectWithHttpInfo(accountId = accountId, appKey = appKey, objectName = objectName)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ObjectStoreResponse
@@ -523,10 +507,9 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/object/delete
+     * POST /object/delete
      * Delete Object
      * Delete and Object in the store.  This will delete the table and clean up and foreign keys referencing it. Cannot be undone so use only when abolutely sure.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param appKey the application key
      * @param objectName the name of the object to delete
@@ -536,8 +519,8 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteObjectWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String) : ApiResponse<ObjectStoreResponse?> {
-        val localVariableConfig = deleteObjectRequestConfig(version = version, accountId = accountId, appKey = appKey, objectName = objectName)
+    fun deleteObjectWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String) : ApiResponse<ObjectStoreResponse?> {
+        val localVariableConfig = deleteObjectRequestConfig(accountId = accountId, appKey = appKey, objectName = objectName)
 
         return request<Unit, ObjectStoreResponse>(
             localVariableConfig
@@ -547,13 +530,12 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation deleteObject
      *
-     * @param version 
      * @param accountId the id of the logged in user
      * @param appKey the application key
      * @param objectName the name of the object to delete
      * @return RequestConfig
      */
-    fun deleteObjectRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String) : RequestConfig<Unit> {
+    fun deleteObjectRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -565,7 +547,7 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/object/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/object/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -574,10 +556,9 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/object/data/{objectName}/{objectId}
+     * GET /object/data/{objectName}/{objectId}
      * Get Data
      * Get a specific record from a specified object.
-     * @param version 
      * @param objectName The name of the object to search upon
      * @param objectId objectId The id of the record to return
      * @param accountId The account id of the logged in user (optional)
@@ -591,8 +572,8 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getData(version: java.math.BigDecimal, objectName: kotlin.String, objectId: kotlin.String, accountId: kotlin.Long? = null, include: kotlin.String? = null) : ObjectStoreResponse {
-        val localVarResponse = getDataWithHttpInfo(version = version, objectName = objectName, objectId = objectId, accountId = accountId, include = include)
+    fun getData(objectName: kotlin.String, objectId: kotlin.String, accountId: kotlin.Long? = null, include: kotlin.String? = null) : ObjectStoreResponse {
+        val localVarResponse = getDataWithHttpInfo(objectName = objectName, objectId = objectId, accountId = accountId, include = include)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ObjectStoreResponse
@@ -610,10 +591,9 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/object/data/{objectName}/{objectId}
+     * GET /object/data/{objectName}/{objectId}
      * Get Data
      * Get a specific record from a specified object.
-     * @param version 
      * @param objectName The name of the object to search upon
      * @param objectId objectId The id of the record to return
      * @param accountId The account id of the logged in user (optional)
@@ -624,8 +604,8 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getDataWithHttpInfo(version: java.math.BigDecimal, objectName: kotlin.String, objectId: kotlin.String, accountId: kotlin.Long?, include: kotlin.String?) : ApiResponse<ObjectStoreResponse?> {
-        val localVariableConfig = getDataRequestConfig(version = version, objectName = objectName, objectId = objectId, accountId = accountId, include = include)
+    fun getDataWithHttpInfo(objectName: kotlin.String, objectId: kotlin.String, accountId: kotlin.Long?, include: kotlin.String?) : ApiResponse<ObjectStoreResponse?> {
+        val localVariableConfig = getDataRequestConfig(objectName = objectName, objectId = objectId, accountId = accountId, include = include)
 
         return request<Unit, ObjectStoreResponse>(
             localVariableConfig
@@ -635,14 +615,13 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation getData
      *
-     * @param version 
      * @param objectName The name of the object to search upon
      * @param objectId objectId The id of the record to return
      * @param accountId The account id of the logged in user (optional)
      * @param include  (optional)
      * @return RequestConfig
      */
-    fun getDataRequestConfig(version: java.math.BigDecimal, objectName: kotlin.String, objectId: kotlin.String, accountId: kotlin.Long?, include: kotlin.String?) : RequestConfig<Unit> {
+    fun getDataRequestConfig(objectName: kotlin.String, objectId: kotlin.String, accountId: kotlin.Long?, include: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -657,7 +636,7 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/object/data/{objectName}/{objectId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"objectName"+"}", encodeURIComponent(objectName.toString())).replace("{"+"objectId"+"}", encodeURIComponent(objectId.toString())),
+            path = "/object/data/{objectName}/{objectId}".replace("{"+"objectName"+"}", encodeURIComponent(objectName.toString())).replace("{"+"objectId"+"}", encodeURIComponent(objectId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -666,10 +645,9 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/object/get
+     * GET /object/get
      * Get Object
      * Get the definition of an Object. Returns all field names, types, and current size. The types supported are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY.
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param appKey The application key for updating an existing application
      * @param objectName The name of the object to get the definition for
@@ -682,8 +660,8 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getObject(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String) : ObjectStoreResponse {
-        val localVarResponse = getObjectWithHttpInfo(version = version, accountId = accountId, appKey = appKey, objectName = objectName)
+    fun getObject(accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String) : ObjectStoreResponse {
+        val localVarResponse = getObjectWithHttpInfo(accountId = accountId, appKey = appKey, objectName = objectName)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ObjectStoreResponse
@@ -701,10 +679,9 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/object/get
+     * GET /object/get
      * Get Object
      * Get the definition of an Object. Returns all field names, types, and current size. The types supported are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY.
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param appKey The application key for updating an existing application
      * @param objectName The name of the object to get the definition for
@@ -714,8 +691,8 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getObjectWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String) : ApiResponse<ObjectStoreResponse?> {
-        val localVariableConfig = getObjectRequestConfig(version = version, accountId = accountId, appKey = appKey, objectName = objectName)
+    fun getObjectWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String) : ApiResponse<ObjectStoreResponse?> {
+        val localVariableConfig = getObjectRequestConfig(accountId = accountId, appKey = appKey, objectName = objectName)
 
         return request<Unit, ObjectStoreResponse>(
             localVariableConfig
@@ -725,13 +702,12 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation getObject
      *
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param appKey The application key for updating an existing application
      * @param objectName The name of the object to get the definition for
      * @return RequestConfig
      */
-    fun getObjectRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String) : RequestConfig<Unit> {
+    fun getObjectRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, objectName: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -743,7 +719,7 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/object/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/object/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -752,10 +728,9 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/object/data/{objectName}
+     * GET /object/data/{objectName}
      * Search Data
      * Search for records given the specified criteria.  The criteria is a defined set of json values used to build a query
-     * @param version 
      * @param objectName The name of the object to search upon
      * @param count If true just return the record count of the search. False (default) will return the actual records
      * @param start The start of the pagination
@@ -773,8 +748,8 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchData(version: java.math.BigDecimal, objectName: kotlin.String, count: kotlin.Boolean, start: kotlin.Long, limit: kotlin.Long, accountId: kotlin.Long? = null, criteria: kotlin.String? = null, order: kotlin.String? = null, include: kotlin.String? = null) : ObjectStoreResponse {
-        val localVarResponse = searchDataWithHttpInfo(version = version, objectName = objectName, count = count, start = start, limit = limit, accountId = accountId, criteria = criteria, order = order, include = include)
+    fun searchData(objectName: kotlin.String, count: kotlin.Boolean, start: kotlin.Long, limit: kotlin.Long, accountId: kotlin.Long? = null, criteria: kotlin.String? = null, order: kotlin.String? = null, include: kotlin.String? = null) : ObjectStoreResponse {
+        val localVarResponse = searchDataWithHttpInfo(objectName = objectName, count = count, start = start, limit = limit, accountId = accountId, criteria = criteria, order = order, include = include)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ObjectStoreResponse
@@ -792,10 +767,9 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/object/data/{objectName}
+     * GET /object/data/{objectName}
      * Search Data
      * Search for records given the specified criteria.  The criteria is a defined set of json values used to build a query
-     * @param version 
      * @param objectName The name of the object to search upon
      * @param count If true just return the record count of the search. False (default) will return the actual records
      * @param start The start of the pagination
@@ -810,8 +784,8 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchDataWithHttpInfo(version: java.math.BigDecimal, objectName: kotlin.String, count: kotlin.Boolean, start: kotlin.Long, limit: kotlin.Long, accountId: kotlin.Long?, criteria: kotlin.String?, order: kotlin.String?, include: kotlin.String?) : ApiResponse<ObjectStoreResponse?> {
-        val localVariableConfig = searchDataRequestConfig(version = version, objectName = objectName, count = count, start = start, limit = limit, accountId = accountId, criteria = criteria, order = order, include = include)
+    fun searchDataWithHttpInfo(objectName: kotlin.String, count: kotlin.Boolean, start: kotlin.Long, limit: kotlin.Long, accountId: kotlin.Long?, criteria: kotlin.String?, order: kotlin.String?, include: kotlin.String?) : ApiResponse<ObjectStoreResponse?> {
+        val localVariableConfig = searchDataRequestConfig(objectName = objectName, count = count, start = start, limit = limit, accountId = accountId, criteria = criteria, order = order, include = include)
 
         return request<Unit, ObjectStoreResponse>(
             localVariableConfig
@@ -821,7 +795,6 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation searchData
      *
-     * @param version 
      * @param objectName The name of the object to search upon
      * @param count If true just return the record count of the search. False (default) will return the actual records
      * @param start The start of the pagination
@@ -832,7 +805,7 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param include  (optional)
      * @return RequestConfig
      */
-    fun searchDataRequestConfig(version: java.math.BigDecimal, objectName: kotlin.String, count: kotlin.Boolean, start: kotlin.Long, limit: kotlin.Long, accountId: kotlin.Long?, criteria: kotlin.String?, order: kotlin.String?, include: kotlin.String?) : RequestConfig<Unit> {
+    fun searchDataRequestConfig(objectName: kotlin.String, count: kotlin.Boolean, start: kotlin.Long, limit: kotlin.Long, accountId: kotlin.Long?, criteria: kotlin.String?, order: kotlin.String?, include: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -856,7 +829,7 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/object/data/{objectName}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"objectName"+"}", encodeURIComponent(objectName.toString())),
+            path = "/object/data/{objectName}".replace("{"+"objectName"+"}", encodeURIComponent(objectName.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -865,10 +838,9 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/object/search
+     * GET /object/search
      * Search Objects
      * Search for Objects and return the list of names found.  Use this in conjunction with the object get service to present the current data model defined.
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param appKey The application key for updating an existing application
      * @param start The start of the pagination
@@ -883,8 +855,8 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchObject(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, start: kotlin.Long, limit: kotlin.Long, keyword: kotlin.String? = null) : ObjectStoreResponse {
-        val localVarResponse = searchObjectWithHttpInfo(version = version, accountId = accountId, appKey = appKey, start = start, limit = limit, keyword = keyword)
+    fun searchObject(accountId: kotlin.Long, appKey: kotlin.String, start: kotlin.Long, limit: kotlin.Long, keyword: kotlin.String? = null) : ObjectStoreResponse {
+        val localVarResponse = searchObjectWithHttpInfo(accountId = accountId, appKey = appKey, start = start, limit = limit, keyword = keyword)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ObjectStoreResponse
@@ -902,10 +874,9 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/object/search
+     * GET /object/search
      * Search Objects
      * Search for Objects and return the list of names found.  Use this in conjunction with the object get service to present the current data model defined.
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param appKey The application key for updating an existing application
      * @param start The start of the pagination
@@ -917,8 +888,8 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchObjectWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, start: kotlin.Long, limit: kotlin.Long, keyword: kotlin.String?) : ApiResponse<ObjectStoreResponse?> {
-        val localVariableConfig = searchObjectRequestConfig(version = version, accountId = accountId, appKey = appKey, start = start, limit = limit, keyword = keyword)
+    fun searchObjectWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, start: kotlin.Long, limit: kotlin.Long, keyword: kotlin.String?) : ApiResponse<ObjectStoreResponse?> {
+        val localVariableConfig = searchObjectRequestConfig(accountId = accountId, appKey = appKey, start = start, limit = limit, keyword = keyword)
 
         return request<Unit, ObjectStoreResponse>(
             localVariableConfig
@@ -928,7 +899,6 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation searchObject
      *
-     * @param version 
      * @param accountId The account id of the logged in user
      * @param appKey The application key for updating an existing application
      * @param start The start of the pagination
@@ -936,7 +906,7 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param keyword The name of the object(s) to search for, can be a partial match (optional)
      * @return RequestConfig
      */
-    fun searchObjectRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, start: kotlin.Long, limit: kotlin.Long, keyword: kotlin.String?) : RequestConfig<Unit> {
+    fun searchObjectRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, start: kotlin.Long, limit: kotlin.Long, keyword: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -952,7 +922,7 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/object/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/object/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -961,10 +931,9 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * PUT /api/{version}/object/data/{objectName}/{objectId}
+     * PUT /object/data/{objectName}/{objectId}
      * Update Data
      * Update a record for the specified object.  If the object does not exist the request will be rejected, use the data create service for the first entry. If any of the fields included does not exist for the object then they are added to the object.
-     * @param version 
      * @param objectName The name of the object to search upon
      * @param objectId objectId The id of the record to return
      * @param accountId The account id of the logged in user (optional)
@@ -978,8 +947,8 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateData(version: java.math.BigDecimal, objectName: kotlin.String, objectId: kotlin.String, accountId: kotlin.Long? = null, body: kotlin.String? = null) : ObjectStoreResponse {
-        val localVarResponse = updateDataWithHttpInfo(version = version, objectName = objectName, objectId = objectId, accountId = accountId, body = body)
+    fun updateData(objectName: kotlin.String, objectId: kotlin.String, accountId: kotlin.Long? = null, body: kotlin.String? = null) : ObjectStoreResponse {
+        val localVarResponse = updateDataWithHttpInfo(objectName = objectName, objectId = objectId, accountId = accountId, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ObjectStoreResponse
@@ -997,10 +966,9 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * PUT /api/{version}/object/data/{objectName}/{objectId}
+     * PUT /object/data/{objectName}/{objectId}
      * Update Data
      * Update a record for the specified object.  If the object does not exist the request will be rejected, use the data create service for the first entry. If any of the fields included does not exist for the object then they are added to the object.
-     * @param version 
      * @param objectName The name of the object to search upon
      * @param objectId objectId The id of the record to return
      * @param accountId The account id of the logged in user (optional)
@@ -1011,8 +979,8 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateDataWithHttpInfo(version: java.math.BigDecimal, objectName: kotlin.String, objectId: kotlin.String, accountId: kotlin.Long?, body: kotlin.String?) : ApiResponse<ObjectStoreResponse?> {
-        val localVariableConfig = updateDataRequestConfig(version = version, objectName = objectName, objectId = objectId, accountId = accountId, body = body)
+    fun updateDataWithHttpInfo(objectName: kotlin.String, objectId: kotlin.String, accountId: kotlin.Long?, body: kotlin.String?) : ApiResponse<ObjectStoreResponse?> {
+        val localVariableConfig = updateDataRequestConfig(objectName = objectName, objectId = objectId, accountId = accountId, body = body)
 
         return request<kotlin.String, ObjectStoreResponse>(
             localVariableConfig
@@ -1022,14 +990,13 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation updateData
      *
-     * @param version 
      * @param objectName The name of the object to search upon
      * @param objectId objectId The id of the record to return
      * @param accountId The account id of the logged in user (optional)
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun updateDataRequestConfig(version: java.math.BigDecimal, objectName: kotlin.String, objectId: kotlin.String, accountId: kotlin.Long?, body: kotlin.String?) : RequestConfig<kotlin.String> {
+    fun updateDataRequestConfig(objectName: kotlin.String, objectId: kotlin.String, accountId: kotlin.Long?, body: kotlin.String?) : RequestConfig<kotlin.String> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1041,7 +1008,7 @@ open class ObjectStoreApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.PUT,
-            path = "/api/{version}/object/data/{objectName}/{objectId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"objectName"+"}", encodeURIComponent(objectName.toString())).replace("{"+"objectId"+"}", encodeURIComponent(objectId.toString())),
+            path = "/object/data/{objectName}/{objectId}".replace("{"+"objectName"+"}", encodeURIComponent(objectName.toString())).replace("{"+"objectId"+"}", encodeURIComponent(objectId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

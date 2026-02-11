@@ -44,15 +44,14 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/route/{routeId}/approve
+     * POST /route/{routeId}/approve
      * Approve Route
      * Approve a route
-     * @param version 
      * @param routeId the id of the route to approve
      * @return Route
      * @throws IllegalStateException If the request is not correctly configured
@@ -63,8 +62,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun approveRoute(version: java.math.BigDecimal, routeId: kotlin.Long) : Route {
-        val localVarResponse = approveRouteWithHttpInfo(version = version, routeId = routeId)
+    fun approveRoute(routeId: kotlin.Long) : Route {
+        val localVarResponse = approveRouteWithHttpInfo(routeId = routeId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Route
@@ -82,10 +81,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/route/{routeId}/approve
+     * POST /route/{routeId}/approve
      * Approve Route
      * Approve a route
-     * @param version 
      * @param routeId the id of the route to approve
      * @return ApiResponse<Route?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -93,8 +91,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun approveRouteWithHttpInfo(version: java.math.BigDecimal, routeId: kotlin.Long) : ApiResponse<Route?> {
-        val localVariableConfig = approveRouteRequestConfig(version = version, routeId = routeId)
+    fun approveRouteWithHttpInfo(routeId: kotlin.Long) : ApiResponse<Route?> {
+        val localVariableConfig = approveRouteRequestConfig(routeId = routeId)
 
         return request<Unit, Route>(
             localVariableConfig
@@ -104,18 +102,17 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation approveRoute
      *
-     * @param version 
      * @param routeId the id of the route to approve
      * @return RequestConfig
      */
-    fun approveRouteRequestConfig(version: java.math.BigDecimal, routeId: kotlin.Long) : RequestConfig<Unit> {
+    fun approveRouteRequestConfig(routeId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/route/{routeId}/approve".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
+            path = "/route/{routeId}/approve".replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -124,10 +121,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/route/{routeId}/copy
+     * POST /route/{routeId}/copy
      * Copy Route
      * Make an copy of the given route with optional overriding properties
-     * @param version 
      * @param routeId the id of the route to duplicate
      * @param body  (optional)
      * @return Route
@@ -139,8 +135,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun copyRoute(version: java.math.BigDecimal, routeId: kotlin.Long, body: Route? = null) : Route {
-        val localVarResponse = copyRouteWithHttpInfo(version = version, routeId = routeId, body = body)
+    fun copyRoute(routeId: kotlin.Long, body: Route? = null) : Route {
+        val localVarResponse = copyRouteWithHttpInfo(routeId = routeId, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Route
@@ -158,10 +154,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/route/{routeId}/copy
+     * POST /route/{routeId}/copy
      * Copy Route
      * Make an copy of the given route with optional overriding properties
-     * @param version 
      * @param routeId the id of the route to duplicate
      * @param body  (optional)
      * @return ApiResponse<Route?>
@@ -170,8 +165,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun copyRouteWithHttpInfo(version: java.math.BigDecimal, routeId: kotlin.Long, body: Route?) : ApiResponse<Route?> {
-        val localVariableConfig = copyRouteRequestConfig(version = version, routeId = routeId, body = body)
+    fun copyRouteWithHttpInfo(routeId: kotlin.Long, body: Route?) : ApiResponse<Route?> {
+        val localVariableConfig = copyRouteRequestConfig(routeId = routeId, body = body)
 
         return request<Route, Route>(
             localVariableConfig
@@ -181,19 +176,18 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation copyRoute
      *
-     * @param version 
      * @param routeId the id of the route to duplicate
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun copyRouteRequestConfig(version: java.math.BigDecimal, routeId: kotlin.Long, body: Route?) : RequestConfig<Route> {
+    fun copyRouteRequestConfig(routeId: kotlin.Long, body: Route?) : RequestConfig<Route> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/route/{routeId}/copy".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
+            path = "/route/{routeId}/copy".replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -202,10 +196,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/route
+     * POST /route
      * Create Route
      * Create new route
-     * @param version 
      * @param body  (optional)
      * @return Route
      * @throws IllegalStateException If the request is not correctly configured
@@ -216,8 +209,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createRoute(version: java.math.BigDecimal, body: Route? = null) : Route {
-        val localVarResponse = createRouteWithHttpInfo(version = version, body = body)
+    fun createRoute(body: Route? = null) : Route {
+        val localVarResponse = createRouteWithHttpInfo(body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Route
@@ -235,10 +228,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/route
+     * POST /route
      * Create Route
      * Create new route
-     * @param version 
      * @param body  (optional)
      * @return ApiResponse<Route?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -246,8 +238,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createRouteWithHttpInfo(version: java.math.BigDecimal, body: Route?) : ApiResponse<Route?> {
-        val localVariableConfig = createRouteRequestConfig(version = version, body = body)
+    fun createRouteWithHttpInfo(body: Route?) : ApiResponse<Route?> {
+        val localVariableConfig = createRouteRequestConfig(body = body)
 
         return request<Route, Route>(
             localVariableConfig
@@ -257,18 +249,17 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation createRoute
      *
-     * @param version 
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun createRouteRequestConfig(version: java.math.BigDecimal, body: Route?) : RequestConfig<Route> {
+    fun createRouteRequestConfig(body: Route?) : RequestConfig<Route> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/route".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/route",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -277,10 +268,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * PUT /api/{version}/route/{routeId}/directions
+     * PUT /route/{routeId}/directions
      * Update Route Directions
      * Regenerate the directions of a route
-     * @param version 
      * @param routeId the id of the route to update directions for
      * @return kotlin.collections.List<Direction>
      * @throws IllegalStateException If the request is not correctly configured
@@ -291,8 +281,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createRouteDirections(version: java.math.BigDecimal, routeId: kotlin.Long) : kotlin.collections.List<Direction> {
-        val localVarResponse = createRouteDirectionsWithHttpInfo(version = version, routeId = routeId)
+    fun createRouteDirections(routeId: kotlin.Long) : kotlin.collections.List<Direction> {
+        val localVarResponse = createRouteDirectionsWithHttpInfo(routeId = routeId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<Direction>
@@ -310,10 +300,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * PUT /api/{version}/route/{routeId}/directions
+     * PUT /route/{routeId}/directions
      * Update Route Directions
      * Regenerate the directions of a route
-     * @param version 
      * @param routeId the id of the route to update directions for
      * @return ApiResponse<kotlin.collections.List<Direction>?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -321,8 +310,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createRouteDirectionsWithHttpInfo(version: java.math.BigDecimal, routeId: kotlin.Long) : ApiResponse<kotlin.collections.List<Direction>?> {
-        val localVariableConfig = createRouteDirectionsRequestConfig(version = version, routeId = routeId)
+    fun createRouteDirectionsWithHttpInfo(routeId: kotlin.Long) : ApiResponse<kotlin.collections.List<Direction>?> {
+        val localVariableConfig = createRouteDirectionsRequestConfig(routeId = routeId)
 
         return request<Unit, kotlin.collections.List<Direction>>(
             localVariableConfig
@@ -332,18 +321,17 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation createRouteDirections
      *
-     * @param version 
      * @param routeId the id of the route to update directions for
      * @return RequestConfig
      */
-    fun createRouteDirectionsRequestConfig(version: java.math.BigDecimal, routeId: kotlin.Long) : RequestConfig<Unit> {
+    fun createRouteDirectionsRequestConfig(routeId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.PUT,
-            path = "/api/{version}/route/{routeId}/directions".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
+            path = "/route/{routeId}/directions".replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -352,10 +340,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * PUT /api/{version}/route/{routeId}/polyline
+     * PUT /route/{routeId}/polyline
      * Create Route Polyline
      * Update the polyline of the requested route
-     * @param version 
      * @param routeId the id of the route to create a polyline for
      * @return Route
      * @throws IllegalStateException If the request is not correctly configured
@@ -366,8 +353,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createRoutePolyline(version: java.math.BigDecimal, routeId: kotlin.Long) : Route {
-        val localVarResponse = createRoutePolylineWithHttpInfo(version = version, routeId = routeId)
+    fun createRoutePolyline(routeId: kotlin.Long) : Route {
+        val localVarResponse = createRoutePolylineWithHttpInfo(routeId = routeId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Route
@@ -385,10 +372,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * PUT /api/{version}/route/{routeId}/polyline
+     * PUT /route/{routeId}/polyline
      * Create Route Polyline
      * Update the polyline of the requested route
-     * @param version 
      * @param routeId the id of the route to create a polyline for
      * @return ApiResponse<Route?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -396,8 +382,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createRoutePolylineWithHttpInfo(version: java.math.BigDecimal, routeId: kotlin.Long) : ApiResponse<Route?> {
-        val localVariableConfig = createRoutePolylineRequestConfig(version = version, routeId = routeId)
+    fun createRoutePolylineWithHttpInfo(routeId: kotlin.Long) : ApiResponse<Route?> {
+        val localVariableConfig = createRoutePolylineRequestConfig(routeId = routeId)
 
         return request<Unit, Route>(
             localVariableConfig
@@ -407,18 +393,17 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation createRoutePolyline
      *
-     * @param version 
      * @param routeId the id of the route to create a polyline for
      * @return RequestConfig
      */
-    fun createRoutePolylineRequestConfig(version: java.math.BigDecimal, routeId: kotlin.Long) : RequestConfig<Unit> {
+    fun createRoutePolylineRequestConfig(routeId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.PUT,
-            path = "/api/{version}/route/{routeId}/polyline".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
+            path = "/route/{routeId}/polyline".replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -427,10 +412,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * DELETE /api/{version}/route/{routeId}
+     * DELETE /route/{routeId}
      * Delete Route
      * Delete an existing route
-     * @param version 
      * @param routeId the id of the route
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
@@ -440,8 +424,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteRoute(version: java.math.BigDecimal, routeId: kotlin.Long) : Unit {
-        val localVarResponse = deleteRouteWithHttpInfo(version = version, routeId = routeId)
+    fun deleteRoute(routeId: kotlin.Long) : Unit {
+        val localVarResponse = deleteRouteWithHttpInfo(routeId = routeId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -459,18 +443,17 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * DELETE /api/{version}/route/{routeId}
+     * DELETE /route/{routeId}
      * Delete Route
      * Delete an existing route
-     * @param version 
      * @param routeId the id of the route
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteRouteWithHttpInfo(version: java.math.BigDecimal, routeId: kotlin.Long) : ApiResponse<Unit?> {
-        val localVariableConfig = deleteRouteRequestConfig(version = version, routeId = routeId)
+    fun deleteRouteWithHttpInfo(routeId: kotlin.Long) : ApiResponse<Unit?> {
+        val localVariableConfig = deleteRouteRequestConfig(routeId = routeId)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -480,18 +463,17 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation deleteRoute
      *
-     * @param version 
      * @param routeId the id of the route
      * @return RequestConfig
      */
-    fun deleteRouteRequestConfig(version: java.math.BigDecimal, routeId: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteRouteRequestConfig(routeId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.DELETE,
-            path = "/api/{version}/route/{routeId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
+            path = "/route/{routeId}".replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -500,10 +482,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/route/{routeId}/disapprove
+     * POST /route/{routeId}/disapprove
      * Disapprove Route
      * Disapprove a route
-     * @param version 
      * @param routeId the id of the route to reject
      * @return Route
      * @throws IllegalStateException If the request is not correctly configured
@@ -514,8 +495,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun disapproveRoute(version: java.math.BigDecimal, routeId: kotlin.Long) : Route {
-        val localVarResponse = disapproveRouteWithHttpInfo(version = version, routeId = routeId)
+    fun disapproveRoute(routeId: kotlin.Long) : Route {
+        val localVarResponse = disapproveRouteWithHttpInfo(routeId = routeId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Route
@@ -533,10 +514,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/route/{routeId}/disapprove
+     * POST /route/{routeId}/disapprove
      * Disapprove Route
      * Disapprove a route
-     * @param version 
      * @param routeId the id of the route to reject
      * @return ApiResponse<Route?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -544,8 +524,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun disapproveRouteWithHttpInfo(version: java.math.BigDecimal, routeId: kotlin.Long) : ApiResponse<Route?> {
-        val localVariableConfig = disapproveRouteRequestConfig(version = version, routeId = routeId)
+    fun disapproveRouteWithHttpInfo(routeId: kotlin.Long) : ApiResponse<Route?> {
+        val localVariableConfig = disapproveRouteRequestConfig(routeId = routeId)
 
         return request<Unit, Route>(
             localVariableConfig
@@ -555,18 +535,17 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation disapproveRoute
      *
-     * @param version 
      * @param routeId the id of the route to reject
      * @return RequestConfig
      */
-    fun disapproveRouteRequestConfig(version: java.math.BigDecimal, routeId: kotlin.Long) : RequestConfig<Unit> {
+    fun disapproveRouteRequestConfig(routeId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/route/{routeId}/disapprove".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
+            path = "/route/{routeId}/disapprove".replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -575,10 +554,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/route/{routeId}
+     * GET /route/{routeId}
      * Get Route
      * Get an existing route
-     * @param version 
      * @param routeId the id of the route to get
      * @param showInheritedProperties return inherited properties from parent or not
      * @return Route
@@ -590,8 +568,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRoute(version: java.math.BigDecimal, routeId: kotlin.Long, showInheritedProperties: kotlin.Boolean) : Route {
-        val localVarResponse = getRouteWithHttpInfo(version = version, routeId = routeId, showInheritedProperties = showInheritedProperties)
+    fun getRoute(routeId: kotlin.Long, showInheritedProperties: kotlin.Boolean) : Route {
+        val localVarResponse = getRouteWithHttpInfo(routeId = routeId, showInheritedProperties = showInheritedProperties)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Route
@@ -609,10 +587,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/route/{routeId}
+     * GET /route/{routeId}
      * Get Route
      * Get an existing route
-     * @param version 
      * @param routeId the id of the route to get
      * @param showInheritedProperties return inherited properties from parent or not
      * @return ApiResponse<Route?>
@@ -621,8 +598,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRouteWithHttpInfo(version: java.math.BigDecimal, routeId: kotlin.Long, showInheritedProperties: kotlin.Boolean) : ApiResponse<Route?> {
-        val localVariableConfig = getRouteRequestConfig(version = version, routeId = routeId, showInheritedProperties = showInheritedProperties)
+    fun getRouteWithHttpInfo(routeId: kotlin.Long, showInheritedProperties: kotlin.Boolean) : ApiResponse<Route?> {
+        val localVariableConfig = getRouteRequestConfig(routeId = routeId, showInheritedProperties = showInheritedProperties)
 
         return request<Unit, Route>(
             localVariableConfig
@@ -632,12 +609,11 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getRoute
      *
-     * @param version 
      * @param routeId the id of the route to get
      * @param showInheritedProperties return inherited properties from parent or not
      * @return RequestConfig
      */
-    fun getRouteRequestConfig(version: java.math.BigDecimal, routeId: kotlin.Long, showInheritedProperties: kotlin.Boolean) : RequestConfig<Unit> {
+    fun getRouteRequestConfig(routeId: kotlin.Long, showInheritedProperties: kotlin.Boolean) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -647,7 +623,7 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/route/{routeId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
+            path = "/route/{routeId}".replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -656,10 +632,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/route/{routeId}/directions
+     * GET /route/{routeId}/directions
      * Get Route Directions
      * Get the directions of a route
-     * @param version 
      * @param routeId the id of the route to get directions for
      * @return kotlin.collections.List<Direction>
      * @throws IllegalStateException If the request is not correctly configured
@@ -670,8 +645,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRouteDirections(version: java.math.BigDecimal, routeId: kotlin.Long) : kotlin.collections.List<Direction> {
-        val localVarResponse = getRouteDirectionsWithHttpInfo(version = version, routeId = routeId)
+    fun getRouteDirections(routeId: kotlin.Long) : kotlin.collections.List<Direction> {
+        val localVarResponse = getRouteDirectionsWithHttpInfo(routeId = routeId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<Direction>
@@ -689,10 +664,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/route/{routeId}/directions
+     * GET /route/{routeId}/directions
      * Get Route Directions
      * Get the directions of a route
-     * @param version 
      * @param routeId the id of the route to get directions for
      * @return ApiResponse<kotlin.collections.List<Direction>?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -700,8 +674,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRouteDirectionsWithHttpInfo(version: java.math.BigDecimal, routeId: kotlin.Long) : ApiResponse<kotlin.collections.List<Direction>?> {
-        val localVariableConfig = getRouteDirectionsRequestConfig(version = version, routeId = routeId)
+    fun getRouteDirectionsWithHttpInfo(routeId: kotlin.Long) : ApiResponse<kotlin.collections.List<Direction>?> {
+        val localVariableConfig = getRouteDirectionsRequestConfig(routeId = routeId)
 
         return request<Unit, kotlin.collections.List<Direction>>(
             localVariableConfig
@@ -711,18 +685,17 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getRouteDirections
      *
-     * @param version 
      * @param routeId the id of the route to get directions for
      * @return RequestConfig
      */
-    fun getRouteDirectionsRequestConfig(version: java.math.BigDecimal, routeId: kotlin.Long) : RequestConfig<Unit> {
+    fun getRouteDirectionsRequestConfig(routeId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/route/{routeId}/directions".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
+            path = "/route/{routeId}/directions".replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -731,10 +704,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/route/{routeId}/shipments
+     * GET /route/{routeId}/shipments
      * Get Route Shipments
      * Get the shipments on the requested route
-     * @param version 
      * @param routeId the id of the route to get shipments for
      * @return kotlin.collections.List<Shipment>
      * @throws IllegalStateException If the request is not correctly configured
@@ -745,8 +717,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRouteShipments(version: java.math.BigDecimal, routeId: kotlin.Long) : kotlin.collections.List<Shipment> {
-        val localVarResponse = getRouteShipmentsWithHttpInfo(version = version, routeId = routeId)
+    fun getRouteShipments(routeId: kotlin.Long) : kotlin.collections.List<Shipment> {
+        val localVarResponse = getRouteShipmentsWithHttpInfo(routeId = routeId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<Shipment>
@@ -764,10 +736,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/route/{routeId}/shipments
+     * GET /route/{routeId}/shipments
      * Get Route Shipments
      * Get the shipments on the requested route
-     * @param version 
      * @param routeId the id of the route to get shipments for
      * @return ApiResponse<kotlin.collections.List<Shipment>?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -775,8 +746,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRouteShipmentsWithHttpInfo(version: java.math.BigDecimal, routeId: kotlin.Long) : ApiResponse<kotlin.collections.List<Shipment>?> {
-        val localVariableConfig = getRouteShipmentsRequestConfig(version = version, routeId = routeId)
+    fun getRouteShipmentsWithHttpInfo(routeId: kotlin.Long) : ApiResponse<kotlin.collections.List<Shipment>?> {
+        val localVariableConfig = getRouteShipmentsRequestConfig(routeId = routeId)
 
         return request<Unit, kotlin.collections.List<Shipment>>(
             localVariableConfig
@@ -786,18 +757,17 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getRouteShipments
      *
-     * @param version 
      * @param routeId the id of the route to get shipments for
      * @return RequestConfig
      */
-    fun getRouteShipmentsRequestConfig(version: java.math.BigDecimal, routeId: kotlin.Long) : RequestConfig<Unit> {
+    fun getRouteShipmentsRequestConfig(routeId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/route/{routeId}/shipments".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
+            path = "/route/{routeId}/shipments".replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -806,10 +776,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/route/{routeId}/stop/{stopId}
+     * GET /route/{routeId}/stop/{stopId}
      * Get Route Stop
      * Get the specific stop on a route
-     * @param version 
      * @param routeId the id of the route to get stops for
      * @param stopId the id of the specific stop on the route
      * @return Stop
@@ -821,8 +790,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRouteStop(version: java.math.BigDecimal, routeId: kotlin.Long, stopId: kotlin.Long) : Stop {
-        val localVarResponse = getRouteStopWithHttpInfo(version = version, routeId = routeId, stopId = stopId)
+    fun getRouteStop(routeId: kotlin.Long, stopId: kotlin.Long) : Stop {
+        val localVarResponse = getRouteStopWithHttpInfo(routeId = routeId, stopId = stopId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Stop
@@ -840,10 +809,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/route/{routeId}/stop/{stopId}
+     * GET /route/{routeId}/stop/{stopId}
      * Get Route Stop
      * Get the specific stop on a route
-     * @param version 
      * @param routeId the id of the route to get stops for
      * @param stopId the id of the specific stop on the route
      * @return ApiResponse<Stop?>
@@ -852,8 +820,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRouteStopWithHttpInfo(version: java.math.BigDecimal, routeId: kotlin.Long, stopId: kotlin.Long) : ApiResponse<Stop?> {
-        val localVariableConfig = getRouteStopRequestConfig(version = version, routeId = routeId, stopId = stopId)
+    fun getRouteStopWithHttpInfo(routeId: kotlin.Long, stopId: kotlin.Long) : ApiResponse<Stop?> {
+        val localVariableConfig = getRouteStopRequestConfig(routeId = routeId, stopId = stopId)
 
         return request<Unit, Stop>(
             localVariableConfig
@@ -863,19 +831,18 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getRouteStop
      *
-     * @param version 
      * @param routeId the id of the route to get stops for
      * @param stopId the id of the specific stop on the route
      * @return RequestConfig
      */
-    fun getRouteStopRequestConfig(version: java.math.BigDecimal, routeId: kotlin.Long, stopId: kotlin.Long) : RequestConfig<Unit> {
+    fun getRouteStopRequestConfig(routeId: kotlin.Long, stopId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/route/{routeId}/stop/{stopId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())).replace("{"+"stopId"+"}", encodeURIComponent(stopId.toString())),
+            path = "/route/{routeId}/stop/{stopId}".replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())).replace("{"+"stopId"+"}", encodeURIComponent(stopId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -884,10 +851,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/route/{routeId}/stops
+     * GET /route/{routeId}/stops
      * Get Route Stops
      * The stops of the route requested
-     * @param version 
      * @param routeId the id of the route
      * @param confirmedOnly only get stops that have been confirmed or not
      * @return kotlin.collections.List<Stop>
@@ -899,8 +865,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRouteStops(version: java.math.BigDecimal, routeId: kotlin.Long, confirmedOnly: kotlin.Boolean) : kotlin.collections.List<Stop> {
-        val localVarResponse = getRouteStopsWithHttpInfo(version = version, routeId = routeId, confirmedOnly = confirmedOnly)
+    fun getRouteStops(routeId: kotlin.Long, confirmedOnly: kotlin.Boolean) : kotlin.collections.List<Stop> {
+        val localVarResponse = getRouteStopsWithHttpInfo(routeId = routeId, confirmedOnly = confirmedOnly)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<Stop>
@@ -918,10 +884,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/route/{routeId}/stops
+     * GET /route/{routeId}/stops
      * Get Route Stops
      * The stops of the route requested
-     * @param version 
      * @param routeId the id of the route
      * @param confirmedOnly only get stops that have been confirmed or not
      * @return ApiResponse<kotlin.collections.List<Stop>?>
@@ -930,8 +895,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRouteStopsWithHttpInfo(version: java.math.BigDecimal, routeId: kotlin.Long, confirmedOnly: kotlin.Boolean) : ApiResponse<kotlin.collections.List<Stop>?> {
-        val localVariableConfig = getRouteStopsRequestConfig(version = version, routeId = routeId, confirmedOnly = confirmedOnly)
+    fun getRouteStopsWithHttpInfo(routeId: kotlin.Long, confirmedOnly: kotlin.Boolean) : ApiResponse<kotlin.collections.List<Stop>?> {
+        val localVariableConfig = getRouteStopsRequestConfig(routeId = routeId, confirmedOnly = confirmedOnly)
 
         return request<Unit, kotlin.collections.List<Stop>>(
             localVariableConfig
@@ -941,12 +906,11 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getRouteStops
      *
-     * @param version 
      * @param routeId the id of the route
      * @param confirmedOnly only get stops that have been confirmed or not
      * @return RequestConfig
      */
-    fun getRouteStopsRequestConfig(version: java.math.BigDecimal, routeId: kotlin.Long, confirmedOnly: kotlin.Boolean) : RequestConfig<Unit> {
+    fun getRouteStopsRequestConfig(routeId: kotlin.Long, confirmedOnly: kotlin.Boolean) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -956,7 +920,7 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/route/{routeId}/stops".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
+            path = "/route/{routeId}/stops".replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -965,10 +929,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/route/{routeId}/stop/{stopId}/shipments
+     * GET /route/{routeId}/stop/{stopId}/shipments
      * Get Shipments At Stop
      * Get the list of shipments on the requested route at a stop
-     * @param version 
      * @param routeId the id of the route
      * @param stopId the id of the stop to get shipments on
      * @return kotlin.collections.List<Shipment>
@@ -980,8 +943,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getShipmentsAtStop(version: java.math.BigDecimal, routeId: kotlin.Long, stopId: kotlin.Long) : kotlin.collections.List<Shipment> {
-        val localVarResponse = getShipmentsAtStopWithHttpInfo(version = version, routeId = routeId, stopId = stopId)
+    fun getShipmentsAtStop(routeId: kotlin.Long, stopId: kotlin.Long) : kotlin.collections.List<Shipment> {
+        val localVarResponse = getShipmentsAtStopWithHttpInfo(routeId = routeId, stopId = stopId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<Shipment>
@@ -999,10 +962,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/route/{routeId}/stop/{stopId}/shipments
+     * GET /route/{routeId}/stop/{stopId}/shipments
      * Get Shipments At Stop
      * Get the list of shipments on the requested route at a stop
-     * @param version 
      * @param routeId the id of the route
      * @param stopId the id of the stop to get shipments on
      * @return ApiResponse<kotlin.collections.List<Shipment>?>
@@ -1011,8 +973,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getShipmentsAtStopWithHttpInfo(version: java.math.BigDecimal, routeId: kotlin.Long, stopId: kotlin.Long) : ApiResponse<kotlin.collections.List<Shipment>?> {
-        val localVariableConfig = getShipmentsAtStopRequestConfig(version = version, routeId = routeId, stopId = stopId)
+    fun getShipmentsAtStopWithHttpInfo(routeId: kotlin.Long, stopId: kotlin.Long) : ApiResponse<kotlin.collections.List<Shipment>?> {
+        val localVariableConfig = getShipmentsAtStopRequestConfig(routeId = routeId, stopId = stopId)
 
         return request<Unit, kotlin.collections.List<Shipment>>(
             localVariableConfig
@@ -1022,19 +984,18 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getShipmentsAtStop
      *
-     * @param version 
      * @param routeId the id of the route
      * @param stopId the id of the stop to get shipments on
      * @return RequestConfig
      */
-    fun getShipmentsAtStopRequestConfig(version: java.math.BigDecimal, routeId: kotlin.Long, stopId: kotlin.Long) : RequestConfig<Unit> {
+    fun getShipmentsAtStopRequestConfig(routeId: kotlin.Long, stopId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/route/{routeId}/stop/{stopId}/shipments".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())).replace("{"+"stopId"+"}", encodeURIComponent(stopId.toString())),
+            path = "/route/{routeId}/stop/{stopId}/shipments".replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())).replace("{"+"stopId"+"}", encodeURIComponent(stopId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1043,10 +1004,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/route/{routeId}/optimize
+     * POST /route/{routeId}/optimize
      * Optimize Route
      * Optimize a route. The optimization method based on how the server is configured.
-     * @param version 
      * @param routeId the id of the route to optimize
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
@@ -1056,8 +1016,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun optimizeRoute(version: java.math.BigDecimal, routeId: kotlin.Long) : Unit {
-        val localVarResponse = optimizeRouteWithHttpInfo(version = version, routeId = routeId)
+    fun optimizeRoute(routeId: kotlin.Long) : Unit {
+        val localVarResponse = optimizeRouteWithHttpInfo(routeId = routeId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -1075,18 +1035,17 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/route/{routeId}/optimize
+     * POST /route/{routeId}/optimize
      * Optimize Route
      * Optimize a route. The optimization method based on how the server is configured.
-     * @param version 
      * @param routeId the id of the route to optimize
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun optimizeRouteWithHttpInfo(version: java.math.BigDecimal, routeId: kotlin.Long) : ApiResponse<Unit?> {
-        val localVariableConfig = optimizeRouteRequestConfig(version = version, routeId = routeId)
+    fun optimizeRouteWithHttpInfo(routeId: kotlin.Long) : ApiResponse<Unit?> {
+        val localVariableConfig = optimizeRouteRequestConfig(routeId = routeId)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -1096,18 +1055,17 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation optimizeRoute
      *
-     * @param version 
      * @param routeId the id of the route to optimize
      * @return RequestConfig
      */
-    fun optimizeRouteRequestConfig(version: java.math.BigDecimal, routeId: kotlin.Long) : RequestConfig<Unit> {
+    fun optimizeRouteRequestConfig(routeId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/route/{routeId}/optimize".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
+            path = "/route/{routeId}/optimize".replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1116,10 +1074,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * DELETE /api/{version}/route/{routeId}/stop/{stopId}
+     * DELETE /route/{routeId}/stop/{stopId}
      * Delete Stop
      * Delete a stop on a route
-     * @param version 
      * @param routeId the id of the route
      * @param stopId the id of the specific stop to delete on the route
      * @return void
@@ -1130,8 +1087,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun removeStop(version: java.math.BigDecimal, routeId: kotlin.Long, stopId: kotlin.Long) : Unit {
-        val localVarResponse = removeStopWithHttpInfo(version = version, routeId = routeId, stopId = stopId)
+    fun removeStop(routeId: kotlin.Long, stopId: kotlin.Long) : Unit {
+        val localVarResponse = removeStopWithHttpInfo(routeId = routeId, stopId = stopId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -1149,10 +1106,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * DELETE /api/{version}/route/{routeId}/stop/{stopId}
+     * DELETE /route/{routeId}/stop/{stopId}
      * Delete Stop
      * Delete a stop on a route
-     * @param version 
      * @param routeId the id of the route
      * @param stopId the id of the specific stop to delete on the route
      * @return ApiResponse<Unit?>
@@ -1160,8 +1116,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun removeStopWithHttpInfo(version: java.math.BigDecimal, routeId: kotlin.Long, stopId: kotlin.Long) : ApiResponse<Unit?> {
-        val localVariableConfig = removeStopRequestConfig(version = version, routeId = routeId, stopId = stopId)
+    fun removeStopWithHttpInfo(routeId: kotlin.Long, stopId: kotlin.Long) : ApiResponse<Unit?> {
+        val localVariableConfig = removeStopRequestConfig(routeId = routeId, stopId = stopId)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -1171,19 +1127,18 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation removeStop
      *
-     * @param version 
      * @param routeId the id of the route
      * @param stopId the id of the specific stop to delete on the route
      * @return RequestConfig
      */
-    fun removeStopRequestConfig(version: java.math.BigDecimal, routeId: kotlin.Long, stopId: kotlin.Long) : RequestConfig<Unit> {
+    fun removeStopRequestConfig(routeId: kotlin.Long, stopId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.DELETE,
-            path = "/api/{version}/route/{routeId}/stop/{stopId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())).replace("{"+"stopId"+"}", encodeURIComponent(stopId.toString())),
+            path = "/route/{routeId}/stop/{stopId}".replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())).replace("{"+"stopId"+"}", encodeURIComponent(stopId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1192,10 +1147,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * PATCH /api/{version}/route/{routeId}/stops/reorder
+     * PATCH /route/{routeId}/stops/reorder
      * Reorder Route Stops
      * Reordering the stops on the route with and update route distance, time, direction, and polyline
-     * @param version 
      * @param routeId the id of the route
      * @param body  (optional)
      * @return kotlin.collections.List<Stop>
@@ -1207,8 +1161,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun reorderRouteStopsPatch(version: java.math.BigDecimal, routeId: kotlin.Long, body: kotlin.collections.List<Stop>? = null) : kotlin.collections.List<Stop> {
-        val localVarResponse = reorderRouteStopsPatchWithHttpInfo(version = version, routeId = routeId, body = body)
+    fun reorderRouteStopsPatch(routeId: kotlin.Long, body: kotlin.collections.List<Stop>? = null) : kotlin.collections.List<Stop> {
+        val localVarResponse = reorderRouteStopsPatchWithHttpInfo(routeId = routeId, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<Stop>
@@ -1226,10 +1180,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * PATCH /api/{version}/route/{routeId}/stops/reorder
+     * PATCH /route/{routeId}/stops/reorder
      * Reorder Route Stops
      * Reordering the stops on the route with and update route distance, time, direction, and polyline
-     * @param version 
      * @param routeId the id of the route
      * @param body  (optional)
      * @return ApiResponse<kotlin.collections.List<Stop>?>
@@ -1238,8 +1191,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun reorderRouteStopsPatchWithHttpInfo(version: java.math.BigDecimal, routeId: kotlin.Long, body: kotlin.collections.List<Stop>?) : ApiResponse<kotlin.collections.List<Stop>?> {
-        val localVariableConfig = reorderRouteStopsPatchRequestConfig(version = version, routeId = routeId, body = body)
+    fun reorderRouteStopsPatchWithHttpInfo(routeId: kotlin.Long, body: kotlin.collections.List<Stop>?) : ApiResponse<kotlin.collections.List<Stop>?> {
+        val localVariableConfig = reorderRouteStopsPatchRequestConfig(routeId = routeId, body = body)
 
         return request<kotlin.collections.List<Stop>, kotlin.collections.List<Stop>>(
             localVariableConfig
@@ -1249,19 +1202,18 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation reorderRouteStopsPatch
      *
-     * @param version 
      * @param routeId the id of the route
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun reorderRouteStopsPatchRequestConfig(version: java.math.BigDecimal, routeId: kotlin.Long, body: kotlin.collections.List<Stop>?) : RequestConfig<kotlin.collections.List<Stop>> {
+    fun reorderRouteStopsPatchRequestConfig(routeId: kotlin.Long, body: kotlin.collections.List<Stop>?) : RequestConfig<kotlin.collections.List<Stop>> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.PATCH,
-            path = "/api/{version}/route/{routeId}/stops/reorder".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
+            path = "/route/{routeId}/stops/reorder".replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1270,10 +1222,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/route/{routeId}/stops/reorder
+     * POST /route/{routeId}/stops/reorder
      * Reorder Route Stops
      * Reordering the stops on the route with and update route distance, time, direction, and polyline
-     * @param version 
      * @param routeId the id of the route
      * @param body  (optional)
      * @return kotlin.collections.List<Stop>
@@ -1285,8 +1236,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun reorderRouteStopsPost(version: java.math.BigDecimal, routeId: kotlin.Long, body: kotlin.collections.List<Stop>? = null) : kotlin.collections.List<Stop> {
-        val localVarResponse = reorderRouteStopsPostWithHttpInfo(version = version, routeId = routeId, body = body)
+    fun reorderRouteStopsPost(routeId: kotlin.Long, body: kotlin.collections.List<Stop>? = null) : kotlin.collections.List<Stop> {
+        val localVarResponse = reorderRouteStopsPostWithHttpInfo(routeId = routeId, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<Stop>
@@ -1304,10 +1255,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/route/{routeId}/stops/reorder
+     * POST /route/{routeId}/stops/reorder
      * Reorder Route Stops
      * Reordering the stops on the route with and update route distance, time, direction, and polyline
-     * @param version 
      * @param routeId the id of the route
      * @param body  (optional)
      * @return ApiResponse<kotlin.collections.List<Stop>?>
@@ -1316,8 +1266,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun reorderRouteStopsPostWithHttpInfo(version: java.math.BigDecimal, routeId: kotlin.Long, body: kotlin.collections.List<Stop>?) : ApiResponse<kotlin.collections.List<Stop>?> {
-        val localVariableConfig = reorderRouteStopsPostRequestConfig(version = version, routeId = routeId, body = body)
+    fun reorderRouteStopsPostWithHttpInfo(routeId: kotlin.Long, body: kotlin.collections.List<Stop>?) : ApiResponse<kotlin.collections.List<Stop>?> {
+        val localVariableConfig = reorderRouteStopsPostRequestConfig(routeId = routeId, body = body)
 
         return request<kotlin.collections.List<Stop>, kotlin.collections.List<Stop>>(
             localVariableConfig
@@ -1327,19 +1277,18 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation reorderRouteStopsPost
      *
-     * @param version 
      * @param routeId the id of the route
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun reorderRouteStopsPostRequestConfig(version: java.math.BigDecimal, routeId: kotlin.Long, body: kotlin.collections.List<Stop>?) : RequestConfig<kotlin.collections.List<Stop>> {
+    fun reorderRouteStopsPostRequestConfig(routeId: kotlin.Long, body: kotlin.collections.List<Stop>?) : RequestConfig<kotlin.collections.List<Stop>> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/route/{routeId}/stops/reorder".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
+            path = "/route/{routeId}/stops/reorder".replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1348,10 +1297,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/route
+     * GET /route
      * Search Routes
      * Search for routes.
-     * @param version 
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
      * @param start The start index for pagination
@@ -1382,8 +1330,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchRoutes(version: java.math.BigDecimal, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, includesEmpty: kotlin.Boolean, rootOnly: kotlin.Boolean, showInheritedProperties: kotlin.Boolean, hubId: kotlin.Long? = null, programId: kotlin.Long? = null, scheduledStart: kotlin.Long? = null, scheduledEnd: kotlin.Long? = null, updatedStart: kotlin.Long? = null, updatedEnd: kotlin.Long? = null, featured: kotlin.Boolean? = null, seatCount: kotlin.Int? = null, approved: kotlin.Boolean? = null, started: kotlin.Boolean? = null, completed: kotlin.Boolean? = null, valid: kotlin.Boolean? = null, parentId: kotlin.Long? = null) : kotlin.collections.List<Route> {
-        val localVarResponse = searchRoutesWithHttpInfo(version = version, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, includesEmpty = includesEmpty, rootOnly = rootOnly, showInheritedProperties = showInheritedProperties, hubId = hubId, programId = programId, scheduledStart = scheduledStart, scheduledEnd = scheduledEnd, updatedStart = updatedStart, updatedEnd = updatedEnd, featured = featured, seatCount = seatCount, approved = approved, started = started, completed = completed, valid = valid, parentId = parentId)
+    fun searchRoutes(sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, includesEmpty: kotlin.Boolean, rootOnly: kotlin.Boolean, showInheritedProperties: kotlin.Boolean, hubId: kotlin.Long? = null, programId: kotlin.Long? = null, scheduledStart: kotlin.Long? = null, scheduledEnd: kotlin.Long? = null, updatedStart: kotlin.Long? = null, updatedEnd: kotlin.Long? = null, featured: kotlin.Boolean? = null, seatCount: kotlin.Int? = null, approved: kotlin.Boolean? = null, started: kotlin.Boolean? = null, completed: kotlin.Boolean? = null, valid: kotlin.Boolean? = null, parentId: kotlin.Long? = null) : kotlin.collections.List<Route> {
+        val localVarResponse = searchRoutesWithHttpInfo(sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, includesEmpty = includesEmpty, rootOnly = rootOnly, showInheritedProperties = showInheritedProperties, hubId = hubId, programId = programId, scheduledStart = scheduledStart, scheduledEnd = scheduledEnd, updatedStart = updatedStart, updatedEnd = updatedEnd, featured = featured, seatCount = seatCount, approved = approved, started = started, completed = completed, valid = valid, parentId = parentId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<Route>
@@ -1401,10 +1349,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/route
+     * GET /route
      * Search Routes
      * Search for routes.
-     * @param version 
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
      * @param start The start index for pagination
@@ -1432,8 +1379,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchRoutesWithHttpInfo(version: java.math.BigDecimal, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, includesEmpty: kotlin.Boolean, rootOnly: kotlin.Boolean, showInheritedProperties: kotlin.Boolean, hubId: kotlin.Long?, programId: kotlin.Long?, scheduledStart: kotlin.Long?, scheduledEnd: kotlin.Long?, updatedStart: kotlin.Long?, updatedEnd: kotlin.Long?, featured: kotlin.Boolean?, seatCount: kotlin.Int?, approved: kotlin.Boolean?, started: kotlin.Boolean?, completed: kotlin.Boolean?, valid: kotlin.Boolean?, parentId: kotlin.Long?) : ApiResponse<kotlin.collections.List<Route>?> {
-        val localVariableConfig = searchRoutesRequestConfig(version = version, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, includesEmpty = includesEmpty, rootOnly = rootOnly, showInheritedProperties = showInheritedProperties, hubId = hubId, programId = programId, scheduledStart = scheduledStart, scheduledEnd = scheduledEnd, updatedStart = updatedStart, updatedEnd = updatedEnd, featured = featured, seatCount = seatCount, approved = approved, started = started, completed = completed, valid = valid, parentId = parentId)
+    fun searchRoutesWithHttpInfo(sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, includesEmpty: kotlin.Boolean, rootOnly: kotlin.Boolean, showInheritedProperties: kotlin.Boolean, hubId: kotlin.Long?, programId: kotlin.Long?, scheduledStart: kotlin.Long?, scheduledEnd: kotlin.Long?, updatedStart: kotlin.Long?, updatedEnd: kotlin.Long?, featured: kotlin.Boolean?, seatCount: kotlin.Int?, approved: kotlin.Boolean?, started: kotlin.Boolean?, completed: kotlin.Boolean?, valid: kotlin.Boolean?, parentId: kotlin.Long?) : ApiResponse<kotlin.collections.List<Route>?> {
+        val localVariableConfig = searchRoutesRequestConfig(sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, includesEmpty = includesEmpty, rootOnly = rootOnly, showInheritedProperties = showInheritedProperties, hubId = hubId, programId = programId, scheduledStart = scheduledStart, scheduledEnd = scheduledEnd, updatedStart = updatedStart, updatedEnd = updatedEnd, featured = featured, seatCount = seatCount, approved = approved, started = started, completed = completed, valid = valid, parentId = parentId)
 
         return request<Unit, kotlin.collections.List<Route>>(
             localVariableConfig
@@ -1443,7 +1390,6 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation searchRoutes
      *
-     * @param version 
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
      * @param start The start index for pagination
@@ -1467,7 +1413,7 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param parentId If it is a recurring route based on the parent route (optional)
      * @return RequestConfig
      */
-    fun searchRoutesRequestConfig(version: java.math.BigDecimal, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, includesEmpty: kotlin.Boolean, rootOnly: kotlin.Boolean, showInheritedProperties: kotlin.Boolean, hubId: kotlin.Long?, programId: kotlin.Long?, scheduledStart: kotlin.Long?, scheduledEnd: kotlin.Long?, updatedStart: kotlin.Long?, updatedEnd: kotlin.Long?, featured: kotlin.Boolean?, seatCount: kotlin.Int?, approved: kotlin.Boolean?, started: kotlin.Boolean?, completed: kotlin.Boolean?, valid: kotlin.Boolean?, parentId: kotlin.Long?) : RequestConfig<Unit> {
+    fun searchRoutesRequestConfig(sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, includesEmpty: kotlin.Boolean, rootOnly: kotlin.Boolean, showInheritedProperties: kotlin.Boolean, hubId: kotlin.Long?, programId: kotlin.Long?, scheduledStart: kotlin.Long?, scheduledEnd: kotlin.Long?, updatedStart: kotlin.Long?, updatedEnd: kotlin.Long?, featured: kotlin.Boolean?, seatCount: kotlin.Int?, approved: kotlin.Boolean?, started: kotlin.Boolean?, completed: kotlin.Boolean?, valid: kotlin.Boolean?, parentId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1523,7 +1469,7 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/route".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/route",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1532,10 +1478,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/route/{id}/driver/{driverId}
+     * POST /route/{id}/driver/{driverId}
      * Set Driver
      * Update the driver of the route.
-     * @param version 
      * @param id the id of the route
      * @param driverId the id of the driver
      * @return void
@@ -1546,8 +1491,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun setDriver(version: java.math.BigDecimal, id: kotlin.Long, driverId: kotlin.Long) : Unit {
-        val localVarResponse = setDriverWithHttpInfo(version = version, id = id, driverId = driverId)
+    fun setDriver(id: kotlin.Long, driverId: kotlin.Long) : Unit {
+        val localVarResponse = setDriverWithHttpInfo(id = id, driverId = driverId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -1565,10 +1510,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/route/{id}/driver/{driverId}
+     * POST /route/{id}/driver/{driverId}
      * Set Driver
      * Update the driver of the route.
-     * @param version 
      * @param id the id of the route
      * @param driverId the id of the driver
      * @return ApiResponse<Unit?>
@@ -1576,8 +1520,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun setDriverWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long, driverId: kotlin.Long) : ApiResponse<Unit?> {
-        val localVariableConfig = setDriverRequestConfig(version = version, id = id, driverId = driverId)
+    fun setDriverWithHttpInfo(id: kotlin.Long, driverId: kotlin.Long) : ApiResponse<Unit?> {
+        val localVariableConfig = setDriverRequestConfig(id = id, driverId = driverId)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -1587,19 +1531,18 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation setDriver
      *
-     * @param version 
      * @param id the id of the route
      * @param driverId the id of the driver
      * @return RequestConfig
      */
-    fun setDriverRequestConfig(version: java.math.BigDecimal, id: kotlin.Long, driverId: kotlin.Long) : RequestConfig<Unit> {
+    fun setDriverRequestConfig(id: kotlin.Long, driverId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/route/{id}/driver/{driverId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())).replace("{"+"driverId"+"}", encodeURIComponent(driverId.toString())),
+            path = "/route/{id}/driver/{driverId}".replace("{"+"id"+"}", encodeURIComponent(id.toString())).replace("{"+"driverId"+"}", encodeURIComponent(driverId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1608,10 +1551,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * PUT /api/{version}/route/{routeId}
+     * PUT /route/{routeId}
      * Update Route
      * Update an existing route
-     * @param version 
      * @param routeId the id of the route
      * @param body  (optional)
      * @return Route
@@ -1623,8 +1565,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateRoute(version: java.math.BigDecimal, routeId: kotlin.Long, body: Route? = null) : Route {
-        val localVarResponse = updateRouteWithHttpInfo(version = version, routeId = routeId, body = body)
+    fun updateRoute(routeId: kotlin.Long, body: Route? = null) : Route {
+        val localVarResponse = updateRouteWithHttpInfo(routeId = routeId, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Route
@@ -1642,10 +1584,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * PUT /api/{version}/route/{routeId}
+     * PUT /route/{routeId}
      * Update Route
      * Update an existing route
-     * @param version 
      * @param routeId the id of the route
      * @param body  (optional)
      * @return ApiResponse<Route?>
@@ -1654,8 +1595,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateRouteWithHttpInfo(version: java.math.BigDecimal, routeId: kotlin.Long, body: Route?) : ApiResponse<Route?> {
-        val localVariableConfig = updateRouteRequestConfig(version = version, routeId = routeId, body = body)
+    fun updateRouteWithHttpInfo(routeId: kotlin.Long, body: Route?) : ApiResponse<Route?> {
+        val localVariableConfig = updateRouteRequestConfig(routeId = routeId, body = body)
 
         return request<Route, Route>(
             localVariableConfig
@@ -1665,19 +1606,18 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation updateRoute
      *
-     * @param version 
      * @param routeId the id of the route
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun updateRouteRequestConfig(version: java.math.BigDecimal, routeId: kotlin.Long, body: Route?) : RequestConfig<Route> {
+    fun updateRouteRequestConfig(routeId: kotlin.Long, body: Route?) : RequestConfig<Route> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.PUT,
-            path = "/api/{version}/route/{routeId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
+            path = "/route/{routeId}".replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1686,10 +1626,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * PUT /api/{version}/route/{routeId}/stop/{stopId}
+     * PUT /route/{routeId}/stop/{stopId}
      * Update Route Stop
      * Update a stop on a specified route
-     * @param version 
      * @param routeId the id of the route to update stops for
      * @param stopId the id of the specific stop to update on the route
      * @param body  (optional)
@@ -1701,8 +1640,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateRouteStop(version: java.math.BigDecimal, routeId: kotlin.Long, stopId: kotlin.Long, body: Stop? = null) : Unit {
-        val localVarResponse = updateRouteStopWithHttpInfo(version = version, routeId = routeId, stopId = stopId, body = body)
+    fun updateRouteStop(routeId: kotlin.Long, stopId: kotlin.Long, body: Stop? = null) : Unit {
+        val localVarResponse = updateRouteStopWithHttpInfo(routeId = routeId, stopId = stopId, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -1720,10 +1659,9 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * PUT /api/{version}/route/{routeId}/stop/{stopId}
+     * PUT /route/{routeId}/stop/{stopId}
      * Update Route Stop
      * Update a stop on a specified route
-     * @param version 
      * @param routeId the id of the route to update stops for
      * @param stopId the id of the specific stop to update on the route
      * @param body  (optional)
@@ -1732,8 +1670,8 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateRouteStopWithHttpInfo(version: java.math.BigDecimal, routeId: kotlin.Long, stopId: kotlin.Long, body: Stop?) : ApiResponse<Unit?> {
-        val localVariableConfig = updateRouteStopRequestConfig(version = version, routeId = routeId, stopId = stopId, body = body)
+    fun updateRouteStopWithHttpInfo(routeId: kotlin.Long, stopId: kotlin.Long, body: Stop?) : ApiResponse<Unit?> {
+        val localVariableConfig = updateRouteStopRequestConfig(routeId = routeId, stopId = stopId, body = body)
 
         return request<Stop, Unit>(
             localVariableConfig
@@ -1743,20 +1681,19 @@ open class RouteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation updateRouteStop
      *
-     * @param version 
      * @param routeId the id of the route to update stops for
      * @param stopId the id of the specific stop to update on the route
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun updateRouteStopRequestConfig(version: java.math.BigDecimal, routeId: kotlin.Long, stopId: kotlin.Long, body: Stop?) : RequestConfig<Stop> {
+    fun updateRouteStopRequestConfig(routeId: kotlin.Long, stopId: kotlin.Long, body: Stop?) : RequestConfig<Stop> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.PUT,
-            path = "/api/{version}/route/{routeId}/stop/{stopId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())).replace("{"+"stopId"+"}", encodeURIComponent(stopId.toString())),
+            path = "/route/{routeId}/stop/{stopId}".replace("{"+"routeId"+"}", encodeURIComponent(routeId.toString())).replace("{"+"stopId"+"}", encodeURIComponent(stopId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

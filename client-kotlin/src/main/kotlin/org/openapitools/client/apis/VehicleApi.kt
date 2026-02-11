@@ -41,15 +41,14 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/vehicle
+     * POST /vehicle
      * Create Vehicle
      * Create new vehicle
-     * @param version 
      * @param vehicle A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; 
      * @param body  (optional)
      * @return Vehicle
@@ -61,8 +60,8 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createVehicle(version: java.math.BigDecimal, vehicle: kotlin.String, body: Vehicle? = null) : Vehicle {
-        val localVarResponse = createVehicleWithHttpInfo(version = version, vehicle = vehicle, body = body)
+    fun createVehicle(vehicle: kotlin.String, body: Vehicle? = null) : Vehicle {
+        val localVarResponse = createVehicleWithHttpInfo(vehicle = vehicle, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Vehicle
@@ -80,10 +79,9 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/vehicle
+     * POST /vehicle
      * Create Vehicle
      * Create new vehicle
-     * @param version 
      * @param vehicle A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; 
      * @param body  (optional)
      * @return ApiResponse<Vehicle?>
@@ -92,8 +90,8 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createVehicleWithHttpInfo(version: java.math.BigDecimal, vehicle: kotlin.String, body: Vehicle?) : ApiResponse<Vehicle?> {
-        val localVariableConfig = createVehicleRequestConfig(version = version, vehicle = vehicle, body = body)
+    fun createVehicleWithHttpInfo(vehicle: kotlin.String, body: Vehicle?) : ApiResponse<Vehicle?> {
+        val localVariableConfig = createVehicleRequestConfig(vehicle = vehicle, body = body)
 
         return request<Vehicle, Vehicle>(
             localVariableConfig
@@ -103,12 +101,11 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation createVehicle
      *
-     * @param version 
      * @param vehicle A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; 
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun createVehicleRequestConfig(version: java.math.BigDecimal, vehicle: kotlin.String, body: Vehicle?) : RequestConfig<Vehicle> {
+    fun createVehicleRequestConfig(vehicle: kotlin.String, body: Vehicle?) : RequestConfig<Vehicle> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -118,7 +115,7 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/vehicle".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vehicle",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -127,10 +124,9 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * DELETE /api/{version}/vehicle/{id}
+     * DELETE /vehicle/{id}
      * Delete Vehicle
      * Delete an existing vehicle
-     * @param version 
      * @param id The id of the vehicle to delete
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
@@ -140,8 +136,8 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteVehicle(version: java.math.BigDecimal, id: kotlin.Long) : Unit {
-        val localVarResponse = deleteVehicleWithHttpInfo(version = version, id = id)
+    fun deleteVehicle(id: kotlin.Long) : Unit {
+        val localVarResponse = deleteVehicleWithHttpInfo(id = id)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -159,18 +155,17 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * DELETE /api/{version}/vehicle/{id}
+     * DELETE /vehicle/{id}
      * Delete Vehicle
      * Delete an existing vehicle
-     * @param version 
      * @param id The id of the vehicle to delete
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteVehicleWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long) : ApiResponse<Unit?> {
-        val localVariableConfig = deleteVehicleRequestConfig(version = version, id = id)
+    fun deleteVehicleWithHttpInfo(id: kotlin.Long) : ApiResponse<Unit?> {
+        val localVariableConfig = deleteVehicleRequestConfig(id = id)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -180,18 +175,17 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation deleteVehicle
      *
-     * @param version 
      * @param id The id of the vehicle to delete
      * @return RequestConfig
      */
-    fun deleteVehicleRequestConfig(version: java.math.BigDecimal, id: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteVehicleRequestConfig(id: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.DELETE,
-            path = "/api/{version}/vehicle/{id}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/vehicle/{id}".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -200,10 +194,9 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/vehicle/{id}
+     * GET /vehicle/{id}
      * Get Vehicle
      * Get an existing vehicle
-     * @param version 
      * @param id The id of the vehicle requested
      * @return Vehicle
      * @throws IllegalStateException If the request is not correctly configured
@@ -214,8 +207,8 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getVehicle(version: java.math.BigDecimal, id: kotlin.Long) : Vehicle {
-        val localVarResponse = getVehicleWithHttpInfo(version = version, id = id)
+    fun getVehicle(id: kotlin.Long) : Vehicle {
+        val localVarResponse = getVehicleWithHttpInfo(id = id)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Vehicle
@@ -233,10 +226,9 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/vehicle/{id}
+     * GET /vehicle/{id}
      * Get Vehicle
      * Get an existing vehicle
-     * @param version 
      * @param id The id of the vehicle requested
      * @return ApiResponse<Vehicle?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -244,8 +236,8 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getVehicleWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long) : ApiResponse<Vehicle?> {
-        val localVariableConfig = getVehicleRequestConfig(version = version, id = id)
+    fun getVehicleWithHttpInfo(id: kotlin.Long) : ApiResponse<Vehicle?> {
+        val localVariableConfig = getVehicleRequestConfig(id = id)
 
         return request<Unit, Vehicle>(
             localVariableConfig
@@ -255,18 +247,17 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation getVehicle
      *
-     * @param version 
      * @param id The id of the vehicle requested
      * @return RequestConfig
      */
-    fun getVehicleRequestConfig(version: java.math.BigDecimal, id: kotlin.Long) : RequestConfig<Unit> {
+    fun getVehicleRequestConfig(id: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vehicle/{id}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/vehicle/{id}".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -275,10 +266,9 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/vehicle
+     * GET /vehicle
      * Search Vehicle
      * Search for vehicles
-     * @param version 
      * @param hubId Filter by service hub
      * @param sortField The field to sort by (default to "id")
      * @param descending Determines whether the sorted list is in descending or ascending order (default to false)
@@ -295,8 +285,8 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchVehicle(version: java.math.BigDecimal, hubId: kotlin.Long, sortField: kotlin.String = "id", descending: kotlin.Boolean = false, start: kotlin.Int = 0, limit: kotlin.Int = 20, activeOnly: kotlin.Boolean = true, keyword: kotlin.String? = null) : kotlin.collections.List<Vehicle> {
-        val localVarResponse = searchVehicleWithHttpInfo(version = version, hubId = hubId, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, keyword = keyword)
+    fun searchVehicle(hubId: kotlin.Long, sortField: kotlin.String = "id", descending: kotlin.Boolean = false, start: kotlin.Int = 0, limit: kotlin.Int = 20, activeOnly: kotlin.Boolean = true, keyword: kotlin.String? = null) : kotlin.collections.List<Vehicle> {
+        val localVarResponse = searchVehicleWithHttpInfo(hubId = hubId, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, keyword = keyword)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<Vehicle>
@@ -314,10 +304,9 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/vehicle
+     * GET /vehicle
      * Search Vehicle
      * Search for vehicles
-     * @param version 
      * @param hubId Filter by service hub
      * @param sortField The field to sort by (default to "id")
      * @param descending Determines whether the sorted list is in descending or ascending order (default to false)
@@ -331,8 +320,8 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchVehicleWithHttpInfo(version: java.math.BigDecimal, hubId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, keyword: kotlin.String?) : ApiResponse<kotlin.collections.List<Vehicle>?> {
-        val localVariableConfig = searchVehicleRequestConfig(version = version, hubId = hubId, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, keyword = keyword)
+    fun searchVehicleWithHttpInfo(hubId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, keyword: kotlin.String?) : ApiResponse<kotlin.collections.List<Vehicle>?> {
+        val localVariableConfig = searchVehicleRequestConfig(hubId = hubId, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, keyword = keyword)
 
         return request<Unit, kotlin.collections.List<Vehicle>>(
             localVariableConfig
@@ -342,7 +331,6 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation searchVehicle
      *
-     * @param version 
      * @param hubId Filter by service hub
      * @param sortField The field to sort by (default to "id")
      * @param descending Determines whether the sorted list is in descending or ascending order (default to false)
@@ -352,7 +340,7 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param keyword The keyword to search for (optional)
      * @return RequestConfig
      */
-    fun searchVehicleRequestConfig(version: java.math.BigDecimal, hubId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, keyword: kotlin.String?) : RequestConfig<Unit> {
+    fun searchVehicleRequestConfig(hubId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, keyword: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -370,7 +358,7 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vehicle".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vehicle",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -379,10 +367,9 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * PUT /api/{version}/vehicle/{id}
+     * PUT /vehicle/{id}
      * Update Vehicle
      * Update an existing vehicle
-     * @param version 
      * @param id The id of the vehicle to update
      * @param vehicle A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; 
      * @param body  (optional)
@@ -395,8 +382,8 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateVehicle(version: java.math.BigDecimal, id: kotlin.Long, vehicle: kotlin.String, body: Vehicle? = null) : Vehicle {
-        val localVarResponse = updateVehicleWithHttpInfo(version = version, id = id, vehicle = vehicle, body = body)
+    fun updateVehicle(id: kotlin.Long, vehicle: kotlin.String, body: Vehicle? = null) : Vehicle {
+        val localVarResponse = updateVehicleWithHttpInfo(id = id, vehicle = vehicle, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Vehicle
@@ -414,10 +401,9 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * PUT /api/{version}/vehicle/{id}
+     * PUT /vehicle/{id}
      * Update Vehicle
      * Update an existing vehicle
-     * @param version 
      * @param id The id of the vehicle to update
      * @param vehicle A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; 
      * @param body  (optional)
@@ -427,8 +413,8 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateVehicleWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long, vehicle: kotlin.String, body: Vehicle?) : ApiResponse<Vehicle?> {
-        val localVariableConfig = updateVehicleRequestConfig(version = version, id = id, vehicle = vehicle, body = body)
+    fun updateVehicleWithHttpInfo(id: kotlin.Long, vehicle: kotlin.String, body: Vehicle?) : ApiResponse<Vehicle?> {
+        val localVariableConfig = updateVehicleRequestConfig(id = id, vehicle = vehicle, body = body)
 
         return request<Vehicle, Vehicle>(
             localVariableConfig
@@ -438,13 +424,12 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation updateVehicle
      *
-     * @param version 
      * @param id The id of the vehicle to update
      * @param vehicle A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; 
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun updateVehicleRequestConfig(version: java.math.BigDecimal, id: kotlin.Long, vehicle: kotlin.String, body: Vehicle?) : RequestConfig<Vehicle> {
+    fun updateVehicleRequestConfig(id: kotlin.Long, vehicle: kotlin.String, body: Vehicle?) : RequestConfig<Vehicle> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -454,7 +439,7 @@ open class VehicleApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.PUT,
-            path = "/api/{version}/vehicle/{id}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/vehicle/{id}".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

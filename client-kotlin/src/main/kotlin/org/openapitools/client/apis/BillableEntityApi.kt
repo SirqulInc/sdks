@@ -42,15 +42,14 @@ open class BillableEntityApi(basePath: kotlin.String = defaultBasePath, client: 
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/billable/create
+     * POST /billable/create
      * Create Billable
      * reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
-     * @param version 
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param name The name of the entity responsible for billing  (optional)
@@ -72,8 +71,8 @@ open class BillableEntityApi(basePath: kotlin.String = defaultBasePath, client: 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createBillableEntity(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, name: kotlin.String? = null, streetAddress: kotlin.String? = null, streetAddress2: kotlin.String? = null, city: kotlin.String? = null, state: kotlin.String? = null, postalCode: kotlin.String? = null, businessPhone: kotlin.String? = null, businessPhoneExt: kotlin.String? = null, authorizeNetApiKey: kotlin.String? = null, authorizeNetTransactionKey: kotlin.String? = null) : BillableEntityResponse {
-        val localVarResponse = createBillableEntityWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, name = name, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, authorizeNetApiKey = authorizeNetApiKey, authorizeNetTransactionKey = authorizeNetTransactionKey)
+    fun createBillableEntity(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, name: kotlin.String? = null, streetAddress: kotlin.String? = null, streetAddress2: kotlin.String? = null, city: kotlin.String? = null, state: kotlin.String? = null, postalCode: kotlin.String? = null, businessPhone: kotlin.String? = null, businessPhoneExt: kotlin.String? = null, authorizeNetApiKey: kotlin.String? = null, authorizeNetTransactionKey: kotlin.String? = null) : BillableEntityResponse {
+        val localVarResponse = createBillableEntityWithHttpInfo(deviceId = deviceId, accountId = accountId, name = name, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, authorizeNetApiKey = authorizeNetApiKey, authorizeNetTransactionKey = authorizeNetTransactionKey)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as BillableEntityResponse
@@ -91,10 +90,9 @@ open class BillableEntityApi(basePath: kotlin.String = defaultBasePath, client: 
     }
 
     /**
-     * POST /api/{version}/billable/create
+     * POST /billable/create
      * Create Billable
      * reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
-     * @param version 
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param name The name of the entity responsible for billing  (optional)
@@ -113,8 +111,8 @@ open class BillableEntityApi(basePath: kotlin.String = defaultBasePath, client: 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createBillableEntityWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, authorizeNetApiKey: kotlin.String?, authorizeNetTransactionKey: kotlin.String?) : ApiResponse<BillableEntityResponse?> {
-        val localVariableConfig = createBillableEntityRequestConfig(version = version, deviceId = deviceId, accountId = accountId, name = name, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, authorizeNetApiKey = authorizeNetApiKey, authorizeNetTransactionKey = authorizeNetTransactionKey)
+    fun createBillableEntityWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, authorizeNetApiKey: kotlin.String?, authorizeNetTransactionKey: kotlin.String?) : ApiResponse<BillableEntityResponse?> {
+        val localVariableConfig = createBillableEntityRequestConfig(deviceId = deviceId, accountId = accountId, name = name, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, authorizeNetApiKey = authorizeNetApiKey, authorizeNetTransactionKey = authorizeNetTransactionKey)
 
         return request<Unit, BillableEntityResponse>(
             localVariableConfig
@@ -124,7 +122,6 @@ open class BillableEntityApi(basePath: kotlin.String = defaultBasePath, client: 
     /**
      * To obtain the request config of the operation createBillableEntity
      *
-     * @param version 
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param name The name of the entity responsible for billing  (optional)
@@ -139,7 +136,7 @@ open class BillableEntityApi(basePath: kotlin.String = defaultBasePath, client: 
      * @param authorizeNetTransactionKey Authorize Net Transaction Key (optional)
      * @return RequestConfig
      */
-    fun createBillableEntityRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, authorizeNetApiKey: kotlin.String?, authorizeNetTransactionKey: kotlin.String?) : RequestConfig<Unit> {
+    fun createBillableEntityRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, authorizeNetApiKey: kotlin.String?, authorizeNetTransactionKey: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -184,7 +181,7 @@ open class BillableEntityApi(basePath: kotlin.String = defaultBasePath, client: 
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/billable/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/billable/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -193,10 +190,9 @@ open class BillableEntityApi(basePath: kotlin.String = defaultBasePath, client: 
     }
 
     /**
-     * POST /api/{version}/billable/delete
+     * POST /billable/delete
      * Delete Billable
      * Mark the billable as deleted
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the billable entity. (optional)
      * @return SirqulResponse
@@ -208,8 +204,8 @@ open class BillableEntityApi(basePath: kotlin.String = defaultBasePath, client: 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteBillableEntity(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = deleteBillableEntityWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId)
+    fun deleteBillableEntity(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = deleteBillableEntityWithHttpInfo(deviceId = deviceId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -227,10 +223,9 @@ open class BillableEntityApi(basePath: kotlin.String = defaultBasePath, client: 
     }
 
     /**
-     * POST /api/{version}/billable/delete
+     * POST /billable/delete
      * Delete Billable
      * Mark the billable as deleted
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the billable entity. (optional)
      * @return ApiResponse<SirqulResponse?>
@@ -239,8 +234,8 @@ open class BillableEntityApi(basePath: kotlin.String = defaultBasePath, client: 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteBillableEntityWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteBillableEntityRequestConfig(version = version, deviceId = deviceId, accountId = accountId)
+    fun deleteBillableEntityWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteBillableEntityRequestConfig(deviceId = deviceId, accountId = accountId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -250,12 +245,11 @@ open class BillableEntityApi(basePath: kotlin.String = defaultBasePath, client: 
     /**
      * To obtain the request config of the operation deleteBillableEntity
      *
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the billable entity. (optional)
      * @return RequestConfig
      */
-    fun deleteBillableEntityRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun deleteBillableEntityRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -270,7 +264,7 @@ open class BillableEntityApi(basePath: kotlin.String = defaultBasePath, client: 
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/billable/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/billable/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -279,10 +273,9 @@ open class BillableEntityApi(basePath: kotlin.String = defaultBasePath, client: 
     }
 
     /**
-     * GET /api/{version}/billable/get
+     * GET /billable/get
      * Get Billable
      * Used to determine the associated BillableEntity of an account
-     * @param version 
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param includeCounts Determines whether to include the retailer dash board counts into the response (optional, default to false)
@@ -296,8 +289,8 @@ open class BillableEntityApi(basePath: kotlin.String = defaultBasePath, client: 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBillableEntity(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, includeCounts: kotlin.Boolean? = false, includePayments: kotlin.Boolean? = true) : BillableEntityResponse {
-        val localVarResponse = getBillableEntityWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, includeCounts = includeCounts, includePayments = includePayments)
+    fun getBillableEntity(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, includeCounts: kotlin.Boolean? = false, includePayments: kotlin.Boolean? = true) : BillableEntityResponse {
+        val localVarResponse = getBillableEntityWithHttpInfo(deviceId = deviceId, accountId = accountId, includeCounts = includeCounts, includePayments = includePayments)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as BillableEntityResponse
@@ -315,10 +308,9 @@ open class BillableEntityApi(basePath: kotlin.String = defaultBasePath, client: 
     }
 
     /**
-     * GET /api/{version}/billable/get
+     * GET /billable/get
      * Get Billable
      * Used to determine the associated BillableEntity of an account
-     * @param version 
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param includeCounts Determines whether to include the retailer dash board counts into the response (optional, default to false)
@@ -329,8 +321,8 @@ open class BillableEntityApi(basePath: kotlin.String = defaultBasePath, client: 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBillableEntityWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, includeCounts: kotlin.Boolean?, includePayments: kotlin.Boolean?) : ApiResponse<BillableEntityResponse?> {
-        val localVariableConfig = getBillableEntityRequestConfig(version = version, deviceId = deviceId, accountId = accountId, includeCounts = includeCounts, includePayments = includePayments)
+    fun getBillableEntityWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, includeCounts: kotlin.Boolean?, includePayments: kotlin.Boolean?) : ApiResponse<BillableEntityResponse?> {
+        val localVariableConfig = getBillableEntityRequestConfig(deviceId = deviceId, accountId = accountId, includeCounts = includeCounts, includePayments = includePayments)
 
         return request<Unit, BillableEntityResponse>(
             localVariableConfig
@@ -340,14 +332,13 @@ open class BillableEntityApi(basePath: kotlin.String = defaultBasePath, client: 
     /**
      * To obtain the request config of the operation getBillableEntity
      *
-     * @param version 
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param includeCounts Determines whether to include the retailer dash board counts into the response (optional, default to false)
      * @param includePayments Whether to enable payments or not (optional, default to true)
      * @return RequestConfig
      */
-    fun getBillableEntityRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, includeCounts: kotlin.Boolean?, includePayments: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getBillableEntityRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, includeCounts: kotlin.Boolean?, includePayments: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -368,7 +359,7 @@ open class BillableEntityApi(basePath: kotlin.String = defaultBasePath, client: 
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/billable/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/billable/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -377,10 +368,9 @@ open class BillableEntityApi(basePath: kotlin.String = defaultBasePath, client: 
     }
 
     /**
-     * POST /api/{version}/billable/update
+     * POST /billable/update
      * Update Billable
      * Updates the billable record for an account
-     * @param version 
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity. (optional)
      * @param name The name of the entity responsible for billing  (optional)
@@ -402,8 +392,8 @@ open class BillableEntityApi(basePath: kotlin.String = defaultBasePath, client: 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateBillableEntity(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, name: kotlin.String? = null, streetAddress: kotlin.String? = null, streetAddress2: kotlin.String? = null, city: kotlin.String? = null, state: kotlin.String? = null, postalCode: kotlin.String? = null, businessPhone: kotlin.String? = null, businessPhoneExt: kotlin.String? = null, authorizeNetApiKey: kotlin.String? = null, authorizeNetTransactionKey: kotlin.String? = null) : BillableEntityResponse {
-        val localVarResponse = updateBillableEntityWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, name = name, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, authorizeNetApiKey = authorizeNetApiKey, authorizeNetTransactionKey = authorizeNetTransactionKey)
+    fun updateBillableEntity(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, name: kotlin.String? = null, streetAddress: kotlin.String? = null, streetAddress2: kotlin.String? = null, city: kotlin.String? = null, state: kotlin.String? = null, postalCode: kotlin.String? = null, businessPhone: kotlin.String? = null, businessPhoneExt: kotlin.String? = null, authorizeNetApiKey: kotlin.String? = null, authorizeNetTransactionKey: kotlin.String? = null) : BillableEntityResponse {
+        val localVarResponse = updateBillableEntityWithHttpInfo(deviceId = deviceId, accountId = accountId, name = name, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, authorizeNetApiKey = authorizeNetApiKey, authorizeNetTransactionKey = authorizeNetTransactionKey)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as BillableEntityResponse
@@ -421,10 +411,9 @@ open class BillableEntityApi(basePath: kotlin.String = defaultBasePath, client: 
     }
 
     /**
-     * POST /api/{version}/billable/update
+     * POST /billable/update
      * Update Billable
      * Updates the billable record for an account
-     * @param version 
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity. (optional)
      * @param name The name of the entity responsible for billing  (optional)
@@ -443,8 +432,8 @@ open class BillableEntityApi(basePath: kotlin.String = defaultBasePath, client: 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateBillableEntityWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, authorizeNetApiKey: kotlin.String?, authorizeNetTransactionKey: kotlin.String?) : ApiResponse<BillableEntityResponse?> {
-        val localVariableConfig = updateBillableEntityRequestConfig(version = version, deviceId = deviceId, accountId = accountId, name = name, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, authorizeNetApiKey = authorizeNetApiKey, authorizeNetTransactionKey = authorizeNetTransactionKey)
+    fun updateBillableEntityWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, authorizeNetApiKey: kotlin.String?, authorizeNetTransactionKey: kotlin.String?) : ApiResponse<BillableEntityResponse?> {
+        val localVariableConfig = updateBillableEntityRequestConfig(deviceId = deviceId, accountId = accountId, name = name, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, authorizeNetApiKey = authorizeNetApiKey, authorizeNetTransactionKey = authorizeNetTransactionKey)
 
         return request<Unit, BillableEntityResponse>(
             localVariableConfig
@@ -454,7 +443,6 @@ open class BillableEntityApi(basePath: kotlin.String = defaultBasePath, client: 
     /**
      * To obtain the request config of the operation updateBillableEntity
      *
-     * @param version 
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity. (optional)
      * @param name The name of the entity responsible for billing  (optional)
@@ -469,7 +457,7 @@ open class BillableEntityApi(basePath: kotlin.String = defaultBasePath, client: 
      * @param authorizeNetTransactionKey Authorize Net Transaction Key of the billable entity (optional)
      * @return RequestConfig
      */
-    fun updateBillableEntityRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, authorizeNetApiKey: kotlin.String?, authorizeNetTransactionKey: kotlin.String?) : RequestConfig<Unit> {
+    fun updateBillableEntityRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, authorizeNetApiKey: kotlin.String?, authorizeNetTransactionKey: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -514,7 +502,7 @@ open class BillableEntityApi(basePath: kotlin.String = defaultBasePath, client: 
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/billable/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/billable/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

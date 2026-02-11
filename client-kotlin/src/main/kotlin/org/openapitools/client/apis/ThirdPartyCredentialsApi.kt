@@ -45,15 +45,14 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/thirdparty/credential/create
+     * POST /thirdparty/credential/create
      * Create Credential
      * This endpoint creates a third-party login for a Sirqul account. A third party login is a way for external systems (Third Party Networks) to link their own user accounts with a Sirqul account.   The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user&#39;s third-party login credentials for the user with the same thirdPartyId and networkUID combination.    The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
-     * @param version 
      * @param thirdPartyId the third party user account id
      * @param thirdPartyToken the access token to authenticate with (ex: username or fb token or phone number)
      * @param networkUID the access provider to authenticate against
@@ -80,8 +79,8 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createCredential(version: java.math.BigDecimal, thirdPartyId: kotlin.String, thirdPartyToken: kotlin.String, networkUID: kotlin.String, appKey: kotlin.String, accountId: kotlin.Long? = null, deviceId: kotlin.String? = null, sessionId: kotlin.String? = null, thirdPartyName: kotlin.String? = null, emailAddress: kotlin.String? = null, signinOnlyMode: kotlin.Boolean? = false, responseFilters: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, metaData: kotlin.String? = null, thirdPartyRefreshToken: kotlin.String? = null, audienceIdsToAdd: kotlin.String? = null, audienceIdsToRemove: kotlin.String? = null) : ProfileResponse {
-        val localVarResponse = createCredentialWithHttpInfo(version = version, thirdPartyId = thirdPartyId, thirdPartyToken = thirdPartyToken, networkUID = networkUID, appKey = appKey, accountId = accountId, deviceId = deviceId, sessionId = sessionId, thirdPartyName = thirdPartyName, emailAddress = emailAddress, signinOnlyMode = signinOnlyMode, responseFilters = responseFilters, latitude = latitude, longitude = longitude, metaData = metaData, thirdPartyRefreshToken = thirdPartyRefreshToken, audienceIdsToAdd = audienceIdsToAdd, audienceIdsToRemove = audienceIdsToRemove)
+    fun createCredential(thirdPartyId: kotlin.String, thirdPartyToken: kotlin.String, networkUID: kotlin.String, appKey: kotlin.String, accountId: kotlin.Long? = null, deviceId: kotlin.String? = null, sessionId: kotlin.String? = null, thirdPartyName: kotlin.String? = null, emailAddress: kotlin.String? = null, signinOnlyMode: kotlin.Boolean? = false, responseFilters: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, metaData: kotlin.String? = null, thirdPartyRefreshToken: kotlin.String? = null, audienceIdsToAdd: kotlin.String? = null, audienceIdsToRemove: kotlin.String? = null) : ProfileResponse {
+        val localVarResponse = createCredentialWithHttpInfo(thirdPartyId = thirdPartyId, thirdPartyToken = thirdPartyToken, networkUID = networkUID, appKey = appKey, accountId = accountId, deviceId = deviceId, sessionId = sessionId, thirdPartyName = thirdPartyName, emailAddress = emailAddress, signinOnlyMode = signinOnlyMode, responseFilters = responseFilters, latitude = latitude, longitude = longitude, metaData = metaData, thirdPartyRefreshToken = thirdPartyRefreshToken, audienceIdsToAdd = audienceIdsToAdd, audienceIdsToRemove = audienceIdsToRemove)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ProfileResponse
@@ -99,10 +98,9 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * POST /api/{version}/thirdparty/credential/create
+     * POST /thirdparty/credential/create
      * Create Credential
      * This endpoint creates a third-party login for a Sirqul account. A third party login is a way for external systems (Third Party Networks) to link their own user accounts with a Sirqul account.   The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user&#39;s third-party login credentials for the user with the same thirdPartyId and networkUID combination.    The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
-     * @param version 
      * @param thirdPartyId the third party user account id
      * @param thirdPartyToken the access token to authenticate with (ex: username or fb token or phone number)
      * @param networkUID the access provider to authenticate against
@@ -126,8 +124,8 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createCredentialWithHttpInfo(version: java.math.BigDecimal, thirdPartyId: kotlin.String, thirdPartyToken: kotlin.String, networkUID: kotlin.String, appKey: kotlin.String, accountId: kotlin.Long?, deviceId: kotlin.String?, sessionId: kotlin.String?, thirdPartyName: kotlin.String?, emailAddress: kotlin.String?, signinOnlyMode: kotlin.Boolean?, responseFilters: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, metaData: kotlin.String?, thirdPartyRefreshToken: kotlin.String?, audienceIdsToAdd: kotlin.String?, audienceIdsToRemove: kotlin.String?) : ApiResponse<ProfileResponse?> {
-        val localVariableConfig = createCredentialRequestConfig(version = version, thirdPartyId = thirdPartyId, thirdPartyToken = thirdPartyToken, networkUID = networkUID, appKey = appKey, accountId = accountId, deviceId = deviceId, sessionId = sessionId, thirdPartyName = thirdPartyName, emailAddress = emailAddress, signinOnlyMode = signinOnlyMode, responseFilters = responseFilters, latitude = latitude, longitude = longitude, metaData = metaData, thirdPartyRefreshToken = thirdPartyRefreshToken, audienceIdsToAdd = audienceIdsToAdd, audienceIdsToRemove = audienceIdsToRemove)
+    fun createCredentialWithHttpInfo(thirdPartyId: kotlin.String, thirdPartyToken: kotlin.String, networkUID: kotlin.String, appKey: kotlin.String, accountId: kotlin.Long?, deviceId: kotlin.String?, sessionId: kotlin.String?, thirdPartyName: kotlin.String?, emailAddress: kotlin.String?, signinOnlyMode: kotlin.Boolean?, responseFilters: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, metaData: kotlin.String?, thirdPartyRefreshToken: kotlin.String?, audienceIdsToAdd: kotlin.String?, audienceIdsToRemove: kotlin.String?) : ApiResponse<ProfileResponse?> {
+        val localVariableConfig = createCredentialRequestConfig(thirdPartyId = thirdPartyId, thirdPartyToken = thirdPartyToken, networkUID = networkUID, appKey = appKey, accountId = accountId, deviceId = deviceId, sessionId = sessionId, thirdPartyName = thirdPartyName, emailAddress = emailAddress, signinOnlyMode = signinOnlyMode, responseFilters = responseFilters, latitude = latitude, longitude = longitude, metaData = metaData, thirdPartyRefreshToken = thirdPartyRefreshToken, audienceIdsToAdd = audienceIdsToAdd, audienceIdsToRemove = audienceIdsToRemove)
 
         return request<Unit, ProfileResponse>(
             localVariableConfig
@@ -137,7 +135,6 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     /**
      * To obtain the request config of the operation createCredential
      *
-     * @param version 
      * @param thirdPartyId the third party user account id
      * @param thirdPartyToken the access token to authenticate with (ex: username or fb token or phone number)
      * @param networkUID the access provider to authenticate against
@@ -157,7 +154,7 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      * @param audienceIdsToRemove audience ids to remove from the account (optional)
      * @return RequestConfig
      */
-    fun createCredentialRequestConfig(version: java.math.BigDecimal, thirdPartyId: kotlin.String, thirdPartyToken: kotlin.String, networkUID: kotlin.String, appKey: kotlin.String, accountId: kotlin.Long?, deviceId: kotlin.String?, sessionId: kotlin.String?, thirdPartyName: kotlin.String?, emailAddress: kotlin.String?, signinOnlyMode: kotlin.Boolean?, responseFilters: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, metaData: kotlin.String?, thirdPartyRefreshToken: kotlin.String?, audienceIdsToAdd: kotlin.String?, audienceIdsToRemove: kotlin.String?) : RequestConfig<Unit> {
+    fun createCredentialRequestConfig(thirdPartyId: kotlin.String, thirdPartyToken: kotlin.String, networkUID: kotlin.String, appKey: kotlin.String, accountId: kotlin.Long?, deviceId: kotlin.String?, sessionId: kotlin.String?, thirdPartyName: kotlin.String?, emailAddress: kotlin.String?, signinOnlyMode: kotlin.Boolean?, responseFilters: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, metaData: kotlin.String?, thirdPartyRefreshToken: kotlin.String?, audienceIdsToAdd: kotlin.String?, audienceIdsToRemove: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -209,7 +206,7 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/thirdparty/credential/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/thirdparty/credential/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -218,10 +215,9 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * POST /api/{version}/thirdparty/network/create
+     * POST /thirdparty/network/create
      * Create Network
      * Creates a custom third party network.
-     * @param version 
      * @param accountId The account id making the request
      * @param name The name of the network
      * @param enableIntrospection Whether the network uses introspection calls
@@ -248,8 +244,8 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createNetwork(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, enableIntrospection: kotlin.Boolean, description: kotlin.String? = null, introspectionMethod: kotlin.String? = null, introspectionURL: kotlin.String? = null, introspectionParams: kotlin.String? = null, requiredRootField: kotlin.String? = null, enableMFA: kotlin.Boolean? = null, sizeMFA: kotlin.Int? = null, shelfLifeMFA: kotlin.Int? = null, oauthTokenURL: kotlin.String? = null, oauthPrivateKey: java.io.File? = null, oauthPublicKey: java.io.File? = null, oauthClientId: kotlin.String? = null, oauthSecretKey: kotlin.String? = null, body: kotlin.String? = null) : ThirdPartyNetworkResponse {
-        val localVarResponse = createNetworkWithHttpInfo(version = version, accountId = accountId, name = name, enableIntrospection = enableIntrospection, description = description, introspectionMethod = introspectionMethod, introspectionURL = introspectionURL, introspectionParams = introspectionParams, requiredRootField = requiredRootField, enableMFA = enableMFA, sizeMFA = sizeMFA, shelfLifeMFA = shelfLifeMFA, oauthTokenURL = oauthTokenURL, oauthPrivateKey = oauthPrivateKey, oauthPublicKey = oauthPublicKey, oauthClientId = oauthClientId, oauthSecretKey = oauthSecretKey, body = body)
+    fun createNetwork(accountId: kotlin.Long, name: kotlin.String, enableIntrospection: kotlin.Boolean, description: kotlin.String? = null, introspectionMethod: kotlin.String? = null, introspectionURL: kotlin.String? = null, introspectionParams: kotlin.String? = null, requiredRootField: kotlin.String? = null, enableMFA: kotlin.Boolean? = null, sizeMFA: kotlin.Int? = null, shelfLifeMFA: kotlin.Int? = null, oauthTokenURL: kotlin.String? = null, oauthPrivateKey: java.io.File? = null, oauthPublicKey: java.io.File? = null, oauthClientId: kotlin.String? = null, oauthSecretKey: kotlin.String? = null, body: kotlin.String? = null) : ThirdPartyNetworkResponse {
+        val localVarResponse = createNetworkWithHttpInfo(accountId = accountId, name = name, enableIntrospection = enableIntrospection, description = description, introspectionMethod = introspectionMethod, introspectionURL = introspectionURL, introspectionParams = introspectionParams, requiredRootField = requiredRootField, enableMFA = enableMFA, sizeMFA = sizeMFA, shelfLifeMFA = shelfLifeMFA, oauthTokenURL = oauthTokenURL, oauthPrivateKey = oauthPrivateKey, oauthPublicKey = oauthPublicKey, oauthClientId = oauthClientId, oauthSecretKey = oauthSecretKey, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ThirdPartyNetworkResponse
@@ -267,10 +263,9 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * POST /api/{version}/thirdparty/network/create
+     * POST /thirdparty/network/create
      * Create Network
      * Creates a custom third party network.
-     * @param version 
      * @param accountId The account id making the request
      * @param name The name of the network
      * @param enableIntrospection Whether the network uses introspection calls
@@ -294,8 +289,8 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createNetworkWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, enableIntrospection: kotlin.Boolean, description: kotlin.String?, introspectionMethod: kotlin.String?, introspectionURL: kotlin.String?, introspectionParams: kotlin.String?, requiredRootField: kotlin.String?, enableMFA: kotlin.Boolean?, sizeMFA: kotlin.Int?, shelfLifeMFA: kotlin.Int?, oauthTokenURL: kotlin.String?, oauthPrivateKey: java.io.File?, oauthPublicKey: java.io.File?, oauthClientId: kotlin.String?, oauthSecretKey: kotlin.String?, body: kotlin.String?) : ApiResponse<ThirdPartyNetworkResponse?> {
-        val localVariableConfig = createNetworkRequestConfig(version = version, accountId = accountId, name = name, enableIntrospection = enableIntrospection, description = description, introspectionMethod = introspectionMethod, introspectionURL = introspectionURL, introspectionParams = introspectionParams, requiredRootField = requiredRootField, enableMFA = enableMFA, sizeMFA = sizeMFA, shelfLifeMFA = shelfLifeMFA, oauthTokenURL = oauthTokenURL, oauthPrivateKey = oauthPrivateKey, oauthPublicKey = oauthPublicKey, oauthClientId = oauthClientId, oauthSecretKey = oauthSecretKey, body = body)
+    fun createNetworkWithHttpInfo(accountId: kotlin.Long, name: kotlin.String, enableIntrospection: kotlin.Boolean, description: kotlin.String?, introspectionMethod: kotlin.String?, introspectionURL: kotlin.String?, introspectionParams: kotlin.String?, requiredRootField: kotlin.String?, enableMFA: kotlin.Boolean?, sizeMFA: kotlin.Int?, shelfLifeMFA: kotlin.Int?, oauthTokenURL: kotlin.String?, oauthPrivateKey: java.io.File?, oauthPublicKey: java.io.File?, oauthClientId: kotlin.String?, oauthSecretKey: kotlin.String?, body: kotlin.String?) : ApiResponse<ThirdPartyNetworkResponse?> {
+        val localVariableConfig = createNetworkRequestConfig(accountId = accountId, name = name, enableIntrospection = enableIntrospection, description = description, introspectionMethod = introspectionMethod, introspectionURL = introspectionURL, introspectionParams = introspectionParams, requiredRootField = requiredRootField, enableMFA = enableMFA, sizeMFA = sizeMFA, shelfLifeMFA = shelfLifeMFA, oauthTokenURL = oauthTokenURL, oauthPrivateKey = oauthPrivateKey, oauthPublicKey = oauthPublicKey, oauthClientId = oauthClientId, oauthSecretKey = oauthSecretKey, body = body)
 
         return request<kotlin.String, ThirdPartyNetworkResponse>(
             localVariableConfig
@@ -305,7 +300,6 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     /**
      * To obtain the request config of the operation createNetwork
      *
-     * @param version 
      * @param accountId The account id making the request
      * @param name The name of the network
      * @param enableIntrospection Whether the network uses introspection calls
@@ -325,7 +319,7 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun createNetworkRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, enableIntrospection: kotlin.Boolean, description: kotlin.String?, introspectionMethod: kotlin.String?, introspectionURL: kotlin.String?, introspectionParams: kotlin.String?, requiredRootField: kotlin.String?, enableMFA: kotlin.Boolean?, sizeMFA: kotlin.Int?, shelfLifeMFA: kotlin.Int?, oauthTokenURL: kotlin.String?, oauthPrivateKey: java.io.File?, oauthPublicKey: java.io.File?, oauthClientId: kotlin.String?, oauthSecretKey: kotlin.String?, body: kotlin.String?) : RequestConfig<kotlin.String> {
+    fun createNetworkRequestConfig(accountId: kotlin.Long, name: kotlin.String, enableIntrospection: kotlin.Boolean, description: kotlin.String?, introspectionMethod: kotlin.String?, introspectionURL: kotlin.String?, introspectionParams: kotlin.String?, requiredRootField: kotlin.String?, enableMFA: kotlin.Boolean?, sizeMFA: kotlin.Int?, shelfLifeMFA: kotlin.Int?, oauthTokenURL: kotlin.String?, oauthPrivateKey: java.io.File?, oauthPublicKey: java.io.File?, oauthClientId: kotlin.String?, oauthSecretKey: kotlin.String?, body: kotlin.String?) : RequestConfig<kotlin.String> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -376,7 +370,7 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/thirdparty/network/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/thirdparty/network/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -385,10 +379,9 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * POST /api/{version}/thirdparty/credential/delete
+     * POST /thirdparty/credential/delete
      * Delete Credential
      * Delete a third party network on a Sirqul account.
-     * @param version 
      * @param accountId The account id of the user
      * @param networkUID The third party network identifier
      * @param thirdPartyId The third party user id
@@ -402,8 +395,8 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteCredential(version: java.math.BigDecimal, accountId: kotlin.Long, networkUID: kotlin.String, thirdPartyId: kotlin.String, appKey: kotlin.String) : SirqulResponse {
-        val localVarResponse = deleteCredentialWithHttpInfo(version = version, accountId = accountId, networkUID = networkUID, thirdPartyId = thirdPartyId, appKey = appKey)
+    fun deleteCredential(accountId: kotlin.Long, networkUID: kotlin.String, thirdPartyId: kotlin.String, appKey: kotlin.String) : SirqulResponse {
+        val localVarResponse = deleteCredentialWithHttpInfo(accountId = accountId, networkUID = networkUID, thirdPartyId = thirdPartyId, appKey = appKey)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -421,10 +414,9 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * POST /api/{version}/thirdparty/credential/delete
+     * POST /thirdparty/credential/delete
      * Delete Credential
      * Delete a third party network on a Sirqul account.
-     * @param version 
      * @param accountId The account id of the user
      * @param networkUID The third party network identifier
      * @param thirdPartyId The third party user id
@@ -435,8 +427,8 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteCredentialWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, networkUID: kotlin.String, thirdPartyId: kotlin.String, appKey: kotlin.String) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteCredentialRequestConfig(version = version, accountId = accountId, networkUID = networkUID, thirdPartyId = thirdPartyId, appKey = appKey)
+    fun deleteCredentialWithHttpInfo(accountId: kotlin.Long, networkUID: kotlin.String, thirdPartyId: kotlin.String, appKey: kotlin.String) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteCredentialRequestConfig(accountId = accountId, networkUID = networkUID, thirdPartyId = thirdPartyId, appKey = appKey)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -446,14 +438,13 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     /**
      * To obtain the request config of the operation deleteCredential
      *
-     * @param version 
      * @param accountId The account id of the user
      * @param networkUID The third party network identifier
      * @param thirdPartyId The third party user id
      * @param appKey the application key
      * @return RequestConfig
      */
-    fun deleteCredentialRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, networkUID: kotlin.String, thirdPartyId: kotlin.String, appKey: kotlin.String) : RequestConfig<Unit> {
+    fun deleteCredentialRequestConfig(accountId: kotlin.Long, networkUID: kotlin.String, thirdPartyId: kotlin.String, appKey: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -466,7 +457,7 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/thirdparty/credential/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/thirdparty/credential/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -475,10 +466,9 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * POST /api/{version}/thirdparty/network/delete
+     * POST /thirdparty/network/delete
      * Delete Network
      * Marks a custom third party network as deleted. Only the network owners and managers have access to this.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param networkUID The unique identifier for the third party network defined by Sirqul
      * @return SirqulResponse
@@ -490,8 +480,8 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteNetwork(version: java.math.BigDecimal, accountId: kotlin.Long, networkUID: kotlin.String) : SirqulResponse {
-        val localVarResponse = deleteNetworkWithHttpInfo(version = version, accountId = accountId, networkUID = networkUID)
+    fun deleteNetwork(accountId: kotlin.Long, networkUID: kotlin.String) : SirqulResponse {
+        val localVarResponse = deleteNetworkWithHttpInfo(accountId = accountId, networkUID = networkUID)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -509,10 +499,9 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * POST /api/{version}/thirdparty/network/delete
+     * POST /thirdparty/network/delete
      * Delete Network
      * Marks a custom third party network as deleted. Only the network owners and managers have access to this.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param networkUID The unique identifier for the third party network defined by Sirqul
      * @return ApiResponse<SirqulResponse?>
@@ -521,8 +510,8 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteNetworkWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, networkUID: kotlin.String) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteNetworkRequestConfig(version = version, accountId = accountId, networkUID = networkUID)
+    fun deleteNetworkWithHttpInfo(accountId: kotlin.Long, networkUID: kotlin.String) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteNetworkRequestConfig(accountId = accountId, networkUID = networkUID)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -532,12 +521,11 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     /**
      * To obtain the request config of the operation deleteNetwork
      *
-     * @param version 
      * @param accountId the id of the logged in user
      * @param networkUID The unique identifier for the third party network defined by Sirqul
      * @return RequestConfig
      */
-    fun deleteNetworkRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, networkUID: kotlin.String) : RequestConfig<Unit> {
+    fun deleteNetworkRequestConfig(accountId: kotlin.Long, networkUID: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -548,7 +536,7 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/thirdparty/network/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/thirdparty/network/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -557,10 +545,9 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * POST /api/{version}/thirdparty/credential/get
+     * POST /thirdparty/credential/get
      * Get Credential
      * Gets the account information given a third party token.
-     * @param version 
      * @param networkUID the access provider to authenticate against
      * @param appKey the application key
      * @param accountId the unique account id of a specific account that will be bound to the third-party credentials (optional)
@@ -585,8 +572,8 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCredential(version: java.math.BigDecimal, networkUID: kotlin.String, appKey: kotlin.String, accountId: kotlin.Long? = null, deviceId: kotlin.String? = null, sessionId: kotlin.String? = null, thirdPartyCredentialId: kotlin.Long? = null, thirdPartyToken: kotlin.String? = null, thirdPartySecret: kotlin.String? = null, createNewAccount: kotlin.Boolean? = false, responseFilters: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, audienceIdsToAdd: kotlin.String? = null, audienceIdsToRemove: kotlin.String? = null, referralAccountId: kotlin.Long? = null) : ProfileResponse {
-        val localVarResponse = getCredentialWithHttpInfo(version = version, networkUID = networkUID, appKey = appKey, accountId = accountId, deviceId = deviceId, sessionId = sessionId, thirdPartyCredentialId = thirdPartyCredentialId, thirdPartyToken = thirdPartyToken, thirdPartySecret = thirdPartySecret, createNewAccount = createNewAccount, responseFilters = responseFilters, latitude = latitude, longitude = longitude, audienceIdsToAdd = audienceIdsToAdd, audienceIdsToRemove = audienceIdsToRemove, referralAccountId = referralAccountId)
+    fun getCredential(networkUID: kotlin.String, appKey: kotlin.String, accountId: kotlin.Long? = null, deviceId: kotlin.String? = null, sessionId: kotlin.String? = null, thirdPartyCredentialId: kotlin.Long? = null, thirdPartyToken: kotlin.String? = null, thirdPartySecret: kotlin.String? = null, createNewAccount: kotlin.Boolean? = false, responseFilters: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, audienceIdsToAdd: kotlin.String? = null, audienceIdsToRemove: kotlin.String? = null, referralAccountId: kotlin.Long? = null) : ProfileResponse {
+        val localVarResponse = getCredentialWithHttpInfo(networkUID = networkUID, appKey = appKey, accountId = accountId, deviceId = deviceId, sessionId = sessionId, thirdPartyCredentialId = thirdPartyCredentialId, thirdPartyToken = thirdPartyToken, thirdPartySecret = thirdPartySecret, createNewAccount = createNewAccount, responseFilters = responseFilters, latitude = latitude, longitude = longitude, audienceIdsToAdd = audienceIdsToAdd, audienceIdsToRemove = audienceIdsToRemove, referralAccountId = referralAccountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ProfileResponse
@@ -604,10 +591,9 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * POST /api/{version}/thirdparty/credential/get
+     * POST /thirdparty/credential/get
      * Get Credential
      * Gets the account information given a third party token.
-     * @param version 
      * @param networkUID the access provider to authenticate against
      * @param appKey the application key
      * @param accountId the unique account id of a specific account that will be bound to the third-party credentials (optional)
@@ -629,8 +615,8 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCredentialWithHttpInfo(version: java.math.BigDecimal, networkUID: kotlin.String, appKey: kotlin.String, accountId: kotlin.Long?, deviceId: kotlin.String?, sessionId: kotlin.String?, thirdPartyCredentialId: kotlin.Long?, thirdPartyToken: kotlin.String?, thirdPartySecret: kotlin.String?, createNewAccount: kotlin.Boolean?, responseFilters: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, audienceIdsToAdd: kotlin.String?, audienceIdsToRemove: kotlin.String?, referralAccountId: kotlin.Long?) : ApiResponse<ProfileResponse?> {
-        val localVariableConfig = getCredentialRequestConfig(version = version, networkUID = networkUID, appKey = appKey, accountId = accountId, deviceId = deviceId, sessionId = sessionId, thirdPartyCredentialId = thirdPartyCredentialId, thirdPartyToken = thirdPartyToken, thirdPartySecret = thirdPartySecret, createNewAccount = createNewAccount, responseFilters = responseFilters, latitude = latitude, longitude = longitude, audienceIdsToAdd = audienceIdsToAdd, audienceIdsToRemove = audienceIdsToRemove, referralAccountId = referralAccountId)
+    fun getCredentialWithHttpInfo(networkUID: kotlin.String, appKey: kotlin.String, accountId: kotlin.Long?, deviceId: kotlin.String?, sessionId: kotlin.String?, thirdPartyCredentialId: kotlin.Long?, thirdPartyToken: kotlin.String?, thirdPartySecret: kotlin.String?, createNewAccount: kotlin.Boolean?, responseFilters: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, audienceIdsToAdd: kotlin.String?, audienceIdsToRemove: kotlin.String?, referralAccountId: kotlin.Long?) : ApiResponse<ProfileResponse?> {
+        val localVariableConfig = getCredentialRequestConfig(networkUID = networkUID, appKey = appKey, accountId = accountId, deviceId = deviceId, sessionId = sessionId, thirdPartyCredentialId = thirdPartyCredentialId, thirdPartyToken = thirdPartyToken, thirdPartySecret = thirdPartySecret, createNewAccount = createNewAccount, responseFilters = responseFilters, latitude = latitude, longitude = longitude, audienceIdsToAdd = audienceIdsToAdd, audienceIdsToRemove = audienceIdsToRemove, referralAccountId = referralAccountId)
 
         return request<Unit, ProfileResponse>(
             localVariableConfig
@@ -640,7 +626,6 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     /**
      * To obtain the request config of the operation getCredential
      *
-     * @param version 
      * @param networkUID the access provider to authenticate against
      * @param appKey the application key
      * @param accountId the unique account id of a specific account that will be bound to the third-party credentials (optional)
@@ -658,7 +643,7 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      * @param referralAccountId account id of the referrer (inviter-invitee relationship) (optional)
      * @return RequestConfig
      */
-    fun getCredentialRequestConfig(version: java.math.BigDecimal, networkUID: kotlin.String, appKey: kotlin.String, accountId: kotlin.Long?, deviceId: kotlin.String?, sessionId: kotlin.String?, thirdPartyCredentialId: kotlin.Long?, thirdPartyToken: kotlin.String?, thirdPartySecret: kotlin.String?, createNewAccount: kotlin.Boolean?, responseFilters: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, audienceIdsToAdd: kotlin.String?, audienceIdsToRemove: kotlin.String?, referralAccountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun getCredentialRequestConfig(networkUID: kotlin.String, appKey: kotlin.String, accountId: kotlin.Long?, deviceId: kotlin.String?, sessionId: kotlin.String?, thirdPartyCredentialId: kotlin.Long?, thirdPartyToken: kotlin.String?, thirdPartySecret: kotlin.String?, createNewAccount: kotlin.Boolean?, responseFilters: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, audienceIdsToAdd: kotlin.String?, audienceIdsToRemove: kotlin.String?, referralAccountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -708,7 +693,7 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/thirdparty/credential/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/thirdparty/credential/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -717,10 +702,9 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * GET /api/{version}/thirdparty/network/get
+     * GET /thirdparty/network/get
      * Get Network
      * Get the details of a third party network. Only the network owners and managers have access to this.
-     * @param version 
      * @param accountId The account id making the request
      * @param networkUID The unique identifier for the third party network defined by Sirqul
      * @return ThirdPartyNetworkResponse
@@ -732,8 +716,8 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getNetwork(version: java.math.BigDecimal, accountId: kotlin.Long, networkUID: kotlin.String) : ThirdPartyNetworkResponse {
-        val localVarResponse = getNetworkWithHttpInfo(version = version, accountId = accountId, networkUID = networkUID)
+    fun getNetwork(accountId: kotlin.Long, networkUID: kotlin.String) : ThirdPartyNetworkResponse {
+        val localVarResponse = getNetworkWithHttpInfo(accountId = accountId, networkUID = networkUID)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ThirdPartyNetworkResponse
@@ -751,10 +735,9 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * GET /api/{version}/thirdparty/network/get
+     * GET /thirdparty/network/get
      * Get Network
      * Get the details of a third party network. Only the network owners and managers have access to this.
-     * @param version 
      * @param accountId The account id making the request
      * @param networkUID The unique identifier for the third party network defined by Sirqul
      * @return ApiResponse<ThirdPartyNetworkResponse?>
@@ -763,8 +746,8 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getNetworkWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, networkUID: kotlin.String) : ApiResponse<ThirdPartyNetworkResponse?> {
-        val localVariableConfig = getNetworkRequestConfig(version = version, accountId = accountId, networkUID = networkUID)
+    fun getNetworkWithHttpInfo(accountId: kotlin.Long, networkUID: kotlin.String) : ApiResponse<ThirdPartyNetworkResponse?> {
+        val localVariableConfig = getNetworkRequestConfig(accountId = accountId, networkUID = networkUID)
 
         return request<Unit, ThirdPartyNetworkResponse>(
             localVariableConfig
@@ -774,12 +757,11 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     /**
      * To obtain the request config of the operation getNetwork
      *
-     * @param version 
      * @param accountId The account id making the request
      * @param networkUID The unique identifier for the third party network defined by Sirqul
      * @return RequestConfig
      */
-    fun getNetworkRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, networkUID: kotlin.String) : RequestConfig<Unit> {
+    fun getNetworkRequestConfig(accountId: kotlin.Long, networkUID: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -790,7 +772,7 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/thirdparty/network/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/thirdparty/network/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -799,10 +781,9 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * GET /api/{version}/thirdparty/credential/search
+     * GET /thirdparty/credential/search
      * Search Credentials
      * Search on a user&#39;s linked third party networks.
-     * @param version 
      * @param accountId The account id of the user
      * @param keyword The keyword used to search on the third party name and network string (optional)
      * @param networkUID The network UID to filter results with (optional)
@@ -818,8 +799,8 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchCredentials(version: java.math.BigDecimal, accountId: kotlin.Long, keyword: kotlin.String? = null, networkUID: kotlin.String? = null, descending: kotlin.Boolean? = null, start: kotlin.Int? = 0, limit: kotlin.Int? = 20) : kotlin.collections.List<ThirdPartyCredentialResponse> {
-        val localVarResponse = searchCredentialsWithHttpInfo(version = version, accountId = accountId, keyword = keyword, networkUID = networkUID, descending = descending, start = start, limit = limit)
+    fun searchCredentials(accountId: kotlin.Long, keyword: kotlin.String? = null, networkUID: kotlin.String? = null, descending: kotlin.Boolean? = null, start: kotlin.Int? = 0, limit: kotlin.Int? = 20) : kotlin.collections.List<ThirdPartyCredentialResponse> {
+        val localVarResponse = searchCredentialsWithHttpInfo(accountId = accountId, keyword = keyword, networkUID = networkUID, descending = descending, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<ThirdPartyCredentialResponse>
@@ -837,10 +818,9 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * GET /api/{version}/thirdparty/credential/search
+     * GET /thirdparty/credential/search
      * Search Credentials
      * Search on a user&#39;s linked third party networks.
-     * @param version 
      * @param accountId The account id of the user
      * @param keyword The keyword used to search on the third party name and network string (optional)
      * @param networkUID The network UID to filter results with (optional)
@@ -853,8 +833,8 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchCredentialsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, keyword: kotlin.String?, networkUID: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<ThirdPartyCredentialResponse>?> {
-        val localVariableConfig = searchCredentialsRequestConfig(version = version, accountId = accountId, keyword = keyword, networkUID = networkUID, descending = descending, start = start, limit = limit)
+    fun searchCredentialsWithHttpInfo(accountId: kotlin.Long, keyword: kotlin.String?, networkUID: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<ThirdPartyCredentialResponse>?> {
+        val localVariableConfig = searchCredentialsRequestConfig(accountId = accountId, keyword = keyword, networkUID = networkUID, descending = descending, start = start, limit = limit)
 
         return request<Unit, kotlin.collections.List<ThirdPartyCredentialResponse>>(
             localVariableConfig
@@ -864,7 +844,6 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     /**
      * To obtain the request config of the operation searchCredentials
      *
-     * @param version 
      * @param accountId The account id of the user
      * @param keyword The keyword used to search on the third party name and network string (optional)
      * @param networkUID The network UID to filter results with (optional)
@@ -873,7 +852,7 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      * @param limit The limit of the pagination (optional, default to 20)
      * @return RequestConfig
      */
-    fun searchCredentialsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, keyword: kotlin.String?, networkUID: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchCredentialsRequestConfig(accountId: kotlin.Long, keyword: kotlin.String?, networkUID: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -898,7 +877,7 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/thirdparty/credential/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/thirdparty/credential/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -933,10 +912,9 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      }
 
     /**
-     * GET /api/{version}/thirdparty/network/search
+     * GET /thirdparty/network/search
      * Search Networks
      * Search on supported third party networks and custom networks from external users.
-     * @param version 
      * @param accountId The account id making the request
      * @param sortField The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME
      * @param descending The order to return the search results
@@ -954,8 +932,8 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchNetworks(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: SortFieldSearchNetworks, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, keyword: kotlin.String? = null, filterBillable: kotlin.Boolean? = null) : kotlin.collections.List<ThirdPartyNetworkShortResponse> {
-        val localVarResponse = searchNetworksWithHttpInfo(version = version, accountId = accountId, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, keyword = keyword, filterBillable = filterBillable)
+    fun searchNetworks(accountId: kotlin.Long, sortField: SortFieldSearchNetworks, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, keyword: kotlin.String? = null, filterBillable: kotlin.Boolean? = null) : kotlin.collections.List<ThirdPartyNetworkShortResponse> {
+        val localVarResponse = searchNetworksWithHttpInfo(accountId = accountId, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, keyword = keyword, filterBillable = filterBillable)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<ThirdPartyNetworkShortResponse>
@@ -973,10 +951,9 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * GET /api/{version}/thirdparty/network/search
+     * GET /thirdparty/network/search
      * Search Networks
      * Search on supported third party networks and custom networks from external users.
-     * @param version 
      * @param accountId The account id making the request
      * @param sortField The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME
      * @param descending The order to return the search results
@@ -991,8 +968,8 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchNetworksWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: SortFieldSearchNetworks, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, keyword: kotlin.String?, filterBillable: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<ThirdPartyNetworkShortResponse>?> {
-        val localVariableConfig = searchNetworksRequestConfig(version = version, accountId = accountId, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, keyword = keyword, filterBillable = filterBillable)
+    fun searchNetworksWithHttpInfo(accountId: kotlin.Long, sortField: SortFieldSearchNetworks, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, keyword: kotlin.String?, filterBillable: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<ThirdPartyNetworkShortResponse>?> {
+        val localVariableConfig = searchNetworksRequestConfig(accountId = accountId, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, keyword = keyword, filterBillable = filterBillable)
 
         return request<Unit, kotlin.collections.List<ThirdPartyNetworkShortResponse>>(
             localVariableConfig
@@ -1002,7 +979,6 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     /**
      * To obtain the request config of the operation searchNetworks
      *
-     * @param version 
      * @param accountId The account id making the request
      * @param sortField The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME
      * @param descending The order to return the search results
@@ -1013,7 +989,7 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      * @param filterBillable Determines whether to only return applications that the user has access to (optional)
      * @return RequestConfig
      */
-    fun searchNetworksRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: SortFieldSearchNetworks, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, keyword: kotlin.String?, filterBillable: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchNetworksRequestConfig(accountId: kotlin.Long, sortField: SortFieldSearchNetworks, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, keyword: kotlin.String?, filterBillable: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1034,7 +1010,7 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/thirdparty/network/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/thirdparty/network/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1043,10 +1019,9 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * POST /api/{version}/thirdparty/credential/mfa/send
+     * POST /thirdparty/credential/mfa/send
      * Send MFA Challenge
      * Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
-     * @param version 
      * @param networkUID the third party network provider that has MFA enabled
      * @param appKey the application key
      * @param thirdPartyToken the access token to authenticate with (optional)
@@ -1061,8 +1036,8 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun sendMFAChallenge(version: java.math.BigDecimal, networkUID: kotlin.String, appKey: kotlin.String, thirdPartyToken: kotlin.String? = null, thirdPartyCredentialId: kotlin.Long? = null, deviceId: kotlin.String? = null) : SirqulResponse {
-        val localVarResponse = sendMFAChallengeWithHttpInfo(version = version, networkUID = networkUID, appKey = appKey, thirdPartyToken = thirdPartyToken, thirdPartyCredentialId = thirdPartyCredentialId, deviceId = deviceId)
+    fun sendMFAChallenge(networkUID: kotlin.String, appKey: kotlin.String, thirdPartyToken: kotlin.String? = null, thirdPartyCredentialId: kotlin.Long? = null, deviceId: kotlin.String? = null) : SirqulResponse {
+        val localVarResponse = sendMFAChallengeWithHttpInfo(networkUID = networkUID, appKey = appKey, thirdPartyToken = thirdPartyToken, thirdPartyCredentialId = thirdPartyCredentialId, deviceId = deviceId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -1080,10 +1055,9 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * POST /api/{version}/thirdparty/credential/mfa/send
+     * POST /thirdparty/credential/mfa/send
      * Send MFA Challenge
      * Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
-     * @param version 
      * @param networkUID the third party network provider that has MFA enabled
      * @param appKey the application key
      * @param thirdPartyToken the access token to authenticate with (optional)
@@ -1095,8 +1069,8 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun sendMFAChallengeWithHttpInfo(version: java.math.BigDecimal, networkUID: kotlin.String, appKey: kotlin.String, thirdPartyToken: kotlin.String?, thirdPartyCredentialId: kotlin.Long?, deviceId: kotlin.String?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = sendMFAChallengeRequestConfig(version = version, networkUID = networkUID, appKey = appKey, thirdPartyToken = thirdPartyToken, thirdPartyCredentialId = thirdPartyCredentialId, deviceId = deviceId)
+    fun sendMFAChallengeWithHttpInfo(networkUID: kotlin.String, appKey: kotlin.String, thirdPartyToken: kotlin.String?, thirdPartyCredentialId: kotlin.Long?, deviceId: kotlin.String?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = sendMFAChallengeRequestConfig(networkUID = networkUID, appKey = appKey, thirdPartyToken = thirdPartyToken, thirdPartyCredentialId = thirdPartyCredentialId, deviceId = deviceId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -1106,7 +1080,6 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     /**
      * To obtain the request config of the operation sendMFAChallenge
      *
-     * @param version 
      * @param networkUID the third party network provider that has MFA enabled
      * @param appKey the application key
      * @param thirdPartyToken the access token to authenticate with (optional)
@@ -1114,7 +1087,7 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      * @param deviceId the unique id of the device making the request (optional)
      * @return RequestConfig
      */
-    fun sendMFAChallengeRequestConfig(version: java.math.BigDecimal, networkUID: kotlin.String, appKey: kotlin.String, thirdPartyToken: kotlin.String?, thirdPartyCredentialId: kotlin.Long?, deviceId: kotlin.String?) : RequestConfig<Unit> {
+    fun sendMFAChallengeRequestConfig(networkUID: kotlin.String, appKey: kotlin.String, thirdPartyToken: kotlin.String?, thirdPartyCredentialId: kotlin.Long?, deviceId: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1134,7 +1107,7 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/thirdparty/credential/mfa/send".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/thirdparty/credential/mfa/send",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1143,10 +1116,9 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * POST /api/{version}/thirdparty/credential/update
+     * POST /thirdparty/credential/update
      * Update Credential
      * Updates a third-party login for an account.
-     * @param version 
      * @param networkUID the access provider to authenticate against
      * @param thirdPartyId the third party user account id
      * @param appKey the application key
@@ -1165,8 +1137,8 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateCredential(version: java.math.BigDecimal, networkUID: kotlin.String, thirdPartyId: kotlin.String, appKey: kotlin.String, deviceId: kotlin.String? = null, thirdPartyName: kotlin.String? = null, thirdPartyToken: kotlin.String? = null, responseFilters: kotlin.String? = null, metaData: kotlin.String? = null, thirdPartyRefreshToken: kotlin.String? = null) : ProfileResponse {
-        val localVarResponse = updateCredentialWithHttpInfo(version = version, networkUID = networkUID, thirdPartyId = thirdPartyId, appKey = appKey, deviceId = deviceId, thirdPartyName = thirdPartyName, thirdPartyToken = thirdPartyToken, responseFilters = responseFilters, metaData = metaData, thirdPartyRefreshToken = thirdPartyRefreshToken)
+    fun updateCredential(networkUID: kotlin.String, thirdPartyId: kotlin.String, appKey: kotlin.String, deviceId: kotlin.String? = null, thirdPartyName: kotlin.String? = null, thirdPartyToken: kotlin.String? = null, responseFilters: kotlin.String? = null, metaData: kotlin.String? = null, thirdPartyRefreshToken: kotlin.String? = null) : ProfileResponse {
+        val localVarResponse = updateCredentialWithHttpInfo(networkUID = networkUID, thirdPartyId = thirdPartyId, appKey = appKey, deviceId = deviceId, thirdPartyName = thirdPartyName, thirdPartyToken = thirdPartyToken, responseFilters = responseFilters, metaData = metaData, thirdPartyRefreshToken = thirdPartyRefreshToken)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ProfileResponse
@@ -1184,10 +1156,9 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * POST /api/{version}/thirdparty/credential/update
+     * POST /thirdparty/credential/update
      * Update Credential
      * Updates a third-party login for an account.
-     * @param version 
      * @param networkUID the access provider to authenticate against
      * @param thirdPartyId the third party user account id
      * @param appKey the application key
@@ -1203,8 +1174,8 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateCredentialWithHttpInfo(version: java.math.BigDecimal, networkUID: kotlin.String, thirdPartyId: kotlin.String, appKey: kotlin.String, deviceId: kotlin.String?, thirdPartyName: kotlin.String?, thirdPartyToken: kotlin.String?, responseFilters: kotlin.String?, metaData: kotlin.String?, thirdPartyRefreshToken: kotlin.String?) : ApiResponse<ProfileResponse?> {
-        val localVariableConfig = updateCredentialRequestConfig(version = version, networkUID = networkUID, thirdPartyId = thirdPartyId, appKey = appKey, deviceId = deviceId, thirdPartyName = thirdPartyName, thirdPartyToken = thirdPartyToken, responseFilters = responseFilters, metaData = metaData, thirdPartyRefreshToken = thirdPartyRefreshToken)
+    fun updateCredentialWithHttpInfo(networkUID: kotlin.String, thirdPartyId: kotlin.String, appKey: kotlin.String, deviceId: kotlin.String?, thirdPartyName: kotlin.String?, thirdPartyToken: kotlin.String?, responseFilters: kotlin.String?, metaData: kotlin.String?, thirdPartyRefreshToken: kotlin.String?) : ApiResponse<ProfileResponse?> {
+        val localVariableConfig = updateCredentialRequestConfig(networkUID = networkUID, thirdPartyId = thirdPartyId, appKey = appKey, deviceId = deviceId, thirdPartyName = thirdPartyName, thirdPartyToken = thirdPartyToken, responseFilters = responseFilters, metaData = metaData, thirdPartyRefreshToken = thirdPartyRefreshToken)
 
         return request<Unit, ProfileResponse>(
             localVariableConfig
@@ -1214,7 +1185,6 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     /**
      * To obtain the request config of the operation updateCredential
      *
-     * @param version 
      * @param networkUID the access provider to authenticate against
      * @param thirdPartyId the third party user account id
      * @param appKey the application key
@@ -1226,7 +1196,7 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      * @param thirdPartyRefreshToken optional refresh token for the third party (optional)
      * @return RequestConfig
      */
-    fun updateCredentialRequestConfig(version: java.math.BigDecimal, networkUID: kotlin.String, thirdPartyId: kotlin.String, appKey: kotlin.String, deviceId: kotlin.String?, thirdPartyName: kotlin.String?, thirdPartyToken: kotlin.String?, responseFilters: kotlin.String?, metaData: kotlin.String?, thirdPartyRefreshToken: kotlin.String?) : RequestConfig<Unit> {
+    fun updateCredentialRequestConfig(networkUID: kotlin.String, thirdPartyId: kotlin.String, appKey: kotlin.String, deviceId: kotlin.String?, thirdPartyName: kotlin.String?, thirdPartyToken: kotlin.String?, responseFilters: kotlin.String?, metaData: kotlin.String?, thirdPartyRefreshToken: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1256,7 +1226,7 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/thirdparty/credential/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/thirdparty/credential/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1265,10 +1235,9 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * POST /api/{version}/thirdparty/network/update
+     * POST /thirdparty/network/update
      * Update Network
      * Updates a custom third party network. Only the network owners and managers have access to this.
-     * @param version 
      * @param accountId The account id making the request
      * @param networkUID The unique identifier for the third party network defined by Sirqul
      * @param name The name of the network (optional)
@@ -1296,8 +1265,8 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateNetwork(version: java.math.BigDecimal, accountId: kotlin.Long, networkUID: kotlin.String, name: kotlin.String? = null, description: kotlin.String? = null, enableIntrospection: kotlin.Boolean? = null, introspectionMethod: kotlin.String? = null, introspectionURL: kotlin.String? = null, introspectionParams: kotlin.String? = null, requiredRootField: kotlin.String? = null, enableMFA: kotlin.Boolean? = null, sizeMFA: kotlin.Int? = null, shelfLifeMFA: kotlin.Int? = null, oauthTokenURL: kotlin.String? = null, oauthPrivateKey: java.io.File? = null, oauthPublicKey: java.io.File? = null, oauthClientId: kotlin.String? = null, oauthSecretKey: kotlin.String? = null, body: kotlin.String? = null) : ThirdPartyNetworkResponse {
-        val localVarResponse = updateNetworkWithHttpInfo(version = version, accountId = accountId, networkUID = networkUID, name = name, description = description, enableIntrospection = enableIntrospection, introspectionMethod = introspectionMethod, introspectionURL = introspectionURL, introspectionParams = introspectionParams, requiredRootField = requiredRootField, enableMFA = enableMFA, sizeMFA = sizeMFA, shelfLifeMFA = shelfLifeMFA, oauthTokenURL = oauthTokenURL, oauthPrivateKey = oauthPrivateKey, oauthPublicKey = oauthPublicKey, oauthClientId = oauthClientId, oauthSecretKey = oauthSecretKey, body = body)
+    fun updateNetwork(accountId: kotlin.Long, networkUID: kotlin.String, name: kotlin.String? = null, description: kotlin.String? = null, enableIntrospection: kotlin.Boolean? = null, introspectionMethod: kotlin.String? = null, introspectionURL: kotlin.String? = null, introspectionParams: kotlin.String? = null, requiredRootField: kotlin.String? = null, enableMFA: kotlin.Boolean? = null, sizeMFA: kotlin.Int? = null, shelfLifeMFA: kotlin.Int? = null, oauthTokenURL: kotlin.String? = null, oauthPrivateKey: java.io.File? = null, oauthPublicKey: java.io.File? = null, oauthClientId: kotlin.String? = null, oauthSecretKey: kotlin.String? = null, body: kotlin.String? = null) : ThirdPartyNetworkResponse {
+        val localVarResponse = updateNetworkWithHttpInfo(accountId = accountId, networkUID = networkUID, name = name, description = description, enableIntrospection = enableIntrospection, introspectionMethod = introspectionMethod, introspectionURL = introspectionURL, introspectionParams = introspectionParams, requiredRootField = requiredRootField, enableMFA = enableMFA, sizeMFA = sizeMFA, shelfLifeMFA = shelfLifeMFA, oauthTokenURL = oauthTokenURL, oauthPrivateKey = oauthPrivateKey, oauthPublicKey = oauthPublicKey, oauthClientId = oauthClientId, oauthSecretKey = oauthSecretKey, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ThirdPartyNetworkResponse
@@ -1315,10 +1284,9 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * POST /api/{version}/thirdparty/network/update
+     * POST /thirdparty/network/update
      * Update Network
      * Updates a custom third party network. Only the network owners and managers have access to this.
-     * @param version 
      * @param accountId The account id making the request
      * @param networkUID The unique identifier for the third party network defined by Sirqul
      * @param name The name of the network (optional)
@@ -1343,8 +1311,8 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateNetworkWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, networkUID: kotlin.String, name: kotlin.String?, description: kotlin.String?, enableIntrospection: kotlin.Boolean?, introspectionMethod: kotlin.String?, introspectionURL: kotlin.String?, introspectionParams: kotlin.String?, requiredRootField: kotlin.String?, enableMFA: kotlin.Boolean?, sizeMFA: kotlin.Int?, shelfLifeMFA: kotlin.Int?, oauthTokenURL: kotlin.String?, oauthPrivateKey: java.io.File?, oauthPublicKey: java.io.File?, oauthClientId: kotlin.String?, oauthSecretKey: kotlin.String?, body: kotlin.String?) : ApiResponse<ThirdPartyNetworkResponse?> {
-        val localVariableConfig = updateNetworkRequestConfig(version = version, accountId = accountId, networkUID = networkUID, name = name, description = description, enableIntrospection = enableIntrospection, introspectionMethod = introspectionMethod, introspectionURL = introspectionURL, introspectionParams = introspectionParams, requiredRootField = requiredRootField, enableMFA = enableMFA, sizeMFA = sizeMFA, shelfLifeMFA = shelfLifeMFA, oauthTokenURL = oauthTokenURL, oauthPrivateKey = oauthPrivateKey, oauthPublicKey = oauthPublicKey, oauthClientId = oauthClientId, oauthSecretKey = oauthSecretKey, body = body)
+    fun updateNetworkWithHttpInfo(accountId: kotlin.Long, networkUID: kotlin.String, name: kotlin.String?, description: kotlin.String?, enableIntrospection: kotlin.Boolean?, introspectionMethod: kotlin.String?, introspectionURL: kotlin.String?, introspectionParams: kotlin.String?, requiredRootField: kotlin.String?, enableMFA: kotlin.Boolean?, sizeMFA: kotlin.Int?, shelfLifeMFA: kotlin.Int?, oauthTokenURL: kotlin.String?, oauthPrivateKey: java.io.File?, oauthPublicKey: java.io.File?, oauthClientId: kotlin.String?, oauthSecretKey: kotlin.String?, body: kotlin.String?) : ApiResponse<ThirdPartyNetworkResponse?> {
+        val localVariableConfig = updateNetworkRequestConfig(accountId = accountId, networkUID = networkUID, name = name, description = description, enableIntrospection = enableIntrospection, introspectionMethod = introspectionMethod, introspectionURL = introspectionURL, introspectionParams = introspectionParams, requiredRootField = requiredRootField, enableMFA = enableMFA, sizeMFA = sizeMFA, shelfLifeMFA = shelfLifeMFA, oauthTokenURL = oauthTokenURL, oauthPrivateKey = oauthPrivateKey, oauthPublicKey = oauthPublicKey, oauthClientId = oauthClientId, oauthSecretKey = oauthSecretKey, body = body)
 
         return request<kotlin.String, ThirdPartyNetworkResponse>(
             localVariableConfig
@@ -1354,7 +1322,6 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
     /**
      * To obtain the request config of the operation updateNetwork
      *
-     * @param version 
      * @param accountId The account id making the request
      * @param networkUID The unique identifier for the third party network defined by Sirqul
      * @param name The name of the network (optional)
@@ -1375,7 +1342,7 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun updateNetworkRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, networkUID: kotlin.String, name: kotlin.String?, description: kotlin.String?, enableIntrospection: kotlin.Boolean?, introspectionMethod: kotlin.String?, introspectionURL: kotlin.String?, introspectionParams: kotlin.String?, requiredRootField: kotlin.String?, enableMFA: kotlin.Boolean?, sizeMFA: kotlin.Int?, shelfLifeMFA: kotlin.Int?, oauthTokenURL: kotlin.String?, oauthPrivateKey: java.io.File?, oauthPublicKey: java.io.File?, oauthClientId: kotlin.String?, oauthSecretKey: kotlin.String?, body: kotlin.String?) : RequestConfig<kotlin.String> {
+    fun updateNetworkRequestConfig(accountId: kotlin.Long, networkUID: kotlin.String, name: kotlin.String?, description: kotlin.String?, enableIntrospection: kotlin.Boolean?, introspectionMethod: kotlin.String?, introspectionURL: kotlin.String?, introspectionParams: kotlin.String?, requiredRootField: kotlin.String?, enableMFA: kotlin.Boolean?, sizeMFA: kotlin.Int?, shelfLifeMFA: kotlin.Int?, oauthTokenURL: kotlin.String?, oauthPrivateKey: java.io.File?, oauthPublicKey: java.io.File?, oauthClientId: kotlin.String?, oauthSecretKey: kotlin.String?, body: kotlin.String?) : RequestConfig<kotlin.String> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1431,7 +1398,7 @@ open class ThirdPartyCredentialsApi(basePath: kotlin.String = defaultBasePath, c
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/thirdparty/network/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/thirdparty/network/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

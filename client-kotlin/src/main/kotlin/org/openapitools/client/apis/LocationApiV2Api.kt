@@ -42,15 +42,14 @@ open class LocationApiV2Api(basePath: kotlin.String = defaultBasePath, client: C
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/location
+     * POST /location
      * Create new location
      * Create a new location from a real object location.
-     * @param version 
      * @param body  (optional)
      * @return SirqulResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -61,8 +60,8 @@ open class LocationApiV2Api(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createLocationV2(version: java.math.BigDecimal, body: Location? = null) : SirqulResponse {
-        val localVarResponse = createLocationV2WithHttpInfo(version = version, body = body)
+    fun createLocationV2(body: Location? = null) : SirqulResponse {
+        val localVarResponse = createLocationV2WithHttpInfo(body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -80,10 +79,9 @@ open class LocationApiV2Api(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * POST /api/{version}/location
+     * POST /location
      * Create new location
      * Create a new location from a real object location.
-     * @param version 
      * @param body  (optional)
      * @return ApiResponse<SirqulResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -91,8 +89,8 @@ open class LocationApiV2Api(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createLocationV2WithHttpInfo(version: java.math.BigDecimal, body: Location?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = createLocationV2RequestConfig(version = version, body = body)
+    fun createLocationV2WithHttpInfo(body: Location?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = createLocationV2RequestConfig(body = body)
 
         return request<Location, SirqulResponse>(
             localVariableConfig
@@ -102,18 +100,17 @@ open class LocationApiV2Api(basePath: kotlin.String = defaultBasePath, client: C
     /**
      * To obtain the request config of the operation createLocationV2
      *
-     * @param version 
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun createLocationV2RequestConfig(version: java.math.BigDecimal, body: Location?) : RequestConfig<Location> {
+    fun createLocationV2RequestConfig(body: Location?) : RequestConfig<Location> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/location".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/location",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -122,10 +119,9 @@ open class LocationApiV2Api(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * POST /api/{version}/location/{id}
+     * POST /location/{id}
      * Update an existing location
      * Update an existing location
-     * @param version 
      * @param id the id of the location to update
      * @param body  (optional)
      * @return SirqulResponse
@@ -137,8 +133,8 @@ open class LocationApiV2Api(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateLocationV2(version: java.math.BigDecimal, id: kotlin.Long, body: Location? = null) : SirqulResponse {
-        val localVarResponse = updateLocationV2WithHttpInfo(version = version, id = id, body = body)
+    fun updateLocationV2(id: kotlin.Long, body: Location? = null) : SirqulResponse {
+        val localVarResponse = updateLocationV2WithHttpInfo(id = id, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -156,10 +152,9 @@ open class LocationApiV2Api(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * POST /api/{version}/location/{id}
+     * POST /location/{id}
      * Update an existing location
      * Update an existing location
-     * @param version 
      * @param id the id of the location to update
      * @param body  (optional)
      * @return ApiResponse<SirqulResponse?>
@@ -168,8 +163,8 @@ open class LocationApiV2Api(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateLocationV2WithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long, body: Location?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = updateLocationV2RequestConfig(version = version, id = id, body = body)
+    fun updateLocationV2WithHttpInfo(id: kotlin.Long, body: Location?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = updateLocationV2RequestConfig(id = id, body = body)
 
         return request<Location, SirqulResponse>(
             localVariableConfig
@@ -179,19 +174,18 @@ open class LocationApiV2Api(basePath: kotlin.String = defaultBasePath, client: C
     /**
      * To obtain the request config of the operation updateLocationV2
      *
-     * @param version 
      * @param id the id of the location to update
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun updateLocationV2RequestConfig(version: java.math.BigDecimal, id: kotlin.Long, body: Location?) : RequestConfig<Location> {
+    fun updateLocationV2RequestConfig(id: kotlin.Long, body: Location?) : RequestConfig<Location> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/location/{id}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/location/{id}".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

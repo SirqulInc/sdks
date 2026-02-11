@@ -41,7 +41,7 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
@@ -64,10 +64,9 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      }
 
     /**
-     * POST /api/{version}/region/create
+     * POST /region/create
      * Create Region
      * Create a region.
-     * @param version 
      * @param accountId The id of the account sending the request
      * @param regionClass RegionClass of this region
      * @param shortName Short name of the region. This is optimized for search
@@ -98,8 +97,8 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createRegion(version: java.math.BigDecimal, accountId: kotlin.Long, regionClass: kotlin.String, shortName: kotlin.String, fullName: kotlin.String? = null, parentIds: kotlin.String? = null, childrenIds: kotlin.String? = null, postalCodeIds: kotlin.String? = null, locations: kotlin.String? = null, retailerLocationId: kotlin.Long? = null, visibility: VisibilityCreateRegion? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, start: kotlin.Long? = null, end: kotlin.Long? = null, polygon: kotlin.String? = null, metaData: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, versionCode: kotlin.Int? = null, root: kotlin.Boolean? = null, active: kotlin.Boolean? = null) : RegionResponse {
-        val localVarResponse = createRegionWithHttpInfo(version = version, accountId = accountId, regionClass = regionClass, shortName = shortName, fullName = fullName, parentIds = parentIds, childrenIds = childrenIds, postalCodeIds = postalCodeIds, locations = locations, retailerLocationId = retailerLocationId, visibility = visibility, categoryIds = categoryIds, filterIds = filterIds, start = start, end = end, polygon = polygon, metaData = metaData, latitude = latitude, longitude = longitude, versionCode = versionCode, root = root, active = active)
+    fun createRegion(accountId: kotlin.Long, regionClass: kotlin.String, shortName: kotlin.String, fullName: kotlin.String? = null, parentIds: kotlin.String? = null, childrenIds: kotlin.String? = null, postalCodeIds: kotlin.String? = null, locations: kotlin.String? = null, retailerLocationId: kotlin.Long? = null, visibility: VisibilityCreateRegion? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, start: kotlin.Long? = null, end: kotlin.Long? = null, polygon: kotlin.String? = null, metaData: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, versionCode: kotlin.Int? = null, root: kotlin.Boolean? = null, active: kotlin.Boolean? = null) : RegionResponse {
+        val localVarResponse = createRegionWithHttpInfo(accountId = accountId, regionClass = regionClass, shortName = shortName, fullName = fullName, parentIds = parentIds, childrenIds = childrenIds, postalCodeIds = postalCodeIds, locations = locations, retailerLocationId = retailerLocationId, visibility = visibility, categoryIds = categoryIds, filterIds = filterIds, start = start, end = end, polygon = polygon, metaData = metaData, latitude = latitude, longitude = longitude, versionCode = versionCode, root = root, active = active)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as RegionResponse
@@ -117,10 +116,9 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/region/create
+     * POST /region/create
      * Create Region
      * Create a region.
-     * @param version 
      * @param accountId The id of the account sending the request
      * @param regionClass RegionClass of this region
      * @param shortName Short name of the region. This is optimized for search
@@ -148,8 +146,8 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createRegionWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, regionClass: kotlin.String, shortName: kotlin.String, fullName: kotlin.String?, parentIds: kotlin.String?, childrenIds: kotlin.String?, postalCodeIds: kotlin.String?, locations: kotlin.String?, retailerLocationId: kotlin.Long?, visibility: VisibilityCreateRegion?, categoryIds: kotlin.String?, filterIds: kotlin.String?, start: kotlin.Long?, end: kotlin.Long?, polygon: kotlin.String?, metaData: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, versionCode: kotlin.Int?, root: kotlin.Boolean?, active: kotlin.Boolean?) : ApiResponse<RegionResponse?> {
-        val localVariableConfig = createRegionRequestConfig(version = version, accountId = accountId, regionClass = regionClass, shortName = shortName, fullName = fullName, parentIds = parentIds, childrenIds = childrenIds, postalCodeIds = postalCodeIds, locations = locations, retailerLocationId = retailerLocationId, visibility = visibility, categoryIds = categoryIds, filterIds = filterIds, start = start, end = end, polygon = polygon, metaData = metaData, latitude = latitude, longitude = longitude, versionCode = versionCode, root = root, active = active)
+    fun createRegionWithHttpInfo(accountId: kotlin.Long, regionClass: kotlin.String, shortName: kotlin.String, fullName: kotlin.String?, parentIds: kotlin.String?, childrenIds: kotlin.String?, postalCodeIds: kotlin.String?, locations: kotlin.String?, retailerLocationId: kotlin.Long?, visibility: VisibilityCreateRegion?, categoryIds: kotlin.String?, filterIds: kotlin.String?, start: kotlin.Long?, end: kotlin.Long?, polygon: kotlin.String?, metaData: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, versionCode: kotlin.Int?, root: kotlin.Boolean?, active: kotlin.Boolean?) : ApiResponse<RegionResponse?> {
+        val localVariableConfig = createRegionRequestConfig(accountId = accountId, regionClass = regionClass, shortName = shortName, fullName = fullName, parentIds = parentIds, childrenIds = childrenIds, postalCodeIds = postalCodeIds, locations = locations, retailerLocationId = retailerLocationId, visibility = visibility, categoryIds = categoryIds, filterIds = filterIds, start = start, end = end, polygon = polygon, metaData = metaData, latitude = latitude, longitude = longitude, versionCode = versionCode, root = root, active = active)
 
         return request<Unit, RegionResponse>(
             localVariableConfig
@@ -159,7 +157,6 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation createRegion
      *
-     * @param version 
      * @param accountId The id of the account sending the request
      * @param regionClass RegionClass of this region
      * @param shortName Short name of the region. This is optimized for search
@@ -183,7 +180,7 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param active Active or inactive status of the region (optional)
      * @return RequestConfig
      */
-    fun createRegionRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, regionClass: kotlin.String, shortName: kotlin.String, fullName: kotlin.String?, parentIds: kotlin.String?, childrenIds: kotlin.String?, postalCodeIds: kotlin.String?, locations: kotlin.String?, retailerLocationId: kotlin.Long?, visibility: VisibilityCreateRegion?, categoryIds: kotlin.String?, filterIds: kotlin.String?, start: kotlin.Long?, end: kotlin.Long?, polygon: kotlin.String?, metaData: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, versionCode: kotlin.Int?, root: kotlin.Boolean?, active: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun createRegionRequestConfig(accountId: kotlin.Long, regionClass: kotlin.String, shortName: kotlin.String, fullName: kotlin.String?, parentIds: kotlin.String?, childrenIds: kotlin.String?, postalCodeIds: kotlin.String?, locations: kotlin.String?, retailerLocationId: kotlin.Long?, visibility: VisibilityCreateRegion?, categoryIds: kotlin.String?, filterIds: kotlin.String?, start: kotlin.Long?, end: kotlin.Long?, polygon: kotlin.String?, metaData: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, versionCode: kotlin.Int?, root: kotlin.Boolean?, active: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -249,7 +246,7 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/region/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/region/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -258,10 +255,9 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/region/delete
+     * POST /region/delete
      * Delete Region
      * Delete a region.
-     * @param version 
      * @param accountId the id of the account logged in
      * @param regionId the id of the region
      * @return RegionResponse
@@ -273,8 +269,8 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteRegion(version: java.math.BigDecimal, accountId: kotlin.Long, regionId: kotlin.Long) : RegionResponse {
-        val localVarResponse = deleteRegionWithHttpInfo(version = version, accountId = accountId, regionId = regionId)
+    fun deleteRegion(accountId: kotlin.Long, regionId: kotlin.Long) : RegionResponse {
+        val localVarResponse = deleteRegionWithHttpInfo(accountId = accountId, regionId = regionId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as RegionResponse
@@ -292,10 +288,9 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/region/delete
+     * POST /region/delete
      * Delete Region
      * Delete a region.
-     * @param version 
      * @param accountId the id of the account logged in
      * @param regionId the id of the region
      * @return ApiResponse<RegionResponse?>
@@ -304,8 +299,8 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteRegionWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, regionId: kotlin.Long) : ApiResponse<RegionResponse?> {
-        val localVariableConfig = deleteRegionRequestConfig(version = version, accountId = accountId, regionId = regionId)
+    fun deleteRegionWithHttpInfo(accountId: kotlin.Long, regionId: kotlin.Long) : ApiResponse<RegionResponse?> {
+        val localVariableConfig = deleteRegionRequestConfig(accountId = accountId, regionId = regionId)
 
         return request<Unit, RegionResponse>(
             localVariableConfig
@@ -315,12 +310,11 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation deleteRegion
      *
-     * @param version 
      * @param accountId the id of the account logged in
      * @param regionId the id of the region
      * @return RequestConfig
      */
-    fun deleteRegionRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, regionId: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteRegionRequestConfig(accountId: kotlin.Long, regionId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -331,7 +325,7 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/region/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/region/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -340,10 +334,9 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * GET /api/{version}/region/get
+     * GET /region/get
      * Get Region
      * Get a region.
-     * @param version 
      * @param regionId the id of the region to get
      * @param accountId the id of the logged in user (optional)
      * @return RegionResponse
@@ -355,8 +348,8 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRegion(version: java.math.BigDecimal, regionId: kotlin.Long, accountId: kotlin.Long? = null) : RegionResponse {
-        val localVarResponse = getRegionWithHttpInfo(version = version, regionId = regionId, accountId = accountId)
+    fun getRegion(regionId: kotlin.Long, accountId: kotlin.Long? = null) : RegionResponse {
+        val localVarResponse = getRegionWithHttpInfo(regionId = regionId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as RegionResponse
@@ -374,10 +367,9 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * GET /api/{version}/region/get
+     * GET /region/get
      * Get Region
      * Get a region.
-     * @param version 
      * @param regionId the id of the region to get
      * @param accountId the id of the logged in user (optional)
      * @return ApiResponse<RegionResponse?>
@@ -386,8 +378,8 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRegionWithHttpInfo(version: java.math.BigDecimal, regionId: kotlin.Long, accountId: kotlin.Long?) : ApiResponse<RegionResponse?> {
-        val localVariableConfig = getRegionRequestConfig(version = version, regionId = regionId, accountId = accountId)
+    fun getRegionWithHttpInfo(regionId: kotlin.Long, accountId: kotlin.Long?) : ApiResponse<RegionResponse?> {
+        val localVariableConfig = getRegionRequestConfig(regionId = regionId, accountId = accountId)
 
         return request<Unit, RegionResponse>(
             localVariableConfig
@@ -397,12 +389,11 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation getRegion
      *
-     * @param version 
      * @param regionId the id of the region to get
      * @param accountId the id of the logged in user (optional)
      * @return RequestConfig
      */
-    fun getRegionRequestConfig(version: java.math.BigDecimal, regionId: kotlin.Long, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun getRegionRequestConfig(regionId: kotlin.Long, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -415,7 +406,7 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/region/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/region/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -503,10 +494,9 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      }
 
     /**
-     * GET /api/{version}/region/search
+     * GET /region/search
      * Search Regions
      * Get the list of regions.
-     * @param version 
      * @param accountId the owner account id of the region to be created (optional)
      * @param query This parameter is deprecated. deprecated - use \&quot;keyword\&quot; (optional)
      * @param keyword the keyword to filter results on (optional)
@@ -538,8 +528,8 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchRegions(version: java.math.BigDecimal, accountId: kotlin.Long? = null, query: kotlin.String? = null, keyword: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, range: kotlin.Double? = null, regionClass: RegionClassSearchRegions? = null, visibility: VisibilitySearchRegions? = null, searchMode: SearchModeSearchRegions? = null, sortField: SortFieldSearchRegions? = null, descending: kotlin.Boolean? = null, includeParent: kotlin.Boolean? = null, includeChildren: kotlin.Boolean? = null, includePostalCodes: kotlin.Boolean? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, versionCode: kotlin.Int? = null, activeOnly: kotlin.Boolean? = null, showDeleted: kotlin.Boolean? = null, lastUpdatedSince: kotlin.Long? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null) : kotlin.collections.List<RegionResponse> {
-        val localVarResponse = searchRegionsWithHttpInfo(version = version, accountId = accountId, query = query, keyword = keyword, latitude = latitude, longitude = longitude, range = range, regionClass = regionClass, visibility = visibility, searchMode = searchMode, sortField = sortField, descending = descending, includeParent = includeParent, includeChildren = includeChildren, includePostalCodes = includePostalCodes, categoryIds = categoryIds, filterIds = filterIds, versionCode = versionCode, activeOnly = activeOnly, showDeleted = showDeleted, lastUpdatedSince = lastUpdatedSince, start = start, limit = limit)
+    fun searchRegions(accountId: kotlin.Long? = null, query: kotlin.String? = null, keyword: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, range: kotlin.Double? = null, regionClass: RegionClassSearchRegions? = null, visibility: VisibilitySearchRegions? = null, searchMode: SearchModeSearchRegions? = null, sortField: SortFieldSearchRegions? = null, descending: kotlin.Boolean? = null, includeParent: kotlin.Boolean? = null, includeChildren: kotlin.Boolean? = null, includePostalCodes: kotlin.Boolean? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, versionCode: kotlin.Int? = null, activeOnly: kotlin.Boolean? = null, showDeleted: kotlin.Boolean? = null, lastUpdatedSince: kotlin.Long? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null) : kotlin.collections.List<RegionResponse> {
+        val localVarResponse = searchRegionsWithHttpInfo(accountId = accountId, query = query, keyword = keyword, latitude = latitude, longitude = longitude, range = range, regionClass = regionClass, visibility = visibility, searchMode = searchMode, sortField = sortField, descending = descending, includeParent = includeParent, includeChildren = includeChildren, includePostalCodes = includePostalCodes, categoryIds = categoryIds, filterIds = filterIds, versionCode = versionCode, activeOnly = activeOnly, showDeleted = showDeleted, lastUpdatedSince = lastUpdatedSince, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<RegionResponse>
@@ -557,10 +547,9 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * GET /api/{version}/region/search
+     * GET /region/search
      * Search Regions
      * Get the list of regions.
-     * @param version 
      * @param accountId the owner account id of the region to be created (optional)
      * @param query This parameter is deprecated. deprecated - use \&quot;keyword\&quot; (optional)
      * @param keyword the keyword to filter results on (optional)
@@ -589,8 +578,8 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchRegionsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long?, query: kotlin.String?, keyword: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, range: kotlin.Double?, regionClass: RegionClassSearchRegions?, visibility: VisibilitySearchRegions?, searchMode: SearchModeSearchRegions?, sortField: SortFieldSearchRegions?, descending: kotlin.Boolean?, includeParent: kotlin.Boolean?, includeChildren: kotlin.Boolean?, includePostalCodes: kotlin.Boolean?, categoryIds: kotlin.String?, filterIds: kotlin.String?, versionCode: kotlin.Int?, activeOnly: kotlin.Boolean?, showDeleted: kotlin.Boolean?, lastUpdatedSince: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<RegionResponse>?> {
-        val localVariableConfig = searchRegionsRequestConfig(version = version, accountId = accountId, query = query, keyword = keyword, latitude = latitude, longitude = longitude, range = range, regionClass = regionClass, visibility = visibility, searchMode = searchMode, sortField = sortField, descending = descending, includeParent = includeParent, includeChildren = includeChildren, includePostalCodes = includePostalCodes, categoryIds = categoryIds, filterIds = filterIds, versionCode = versionCode, activeOnly = activeOnly, showDeleted = showDeleted, lastUpdatedSince = lastUpdatedSince, start = start, limit = limit)
+    fun searchRegionsWithHttpInfo(accountId: kotlin.Long?, query: kotlin.String?, keyword: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, range: kotlin.Double?, regionClass: RegionClassSearchRegions?, visibility: VisibilitySearchRegions?, searchMode: SearchModeSearchRegions?, sortField: SortFieldSearchRegions?, descending: kotlin.Boolean?, includeParent: kotlin.Boolean?, includeChildren: kotlin.Boolean?, includePostalCodes: kotlin.Boolean?, categoryIds: kotlin.String?, filterIds: kotlin.String?, versionCode: kotlin.Int?, activeOnly: kotlin.Boolean?, showDeleted: kotlin.Boolean?, lastUpdatedSince: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<RegionResponse>?> {
+        val localVariableConfig = searchRegionsRequestConfig(accountId = accountId, query = query, keyword = keyword, latitude = latitude, longitude = longitude, range = range, regionClass = regionClass, visibility = visibility, searchMode = searchMode, sortField = sortField, descending = descending, includeParent = includeParent, includeChildren = includeChildren, includePostalCodes = includePostalCodes, categoryIds = categoryIds, filterIds = filterIds, versionCode = versionCode, activeOnly = activeOnly, showDeleted = showDeleted, lastUpdatedSince = lastUpdatedSince, start = start, limit = limit)
 
         return request<Unit, kotlin.collections.List<RegionResponse>>(
             localVariableConfig
@@ -600,7 +589,6 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation searchRegions
      *
-     * @param version 
      * @param accountId the owner account id of the region to be created (optional)
      * @param query This parameter is deprecated. deprecated - use \&quot;keyword\&quot; (optional)
      * @param keyword the keyword to filter results on (optional)
@@ -625,7 +613,7 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param limit the limit for pagination (optional)
      * @return RequestConfig
      */
-    fun searchRegionsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long?, query: kotlin.String?, keyword: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, range: kotlin.Double?, regionClass: RegionClassSearchRegions?, visibility: VisibilitySearchRegions?, searchMode: SearchModeSearchRegions?, sortField: SortFieldSearchRegions?, descending: kotlin.Boolean?, includeParent: kotlin.Boolean?, includeChildren: kotlin.Boolean?, includePostalCodes: kotlin.Boolean?, categoryIds: kotlin.String?, filterIds: kotlin.String?, versionCode: kotlin.Int?, activeOnly: kotlin.Boolean?, showDeleted: kotlin.Boolean?, lastUpdatedSince: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchRegionsRequestConfig(accountId: kotlin.Long?, query: kotlin.String?, keyword: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, range: kotlin.Double?, regionClass: RegionClassSearchRegions?, visibility: VisibilitySearchRegions?, searchMode: SearchModeSearchRegions?, sortField: SortFieldSearchRegions?, descending: kotlin.Boolean?, includeParent: kotlin.Boolean?, includeChildren: kotlin.Boolean?, includePostalCodes: kotlin.Boolean?, categoryIds: kotlin.String?, filterIds: kotlin.String?, versionCode: kotlin.Int?, activeOnly: kotlin.Boolean?, showDeleted: kotlin.Boolean?, lastUpdatedSince: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -700,7 +688,7 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/region/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/region/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -727,10 +715,9 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      }
 
     /**
-     * POST /api/{version}/region/update
+     * POST /region/update
      * Update Region
      * Update a region.
-     * @param version 
      * @param accountId The id of the account sending the request
      * @param regionId The id of the region to be updated
      * @param regionClass RegionClass of this region (optional)
@@ -763,8 +750,8 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateRegion(version: java.math.BigDecimal, accountId: kotlin.Long, regionId: kotlin.Long, regionClass: kotlin.String? = null, shortName: kotlin.String? = null, fullName: kotlin.String? = null, parentIds: kotlin.String? = null, childrenIds: kotlin.String? = null, postalCodeIds: kotlin.String? = null, locations: kotlin.String? = null, retailerLocationId: kotlin.Long? = null, visibility: VisibilityUpdateRegion? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, start: kotlin.Long? = null, end: kotlin.Long? = null, polygon: kotlin.String? = null, metaData: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, versionCode: kotlin.Int? = null, root: kotlin.Boolean? = null, active: kotlin.Boolean? = null, clearLists: kotlin.Boolean? = null) : RegionResponse {
-        val localVarResponse = updateRegionWithHttpInfo(version = version, accountId = accountId, regionId = regionId, regionClass = regionClass, shortName = shortName, fullName = fullName, parentIds = parentIds, childrenIds = childrenIds, postalCodeIds = postalCodeIds, locations = locations, retailerLocationId = retailerLocationId, visibility = visibility, categoryIds = categoryIds, filterIds = filterIds, start = start, end = end, polygon = polygon, metaData = metaData, latitude = latitude, longitude = longitude, versionCode = versionCode, root = root, active = active, clearLists = clearLists)
+    fun updateRegion(accountId: kotlin.Long, regionId: kotlin.Long, regionClass: kotlin.String? = null, shortName: kotlin.String? = null, fullName: kotlin.String? = null, parentIds: kotlin.String? = null, childrenIds: kotlin.String? = null, postalCodeIds: kotlin.String? = null, locations: kotlin.String? = null, retailerLocationId: kotlin.Long? = null, visibility: VisibilityUpdateRegion? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, start: kotlin.Long? = null, end: kotlin.Long? = null, polygon: kotlin.String? = null, metaData: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, versionCode: kotlin.Int? = null, root: kotlin.Boolean? = null, active: kotlin.Boolean? = null, clearLists: kotlin.Boolean? = null) : RegionResponse {
+        val localVarResponse = updateRegionWithHttpInfo(accountId = accountId, regionId = regionId, regionClass = regionClass, shortName = shortName, fullName = fullName, parentIds = parentIds, childrenIds = childrenIds, postalCodeIds = postalCodeIds, locations = locations, retailerLocationId = retailerLocationId, visibility = visibility, categoryIds = categoryIds, filterIds = filterIds, start = start, end = end, polygon = polygon, metaData = metaData, latitude = latitude, longitude = longitude, versionCode = versionCode, root = root, active = active, clearLists = clearLists)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as RegionResponse
@@ -782,10 +769,9 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/region/update
+     * POST /region/update
      * Update Region
      * Update a region.
-     * @param version 
      * @param accountId The id of the account sending the request
      * @param regionId The id of the region to be updated
      * @param regionClass RegionClass of this region (optional)
@@ -815,8 +801,8 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateRegionWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, regionId: kotlin.Long, regionClass: kotlin.String?, shortName: kotlin.String?, fullName: kotlin.String?, parentIds: kotlin.String?, childrenIds: kotlin.String?, postalCodeIds: kotlin.String?, locations: kotlin.String?, retailerLocationId: kotlin.Long?, visibility: VisibilityUpdateRegion?, categoryIds: kotlin.String?, filterIds: kotlin.String?, start: kotlin.Long?, end: kotlin.Long?, polygon: kotlin.String?, metaData: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, versionCode: kotlin.Int?, root: kotlin.Boolean?, active: kotlin.Boolean?, clearLists: kotlin.Boolean?) : ApiResponse<RegionResponse?> {
-        val localVariableConfig = updateRegionRequestConfig(version = version, accountId = accountId, regionId = regionId, regionClass = regionClass, shortName = shortName, fullName = fullName, parentIds = parentIds, childrenIds = childrenIds, postalCodeIds = postalCodeIds, locations = locations, retailerLocationId = retailerLocationId, visibility = visibility, categoryIds = categoryIds, filterIds = filterIds, start = start, end = end, polygon = polygon, metaData = metaData, latitude = latitude, longitude = longitude, versionCode = versionCode, root = root, active = active, clearLists = clearLists)
+    fun updateRegionWithHttpInfo(accountId: kotlin.Long, regionId: kotlin.Long, regionClass: kotlin.String?, shortName: kotlin.String?, fullName: kotlin.String?, parentIds: kotlin.String?, childrenIds: kotlin.String?, postalCodeIds: kotlin.String?, locations: kotlin.String?, retailerLocationId: kotlin.Long?, visibility: VisibilityUpdateRegion?, categoryIds: kotlin.String?, filterIds: kotlin.String?, start: kotlin.Long?, end: kotlin.Long?, polygon: kotlin.String?, metaData: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, versionCode: kotlin.Int?, root: kotlin.Boolean?, active: kotlin.Boolean?, clearLists: kotlin.Boolean?) : ApiResponse<RegionResponse?> {
+        val localVariableConfig = updateRegionRequestConfig(accountId = accountId, regionId = regionId, regionClass = regionClass, shortName = shortName, fullName = fullName, parentIds = parentIds, childrenIds = childrenIds, postalCodeIds = postalCodeIds, locations = locations, retailerLocationId = retailerLocationId, visibility = visibility, categoryIds = categoryIds, filterIds = filterIds, start = start, end = end, polygon = polygon, metaData = metaData, latitude = latitude, longitude = longitude, versionCode = versionCode, root = root, active = active, clearLists = clearLists)
 
         return request<Unit, RegionResponse>(
             localVariableConfig
@@ -826,7 +812,6 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation updateRegion
      *
-     * @param version 
      * @param accountId The id of the account sending the request
      * @param regionId The id of the region to be updated
      * @param regionClass RegionClass of this region (optional)
@@ -852,7 +837,7 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param clearLists If true clear the children and postal code lists before add new ones, otherwise just append. (optional)
      * @return RequestConfig
      */
-    fun updateRegionRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, regionId: kotlin.Long, regionClass: kotlin.String?, shortName: kotlin.String?, fullName: kotlin.String?, parentIds: kotlin.String?, childrenIds: kotlin.String?, postalCodeIds: kotlin.String?, locations: kotlin.String?, retailerLocationId: kotlin.Long?, visibility: VisibilityUpdateRegion?, categoryIds: kotlin.String?, filterIds: kotlin.String?, start: kotlin.Long?, end: kotlin.Long?, polygon: kotlin.String?, metaData: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, versionCode: kotlin.Int?, root: kotlin.Boolean?, active: kotlin.Boolean?, clearLists: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun updateRegionRequestConfig(accountId: kotlin.Long, regionId: kotlin.Long, regionClass: kotlin.String?, shortName: kotlin.String?, fullName: kotlin.String?, parentIds: kotlin.String?, childrenIds: kotlin.String?, postalCodeIds: kotlin.String?, locations: kotlin.String?, retailerLocationId: kotlin.Long?, visibility: VisibilityUpdateRegion?, categoryIds: kotlin.String?, filterIds: kotlin.String?, start: kotlin.Long?, end: kotlin.Long?, polygon: kotlin.String?, metaData: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, versionCode: kotlin.Int?, root: kotlin.Boolean?, active: kotlin.Boolean?, clearLists: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -926,7 +911,7 @@ open class RegionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/region/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/region/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

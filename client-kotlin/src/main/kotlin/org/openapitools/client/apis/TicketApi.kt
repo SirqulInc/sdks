@@ -45,15 +45,14 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * GET /api/{version}/ticket/count
+     * GET /ticket/count
      * Get Ticket Count
      * Gets the ticket count.
-     * @param version 
      * @param deviceId the id of the device that owns the tickets (optional)
      * @param accountId the id of the account that owns the tickets (optional)
      * @param gameType this is deprecated. (optional)
@@ -68,8 +67,8 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTicketCount(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, ticketType: kotlin.String? = null) : CountResponse {
-        val localVarResponse = getTicketCountWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, ticketType = ticketType)
+    fun getTicketCount(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, ticketType: kotlin.String? = null) : CountResponse {
+        val localVarResponse = getTicketCountWithHttpInfo(deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, ticketType = ticketType)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CountResponse
@@ -87,10 +86,9 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * GET /api/{version}/ticket/count
+     * GET /ticket/count
      * Get Ticket Count
      * Gets the ticket count.
-     * @param version 
      * @param deviceId the id of the device that owns the tickets (optional)
      * @param accountId the id of the account that owns the tickets (optional)
      * @param gameType this is deprecated. (optional)
@@ -102,8 +100,8 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTicketCountWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, ticketType: kotlin.String?) : ApiResponse<CountResponse?> {
-        val localVariableConfig = getTicketCountRequestConfig(version = version, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, ticketType = ticketType)
+    fun getTicketCountWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, ticketType: kotlin.String?) : ApiResponse<CountResponse?> {
+        val localVariableConfig = getTicketCountRequestConfig(deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, ticketType = ticketType)
 
         return request<Unit, CountResponse>(
             localVariableConfig
@@ -113,7 +111,6 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation getTicketCount
      *
-     * @param version 
      * @param deviceId the id of the device that owns the tickets (optional)
      * @param accountId the id of the account that owns the tickets (optional)
      * @param gameType this is deprecated. (optional)
@@ -121,7 +118,7 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param ticketType the type of ticket (optional)
      * @return RequestConfig
      */
-    fun getTicketCountRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, ticketType: kotlin.String?) : RequestConfig<Unit> {
+    fun getTicketCountRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, ticketType: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -145,7 +142,7 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/ticket/count".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/ticket/count",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -154,10 +151,9 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * GET /api/{version}/ticket/getList
+     * GET /ticket/getList
      * Get Ticket List
      * Gets the list of tickets.
-     * @param version 
      * @param deviceId the id of the device that owns the tickets (optional)
      * @param accountId the id of the account that owns the tickets (optional)
      * @param ticketObjectType comma separated list of TicketObjectType (optional)
@@ -176,8 +172,8 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTicketList(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, ticketObjectType: kotlin.String? = null, actionType: kotlin.String? = null, ticketIds: kotlin.String? = null, objectIds: kotlin.String? = null, receiptTokens: kotlin.String? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null) : TicketListResponse {
-        val localVarResponse = getTicketListWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, ticketObjectType = ticketObjectType, actionType = actionType, ticketIds = ticketIds, objectIds = objectIds, receiptTokens = receiptTokens, gameType = gameType, appKey = appKey)
+    fun getTicketList(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, ticketObjectType: kotlin.String? = null, actionType: kotlin.String? = null, ticketIds: kotlin.String? = null, objectIds: kotlin.String? = null, receiptTokens: kotlin.String? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null) : TicketListResponse {
+        val localVarResponse = getTicketListWithHttpInfo(deviceId = deviceId, accountId = accountId, ticketObjectType = ticketObjectType, actionType = actionType, ticketIds = ticketIds, objectIds = objectIds, receiptTokens = receiptTokens, gameType = gameType, appKey = appKey)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TicketListResponse
@@ -195,10 +191,9 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * GET /api/{version}/ticket/getList
+     * GET /ticket/getList
      * Get Ticket List
      * Gets the list of tickets.
-     * @param version 
      * @param deviceId the id of the device that owns the tickets (optional)
      * @param accountId the id of the account that owns the tickets (optional)
      * @param ticketObjectType comma separated list of TicketObjectType (optional)
@@ -214,8 +209,8 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTicketListWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, ticketObjectType: kotlin.String?, actionType: kotlin.String?, ticketIds: kotlin.String?, objectIds: kotlin.String?, receiptTokens: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?) : ApiResponse<TicketListResponse?> {
-        val localVariableConfig = getTicketListRequestConfig(version = version, deviceId = deviceId, accountId = accountId, ticketObjectType = ticketObjectType, actionType = actionType, ticketIds = ticketIds, objectIds = objectIds, receiptTokens = receiptTokens, gameType = gameType, appKey = appKey)
+    fun getTicketListWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, ticketObjectType: kotlin.String?, actionType: kotlin.String?, ticketIds: kotlin.String?, objectIds: kotlin.String?, receiptTokens: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?) : ApiResponse<TicketListResponse?> {
+        val localVariableConfig = getTicketListRequestConfig(deviceId = deviceId, accountId = accountId, ticketObjectType = ticketObjectType, actionType = actionType, ticketIds = ticketIds, objectIds = objectIds, receiptTokens = receiptTokens, gameType = gameType, appKey = appKey)
 
         return request<Unit, TicketListResponse>(
             localVariableConfig
@@ -225,7 +220,6 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation getTicketList
      *
-     * @param version 
      * @param deviceId the id of the device that owns the tickets (optional)
      * @param accountId the id of the account that owns the tickets (optional)
      * @param ticketObjectType comma separated list of TicketObjectType (optional)
@@ -237,7 +231,7 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param appKey the application key (optional)
      * @return RequestConfig
      */
-    fun getTicketListRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, ticketObjectType: kotlin.String?, actionType: kotlin.String?, ticketIds: kotlin.String?, objectIds: kotlin.String?, receiptTokens: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?) : RequestConfig<Unit> {
+    fun getTicketListRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, ticketObjectType: kotlin.String?, actionType: kotlin.String?, ticketIds: kotlin.String?, objectIds: kotlin.String?, receiptTokens: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -273,7 +267,7 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/ticket/getList".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/ticket/getList",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -282,10 +276,9 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/purchase/gift
+     * POST /purchase/gift
      * Gift Tickets
      * Gift tickets to another user.
-     * @param version 
      * @param receiverAccountId the id of the account receiving the tickets
      * @param ticketId the id of the tickets
      * @param deviceId the id of the device (optional)
@@ -303,8 +296,8 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun giftPurchase(version: java.math.BigDecimal, receiverAccountId: kotlin.Long, ticketId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, assetId: kotlin.Long? = null, customMessage: kotlin.String? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null) : SirqulResponse {
-        val localVarResponse = giftPurchaseWithHttpInfo(version = version, receiverAccountId = receiverAccountId, ticketId = ticketId, deviceId = deviceId, accountId = accountId, assetId = assetId, customMessage = customMessage, gameType = gameType, appKey = appKey)
+    fun giftPurchase(receiverAccountId: kotlin.Long, ticketId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, assetId: kotlin.Long? = null, customMessage: kotlin.String? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null) : SirqulResponse {
+        val localVarResponse = giftPurchaseWithHttpInfo(receiverAccountId = receiverAccountId, ticketId = ticketId, deviceId = deviceId, accountId = accountId, assetId = assetId, customMessage = customMessage, gameType = gameType, appKey = appKey)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -322,10 +315,9 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/purchase/gift
+     * POST /purchase/gift
      * Gift Tickets
      * Gift tickets to another user.
-     * @param version 
      * @param receiverAccountId the id of the account receiving the tickets
      * @param ticketId the id of the tickets
      * @param deviceId the id of the device (optional)
@@ -340,8 +332,8 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun giftPurchaseWithHttpInfo(version: java.math.BigDecimal, receiverAccountId: kotlin.Long, ticketId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, assetId: kotlin.Long?, customMessage: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = giftPurchaseRequestConfig(version = version, receiverAccountId = receiverAccountId, ticketId = ticketId, deviceId = deviceId, accountId = accountId, assetId = assetId, customMessage = customMessage, gameType = gameType, appKey = appKey)
+    fun giftPurchaseWithHttpInfo(receiverAccountId: kotlin.Long, ticketId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, assetId: kotlin.Long?, customMessage: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = giftPurchaseRequestConfig(receiverAccountId = receiverAccountId, ticketId = ticketId, deviceId = deviceId, accountId = accountId, assetId = assetId, customMessage = customMessage, gameType = gameType, appKey = appKey)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -351,7 +343,6 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation giftPurchase
      *
-     * @param version 
      * @param receiverAccountId the id of the account receiving the tickets
      * @param ticketId the id of the tickets
      * @param deviceId the id of the device (optional)
@@ -362,7 +353,7 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param appKey the application key (optional)
      * @return RequestConfig
      */
-    fun giftPurchaseRequestConfig(version: java.math.BigDecimal, receiverAccountId: kotlin.Long, ticketId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, assetId: kotlin.Long?, customMessage: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?) : RequestConfig<Unit> {
+    fun giftPurchaseRequestConfig(receiverAccountId: kotlin.Long, ticketId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, assetId: kotlin.Long?, customMessage: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -391,7 +382,7 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/purchase/gift".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/purchase/gift",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -400,10 +391,9 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/ticket/save
+     * POST /ticket/save
      * Save Ticket
      * Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
-     * @param version 
      * @param actionType the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER
      * @param ticketObjectType the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM
      * @param returnNulls whether to return nulls or not (optional)
@@ -431,8 +421,8 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun saveTicket(version: java.math.BigDecimal, actionType: kotlin.String, ticketObjectType: kotlin.String, returnNulls: kotlin.Boolean? = null, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, objectId: kotlin.Long? = null, purchaseCode: kotlin.String? = null, receiptToken: kotlin.String? = null, receiptData: kotlin.String? = null, count: kotlin.Long? = null, ticketType: kotlin.String? = null, purchaseProvider: kotlin.String? = null, purchaseType: kotlin.String? = null, returnProfileResponse: kotlin.Boolean? = null, includeProfileResponse: kotlin.Boolean? = null, appVersion: kotlin.String? = null) : ProfileResponse {
-        val localVarResponse = saveTicketWithHttpInfo(version = version, actionType = actionType, ticketObjectType = ticketObjectType, returnNulls = returnNulls, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, objectId = objectId, purchaseCode = purchaseCode, receiptToken = receiptToken, receiptData = receiptData, count = count, ticketType = ticketType, purchaseProvider = purchaseProvider, purchaseType = purchaseType, returnProfileResponse = returnProfileResponse, includeProfileResponse = includeProfileResponse, appVersion = appVersion)
+    fun saveTicket(actionType: kotlin.String, ticketObjectType: kotlin.String, returnNulls: kotlin.Boolean? = null, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, objectId: kotlin.Long? = null, purchaseCode: kotlin.String? = null, receiptToken: kotlin.String? = null, receiptData: kotlin.String? = null, count: kotlin.Long? = null, ticketType: kotlin.String? = null, purchaseProvider: kotlin.String? = null, purchaseType: kotlin.String? = null, returnProfileResponse: kotlin.Boolean? = null, includeProfileResponse: kotlin.Boolean? = null, appVersion: kotlin.String? = null) : ProfileResponse {
+        val localVarResponse = saveTicketWithHttpInfo(actionType = actionType, ticketObjectType = ticketObjectType, returnNulls = returnNulls, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, objectId = objectId, purchaseCode = purchaseCode, receiptToken = receiptToken, receiptData = receiptData, count = count, ticketType = ticketType, purchaseProvider = purchaseProvider, purchaseType = purchaseType, returnProfileResponse = returnProfileResponse, includeProfileResponse = includeProfileResponse, appVersion = appVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ProfileResponse
@@ -450,10 +440,9 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/ticket/save
+     * POST /ticket/save
      * Save Ticket
      * Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
-     * @param version 
      * @param actionType the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER
      * @param ticketObjectType the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM
      * @param returnNulls whether to return nulls or not (optional)
@@ -478,8 +467,8 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun saveTicketWithHttpInfo(version: java.math.BigDecimal, actionType: kotlin.String, ticketObjectType: kotlin.String, returnNulls: kotlin.Boolean?, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, objectId: kotlin.Long?, purchaseCode: kotlin.String?, receiptToken: kotlin.String?, receiptData: kotlin.String?, count: kotlin.Long?, ticketType: kotlin.String?, purchaseProvider: kotlin.String?, purchaseType: kotlin.String?, returnProfileResponse: kotlin.Boolean?, includeProfileResponse: kotlin.Boolean?, appVersion: kotlin.String?) : ApiResponse<ProfileResponse?> {
-        val localVariableConfig = saveTicketRequestConfig(version = version, actionType = actionType, ticketObjectType = ticketObjectType, returnNulls = returnNulls, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, objectId = objectId, purchaseCode = purchaseCode, receiptToken = receiptToken, receiptData = receiptData, count = count, ticketType = ticketType, purchaseProvider = purchaseProvider, purchaseType = purchaseType, returnProfileResponse = returnProfileResponse, includeProfileResponse = includeProfileResponse, appVersion = appVersion)
+    fun saveTicketWithHttpInfo(actionType: kotlin.String, ticketObjectType: kotlin.String, returnNulls: kotlin.Boolean?, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, objectId: kotlin.Long?, purchaseCode: kotlin.String?, receiptToken: kotlin.String?, receiptData: kotlin.String?, count: kotlin.Long?, ticketType: kotlin.String?, purchaseProvider: kotlin.String?, purchaseType: kotlin.String?, returnProfileResponse: kotlin.Boolean?, includeProfileResponse: kotlin.Boolean?, appVersion: kotlin.String?) : ApiResponse<ProfileResponse?> {
+        val localVariableConfig = saveTicketRequestConfig(actionType = actionType, ticketObjectType = ticketObjectType, returnNulls = returnNulls, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, objectId = objectId, purchaseCode = purchaseCode, receiptToken = receiptToken, receiptData = receiptData, count = count, ticketType = ticketType, purchaseProvider = purchaseProvider, purchaseType = purchaseType, returnProfileResponse = returnProfileResponse, includeProfileResponse = includeProfileResponse, appVersion = appVersion)
 
         return request<Unit, ProfileResponse>(
             localVariableConfig
@@ -489,7 +478,6 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation saveTicket
      *
-     * @param version 
      * @param actionType the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER
      * @param ticketObjectType the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM
      * @param returnNulls whether to return nulls or not (optional)
@@ -510,7 +498,7 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param appVersion the application version (optional)
      * @return RequestConfig
      */
-    fun saveTicketRequestConfig(version: java.math.BigDecimal, actionType: kotlin.String, ticketObjectType: kotlin.String, returnNulls: kotlin.Boolean?, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, objectId: kotlin.Long?, purchaseCode: kotlin.String?, receiptToken: kotlin.String?, receiptData: kotlin.String?, count: kotlin.Long?, ticketType: kotlin.String?, purchaseProvider: kotlin.String?, purchaseType: kotlin.String?, returnProfileResponse: kotlin.Boolean?, includeProfileResponse: kotlin.Boolean?, appVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun saveTicketRequestConfig(actionType: kotlin.String, ticketObjectType: kotlin.String, returnNulls: kotlin.Boolean?, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, objectId: kotlin.Long?, purchaseCode: kotlin.String?, receiptToken: kotlin.String?, receiptData: kotlin.String?, count: kotlin.Long?, ticketType: kotlin.String?, purchaseProvider: kotlin.String?, purchaseType: kotlin.String?, returnProfileResponse: kotlin.Boolean?, includeProfileResponse: kotlin.Boolean?, appVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -569,7 +557,7 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/ticket/save".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/ticket/save",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -578,10 +566,9 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/ticket/save/fileUpload
+     * POST /ticket/save/fileUpload
      * Save Ticket with Reciept
      * Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
-     * @param version 
      * @param actionType the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }
      * @param ticketObjectType the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM}
      * @param receiptData the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format.
@@ -609,8 +596,8 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun saveTicketViaFileUpload(version: java.math.BigDecimal, actionType: kotlin.String, ticketObjectType: kotlin.String, receiptData: java.io.File, returnNulls: kotlin.Boolean? = null, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, objectId: kotlin.Long? = null, purchaseCode: kotlin.String? = null, receiptToken: kotlin.String? = null, count: kotlin.Long? = null, ticketType: kotlin.String? = null, purchaseProvider: kotlin.String? = null, purchaseType: kotlin.String? = null, returnProfileResponse: kotlin.Boolean? = null, includeProfileResponse: kotlin.Boolean? = null, appVersion: kotlin.String? = null) : ProfileResponse {
-        val localVarResponse = saveTicketViaFileUploadWithHttpInfo(version = version, actionType = actionType, ticketObjectType = ticketObjectType, receiptData = receiptData, returnNulls = returnNulls, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, objectId = objectId, purchaseCode = purchaseCode, receiptToken = receiptToken, count = count, ticketType = ticketType, purchaseProvider = purchaseProvider, purchaseType = purchaseType, returnProfileResponse = returnProfileResponse, includeProfileResponse = includeProfileResponse, appVersion = appVersion)
+    fun saveTicketViaFileUpload(actionType: kotlin.String, ticketObjectType: kotlin.String, receiptData: java.io.File, returnNulls: kotlin.Boolean? = null, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, objectId: kotlin.Long? = null, purchaseCode: kotlin.String? = null, receiptToken: kotlin.String? = null, count: kotlin.Long? = null, ticketType: kotlin.String? = null, purchaseProvider: kotlin.String? = null, purchaseType: kotlin.String? = null, returnProfileResponse: kotlin.Boolean? = null, includeProfileResponse: kotlin.Boolean? = null, appVersion: kotlin.String? = null) : ProfileResponse {
+        val localVarResponse = saveTicketViaFileUploadWithHttpInfo(actionType = actionType, ticketObjectType = ticketObjectType, receiptData = receiptData, returnNulls = returnNulls, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, objectId = objectId, purchaseCode = purchaseCode, receiptToken = receiptToken, count = count, ticketType = ticketType, purchaseProvider = purchaseProvider, purchaseType = purchaseType, returnProfileResponse = returnProfileResponse, includeProfileResponse = includeProfileResponse, appVersion = appVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ProfileResponse
@@ -628,10 +615,9 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/ticket/save/fileUpload
+     * POST /ticket/save/fileUpload
      * Save Ticket with Reciept
      * Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
-     * @param version 
      * @param actionType the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }
      * @param ticketObjectType the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM}
      * @param receiptData the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format.
@@ -656,8 +642,8 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun saveTicketViaFileUploadWithHttpInfo(version: java.math.BigDecimal, actionType: kotlin.String, ticketObjectType: kotlin.String, receiptData: java.io.File, returnNulls: kotlin.Boolean?, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, objectId: kotlin.Long?, purchaseCode: kotlin.String?, receiptToken: kotlin.String?, count: kotlin.Long?, ticketType: kotlin.String?, purchaseProvider: kotlin.String?, purchaseType: kotlin.String?, returnProfileResponse: kotlin.Boolean?, includeProfileResponse: kotlin.Boolean?, appVersion: kotlin.String?) : ApiResponse<ProfileResponse?> {
-        val localVariableConfig = saveTicketViaFileUploadRequestConfig(version = version, actionType = actionType, ticketObjectType = ticketObjectType, receiptData = receiptData, returnNulls = returnNulls, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, objectId = objectId, purchaseCode = purchaseCode, receiptToken = receiptToken, count = count, ticketType = ticketType, purchaseProvider = purchaseProvider, purchaseType = purchaseType, returnProfileResponse = returnProfileResponse, includeProfileResponse = includeProfileResponse, appVersion = appVersion)
+    fun saveTicketViaFileUploadWithHttpInfo(actionType: kotlin.String, ticketObjectType: kotlin.String, receiptData: java.io.File, returnNulls: kotlin.Boolean?, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, objectId: kotlin.Long?, purchaseCode: kotlin.String?, receiptToken: kotlin.String?, count: kotlin.Long?, ticketType: kotlin.String?, purchaseProvider: kotlin.String?, purchaseType: kotlin.String?, returnProfileResponse: kotlin.Boolean?, includeProfileResponse: kotlin.Boolean?, appVersion: kotlin.String?) : ApiResponse<ProfileResponse?> {
+        val localVariableConfig = saveTicketViaFileUploadRequestConfig(actionType = actionType, ticketObjectType = ticketObjectType, receiptData = receiptData, returnNulls = returnNulls, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, objectId = objectId, purchaseCode = purchaseCode, receiptToken = receiptToken, count = count, ticketType = ticketType, purchaseProvider = purchaseProvider, purchaseType = purchaseType, returnProfileResponse = returnProfileResponse, includeProfileResponse = includeProfileResponse, appVersion = appVersion)
 
         return request<Unit, ProfileResponse>(
             localVariableConfig
@@ -667,7 +653,6 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation saveTicketViaFileUpload
      *
-     * @param version 
      * @param actionType the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }
      * @param ticketObjectType the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM}
      * @param receiptData the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format.
@@ -688,7 +673,7 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param appVersion the application version (optional)
      * @return RequestConfig
      */
-    fun saveTicketViaFileUploadRequestConfig(version: java.math.BigDecimal, actionType: kotlin.String, ticketObjectType: kotlin.String, receiptData: java.io.File, returnNulls: kotlin.Boolean?, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, objectId: kotlin.Long?, purchaseCode: kotlin.String?, receiptToken: kotlin.String?, count: kotlin.Long?, ticketType: kotlin.String?, purchaseProvider: kotlin.String?, purchaseType: kotlin.String?, returnProfileResponse: kotlin.Boolean?, includeProfileResponse: kotlin.Boolean?, appVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun saveTicketViaFileUploadRequestConfig(actionType: kotlin.String, ticketObjectType: kotlin.String, receiptData: java.io.File, returnNulls: kotlin.Boolean?, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, objectId: kotlin.Long?, purchaseCode: kotlin.String?, receiptToken: kotlin.String?, count: kotlin.Long?, ticketType: kotlin.String?, purchaseProvider: kotlin.String?, purchaseType: kotlin.String?, returnProfileResponse: kotlin.Boolean?, includeProfileResponse: kotlin.Boolean?, appVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -745,7 +730,7 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/ticket/save/fileUpload".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/ticket/save/fileUpload",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -754,10 +739,9 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * GET /api/{version}/ticket/ticketoffers
+     * GET /ticket/ticketoffers
      * Get Ticket Offers
      * Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
-     * @param version 
      * @return TicketOfferResponse
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -767,8 +751,8 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun ticketOffers(version: java.math.BigDecimal) : TicketOfferResponse {
-        val localVarResponse = ticketOffersWithHttpInfo(version = version)
+    fun ticketOffers() : TicketOfferResponse {
+        val localVarResponse = ticketOffersWithHttpInfo()
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TicketOfferResponse
@@ -786,18 +770,17 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * GET /api/{version}/ticket/ticketoffers
+     * GET /ticket/ticketoffers
      * Get Ticket Offers
      * Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
-     * @param version 
      * @return ApiResponse<TicketOfferResponse?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun ticketOffersWithHttpInfo(version: java.math.BigDecimal) : ApiResponse<TicketOfferResponse?> {
-        val localVariableConfig = ticketOffersRequestConfig(version = version)
+    fun ticketOffersWithHttpInfo() : ApiResponse<TicketOfferResponse?> {
+        val localVariableConfig = ticketOffersRequestConfig()
 
         return request<Unit, TicketOfferResponse>(
             localVariableConfig
@@ -807,17 +790,16 @@ open class TicketApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation ticketOffers
      *
-     * @param version 
      * @return RequestConfig
      */
-    fun ticketOffersRequestConfig(version: java.math.BigDecimal) : RequestConfig<Unit> {
+    fun ticketOffersRequestConfig() : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/ticket/ticketoffers".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/ticket/ticketoffers",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

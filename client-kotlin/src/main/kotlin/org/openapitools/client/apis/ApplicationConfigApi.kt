@@ -42,15 +42,14 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/appconfig/create
+     * POST /appconfig/create
      * Create AppConfig
      * Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won&#39;t be created.
-     * @param version 
      * @param accountId The account ID of the user
      * @param appKey The application key that the newly created applicationConfig will be associated to
      * @param configVersion The application configuration, has to be unique within the application
@@ -67,8 +66,8 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createApplicationConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, configVersion: kotlin.String, assetId: kotlin.Long, retailerId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, udid: kotlin.String? = null) : ApplicationConfigResponse {
-        val localVarResponse = createApplicationConfigWithHttpInfo(version = version, accountId = accountId, appKey = appKey, configVersion = configVersion, assetId = assetId, retailerId = retailerId, retailerLocationId = retailerLocationId, udid = udid)
+    fun createApplicationConfig(accountId: kotlin.Long, appKey: kotlin.String, configVersion: kotlin.String, assetId: kotlin.Long, retailerId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, udid: kotlin.String? = null) : ApplicationConfigResponse {
+        val localVarResponse = createApplicationConfigWithHttpInfo(accountId = accountId, appKey = appKey, configVersion = configVersion, assetId = assetId, retailerId = retailerId, retailerLocationId = retailerLocationId, udid = udid)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ApplicationConfigResponse
@@ -86,10 +85,9 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
     }
 
     /**
-     * POST /api/{version}/appconfig/create
+     * POST /appconfig/create
      * Create AppConfig
      * Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won&#39;t be created.
-     * @param version 
      * @param accountId The account ID of the user
      * @param appKey The application key that the newly created applicationConfig will be associated to
      * @param configVersion The application configuration, has to be unique within the application
@@ -103,8 +101,8 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createApplicationConfigWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, configVersion: kotlin.String, assetId: kotlin.Long, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, udid: kotlin.String?) : ApiResponse<ApplicationConfigResponse?> {
-        val localVariableConfig = createApplicationConfigRequestConfig(version = version, accountId = accountId, appKey = appKey, configVersion = configVersion, assetId = assetId, retailerId = retailerId, retailerLocationId = retailerLocationId, udid = udid)
+    fun createApplicationConfigWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, configVersion: kotlin.String, assetId: kotlin.Long, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, udid: kotlin.String?) : ApiResponse<ApplicationConfigResponse?> {
+        val localVariableConfig = createApplicationConfigRequestConfig(accountId = accountId, appKey = appKey, configVersion = configVersion, assetId = assetId, retailerId = retailerId, retailerLocationId = retailerLocationId, udid = udid)
 
         return request<Unit, ApplicationConfigResponse>(
             localVariableConfig
@@ -114,7 +112,6 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
     /**
      * To obtain the request config of the operation createApplicationConfig
      *
-     * @param version 
      * @param accountId The account ID of the user
      * @param appKey The application key that the newly created applicationConfig will be associated to
      * @param configVersion The application configuration, has to be unique within the application
@@ -124,7 +121,7 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
      * @param udid The device udid for device specific configurations (optional)
      * @return RequestConfig
      */
-    fun createApplicationConfigRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, configVersion: kotlin.String, assetId: kotlin.Long, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, udid: kotlin.String?) : RequestConfig<Unit> {
+    fun createApplicationConfigRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, configVersion: kotlin.String, assetId: kotlin.Long, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, udid: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -146,7 +143,7 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/appconfig/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/appconfig/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -155,10 +152,9 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
     }
 
     /**
-     * POST /api/{version}/appconfig/delete
+     * POST /appconfig/delete
      * Delete AppConfig
      * Mark the application configuration for deletion.
-     * @param version 
      * @param accountId The account ID of the user
      * @param configId The config ID of the application configuration to delete
      * @return SirqulResponse
@@ -170,8 +166,8 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteApplicationConfig(version: java.math.BigDecimal, accountId: kotlin.Long, configId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = deleteApplicationConfigWithHttpInfo(version = version, accountId = accountId, configId = configId)
+    fun deleteApplicationConfig(accountId: kotlin.Long, configId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = deleteApplicationConfigWithHttpInfo(accountId = accountId, configId = configId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -189,10 +185,9 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
     }
 
     /**
-     * POST /api/{version}/appconfig/delete
+     * POST /appconfig/delete
      * Delete AppConfig
      * Mark the application configuration for deletion.
-     * @param version 
      * @param accountId The account ID of the user
      * @param configId The config ID of the application configuration to delete
      * @return ApiResponse<SirqulResponse?>
@@ -201,8 +196,8 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteApplicationConfigWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, configId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteApplicationConfigRequestConfig(version = version, accountId = accountId, configId = configId)
+    fun deleteApplicationConfigWithHttpInfo(accountId: kotlin.Long, configId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteApplicationConfigRequestConfig(accountId = accountId, configId = configId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -212,12 +207,11 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
     /**
      * To obtain the request config of the operation deleteApplicationConfig
      *
-     * @param version 
      * @param accountId The account ID of the user
      * @param configId The config ID of the application configuration to delete
      * @return RequestConfig
      */
-    fun deleteApplicationConfigRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, configId: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteApplicationConfigRequestConfig(accountId: kotlin.Long, configId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -228,7 +222,7 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/appconfig/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/appconfig/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -237,10 +231,9 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
     }
 
     /**
-     * GET /api/{version}/appconfig/get
+     * GET /appconfig/get
      * Get AppConfig
      * Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
-     * @param version 
      * @param accountId The account ID of the user
      * @param configId The config ID of the application configuration
      * @return ApplicationConfigResponse
@@ -252,8 +245,8 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getApplicationConfig(version: java.math.BigDecimal, accountId: kotlin.Long, configId: kotlin.Long) : ApplicationConfigResponse {
-        val localVarResponse = getApplicationConfigWithHttpInfo(version = version, accountId = accountId, configId = configId)
+    fun getApplicationConfig(accountId: kotlin.Long, configId: kotlin.Long) : ApplicationConfigResponse {
+        val localVarResponse = getApplicationConfigWithHttpInfo(accountId = accountId, configId = configId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ApplicationConfigResponse
@@ -271,10 +264,9 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
     }
 
     /**
-     * GET /api/{version}/appconfig/get
+     * GET /appconfig/get
      * Get AppConfig
      * Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
-     * @param version 
      * @param accountId The account ID of the user
      * @param configId The config ID of the application configuration
      * @return ApiResponse<ApplicationConfigResponse?>
@@ -283,8 +275,8 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getApplicationConfigWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, configId: kotlin.Long) : ApiResponse<ApplicationConfigResponse?> {
-        val localVariableConfig = getApplicationConfigRequestConfig(version = version, accountId = accountId, configId = configId)
+    fun getApplicationConfigWithHttpInfo(accountId: kotlin.Long, configId: kotlin.Long) : ApiResponse<ApplicationConfigResponse?> {
+        val localVariableConfig = getApplicationConfigRequestConfig(accountId = accountId, configId = configId)
 
         return request<Unit, ApplicationConfigResponse>(
             localVariableConfig
@@ -294,12 +286,11 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
     /**
      * To obtain the request config of the operation getApplicationConfig
      *
-     * @param version 
      * @param accountId The account ID of the user
      * @param configId The config ID of the application configuration
      * @return RequestConfig
      */
-    fun getApplicationConfigRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, configId: kotlin.Long) : RequestConfig<Unit> {
+    fun getApplicationConfigRequestConfig(accountId: kotlin.Long, configId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -310,7 +301,7 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/appconfig/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/appconfig/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -319,10 +310,9 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
     }
 
     /**
-     * GET /api/{version}/appconfig/getbyversion
+     * GET /appconfig/getbyversion
      * Get AppConfig by Version
      * Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
-     * @param version 
      * @param appKey The application key
      * @param configVersion The version of the application configuration
      * @param retailerId Only returns the config that matches the given retailer (optional)
@@ -338,8 +328,8 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getApplicationConfigByConfigVersion(version: java.math.BigDecimal, appKey: kotlin.String, configVersion: kotlin.String, retailerId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, udid: kotlin.String? = null, allowOlderVersions: kotlin.Boolean? = false) : ApplicationConfigResponse {
-        val localVarResponse = getApplicationConfigByConfigVersionWithHttpInfo(version = version, appKey = appKey, configVersion = configVersion, retailerId = retailerId, retailerLocationId = retailerLocationId, udid = udid, allowOlderVersions = allowOlderVersions)
+    fun getApplicationConfigByConfigVersion(appKey: kotlin.String, configVersion: kotlin.String, retailerId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, udid: kotlin.String? = null, allowOlderVersions: kotlin.Boolean? = false) : ApplicationConfigResponse {
+        val localVarResponse = getApplicationConfigByConfigVersionWithHttpInfo(appKey = appKey, configVersion = configVersion, retailerId = retailerId, retailerLocationId = retailerLocationId, udid = udid, allowOlderVersions = allowOlderVersions)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ApplicationConfigResponse
@@ -357,10 +347,9 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
     }
 
     /**
-     * GET /api/{version}/appconfig/getbyversion
+     * GET /appconfig/getbyversion
      * Get AppConfig by Version
      * Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
-     * @param version 
      * @param appKey The application key
      * @param configVersion The version of the application configuration
      * @param retailerId Only returns the config that matches the given retailer (optional)
@@ -373,8 +362,8 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getApplicationConfigByConfigVersionWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String, configVersion: kotlin.String, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, udid: kotlin.String?, allowOlderVersions: kotlin.Boolean?) : ApiResponse<ApplicationConfigResponse?> {
-        val localVariableConfig = getApplicationConfigByConfigVersionRequestConfig(version = version, appKey = appKey, configVersion = configVersion, retailerId = retailerId, retailerLocationId = retailerLocationId, udid = udid, allowOlderVersions = allowOlderVersions)
+    fun getApplicationConfigByConfigVersionWithHttpInfo(appKey: kotlin.String, configVersion: kotlin.String, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, udid: kotlin.String?, allowOlderVersions: kotlin.Boolean?) : ApiResponse<ApplicationConfigResponse?> {
+        val localVariableConfig = getApplicationConfigByConfigVersionRequestConfig(appKey = appKey, configVersion = configVersion, retailerId = retailerId, retailerLocationId = retailerLocationId, udid = udid, allowOlderVersions = allowOlderVersions)
 
         return request<Unit, ApplicationConfigResponse>(
             localVariableConfig
@@ -384,7 +373,6 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
     /**
      * To obtain the request config of the operation getApplicationConfigByConfigVersion
      *
-     * @param version 
      * @param appKey The application key
      * @param configVersion The version of the application configuration
      * @param retailerId Only returns the config that matches the given retailer (optional)
@@ -393,7 +381,7 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
      * @param allowOlderVersions Determines whether to return older config versions if the exact version is not found. If this happens, will try to return the latest version. (optional, default to false)
      * @return RequestConfig
      */
-    fun getApplicationConfigByConfigVersionRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String, configVersion: kotlin.String, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, udid: kotlin.String?, allowOlderVersions: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getApplicationConfigByConfigVersionRequestConfig(appKey: kotlin.String, configVersion: kotlin.String, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, udid: kotlin.String?, allowOlderVersions: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -416,7 +404,7 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/appconfig/getbyversion".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/appconfig/getbyversion",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -425,10 +413,9 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
     }
 
     /**
-     * GET /api/{version}/appconfig/search
+     * GET /appconfig/search
      * Search AppConfigs
      * Gets all versions of application configurations in a particular app by the given appKey.
-     * @param version 
      * @param accountId The account ID of the user
      * @param appKey The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only) (optional)
      * @param retailerId Only returns the configs that matches the given retailer (optional)
@@ -448,8 +435,8 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchApplicationConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String? = null, retailerId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, udid: kotlin.String? = null, configVersion: kotlin.String? = null, sortField: kotlin.String? = "CONFIG_VERSION_INDEX", descending: kotlin.Boolean? = true, start: kotlin.Int? = 0, limit: kotlin.Int? = 20) : kotlin.collections.List<ApplicationConfigResponse> {
-        val localVarResponse = searchApplicationConfigWithHttpInfo(version = version, accountId = accountId, appKey = appKey, retailerId = retailerId, retailerLocationId = retailerLocationId, udid = udid, configVersion = configVersion, sortField = sortField, descending = descending, start = start, limit = limit)
+    fun searchApplicationConfig(accountId: kotlin.Long, appKey: kotlin.String? = null, retailerId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, udid: kotlin.String? = null, configVersion: kotlin.String? = null, sortField: kotlin.String? = "CONFIG_VERSION_INDEX", descending: kotlin.Boolean? = true, start: kotlin.Int? = 0, limit: kotlin.Int? = 20) : kotlin.collections.List<ApplicationConfigResponse> {
+        val localVarResponse = searchApplicationConfigWithHttpInfo(accountId = accountId, appKey = appKey, retailerId = retailerId, retailerLocationId = retailerLocationId, udid = udid, configVersion = configVersion, sortField = sortField, descending = descending, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<ApplicationConfigResponse>
@@ -467,10 +454,9 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
     }
 
     /**
-     * GET /api/{version}/appconfig/search
+     * GET /appconfig/search
      * Search AppConfigs
      * Gets all versions of application configurations in a particular app by the given appKey.
-     * @param version 
      * @param accountId The account ID of the user
      * @param appKey The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only) (optional)
      * @param retailerId Only returns the configs that matches the given retailer (optional)
@@ -487,8 +473,8 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchApplicationConfigWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, udid: kotlin.String?, configVersion: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<ApplicationConfigResponse>?> {
-        val localVariableConfig = searchApplicationConfigRequestConfig(version = version, accountId = accountId, appKey = appKey, retailerId = retailerId, retailerLocationId = retailerLocationId, udid = udid, configVersion = configVersion, sortField = sortField, descending = descending, start = start, limit = limit)
+    fun searchApplicationConfigWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, udid: kotlin.String?, configVersion: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<ApplicationConfigResponse>?> {
+        val localVariableConfig = searchApplicationConfigRequestConfig(accountId = accountId, appKey = appKey, retailerId = retailerId, retailerLocationId = retailerLocationId, udid = udid, configVersion = configVersion, sortField = sortField, descending = descending, start = start, limit = limit)
 
         return request<Unit, kotlin.collections.List<ApplicationConfigResponse>>(
             localVariableConfig
@@ -498,7 +484,6 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
     /**
      * To obtain the request config of the operation searchApplicationConfig
      *
-     * @param version 
      * @param accountId The account ID of the user
      * @param appKey The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only) (optional)
      * @param retailerId Only returns the configs that matches the given retailer (optional)
@@ -511,7 +496,7 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
      * @param limit The limit for pagination (There is a hard limit of 100) (optional, default to 20)
      * @return RequestConfig
      */
-    fun searchApplicationConfigRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, udid: kotlin.String?, configVersion: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchApplicationConfigRequestConfig(accountId: kotlin.Long, appKey: kotlin.String?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, udid: kotlin.String?, configVersion: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -548,7 +533,7 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/appconfig/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/appconfig/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -557,10 +542,9 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
     }
 
     /**
-     * POST /api/{version}/appconfig/update
+     * POST /appconfig/update
      * Update AppConfig
      * pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won&#39;t be updated.
-     * @param version 
      * @param accountId The account ID of the user
      * @param configId The config ID of the application configuration to update
      * @param appKey The application key that the updated applicationConfig will be associated to (optional)
@@ -578,8 +562,8 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateApplicationConfig(version: java.math.BigDecimal, accountId: kotlin.Long, configId: kotlin.Long, appKey: kotlin.String? = null, configVersion: kotlin.String? = null, assetId: kotlin.Long? = null, retailerId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, udid: kotlin.String? = null) : ApplicationConfigResponse {
-        val localVarResponse = updateApplicationConfigWithHttpInfo(version = version, accountId = accountId, configId = configId, appKey = appKey, configVersion = configVersion, assetId = assetId, retailerId = retailerId, retailerLocationId = retailerLocationId, udid = udid)
+    fun updateApplicationConfig(accountId: kotlin.Long, configId: kotlin.Long, appKey: kotlin.String? = null, configVersion: kotlin.String? = null, assetId: kotlin.Long? = null, retailerId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, udid: kotlin.String? = null) : ApplicationConfigResponse {
+        val localVarResponse = updateApplicationConfigWithHttpInfo(accountId = accountId, configId = configId, appKey = appKey, configVersion = configVersion, assetId = assetId, retailerId = retailerId, retailerLocationId = retailerLocationId, udid = udid)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ApplicationConfigResponse
@@ -597,10 +581,9 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
     }
 
     /**
-     * POST /api/{version}/appconfig/update
+     * POST /appconfig/update
      * Update AppConfig
      * pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won&#39;t be updated.
-     * @param version 
      * @param accountId The account ID of the user
      * @param configId The config ID of the application configuration to update
      * @param appKey The application key that the updated applicationConfig will be associated to (optional)
@@ -615,8 +598,8 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateApplicationConfigWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, configId: kotlin.Long, appKey: kotlin.String?, configVersion: kotlin.String?, assetId: kotlin.Long?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, udid: kotlin.String?) : ApiResponse<ApplicationConfigResponse?> {
-        val localVariableConfig = updateApplicationConfigRequestConfig(version = version, accountId = accountId, configId = configId, appKey = appKey, configVersion = configVersion, assetId = assetId, retailerId = retailerId, retailerLocationId = retailerLocationId, udid = udid)
+    fun updateApplicationConfigWithHttpInfo(accountId: kotlin.Long, configId: kotlin.Long, appKey: kotlin.String?, configVersion: kotlin.String?, assetId: kotlin.Long?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, udid: kotlin.String?) : ApiResponse<ApplicationConfigResponse?> {
+        val localVariableConfig = updateApplicationConfigRequestConfig(accountId = accountId, configId = configId, appKey = appKey, configVersion = configVersion, assetId = assetId, retailerId = retailerId, retailerLocationId = retailerLocationId, udid = udid)
 
         return request<Unit, ApplicationConfigResponse>(
             localVariableConfig
@@ -626,7 +609,6 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
     /**
      * To obtain the request config of the operation updateApplicationConfig
      *
-     * @param version 
      * @param accountId The account ID of the user
      * @param configId The config ID of the application configuration to update
      * @param appKey The application key that the updated applicationConfig will be associated to (optional)
@@ -637,7 +619,7 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
      * @param udid The device udid for device specific configurations (optional)
      * @return RequestConfig
      */
-    fun updateApplicationConfigRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, configId: kotlin.Long, appKey: kotlin.String?, configVersion: kotlin.String?, assetId: kotlin.Long?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, udid: kotlin.String?) : RequestConfig<Unit> {
+    fun updateApplicationConfigRequestConfig(accountId: kotlin.Long, configId: kotlin.Long, appKey: kotlin.String?, configVersion: kotlin.String?, assetId: kotlin.Long?, retailerId: kotlin.Long?, retailerLocationId: kotlin.Long?, udid: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -666,7 +648,7 @@ open class ApplicationConfigApi(basePath: kotlin.String = defaultBasePath, clien
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/appconfig/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/appconfig/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

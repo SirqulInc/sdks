@@ -45,15 +45,14 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/achievement/tier/search
+     * POST /achievement/tier/search
      * Searches an Achievement Tier
      * Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version 
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param appKey the application key (optional)
@@ -74,8 +73,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiVersionAchievementTierSearchPost(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, keyword: kotlin.String? = null, achievementType: kotlin.Long? = null, rankType: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null, descendingGoal: kotlin.Boolean? = null, start: kotlin.Long? = null, limit: kotlin.Long? = null) : AchievementTierResponse {
-        val localVarResponse = apiVersionAchievementTierSearchPostWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, appKey = appKey, keyword = keyword, achievementType = achievementType, rankType = rankType, sortField = sortField, descending = descending, descendingGoal = descendingGoal, start = start, limit = limit)
+    fun achievementTierSearchPost(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, keyword: kotlin.String? = null, achievementType: kotlin.Long? = null, rankType: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null, descendingGoal: kotlin.Boolean? = null, start: kotlin.Long? = null, limit: kotlin.Long? = null) : AchievementTierResponse {
+        val localVarResponse = achievementTierSearchPostWithHttpInfo(deviceId = deviceId, accountId = accountId, appKey = appKey, keyword = keyword, achievementType = achievementType, rankType = rankType, sortField = sortField, descending = descending, descendingGoal = descendingGoal, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AchievementTierResponse
@@ -93,10 +92,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/achievement/tier/search
+     * POST /achievement/tier/search
      * Searches an Achievement Tier
      * Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version 
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param appKey the application key (optional)
@@ -114,8 +112,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiVersionAchievementTierSearchPostWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, keyword: kotlin.String?, achievementType: kotlin.Long?, rankType: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, descendingGoal: kotlin.Boolean?, start: kotlin.Long?, limit: kotlin.Long?) : ApiResponse<AchievementTierResponse?> {
-        val localVariableConfig = apiVersionAchievementTierSearchPostRequestConfig(version = version, deviceId = deviceId, accountId = accountId, appKey = appKey, keyword = keyword, achievementType = achievementType, rankType = rankType, sortField = sortField, descending = descending, descendingGoal = descendingGoal, start = start, limit = limit)
+    fun achievementTierSearchPostWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, keyword: kotlin.String?, achievementType: kotlin.Long?, rankType: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, descendingGoal: kotlin.Boolean?, start: kotlin.Long?, limit: kotlin.Long?) : ApiResponse<AchievementTierResponse?> {
+        val localVariableConfig = achievementTierSearchPostRequestConfig(deviceId = deviceId, accountId = accountId, appKey = appKey, keyword = keyword, achievementType = achievementType, rankType = rankType, sortField = sortField, descending = descending, descendingGoal = descendingGoal, start = start, limit = limit)
 
         return request<Unit, AchievementTierResponse>(
             localVariableConfig
@@ -123,9 +121,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * To obtain the request config of the operation apiVersionAchievementTierSearchPost
+     * To obtain the request config of the operation achievementTierSearchPost
      *
-     * @param version 
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param appKey the application key (optional)
@@ -139,7 +136,7 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param limit the limit for pagination (has a hard limit of 1000) (optional)
      * @return RequestConfig
      */
-    fun apiVersionAchievementTierSearchPostRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, keyword: kotlin.String?, achievementType: kotlin.Long?, rankType: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, descendingGoal: kotlin.Boolean?, start: kotlin.Long?, limit: kotlin.Long?) : RequestConfig<Unit> {
+    fun achievementTierSearchPostRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, keyword: kotlin.String?, achievementType: kotlin.Long?, rankType: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, descendingGoal: kotlin.Boolean?, start: kotlin.Long?, limit: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -181,7 +178,7 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/achievement/tier/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/achievement/tier/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -190,10 +187,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/achievement/create
+     * POST /achievement/create
      * Create Achievement
      * Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version 
      * @param appKey the application key the achievement is for
      * @param title the title of the achievement (255 character limit)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
@@ -216,8 +212,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createAchievement(version: java.math.BigDecimal, appKey: kotlin.String, title: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, analyticsTag: kotlin.String? = null, description: kotlin.String? = null, rankType: kotlin.String? = null, rankIncrement: kotlin.Int? = null, minIncrement: kotlin.Int? = null, maxIncrement: kotlin.Int? = null, validate: kotlin.Boolean? = null, active: kotlin.Boolean? = null, triggerDefinition: kotlin.String? = null) : AchievementResponse {
-        val localVarResponse = createAchievementWithHttpInfo(version = version, appKey = appKey, title = title, deviceId = deviceId, accountId = accountId, analyticsTag = analyticsTag, description = description, rankType = rankType, rankIncrement = rankIncrement, minIncrement = minIncrement, maxIncrement = maxIncrement, validate = validate, active = active, triggerDefinition = triggerDefinition)
+    fun createAchievement(appKey: kotlin.String, title: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, analyticsTag: kotlin.String? = null, description: kotlin.String? = null, rankType: kotlin.String? = null, rankIncrement: kotlin.Int? = null, minIncrement: kotlin.Int? = null, maxIncrement: kotlin.Int? = null, validate: kotlin.Boolean? = null, active: kotlin.Boolean? = null, triggerDefinition: kotlin.String? = null) : AchievementResponse {
+        val localVarResponse = createAchievementWithHttpInfo(appKey = appKey, title = title, deviceId = deviceId, accountId = accountId, analyticsTag = analyticsTag, description = description, rankType = rankType, rankIncrement = rankIncrement, minIncrement = minIncrement, maxIncrement = maxIncrement, validate = validate, active = active, triggerDefinition = triggerDefinition)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AchievementResponse
@@ -235,10 +231,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/achievement/create
+     * POST /achievement/create
      * Create Achievement
      * Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version 
      * @param appKey the application key the achievement is for
      * @param title the title of the achievement (255 character limit)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
@@ -258,8 +253,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createAchievementWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String, title: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, analyticsTag: kotlin.String?, description: kotlin.String?, rankType: kotlin.String?, rankIncrement: kotlin.Int?, minIncrement: kotlin.Int?, maxIncrement: kotlin.Int?, validate: kotlin.Boolean?, active: kotlin.Boolean?, triggerDefinition: kotlin.String?) : ApiResponse<AchievementResponse?> {
-        val localVariableConfig = createAchievementRequestConfig(version = version, appKey = appKey, title = title, deviceId = deviceId, accountId = accountId, analyticsTag = analyticsTag, description = description, rankType = rankType, rankIncrement = rankIncrement, minIncrement = minIncrement, maxIncrement = maxIncrement, validate = validate, active = active, triggerDefinition = triggerDefinition)
+    fun createAchievementWithHttpInfo(appKey: kotlin.String, title: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, analyticsTag: kotlin.String?, description: kotlin.String?, rankType: kotlin.String?, rankIncrement: kotlin.Int?, minIncrement: kotlin.Int?, maxIncrement: kotlin.Int?, validate: kotlin.Boolean?, active: kotlin.Boolean?, triggerDefinition: kotlin.String?) : ApiResponse<AchievementResponse?> {
+        val localVariableConfig = createAchievementRequestConfig(appKey = appKey, title = title, deviceId = deviceId, accountId = accountId, analyticsTag = analyticsTag, description = description, rankType = rankType, rankIncrement = rankIncrement, minIncrement = minIncrement, maxIncrement = maxIncrement, validate = validate, active = active, triggerDefinition = triggerDefinition)
 
         return request<Unit, AchievementResponse>(
             localVariableConfig
@@ -269,7 +264,6 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation createAchievement
      *
-     * @param version 
      * @param appKey the application key the achievement is for
      * @param title the title of the achievement (255 character limit)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
@@ -285,7 +279,7 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param triggerDefinition if provided will define what triggers to run after a tier is completed (optional)
      * @return RequestConfig
      */
-    fun createAchievementRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String, title: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, analyticsTag: kotlin.String?, description: kotlin.String?, rankType: kotlin.String?, rankIncrement: kotlin.Int?, minIncrement: kotlin.Int?, maxIncrement: kotlin.Int?, validate: kotlin.Boolean?, active: kotlin.Boolean?, triggerDefinition: kotlin.String?) : RequestConfig<Unit> {
+    fun createAchievementRequestConfig(appKey: kotlin.String, title: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, analyticsTag: kotlin.String?, description: kotlin.String?, rankType: kotlin.String?, rankIncrement: kotlin.Int?, minIncrement: kotlin.Int?, maxIncrement: kotlin.Int?, validate: kotlin.Boolean?, active: kotlin.Boolean?, triggerDefinition: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -329,7 +323,7 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/achievement/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/achievement/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -338,10 +332,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/achievement/tier/create
+     * POST /achievement/tier/create
      * Create Achievement Tier
      * Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version 
      * @param achievementId the achievement id for adding a new tier
      * @param scoreAllInstances score all instances
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
@@ -365,8 +358,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createAchievementTier(version: java.math.BigDecimal, achievementId: kotlin.Long, scoreAllInstances: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, icon: java.io.File? = null, iconAssetId: kotlin.Long? = null, title: kotlin.String? = null, description: kotlin.String? = null, goalCount: kotlin.Long? = null, missionId: kotlin.Long? = null, gameId: kotlin.Long? = null, packId: kotlin.Long? = null, gameLevelId: kotlin.Long? = null, gameObjectId: kotlin.Int? = null) : AchievementTierResponse {
-        val localVarResponse = createAchievementTierWithHttpInfo(version = version, achievementId = achievementId, scoreAllInstances = scoreAllInstances, deviceId = deviceId, accountId = accountId, icon = icon, iconAssetId = iconAssetId, title = title, description = description, goalCount = goalCount, missionId = missionId, gameId = gameId, packId = packId, gameLevelId = gameLevelId, gameObjectId = gameObjectId)
+    fun createAchievementTier(achievementId: kotlin.Long, scoreAllInstances: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, icon: java.io.File? = null, iconAssetId: kotlin.Long? = null, title: kotlin.String? = null, description: kotlin.String? = null, goalCount: kotlin.Long? = null, missionId: kotlin.Long? = null, gameId: kotlin.Long? = null, packId: kotlin.Long? = null, gameLevelId: kotlin.Long? = null, gameObjectId: kotlin.Int? = null) : AchievementTierResponse {
+        val localVarResponse = createAchievementTierWithHttpInfo(achievementId = achievementId, scoreAllInstances = scoreAllInstances, deviceId = deviceId, accountId = accountId, icon = icon, iconAssetId = iconAssetId, title = title, description = description, goalCount = goalCount, missionId = missionId, gameId = gameId, packId = packId, gameLevelId = gameLevelId, gameObjectId = gameObjectId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AchievementTierResponse
@@ -384,10 +377,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/achievement/tier/create
+     * POST /achievement/tier/create
      * Create Achievement Tier
      * Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version 
      * @param achievementId the achievement id for adding a new tier
      * @param scoreAllInstances score all instances
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
@@ -408,8 +400,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createAchievementTierWithHttpInfo(version: java.math.BigDecimal, achievementId: kotlin.Long, scoreAllInstances: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, icon: java.io.File?, iconAssetId: kotlin.Long?, title: kotlin.String?, description: kotlin.String?, goalCount: kotlin.Long?, missionId: kotlin.Long?, gameId: kotlin.Long?, packId: kotlin.Long?, gameLevelId: kotlin.Long?, gameObjectId: kotlin.Int?) : ApiResponse<AchievementTierResponse?> {
-        val localVariableConfig = createAchievementTierRequestConfig(version = version, achievementId = achievementId, scoreAllInstances = scoreAllInstances, deviceId = deviceId, accountId = accountId, icon = icon, iconAssetId = iconAssetId, title = title, description = description, goalCount = goalCount, missionId = missionId, gameId = gameId, packId = packId, gameLevelId = gameLevelId, gameObjectId = gameObjectId)
+    fun createAchievementTierWithHttpInfo(achievementId: kotlin.Long, scoreAllInstances: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, icon: java.io.File?, iconAssetId: kotlin.Long?, title: kotlin.String?, description: kotlin.String?, goalCount: kotlin.Long?, missionId: kotlin.Long?, gameId: kotlin.Long?, packId: kotlin.Long?, gameLevelId: kotlin.Long?, gameObjectId: kotlin.Int?) : ApiResponse<AchievementTierResponse?> {
+        val localVariableConfig = createAchievementTierRequestConfig(achievementId = achievementId, scoreAllInstances = scoreAllInstances, deviceId = deviceId, accountId = accountId, icon = icon, iconAssetId = iconAssetId, title = title, description = description, goalCount = goalCount, missionId = missionId, gameId = gameId, packId = packId, gameLevelId = gameLevelId, gameObjectId = gameObjectId)
 
         return request<Unit, AchievementTierResponse>(
             localVariableConfig
@@ -419,7 +411,6 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation createAchievementTier
      *
-     * @param version 
      * @param achievementId the achievement id for adding a new tier
      * @param scoreAllInstances score all instances
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
@@ -436,7 +427,7 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param gameObjectId The ID of the game object to associate with the achievement (optional)
      * @return RequestConfig
      */
-    fun createAchievementTierRequestConfig(version: java.math.BigDecimal, achievementId: kotlin.Long, scoreAllInstances: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, icon: java.io.File?, iconAssetId: kotlin.Long?, title: kotlin.String?, description: kotlin.String?, goalCount: kotlin.Long?, missionId: kotlin.Long?, gameId: kotlin.Long?, packId: kotlin.Long?, gameLevelId: kotlin.Long?, gameObjectId: kotlin.Int?) : RequestConfig<Unit> {
+    fun createAchievementTierRequestConfig(achievementId: kotlin.Long, scoreAllInstances: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, icon: java.io.File?, iconAssetId: kotlin.Long?, title: kotlin.String?, description: kotlin.String?, goalCount: kotlin.Long?, missionId: kotlin.Long?, gameId: kotlin.Long?, packId: kotlin.Long?, gameLevelId: kotlin.Long?, gameObjectId: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -483,7 +474,7 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/achievement/tier/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/achievement/tier/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -492,10 +483,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/achievement/delete
+     * POST /achievement/delete
      * Delete Achievement
      * Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
-     * @param version 
      * @param achievementId The ID of the achievement
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @return SirqulResponse
@@ -507,8 +497,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteAchievement(version: java.math.BigDecimal, achievementId: kotlin.Long, accountId: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = deleteAchievementWithHttpInfo(version = version, achievementId = achievementId, accountId = accountId)
+    fun deleteAchievement(achievementId: kotlin.Long, accountId: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = deleteAchievementWithHttpInfo(achievementId = achievementId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -526,10 +516,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/achievement/delete
+     * POST /achievement/delete
      * Delete Achievement
      * Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
-     * @param version 
      * @param achievementId The ID of the achievement
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @return ApiResponse<SirqulResponse?>
@@ -538,8 +527,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteAchievementWithHttpInfo(version: java.math.BigDecimal, achievementId: kotlin.Long, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteAchievementRequestConfig(version = version, achievementId = achievementId, accountId = accountId)
+    fun deleteAchievementWithHttpInfo(achievementId: kotlin.Long, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteAchievementRequestConfig(achievementId = achievementId, accountId = accountId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -549,12 +538,11 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation deleteAchievement
      *
-     * @param version 
      * @param achievementId The ID of the achievement
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @return RequestConfig
      */
-    fun deleteAchievementRequestConfig(version: java.math.BigDecimal, achievementId: kotlin.Long, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun deleteAchievementRequestConfig(achievementId: kotlin.Long, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -567,7 +555,7 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/achievement/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/achievement/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -576,10 +564,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/achievement/tier/delete
+     * POST /achievement/tier/delete
      * Delete Achievement Tier
      * Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
-     * @param version 
      * @param achievementTierId the achievement id for deletion
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @return SirqulResponse
@@ -591,8 +578,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteAchievementTier(version: java.math.BigDecimal, achievementTierId: kotlin.Long, accountId: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = deleteAchievementTierWithHttpInfo(version = version, achievementTierId = achievementTierId, accountId = accountId)
+    fun deleteAchievementTier(achievementTierId: kotlin.Long, accountId: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = deleteAchievementTierWithHttpInfo(achievementTierId = achievementTierId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -610,10 +597,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/achievement/tier/delete
+     * POST /achievement/tier/delete
      * Delete Achievement Tier
      * Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
-     * @param version 
      * @param achievementTierId the achievement id for deletion
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @return ApiResponse<SirqulResponse?>
@@ -622,8 +608,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteAchievementTierWithHttpInfo(version: java.math.BigDecimal, achievementTierId: kotlin.Long, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteAchievementTierRequestConfig(version = version, achievementTierId = achievementTierId, accountId = accountId)
+    fun deleteAchievementTierWithHttpInfo(achievementTierId: kotlin.Long, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteAchievementTierRequestConfig(achievementTierId = achievementTierId, accountId = accountId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -633,12 +619,11 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation deleteAchievementTier
      *
-     * @param version 
      * @param achievementTierId the achievement id for deletion
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @return RequestConfig
      */
-    fun deleteAchievementTierRequestConfig(version: java.math.BigDecimal, achievementTierId: kotlin.Long, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun deleteAchievementTierRequestConfig(achievementTierId: kotlin.Long, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -651,7 +636,7 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/achievement/tier/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/achievement/tier/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -660,10 +645,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/achievement/get
+     * GET /achievement/get
      * Get Achievement
      * Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version 
      * @param achievementId The ID of the achievement
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -677,8 +661,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAchievement(version: java.math.BigDecimal, achievementId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, achievementType: kotlin.String? = null) : AchievementTierResponse {
-        val localVarResponse = getAchievementWithHttpInfo(version = version, achievementId = achievementId, deviceId = deviceId, accountId = accountId, achievementType = achievementType)
+    fun getAchievement(achievementId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, achievementType: kotlin.String? = null) : AchievementTierResponse {
+        val localVarResponse = getAchievementWithHttpInfo(achievementId = achievementId, deviceId = deviceId, accountId = accountId, achievementType = achievementType)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AchievementTierResponse
@@ -696,10 +680,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/achievement/get
+     * GET /achievement/get
      * Get Achievement
      * Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version 
      * @param achievementId The ID of the achievement
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -710,8 +693,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAchievementWithHttpInfo(version: java.math.BigDecimal, achievementId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, achievementType: kotlin.String?) : ApiResponse<AchievementTierResponse?> {
-        val localVariableConfig = getAchievementRequestConfig(version = version, achievementId = achievementId, deviceId = deviceId, accountId = accountId, achievementType = achievementType)
+    fun getAchievementWithHttpInfo(achievementId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, achievementType: kotlin.String?) : ApiResponse<AchievementTierResponse?> {
+        val localVariableConfig = getAchievementRequestConfig(achievementId = achievementId, deviceId = deviceId, accountId = accountId, achievementType = achievementType)
 
         return request<Unit, AchievementTierResponse>(
             localVariableConfig
@@ -721,14 +704,13 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation getAchievement
      *
-     * @param version 
      * @param achievementId The ID of the achievement
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param achievementType achievementType (optional)
      * @return RequestConfig
      */
-    fun getAchievementRequestConfig(version: java.math.BigDecimal, achievementId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, achievementType: kotlin.String?) : RequestConfig<Unit> {
+    fun getAchievementRequestConfig(achievementId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, achievementType: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -747,7 +729,7 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/achievement/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/achievement/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -756,10 +738,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/achievement/tier/get
+     * POST /achievement/tier/get
      * Gets an achievement tier
      * Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version 
      * @param accountId the account id of the user (deviceId or accountId required)
      * @param achievementTierId the achievement tier id that is being retrieved
      * @return AchievementTierResponse
@@ -771,8 +752,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAchievementTier(version: java.math.BigDecimal, accountId: kotlin.Long, achievementTierId: kotlin.Long) : AchievementTierResponse {
-        val localVarResponse = getAchievementTierWithHttpInfo(version = version, accountId = accountId, achievementTierId = achievementTierId)
+    fun getAchievementTier(accountId: kotlin.Long, achievementTierId: kotlin.Long) : AchievementTierResponse {
+        val localVarResponse = getAchievementTierWithHttpInfo(accountId = accountId, achievementTierId = achievementTierId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AchievementTierResponse
@@ -790,10 +771,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/achievement/tier/get
+     * POST /achievement/tier/get
      * Gets an achievement tier
      * Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version 
      * @param accountId the account id of the user (deviceId or accountId required)
      * @param achievementTierId the achievement tier id that is being retrieved
      * @return ApiResponse<AchievementTierResponse?>
@@ -802,8 +782,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAchievementTierWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, achievementTierId: kotlin.Long) : ApiResponse<AchievementTierResponse?> {
-        val localVariableConfig = getAchievementTierRequestConfig(version = version, accountId = accountId, achievementTierId = achievementTierId)
+    fun getAchievementTierWithHttpInfo(accountId: kotlin.Long, achievementTierId: kotlin.Long) : ApiResponse<AchievementTierResponse?> {
+        val localVariableConfig = getAchievementTierRequestConfig(accountId = accountId, achievementTierId = achievementTierId)
 
         return request<Unit, AchievementTierResponse>(
             localVariableConfig
@@ -813,12 +793,11 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation getAchievementTier
      *
-     * @param version 
      * @param accountId the account id of the user (deviceId or accountId required)
      * @param achievementTierId the achievement tier id that is being retrieved
      * @return RequestConfig
      */
-    fun getAchievementTierRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, achievementTierId: kotlin.Long) : RequestConfig<Unit> {
+    fun getAchievementTierRequestConfig(accountId: kotlin.Long, achievementTierId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -829,7 +808,7 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/achievement/tier/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/achievement/tier/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -838,10 +817,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/achievement/progress/get
+     * GET /achievement/progress/get
      * Get Achievement Progress
      * Gets a list of user achievements.
-     * @param version 
      * @param returnNulls determines whether to return null fields in the response (default to true)
      * @param appKey the application key for filtering results by application
      * @param includeUndiscovered determines whether to return achievements that the user has not discovered yet (default to true)
@@ -862,8 +840,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getUserAchievements(version: java.math.BigDecimal, returnNulls: kotlin.Boolean = true, appKey: kotlin.String, includeUndiscovered: kotlin.Boolean = true, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionAccountEmail: kotlin.String? = null, connectionAccountId: kotlin.Long? = null, rankType: kotlin.String? = null, achievementType: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : kotlin.collections.List<AchievementProgressResponse> {
-        val localVarResponse = getUserAchievementsWithHttpInfo(version = version, returnNulls = returnNulls, appKey = appKey, includeUndiscovered = includeUndiscovered, deviceId = deviceId, accountId = accountId, connectionAccountEmail = connectionAccountEmail, connectionAccountId = connectionAccountId, rankType = rankType, achievementType = achievementType, latitude = latitude, longitude = longitude)
+    fun getUserAchievements(returnNulls: kotlin.Boolean = true, appKey: kotlin.String, includeUndiscovered: kotlin.Boolean = true, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionAccountEmail: kotlin.String? = null, connectionAccountId: kotlin.Long? = null, rankType: kotlin.String? = null, achievementType: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : kotlin.collections.List<AchievementProgressResponse> {
+        val localVarResponse = getUserAchievementsWithHttpInfo(returnNulls = returnNulls, appKey = appKey, includeUndiscovered = includeUndiscovered, deviceId = deviceId, accountId = accountId, connectionAccountEmail = connectionAccountEmail, connectionAccountId = connectionAccountId, rankType = rankType, achievementType = achievementType, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<AchievementProgressResponse>
@@ -881,10 +859,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/achievement/progress/get
+     * GET /achievement/progress/get
      * Get Achievement Progress
      * Gets a list of user achievements.
-     * @param version 
      * @param returnNulls determines whether to return null fields in the response (default to true)
      * @param appKey the application key for filtering results by application
      * @param includeUndiscovered determines whether to return achievements that the user has not discovered yet (default to true)
@@ -902,8 +879,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getUserAchievementsWithHttpInfo(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, appKey: kotlin.String, includeUndiscovered: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountEmail: kotlin.String?, connectionAccountId: kotlin.Long?, rankType: kotlin.String?, achievementType: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<kotlin.collections.List<AchievementProgressResponse>?> {
-        val localVariableConfig = getUserAchievementsRequestConfig(version = version, returnNulls = returnNulls, appKey = appKey, includeUndiscovered = includeUndiscovered, deviceId = deviceId, accountId = accountId, connectionAccountEmail = connectionAccountEmail, connectionAccountId = connectionAccountId, rankType = rankType, achievementType = achievementType, latitude = latitude, longitude = longitude)
+    fun getUserAchievementsWithHttpInfo(returnNulls: kotlin.Boolean, appKey: kotlin.String, includeUndiscovered: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountEmail: kotlin.String?, connectionAccountId: kotlin.Long?, rankType: kotlin.String?, achievementType: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<kotlin.collections.List<AchievementProgressResponse>?> {
+        val localVariableConfig = getUserAchievementsRequestConfig(returnNulls = returnNulls, appKey = appKey, includeUndiscovered = includeUndiscovered, deviceId = deviceId, accountId = accountId, connectionAccountEmail = connectionAccountEmail, connectionAccountId = connectionAccountId, rankType = rankType, achievementType = achievementType, latitude = latitude, longitude = longitude)
 
         return request<Unit, kotlin.collections.List<AchievementProgressResponse>>(
             localVariableConfig
@@ -913,7 +890,6 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation getUserAchievements
      *
-     * @param version 
      * @param returnNulls determines whether to return null fields in the response (default to true)
      * @param appKey the application key for filtering results by application
      * @param includeUndiscovered determines whether to return achievements that the user has not discovered yet (default to true)
@@ -927,7 +903,7 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param longitude the current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun getUserAchievementsRequestConfig(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, appKey: kotlin.String, includeUndiscovered: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountEmail: kotlin.String?, connectionAccountId: kotlin.Long?, rankType: kotlin.String?, achievementType: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun getUserAchievementsRequestConfig(returnNulls: kotlin.Boolean, appKey: kotlin.String, includeUndiscovered: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountEmail: kotlin.String?, connectionAccountId: kotlin.Long?, rankType: kotlin.String?, achievementType: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -963,7 +939,7 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/achievement/progress/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/achievement/progress/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -972,10 +948,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/achievement/tag/list
+     * GET /achievement/tag/list
      * List Achievement Tags
      * List achievement tags by application
-     * @param version 
      * @param appKey filter results by application key (optional)
      * @return SirqulResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -986,8 +961,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listAchievementTags(version: java.math.BigDecimal, appKey: kotlin.String? = null) : SirqulResponse {
-        val localVarResponse = listAchievementTagsWithHttpInfo(version = version, appKey = appKey)
+    fun listAchievementTags(appKey: kotlin.String? = null) : SirqulResponse {
+        val localVarResponse = listAchievementTagsWithHttpInfo(appKey = appKey)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -1005,10 +980,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/achievement/tag/list
+     * GET /achievement/tag/list
      * List Achievement Tags
      * List achievement tags by application
-     * @param version 
      * @param appKey filter results by application key (optional)
      * @return ApiResponse<SirqulResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -1016,8 +990,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun listAchievementTagsWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = listAchievementTagsRequestConfig(version = version, appKey = appKey)
+    fun listAchievementTagsWithHttpInfo(appKey: kotlin.String?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = listAchievementTagsRequestConfig(appKey = appKey)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -1027,11 +1001,10 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation listAchievementTags
      *
-     * @param version 
      * @param appKey filter results by application key (optional)
      * @return RequestConfig
      */
-    fun listAchievementTagsRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String?) : RequestConfig<Unit> {
+    fun listAchievementTagsRequestConfig(appKey: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1043,7 +1016,7 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/achievement/tag/list".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/achievement/tag/list",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1078,10 +1051,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      }
 
     /**
-     * GET /api/{version}/achievement/list
+     * GET /achievement/list
      * List Achievements
      * List achievements by billable.
-     * @param version 
      * @param sortField the field to sort by. See AchievementApiMap
      * @param descending determines whether the sorted list is in descending or ascending order
      * @param start the start index for pagination
@@ -1102,8 +1074,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listAchievements(version: java.math.BigDecimal, sortField: SortFieldListAchievements, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, keyword: kotlin.String? = null, achievementType: kotlin.String? = null, rankType: kotlin.String? = null) : kotlin.collections.List<AchievementShortResponse> {
-        val localVarResponse = listAchievementsWithHttpInfo(version = version, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, deviceId = deviceId, accountId = accountId, appKey = appKey, keyword = keyword, achievementType = achievementType, rankType = rankType)
+    fun listAchievements(sortField: SortFieldListAchievements, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, keyword: kotlin.String? = null, achievementType: kotlin.String? = null, rankType: kotlin.String? = null) : kotlin.collections.List<AchievementShortResponse> {
+        val localVarResponse = listAchievementsWithHttpInfo(sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, deviceId = deviceId, accountId = accountId, appKey = appKey, keyword = keyword, achievementType = achievementType, rankType = rankType)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<AchievementShortResponse>
@@ -1121,10 +1093,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/achievement/list
+     * GET /achievement/list
      * List Achievements
      * List achievements by billable.
-     * @param version 
      * @param sortField the field to sort by. See AchievementApiMap
      * @param descending determines whether the sorted list is in descending or ascending order
      * @param start the start index for pagination
@@ -1142,8 +1113,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun listAchievementsWithHttpInfo(version: java.math.BigDecimal, sortField: SortFieldListAchievements, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, keyword: kotlin.String?, achievementType: kotlin.String?, rankType: kotlin.String?) : ApiResponse<kotlin.collections.List<AchievementShortResponse>?> {
-        val localVariableConfig = listAchievementsRequestConfig(version = version, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, deviceId = deviceId, accountId = accountId, appKey = appKey, keyword = keyword, achievementType = achievementType, rankType = rankType)
+    fun listAchievementsWithHttpInfo(sortField: SortFieldListAchievements, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, keyword: kotlin.String?, achievementType: kotlin.String?, rankType: kotlin.String?) : ApiResponse<kotlin.collections.List<AchievementShortResponse>?> {
+        val localVariableConfig = listAchievementsRequestConfig(sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, deviceId = deviceId, accountId = accountId, appKey = appKey, keyword = keyword, achievementType = achievementType, rankType = rankType)
 
         return request<Unit, kotlin.collections.List<AchievementShortResponse>>(
             localVariableConfig
@@ -1153,7 +1124,6 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation listAchievements
      *
-     * @param version 
      * @param sortField the field to sort by. See AchievementApiMap
      * @param descending determines whether the sorted list is in descending or ascending order
      * @param start the start index for pagination
@@ -1167,7 +1137,7 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param rankType filter results by the rankType (these are exact case sensitive matches) (optional)
      * @return RequestConfig
      */
-    fun listAchievementsRequestConfig(version: java.math.BigDecimal, sortField: SortFieldListAchievements, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, keyword: kotlin.String?, achievementType: kotlin.String?, rankType: kotlin.String?) : RequestConfig<Unit> {
+    fun listAchievementsRequestConfig(sortField: SortFieldListAchievements, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, keyword: kotlin.String?, achievementType: kotlin.String?, rankType: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1199,7 +1169,7 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/achievement/list".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/achievement/list",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1234,10 +1204,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      }
 
     /**
-     * GET /api/{version}/achievement/search
+     * GET /achievement/search
      * Search Achievements
      * Searches achievements by application for consumers.
-     * @param version 
      * @param appKey the application key
      * @param sortField the field to sort by. See AchievementApiMap (default to SortField.TITLE)
      * @param descending determines whether the sorted list is in descending or ascending order (default to false)
@@ -1259,8 +1228,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchAchievements(version: java.math.BigDecimal, appKey: kotlin.String, sortField: SortFieldSearchAchievements = SortFieldSearchAchievements.TITLE, descending: kotlin.Boolean = false, includeTiers: kotlin.Boolean = false, includeInactiveTiers: kotlin.Boolean = false, start: kotlin.Int = 0, limit: kotlin.Int = 100, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, keyword: kotlin.String? = null, achievementType: kotlin.String? = null, rankType: kotlin.String? = null) : kotlin.collections.List<AchievementShortResponse> {
-        val localVarResponse = searchAchievementsWithHttpInfo(version = version, appKey = appKey, sortField = sortField, descending = descending, includeTiers = includeTiers, includeInactiveTiers = includeInactiveTiers, start = start, limit = limit, deviceId = deviceId, accountId = accountId, keyword = keyword, achievementType = achievementType, rankType = rankType)
+    fun searchAchievements(appKey: kotlin.String, sortField: SortFieldSearchAchievements = SortFieldSearchAchievements.TITLE, descending: kotlin.Boolean = false, includeTiers: kotlin.Boolean = false, includeInactiveTiers: kotlin.Boolean = false, start: kotlin.Int = 0, limit: kotlin.Int = 100, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, keyword: kotlin.String? = null, achievementType: kotlin.String? = null, rankType: kotlin.String? = null) : kotlin.collections.List<AchievementShortResponse> {
+        val localVarResponse = searchAchievementsWithHttpInfo(appKey = appKey, sortField = sortField, descending = descending, includeTiers = includeTiers, includeInactiveTiers = includeInactiveTiers, start = start, limit = limit, deviceId = deviceId, accountId = accountId, keyword = keyword, achievementType = achievementType, rankType = rankType)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<AchievementShortResponse>
@@ -1278,10 +1247,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/achievement/search
+     * GET /achievement/search
      * Search Achievements
      * Searches achievements by application for consumers.
-     * @param version 
      * @param appKey the application key
      * @param sortField the field to sort by. See AchievementApiMap (default to SortField.TITLE)
      * @param descending determines whether the sorted list is in descending or ascending order (default to false)
@@ -1300,8 +1268,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchAchievementsWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String, sortField: SortFieldSearchAchievements, descending: kotlin.Boolean, includeTiers: kotlin.Boolean, includeInactiveTiers: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, keyword: kotlin.String?, achievementType: kotlin.String?, rankType: kotlin.String?) : ApiResponse<kotlin.collections.List<AchievementShortResponse>?> {
-        val localVariableConfig = searchAchievementsRequestConfig(version = version, appKey = appKey, sortField = sortField, descending = descending, includeTiers = includeTiers, includeInactiveTiers = includeInactiveTiers, start = start, limit = limit, deviceId = deviceId, accountId = accountId, keyword = keyword, achievementType = achievementType, rankType = rankType)
+    fun searchAchievementsWithHttpInfo(appKey: kotlin.String, sortField: SortFieldSearchAchievements, descending: kotlin.Boolean, includeTiers: kotlin.Boolean, includeInactiveTiers: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, keyword: kotlin.String?, achievementType: kotlin.String?, rankType: kotlin.String?) : ApiResponse<kotlin.collections.List<AchievementShortResponse>?> {
+        val localVariableConfig = searchAchievementsRequestConfig(appKey = appKey, sortField = sortField, descending = descending, includeTiers = includeTiers, includeInactiveTiers = includeInactiveTiers, start = start, limit = limit, deviceId = deviceId, accountId = accountId, keyword = keyword, achievementType = achievementType, rankType = rankType)
 
         return request<Unit, kotlin.collections.List<AchievementShortResponse>>(
             localVariableConfig
@@ -1311,7 +1279,6 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation searchAchievements
      *
-     * @param version 
      * @param appKey the application key
      * @param sortField the field to sort by. See AchievementApiMap (default to SortField.TITLE)
      * @param descending determines whether the sorted list is in descending or ascending order (default to false)
@@ -1326,7 +1293,7 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param rankType filter results by the rankType (these are exact case sensitive matches) (optional)
      * @return RequestConfig
      */
-    fun searchAchievementsRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String, sortField: SortFieldSearchAchievements, descending: kotlin.Boolean, includeTiers: kotlin.Boolean, includeInactiveTiers: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, keyword: kotlin.String?, achievementType: kotlin.String?, rankType: kotlin.String?) : RequestConfig<Unit> {
+    fun searchAchievementsRequestConfig(appKey: kotlin.String, sortField: SortFieldSearchAchievements, descending: kotlin.Boolean, includeTiers: kotlin.Boolean, includeInactiveTiers: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, keyword: kotlin.String?, achievementType: kotlin.String?, rankType: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1357,7 +1324,7 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/achievement/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/achievement/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1366,10 +1333,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/achievement/update
+     * POST /achievement/update
      * Update Achievement
      * Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version 
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param achievementId the achievement ID for updating an existing achievement (optional)
@@ -1394,8 +1360,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateAchievement(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, achievementId: kotlin.Long? = null, analyticsTag: kotlin.String? = null, title: kotlin.String? = null, description: kotlin.String? = null, rankType: kotlin.String? = null, rankIncrement: kotlin.Int? = null, minIncrement: kotlin.Int? = null, nullMinIncrement: kotlin.Boolean? = null, maxIncrement: kotlin.Int? = null, nullMaxIncrement: kotlin.Boolean? = null, validate: kotlin.Boolean? = null, active: kotlin.Boolean? = null, triggerDefinition: kotlin.String? = null) : AchievementResponse {
-        val localVarResponse = updateAchievementWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, achievementId = achievementId, analyticsTag = analyticsTag, title = title, description = description, rankType = rankType, rankIncrement = rankIncrement, minIncrement = minIncrement, nullMinIncrement = nullMinIncrement, maxIncrement = maxIncrement, nullMaxIncrement = nullMaxIncrement, validate = validate, active = active, triggerDefinition = triggerDefinition)
+    fun updateAchievement(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, achievementId: kotlin.Long? = null, analyticsTag: kotlin.String? = null, title: kotlin.String? = null, description: kotlin.String? = null, rankType: kotlin.String? = null, rankIncrement: kotlin.Int? = null, minIncrement: kotlin.Int? = null, nullMinIncrement: kotlin.Boolean? = null, maxIncrement: kotlin.Int? = null, nullMaxIncrement: kotlin.Boolean? = null, validate: kotlin.Boolean? = null, active: kotlin.Boolean? = null, triggerDefinition: kotlin.String? = null) : AchievementResponse {
+        val localVarResponse = updateAchievementWithHttpInfo(deviceId = deviceId, accountId = accountId, achievementId = achievementId, analyticsTag = analyticsTag, title = title, description = description, rankType = rankType, rankIncrement = rankIncrement, minIncrement = minIncrement, nullMinIncrement = nullMinIncrement, maxIncrement = maxIncrement, nullMaxIncrement = nullMaxIncrement, validate = validate, active = active, triggerDefinition = triggerDefinition)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AchievementResponse
@@ -1413,10 +1379,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/achievement/update
+     * POST /achievement/update
      * Update Achievement
      * Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version 
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param achievementId the achievement ID for updating an existing achievement (optional)
@@ -1438,8 +1403,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateAchievementWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, achievementId: kotlin.Long?, analyticsTag: kotlin.String?, title: kotlin.String?, description: kotlin.String?, rankType: kotlin.String?, rankIncrement: kotlin.Int?, minIncrement: kotlin.Int?, nullMinIncrement: kotlin.Boolean?, maxIncrement: kotlin.Int?, nullMaxIncrement: kotlin.Boolean?, validate: kotlin.Boolean?, active: kotlin.Boolean?, triggerDefinition: kotlin.String?) : ApiResponse<AchievementResponse?> {
-        val localVariableConfig = updateAchievementRequestConfig(version = version, deviceId = deviceId, accountId = accountId, achievementId = achievementId, analyticsTag = analyticsTag, title = title, description = description, rankType = rankType, rankIncrement = rankIncrement, minIncrement = minIncrement, nullMinIncrement = nullMinIncrement, maxIncrement = maxIncrement, nullMaxIncrement = nullMaxIncrement, validate = validate, active = active, triggerDefinition = triggerDefinition)
+    fun updateAchievementWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, achievementId: kotlin.Long?, analyticsTag: kotlin.String?, title: kotlin.String?, description: kotlin.String?, rankType: kotlin.String?, rankIncrement: kotlin.Int?, minIncrement: kotlin.Int?, nullMinIncrement: kotlin.Boolean?, maxIncrement: kotlin.Int?, nullMaxIncrement: kotlin.Boolean?, validate: kotlin.Boolean?, active: kotlin.Boolean?, triggerDefinition: kotlin.String?) : ApiResponse<AchievementResponse?> {
+        val localVariableConfig = updateAchievementRequestConfig(deviceId = deviceId, accountId = accountId, achievementId = achievementId, analyticsTag = analyticsTag, title = title, description = description, rankType = rankType, rankIncrement = rankIncrement, minIncrement = minIncrement, nullMinIncrement = nullMinIncrement, maxIncrement = maxIncrement, nullMaxIncrement = nullMaxIncrement, validate = validate, active = active, triggerDefinition = triggerDefinition)
 
         return request<Unit, AchievementResponse>(
             localVariableConfig
@@ -1449,7 +1414,6 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation updateAchievement
      *
-     * @param version 
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param achievementId the achievement ID for updating an existing achievement (optional)
@@ -1467,7 +1431,7 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param triggerDefinition if provided will define what triggers to run after a tier is completed (optional)
      * @return RequestConfig
      */
-    fun updateAchievementRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, achievementId: kotlin.Long?, analyticsTag: kotlin.String?, title: kotlin.String?, description: kotlin.String?, rankType: kotlin.String?, rankIncrement: kotlin.Int?, minIncrement: kotlin.Int?, nullMinIncrement: kotlin.Boolean?, maxIncrement: kotlin.Int?, nullMaxIncrement: kotlin.Boolean?, validate: kotlin.Boolean?, active: kotlin.Boolean?, triggerDefinition: kotlin.String?) : RequestConfig<Unit> {
+    fun updateAchievementRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, achievementId: kotlin.Long?, analyticsTag: kotlin.String?, title: kotlin.String?, description: kotlin.String?, rankType: kotlin.String?, rankIncrement: kotlin.Int?, minIncrement: kotlin.Int?, nullMinIncrement: kotlin.Boolean?, maxIncrement: kotlin.Int?, nullMaxIncrement: kotlin.Boolean?, validate: kotlin.Boolean?, active: kotlin.Boolean?, triggerDefinition: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1521,7 +1485,7 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/achievement/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/achievement/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1530,10 +1494,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/achievement/tier/update
+     * POST /achievement/tier/update
      * Update Achievement Tier
      * Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version 
      * @param achievementTierId the achievement tier id for updating
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1557,8 +1520,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateAchievementTier(version: java.math.BigDecimal, achievementTierId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, icon: java.io.File? = null, iconAssetId: kotlin.Long? = null, title: kotlin.String? = null, description: kotlin.String? = null, goalCount: kotlin.Long? = null, missionId: kotlin.Long? = null, gameId: kotlin.Long? = null, packId: kotlin.Long? = null, gameLevelId: kotlin.Long? = null, gameObjectId: kotlin.Long? = null, scoreAllInstances: kotlin.Boolean? = null) : AchievementTierResponse {
-        val localVarResponse = updateAchievementTierWithHttpInfo(version = version, achievementTierId = achievementTierId, deviceId = deviceId, accountId = accountId, icon = icon, iconAssetId = iconAssetId, title = title, description = description, goalCount = goalCount, missionId = missionId, gameId = gameId, packId = packId, gameLevelId = gameLevelId, gameObjectId = gameObjectId, scoreAllInstances = scoreAllInstances)
+    fun updateAchievementTier(achievementTierId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, icon: java.io.File? = null, iconAssetId: kotlin.Long? = null, title: kotlin.String? = null, description: kotlin.String? = null, goalCount: kotlin.Long? = null, missionId: kotlin.Long? = null, gameId: kotlin.Long? = null, packId: kotlin.Long? = null, gameLevelId: kotlin.Long? = null, gameObjectId: kotlin.Long? = null, scoreAllInstances: kotlin.Boolean? = null) : AchievementTierResponse {
+        val localVarResponse = updateAchievementTierWithHttpInfo(achievementTierId = achievementTierId, deviceId = deviceId, accountId = accountId, icon = icon, iconAssetId = iconAssetId, title = title, description = description, goalCount = goalCount, missionId = missionId, gameId = gameId, packId = packId, gameLevelId = gameLevelId, gameObjectId = gameObjectId, scoreAllInstances = scoreAllInstances)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AchievementTierResponse
@@ -1576,10 +1539,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/achievement/tier/update
+     * POST /achievement/tier/update
      * Update Achievement Tier
      * Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version 
      * @param achievementTierId the achievement tier id for updating
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1600,8 +1562,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateAchievementTierWithHttpInfo(version: java.math.BigDecimal, achievementTierId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, icon: java.io.File?, iconAssetId: kotlin.Long?, title: kotlin.String?, description: kotlin.String?, goalCount: kotlin.Long?, missionId: kotlin.Long?, gameId: kotlin.Long?, packId: kotlin.Long?, gameLevelId: kotlin.Long?, gameObjectId: kotlin.Long?, scoreAllInstances: kotlin.Boolean?) : ApiResponse<AchievementTierResponse?> {
-        val localVariableConfig = updateAchievementTierRequestConfig(version = version, achievementTierId = achievementTierId, deviceId = deviceId, accountId = accountId, icon = icon, iconAssetId = iconAssetId, title = title, description = description, goalCount = goalCount, missionId = missionId, gameId = gameId, packId = packId, gameLevelId = gameLevelId, gameObjectId = gameObjectId, scoreAllInstances = scoreAllInstances)
+    fun updateAchievementTierWithHttpInfo(achievementTierId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, icon: java.io.File?, iconAssetId: kotlin.Long?, title: kotlin.String?, description: kotlin.String?, goalCount: kotlin.Long?, missionId: kotlin.Long?, gameId: kotlin.Long?, packId: kotlin.Long?, gameLevelId: kotlin.Long?, gameObjectId: kotlin.Long?, scoreAllInstances: kotlin.Boolean?) : ApiResponse<AchievementTierResponse?> {
+        val localVariableConfig = updateAchievementTierRequestConfig(achievementTierId = achievementTierId, deviceId = deviceId, accountId = accountId, icon = icon, iconAssetId = iconAssetId, title = title, description = description, goalCount = goalCount, missionId = missionId, gameId = gameId, packId = packId, gameLevelId = gameLevelId, gameObjectId = gameObjectId, scoreAllInstances = scoreAllInstances)
 
         return request<Unit, AchievementTierResponse>(
             localVariableConfig
@@ -1611,7 +1573,6 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation updateAchievementTier
      *
-     * @param version 
      * @param achievementTierId the achievement tier id for updating
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1628,7 +1589,7 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param scoreAllInstances score all instances (optional)
      * @return RequestConfig
      */
-    fun updateAchievementTierRequestConfig(version: java.math.BigDecimal, achievementTierId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, icon: java.io.File?, iconAssetId: kotlin.Long?, title: kotlin.String?, description: kotlin.String?, goalCount: kotlin.Long?, missionId: kotlin.Long?, gameId: kotlin.Long?, packId: kotlin.Long?, gameLevelId: kotlin.Long?, gameObjectId: kotlin.Long?, scoreAllInstances: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun updateAchievementTierRequestConfig(achievementTierId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, icon: java.io.File?, iconAssetId: kotlin.Long?, title: kotlin.String?, description: kotlin.String?, goalCount: kotlin.Long?, missionId: kotlin.Long?, gameId: kotlin.Long?, packId: kotlin.Long?, gameLevelId: kotlin.Long?, gameObjectId: kotlin.Long?, scoreAllInstances: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1677,7 +1638,7 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/achievement/tier/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/achievement/tier/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1686,10 +1647,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/achievement/progress/update
+     * POST /achievement/progress/update
      * Update Achievement Progress
      * Update user achievement progress.
-     * @param version 
      * @param accountId the account id of the user
      * @param achievementId the achievement id (achievementId or tag required) (optional)
      * @param tag the analytic tag to identify an achievement (achievementId or tag required) (optional)
@@ -1707,8 +1667,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateUserAchievement(version: java.math.BigDecimal, accountId: kotlin.Long, achievementId: kotlin.Long? = null, tag: kotlin.String? = null, customId: kotlin.Long? = null, increment: kotlin.Long? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, returnProgress: kotlin.Boolean? = null) : SirqulResponse {
-        val localVarResponse = updateUserAchievementWithHttpInfo(version = version, accountId = accountId, achievementId = achievementId, tag = tag, customId = customId, increment = increment, startDate = startDate, endDate = endDate, returnProgress = returnProgress)
+    fun updateUserAchievement(accountId: kotlin.Long, achievementId: kotlin.Long? = null, tag: kotlin.String? = null, customId: kotlin.Long? = null, increment: kotlin.Long? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, returnProgress: kotlin.Boolean? = null) : SirqulResponse {
+        val localVarResponse = updateUserAchievementWithHttpInfo(accountId = accountId, achievementId = achievementId, tag = tag, customId = customId, increment = increment, startDate = startDate, endDate = endDate, returnProgress = returnProgress)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -1726,10 +1686,9 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/achievement/progress/update
+     * POST /achievement/progress/update
      * Update Achievement Progress
      * Update user achievement progress.
-     * @param version 
      * @param accountId the account id of the user
      * @param achievementId the achievement id (achievementId or tag required) (optional)
      * @param tag the analytic tag to identify an achievement (achievementId or tag required) (optional)
@@ -1744,8 +1703,8 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateUserAchievementWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, achievementId: kotlin.Long?, tag: kotlin.String?, customId: kotlin.Long?, increment: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, returnProgress: kotlin.Boolean?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = updateUserAchievementRequestConfig(version = version, accountId = accountId, achievementId = achievementId, tag = tag, customId = customId, increment = increment, startDate = startDate, endDate = endDate, returnProgress = returnProgress)
+    fun updateUserAchievementWithHttpInfo(accountId: kotlin.Long, achievementId: kotlin.Long?, tag: kotlin.String?, customId: kotlin.Long?, increment: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, returnProgress: kotlin.Boolean?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = updateUserAchievementRequestConfig(accountId = accountId, achievementId = achievementId, tag = tag, customId = customId, increment = increment, startDate = startDate, endDate = endDate, returnProgress = returnProgress)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -1755,7 +1714,6 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation updateUserAchievement
      *
-     * @param version 
      * @param accountId the account id of the user
      * @param achievementId the achievement id (achievementId or tag required) (optional)
      * @param tag the analytic tag to identify an achievement (achievementId or tag required) (optional)
@@ -1766,7 +1724,7 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param returnProgress determines whether to return the achievement progress response (optional)
      * @return RequestConfig
      */
-    fun updateUserAchievementRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, achievementId: kotlin.Long?, tag: kotlin.String?, customId: kotlin.Long?, increment: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, returnProgress: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun updateUserAchievementRequestConfig(accountId: kotlin.Long, achievementId: kotlin.Long?, tag: kotlin.String?, customId: kotlin.Long?, increment: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, returnProgress: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1797,7 +1755,7 @@ open class AchievementApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/achievement/progress/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/achievement/progress/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

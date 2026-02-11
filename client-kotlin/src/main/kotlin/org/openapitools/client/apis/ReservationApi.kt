@@ -43,15 +43,14 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/reservation/create
+     * POST /reservation/create
      * Create Reservation
      * Creates a reservation on an offer object
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param startDate The start date (optional)
@@ -68,8 +67,8 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createReservation(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, offerId: kotlin.Long? = null, offerLocationId: kotlin.Long? = null, appKey: kotlin.String? = null, metaData: kotlin.String? = null) : Unit {
-        val localVarResponse = createReservationWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, startDate = startDate, endDate = endDate, offerId = offerId, offerLocationId = offerLocationId, appKey = appKey, metaData = metaData)
+    fun createReservation(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, offerId: kotlin.Long? = null, offerLocationId: kotlin.Long? = null, appKey: kotlin.String? = null, metaData: kotlin.String? = null) : Unit {
+        val localVarResponse = createReservationWithHttpInfo(deviceId = deviceId, accountId = accountId, startDate = startDate, endDate = endDate, offerId = offerId, offerLocationId = offerLocationId, appKey = appKey, metaData = metaData)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -87,10 +86,9 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/reservation/create
+     * POST /reservation/create
      * Create Reservation
      * Creates a reservation on an offer object
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param startDate The start date (optional)
@@ -104,8 +102,8 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun createReservationWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, appKey: kotlin.String?, metaData: kotlin.String?) : ApiResponse<Unit?> {
-        val localVariableConfig = createReservationRequestConfig(version = version, deviceId = deviceId, accountId = accountId, startDate = startDate, endDate = endDate, offerId = offerId, offerLocationId = offerLocationId, appKey = appKey, metaData = metaData)
+    fun createReservationWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, appKey: kotlin.String?, metaData: kotlin.String?) : ApiResponse<Unit?> {
+        val localVariableConfig = createReservationRequestConfig(deviceId = deviceId, accountId = accountId, startDate = startDate, endDate = endDate, offerId = offerId, offerLocationId = offerLocationId, appKey = appKey, metaData = metaData)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -115,7 +113,6 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation createReservation
      *
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param startDate The start date (optional)
@@ -126,7 +123,7 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param metaData External custom client defined data (optional)
      * @return RequestConfig
      */
-    fun createReservationRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, appKey: kotlin.String?, metaData: kotlin.String?) : RequestConfig<Unit> {
+    fun createReservationRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, appKey: kotlin.String?, metaData: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -159,7 +156,7 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/reservation/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/reservation/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -168,10 +165,9 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/reservation/delete
+     * POST /reservation/delete
      * Delete Reservation
      * Deleted a reservation on a reservation object
-     * @param version 
      * @param reservationId The reservation id
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -183,8 +179,8 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteReservation(version: java.math.BigDecimal, reservationId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : Unit {
-        val localVarResponse = deleteReservationWithHttpInfo(version = version, reservationId = reservationId, deviceId = deviceId, accountId = accountId)
+    fun deleteReservation(reservationId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : Unit {
+        val localVarResponse = deleteReservationWithHttpInfo(reservationId = reservationId, deviceId = deviceId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -202,10 +198,9 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/reservation/delete
+     * POST /reservation/delete
      * Delete Reservation
      * Deleted a reservation on a reservation object
-     * @param version 
      * @param reservationId The reservation id
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -214,8 +209,8 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteReservationWithHttpInfo(version: java.math.BigDecimal, reservationId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<Unit?> {
-        val localVariableConfig = deleteReservationRequestConfig(version = version, reservationId = reservationId, deviceId = deviceId, accountId = accountId)
+    fun deleteReservationWithHttpInfo(reservationId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<Unit?> {
+        val localVariableConfig = deleteReservationRequestConfig(reservationId = reservationId, deviceId = deviceId, accountId = accountId)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -225,13 +220,12 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation deleteReservation
      *
-     * @param version 
      * @param reservationId The reservation id
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @return RequestConfig
      */
-    fun deleteReservationRequestConfig(version: java.math.BigDecimal, reservationId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun deleteReservationRequestConfig(reservationId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -247,7 +241,7 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/reservation/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/reservation/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -309,10 +303,9 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      }
 
     /**
-     * POST /api/{version}/reservable/availability/update
+     * POST /reservable/availability/update
      * Update Availability
      * 
-     * @param version 
      * @param reservableId the id of the reservation
      * @param reservableType the type of reservation
      * @param deviceId the device id of the reservation (optional)
@@ -328,8 +321,8 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun reservableAvailability(version: java.math.BigDecimal, reservableId: kotlin.Long, reservableType: ReservableTypeReservableAvailability, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, availability: kotlin.String? = null, availabilitySummary: kotlin.String? = null) : kotlin.collections.List<AvailabilityResponse> {
-        val localVarResponse = reservableAvailabilityWithHttpInfo(version = version, reservableId = reservableId, reservableType = reservableType, deviceId = deviceId, accountId = accountId, availability = availability, availabilitySummary = availabilitySummary)
+    fun reservableAvailability(reservableId: kotlin.Long, reservableType: ReservableTypeReservableAvailability, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, availability: kotlin.String? = null, availabilitySummary: kotlin.String? = null) : kotlin.collections.List<AvailabilityResponse> {
+        val localVarResponse = reservableAvailabilityWithHttpInfo(reservableId = reservableId, reservableType = reservableType, deviceId = deviceId, accountId = accountId, availability = availability, availabilitySummary = availabilitySummary)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<AvailabilityResponse>
@@ -347,10 +340,9 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/reservable/availability/update
+     * POST /reservable/availability/update
      * Update Availability
      * 
-     * @param version 
      * @param reservableId the id of the reservation
      * @param reservableType the type of reservation
      * @param deviceId the device id of the reservation (optional)
@@ -363,8 +355,8 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun reservableAvailabilityWithHttpInfo(version: java.math.BigDecimal, reservableId: kotlin.Long, reservableType: ReservableTypeReservableAvailability, deviceId: kotlin.String?, accountId: kotlin.Long?, availability: kotlin.String?, availabilitySummary: kotlin.String?) : ApiResponse<kotlin.collections.List<AvailabilityResponse>?> {
-        val localVariableConfig = reservableAvailabilityRequestConfig(version = version, reservableId = reservableId, reservableType = reservableType, deviceId = deviceId, accountId = accountId, availability = availability, availabilitySummary = availabilitySummary)
+    fun reservableAvailabilityWithHttpInfo(reservableId: kotlin.Long, reservableType: ReservableTypeReservableAvailability, deviceId: kotlin.String?, accountId: kotlin.Long?, availability: kotlin.String?, availabilitySummary: kotlin.String?) : ApiResponse<kotlin.collections.List<AvailabilityResponse>?> {
+        val localVariableConfig = reservableAvailabilityRequestConfig(reservableId = reservableId, reservableType = reservableType, deviceId = deviceId, accountId = accountId, availability = availability, availabilitySummary = availabilitySummary)
 
         return request<Unit, kotlin.collections.List<AvailabilityResponse>>(
             localVariableConfig
@@ -374,7 +366,6 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation reservableAvailability
      *
-     * @param version 
      * @param reservableId the id of the reservation
      * @param reservableType the type of reservation
      * @param deviceId the device id of the reservation (optional)
@@ -383,7 +374,7 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param availabilitySummary Availability Summary (optional)
      * @return RequestConfig
      */
-    fun reservableAvailabilityRequestConfig(version: java.math.BigDecimal, reservableId: kotlin.Long, reservableType: ReservableTypeReservableAvailability, deviceId: kotlin.String?, accountId: kotlin.Long?, availability: kotlin.String?, availabilitySummary: kotlin.String?) : RequestConfig<Unit> {
+    fun reservableAvailabilityRequestConfig(reservableId: kotlin.Long, reservableType: ReservableTypeReservableAvailability, deviceId: kotlin.String?, accountId: kotlin.Long?, availability: kotlin.String?, availabilitySummary: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -406,7 +397,7 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/reservable/availability/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/reservable/availability/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -468,10 +459,9 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      }
 
     /**
-     * GET /api/{version}/reservable/availability/search
+     * GET /reservable/availability/search
      * Search Availability
      * 
-     * @param version 
      * @param reservableId the id of the reservation
      * @param reservableType the reservable type
      * @param deviceId the device ID that the reservation is on (optional)
@@ -489,8 +479,8 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchAvailability(version: java.math.BigDecimal, reservableId: kotlin.Long, reservableType: ReservableTypeSearchAvailability, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, start: kotlin.Int? = 0, limit: kotlin.Int? = 100) : kotlin.collections.List<AvailabilityResponse> {
-        val localVarResponse = searchAvailabilityWithHttpInfo(version = version, reservableId = reservableId, reservableType = reservableType, deviceId = deviceId, accountId = accountId, startDate = startDate, endDate = endDate, start = start, limit = limit)
+    fun searchAvailability(reservableId: kotlin.Long, reservableType: ReservableTypeSearchAvailability, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, start: kotlin.Int? = 0, limit: kotlin.Int? = 100) : kotlin.collections.List<AvailabilityResponse> {
+        val localVarResponse = searchAvailabilityWithHttpInfo(reservableId = reservableId, reservableType = reservableType, deviceId = deviceId, accountId = accountId, startDate = startDate, endDate = endDate, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<AvailabilityResponse>
@@ -508,10 +498,9 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/reservable/availability/search
+     * GET /reservable/availability/search
      * Search Availability
      * 
-     * @param version 
      * @param reservableId the id of the reservation
      * @param reservableType the reservable type
      * @param deviceId the device ID that the reservation is on (optional)
@@ -526,8 +515,8 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchAvailabilityWithHttpInfo(version: java.math.BigDecimal, reservableId: kotlin.Long, reservableType: ReservableTypeSearchAvailability, deviceId: kotlin.String?, accountId: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<AvailabilityResponse>?> {
-        val localVariableConfig = searchAvailabilityRequestConfig(version = version, reservableId = reservableId, reservableType = reservableType, deviceId = deviceId, accountId = accountId, startDate = startDate, endDate = endDate, start = start, limit = limit)
+    fun searchAvailabilityWithHttpInfo(reservableId: kotlin.Long, reservableType: ReservableTypeSearchAvailability, deviceId: kotlin.String?, accountId: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<AvailabilityResponse>?> {
+        val localVariableConfig = searchAvailabilityRequestConfig(reservableId = reservableId, reservableType = reservableType, deviceId = deviceId, accountId = accountId, startDate = startDate, endDate = endDate, start = start, limit = limit)
 
         return request<Unit, kotlin.collections.List<AvailabilityResponse>>(
             localVariableConfig
@@ -537,7 +526,6 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation searchAvailability
      *
-     * @param version 
      * @param reservableId the id of the reservation
      * @param reservableType the reservable type
      * @param deviceId the device ID that the reservation is on (optional)
@@ -548,7 +536,7 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param limit the limit of the index and/or pagination (optional, default to 100)
      * @return RequestConfig
      */
-    fun searchAvailabilityRequestConfig(version: java.math.BigDecimal, reservableId: kotlin.Long, reservableType: ReservableTypeSearchAvailability, deviceId: kotlin.String?, accountId: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchAvailabilityRequestConfig(reservableId: kotlin.Long, reservableType: ReservableTypeSearchAvailability, deviceId: kotlin.String?, accountId: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -577,7 +565,7 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/reservable/availability/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/reservable/availability/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -639,10 +627,9 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      }
 
     /**
-     * GET /api/{version}/reservation/search
+     * GET /reservation/search
      * Search Reservations
      * 
-     * @param version 
      * @param deviceId Device Id (optional)
      * @param appKey Appilcation Key (optional)
      * @param accountId the id of the logged in user (optional)
@@ -663,8 +650,8 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchReservations(version: java.math.BigDecimal, deviceId: kotlin.String? = null, appKey: kotlin.String? = null, accountId: kotlin.Long? = null, filterAccountId: kotlin.Long? = null, reservableId: kotlin.Long? = null, reservableType: ReservableTypeSearchReservations? = null, keyword: kotlin.String? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, start: kotlin.Int? = 0, limit: kotlin.Int? = 100) : kotlin.collections.List<ReservationResponse> {
-        val localVarResponse = searchReservationsWithHttpInfo(version = version, deviceId = deviceId, appKey = appKey, accountId = accountId, filterAccountId = filterAccountId, reservableId = reservableId, reservableType = reservableType, keyword = keyword, startDate = startDate, endDate = endDate, start = start, limit = limit)
+    fun searchReservations(deviceId: kotlin.String? = null, appKey: kotlin.String? = null, accountId: kotlin.Long? = null, filterAccountId: kotlin.Long? = null, reservableId: kotlin.Long? = null, reservableType: ReservableTypeSearchReservations? = null, keyword: kotlin.String? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, start: kotlin.Int? = 0, limit: kotlin.Int? = 100) : kotlin.collections.List<ReservationResponse> {
+        val localVarResponse = searchReservationsWithHttpInfo(deviceId = deviceId, appKey = appKey, accountId = accountId, filterAccountId = filterAccountId, reservableId = reservableId, reservableType = reservableType, keyword = keyword, startDate = startDate, endDate = endDate, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<ReservationResponse>
@@ -682,10 +669,9 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/reservation/search
+     * GET /reservation/search
      * Search Reservations
      * 
-     * @param version 
      * @param deviceId Device Id (optional)
      * @param appKey Appilcation Key (optional)
      * @param accountId the id of the logged in user (optional)
@@ -703,8 +689,8 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchReservationsWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, appKey: kotlin.String?, accountId: kotlin.Long?, filterAccountId: kotlin.Long?, reservableId: kotlin.Long?, reservableType: ReservableTypeSearchReservations?, keyword: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<ReservationResponse>?> {
-        val localVariableConfig = searchReservationsRequestConfig(version = version, deviceId = deviceId, appKey = appKey, accountId = accountId, filterAccountId = filterAccountId, reservableId = reservableId, reservableType = reservableType, keyword = keyword, startDate = startDate, endDate = endDate, start = start, limit = limit)
+    fun searchReservationsWithHttpInfo(deviceId: kotlin.String?, appKey: kotlin.String?, accountId: kotlin.Long?, filterAccountId: kotlin.Long?, reservableId: kotlin.Long?, reservableType: ReservableTypeSearchReservations?, keyword: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<ReservationResponse>?> {
+        val localVariableConfig = searchReservationsRequestConfig(deviceId = deviceId, appKey = appKey, accountId = accountId, filterAccountId = filterAccountId, reservableId = reservableId, reservableType = reservableType, keyword = keyword, startDate = startDate, endDate = endDate, start = start, limit = limit)
 
         return request<Unit, kotlin.collections.List<ReservationResponse>>(
             localVariableConfig
@@ -714,7 +700,6 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation searchReservations
      *
-     * @param version 
      * @param deviceId Device Id (optional)
      * @param appKey Appilcation Key (optional)
      * @param accountId the id of the logged in user (optional)
@@ -728,7 +713,7 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param limit the limit of the index and/or pagination (optional, default to 100)
      * @return RequestConfig
      */
-    fun searchReservationsRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, appKey: kotlin.String?, accountId: kotlin.Long?, filterAccountId: kotlin.Long?, reservableId: kotlin.Long?, reservableType: ReservableTypeSearchReservations?, keyword: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchReservationsRequestConfig(deviceId: kotlin.String?, appKey: kotlin.String?, accountId: kotlin.Long?, filterAccountId: kotlin.Long?, reservableId: kotlin.Long?, reservableType: ReservableTypeSearchReservations?, keyword: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -770,7 +755,7 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/reservation/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/reservation/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -832,10 +817,9 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      }
 
     /**
-     * GET /api/{version}/reservable/schedule/search
+     * GET /reservable/schedule/search
      * Search Schedule
      * 
-     * @param version 
      * @param reservableId the id of the reservation
      * @param reservableType the reservation type
      * @param startDate the start date of the reservation
@@ -852,8 +836,8 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchSchedule(version: java.math.BigDecimal, reservableId: kotlin.Long, reservableType: ReservableTypeSearchSchedule, startDate: kotlin.Long, endDate: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, timeBucketMins: kotlin.Int? = 30) : kotlin.collections.List<TimeSlotResponse> {
-        val localVarResponse = searchScheduleWithHttpInfo(version = version, reservableId = reservableId, reservableType = reservableType, startDate = startDate, endDate = endDate, deviceId = deviceId, accountId = accountId, timeBucketMins = timeBucketMins)
+    fun searchSchedule(reservableId: kotlin.Long, reservableType: ReservableTypeSearchSchedule, startDate: kotlin.Long, endDate: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, timeBucketMins: kotlin.Int? = 30) : kotlin.collections.List<TimeSlotResponse> {
+        val localVarResponse = searchScheduleWithHttpInfo(reservableId = reservableId, reservableType = reservableType, startDate = startDate, endDate = endDate, deviceId = deviceId, accountId = accountId, timeBucketMins = timeBucketMins)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<TimeSlotResponse>
@@ -871,10 +855,9 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/reservable/schedule/search
+     * GET /reservable/schedule/search
      * Search Schedule
      * 
-     * @param version 
      * @param reservableId the id of the reservation
      * @param reservableType the reservation type
      * @param startDate the start date of the reservation
@@ -888,8 +871,8 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchScheduleWithHttpInfo(version: java.math.BigDecimal, reservableId: kotlin.Long, reservableType: ReservableTypeSearchSchedule, startDate: kotlin.Long, endDate: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, timeBucketMins: kotlin.Int?) : ApiResponse<kotlin.collections.List<TimeSlotResponse>?> {
-        val localVariableConfig = searchScheduleRequestConfig(version = version, reservableId = reservableId, reservableType = reservableType, startDate = startDate, endDate = endDate, deviceId = deviceId, accountId = accountId, timeBucketMins = timeBucketMins)
+    fun searchScheduleWithHttpInfo(reservableId: kotlin.Long, reservableType: ReservableTypeSearchSchedule, startDate: kotlin.Long, endDate: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, timeBucketMins: kotlin.Int?) : ApiResponse<kotlin.collections.List<TimeSlotResponse>?> {
+        val localVariableConfig = searchScheduleRequestConfig(reservableId = reservableId, reservableType = reservableType, startDate = startDate, endDate = endDate, deviceId = deviceId, accountId = accountId, timeBucketMins = timeBucketMins)
 
         return request<Unit, kotlin.collections.List<TimeSlotResponse>>(
             localVariableConfig
@@ -899,7 +882,6 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation searchSchedule
      *
-     * @param version 
      * @param reservableId the id of the reservation
      * @param reservableType the reservation type
      * @param startDate the start date of the reservation
@@ -909,7 +891,7 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param timeBucketMins the length of time in minutes to search on for reservation (optional, default to 30)
      * @return RequestConfig
      */
-    fun searchScheduleRequestConfig(version: java.math.BigDecimal, reservableId: kotlin.Long, reservableType: ReservableTypeSearchSchedule, startDate: kotlin.Long, endDate: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, timeBucketMins: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchScheduleRequestConfig(reservableId: kotlin.Long, reservableType: ReservableTypeSearchSchedule, startDate: kotlin.Long, endDate: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, timeBucketMins: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -931,7 +913,7 @@ open class ReservationApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/reservable/schedule/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/reservable/schedule/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

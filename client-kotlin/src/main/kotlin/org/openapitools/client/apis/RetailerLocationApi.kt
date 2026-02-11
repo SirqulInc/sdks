@@ -42,15 +42,14 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/location/create
+     * POST /location/create
      * Create Retailer Location (Consumer)
      * Creates a location record for an application that can support crowd sourced locations.
-     * @param version 
      * @param appKey the application key
      * @param name The name of the retailer location
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -89,8 +88,8 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createRetailerLocationConsumer(version: java.math.BigDecimal, appKey: kotlin.String, name: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, streetAddress: kotlin.String? = null, streetAddress2: kotlin.String? = null, city: kotlin.String? = null, state: kotlin.String? = null, postalCode: kotlin.String? = null, country: kotlin.String? = null, businessPhone: kotlin.String? = null, businessPhoneExt: kotlin.String? = null, website: kotlin.String? = null, email: kotlin.String? = null, detailsHeader: kotlin.String? = null, detailsBody: kotlin.String? = null, hours: kotlin.String? = null, tags: kotlin.String? = null, logoAssetId: kotlin.Long? = null, picture1AssetId: kotlin.Long? = null, picture2AssetId: kotlin.Long? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, metaData: kotlin.String? = null, publicLocation: kotlin.Boolean? = null, active: kotlin.Boolean? = null, locationType: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : RetailerLocationResponse {
-        val localVarResponse = createRetailerLocationConsumerWithHttpInfo(version = version, appKey = appKey, name = name, deviceId = deviceId, accountId = accountId, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, country = country, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, website = website, email = email, detailsHeader = detailsHeader, detailsBody = detailsBody, hours = hours, tags = tags, logoAssetId = logoAssetId, picture1AssetId = picture1AssetId, picture2AssetId = picture2AssetId, categoryIds = categoryIds, filterIds = filterIds, metaData = metaData, publicLocation = publicLocation, active = active, locationType = locationType, latitude = latitude, longitude = longitude)
+    fun createRetailerLocationConsumer(appKey: kotlin.String, name: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, streetAddress: kotlin.String? = null, streetAddress2: kotlin.String? = null, city: kotlin.String? = null, state: kotlin.String? = null, postalCode: kotlin.String? = null, country: kotlin.String? = null, businessPhone: kotlin.String? = null, businessPhoneExt: kotlin.String? = null, website: kotlin.String? = null, email: kotlin.String? = null, detailsHeader: kotlin.String? = null, detailsBody: kotlin.String? = null, hours: kotlin.String? = null, tags: kotlin.String? = null, logoAssetId: kotlin.Long? = null, picture1AssetId: kotlin.Long? = null, picture2AssetId: kotlin.Long? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, metaData: kotlin.String? = null, publicLocation: kotlin.Boolean? = null, active: kotlin.Boolean? = null, locationType: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : RetailerLocationResponse {
+        val localVarResponse = createRetailerLocationConsumerWithHttpInfo(appKey = appKey, name = name, deviceId = deviceId, accountId = accountId, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, country = country, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, website = website, email = email, detailsHeader = detailsHeader, detailsBody = detailsBody, hours = hours, tags = tags, logoAssetId = logoAssetId, picture1AssetId = picture1AssetId, picture2AssetId = picture2AssetId, categoryIds = categoryIds, filterIds = filterIds, metaData = metaData, publicLocation = publicLocation, active = active, locationType = locationType, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as RetailerLocationResponse
@@ -108,10 +107,9 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
     }
 
     /**
-     * POST /api/{version}/location/create
+     * POST /location/create
      * Create Retailer Location (Consumer)
      * Creates a location record for an application that can support crowd sourced locations.
-     * @param version 
      * @param appKey the application key
      * @param name The name of the retailer location
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -147,8 +145,8 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createRetailerLocationConsumerWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String, name: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, country: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, website: kotlin.String?, email: kotlin.String?, detailsHeader: kotlin.String?, detailsBody: kotlin.String?, hours: kotlin.String?, tags: kotlin.String?, logoAssetId: kotlin.Long?, picture1AssetId: kotlin.Long?, picture2AssetId: kotlin.Long?, categoryIds: kotlin.String?, filterIds: kotlin.String?, metaData: kotlin.String?, publicLocation: kotlin.Boolean?, active: kotlin.Boolean?, locationType: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<RetailerLocationResponse?> {
-        val localVariableConfig = createRetailerLocationConsumerRequestConfig(version = version, appKey = appKey, name = name, deviceId = deviceId, accountId = accountId, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, country = country, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, website = website, email = email, detailsHeader = detailsHeader, detailsBody = detailsBody, hours = hours, tags = tags, logoAssetId = logoAssetId, picture1AssetId = picture1AssetId, picture2AssetId = picture2AssetId, categoryIds = categoryIds, filterIds = filterIds, metaData = metaData, publicLocation = publicLocation, active = active, locationType = locationType, latitude = latitude, longitude = longitude)
+    fun createRetailerLocationConsumerWithHttpInfo(appKey: kotlin.String, name: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, country: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, website: kotlin.String?, email: kotlin.String?, detailsHeader: kotlin.String?, detailsBody: kotlin.String?, hours: kotlin.String?, tags: kotlin.String?, logoAssetId: kotlin.Long?, picture1AssetId: kotlin.Long?, picture2AssetId: kotlin.Long?, categoryIds: kotlin.String?, filterIds: kotlin.String?, metaData: kotlin.String?, publicLocation: kotlin.Boolean?, active: kotlin.Boolean?, locationType: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<RetailerLocationResponse?> {
+        val localVariableConfig = createRetailerLocationConsumerRequestConfig(appKey = appKey, name = name, deviceId = deviceId, accountId = accountId, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, country = country, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, website = website, email = email, detailsHeader = detailsHeader, detailsBody = detailsBody, hours = hours, tags = tags, logoAssetId = logoAssetId, picture1AssetId = picture1AssetId, picture2AssetId = picture2AssetId, categoryIds = categoryIds, filterIds = filterIds, metaData = metaData, publicLocation = publicLocation, active = active, locationType = locationType, latitude = latitude, longitude = longitude)
 
         return request<Unit, RetailerLocationResponse>(
             localVariableConfig
@@ -158,7 +156,6 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
     /**
      * To obtain the request config of the operation createRetailerLocationConsumer
      *
-     * @param version 
      * @param appKey the application key
      * @param name The name of the retailer location
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -190,7 +187,7 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      * @param longitude The longitude to center the search on (optional)
      * @return RequestConfig
      */
-    fun createRetailerLocationConsumerRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String, name: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, country: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, website: kotlin.String?, email: kotlin.String?, detailsHeader: kotlin.String?, detailsBody: kotlin.String?, hours: kotlin.String?, tags: kotlin.String?, logoAssetId: kotlin.Long?, picture1AssetId: kotlin.Long?, picture2AssetId: kotlin.Long?, categoryIds: kotlin.String?, filterIds: kotlin.String?, metaData: kotlin.String?, publicLocation: kotlin.Boolean?, active: kotlin.Boolean?, locationType: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun createRetailerLocationConsumerRequestConfig(appKey: kotlin.String, name: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, country: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, website: kotlin.String?, email: kotlin.String?, detailsHeader: kotlin.String?, detailsBody: kotlin.String?, hours: kotlin.String?, tags: kotlin.String?, logoAssetId: kotlin.Long?, picture1AssetId: kotlin.Long?, picture2AssetId: kotlin.Long?, categoryIds: kotlin.String?, filterIds: kotlin.String?, metaData: kotlin.String?, publicLocation: kotlin.Boolean?, active: kotlin.Boolean?, locationType: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -282,7 +279,7 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/location/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/location/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -310,10 +307,9 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      }
 
     /**
-     * POST /api/{version}/retailer/location/create
+     * POST /retailer/location/create
      * Create Retailer Location
      * Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-     * @param version 
      * @param retailerId The ID of the retailer
      * @param name The name of the retailer location
      * @param streetAddress The street address of the retailer location
@@ -362,8 +358,8 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createRetailerLocations(version: java.math.BigDecimal, retailerId: kotlin.Long, name: kotlin.String, streetAddress: kotlin.String, city: kotlin.String, state: kotlin.String, postalCode: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, streetAddress2: kotlin.String? = null, country: kotlin.String? = null, businessPhone: kotlin.String? = null, businessPhoneExt: kotlin.String? = null, website: kotlin.String? = null, email: kotlin.String? = null, internalId: kotlin.String? = null, detailsHeader: kotlin.String? = null, detailsBody: kotlin.String? = null, hours: kotlin.String? = null, logo: java.io.File? = null, logoAssetId: kotlin.Long? = null, picture1: java.io.File? = null, picture1AssetId: kotlin.Long? = null, picture2: java.io.File? = null, picture2AssetId: kotlin.Long? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, building: kotlin.String? = null, googlePlaceId: kotlin.String? = null, yelpId: kotlin.String? = null, active: kotlin.Boolean? = null, publicLocation: kotlin.Boolean? = null, locationType: kotlin.String? = null, audienceIds: kotlin.String? = null, audienceIdsToAdd: kotlin.String? = null, audienceIdsToRemove: kotlin.String? = null, responseFormat: ResponseFormatCreateRetailerLocations? = null, responseIncludes: kotlin.String? = null) : RetailerLocationResponse {
-        val localVarResponse = createRetailerLocationsWithHttpInfo(version = version, retailerId = retailerId, name = name, streetAddress = streetAddress, city = city, state = state, postalCode = postalCode, deviceId = deviceId, accountId = accountId, streetAddress2 = streetAddress2, country = country, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, website = website, email = email, internalId = internalId, detailsHeader = detailsHeader, detailsBody = detailsBody, hours = hours, logo = logo, logoAssetId = logoAssetId, picture1 = picture1, picture1AssetId = picture1AssetId, picture2 = picture2, picture2AssetId = picture2AssetId, categoryIds = categoryIds, filterIds = filterIds, latitude = latitude, longitude = longitude, building = building, googlePlaceId = googlePlaceId, yelpId = yelpId, active = active, publicLocation = publicLocation, locationType = locationType, audienceIds = audienceIds, audienceIdsToAdd = audienceIdsToAdd, audienceIdsToRemove = audienceIdsToRemove, responseFormat = responseFormat, responseIncludes = responseIncludes)
+    fun createRetailerLocations(retailerId: kotlin.Long, name: kotlin.String, streetAddress: kotlin.String, city: kotlin.String, state: kotlin.String, postalCode: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, streetAddress2: kotlin.String? = null, country: kotlin.String? = null, businessPhone: kotlin.String? = null, businessPhoneExt: kotlin.String? = null, website: kotlin.String? = null, email: kotlin.String? = null, internalId: kotlin.String? = null, detailsHeader: kotlin.String? = null, detailsBody: kotlin.String? = null, hours: kotlin.String? = null, logo: java.io.File? = null, logoAssetId: kotlin.Long? = null, picture1: java.io.File? = null, picture1AssetId: kotlin.Long? = null, picture2: java.io.File? = null, picture2AssetId: kotlin.Long? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, building: kotlin.String? = null, googlePlaceId: kotlin.String? = null, yelpId: kotlin.String? = null, active: kotlin.Boolean? = null, publicLocation: kotlin.Boolean? = null, locationType: kotlin.String? = null, audienceIds: kotlin.String? = null, audienceIdsToAdd: kotlin.String? = null, audienceIdsToRemove: kotlin.String? = null, responseFormat: ResponseFormatCreateRetailerLocations? = null, responseIncludes: kotlin.String? = null) : RetailerLocationResponse {
+        val localVarResponse = createRetailerLocationsWithHttpInfo(retailerId = retailerId, name = name, streetAddress = streetAddress, city = city, state = state, postalCode = postalCode, deviceId = deviceId, accountId = accountId, streetAddress2 = streetAddress2, country = country, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, website = website, email = email, internalId = internalId, detailsHeader = detailsHeader, detailsBody = detailsBody, hours = hours, logo = logo, logoAssetId = logoAssetId, picture1 = picture1, picture1AssetId = picture1AssetId, picture2 = picture2, picture2AssetId = picture2AssetId, categoryIds = categoryIds, filterIds = filterIds, latitude = latitude, longitude = longitude, building = building, googlePlaceId = googlePlaceId, yelpId = yelpId, active = active, publicLocation = publicLocation, locationType = locationType, audienceIds = audienceIds, audienceIdsToAdd = audienceIdsToAdd, audienceIdsToRemove = audienceIdsToRemove, responseFormat = responseFormat, responseIncludes = responseIncludes)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as RetailerLocationResponse
@@ -381,10 +377,9 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
     }
 
     /**
-     * POST /api/{version}/retailer/location/create
+     * POST /retailer/location/create
      * Create Retailer Location
      * Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-     * @param version 
      * @param retailerId The ID of the retailer
      * @param name The name of the retailer location
      * @param streetAddress The street address of the retailer location
@@ -430,8 +425,8 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createRetailerLocationsWithHttpInfo(version: java.math.BigDecimal, retailerId: kotlin.Long, name: kotlin.String, streetAddress: kotlin.String, city: kotlin.String, state: kotlin.String, postalCode: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, streetAddress2: kotlin.String?, country: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, website: kotlin.String?, email: kotlin.String?, internalId: kotlin.String?, detailsHeader: kotlin.String?, detailsBody: kotlin.String?, hours: kotlin.String?, logo: java.io.File?, logoAssetId: kotlin.Long?, picture1: java.io.File?, picture1AssetId: kotlin.Long?, picture2: java.io.File?, picture2AssetId: kotlin.Long?, categoryIds: kotlin.String?, filterIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, building: kotlin.String?, googlePlaceId: kotlin.String?, yelpId: kotlin.String?, active: kotlin.Boolean?, publicLocation: kotlin.Boolean?, locationType: kotlin.String?, audienceIds: kotlin.String?, audienceIdsToAdd: kotlin.String?, audienceIdsToRemove: kotlin.String?, responseFormat: ResponseFormatCreateRetailerLocations?, responseIncludes: kotlin.String?) : ApiResponse<RetailerLocationResponse?> {
-        val localVariableConfig = createRetailerLocationsRequestConfig(version = version, retailerId = retailerId, name = name, streetAddress = streetAddress, city = city, state = state, postalCode = postalCode, deviceId = deviceId, accountId = accountId, streetAddress2 = streetAddress2, country = country, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, website = website, email = email, internalId = internalId, detailsHeader = detailsHeader, detailsBody = detailsBody, hours = hours, logo = logo, logoAssetId = logoAssetId, picture1 = picture1, picture1AssetId = picture1AssetId, picture2 = picture2, picture2AssetId = picture2AssetId, categoryIds = categoryIds, filterIds = filterIds, latitude = latitude, longitude = longitude, building = building, googlePlaceId = googlePlaceId, yelpId = yelpId, active = active, publicLocation = publicLocation, locationType = locationType, audienceIds = audienceIds, audienceIdsToAdd = audienceIdsToAdd, audienceIdsToRemove = audienceIdsToRemove, responseFormat = responseFormat, responseIncludes = responseIncludes)
+    fun createRetailerLocationsWithHttpInfo(retailerId: kotlin.Long, name: kotlin.String, streetAddress: kotlin.String, city: kotlin.String, state: kotlin.String, postalCode: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, streetAddress2: kotlin.String?, country: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, website: kotlin.String?, email: kotlin.String?, internalId: kotlin.String?, detailsHeader: kotlin.String?, detailsBody: kotlin.String?, hours: kotlin.String?, logo: java.io.File?, logoAssetId: kotlin.Long?, picture1: java.io.File?, picture1AssetId: kotlin.Long?, picture2: java.io.File?, picture2AssetId: kotlin.Long?, categoryIds: kotlin.String?, filterIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, building: kotlin.String?, googlePlaceId: kotlin.String?, yelpId: kotlin.String?, active: kotlin.Boolean?, publicLocation: kotlin.Boolean?, locationType: kotlin.String?, audienceIds: kotlin.String?, audienceIdsToAdd: kotlin.String?, audienceIdsToRemove: kotlin.String?, responseFormat: ResponseFormatCreateRetailerLocations?, responseIncludes: kotlin.String?) : ApiResponse<RetailerLocationResponse?> {
+        val localVariableConfig = createRetailerLocationsRequestConfig(retailerId = retailerId, name = name, streetAddress = streetAddress, city = city, state = state, postalCode = postalCode, deviceId = deviceId, accountId = accountId, streetAddress2 = streetAddress2, country = country, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, website = website, email = email, internalId = internalId, detailsHeader = detailsHeader, detailsBody = detailsBody, hours = hours, logo = logo, logoAssetId = logoAssetId, picture1 = picture1, picture1AssetId = picture1AssetId, picture2 = picture2, picture2AssetId = picture2AssetId, categoryIds = categoryIds, filterIds = filterIds, latitude = latitude, longitude = longitude, building = building, googlePlaceId = googlePlaceId, yelpId = yelpId, active = active, publicLocation = publicLocation, locationType = locationType, audienceIds = audienceIds, audienceIdsToAdd = audienceIdsToAdd, audienceIdsToRemove = audienceIdsToRemove, responseFormat = responseFormat, responseIncludes = responseIncludes)
 
         return request<Unit, RetailerLocationResponse>(
             localVariableConfig
@@ -441,7 +436,6 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
     /**
      * To obtain the request config of the operation createRetailerLocations
      *
-     * @param version 
      * @param retailerId The ID of the retailer
      * @param name The name of the retailer location
      * @param streetAddress The street address of the retailer location
@@ -483,7 +477,7 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      * @param responseIncludes Comma separated list of response includes (e.g. RETAILER,ASSETS,OFFERS,CATEGORIES,FILTERS,AUDIENCES,QRCODE) (optional)
      * @return RequestConfig
      */
-    fun createRetailerLocationsRequestConfig(version: java.math.BigDecimal, retailerId: kotlin.Long, name: kotlin.String, streetAddress: kotlin.String, city: kotlin.String, state: kotlin.String, postalCode: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, streetAddress2: kotlin.String?, country: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, website: kotlin.String?, email: kotlin.String?, internalId: kotlin.String?, detailsHeader: kotlin.String?, detailsBody: kotlin.String?, hours: kotlin.String?, logo: java.io.File?, logoAssetId: kotlin.Long?, picture1: java.io.File?, picture1AssetId: kotlin.Long?, picture2: java.io.File?, picture2AssetId: kotlin.Long?, categoryIds: kotlin.String?, filterIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, building: kotlin.String?, googlePlaceId: kotlin.String?, yelpId: kotlin.String?, active: kotlin.Boolean?, publicLocation: kotlin.Boolean?, locationType: kotlin.String?, audienceIds: kotlin.String?, audienceIdsToAdd: kotlin.String?, audienceIdsToRemove: kotlin.String?, responseFormat: ResponseFormatCreateRetailerLocations?, responseIncludes: kotlin.String?) : RequestConfig<Unit> {
+    fun createRetailerLocationsRequestConfig(retailerId: kotlin.Long, name: kotlin.String, streetAddress: kotlin.String, city: kotlin.String, state: kotlin.String, postalCode: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, streetAddress2: kotlin.String?, country: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, website: kotlin.String?, email: kotlin.String?, internalId: kotlin.String?, detailsHeader: kotlin.String?, detailsBody: kotlin.String?, hours: kotlin.String?, logo: java.io.File?, logoAssetId: kotlin.Long?, picture1: java.io.File?, picture1AssetId: kotlin.Long?, picture2: java.io.File?, picture2AssetId: kotlin.Long?, categoryIds: kotlin.String?, filterIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, building: kotlin.String?, googlePlaceId: kotlin.String?, yelpId: kotlin.String?, active: kotlin.Boolean?, publicLocation: kotlin.Boolean?, locationType: kotlin.String?, audienceIds: kotlin.String?, audienceIdsToAdd: kotlin.String?, audienceIdsToRemove: kotlin.String?, responseFormat: ResponseFormatCreateRetailerLocations?, responseIncludes: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -597,7 +591,7 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/retailer/location/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/retailer/location/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -606,10 +600,9 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
     }
 
     /**
-     * POST /api/{version}/retailer/location/delete
+     * POST /retailer/location/delete
      * Delete Retailer Location
      * Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
-     * @param version 
      * @param deviceId the device id (optional)
      * @param accountId the id of the logged in user (optional)
      * @param retailerLocationId the id of the retailer location to delete (optional)
@@ -622,8 +615,8 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteRetailerLocation(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = deleteRetailerLocationWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, retailerLocationId = retailerLocationId)
+    fun deleteRetailerLocation(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = deleteRetailerLocationWithHttpInfo(deviceId = deviceId, accountId = accountId, retailerLocationId = retailerLocationId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -641,10 +634,9 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
     }
 
     /**
-     * POST /api/{version}/retailer/location/delete
+     * POST /retailer/location/delete
      * Delete Retailer Location
      * Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
-     * @param version 
      * @param deviceId the device id (optional)
      * @param accountId the id of the logged in user (optional)
      * @param retailerLocationId the id of the retailer location to delete (optional)
@@ -654,8 +646,8 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteRetailerLocationWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, retailerLocationId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteRetailerLocationRequestConfig(version = version, deviceId = deviceId, accountId = accountId, retailerLocationId = retailerLocationId)
+    fun deleteRetailerLocationWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, retailerLocationId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteRetailerLocationRequestConfig(deviceId = deviceId, accountId = accountId, retailerLocationId = retailerLocationId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -665,13 +657,12 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
     /**
      * To obtain the request config of the operation deleteRetailerLocation
      *
-     * @param version 
      * @param deviceId the device id (optional)
      * @param accountId the id of the logged in user (optional)
      * @param retailerLocationId the id of the retailer location to delete (optional)
      * @return RequestConfig
      */
-    fun deleteRetailerLocationRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, retailerLocationId: kotlin.Long?) : RequestConfig<Unit> {
+    fun deleteRetailerLocationRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, retailerLocationId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -689,7 +680,7 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/retailer/location/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/retailer/location/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -698,10 +689,9 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
     }
 
     /**
-     * GET /api/{version}/retailer/location/get
+     * GET /retailer/location/get
      * Get Retailer Location
      * Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
-     * @param version 
      * @param retailerLocationId The ID of the retailer location
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -715,8 +705,8 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRetailerLocation(version: java.math.BigDecimal, retailerLocationId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, retailerLocationToken: kotlin.String? = null) : RetailerLocationResponse {
-        val localVarResponse = getRetailerLocationWithHttpInfo(version = version, retailerLocationId = retailerLocationId, deviceId = deviceId, accountId = accountId, retailerLocationToken = retailerLocationToken)
+    fun getRetailerLocation(retailerLocationId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, retailerLocationToken: kotlin.String? = null) : RetailerLocationResponse {
+        val localVarResponse = getRetailerLocationWithHttpInfo(retailerLocationId = retailerLocationId, deviceId = deviceId, accountId = accountId, retailerLocationToken = retailerLocationToken)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as RetailerLocationResponse
@@ -734,10 +724,9 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
     }
 
     /**
-     * GET /api/{version}/retailer/location/get
+     * GET /retailer/location/get
      * Get Retailer Location
      * Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
-     * @param version 
      * @param retailerLocationId The ID of the retailer location
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -748,8 +737,8 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRetailerLocationWithHttpInfo(version: java.math.BigDecimal, retailerLocationId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, retailerLocationToken: kotlin.String?) : ApiResponse<RetailerLocationResponse?> {
-        val localVariableConfig = getRetailerLocationRequestConfig(version = version, retailerLocationId = retailerLocationId, deviceId = deviceId, accountId = accountId, retailerLocationToken = retailerLocationToken)
+    fun getRetailerLocationWithHttpInfo(retailerLocationId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, retailerLocationToken: kotlin.String?) : ApiResponse<RetailerLocationResponse?> {
+        val localVariableConfig = getRetailerLocationRequestConfig(retailerLocationId = retailerLocationId, deviceId = deviceId, accountId = accountId, retailerLocationToken = retailerLocationToken)
 
         return request<Unit, RetailerLocationResponse>(
             localVariableConfig
@@ -759,14 +748,13 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
     /**
      * To obtain the request config of the operation getRetailerLocation
      *
-     * @param version 
      * @param retailerLocationId The ID of the retailer location
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param retailerLocationToken the unique token of the retailer location (optional)
      * @return RequestConfig
      */
-    fun getRetailerLocationRequestConfig(version: java.math.BigDecimal, retailerLocationId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, retailerLocationToken: kotlin.String?) : RequestConfig<Unit> {
+    fun getRetailerLocationRequestConfig(retailerLocationId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, retailerLocationToken: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -785,7 +773,7 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/retailer/location/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/retailer/location/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -794,10 +782,9 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
     }
 
     /**
-     * GET /api/{version}/location/get
+     * GET /location/get
      * Get Retailer Location (Consumer)
      * Gets the details of a retailer location as a consumer.
-     * @param version 
      * @param retailerLocationId The retailer location id
      * @param deviceId The device id for returning account information (i.e. favorites) (optional)
      * @param accountId The account id for returning account information (i.e. favorites) (optional)
@@ -810,8 +797,8 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRetailerLocationConsumer(version: java.math.BigDecimal, retailerLocationId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : RetailerLocationResponse {
-        val localVarResponse = getRetailerLocationConsumerWithHttpInfo(version = version, retailerLocationId = retailerLocationId, deviceId = deviceId, accountId = accountId)
+    fun getRetailerLocationConsumer(retailerLocationId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : RetailerLocationResponse {
+        val localVarResponse = getRetailerLocationConsumerWithHttpInfo(retailerLocationId = retailerLocationId, deviceId = deviceId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as RetailerLocationResponse
@@ -829,10 +816,9 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
     }
 
     /**
-     * GET /api/{version}/location/get
+     * GET /location/get
      * Get Retailer Location (Consumer)
      * Gets the details of a retailer location as a consumer.
-     * @param version 
      * @param retailerLocationId The retailer location id
      * @param deviceId The device id for returning account information (i.e. favorites) (optional)
      * @param accountId The account id for returning account information (i.e. favorites) (optional)
@@ -842,8 +828,8 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRetailerLocationConsumerWithHttpInfo(version: java.math.BigDecimal, retailerLocationId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<RetailerLocationResponse?> {
-        val localVariableConfig = getRetailerLocationConsumerRequestConfig(version = version, retailerLocationId = retailerLocationId, deviceId = deviceId, accountId = accountId)
+    fun getRetailerLocationConsumerWithHttpInfo(retailerLocationId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<RetailerLocationResponse?> {
+        val localVariableConfig = getRetailerLocationConsumerRequestConfig(retailerLocationId = retailerLocationId, deviceId = deviceId, accountId = accountId)
 
         return request<Unit, RetailerLocationResponse>(
             localVariableConfig
@@ -853,13 +839,12 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
     /**
      * To obtain the request config of the operation getRetailerLocationConsumer
      *
-     * @param version 
      * @param retailerLocationId The retailer location id
      * @param deviceId The device id for returning account information (i.e. favorites) (optional)
      * @param accountId The account id for returning account information (i.e. favorites) (optional)
      * @return RequestConfig
      */
-    fun getRetailerLocationConsumerRequestConfig(version: java.math.BigDecimal, retailerLocationId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun getRetailerLocationConsumerRequestConfig(retailerLocationId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -875,7 +860,7 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/location/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/location/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -901,10 +886,9 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      }
 
     /**
-     * GET /api/{version}/retailer/location/idistancesearch
+     * GET /retailer/location/idistancesearch
      * Distance Search Retailer Locations (Indexed)
      * Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
-     * @param version 
      * @param latitude The latitude to center the search on
      * @param longitude The longitude to center the search on
      * @param searchRange The search range in the distanceUnit specified; default is MILES.
@@ -948,8 +932,8 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun indexedRetailerLocationDistanceSearch(version: java.math.BigDecimal, latitude: kotlin.Double, longitude: kotlin.Double, searchRange: kotlin.Double, start: kotlin.Int, limit: kotlin.Int, accountId: kotlin.Long? = null, address: kotlin.String? = null, hasOffers: kotlin.Boolean? = null, categories: kotlin.String? = null, filters: kotlin.String? = null, audiences: kotlin.String? = null, retailerIds: kotlin.String? = null, retailerLocationIds: kotlin.String? = null, tags: kotlin.String? = null, locationType: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, keywordOperator: kotlin.String? = null, searchExpression: kotlin.String? = null, distanceUnit: DistanceUnitIndexedRetailerLocationDistanceSearch? = null, returnFavorited: kotlin.Boolean? = null, returnRetailer: kotlin.Boolean? = null, returnAssets: kotlin.Boolean? = null, returnOffers: kotlin.Boolean? = null, returnCategories: kotlin.Boolean? = null, returnFilters: kotlin.Boolean? = null, returnAudiences: kotlin.Boolean? = null, returnQrCode: kotlin.Boolean? = null, returnExternalCategoryData: kotlin.Boolean? = null, includeFavorite: kotlin.Boolean? = null, includeLiked: kotlin.Boolean? = null, includeRating: kotlin.Boolean? = null) : kotlin.collections.List<RetailerLocationResponse> {
-        val localVarResponse = indexedRetailerLocationDistanceSearchWithHttpInfo(version = version, latitude = latitude, longitude = longitude, searchRange = searchRange, start = start, limit = limit, accountId = accountId, address = address, hasOffers = hasOffers, categories = categories, filters = filters, audiences = audiences, retailerIds = retailerIds, retailerLocationIds = retailerLocationIds, tags = tags, locationType = locationType, sortField = sortField, descending = descending, q = q, keyword = keyword, keywordOperator = keywordOperator, searchExpression = searchExpression, distanceUnit = distanceUnit, returnFavorited = returnFavorited, returnRetailer = returnRetailer, returnAssets = returnAssets, returnOffers = returnOffers, returnCategories = returnCategories, returnFilters = returnFilters, returnAudiences = returnAudiences, returnQrCode = returnQrCode, returnExternalCategoryData = returnExternalCategoryData, includeFavorite = includeFavorite, includeLiked = includeLiked, includeRating = includeRating)
+    fun indexedRetailerLocationDistanceSearch(latitude: kotlin.Double, longitude: kotlin.Double, searchRange: kotlin.Double, start: kotlin.Int, limit: kotlin.Int, accountId: kotlin.Long? = null, address: kotlin.String? = null, hasOffers: kotlin.Boolean? = null, categories: kotlin.String? = null, filters: kotlin.String? = null, audiences: kotlin.String? = null, retailerIds: kotlin.String? = null, retailerLocationIds: kotlin.String? = null, tags: kotlin.String? = null, locationType: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, keywordOperator: kotlin.String? = null, searchExpression: kotlin.String? = null, distanceUnit: DistanceUnitIndexedRetailerLocationDistanceSearch? = null, returnFavorited: kotlin.Boolean? = null, returnRetailer: kotlin.Boolean? = null, returnAssets: kotlin.Boolean? = null, returnOffers: kotlin.Boolean? = null, returnCategories: kotlin.Boolean? = null, returnFilters: kotlin.Boolean? = null, returnAudiences: kotlin.Boolean? = null, returnQrCode: kotlin.Boolean? = null, returnExternalCategoryData: kotlin.Boolean? = null, includeFavorite: kotlin.Boolean? = null, includeLiked: kotlin.Boolean? = null, includeRating: kotlin.Boolean? = null) : kotlin.collections.List<RetailerLocationResponse> {
+        val localVarResponse = indexedRetailerLocationDistanceSearchWithHttpInfo(latitude = latitude, longitude = longitude, searchRange = searchRange, start = start, limit = limit, accountId = accountId, address = address, hasOffers = hasOffers, categories = categories, filters = filters, audiences = audiences, retailerIds = retailerIds, retailerLocationIds = retailerLocationIds, tags = tags, locationType = locationType, sortField = sortField, descending = descending, q = q, keyword = keyword, keywordOperator = keywordOperator, searchExpression = searchExpression, distanceUnit = distanceUnit, returnFavorited = returnFavorited, returnRetailer = returnRetailer, returnAssets = returnAssets, returnOffers = returnOffers, returnCategories = returnCategories, returnFilters = returnFilters, returnAudiences = returnAudiences, returnQrCode = returnQrCode, returnExternalCategoryData = returnExternalCategoryData, includeFavorite = includeFavorite, includeLiked = includeLiked, includeRating = includeRating)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<RetailerLocationResponse>
@@ -967,10 +951,9 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
     }
 
     /**
-     * GET /api/{version}/retailer/location/idistancesearch
+     * GET /retailer/location/idistancesearch
      * Distance Search Retailer Locations (Indexed)
      * Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
-     * @param version 
      * @param latitude The latitude to center the search on
      * @param longitude The longitude to center the search on
      * @param searchRange The search range in the distanceUnit specified; default is MILES.
@@ -1011,8 +994,8 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun indexedRetailerLocationDistanceSearchWithHttpInfo(version: java.math.BigDecimal, latitude: kotlin.Double, longitude: kotlin.Double, searchRange: kotlin.Double, start: kotlin.Int, limit: kotlin.Int, accountId: kotlin.Long?, address: kotlin.String?, hasOffers: kotlin.Boolean?, categories: kotlin.String?, filters: kotlin.String?, audiences: kotlin.String?, retailerIds: kotlin.String?, retailerLocationIds: kotlin.String?, tags: kotlin.String?, locationType: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, q: kotlin.String?, keyword: kotlin.String?, keywordOperator: kotlin.String?, searchExpression: kotlin.String?, distanceUnit: DistanceUnitIndexedRetailerLocationDistanceSearch?, returnFavorited: kotlin.Boolean?, returnRetailer: kotlin.Boolean?, returnAssets: kotlin.Boolean?, returnOffers: kotlin.Boolean?, returnCategories: kotlin.Boolean?, returnFilters: kotlin.Boolean?, returnAudiences: kotlin.Boolean?, returnQrCode: kotlin.Boolean?, returnExternalCategoryData: kotlin.Boolean?, includeFavorite: kotlin.Boolean?, includeLiked: kotlin.Boolean?, includeRating: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<RetailerLocationResponse>?> {
-        val localVariableConfig = indexedRetailerLocationDistanceSearchRequestConfig(version = version, latitude = latitude, longitude = longitude, searchRange = searchRange, start = start, limit = limit, accountId = accountId, address = address, hasOffers = hasOffers, categories = categories, filters = filters, audiences = audiences, retailerIds = retailerIds, retailerLocationIds = retailerLocationIds, tags = tags, locationType = locationType, sortField = sortField, descending = descending, q = q, keyword = keyword, keywordOperator = keywordOperator, searchExpression = searchExpression, distanceUnit = distanceUnit, returnFavorited = returnFavorited, returnRetailer = returnRetailer, returnAssets = returnAssets, returnOffers = returnOffers, returnCategories = returnCategories, returnFilters = returnFilters, returnAudiences = returnAudiences, returnQrCode = returnQrCode, returnExternalCategoryData = returnExternalCategoryData, includeFavorite = includeFavorite, includeLiked = includeLiked, includeRating = includeRating)
+    fun indexedRetailerLocationDistanceSearchWithHttpInfo(latitude: kotlin.Double, longitude: kotlin.Double, searchRange: kotlin.Double, start: kotlin.Int, limit: kotlin.Int, accountId: kotlin.Long?, address: kotlin.String?, hasOffers: kotlin.Boolean?, categories: kotlin.String?, filters: kotlin.String?, audiences: kotlin.String?, retailerIds: kotlin.String?, retailerLocationIds: kotlin.String?, tags: kotlin.String?, locationType: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, q: kotlin.String?, keyword: kotlin.String?, keywordOperator: kotlin.String?, searchExpression: kotlin.String?, distanceUnit: DistanceUnitIndexedRetailerLocationDistanceSearch?, returnFavorited: kotlin.Boolean?, returnRetailer: kotlin.Boolean?, returnAssets: kotlin.Boolean?, returnOffers: kotlin.Boolean?, returnCategories: kotlin.Boolean?, returnFilters: kotlin.Boolean?, returnAudiences: kotlin.Boolean?, returnQrCode: kotlin.Boolean?, returnExternalCategoryData: kotlin.Boolean?, includeFavorite: kotlin.Boolean?, includeLiked: kotlin.Boolean?, includeRating: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<RetailerLocationResponse>?> {
+        val localVariableConfig = indexedRetailerLocationDistanceSearchRequestConfig(latitude = latitude, longitude = longitude, searchRange = searchRange, start = start, limit = limit, accountId = accountId, address = address, hasOffers = hasOffers, categories = categories, filters = filters, audiences = audiences, retailerIds = retailerIds, retailerLocationIds = retailerLocationIds, tags = tags, locationType = locationType, sortField = sortField, descending = descending, q = q, keyword = keyword, keywordOperator = keywordOperator, searchExpression = searchExpression, distanceUnit = distanceUnit, returnFavorited = returnFavorited, returnRetailer = returnRetailer, returnAssets = returnAssets, returnOffers = returnOffers, returnCategories = returnCategories, returnFilters = returnFilters, returnAudiences = returnAudiences, returnQrCode = returnQrCode, returnExternalCategoryData = returnExternalCategoryData, includeFavorite = includeFavorite, includeLiked = includeLiked, includeRating = includeRating)
 
         return request<Unit, kotlin.collections.List<RetailerLocationResponse>>(
             localVariableConfig
@@ -1022,7 +1005,6 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
     /**
      * To obtain the request config of the operation indexedRetailerLocationDistanceSearch
      *
-     * @param version 
      * @param latitude The latitude to center the search on
      * @param longitude The longitude to center the search on
      * @param searchRange The search range in the distanceUnit specified; default is MILES.
@@ -1059,7 +1041,7 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      * @param includeRating Include rating info in response (optional)
      * @return RequestConfig
      */
-    fun indexedRetailerLocationDistanceSearchRequestConfig(version: java.math.BigDecimal, latitude: kotlin.Double, longitude: kotlin.Double, searchRange: kotlin.Double, start: kotlin.Int, limit: kotlin.Int, accountId: kotlin.Long?, address: kotlin.String?, hasOffers: kotlin.Boolean?, categories: kotlin.String?, filters: kotlin.String?, audiences: kotlin.String?, retailerIds: kotlin.String?, retailerLocationIds: kotlin.String?, tags: kotlin.String?, locationType: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, q: kotlin.String?, keyword: kotlin.String?, keywordOperator: kotlin.String?, searchExpression: kotlin.String?, distanceUnit: DistanceUnitIndexedRetailerLocationDistanceSearch?, returnFavorited: kotlin.Boolean?, returnRetailer: kotlin.Boolean?, returnAssets: kotlin.Boolean?, returnOffers: kotlin.Boolean?, returnCategories: kotlin.Boolean?, returnFilters: kotlin.Boolean?, returnAudiences: kotlin.Boolean?, returnQrCode: kotlin.Boolean?, returnExternalCategoryData: kotlin.Boolean?, includeFavorite: kotlin.Boolean?, includeLiked: kotlin.Boolean?, includeRating: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun indexedRetailerLocationDistanceSearchRequestConfig(latitude: kotlin.Double, longitude: kotlin.Double, searchRange: kotlin.Double, start: kotlin.Int, limit: kotlin.Int, accountId: kotlin.Long?, address: kotlin.String?, hasOffers: kotlin.Boolean?, categories: kotlin.String?, filters: kotlin.String?, audiences: kotlin.String?, retailerIds: kotlin.String?, retailerLocationIds: kotlin.String?, tags: kotlin.String?, locationType: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, q: kotlin.String?, keyword: kotlin.String?, keywordOperator: kotlin.String?, searchExpression: kotlin.String?, distanceUnit: DistanceUnitIndexedRetailerLocationDistanceSearch?, returnFavorited: kotlin.Boolean?, returnRetailer: kotlin.Boolean?, returnAssets: kotlin.Boolean?, returnOffers: kotlin.Boolean?, returnCategories: kotlin.Boolean?, returnFilters: kotlin.Boolean?, returnAudiences: kotlin.Boolean?, returnQrCode: kotlin.Boolean?, returnExternalCategoryData: kotlin.Boolean?, includeFavorite: kotlin.Boolean?, includeLiked: kotlin.Boolean?, includeRating: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1160,7 +1142,7 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/retailer/location/idistancesearch".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/retailer/location/idistancesearch",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1169,10 +1151,9 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
     }
 
     /**
-     * GET /api/{version}/retailer/location/isearch
+     * GET /retailer/location/isearch
      * Keyword Search Retailer Locations (Indexed)
      * Retailer location (faster) indexed search. This searches all retailer locations.
-     * @param version 
      * @param accountId The account id of the user (optional)
      * @param start The start index for pagination (optional)
      * @param limit The limit for pagination (optional)
@@ -1210,8 +1191,8 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun indexedRetailerLocationSearch(version: java.math.BigDecimal, accountId: kotlin.Long? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null, hasOffers: kotlin.Boolean? = null, categories: kotlin.String? = null, filters: kotlin.String? = null, audiences: kotlin.String? = null, retailerIds: kotlin.String? = null, retailerLocationIds: kotlin.String? = null, tags: kotlin.String? = null, locationType: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, keywordOperator: kotlin.String? = null, searchExpression: kotlin.String? = null, returnRetailer: kotlin.Boolean? = null, returnAssets: kotlin.Boolean? = null, returnOffers: kotlin.Boolean? = null, returnCategories: kotlin.Boolean? = null, returnFilters: kotlin.Boolean? = null, returnAudiences: kotlin.Boolean? = null, returnQrCode: kotlin.Boolean? = null, returnExternalCategoryData: kotlin.Boolean? = null, includeFavorite: kotlin.Boolean? = null, includeLiked: kotlin.Boolean? = null, includeRating: kotlin.Boolean? = null) : kotlin.collections.List<RetailerLocationResponse> {
-        val localVarResponse = indexedRetailerLocationSearchWithHttpInfo(version = version, accountId = accountId, start = start, limit = limit, hasOffers = hasOffers, categories = categories, filters = filters, audiences = audiences, retailerIds = retailerIds, retailerLocationIds = retailerLocationIds, tags = tags, locationType = locationType, sortField = sortField, descending = descending, q = q, keyword = keyword, keywordOperator = keywordOperator, searchExpression = searchExpression, returnRetailer = returnRetailer, returnAssets = returnAssets, returnOffers = returnOffers, returnCategories = returnCategories, returnFilters = returnFilters, returnAudiences = returnAudiences, returnQrCode = returnQrCode, returnExternalCategoryData = returnExternalCategoryData, includeFavorite = includeFavorite, includeLiked = includeLiked, includeRating = includeRating)
+    fun indexedRetailerLocationSearch(accountId: kotlin.Long? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null, hasOffers: kotlin.Boolean? = null, categories: kotlin.String? = null, filters: kotlin.String? = null, audiences: kotlin.String? = null, retailerIds: kotlin.String? = null, retailerLocationIds: kotlin.String? = null, tags: kotlin.String? = null, locationType: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, keywordOperator: kotlin.String? = null, searchExpression: kotlin.String? = null, returnRetailer: kotlin.Boolean? = null, returnAssets: kotlin.Boolean? = null, returnOffers: kotlin.Boolean? = null, returnCategories: kotlin.Boolean? = null, returnFilters: kotlin.Boolean? = null, returnAudiences: kotlin.Boolean? = null, returnQrCode: kotlin.Boolean? = null, returnExternalCategoryData: kotlin.Boolean? = null, includeFavorite: kotlin.Boolean? = null, includeLiked: kotlin.Boolean? = null, includeRating: kotlin.Boolean? = null) : kotlin.collections.List<RetailerLocationResponse> {
+        val localVarResponse = indexedRetailerLocationSearchWithHttpInfo(accountId = accountId, start = start, limit = limit, hasOffers = hasOffers, categories = categories, filters = filters, audiences = audiences, retailerIds = retailerIds, retailerLocationIds = retailerLocationIds, tags = tags, locationType = locationType, sortField = sortField, descending = descending, q = q, keyword = keyword, keywordOperator = keywordOperator, searchExpression = searchExpression, returnRetailer = returnRetailer, returnAssets = returnAssets, returnOffers = returnOffers, returnCategories = returnCategories, returnFilters = returnFilters, returnAudiences = returnAudiences, returnQrCode = returnQrCode, returnExternalCategoryData = returnExternalCategoryData, includeFavorite = includeFavorite, includeLiked = includeLiked, includeRating = includeRating)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<RetailerLocationResponse>
@@ -1229,10 +1210,9 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
     }
 
     /**
-     * GET /api/{version}/retailer/location/isearch
+     * GET /retailer/location/isearch
      * Keyword Search Retailer Locations (Indexed)
      * Retailer location (faster) indexed search. This searches all retailer locations.
-     * @param version 
      * @param accountId The account id of the user (optional)
      * @param start The start index for pagination (optional)
      * @param limit The limit for pagination (optional)
@@ -1267,8 +1247,8 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun indexedRetailerLocationSearchWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?, hasOffers: kotlin.Boolean?, categories: kotlin.String?, filters: kotlin.String?, audiences: kotlin.String?, retailerIds: kotlin.String?, retailerLocationIds: kotlin.String?, tags: kotlin.String?, locationType: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, q: kotlin.String?, keyword: kotlin.String?, keywordOperator: kotlin.String?, searchExpression: kotlin.String?, returnRetailer: kotlin.Boolean?, returnAssets: kotlin.Boolean?, returnOffers: kotlin.Boolean?, returnCategories: kotlin.Boolean?, returnFilters: kotlin.Boolean?, returnAudiences: kotlin.Boolean?, returnQrCode: kotlin.Boolean?, returnExternalCategoryData: kotlin.Boolean?, includeFavorite: kotlin.Boolean?, includeLiked: kotlin.Boolean?, includeRating: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<RetailerLocationResponse>?> {
-        val localVariableConfig = indexedRetailerLocationSearchRequestConfig(version = version, accountId = accountId, start = start, limit = limit, hasOffers = hasOffers, categories = categories, filters = filters, audiences = audiences, retailerIds = retailerIds, retailerLocationIds = retailerLocationIds, tags = tags, locationType = locationType, sortField = sortField, descending = descending, q = q, keyword = keyword, keywordOperator = keywordOperator, searchExpression = searchExpression, returnRetailer = returnRetailer, returnAssets = returnAssets, returnOffers = returnOffers, returnCategories = returnCategories, returnFilters = returnFilters, returnAudiences = returnAudiences, returnQrCode = returnQrCode, returnExternalCategoryData = returnExternalCategoryData, includeFavorite = includeFavorite, includeLiked = includeLiked, includeRating = includeRating)
+    fun indexedRetailerLocationSearchWithHttpInfo(accountId: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?, hasOffers: kotlin.Boolean?, categories: kotlin.String?, filters: kotlin.String?, audiences: kotlin.String?, retailerIds: kotlin.String?, retailerLocationIds: kotlin.String?, tags: kotlin.String?, locationType: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, q: kotlin.String?, keyword: kotlin.String?, keywordOperator: kotlin.String?, searchExpression: kotlin.String?, returnRetailer: kotlin.Boolean?, returnAssets: kotlin.Boolean?, returnOffers: kotlin.Boolean?, returnCategories: kotlin.Boolean?, returnFilters: kotlin.Boolean?, returnAudiences: kotlin.Boolean?, returnQrCode: kotlin.Boolean?, returnExternalCategoryData: kotlin.Boolean?, includeFavorite: kotlin.Boolean?, includeLiked: kotlin.Boolean?, includeRating: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<RetailerLocationResponse>?> {
+        val localVariableConfig = indexedRetailerLocationSearchRequestConfig(accountId = accountId, start = start, limit = limit, hasOffers = hasOffers, categories = categories, filters = filters, audiences = audiences, retailerIds = retailerIds, retailerLocationIds = retailerLocationIds, tags = tags, locationType = locationType, sortField = sortField, descending = descending, q = q, keyword = keyword, keywordOperator = keywordOperator, searchExpression = searchExpression, returnRetailer = returnRetailer, returnAssets = returnAssets, returnOffers = returnOffers, returnCategories = returnCategories, returnFilters = returnFilters, returnAudiences = returnAudiences, returnQrCode = returnQrCode, returnExternalCategoryData = returnExternalCategoryData, includeFavorite = includeFavorite, includeLiked = includeLiked, includeRating = includeRating)
 
         return request<Unit, kotlin.collections.List<RetailerLocationResponse>>(
             localVariableConfig
@@ -1278,7 +1258,6 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
     /**
      * To obtain the request config of the operation indexedRetailerLocationSearch
      *
-     * @param version 
      * @param accountId The account id of the user (optional)
      * @param start The start index for pagination (optional)
      * @param limit The limit for pagination (optional)
@@ -1309,7 +1288,7 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      * @param includeRating Include rating info in response (optional)
      * @return RequestConfig
      */
-    fun indexedRetailerLocationSearchRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?, hasOffers: kotlin.Boolean?, categories: kotlin.String?, filters: kotlin.String?, audiences: kotlin.String?, retailerIds: kotlin.String?, retailerLocationIds: kotlin.String?, tags: kotlin.String?, locationType: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, q: kotlin.String?, keyword: kotlin.String?, keywordOperator: kotlin.String?, searchExpression: kotlin.String?, returnRetailer: kotlin.Boolean?, returnAssets: kotlin.Boolean?, returnOffers: kotlin.Boolean?, returnCategories: kotlin.Boolean?, returnFilters: kotlin.Boolean?, returnAudiences: kotlin.Boolean?, returnQrCode: kotlin.Boolean?, returnExternalCategoryData: kotlin.Boolean?, includeFavorite: kotlin.Boolean?, includeLiked: kotlin.Boolean?, includeRating: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun indexedRetailerLocationSearchRequestConfig(accountId: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?, hasOffers: kotlin.Boolean?, categories: kotlin.String?, filters: kotlin.String?, audiences: kotlin.String?, retailerIds: kotlin.String?, retailerLocationIds: kotlin.String?, tags: kotlin.String?, locationType: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, q: kotlin.String?, keyword: kotlin.String?, keywordOperator: kotlin.String?, searchExpression: kotlin.String?, returnRetailer: kotlin.Boolean?, returnAssets: kotlin.Boolean?, returnOffers: kotlin.Boolean?, returnCategories: kotlin.Boolean?, returnFilters: kotlin.Boolean?, returnAudiences: kotlin.Boolean?, returnQrCode: kotlin.Boolean?, returnExternalCategoryData: kotlin.Boolean?, includeFavorite: kotlin.Boolean?, includeLiked: kotlin.Boolean?, includeRating: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1402,7 +1381,7 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/retailer/location/isearch".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/retailer/location/isearch",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1443,10 +1422,9 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      }
 
     /**
-     * GET /api/{version}/retailer/location/search
+     * GET /retailer/location/search
      * Search Retailer Locations (Owned)
      * Searches on retailer locations that the account has access to.
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param q This parameter is deprecated. (optional)
@@ -1481,8 +1459,8 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchRetailerLocations(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, retailerIds: kotlin.String? = null, retailerLocationIds: kotlin.String? = null, locationType: kotlin.String? = null, sortField: SortFieldSearchRetailerLocations? = null, descending: kotlin.Boolean? = null, i: kotlin.Int? = null, start: kotlin.Int? = null, l: kotlin.Int? = null, limit: kotlin.Int? = null, showPublicLocations: kotlin.Boolean? = null, activeOnly: kotlin.Boolean? = null, returnRetailer: kotlin.Boolean? = null, returnAssets: kotlin.Boolean? = null, returnOffers: kotlin.Boolean? = null, returnCategories: kotlin.Boolean? = null, returnFilters: kotlin.Boolean? = null, returnAudiences: kotlin.Boolean? = null, returnQrCode: kotlin.Boolean? = null, includeFavorite: kotlin.Boolean? = null, includeLiked: kotlin.Boolean? = null, includeRating: kotlin.Boolean? = null) : kotlin.collections.List<RetailerLocationResponse> {
-        val localVarResponse = searchRetailerLocationsWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, q = q, keyword = keyword, retailerIds = retailerIds, retailerLocationIds = retailerLocationIds, locationType = locationType, sortField = sortField, descending = descending, i = i, start = start, l = l, limit = limit, showPublicLocations = showPublicLocations, activeOnly = activeOnly, returnRetailer = returnRetailer, returnAssets = returnAssets, returnOffers = returnOffers, returnCategories = returnCategories, returnFilters = returnFilters, returnAudiences = returnAudiences, returnQrCode = returnQrCode, includeFavorite = includeFavorite, includeLiked = includeLiked, includeRating = includeRating)
+    fun searchRetailerLocations(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, retailerIds: kotlin.String? = null, retailerLocationIds: kotlin.String? = null, locationType: kotlin.String? = null, sortField: SortFieldSearchRetailerLocations? = null, descending: kotlin.Boolean? = null, i: kotlin.Int? = null, start: kotlin.Int? = null, l: kotlin.Int? = null, limit: kotlin.Int? = null, showPublicLocations: kotlin.Boolean? = null, activeOnly: kotlin.Boolean? = null, returnRetailer: kotlin.Boolean? = null, returnAssets: kotlin.Boolean? = null, returnOffers: kotlin.Boolean? = null, returnCategories: kotlin.Boolean? = null, returnFilters: kotlin.Boolean? = null, returnAudiences: kotlin.Boolean? = null, returnQrCode: kotlin.Boolean? = null, includeFavorite: kotlin.Boolean? = null, includeLiked: kotlin.Boolean? = null, includeRating: kotlin.Boolean? = null) : kotlin.collections.List<RetailerLocationResponse> {
+        val localVarResponse = searchRetailerLocationsWithHttpInfo(deviceId = deviceId, accountId = accountId, q = q, keyword = keyword, retailerIds = retailerIds, retailerLocationIds = retailerLocationIds, locationType = locationType, sortField = sortField, descending = descending, i = i, start = start, l = l, limit = limit, showPublicLocations = showPublicLocations, activeOnly = activeOnly, returnRetailer = returnRetailer, returnAssets = returnAssets, returnOffers = returnOffers, returnCategories = returnCategories, returnFilters = returnFilters, returnAudiences = returnAudiences, returnQrCode = returnQrCode, includeFavorite = includeFavorite, includeLiked = includeLiked, includeRating = includeRating)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<RetailerLocationResponse>
@@ -1500,10 +1478,9 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
     }
 
     /**
-     * GET /api/{version}/retailer/location/search
+     * GET /retailer/location/search
      * Search Retailer Locations (Owned)
      * Searches on retailer locations that the account has access to.
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param q This parameter is deprecated. (optional)
@@ -1535,8 +1512,8 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchRetailerLocationsWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, retailerIds: kotlin.String?, retailerLocationIds: kotlin.String?, locationType: kotlin.String?, sortField: SortFieldSearchRetailerLocations?, descending: kotlin.Boolean?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?, showPublicLocations: kotlin.Boolean?, activeOnly: kotlin.Boolean?, returnRetailer: kotlin.Boolean?, returnAssets: kotlin.Boolean?, returnOffers: kotlin.Boolean?, returnCategories: kotlin.Boolean?, returnFilters: kotlin.Boolean?, returnAudiences: kotlin.Boolean?, returnQrCode: kotlin.Boolean?, includeFavorite: kotlin.Boolean?, includeLiked: kotlin.Boolean?, includeRating: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<RetailerLocationResponse>?> {
-        val localVariableConfig = searchRetailerLocationsRequestConfig(version = version, deviceId = deviceId, accountId = accountId, q = q, keyword = keyword, retailerIds = retailerIds, retailerLocationIds = retailerLocationIds, locationType = locationType, sortField = sortField, descending = descending, i = i, start = start, l = l, limit = limit, showPublicLocations = showPublicLocations, activeOnly = activeOnly, returnRetailer = returnRetailer, returnAssets = returnAssets, returnOffers = returnOffers, returnCategories = returnCategories, returnFilters = returnFilters, returnAudiences = returnAudiences, returnQrCode = returnQrCode, includeFavorite = includeFavorite, includeLiked = includeLiked, includeRating = includeRating)
+    fun searchRetailerLocationsWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, retailerIds: kotlin.String?, retailerLocationIds: kotlin.String?, locationType: kotlin.String?, sortField: SortFieldSearchRetailerLocations?, descending: kotlin.Boolean?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?, showPublicLocations: kotlin.Boolean?, activeOnly: kotlin.Boolean?, returnRetailer: kotlin.Boolean?, returnAssets: kotlin.Boolean?, returnOffers: kotlin.Boolean?, returnCategories: kotlin.Boolean?, returnFilters: kotlin.Boolean?, returnAudiences: kotlin.Boolean?, returnQrCode: kotlin.Boolean?, includeFavorite: kotlin.Boolean?, includeLiked: kotlin.Boolean?, includeRating: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<RetailerLocationResponse>?> {
+        val localVariableConfig = searchRetailerLocationsRequestConfig(deviceId = deviceId, accountId = accountId, q = q, keyword = keyword, retailerIds = retailerIds, retailerLocationIds = retailerLocationIds, locationType = locationType, sortField = sortField, descending = descending, i = i, start = start, l = l, limit = limit, showPublicLocations = showPublicLocations, activeOnly = activeOnly, returnRetailer = returnRetailer, returnAssets = returnAssets, returnOffers = returnOffers, returnCategories = returnCategories, returnFilters = returnFilters, returnAudiences = returnAudiences, returnQrCode = returnQrCode, includeFavorite = includeFavorite, includeLiked = includeLiked, includeRating = includeRating)
 
         return request<Unit, kotlin.collections.List<RetailerLocationResponse>>(
             localVariableConfig
@@ -1546,7 +1523,6 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
     /**
      * To obtain the request config of the operation searchRetailerLocations
      *
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param q This parameter is deprecated. (optional)
@@ -1574,7 +1550,7 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      * @param includeRating Include rating info in response (optional)
      * @return RequestConfig
      */
-    fun searchRetailerLocationsRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, retailerIds: kotlin.String?, retailerLocationIds: kotlin.String?, locationType: kotlin.String?, sortField: SortFieldSearchRetailerLocations?, descending: kotlin.Boolean?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?, showPublicLocations: kotlin.Boolean?, activeOnly: kotlin.Boolean?, returnRetailer: kotlin.Boolean?, returnAssets: kotlin.Boolean?, returnOffers: kotlin.Boolean?, returnCategories: kotlin.Boolean?, returnFilters: kotlin.Boolean?, returnAudiences: kotlin.Boolean?, returnQrCode: kotlin.Boolean?, includeFavorite: kotlin.Boolean?, includeLiked: kotlin.Boolean?, includeRating: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchRetailerLocationsRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, retailerIds: kotlin.String?, retailerLocationIds: kotlin.String?, locationType: kotlin.String?, sortField: SortFieldSearchRetailerLocations?, descending: kotlin.Boolean?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?, showPublicLocations: kotlin.Boolean?, activeOnly: kotlin.Boolean?, returnRetailer: kotlin.Boolean?, returnAssets: kotlin.Boolean?, returnOffers: kotlin.Boolean?, returnCategories: kotlin.Boolean?, returnFilters: kotlin.Boolean?, returnAudiences: kotlin.Boolean?, returnQrCode: kotlin.Boolean?, includeFavorite: kotlin.Boolean?, includeLiked: kotlin.Boolean?, includeRating: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1658,7 +1634,7 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/retailer/location/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/retailer/location/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1686,10 +1662,9 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      }
 
     /**
-     * POST /api/{version}/retailer/location/update
+     * POST /retailer/location/update
      * Update Retailer Location
      * Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-     * @param version 
      * @param retailerLocationId The ID of the retailer location
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1740,8 +1715,8 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateRetailerLocations(version: java.math.BigDecimal, retailerLocationId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, name: kotlin.String? = null, streetAddress: kotlin.String? = null, streetAddress2: kotlin.String? = null, city: kotlin.String? = null, state: kotlin.String? = null, postalCode: kotlin.String? = null, country: kotlin.String? = null, businessPhone: kotlin.String? = null, businessPhoneExt: kotlin.String? = null, website: kotlin.String? = null, email: kotlin.String? = null, internalId: kotlin.String? = null, detailsHeader: kotlin.String? = null, detailsBody: kotlin.String? = null, hours: kotlin.String? = null, logo: java.io.File? = null, logoAssetId: kotlin.Long? = null, picture1: java.io.File? = null, picture1AssetId: kotlin.Long? = null, picture2: java.io.File? = null, picture2AssetId: kotlin.Long? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, building: kotlin.String? = null, googlePlaceId: kotlin.String? = null, yelpId: kotlin.String? = null, metaData: kotlin.String? = null, paymentProvider: kotlin.String? = null, active: kotlin.Boolean? = null, publicLocation: kotlin.Boolean? = null, locationType: kotlin.String? = null, audienceIds: kotlin.String? = null, audienceIdsToAdd: kotlin.String? = null, audienceIdsToRemove: kotlin.String? = null, responseFormat: ResponseFormatUpdateRetailerLocations? = null, tags: kotlin.String? = null) : RetailerLocationResponse {
-        val localVarResponse = updateRetailerLocationsWithHttpInfo(version = version, retailerLocationId = retailerLocationId, deviceId = deviceId, accountId = accountId, name = name, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, country = country, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, website = website, email = email, internalId = internalId, detailsHeader = detailsHeader, detailsBody = detailsBody, hours = hours, logo = logo, logoAssetId = logoAssetId, picture1 = picture1, picture1AssetId = picture1AssetId, picture2 = picture2, picture2AssetId = picture2AssetId, categoryIds = categoryIds, filterIds = filterIds, latitude = latitude, longitude = longitude, building = building, googlePlaceId = googlePlaceId, yelpId = yelpId, metaData = metaData, paymentProvider = paymentProvider, active = active, publicLocation = publicLocation, locationType = locationType, audienceIds = audienceIds, audienceIdsToAdd = audienceIdsToAdd, audienceIdsToRemove = audienceIdsToRemove, responseFormat = responseFormat, tags = tags)
+    fun updateRetailerLocations(retailerLocationId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, name: kotlin.String? = null, streetAddress: kotlin.String? = null, streetAddress2: kotlin.String? = null, city: kotlin.String? = null, state: kotlin.String? = null, postalCode: kotlin.String? = null, country: kotlin.String? = null, businessPhone: kotlin.String? = null, businessPhoneExt: kotlin.String? = null, website: kotlin.String? = null, email: kotlin.String? = null, internalId: kotlin.String? = null, detailsHeader: kotlin.String? = null, detailsBody: kotlin.String? = null, hours: kotlin.String? = null, logo: java.io.File? = null, logoAssetId: kotlin.Long? = null, picture1: java.io.File? = null, picture1AssetId: kotlin.Long? = null, picture2: java.io.File? = null, picture2AssetId: kotlin.Long? = null, categoryIds: kotlin.String? = null, filterIds: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, building: kotlin.String? = null, googlePlaceId: kotlin.String? = null, yelpId: kotlin.String? = null, metaData: kotlin.String? = null, paymentProvider: kotlin.String? = null, active: kotlin.Boolean? = null, publicLocation: kotlin.Boolean? = null, locationType: kotlin.String? = null, audienceIds: kotlin.String? = null, audienceIdsToAdd: kotlin.String? = null, audienceIdsToRemove: kotlin.String? = null, responseFormat: ResponseFormatUpdateRetailerLocations? = null, tags: kotlin.String? = null) : RetailerLocationResponse {
+        val localVarResponse = updateRetailerLocationsWithHttpInfo(retailerLocationId = retailerLocationId, deviceId = deviceId, accountId = accountId, name = name, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, country = country, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, website = website, email = email, internalId = internalId, detailsHeader = detailsHeader, detailsBody = detailsBody, hours = hours, logo = logo, logoAssetId = logoAssetId, picture1 = picture1, picture1AssetId = picture1AssetId, picture2 = picture2, picture2AssetId = picture2AssetId, categoryIds = categoryIds, filterIds = filterIds, latitude = latitude, longitude = longitude, building = building, googlePlaceId = googlePlaceId, yelpId = yelpId, metaData = metaData, paymentProvider = paymentProvider, active = active, publicLocation = publicLocation, locationType = locationType, audienceIds = audienceIds, audienceIdsToAdd = audienceIdsToAdd, audienceIdsToRemove = audienceIdsToRemove, responseFormat = responseFormat, tags = tags)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as RetailerLocationResponse
@@ -1759,10 +1734,9 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
     }
 
     /**
-     * POST /api/{version}/retailer/location/update
+     * POST /retailer/location/update
      * Update Retailer Location
      * Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-     * @param version 
      * @param retailerLocationId The ID of the retailer location
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1810,8 +1784,8 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateRetailerLocationsWithHttpInfo(version: java.math.BigDecimal, retailerLocationId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, country: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, website: kotlin.String?, email: kotlin.String?, internalId: kotlin.String?, detailsHeader: kotlin.String?, detailsBody: kotlin.String?, hours: kotlin.String?, logo: java.io.File?, logoAssetId: kotlin.Long?, picture1: java.io.File?, picture1AssetId: kotlin.Long?, picture2: java.io.File?, picture2AssetId: kotlin.Long?, categoryIds: kotlin.String?, filterIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, building: kotlin.String?, googlePlaceId: kotlin.String?, yelpId: kotlin.String?, metaData: kotlin.String?, paymentProvider: kotlin.String?, active: kotlin.Boolean?, publicLocation: kotlin.Boolean?, locationType: kotlin.String?, audienceIds: kotlin.String?, audienceIdsToAdd: kotlin.String?, audienceIdsToRemove: kotlin.String?, responseFormat: ResponseFormatUpdateRetailerLocations?, tags: kotlin.String?) : ApiResponse<RetailerLocationResponse?> {
-        val localVariableConfig = updateRetailerLocationsRequestConfig(version = version, retailerLocationId = retailerLocationId, deviceId = deviceId, accountId = accountId, name = name, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, country = country, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, website = website, email = email, internalId = internalId, detailsHeader = detailsHeader, detailsBody = detailsBody, hours = hours, logo = logo, logoAssetId = logoAssetId, picture1 = picture1, picture1AssetId = picture1AssetId, picture2 = picture2, picture2AssetId = picture2AssetId, categoryIds = categoryIds, filterIds = filterIds, latitude = latitude, longitude = longitude, building = building, googlePlaceId = googlePlaceId, yelpId = yelpId, metaData = metaData, paymentProvider = paymentProvider, active = active, publicLocation = publicLocation, locationType = locationType, audienceIds = audienceIds, audienceIdsToAdd = audienceIdsToAdd, audienceIdsToRemove = audienceIdsToRemove, responseFormat = responseFormat, tags = tags)
+    fun updateRetailerLocationsWithHttpInfo(retailerLocationId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, country: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, website: kotlin.String?, email: kotlin.String?, internalId: kotlin.String?, detailsHeader: kotlin.String?, detailsBody: kotlin.String?, hours: kotlin.String?, logo: java.io.File?, logoAssetId: kotlin.Long?, picture1: java.io.File?, picture1AssetId: kotlin.Long?, picture2: java.io.File?, picture2AssetId: kotlin.Long?, categoryIds: kotlin.String?, filterIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, building: kotlin.String?, googlePlaceId: kotlin.String?, yelpId: kotlin.String?, metaData: kotlin.String?, paymentProvider: kotlin.String?, active: kotlin.Boolean?, publicLocation: kotlin.Boolean?, locationType: kotlin.String?, audienceIds: kotlin.String?, audienceIdsToAdd: kotlin.String?, audienceIdsToRemove: kotlin.String?, responseFormat: ResponseFormatUpdateRetailerLocations?, tags: kotlin.String?) : ApiResponse<RetailerLocationResponse?> {
+        val localVariableConfig = updateRetailerLocationsRequestConfig(retailerLocationId = retailerLocationId, deviceId = deviceId, accountId = accountId, name = name, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, postalCode = postalCode, country = country, businessPhone = businessPhone, businessPhoneExt = businessPhoneExt, website = website, email = email, internalId = internalId, detailsHeader = detailsHeader, detailsBody = detailsBody, hours = hours, logo = logo, logoAssetId = logoAssetId, picture1 = picture1, picture1AssetId = picture1AssetId, picture2 = picture2, picture2AssetId = picture2AssetId, categoryIds = categoryIds, filterIds = filterIds, latitude = latitude, longitude = longitude, building = building, googlePlaceId = googlePlaceId, yelpId = yelpId, metaData = metaData, paymentProvider = paymentProvider, active = active, publicLocation = publicLocation, locationType = locationType, audienceIds = audienceIds, audienceIdsToAdd = audienceIdsToAdd, audienceIdsToRemove = audienceIdsToRemove, responseFormat = responseFormat, tags = tags)
 
         return request<Unit, RetailerLocationResponse>(
             localVariableConfig
@@ -1821,7 +1795,6 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
     /**
      * To obtain the request config of the operation updateRetailerLocations
      *
-     * @param version 
      * @param retailerLocationId The ID of the retailer location
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1865,7 +1838,7 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
      * @param tags Custom string field for doing full-text searches (optional)
      * @return RequestConfig
      */
-    fun updateRetailerLocationsRequestConfig(version: java.math.BigDecimal, retailerLocationId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, country: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, website: kotlin.String?, email: kotlin.String?, internalId: kotlin.String?, detailsHeader: kotlin.String?, detailsBody: kotlin.String?, hours: kotlin.String?, logo: java.io.File?, logoAssetId: kotlin.Long?, picture1: java.io.File?, picture1AssetId: kotlin.Long?, picture2: java.io.File?, picture2AssetId: kotlin.Long?, categoryIds: kotlin.String?, filterIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, building: kotlin.String?, googlePlaceId: kotlin.String?, yelpId: kotlin.String?, metaData: kotlin.String?, paymentProvider: kotlin.String?, active: kotlin.Boolean?, publicLocation: kotlin.Boolean?, locationType: kotlin.String?, audienceIds: kotlin.String?, audienceIdsToAdd: kotlin.String?, audienceIdsToRemove: kotlin.String?, responseFormat: ResponseFormatUpdateRetailerLocations?, tags: kotlin.String?) : RequestConfig<Unit> {
+    fun updateRetailerLocationsRequestConfig(retailerLocationId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, postalCode: kotlin.String?, country: kotlin.String?, businessPhone: kotlin.String?, businessPhoneExt: kotlin.String?, website: kotlin.String?, email: kotlin.String?, internalId: kotlin.String?, detailsHeader: kotlin.String?, detailsBody: kotlin.String?, hours: kotlin.String?, logo: java.io.File?, logoAssetId: kotlin.Long?, picture1: java.io.File?, picture1AssetId: kotlin.Long?, picture2: java.io.File?, picture2AssetId: kotlin.Long?, categoryIds: kotlin.String?, filterIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, building: kotlin.String?, googlePlaceId: kotlin.String?, yelpId: kotlin.String?, metaData: kotlin.String?, paymentProvider: kotlin.String?, active: kotlin.Boolean?, publicLocation: kotlin.Boolean?, locationType: kotlin.String?, audienceIds: kotlin.String?, audienceIdsToAdd: kotlin.String?, audienceIdsToRemove: kotlin.String?, responseFormat: ResponseFormatUpdateRetailerLocations?, tags: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1995,7 +1968,7 @@ open class RetailerLocationApi(basePath: kotlin.String = defaultBasePath, client
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/retailer/location/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/retailer/location/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

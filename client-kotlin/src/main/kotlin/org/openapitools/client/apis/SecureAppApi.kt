@@ -43,7 +43,7 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
@@ -122,10 +122,9 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
      }
 
     /**
-     * POST /api/{version}/secure/application/create
+     * POST /secure/application/create
      * Create Secure Application
      * Create a secure application record.
-     * @param version 
      * @param accountId The unique id of the user making the request
      * @param appKey The application to secure
      * @param keyCert 
@@ -145,8 +144,8 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createSecureApplication(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, keyCert: java.io.File, trustStore: java.io.File, username: kotlin.String, password: kotlin.String, active: kotlin.Boolean? = true, biometricType: BiometricTypeCreateSecureApplication? = BiometricTypeCreateSecureApplication.FACIAL, biometricPosition: BiometricPositionCreateSecureApplication? = BiometricPositionCreateSecureApplication.UNKNOWN, biometricPosition2: BiometricPosition2CreateSecureApplication? = BiometricPosition2CreateSecureApplication.UNKNOWN) : SirqulResponse {
-        val localVarResponse = createSecureApplicationWithHttpInfo(version = version, accountId = accountId, appKey = appKey, keyCert = keyCert, trustStore = trustStore, username = username, password = password, active = active, biometricType = biometricType, biometricPosition = biometricPosition, biometricPosition2 = biometricPosition2)
+    fun createSecureApplication(accountId: kotlin.Long, appKey: kotlin.String, keyCert: java.io.File, trustStore: java.io.File, username: kotlin.String, password: kotlin.String, active: kotlin.Boolean? = true, biometricType: BiometricTypeCreateSecureApplication? = BiometricTypeCreateSecureApplication.FACIAL, biometricPosition: BiometricPositionCreateSecureApplication? = BiometricPositionCreateSecureApplication.UNKNOWN, biometricPosition2: BiometricPosition2CreateSecureApplication? = BiometricPosition2CreateSecureApplication.UNKNOWN) : SirqulResponse {
+        val localVarResponse = createSecureApplicationWithHttpInfo(accountId = accountId, appKey = appKey, keyCert = keyCert, trustStore = trustStore, username = username, password = password, active = active, biometricType = biometricType, biometricPosition = biometricPosition, biometricPosition2 = biometricPosition2)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -164,10 +163,9 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/secure/application/create
+     * POST /secure/application/create
      * Create Secure Application
      * Create a secure application record.
-     * @param version 
      * @param accountId The unique id of the user making the request
      * @param appKey The application to secure
      * @param keyCert 
@@ -184,8 +182,8 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createSecureApplicationWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, keyCert: java.io.File, trustStore: java.io.File, username: kotlin.String, password: kotlin.String, active: kotlin.Boolean?, biometricType: BiometricTypeCreateSecureApplication?, biometricPosition: BiometricPositionCreateSecureApplication?, biometricPosition2: BiometricPosition2CreateSecureApplication?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = createSecureApplicationRequestConfig(version = version, accountId = accountId, appKey = appKey, keyCert = keyCert, trustStore = trustStore, username = username, password = password, active = active, biometricType = biometricType, biometricPosition = biometricPosition, biometricPosition2 = biometricPosition2)
+    fun createSecureApplicationWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, keyCert: java.io.File, trustStore: java.io.File, username: kotlin.String, password: kotlin.String, active: kotlin.Boolean?, biometricType: BiometricTypeCreateSecureApplication?, biometricPosition: BiometricPositionCreateSecureApplication?, biometricPosition2: BiometricPosition2CreateSecureApplication?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = createSecureApplicationRequestConfig(accountId = accountId, appKey = appKey, keyCert = keyCert, trustStore = trustStore, username = username, password = password, active = active, biometricType = biometricType, biometricPosition = biometricPosition, biometricPosition2 = biometricPosition2)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -195,7 +193,6 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation createSecureApplication
      *
-     * @param version 
      * @param accountId The unique id of the user making the request
      * @param appKey The application to secure
      * @param keyCert 
@@ -208,7 +205,7 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param biometricPosition2 The position for each the biometric2 file uploaded (optional, default to BiometricPosition2.UNKNOWN)
      * @return RequestConfig
      */
-    fun createSecureApplicationRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, keyCert: java.io.File, trustStore: java.io.File, username: kotlin.String, password: kotlin.String, active: kotlin.Boolean?, biometricType: BiometricTypeCreateSecureApplication?, biometricPosition: BiometricPositionCreateSecureApplication?, biometricPosition2: BiometricPosition2CreateSecureApplication?) : RequestConfig<Unit> {
+    fun createSecureApplicationRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, keyCert: java.io.File, trustStore: java.io.File, username: kotlin.String, password: kotlin.String, active: kotlin.Boolean?, biometricType: BiometricTypeCreateSecureApplication?, biometricPosition: BiometricPositionCreateSecureApplication?, biometricPosition2: BiometricPosition2CreateSecureApplication?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -235,7 +232,7 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/secure/application/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/secure/application/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -244,10 +241,9 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/secure/application/delete
+     * POST /secure/application/delete
      * Delete Secure Application
      * Delete a secure application record.
-     * @param version 
      * @param accountId The unique id of the user making the request
      * @param appKey The application to secure
      * @return SirqulResponse
@@ -259,8 +255,8 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteSecureApplication(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String) : SirqulResponse {
-        val localVarResponse = deleteSecureApplicationWithHttpInfo(version = version, accountId = accountId, appKey = appKey)
+    fun deleteSecureApplication(accountId: kotlin.Long, appKey: kotlin.String) : SirqulResponse {
+        val localVarResponse = deleteSecureApplicationWithHttpInfo(accountId = accountId, appKey = appKey)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -278,10 +274,9 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/secure/application/delete
+     * POST /secure/application/delete
      * Delete Secure Application
      * Delete a secure application record.
-     * @param version 
      * @param accountId The unique id of the user making the request
      * @param appKey The application to secure
      * @return ApiResponse<SirqulResponse?>
@@ -290,8 +285,8 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteSecureApplicationWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteSecureApplicationRequestConfig(version = version, accountId = accountId, appKey = appKey)
+    fun deleteSecureApplicationWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteSecureApplicationRequestConfig(accountId = accountId, appKey = appKey)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -301,12 +296,11 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation deleteSecureApplication
      *
-     * @param version 
      * @param accountId The unique id of the user making the request
      * @param appKey The application to secure
      * @return RequestConfig
      */
-    fun deleteSecureApplicationRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String) : RequestConfig<Unit> {
+    fun deleteSecureApplicationRequestConfig(accountId: kotlin.Long, appKey: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -317,7 +311,7 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/secure/application/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/secure/application/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -326,10 +320,9 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/secure/login
+     * POST /secure/login
      * Login Clear
      * Login via Clear.me. Creates a new account if logging in for the first time.
-     * @param version 
      * @param appKey The application making the request, defines what type and position is required to make a secure login the request.
      * @param biometricFile The data file used to perform authentication
      * @param deviceId The unique id of the device making the request (optional)
@@ -348,8 +341,8 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun loginSecure(version: java.math.BigDecimal, appKey: kotlin.String, biometricFile: java.io.File, deviceId: kotlin.String? = null, biometricFile2: java.io.File? = null, ageRestriction: kotlin.Int? = 0, returnProfile: kotlin.Boolean? = false, responseFilters: kotlin.String? = "PROFILE", latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : ProfileResponse {
-        val localVarResponse = loginSecureWithHttpInfo(version = version, appKey = appKey, biometricFile = biometricFile, deviceId = deviceId, biometricFile2 = biometricFile2, ageRestriction = ageRestriction, returnProfile = returnProfile, responseFilters = responseFilters, latitude = latitude, longitude = longitude)
+    fun loginSecure(appKey: kotlin.String, biometricFile: java.io.File, deviceId: kotlin.String? = null, biometricFile2: java.io.File? = null, ageRestriction: kotlin.Int? = 0, returnProfile: kotlin.Boolean? = false, responseFilters: kotlin.String? = "PROFILE", latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : ProfileResponse {
+        val localVarResponse = loginSecureWithHttpInfo(appKey = appKey, biometricFile = biometricFile, deviceId = deviceId, biometricFile2 = biometricFile2, ageRestriction = ageRestriction, returnProfile = returnProfile, responseFilters = responseFilters, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ProfileResponse
@@ -367,10 +360,9 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/secure/login
+     * POST /secure/login
      * Login Clear
      * Login via Clear.me. Creates a new account if logging in for the first time.
-     * @param version 
      * @param appKey The application making the request, defines what type and position is required to make a secure login the request.
      * @param biometricFile The data file used to perform authentication
      * @param deviceId The unique id of the device making the request (optional)
@@ -386,8 +378,8 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun loginSecureWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String, biometricFile: java.io.File, deviceId: kotlin.String?, biometricFile2: java.io.File?, ageRestriction: kotlin.Int?, returnProfile: kotlin.Boolean?, responseFilters: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<ProfileResponse?> {
-        val localVariableConfig = loginSecureRequestConfig(version = version, appKey = appKey, biometricFile = biometricFile, deviceId = deviceId, biometricFile2 = biometricFile2, ageRestriction = ageRestriction, returnProfile = returnProfile, responseFilters = responseFilters, latitude = latitude, longitude = longitude)
+    fun loginSecureWithHttpInfo(appKey: kotlin.String, biometricFile: java.io.File, deviceId: kotlin.String?, biometricFile2: java.io.File?, ageRestriction: kotlin.Int?, returnProfile: kotlin.Boolean?, responseFilters: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<ProfileResponse?> {
+        val localVariableConfig = loginSecureRequestConfig(appKey = appKey, biometricFile = biometricFile, deviceId = deviceId, biometricFile2 = biometricFile2, ageRestriction = ageRestriction, returnProfile = returnProfile, responseFilters = responseFilters, latitude = latitude, longitude = longitude)
 
         return request<Unit, ProfileResponse>(
             localVariableConfig
@@ -397,7 +389,6 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation loginSecure
      *
-     * @param version 
      * @param appKey The application making the request, defines what type and position is required to make a secure login the request.
      * @param biometricFile The data file used to perform authentication
      * @param deviceId The unique id of the device making the request (optional)
@@ -409,7 +400,7 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param longitude Used to update the user&#39;s current location (optional)
      * @return RequestConfig
      */
-    fun loginSecureRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String, biometricFile: java.io.File, deviceId: kotlin.String?, biometricFile2: java.io.File?, ageRestriction: kotlin.Int?, returnProfile: kotlin.Boolean?, responseFilters: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun loginSecureRequestConfig(appKey: kotlin.String, biometricFile: java.io.File, deviceId: kotlin.String?, biometricFile2: java.io.File?, ageRestriction: kotlin.Int?, returnProfile: kotlin.Boolean?, responseFilters: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -441,7 +432,7 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/secure/login".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/secure/login",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -450,10 +441,9 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/secure/purchase
+     * POST /secure/purchase
      * Purchase Clear
      * Purchase via Clear.me. Creates a new account if purchasing for the first time.
-     * @param version 
      * @param body The payment request object
      * @return ProfileResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -464,8 +454,8 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun purchaseSecure(version: java.math.BigDecimal, body: PaymentRequest) : ProfileResponse {
-        val localVarResponse = purchaseSecureWithHttpInfo(version = version, body = body)
+    fun purchaseSecure(body: PaymentRequest) : ProfileResponse {
+        val localVarResponse = purchaseSecureWithHttpInfo(body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ProfileResponse
@@ -483,10 +473,9 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/secure/purchase
+     * POST /secure/purchase
      * Purchase Clear
      * Purchase via Clear.me. Creates a new account if purchasing for the first time.
-     * @param version 
      * @param body The payment request object
      * @return ApiResponse<ProfileResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -494,8 +483,8 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun purchaseSecureWithHttpInfo(version: java.math.BigDecimal, body: PaymentRequest) : ApiResponse<ProfileResponse?> {
-        val localVariableConfig = purchaseSecureRequestConfig(version = version, body = body)
+    fun purchaseSecureWithHttpInfo(body: PaymentRequest) : ApiResponse<ProfileResponse?> {
+        val localVariableConfig = purchaseSecureRequestConfig(body = body)
 
         return request<PaymentRequest, ProfileResponse>(
             localVariableConfig
@@ -505,11 +494,10 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation purchaseSecure
      *
-     * @param version 
      * @param body The payment request object
      * @return RequestConfig
      */
-    fun purchaseSecureRequestConfig(version: java.math.BigDecimal, body: PaymentRequest) : RequestConfig<PaymentRequest> {
+    fun purchaseSecureRequestConfig(body: PaymentRequest) : RequestConfig<PaymentRequest> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -518,7 +506,7 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
 
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/secure/purchase".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/secure/purchase",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -527,10 +515,9 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/secure/application/reset
+     * POST /secure/application/reset
      * Rest Secure Application
      * Reset a secure application client.
-     * @param version 
      * @param accountId The unique id of the user making the request
      * @param appKey The application to secure
      * @return SirqulResponse
@@ -542,8 +529,8 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun resetSecure(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String) : SirqulResponse {
-        val localVarResponse = resetSecureWithHttpInfo(version = version, accountId = accountId, appKey = appKey)
+    fun resetSecure(accountId: kotlin.Long, appKey: kotlin.String) : SirqulResponse {
+        val localVarResponse = resetSecureWithHttpInfo(accountId = accountId, appKey = appKey)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -561,10 +548,9 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/secure/application/reset
+     * POST /secure/application/reset
      * Rest Secure Application
      * Reset a secure application client.
-     * @param version 
      * @param accountId The unique id of the user making the request
      * @param appKey The application to secure
      * @return ApiResponse<SirqulResponse?>
@@ -573,8 +559,8 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun resetSecureWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = resetSecureRequestConfig(version = version, accountId = accountId, appKey = appKey)
+    fun resetSecureWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = resetSecureRequestConfig(accountId = accountId, appKey = appKey)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -584,12 +570,11 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation resetSecure
      *
-     * @param version 
      * @param accountId The unique id of the user making the request
      * @param appKey The application to secure
      * @return RequestConfig
      */
-    fun resetSecureRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String) : RequestConfig<Unit> {
+    fun resetSecureRequestConfig(accountId: kotlin.Long, appKey: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -600,7 +585,7 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/secure/application/reset".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/secure/application/reset",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -683,10 +668,9 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
      }
 
     /**
-     * POST /api/{version}/secure/application/update
+     * POST /secure/application/update
      * Update Secure Application
      * Update a secure application record.
-     * @param version 
      * @param accountId The unique id of the user making the request
      * @param appKey The application to secure
      * @param active  (optional)
@@ -706,8 +690,8 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateSecureApplication(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, active: kotlin.Boolean? = null, keyCert: java.io.File? = null, trustStore: java.io.File? = null, username: kotlin.String? = null, password: kotlin.String? = null, biometricType: BiometricTypeUpdateSecureApplication? = null, biometricPosition: BiometricPositionUpdateSecureApplication? = null, biometricPosition2: BiometricPosition2UpdateSecureApplication? = null) : SirqulResponse {
-        val localVarResponse = updateSecureApplicationWithHttpInfo(version = version, accountId = accountId, appKey = appKey, active = active, keyCert = keyCert, trustStore = trustStore, username = username, password = password, biometricType = biometricType, biometricPosition = biometricPosition, biometricPosition2 = biometricPosition2)
+    fun updateSecureApplication(accountId: kotlin.Long, appKey: kotlin.String, active: kotlin.Boolean? = null, keyCert: java.io.File? = null, trustStore: java.io.File? = null, username: kotlin.String? = null, password: kotlin.String? = null, biometricType: BiometricTypeUpdateSecureApplication? = null, biometricPosition: BiometricPositionUpdateSecureApplication? = null, biometricPosition2: BiometricPosition2UpdateSecureApplication? = null) : SirqulResponse {
+        val localVarResponse = updateSecureApplicationWithHttpInfo(accountId = accountId, appKey = appKey, active = active, keyCert = keyCert, trustStore = trustStore, username = username, password = password, biometricType = biometricType, biometricPosition = biometricPosition, biometricPosition2 = biometricPosition2)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -725,10 +709,9 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/secure/application/update
+     * POST /secure/application/update
      * Update Secure Application
      * Update a secure application record.
-     * @param version 
      * @param accountId The unique id of the user making the request
      * @param appKey The application to secure
      * @param active  (optional)
@@ -745,8 +728,8 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateSecureApplicationWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, active: kotlin.Boolean?, keyCert: java.io.File?, trustStore: java.io.File?, username: kotlin.String?, password: kotlin.String?, biometricType: BiometricTypeUpdateSecureApplication?, biometricPosition: BiometricPositionUpdateSecureApplication?, biometricPosition2: BiometricPosition2UpdateSecureApplication?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = updateSecureApplicationRequestConfig(version = version, accountId = accountId, appKey = appKey, active = active, keyCert = keyCert, trustStore = trustStore, username = username, password = password, biometricType = biometricType, biometricPosition = biometricPosition, biometricPosition2 = biometricPosition2)
+    fun updateSecureApplicationWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, active: kotlin.Boolean?, keyCert: java.io.File?, trustStore: java.io.File?, username: kotlin.String?, password: kotlin.String?, biometricType: BiometricTypeUpdateSecureApplication?, biometricPosition: BiometricPositionUpdateSecureApplication?, biometricPosition2: BiometricPosition2UpdateSecureApplication?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = updateSecureApplicationRequestConfig(accountId = accountId, appKey = appKey, active = active, keyCert = keyCert, trustStore = trustStore, username = username, password = password, biometricType = biometricType, biometricPosition = biometricPosition, biometricPosition2 = biometricPosition2)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -756,7 +739,6 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation updateSecureApplication
      *
-     * @param version 
      * @param accountId The unique id of the user making the request
      * @param appKey The application to secure
      * @param active  (optional)
@@ -769,7 +751,7 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param biometricPosition2 The position for each the biometric2 file uploaded (optional)
      * @return RequestConfig
      */
-    fun updateSecureApplicationRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, active: kotlin.Boolean?, keyCert: java.io.File?, trustStore: java.io.File?, username: kotlin.String?, password: kotlin.String?, biometricType: BiometricTypeUpdateSecureApplication?, biometricPosition: BiometricPositionUpdateSecureApplication?, biometricPosition2: BiometricPosition2UpdateSecureApplication?) : RequestConfig<Unit> {
+    fun updateSecureApplicationRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, active: kotlin.Boolean?, keyCert: java.io.File?, trustStore: java.io.File?, username: kotlin.String?, password: kotlin.String?, biometricType: BiometricTypeUpdateSecureApplication?, biometricPosition: BiometricPositionUpdateSecureApplication?, biometricPosition2: BiometricPosition2UpdateSecureApplication?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -804,7 +786,7 @@ open class SecureAppApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/secure/application/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/secure/application/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

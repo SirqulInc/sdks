@@ -41,15 +41,14 @@ open class SimulationApi(basePath: kotlin.String = defaultBasePath, client: Call
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/simulation/routing
+     * POST /simulation/routing
      * Routing Simulation
      * Simulates routing requests.
-     * @param version 
      * @param `data` JSON string in the following format: &#x60;&#x60;&#x60;json {   \&quot;startDate\&quot;: 1474268400000,   \&quot;endDate\&quot;: 1474268700000,   \&quot;checkoutStops\&quot;: [     {       \&quot;latitude\&quot;: 25.060453943481615,       \&quot;longitude\&quot;: 121.57487118216957     }   ],   \&quot;requests\&quot;: [     {       \&quot;vehicles\&quot;: [         {           \&quot;id\&quot;: \&quot;customer1\&quot;,           \&quot;name\&quot;: \&quot;Customer 1\&quot;,           \&quot;depot\&quot;: {             \&quot;latitude\&quot;: 25.060453943481615,             \&quot;longitude\&quot;: 121.57487118216957           },           \&quot;startWindow\&quot;: 1474268464537         }       ],       \&quot;items\&quot;: [         {           \&quot;id\&quot;: 152712,           \&quot;name\&quot;: \&quot;Appliance Product\&quot;,           \&quot;pickup\&quot;: {             \&quot;latitude\&quot;: 25.060306635544144,             \&quot;longitude\&quot;: 121.5750770690688           }         },         {           \&quot;id\&quot;: 152711,           \&quot;name\&quot;: \&quot;TV product\&quot;,           \&quot;pickup\&quot;: {             \&quot;latitude\&quot;: 25.060126352576326,             \&quot;longitude\&quot;: 121.57505023621624           }         }       ]     }   ],   \&quot;featuredItems\&quot;: [],   \&quot;floorPlan\&quot;: {     \&quot;metersPerX\&quot;: 0.81493109028875,     \&quot;metersPerY\&quot;: 1.8525267552262,     \&quot;width\&quot;: 75,     \&quot;height\&quot;: 50,     \&quot;exclusions\&quot;: [       { \&quot;x\&quot;: 14, \&quot;y\&quot;: 49 }     ],     \&quot;southwest\&quot;: {       \&quot;x\&quot;: 0,       \&quot;y\&quot;: 0,       \&quot;latitude\&quot;: 25.05961539530497,       \&quot;longitude\&quot;: 121.57487591737885     }   } } &#x60;&#x60;&#x60; 
      * @param realTime determines whether to run the simulation and return the results in the same request
      * @return SirqulResponse
@@ -61,8 +60,8 @@ open class SimulationApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun simulation(version: java.math.BigDecimal, `data`: kotlin.String, realTime: kotlin.Boolean) : SirqulResponse {
-        val localVarResponse = simulationWithHttpInfo(version = version, `data` = `data`, realTime = realTime)
+    fun simulation(`data`: kotlin.String, realTime: kotlin.Boolean) : SirqulResponse {
+        val localVarResponse = simulationWithHttpInfo(`data` = `data`, realTime = realTime)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -80,10 +79,9 @@ open class SimulationApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/simulation/routing
+     * POST /simulation/routing
      * Routing Simulation
      * Simulates routing requests.
-     * @param version 
      * @param `data` JSON string in the following format: &#x60;&#x60;&#x60;json {   \&quot;startDate\&quot;: 1474268400000,   \&quot;endDate\&quot;: 1474268700000,   \&quot;checkoutStops\&quot;: [     {       \&quot;latitude\&quot;: 25.060453943481615,       \&quot;longitude\&quot;: 121.57487118216957     }   ],   \&quot;requests\&quot;: [     {       \&quot;vehicles\&quot;: [         {           \&quot;id\&quot;: \&quot;customer1\&quot;,           \&quot;name\&quot;: \&quot;Customer 1\&quot;,           \&quot;depot\&quot;: {             \&quot;latitude\&quot;: 25.060453943481615,             \&quot;longitude\&quot;: 121.57487118216957           },           \&quot;startWindow\&quot;: 1474268464537         }       ],       \&quot;items\&quot;: [         {           \&quot;id\&quot;: 152712,           \&quot;name\&quot;: \&quot;Appliance Product\&quot;,           \&quot;pickup\&quot;: {             \&quot;latitude\&quot;: 25.060306635544144,             \&quot;longitude\&quot;: 121.5750770690688           }         },         {           \&quot;id\&quot;: 152711,           \&quot;name\&quot;: \&quot;TV product\&quot;,           \&quot;pickup\&quot;: {             \&quot;latitude\&quot;: 25.060126352576326,             \&quot;longitude\&quot;: 121.57505023621624           }         }       ]     }   ],   \&quot;featuredItems\&quot;: [],   \&quot;floorPlan\&quot;: {     \&quot;metersPerX\&quot;: 0.81493109028875,     \&quot;metersPerY\&quot;: 1.8525267552262,     \&quot;width\&quot;: 75,     \&quot;height\&quot;: 50,     \&quot;exclusions\&quot;: [       { \&quot;x\&quot;: 14, \&quot;y\&quot;: 49 }     ],     \&quot;southwest\&quot;: {       \&quot;x\&quot;: 0,       \&quot;y\&quot;: 0,       \&quot;latitude\&quot;: 25.05961539530497,       \&quot;longitude\&quot;: 121.57487591737885     }   } } &#x60;&#x60;&#x60; 
      * @param realTime determines whether to run the simulation and return the results in the same request
      * @return ApiResponse<SirqulResponse?>
@@ -92,8 +90,8 @@ open class SimulationApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun simulationWithHttpInfo(version: java.math.BigDecimal, `data`: kotlin.String, realTime: kotlin.Boolean) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = simulationRequestConfig(version = version, `data` = `data`, realTime = realTime)
+    fun simulationWithHttpInfo(`data`: kotlin.String, realTime: kotlin.Boolean) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = simulationRequestConfig(`data` = `data`, realTime = realTime)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -103,12 +101,11 @@ open class SimulationApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation simulation
      *
-     * @param version 
      * @param `data` JSON string in the following format: &#x60;&#x60;&#x60;json {   \&quot;startDate\&quot;: 1474268400000,   \&quot;endDate\&quot;: 1474268700000,   \&quot;checkoutStops\&quot;: [     {       \&quot;latitude\&quot;: 25.060453943481615,       \&quot;longitude\&quot;: 121.57487118216957     }   ],   \&quot;requests\&quot;: [     {       \&quot;vehicles\&quot;: [         {           \&quot;id\&quot;: \&quot;customer1\&quot;,           \&quot;name\&quot;: \&quot;Customer 1\&quot;,           \&quot;depot\&quot;: {             \&quot;latitude\&quot;: 25.060453943481615,             \&quot;longitude\&quot;: 121.57487118216957           },           \&quot;startWindow\&quot;: 1474268464537         }       ],       \&quot;items\&quot;: [         {           \&quot;id\&quot;: 152712,           \&quot;name\&quot;: \&quot;Appliance Product\&quot;,           \&quot;pickup\&quot;: {             \&quot;latitude\&quot;: 25.060306635544144,             \&quot;longitude\&quot;: 121.5750770690688           }         },         {           \&quot;id\&quot;: 152711,           \&quot;name\&quot;: \&quot;TV product\&quot;,           \&quot;pickup\&quot;: {             \&quot;latitude\&quot;: 25.060126352576326,             \&quot;longitude\&quot;: 121.57505023621624           }         }       ]     }   ],   \&quot;featuredItems\&quot;: [],   \&quot;floorPlan\&quot;: {     \&quot;metersPerX\&quot;: 0.81493109028875,     \&quot;metersPerY\&quot;: 1.8525267552262,     \&quot;width\&quot;: 75,     \&quot;height\&quot;: 50,     \&quot;exclusions\&quot;: [       { \&quot;x\&quot;: 14, \&quot;y\&quot;: 49 }     ],     \&quot;southwest\&quot;: {       \&quot;x\&quot;: 0,       \&quot;y\&quot;: 0,       \&quot;latitude\&quot;: 25.05961539530497,       \&quot;longitude\&quot;: 121.57487591737885     }   } } &#x60;&#x60;&#x60; 
      * @param realTime determines whether to run the simulation and return the results in the same request
      * @return RequestConfig
      */
-    fun simulationRequestConfig(version: java.math.BigDecimal, `data`: kotlin.String, realTime: kotlin.Boolean) : RequestConfig<Unit> {
+    fun simulationRequestConfig(`data`: kotlin.String, realTime: kotlin.Boolean) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -119,7 +116,7 @@ open class SimulationApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/simulation/routing".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/simulation/routing",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

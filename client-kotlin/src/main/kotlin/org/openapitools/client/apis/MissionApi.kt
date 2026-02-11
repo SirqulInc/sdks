@@ -43,15 +43,14 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/mission/create
+     * POST /mission/create
      * Create Mission
      * Create a user defined mission.
-     * @param version 
      * @param accountId The logged in user.
      * @param title The title of the mission
      * @param description The description of the mission (optional)
@@ -87,8 +86,8 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createMission(version: java.math.BigDecimal, accountId: kotlin.Long, title: kotlin.String, description: kotlin.String? = null, subType: kotlin.String? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, active: kotlin.Boolean? = null, gameLevelIds: kotlin.String? = null, creativeIds: kotlin.String? = null, audienceIds: kotlin.String? = null, missionTask: kotlin.String? = null, formatType: kotlin.String? = null, offerId: kotlin.Long? = null, balance: kotlin.Double? = null, advancedReporting: kotlin.Boolean? = null, allocateTickets: kotlin.Boolean? = null, ticketCount: kotlin.Long? = null, ticketType: kotlin.String? = null, points: kotlin.Long? = null, metaData: kotlin.String? = null, applicationIds: kotlin.String? = null, devices: kotlin.String? = null, deviceIds: kotlin.String? = null, deviceVersions: kotlin.String? = null, locations: kotlin.String? = null, radius: kotlin.String? = null) : MissionResponse {
-        val localVarResponse = createMissionWithHttpInfo(version = version, accountId = accountId, title = title, description = description, subType = subType, startDate = startDate, endDate = endDate, active = active, gameLevelIds = gameLevelIds, creativeIds = creativeIds, audienceIds = audienceIds, missionTask = missionTask, formatType = formatType, offerId = offerId, balance = balance, advancedReporting = advancedReporting, allocateTickets = allocateTickets, ticketCount = ticketCount, ticketType = ticketType, points = points, metaData = metaData, applicationIds = applicationIds, devices = devices, deviceIds = deviceIds, deviceVersions = deviceVersions, locations = locations, radius = radius)
+    fun createMission(accountId: kotlin.Long, title: kotlin.String, description: kotlin.String? = null, subType: kotlin.String? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, active: kotlin.Boolean? = null, gameLevelIds: kotlin.String? = null, creativeIds: kotlin.String? = null, audienceIds: kotlin.String? = null, missionTask: kotlin.String? = null, formatType: kotlin.String? = null, offerId: kotlin.Long? = null, balance: kotlin.Double? = null, advancedReporting: kotlin.Boolean? = null, allocateTickets: kotlin.Boolean? = null, ticketCount: kotlin.Long? = null, ticketType: kotlin.String? = null, points: kotlin.Long? = null, metaData: kotlin.String? = null, applicationIds: kotlin.String? = null, devices: kotlin.String? = null, deviceIds: kotlin.String? = null, deviceVersions: kotlin.String? = null, locations: kotlin.String? = null, radius: kotlin.String? = null) : MissionResponse {
+        val localVarResponse = createMissionWithHttpInfo(accountId = accountId, title = title, description = description, subType = subType, startDate = startDate, endDate = endDate, active = active, gameLevelIds = gameLevelIds, creativeIds = creativeIds, audienceIds = audienceIds, missionTask = missionTask, formatType = formatType, offerId = offerId, balance = balance, advancedReporting = advancedReporting, allocateTickets = allocateTickets, ticketCount = ticketCount, ticketType = ticketType, points = points, metaData = metaData, applicationIds = applicationIds, devices = devices, deviceIds = deviceIds, deviceVersions = deviceVersions, locations = locations, radius = radius)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MissionResponse
@@ -106,10 +105,9 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/mission/create
+     * POST /mission/create
      * Create Mission
      * Create a user defined mission.
-     * @param version 
      * @param accountId The logged in user.
      * @param title The title of the mission
      * @param description The description of the mission (optional)
@@ -142,8 +140,8 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createMissionWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, title: kotlin.String, description: kotlin.String?, subType: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, active: kotlin.Boolean?, gameLevelIds: kotlin.String?, creativeIds: kotlin.String?, audienceIds: kotlin.String?, missionTask: kotlin.String?, formatType: kotlin.String?, offerId: kotlin.Long?, balance: kotlin.Double?, advancedReporting: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketCount: kotlin.Long?, ticketType: kotlin.String?, points: kotlin.Long?, metaData: kotlin.String?, applicationIds: kotlin.String?, devices: kotlin.String?, deviceIds: kotlin.String?, deviceVersions: kotlin.String?, locations: kotlin.String?, radius: kotlin.String?) : ApiResponse<MissionResponse?> {
-        val localVariableConfig = createMissionRequestConfig(version = version, accountId = accountId, title = title, description = description, subType = subType, startDate = startDate, endDate = endDate, active = active, gameLevelIds = gameLevelIds, creativeIds = creativeIds, audienceIds = audienceIds, missionTask = missionTask, formatType = formatType, offerId = offerId, balance = balance, advancedReporting = advancedReporting, allocateTickets = allocateTickets, ticketCount = ticketCount, ticketType = ticketType, points = points, metaData = metaData, applicationIds = applicationIds, devices = devices, deviceIds = deviceIds, deviceVersions = deviceVersions, locations = locations, radius = radius)
+    fun createMissionWithHttpInfo(accountId: kotlin.Long, title: kotlin.String, description: kotlin.String?, subType: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, active: kotlin.Boolean?, gameLevelIds: kotlin.String?, creativeIds: kotlin.String?, audienceIds: kotlin.String?, missionTask: kotlin.String?, formatType: kotlin.String?, offerId: kotlin.Long?, balance: kotlin.Double?, advancedReporting: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketCount: kotlin.Long?, ticketType: kotlin.String?, points: kotlin.Long?, metaData: kotlin.String?, applicationIds: kotlin.String?, devices: kotlin.String?, deviceIds: kotlin.String?, deviceVersions: kotlin.String?, locations: kotlin.String?, radius: kotlin.String?) : ApiResponse<MissionResponse?> {
+        val localVariableConfig = createMissionRequestConfig(accountId = accountId, title = title, description = description, subType = subType, startDate = startDate, endDate = endDate, active = active, gameLevelIds = gameLevelIds, creativeIds = creativeIds, audienceIds = audienceIds, missionTask = missionTask, formatType = formatType, offerId = offerId, balance = balance, advancedReporting = advancedReporting, allocateTickets = allocateTickets, ticketCount = ticketCount, ticketType = ticketType, points = points, metaData = metaData, applicationIds = applicationIds, devices = devices, deviceIds = deviceIds, deviceVersions = deviceVersions, locations = locations, radius = radius)
 
         return request<Unit, MissionResponse>(
             localVariableConfig
@@ -153,7 +151,6 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation createMission
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param title The title of the mission
      * @param description The description of the mission (optional)
@@ -182,7 +179,7 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param radius Comma separated list of radii for locations (optional)
      * @return RequestConfig
      */
-    fun createMissionRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, title: kotlin.String, description: kotlin.String?, subType: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, active: kotlin.Boolean?, gameLevelIds: kotlin.String?, creativeIds: kotlin.String?, audienceIds: kotlin.String?, missionTask: kotlin.String?, formatType: kotlin.String?, offerId: kotlin.Long?, balance: kotlin.Double?, advancedReporting: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketCount: kotlin.Long?, ticketType: kotlin.String?, points: kotlin.Long?, metaData: kotlin.String?, applicationIds: kotlin.String?, devices: kotlin.String?, deviceIds: kotlin.String?, deviceVersions: kotlin.String?, locations: kotlin.String?, radius: kotlin.String?) : RequestConfig<Unit> {
+    fun createMissionRequestConfig(accountId: kotlin.Long, title: kotlin.String, description: kotlin.String?, subType: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, active: kotlin.Boolean?, gameLevelIds: kotlin.String?, creativeIds: kotlin.String?, audienceIds: kotlin.String?, missionTask: kotlin.String?, formatType: kotlin.String?, offerId: kotlin.Long?, balance: kotlin.Double?, advancedReporting: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketCount: kotlin.Long?, ticketType: kotlin.String?, points: kotlin.Long?, metaData: kotlin.String?, applicationIds: kotlin.String?, devices: kotlin.String?, deviceIds: kotlin.String?, deviceVersions: kotlin.String?, locations: kotlin.String?, radius: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -265,7 +262,7 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/mission/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/mission/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -274,10 +271,9 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/mission/delete
+     * POST /mission/delete
      * Delete Mission
      * Delete a mission.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param missionId the id of the mission to delete
      * @return SirqulResponse
@@ -289,8 +285,8 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteMission(version: java.math.BigDecimal, accountId: kotlin.Long, missionId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = deleteMissionWithHttpInfo(version = version, accountId = accountId, missionId = missionId)
+    fun deleteMission(accountId: kotlin.Long, missionId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = deleteMissionWithHttpInfo(accountId = accountId, missionId = missionId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -308,10 +304,9 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/mission/delete
+     * POST /mission/delete
      * Delete Mission
      * Delete a mission.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param missionId the id of the mission to delete
      * @return ApiResponse<SirqulResponse?>
@@ -320,8 +315,8 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteMissionWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, missionId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteMissionRequestConfig(version = version, accountId = accountId, missionId = missionId)
+    fun deleteMissionWithHttpInfo(accountId: kotlin.Long, missionId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteMissionRequestConfig(accountId = accountId, missionId = missionId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -331,12 +326,11 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation deleteMission
      *
-     * @param version 
      * @param accountId the id of the logged in user
      * @param missionId the id of the mission to delete
      * @return RequestConfig
      */
-    fun deleteMissionRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, missionId: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteMissionRequestConfig(accountId: kotlin.Long, missionId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -347,7 +341,7 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/mission/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/mission/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -356,10 +350,9 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/mission/find
+     * GET /mission/find
      * Find Missions
      * Get a set of ad filtered by the parameters provided.
-     * @param version 
      * @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
      * @param suffix The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip (optional)
      * @param type The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix. (optional)
@@ -388,8 +381,8 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun findMissions(version: java.math.BigDecimal, appKey: kotlin.String, suffix: kotlin.String? = null, type: kotlin.String? = null, accountId: kotlin.Long? = null, appVersion: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, device: kotlin.String? = null, deviceIdentifier: kotlin.Long? = null, deviceVersion: kotlin.String? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null, includeGameData: kotlin.Boolean? = null, includeAudiences: kotlin.Boolean? = null, allocatesTickets: kotlin.Boolean? = null, randomize: kotlin.Boolean? = null, targetedAdsOnly: kotlin.Boolean? = null, missionIds: kotlin.String? = null, audienceOperator: kotlin.String? = null) : MissionResponse {
-        val localVarResponse = findMissionsWithHttpInfo(version = version, appKey = appKey, suffix = suffix, type = type, accountId = accountId, appVersion = appVersion, latitude = latitude, longitude = longitude, device = device, deviceIdentifier = deviceIdentifier, deviceVersion = deviceVersion, start = start, limit = limit, includeGameData = includeGameData, includeAudiences = includeAudiences, allocatesTickets = allocatesTickets, randomize = randomize, targetedAdsOnly = targetedAdsOnly, missionIds = missionIds, audienceOperator = audienceOperator)
+    fun findMissions(appKey: kotlin.String, suffix: kotlin.String? = null, type: kotlin.String? = null, accountId: kotlin.Long? = null, appVersion: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, device: kotlin.String? = null, deviceIdentifier: kotlin.Long? = null, deviceVersion: kotlin.String? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null, includeGameData: kotlin.Boolean? = null, includeAudiences: kotlin.Boolean? = null, allocatesTickets: kotlin.Boolean? = null, randomize: kotlin.Boolean? = null, targetedAdsOnly: kotlin.Boolean? = null, missionIds: kotlin.String? = null, audienceOperator: kotlin.String? = null) : MissionResponse {
+        val localVarResponse = findMissionsWithHttpInfo(appKey = appKey, suffix = suffix, type = type, accountId = accountId, appVersion = appVersion, latitude = latitude, longitude = longitude, device = device, deviceIdentifier = deviceIdentifier, deviceVersion = deviceVersion, start = start, limit = limit, includeGameData = includeGameData, includeAudiences = includeAudiences, allocatesTickets = allocatesTickets, randomize = randomize, targetedAdsOnly = targetedAdsOnly, missionIds = missionIds, audienceOperator = audienceOperator)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MissionResponse
@@ -407,10 +400,9 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/mission/find
+     * GET /mission/find
      * Find Missions
      * Get a set of ad filtered by the parameters provided.
-     * @param version 
      * @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
      * @param suffix The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip (optional)
      * @param type The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix. (optional)
@@ -436,8 +428,8 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun findMissionsWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String, suffix: kotlin.String?, type: kotlin.String?, accountId: kotlin.Long?, appVersion: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, device: kotlin.String?, deviceIdentifier: kotlin.Long?, deviceVersion: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?, includeGameData: kotlin.Boolean?, includeAudiences: kotlin.Boolean?, allocatesTickets: kotlin.Boolean?, randomize: kotlin.Boolean?, targetedAdsOnly: kotlin.Boolean?, missionIds: kotlin.String?, audienceOperator: kotlin.String?) : ApiResponse<MissionResponse?> {
-        val localVariableConfig = findMissionsRequestConfig(version = version, appKey = appKey, suffix = suffix, type = type, accountId = accountId, appVersion = appVersion, latitude = latitude, longitude = longitude, device = device, deviceIdentifier = deviceIdentifier, deviceVersion = deviceVersion, start = start, limit = limit, includeGameData = includeGameData, includeAudiences = includeAudiences, allocatesTickets = allocatesTickets, randomize = randomize, targetedAdsOnly = targetedAdsOnly, missionIds = missionIds, audienceOperator = audienceOperator)
+    fun findMissionsWithHttpInfo(appKey: kotlin.String, suffix: kotlin.String?, type: kotlin.String?, accountId: kotlin.Long?, appVersion: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, device: kotlin.String?, deviceIdentifier: kotlin.Long?, deviceVersion: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?, includeGameData: kotlin.Boolean?, includeAudiences: kotlin.Boolean?, allocatesTickets: kotlin.Boolean?, randomize: kotlin.Boolean?, targetedAdsOnly: kotlin.Boolean?, missionIds: kotlin.String?, audienceOperator: kotlin.String?) : ApiResponse<MissionResponse?> {
+        val localVariableConfig = findMissionsRequestConfig(appKey = appKey, suffix = suffix, type = type, accountId = accountId, appVersion = appVersion, latitude = latitude, longitude = longitude, device = device, deviceIdentifier = deviceIdentifier, deviceVersion = deviceVersion, start = start, limit = limit, includeGameData = includeGameData, includeAudiences = includeAudiences, allocatesTickets = allocatesTickets, randomize = randomize, targetedAdsOnly = targetedAdsOnly, missionIds = missionIds, audienceOperator = audienceOperator)
 
         return request<Unit, MissionResponse>(
             localVariableConfig
@@ -447,7 +439,6 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation findMissions
      *
-     * @param version 
      * @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
      * @param suffix The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip (optional)
      * @param type The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix. (optional)
@@ -469,7 +460,7 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param audienceOperator will return the items that have at least 1 or all of their audiences exist in the logged in user’s audiences, depending if the value is OR or AND (optional)
      * @return RequestConfig
      */
-    fun findMissionsRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String, suffix: kotlin.String?, type: kotlin.String?, accountId: kotlin.Long?, appVersion: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, device: kotlin.String?, deviceIdentifier: kotlin.Long?, deviceVersion: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?, includeGameData: kotlin.Boolean?, includeAudiences: kotlin.Boolean?, allocatesTickets: kotlin.Boolean?, randomize: kotlin.Boolean?, targetedAdsOnly: kotlin.Boolean?, missionIds: kotlin.String?, audienceOperator: kotlin.String?) : RequestConfig<Unit> {
+    fun findMissionsRequestConfig(appKey: kotlin.String, suffix: kotlin.String?, type: kotlin.String?, accountId: kotlin.Long?, appVersion: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, device: kotlin.String?, deviceIdentifier: kotlin.Long?, deviceVersion: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?, includeGameData: kotlin.Boolean?, includeAudiences: kotlin.Boolean?, allocatesTickets: kotlin.Boolean?, randomize: kotlin.Boolean?, targetedAdsOnly: kotlin.Boolean?, missionIds: kotlin.String?, audienceOperator: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -533,7 +524,7 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/mission/find".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/mission/find",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -542,10 +533,9 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/mission/get
+     * GET /mission/get
      * Get Mission
      * Get a mission.
-     * @param version 
      * @param accountId The logged in user.
      * @param missionId The id of the mission to return.
      * @param returnCreative Return creatives associated with the mission when true (optional)
@@ -558,8 +548,8 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMission(version: java.math.BigDecimal, accountId: kotlin.Long, missionId: kotlin.Long, returnCreative: kotlin.Boolean? = null) : MissionResponse {
-        val localVarResponse = getMissionWithHttpInfo(version = version, accountId = accountId, missionId = missionId, returnCreative = returnCreative)
+    fun getMission(accountId: kotlin.Long, missionId: kotlin.Long, returnCreative: kotlin.Boolean? = null) : MissionResponse {
+        val localVarResponse = getMissionWithHttpInfo(accountId = accountId, missionId = missionId, returnCreative = returnCreative)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MissionResponse
@@ -577,10 +567,9 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/mission/get
+     * GET /mission/get
      * Get Mission
      * Get a mission.
-     * @param version 
      * @param accountId The logged in user.
      * @param missionId The id of the mission to return.
      * @param returnCreative Return creatives associated with the mission when true (optional)
@@ -590,8 +579,8 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMissionWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, missionId: kotlin.Long, returnCreative: kotlin.Boolean?) : ApiResponse<MissionResponse?> {
-        val localVariableConfig = getMissionRequestConfig(version = version, accountId = accountId, missionId = missionId, returnCreative = returnCreative)
+    fun getMissionWithHttpInfo(accountId: kotlin.Long, missionId: kotlin.Long, returnCreative: kotlin.Boolean?) : ApiResponse<MissionResponse?> {
+        val localVariableConfig = getMissionRequestConfig(accountId = accountId, missionId = missionId, returnCreative = returnCreative)
 
         return request<Unit, MissionResponse>(
             localVariableConfig
@@ -601,13 +590,12 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation getMission
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param missionId The id of the mission to return.
      * @param returnCreative Return creatives associated with the mission when true (optional)
      * @return RequestConfig
      */
-    fun getMissionRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, missionId: kotlin.Long, returnCreative: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getMissionRequestConfig(accountId: kotlin.Long, missionId: kotlin.Long, returnCreative: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -621,7 +609,7 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/mission/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/mission/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -662,10 +650,9 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      }
 
     /**
-     * POST /api/{version}/mission/import
+     * POST /mission/import
      * Import Mission
      * Create a mission using a source item such as an offer location.
-     * @param version 
      * @param accountId The logged in user.
      * @param latitude The current location of the requesting device
      * @param longitude The current location of the requesting device
@@ -683,8 +670,8 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun importMission(version: java.math.BigDecimal, accountId: kotlin.Long, latitude: kotlin.Double, longitude: kotlin.Double, appKey: kotlin.String, keyword: kotlin.String? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null, adSize: AdSizeImportMission? = null) : SirqulResponse {
-        val localVarResponse = importMissionWithHttpInfo(version = version, accountId = accountId, latitude = latitude, longitude = longitude, appKey = appKey, keyword = keyword, start = start, limit = limit, adSize = adSize)
+    fun importMission(accountId: kotlin.Long, latitude: kotlin.Double, longitude: kotlin.Double, appKey: kotlin.String, keyword: kotlin.String? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null, adSize: AdSizeImportMission? = null) : SirqulResponse {
+        val localVarResponse = importMissionWithHttpInfo(accountId = accountId, latitude = latitude, longitude = longitude, appKey = appKey, keyword = keyword, start = start, limit = limit, adSize = adSize)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -702,10 +689,9 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/mission/import
+     * POST /mission/import
      * Import Mission
      * Create a mission using a source item such as an offer location.
-     * @param version 
      * @param accountId The logged in user.
      * @param latitude The current location of the requesting device
      * @param longitude The current location of the requesting device
@@ -720,8 +706,8 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun importMissionWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, latitude: kotlin.Double, longitude: kotlin.Double, appKey: kotlin.String, keyword: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?, adSize: AdSizeImportMission?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = importMissionRequestConfig(version = version, accountId = accountId, latitude = latitude, longitude = longitude, appKey = appKey, keyword = keyword, start = start, limit = limit, adSize = adSize)
+    fun importMissionWithHttpInfo(accountId: kotlin.Long, latitude: kotlin.Double, longitude: kotlin.Double, appKey: kotlin.String, keyword: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?, adSize: AdSizeImportMission?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = importMissionRequestConfig(accountId = accountId, latitude = latitude, longitude = longitude, appKey = appKey, keyword = keyword, start = start, limit = limit, adSize = adSize)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -731,7 +717,6 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation importMission
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param latitude The current location of the requesting device
      * @param longitude The current location of the requesting device
@@ -742,7 +727,7 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param adSize the size of the ad (optional)
      * @return RequestConfig
      */
-    fun importMissionRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, latitude: kotlin.Double, longitude: kotlin.Double, appKey: kotlin.String, keyword: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?, adSize: AdSizeImportMission?) : RequestConfig<Unit> {
+    fun importMissionRequestConfig(accountId: kotlin.Long, latitude: kotlin.Double, longitude: kotlin.Double, appKey: kotlin.String, keyword: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?, adSize: AdSizeImportMission?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -767,7 +752,7 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/mission/import".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/mission/import",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -776,10 +761,9 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/mission/format/search
+     * GET /mission/format/search
      * Search Mission Formats
      * Searches on pre-defined mission formats
-     * @param version 
      * @param start The starting index in the result set to return. Default is 0.
      * @param limit The total number of records to return. Default is 20.
      * @param activeOnly Determines whether to return only active results. Default is false.
@@ -792,8 +776,8 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchMissionFormats(version: java.math.BigDecimal, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean) : kotlin.collections.List<MissionFormatResponse> {
-        val localVarResponse = searchMissionFormatsWithHttpInfo(version = version, start = start, limit = limit, activeOnly = activeOnly)
+    fun searchMissionFormats(start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean) : kotlin.collections.List<MissionFormatResponse> {
+        val localVarResponse = searchMissionFormatsWithHttpInfo(start = start, limit = limit, activeOnly = activeOnly)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<MissionFormatResponse>
@@ -811,10 +795,9 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/mission/format/search
+     * GET /mission/format/search
      * Search Mission Formats
      * Searches on pre-defined mission formats
-     * @param version 
      * @param start The starting index in the result set to return. Default is 0.
      * @param limit The total number of records to return. Default is 20.
      * @param activeOnly Determines whether to return only active results. Default is false.
@@ -824,8 +807,8 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchMissionFormatsWithHttpInfo(version: java.math.BigDecimal, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean) : ApiResponse<kotlin.collections.List<MissionFormatResponse>?> {
-        val localVariableConfig = searchMissionFormatsRequestConfig(version = version, start = start, limit = limit, activeOnly = activeOnly)
+    fun searchMissionFormatsWithHttpInfo(start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean) : ApiResponse<kotlin.collections.List<MissionFormatResponse>?> {
+        val localVariableConfig = searchMissionFormatsRequestConfig(start = start, limit = limit, activeOnly = activeOnly)
 
         return request<Unit, kotlin.collections.List<MissionFormatResponse>>(
             localVariableConfig
@@ -835,13 +818,12 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation searchMissionFormats
      *
-     * @param version 
      * @param start The starting index in the result set to return. Default is 0.
      * @param limit The total number of records to return. Default is 20.
      * @param activeOnly Determines whether to return only active results. Default is false.
      * @return RequestConfig
      */
-    fun searchMissionFormatsRequestConfig(version: java.math.BigDecimal, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean) : RequestConfig<Unit> {
+    fun searchMissionFormatsRequestConfig(start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -853,7 +835,7 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/mission/format/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/mission/format/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -862,10 +844,9 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/mission/search
+     * GET /mission/search
      * Search Missions
      * Get the list missions available to the account.  
-     * @param version 
      * @param accountId The logged in user.
      * @param keyword Filter by keyword (optional)
      * @param subType Custom string client apps can use for searching/filtering missions (optional)
@@ -886,8 +867,8 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchMissions(version: java.math.BigDecimal, accountId: kotlin.Long, keyword: kotlin.String? = null, subType: kotlin.String? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null, includeGameData: kotlin.Boolean? = null, includeAudiences: kotlin.Boolean? = null, includeInactive: kotlin.Boolean? = null, suffix: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null) : kotlin.collections.List<MissionResponse> {
-        val localVarResponse = searchMissionsWithHttpInfo(version = version, accountId = accountId, keyword = keyword, subType = subType, start = start, limit = limit, includeGameData = includeGameData, includeAudiences = includeAudiences, includeInactive = includeInactive, suffix = suffix, sortField = sortField, descending = descending)
+    fun searchMissions(accountId: kotlin.Long, keyword: kotlin.String? = null, subType: kotlin.String? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null, includeGameData: kotlin.Boolean? = null, includeAudiences: kotlin.Boolean? = null, includeInactive: kotlin.Boolean? = null, suffix: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null) : kotlin.collections.List<MissionResponse> {
+        val localVarResponse = searchMissionsWithHttpInfo(accountId = accountId, keyword = keyword, subType = subType, start = start, limit = limit, includeGameData = includeGameData, includeAudiences = includeAudiences, includeInactive = includeInactive, suffix = suffix, sortField = sortField, descending = descending)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<MissionResponse>
@@ -905,10 +886,9 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/mission/search
+     * GET /mission/search
      * Search Missions
      * Get the list missions available to the account.  
-     * @param version 
      * @param accountId The logged in user.
      * @param keyword Filter by keyword (optional)
      * @param subType Custom string client apps can use for searching/filtering missions (optional)
@@ -926,8 +906,8 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchMissionsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, keyword: kotlin.String?, subType: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?, includeGameData: kotlin.Boolean?, includeAudiences: kotlin.Boolean?, includeInactive: kotlin.Boolean?, suffix: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<MissionResponse>?> {
-        val localVariableConfig = searchMissionsRequestConfig(version = version, accountId = accountId, keyword = keyword, subType = subType, start = start, limit = limit, includeGameData = includeGameData, includeAudiences = includeAudiences, includeInactive = includeInactive, suffix = suffix, sortField = sortField, descending = descending)
+    fun searchMissionsWithHttpInfo(accountId: kotlin.Long, keyword: kotlin.String?, subType: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?, includeGameData: kotlin.Boolean?, includeAudiences: kotlin.Boolean?, includeInactive: kotlin.Boolean?, suffix: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<MissionResponse>?> {
+        val localVariableConfig = searchMissionsRequestConfig(accountId = accountId, keyword = keyword, subType = subType, start = start, limit = limit, includeGameData = includeGameData, includeAudiences = includeAudiences, includeInactive = includeInactive, suffix = suffix, sortField = sortField, descending = descending)
 
         return request<Unit, kotlin.collections.List<MissionResponse>>(
             localVariableConfig
@@ -937,7 +917,6 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation searchMissions
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param keyword Filter by keyword (optional)
      * @param subType Custom string client apps can use for searching/filtering missions (optional)
@@ -951,7 +930,7 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param descending Whether to sort in descending order (default true) (optional)
      * @return RequestConfig
      */
-    fun searchMissionsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, keyword: kotlin.String?, subType: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?, includeGameData: kotlin.Boolean?, includeAudiences: kotlin.Boolean?, includeInactive: kotlin.Boolean?, suffix: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchMissionsRequestConfig(accountId: kotlin.Long, keyword: kotlin.String?, subType: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?, includeGameData: kotlin.Boolean?, includeAudiences: kotlin.Boolean?, includeInactive: kotlin.Boolean?, suffix: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -991,7 +970,7 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/mission/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/mission/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1000,10 +979,9 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/mission/searchByBillableEntity
+     * GET /mission/searchByBillableEntity
      * Search Missions by Billable Entity
      * Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
-     * @param version 
      * @param accountId The logged in user.
      * @param keyword Filter by keyword (optional)
      * @param start The index into the record set to start with. Default is 0. (optional)
@@ -1023,8 +1001,8 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchMissionsByBillableEntity(version: java.math.BigDecimal, accountId: kotlin.Long, keyword: kotlin.String? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null, includeGameData: kotlin.Boolean? = null, includeAudiences: kotlin.Boolean? = null, includeInactive: kotlin.Boolean? = null, suffix: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null) : kotlin.collections.List<MissionResponse> {
-        val localVarResponse = searchMissionsByBillableEntityWithHttpInfo(version = version, accountId = accountId, keyword = keyword, start = start, limit = limit, includeGameData = includeGameData, includeAudiences = includeAudiences, includeInactive = includeInactive, suffix = suffix, sortField = sortField, descending = descending)
+    fun searchMissionsByBillableEntity(accountId: kotlin.Long, keyword: kotlin.String? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null, includeGameData: kotlin.Boolean? = null, includeAudiences: kotlin.Boolean? = null, includeInactive: kotlin.Boolean? = null, suffix: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null) : kotlin.collections.List<MissionResponse> {
+        val localVarResponse = searchMissionsByBillableEntityWithHttpInfo(accountId = accountId, keyword = keyword, start = start, limit = limit, includeGameData = includeGameData, includeAudiences = includeAudiences, includeInactive = includeInactive, suffix = suffix, sortField = sortField, descending = descending)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<MissionResponse>
@@ -1042,10 +1020,9 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/mission/searchByBillableEntity
+     * GET /mission/searchByBillableEntity
      * Search Missions by Billable Entity
      * Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
-     * @param version 
      * @param accountId The logged in user.
      * @param keyword Filter by keyword (optional)
      * @param start The index into the record set to start with. Default is 0. (optional)
@@ -1062,8 +1039,8 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchMissionsByBillableEntityWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, keyword: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?, includeGameData: kotlin.Boolean?, includeAudiences: kotlin.Boolean?, includeInactive: kotlin.Boolean?, suffix: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<MissionResponse>?> {
-        val localVariableConfig = searchMissionsByBillableEntityRequestConfig(version = version, accountId = accountId, keyword = keyword, start = start, limit = limit, includeGameData = includeGameData, includeAudiences = includeAudiences, includeInactive = includeInactive, suffix = suffix, sortField = sortField, descending = descending)
+    fun searchMissionsByBillableEntityWithHttpInfo(accountId: kotlin.Long, keyword: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?, includeGameData: kotlin.Boolean?, includeAudiences: kotlin.Boolean?, includeInactive: kotlin.Boolean?, suffix: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<MissionResponse>?> {
+        val localVariableConfig = searchMissionsByBillableEntityRequestConfig(accountId = accountId, keyword = keyword, start = start, limit = limit, includeGameData = includeGameData, includeAudiences = includeAudiences, includeInactive = includeInactive, suffix = suffix, sortField = sortField, descending = descending)
 
         return request<Unit, kotlin.collections.List<MissionResponse>>(
             localVariableConfig
@@ -1073,7 +1050,6 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation searchMissionsByBillableEntity
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param keyword Filter by keyword (optional)
      * @param start The index into the record set to start with. Default is 0. (optional)
@@ -1086,7 +1062,7 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param descending Whether to sort in descending order (default true) (optional)
      * @return RequestConfig
      */
-    fun searchMissionsByBillableEntityRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, keyword: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?, includeGameData: kotlin.Boolean?, includeAudiences: kotlin.Boolean?, includeInactive: kotlin.Boolean?, suffix: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchMissionsByBillableEntityRequestConfig(accountId: kotlin.Long, keyword: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?, includeGameData: kotlin.Boolean?, includeAudiences: kotlin.Boolean?, includeInactive: kotlin.Boolean?, suffix: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1123,7 +1099,7 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/mission/searchByBillableEntity".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/mission/searchByBillableEntity",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1132,10 +1108,9 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/mission/update
+     * POST /mission/update
      * Update Mission
      * Update a mission.
-     * @param version 
      * @param accountId The logged in user.
      * @param missionId The id of the mission to update.
      * @param title The title of the mission (optional)
@@ -1170,8 +1145,8 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateMission(version: java.math.BigDecimal, accountId: kotlin.Long, missionId: kotlin.Long, title: kotlin.String? = null, description: kotlin.String? = null, subType: kotlin.String? = null, metaData: kotlin.String? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, active: kotlin.Boolean? = null, gameLevelIds: kotlin.String? = null, creativeIds: kotlin.String? = null, audienceIds: kotlin.String? = null, offerId: kotlin.Long? = null, balance: kotlin.Double? = null, advancedReporting: kotlin.Boolean? = null, allocateTickets: kotlin.Boolean? = null, ticketCount: kotlin.Long? = null, ticketType: kotlin.String? = null, points: kotlin.Long? = null, applicationIds: kotlin.String? = null, devices: kotlin.String? = null, deviceIds: kotlin.String? = null, deviceVersions: kotlin.String? = null, locations: kotlin.String? = null, radius: kotlin.String? = null) : MissionResponse {
-        val localVarResponse = updateMissionWithHttpInfo(version = version, accountId = accountId, missionId = missionId, title = title, description = description, subType = subType, metaData = metaData, startDate = startDate, endDate = endDate, active = active, gameLevelIds = gameLevelIds, creativeIds = creativeIds, audienceIds = audienceIds, offerId = offerId, balance = balance, advancedReporting = advancedReporting, allocateTickets = allocateTickets, ticketCount = ticketCount, ticketType = ticketType, points = points, applicationIds = applicationIds, devices = devices, deviceIds = deviceIds, deviceVersions = deviceVersions, locations = locations, radius = radius)
+    fun updateMission(accountId: kotlin.Long, missionId: kotlin.Long, title: kotlin.String? = null, description: kotlin.String? = null, subType: kotlin.String? = null, metaData: kotlin.String? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, active: kotlin.Boolean? = null, gameLevelIds: kotlin.String? = null, creativeIds: kotlin.String? = null, audienceIds: kotlin.String? = null, offerId: kotlin.Long? = null, balance: kotlin.Double? = null, advancedReporting: kotlin.Boolean? = null, allocateTickets: kotlin.Boolean? = null, ticketCount: kotlin.Long? = null, ticketType: kotlin.String? = null, points: kotlin.Long? = null, applicationIds: kotlin.String? = null, devices: kotlin.String? = null, deviceIds: kotlin.String? = null, deviceVersions: kotlin.String? = null, locations: kotlin.String? = null, radius: kotlin.String? = null) : MissionResponse {
+        val localVarResponse = updateMissionWithHttpInfo(accountId = accountId, missionId = missionId, title = title, description = description, subType = subType, metaData = metaData, startDate = startDate, endDate = endDate, active = active, gameLevelIds = gameLevelIds, creativeIds = creativeIds, audienceIds = audienceIds, offerId = offerId, balance = balance, advancedReporting = advancedReporting, allocateTickets = allocateTickets, ticketCount = ticketCount, ticketType = ticketType, points = points, applicationIds = applicationIds, devices = devices, deviceIds = deviceIds, deviceVersions = deviceVersions, locations = locations, radius = radius)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MissionResponse
@@ -1189,10 +1164,9 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/mission/update
+     * POST /mission/update
      * Update Mission
      * Update a mission.
-     * @param version 
      * @param accountId The logged in user.
      * @param missionId The id of the mission to update.
      * @param title The title of the mission (optional)
@@ -1224,8 +1198,8 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateMissionWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, missionId: kotlin.Long, title: kotlin.String?, description: kotlin.String?, subType: kotlin.String?, metaData: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, active: kotlin.Boolean?, gameLevelIds: kotlin.String?, creativeIds: kotlin.String?, audienceIds: kotlin.String?, offerId: kotlin.Long?, balance: kotlin.Double?, advancedReporting: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketCount: kotlin.Long?, ticketType: kotlin.String?, points: kotlin.Long?, applicationIds: kotlin.String?, devices: kotlin.String?, deviceIds: kotlin.String?, deviceVersions: kotlin.String?, locations: kotlin.String?, radius: kotlin.String?) : ApiResponse<MissionResponse?> {
-        val localVariableConfig = updateMissionRequestConfig(version = version, accountId = accountId, missionId = missionId, title = title, description = description, subType = subType, metaData = metaData, startDate = startDate, endDate = endDate, active = active, gameLevelIds = gameLevelIds, creativeIds = creativeIds, audienceIds = audienceIds, offerId = offerId, balance = balance, advancedReporting = advancedReporting, allocateTickets = allocateTickets, ticketCount = ticketCount, ticketType = ticketType, points = points, applicationIds = applicationIds, devices = devices, deviceIds = deviceIds, deviceVersions = deviceVersions, locations = locations, radius = radius)
+    fun updateMissionWithHttpInfo(accountId: kotlin.Long, missionId: kotlin.Long, title: kotlin.String?, description: kotlin.String?, subType: kotlin.String?, metaData: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, active: kotlin.Boolean?, gameLevelIds: kotlin.String?, creativeIds: kotlin.String?, audienceIds: kotlin.String?, offerId: kotlin.Long?, balance: kotlin.Double?, advancedReporting: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketCount: kotlin.Long?, ticketType: kotlin.String?, points: kotlin.Long?, applicationIds: kotlin.String?, devices: kotlin.String?, deviceIds: kotlin.String?, deviceVersions: kotlin.String?, locations: kotlin.String?, radius: kotlin.String?) : ApiResponse<MissionResponse?> {
+        val localVariableConfig = updateMissionRequestConfig(accountId = accountId, missionId = missionId, title = title, description = description, subType = subType, metaData = metaData, startDate = startDate, endDate = endDate, active = active, gameLevelIds = gameLevelIds, creativeIds = creativeIds, audienceIds = audienceIds, offerId = offerId, balance = balance, advancedReporting = advancedReporting, allocateTickets = allocateTickets, ticketCount = ticketCount, ticketType = ticketType, points = points, applicationIds = applicationIds, devices = devices, deviceIds = deviceIds, deviceVersions = deviceVersions, locations = locations, radius = radius)
 
         return request<Unit, MissionResponse>(
             localVariableConfig
@@ -1235,7 +1209,6 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation updateMission
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param missionId The id of the mission to update.
      * @param title The title of the mission (optional)
@@ -1263,7 +1236,7 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param radius Comma separated list of radii for locations (optional)
      * @return RequestConfig
      */
-    fun updateMissionRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, missionId: kotlin.Long, title: kotlin.String?, description: kotlin.String?, subType: kotlin.String?, metaData: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, active: kotlin.Boolean?, gameLevelIds: kotlin.String?, creativeIds: kotlin.String?, audienceIds: kotlin.String?, offerId: kotlin.Long?, balance: kotlin.Double?, advancedReporting: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketCount: kotlin.Long?, ticketType: kotlin.String?, points: kotlin.Long?, applicationIds: kotlin.String?, devices: kotlin.String?, deviceIds: kotlin.String?, deviceVersions: kotlin.String?, locations: kotlin.String?, radius: kotlin.String?) : RequestConfig<Unit> {
+    fun updateMissionRequestConfig(accountId: kotlin.Long, missionId: kotlin.Long, title: kotlin.String?, description: kotlin.String?, subType: kotlin.String?, metaData: kotlin.String?, startDate: kotlin.Long?, endDate: kotlin.Long?, active: kotlin.Boolean?, gameLevelIds: kotlin.String?, creativeIds: kotlin.String?, audienceIds: kotlin.String?, offerId: kotlin.Long?, balance: kotlin.Double?, advancedReporting: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketCount: kotlin.Long?, ticketType: kotlin.String?, points: kotlin.Long?, applicationIds: kotlin.String?, devices: kotlin.String?, deviceIds: kotlin.String?, deviceVersions: kotlin.String?, locations: kotlin.String?, radius: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1343,7 +1316,7 @@ open class MissionApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/mission/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/mission/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

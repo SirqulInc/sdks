@@ -41,15 +41,14 @@ open class StopApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * GET /api/{version}/stop/{id}
+     * GET /stop/{id}
      * Get Stop
      * Get an existing stop
-     * @param version 
      * @param id the id of the stop to get
      * @return Stop
      * @throws IllegalStateException If the request is not correctly configured
@@ -60,8 +59,8 @@ open class StopApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getStop(version: java.math.BigDecimal, id: kotlin.Long) : Stop {
-        val localVarResponse = getStopWithHttpInfo(version = version, id = id)
+    fun getStop(id: kotlin.Long) : Stop {
+        val localVarResponse = getStopWithHttpInfo(id = id)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Stop
@@ -79,10 +78,9 @@ open class StopApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/stop/{id}
+     * GET /stop/{id}
      * Get Stop
      * Get an existing stop
-     * @param version 
      * @param id the id of the stop to get
      * @return ApiResponse<Stop?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -90,8 +88,8 @@ open class StopApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getStopWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long) : ApiResponse<Stop?> {
-        val localVariableConfig = getStopRequestConfig(version = version, id = id)
+    fun getStopWithHttpInfo(id: kotlin.Long) : ApiResponse<Stop?> {
+        val localVariableConfig = getStopRequestConfig(id = id)
 
         return request<Unit, Stop>(
             localVariableConfig
@@ -101,18 +99,17 @@ open class StopApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation getStop
      *
-     * @param version 
      * @param id the id of the stop to get
      * @return RequestConfig
      */
-    fun getStopRequestConfig(version: java.math.BigDecimal, id: kotlin.Long) : RequestConfig<Unit> {
+    fun getStopRequestConfig(id: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/stop/{id}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/stop/{id}".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -121,10 +118,9 @@ open class StopApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * PUT /api/{version}/stop/{id}
+     * PUT /stop/{id}
      * Update Stop
      * Update an existing stop
-     * @param version 
      * @param id the id of the stop to update
      * @param body  (optional)
      * @return Stop
@@ -136,8 +132,8 @@ open class StopApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateStop(version: java.math.BigDecimal, id: kotlin.Long, body: Stop? = null) : Stop {
-        val localVarResponse = updateStopWithHttpInfo(version = version, id = id, body = body)
+    fun updateStop(id: kotlin.Long, body: Stop? = null) : Stop {
+        val localVarResponse = updateStopWithHttpInfo(id = id, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Stop
@@ -155,10 +151,9 @@ open class StopApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * PUT /api/{version}/stop/{id}
+     * PUT /stop/{id}
      * Update Stop
      * Update an existing stop
-     * @param version 
      * @param id the id of the stop to update
      * @param body  (optional)
      * @return ApiResponse<Stop?>
@@ -167,8 +162,8 @@ open class StopApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateStopWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long, body: Stop?) : ApiResponse<Stop?> {
-        val localVariableConfig = updateStopRequestConfig(version = version, id = id, body = body)
+    fun updateStopWithHttpInfo(id: kotlin.Long, body: Stop?) : ApiResponse<Stop?> {
+        val localVariableConfig = updateStopRequestConfig(id = id, body = body)
 
         return request<Stop, Stop>(
             localVariableConfig
@@ -178,19 +173,18 @@ open class StopApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation updateStop
      *
-     * @param version 
      * @param id the id of the stop to update
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun updateStopRequestConfig(version: java.math.BigDecimal, id: kotlin.Long, body: Stop?) : RequestConfig<Stop> {
+    fun updateStopRequestConfig(id: kotlin.Long, body: Stop?) : RequestConfig<Stop> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.PUT,
-            path = "/api/{version}/stop/{id}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/stop/{id}".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

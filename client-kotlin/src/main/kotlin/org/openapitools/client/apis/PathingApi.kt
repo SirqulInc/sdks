@@ -41,7 +41,7 @@ open class PathingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
@@ -63,10 +63,9 @@ open class PathingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      }
 
     /**
-     * GET /api/{version}/pathing/compute
+     * GET /pathing/compute
      * Calculate Path
      * Calculates the shortest path from point to point on a grid
-     * @param version 
      * @param `data` the data to with start, end point and exclusion points
      * @param units the system of measurement for directions: {METRIC, IMPERIAL}
      * @param reducePath determines whether to reduce the path to go in diagonal lines
@@ -80,8 +79,8 @@ open class PathingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun computePath(version: java.math.BigDecimal, `data`: kotlin.String, units: UnitsComputePath, reducePath: kotlin.Boolean, directions: kotlin.Boolean) : PathingResponse {
-        val localVarResponse = computePathWithHttpInfo(version = version, `data` = `data`, units = units, reducePath = reducePath, directions = directions)
+    fun computePath(`data`: kotlin.String, units: UnitsComputePath, reducePath: kotlin.Boolean, directions: kotlin.Boolean) : PathingResponse {
+        val localVarResponse = computePathWithHttpInfo(`data` = `data`, units = units, reducePath = reducePath, directions = directions)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PathingResponse
@@ -99,10 +98,9 @@ open class PathingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/pathing/compute
+     * GET /pathing/compute
      * Calculate Path
      * Calculates the shortest path from point to point on a grid
-     * @param version 
      * @param `data` the data to with start, end point and exclusion points
      * @param units the system of measurement for directions: {METRIC, IMPERIAL}
      * @param reducePath determines whether to reduce the path to go in diagonal lines
@@ -113,8 +111,8 @@ open class PathingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun computePathWithHttpInfo(version: java.math.BigDecimal, `data`: kotlin.String, units: UnitsComputePath, reducePath: kotlin.Boolean, directions: kotlin.Boolean) : ApiResponse<PathingResponse?> {
-        val localVariableConfig = computePathRequestConfig(version = version, `data` = `data`, units = units, reducePath = reducePath, directions = directions)
+    fun computePathWithHttpInfo(`data`: kotlin.String, units: UnitsComputePath, reducePath: kotlin.Boolean, directions: kotlin.Boolean) : ApiResponse<PathingResponse?> {
+        val localVariableConfig = computePathRequestConfig(`data` = `data`, units = units, reducePath = reducePath, directions = directions)
 
         return request<Unit, PathingResponse>(
             localVariableConfig
@@ -124,14 +122,13 @@ open class PathingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation computePath
      *
-     * @param version 
      * @param `data` the data to with start, end point and exclusion points
      * @param units the system of measurement for directions: {METRIC, IMPERIAL}
      * @param reducePath determines whether to reduce the path to go in diagonal lines
      * @param directions determines whether to return text directions
      * @return RequestConfig
      */
-    fun computePathRequestConfig(version: java.math.BigDecimal, `data`: kotlin.String, units: UnitsComputePath, reducePath: kotlin.Boolean, directions: kotlin.Boolean) : RequestConfig<Unit> {
+    fun computePathRequestConfig(`data`: kotlin.String, units: UnitsComputePath, reducePath: kotlin.Boolean, directions: kotlin.Boolean) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -144,7 +141,7 @@ open class PathingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/pathing/compute".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/pathing/compute",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

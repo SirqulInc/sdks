@@ -42,7 +42,7 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
@@ -85,10 +85,9 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      }
 
     /**
-     * POST /api/{version}/pack/create
+     * POST /pack/create
      * Create Pack
      * Create a pack.
-     * @param version 
      * @param accountId The logged in user.
      * @param title The title of the pack
      * @param packOrder The order of the pack
@@ -122,8 +121,8 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createPack(version: java.math.BigDecimal, accountId: kotlin.Long, title: kotlin.String, packOrder: kotlin.Long, price: kotlin.Int, highest: kotlin.Boolean, allocateTickets: kotlin.Boolean, ticketCount: kotlin.Long, description: kotlin.String? = null, searchTags: kotlin.String? = null, active: kotlin.Boolean? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, packType: PackTypeCreatePack? = null, sequenceType: SequenceTypeCreatePack? = null, backgroundId: kotlin.Long? = null, imageId: kotlin.Long? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, authorOverride: kotlin.String? = null, priceType: kotlin.String? = null, gameLevelIds: kotlin.String? = null, inGame: kotlin.Boolean? = null, ticketType: kotlin.String? = null, points: kotlin.Long? = null) : PackResponse {
-        val localVarResponse = createPackWithHttpInfo(version = version, accountId = accountId, title = title, packOrder = packOrder, price = price, highest = highest, allocateTickets = allocateTickets, ticketCount = ticketCount, description = description, searchTags = searchTags, active = active, gameType = gameType, appKey = appKey, packType = packType, sequenceType = sequenceType, backgroundId = backgroundId, imageId = imageId, startDate = startDate, endDate = endDate, authorOverride = authorOverride, priceType = priceType, gameLevelIds = gameLevelIds, inGame = inGame, ticketType = ticketType, points = points)
+    fun createPack(accountId: kotlin.Long, title: kotlin.String, packOrder: kotlin.Long, price: kotlin.Int, highest: kotlin.Boolean, allocateTickets: kotlin.Boolean, ticketCount: kotlin.Long, description: kotlin.String? = null, searchTags: kotlin.String? = null, active: kotlin.Boolean? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, packType: PackTypeCreatePack? = null, sequenceType: SequenceTypeCreatePack? = null, backgroundId: kotlin.Long? = null, imageId: kotlin.Long? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, authorOverride: kotlin.String? = null, priceType: kotlin.String? = null, gameLevelIds: kotlin.String? = null, inGame: kotlin.Boolean? = null, ticketType: kotlin.String? = null, points: kotlin.Long? = null) : PackResponse {
+        val localVarResponse = createPackWithHttpInfo(accountId = accountId, title = title, packOrder = packOrder, price = price, highest = highest, allocateTickets = allocateTickets, ticketCount = ticketCount, description = description, searchTags = searchTags, active = active, gameType = gameType, appKey = appKey, packType = packType, sequenceType = sequenceType, backgroundId = backgroundId, imageId = imageId, startDate = startDate, endDate = endDate, authorOverride = authorOverride, priceType = priceType, gameLevelIds = gameLevelIds, inGame = inGame, ticketType = ticketType, points = points)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PackResponse
@@ -141,10 +140,9 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/pack/create
+     * POST /pack/create
      * Create Pack
      * Create a pack.
-     * @param version 
      * @param accountId The logged in user.
      * @param title The title of the pack
      * @param packOrder The order of the pack
@@ -175,8 +173,8 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createPackWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, title: kotlin.String, packOrder: kotlin.Long, price: kotlin.Int, highest: kotlin.Boolean, allocateTickets: kotlin.Boolean, ticketCount: kotlin.Long, description: kotlin.String?, searchTags: kotlin.String?, active: kotlin.Boolean?, gameType: kotlin.String?, appKey: kotlin.String?, packType: PackTypeCreatePack?, sequenceType: SequenceTypeCreatePack?, backgroundId: kotlin.Long?, imageId: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, authorOverride: kotlin.String?, priceType: kotlin.String?, gameLevelIds: kotlin.String?, inGame: kotlin.Boolean?, ticketType: kotlin.String?, points: kotlin.Long?) : ApiResponse<PackResponse?> {
-        val localVariableConfig = createPackRequestConfig(version = version, accountId = accountId, title = title, packOrder = packOrder, price = price, highest = highest, allocateTickets = allocateTickets, ticketCount = ticketCount, description = description, searchTags = searchTags, active = active, gameType = gameType, appKey = appKey, packType = packType, sequenceType = sequenceType, backgroundId = backgroundId, imageId = imageId, startDate = startDate, endDate = endDate, authorOverride = authorOverride, priceType = priceType, gameLevelIds = gameLevelIds, inGame = inGame, ticketType = ticketType, points = points)
+    fun createPackWithHttpInfo(accountId: kotlin.Long, title: kotlin.String, packOrder: kotlin.Long, price: kotlin.Int, highest: kotlin.Boolean, allocateTickets: kotlin.Boolean, ticketCount: kotlin.Long, description: kotlin.String?, searchTags: kotlin.String?, active: kotlin.Boolean?, gameType: kotlin.String?, appKey: kotlin.String?, packType: PackTypeCreatePack?, sequenceType: SequenceTypeCreatePack?, backgroundId: kotlin.Long?, imageId: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, authorOverride: kotlin.String?, priceType: kotlin.String?, gameLevelIds: kotlin.String?, inGame: kotlin.Boolean?, ticketType: kotlin.String?, points: kotlin.Long?) : ApiResponse<PackResponse?> {
+        val localVariableConfig = createPackRequestConfig(accountId = accountId, title = title, packOrder = packOrder, price = price, highest = highest, allocateTickets = allocateTickets, ticketCount = ticketCount, description = description, searchTags = searchTags, active = active, gameType = gameType, appKey = appKey, packType = packType, sequenceType = sequenceType, backgroundId = backgroundId, imageId = imageId, startDate = startDate, endDate = endDate, authorOverride = authorOverride, priceType = priceType, gameLevelIds = gameLevelIds, inGame = inGame, ticketType = ticketType, points = points)
 
         return request<Unit, PackResponse>(
             localVariableConfig
@@ -186,7 +184,6 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation createPack
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param title The title of the pack
      * @param packOrder The order of the pack
@@ -213,7 +210,7 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param points The number of points to award for completing a pack (optional)
      * @return RequestConfig
      */
-    fun createPackRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, title: kotlin.String, packOrder: kotlin.Long, price: kotlin.Int, highest: kotlin.Boolean, allocateTickets: kotlin.Boolean, ticketCount: kotlin.Long, description: kotlin.String?, searchTags: kotlin.String?, active: kotlin.Boolean?, gameType: kotlin.String?, appKey: kotlin.String?, packType: PackTypeCreatePack?, sequenceType: SequenceTypeCreatePack?, backgroundId: kotlin.Long?, imageId: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, authorOverride: kotlin.String?, priceType: kotlin.String?, gameLevelIds: kotlin.String?, inGame: kotlin.Boolean?, ticketType: kotlin.String?, points: kotlin.Long?) : RequestConfig<Unit> {
+    fun createPackRequestConfig(accountId: kotlin.Long, title: kotlin.String, packOrder: kotlin.Long, price: kotlin.Int, highest: kotlin.Boolean, allocateTickets: kotlin.Boolean, ticketCount: kotlin.Long, description: kotlin.String?, searchTags: kotlin.String?, active: kotlin.Boolean?, gameType: kotlin.String?, appKey: kotlin.String?, packType: PackTypeCreatePack?, sequenceType: SequenceTypeCreatePack?, backgroundId: kotlin.Long?, imageId: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, authorOverride: kotlin.String?, priceType: kotlin.String?, gameLevelIds: kotlin.String?, inGame: kotlin.Boolean?, ticketType: kotlin.String?, points: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -280,7 +277,7 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/pack/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/pack/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -289,10 +286,9 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/pack/delete
+     * POST /pack/delete
      * Delete Pack
      * Delete a pack.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param packId the id of the pack to delete
      * @return SirqulResponse
@@ -304,8 +300,8 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deletePack(version: java.math.BigDecimal, accountId: kotlin.Long, packId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = deletePackWithHttpInfo(version = version, accountId = accountId, packId = packId)
+    fun deletePack(accountId: kotlin.Long, packId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = deletePackWithHttpInfo(accountId = accountId, packId = packId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -323,10 +319,9 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/pack/delete
+     * POST /pack/delete
      * Delete Pack
      * Delete a pack.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param packId the id of the pack to delete
      * @return ApiResponse<SirqulResponse?>
@@ -335,8 +330,8 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deletePackWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, packId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deletePackRequestConfig(version = version, accountId = accountId, packId = packId)
+    fun deletePackWithHttpInfo(accountId: kotlin.Long, packId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deletePackRequestConfig(accountId = accountId, packId = packId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -346,12 +341,11 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation deletePack
      *
-     * @param version 
      * @param accountId the id of the logged in user
      * @param packId the id of the pack to delete
      * @return RequestConfig
      */
-    fun deletePackRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, packId: kotlin.Long) : RequestConfig<Unit> {
+    fun deletePackRequestConfig(accountId: kotlin.Long, packId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -362,7 +356,7 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/pack/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/pack/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -371,10 +365,9 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/pack/get
+     * GET /pack/get
      * Get Pack
      * Get a pack.
-     * @param version 
      * @param accountId The logged in user.
      * @param packId The id of the pack to return.
      * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false.
@@ -387,8 +380,8 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getPack(version: java.math.BigDecimal, accountId: kotlin.Long, packId: kotlin.Long, includeGameData: kotlin.Boolean) : PackResponse {
-        val localVarResponse = getPackWithHttpInfo(version = version, accountId = accountId, packId = packId, includeGameData = includeGameData)
+    fun getPack(accountId: kotlin.Long, packId: kotlin.Long, includeGameData: kotlin.Boolean) : PackResponse {
+        val localVarResponse = getPackWithHttpInfo(accountId = accountId, packId = packId, includeGameData = includeGameData)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PackResponse
@@ -406,10 +399,9 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/pack/get
+     * GET /pack/get
      * Get Pack
      * Get a pack.
-     * @param version 
      * @param accountId The logged in user.
      * @param packId The id of the pack to return.
      * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false.
@@ -419,8 +411,8 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getPackWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, packId: kotlin.Long, includeGameData: kotlin.Boolean) : ApiResponse<PackResponse?> {
-        val localVariableConfig = getPackRequestConfig(version = version, accountId = accountId, packId = packId, includeGameData = includeGameData)
+    fun getPackWithHttpInfo(accountId: kotlin.Long, packId: kotlin.Long, includeGameData: kotlin.Boolean) : ApiResponse<PackResponse?> {
+        val localVariableConfig = getPackRequestConfig(accountId = accountId, packId = packId, includeGameData = includeGameData)
 
         return request<Unit, PackResponse>(
             localVariableConfig
@@ -430,13 +422,12 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation getPack
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param packId The id of the pack to return.
      * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false.
      * @return RequestConfig
      */
-    fun getPackRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, packId: kotlin.Long, includeGameData: kotlin.Boolean) : RequestConfig<Unit> {
+    fun getPackRequestConfig(accountId: kotlin.Long, packId: kotlin.Long, includeGameData: kotlin.Boolean) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -448,7 +439,7 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/pack/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/pack/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -497,10 +488,9 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      }
 
     /**
-     * GET /api/{version}/pack/search
+     * GET /pack/search
      * Search Packs
      * Search on packs.
-     * @param version 
      * @param accountId The logged in user.
      * @param sortField The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED
      * @param descending Determines whether the sorted list is in descending or ascending order
@@ -520,8 +510,8 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchPacks(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: SortFieldSearchPacks, descending: kotlin.Boolean, keyword: kotlin.String? = null, packType: PackTypeSearchPacks? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null, includeGameData: kotlin.Boolean? = null, includeInactive: kotlin.Boolean? = null, appKey: kotlin.String? = null) : kotlin.collections.List<PackResponse> {
-        val localVarResponse = searchPacksWithHttpInfo(version = version, accountId = accountId, sortField = sortField, descending = descending, keyword = keyword, packType = packType, start = start, limit = limit, includeGameData = includeGameData, includeInactive = includeInactive, appKey = appKey)
+    fun searchPacks(accountId: kotlin.Long, sortField: SortFieldSearchPacks, descending: kotlin.Boolean, keyword: kotlin.String? = null, packType: PackTypeSearchPacks? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null, includeGameData: kotlin.Boolean? = null, includeInactive: kotlin.Boolean? = null, appKey: kotlin.String? = null) : kotlin.collections.List<PackResponse> {
+        val localVarResponse = searchPacksWithHttpInfo(accountId = accountId, sortField = sortField, descending = descending, keyword = keyword, packType = packType, start = start, limit = limit, includeGameData = includeGameData, includeInactive = includeInactive, appKey = appKey)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<PackResponse>
@@ -539,10 +529,9 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/pack/search
+     * GET /pack/search
      * Search Packs
      * Search on packs.
-     * @param version 
      * @param accountId The logged in user.
      * @param sortField The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED
      * @param descending Determines whether the sorted list is in descending or ascending order
@@ -559,8 +548,8 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchPacksWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: SortFieldSearchPacks, descending: kotlin.Boolean, keyword: kotlin.String?, packType: PackTypeSearchPacks?, start: kotlin.Int?, limit: kotlin.Int?, includeGameData: kotlin.Boolean?, includeInactive: kotlin.Boolean?, appKey: kotlin.String?) : ApiResponse<kotlin.collections.List<PackResponse>?> {
-        val localVariableConfig = searchPacksRequestConfig(version = version, accountId = accountId, sortField = sortField, descending = descending, keyword = keyword, packType = packType, start = start, limit = limit, includeGameData = includeGameData, includeInactive = includeInactive, appKey = appKey)
+    fun searchPacksWithHttpInfo(accountId: kotlin.Long, sortField: SortFieldSearchPacks, descending: kotlin.Boolean, keyword: kotlin.String?, packType: PackTypeSearchPacks?, start: kotlin.Int?, limit: kotlin.Int?, includeGameData: kotlin.Boolean?, includeInactive: kotlin.Boolean?, appKey: kotlin.String?) : ApiResponse<kotlin.collections.List<PackResponse>?> {
+        val localVariableConfig = searchPacksRequestConfig(accountId = accountId, sortField = sortField, descending = descending, keyword = keyword, packType = packType, start = start, limit = limit, includeGameData = includeGameData, includeInactive = includeInactive, appKey = appKey)
 
         return request<Unit, kotlin.collections.List<PackResponse>>(
             localVariableConfig
@@ -570,7 +559,6 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation searchPacks
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param sortField The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED
      * @param descending Determines whether the sorted list is in descending or ascending order
@@ -583,7 +571,7 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param appKey The application to filter results on (optional)
      * @return RequestConfig
      */
-    fun searchPacksRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: SortFieldSearchPacks, descending: kotlin.Boolean, keyword: kotlin.String?, packType: PackTypeSearchPacks?, start: kotlin.Int?, limit: kotlin.Int?, includeGameData: kotlin.Boolean?, includeInactive: kotlin.Boolean?, appKey: kotlin.String?) : RequestConfig<Unit> {
+    fun searchPacksRequestConfig(accountId: kotlin.Long, sortField: SortFieldSearchPacks, descending: kotlin.Boolean, keyword: kotlin.String?, packType: PackTypeSearchPacks?, start: kotlin.Int?, limit: kotlin.Int?, includeGameData: kotlin.Boolean?, includeInactive: kotlin.Boolean?, appKey: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -616,7 +604,7 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/pack/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/pack/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -663,10 +651,9 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      }
 
     /**
-     * POST /api/{version}/pack/update
+     * POST /pack/update
      * Update Pack
      * Update a pack.
-     * @param version 
      * @param accountId The logged in user.
      * @param packId The id of the pack to update.
      * @param allocateTickets Flag to indicate owner should receive tickets for completed packs
@@ -701,8 +688,8 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updatePack(version: java.math.BigDecimal, accountId: kotlin.Long, packId: kotlin.Long, allocateTickets: kotlin.Boolean, ticketCount: kotlin.Long, title: kotlin.String? = null, description: kotlin.String? = null, searchTags: kotlin.String? = null, active: kotlin.Boolean? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, packType: PackTypeUpdatePack? = null, packOrder: kotlin.Long? = null, sequenceType: SequenceTypeUpdatePack? = null, backgroundId: kotlin.Long? = null, imageId: kotlin.Long? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, authorOverride: kotlin.String? = null, price: kotlin.Int? = null, priceType: kotlin.String? = null, gameLevelIds: kotlin.String? = null, inGame: kotlin.Boolean? = null, highest: kotlin.Boolean? = null, ticketType: kotlin.String? = null, points: kotlin.Long? = null) : PackResponse {
-        val localVarResponse = updatePackWithHttpInfo(version = version, accountId = accountId, packId = packId, allocateTickets = allocateTickets, ticketCount = ticketCount, title = title, description = description, searchTags = searchTags, active = active, gameType = gameType, appKey = appKey, packType = packType, packOrder = packOrder, sequenceType = sequenceType, backgroundId = backgroundId, imageId = imageId, startDate = startDate, endDate = endDate, authorOverride = authorOverride, price = price, priceType = priceType, gameLevelIds = gameLevelIds, inGame = inGame, highest = highest, ticketType = ticketType, points = points)
+    fun updatePack(accountId: kotlin.Long, packId: kotlin.Long, allocateTickets: kotlin.Boolean, ticketCount: kotlin.Long, title: kotlin.String? = null, description: kotlin.String? = null, searchTags: kotlin.String? = null, active: kotlin.Boolean? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, packType: PackTypeUpdatePack? = null, packOrder: kotlin.Long? = null, sequenceType: SequenceTypeUpdatePack? = null, backgroundId: kotlin.Long? = null, imageId: kotlin.Long? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, authorOverride: kotlin.String? = null, price: kotlin.Int? = null, priceType: kotlin.String? = null, gameLevelIds: kotlin.String? = null, inGame: kotlin.Boolean? = null, highest: kotlin.Boolean? = null, ticketType: kotlin.String? = null, points: kotlin.Long? = null) : PackResponse {
+        val localVarResponse = updatePackWithHttpInfo(accountId = accountId, packId = packId, allocateTickets = allocateTickets, ticketCount = ticketCount, title = title, description = description, searchTags = searchTags, active = active, gameType = gameType, appKey = appKey, packType = packType, packOrder = packOrder, sequenceType = sequenceType, backgroundId = backgroundId, imageId = imageId, startDate = startDate, endDate = endDate, authorOverride = authorOverride, price = price, priceType = priceType, gameLevelIds = gameLevelIds, inGame = inGame, highest = highest, ticketType = ticketType, points = points)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PackResponse
@@ -720,10 +707,9 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/pack/update
+     * POST /pack/update
      * Update Pack
      * Update a pack.
-     * @param version 
      * @param accountId The logged in user.
      * @param packId The id of the pack to update.
      * @param allocateTickets Flag to indicate owner should receive tickets for completed packs
@@ -755,8 +741,8 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updatePackWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, packId: kotlin.Long, allocateTickets: kotlin.Boolean, ticketCount: kotlin.Long, title: kotlin.String?, description: kotlin.String?, searchTags: kotlin.String?, active: kotlin.Boolean?, gameType: kotlin.String?, appKey: kotlin.String?, packType: PackTypeUpdatePack?, packOrder: kotlin.Long?, sequenceType: SequenceTypeUpdatePack?, backgroundId: kotlin.Long?, imageId: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, authorOverride: kotlin.String?, price: kotlin.Int?, priceType: kotlin.String?, gameLevelIds: kotlin.String?, inGame: kotlin.Boolean?, highest: kotlin.Boolean?, ticketType: kotlin.String?, points: kotlin.Long?) : ApiResponse<PackResponse?> {
-        val localVariableConfig = updatePackRequestConfig(version = version, accountId = accountId, packId = packId, allocateTickets = allocateTickets, ticketCount = ticketCount, title = title, description = description, searchTags = searchTags, active = active, gameType = gameType, appKey = appKey, packType = packType, packOrder = packOrder, sequenceType = sequenceType, backgroundId = backgroundId, imageId = imageId, startDate = startDate, endDate = endDate, authorOverride = authorOverride, price = price, priceType = priceType, gameLevelIds = gameLevelIds, inGame = inGame, highest = highest, ticketType = ticketType, points = points)
+    fun updatePackWithHttpInfo(accountId: kotlin.Long, packId: kotlin.Long, allocateTickets: kotlin.Boolean, ticketCount: kotlin.Long, title: kotlin.String?, description: kotlin.String?, searchTags: kotlin.String?, active: kotlin.Boolean?, gameType: kotlin.String?, appKey: kotlin.String?, packType: PackTypeUpdatePack?, packOrder: kotlin.Long?, sequenceType: SequenceTypeUpdatePack?, backgroundId: kotlin.Long?, imageId: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, authorOverride: kotlin.String?, price: kotlin.Int?, priceType: kotlin.String?, gameLevelIds: kotlin.String?, inGame: kotlin.Boolean?, highest: kotlin.Boolean?, ticketType: kotlin.String?, points: kotlin.Long?) : ApiResponse<PackResponse?> {
+        val localVariableConfig = updatePackRequestConfig(accountId = accountId, packId = packId, allocateTickets = allocateTickets, ticketCount = ticketCount, title = title, description = description, searchTags = searchTags, active = active, gameType = gameType, appKey = appKey, packType = packType, packOrder = packOrder, sequenceType = sequenceType, backgroundId = backgroundId, imageId = imageId, startDate = startDate, endDate = endDate, authorOverride = authorOverride, price = price, priceType = priceType, gameLevelIds = gameLevelIds, inGame = inGame, highest = highest, ticketType = ticketType, points = points)
 
         return request<Unit, PackResponse>(
             localVariableConfig
@@ -766,7 +752,6 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation updatePack
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param packId The id of the pack to update.
      * @param allocateTickets Flag to indicate owner should receive tickets for completed packs
@@ -794,7 +779,7 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param points The number of points to award for completing a pack (optional)
      * @return RequestConfig
      */
-    fun updatePackRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, packId: kotlin.Long, allocateTickets: kotlin.Boolean, ticketCount: kotlin.Long, title: kotlin.String?, description: kotlin.String?, searchTags: kotlin.String?, active: kotlin.Boolean?, gameType: kotlin.String?, appKey: kotlin.String?, packType: PackTypeUpdatePack?, packOrder: kotlin.Long?, sequenceType: SequenceTypeUpdatePack?, backgroundId: kotlin.Long?, imageId: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, authorOverride: kotlin.String?, price: kotlin.Int?, priceType: kotlin.String?, gameLevelIds: kotlin.String?, inGame: kotlin.Boolean?, highest: kotlin.Boolean?, ticketType: kotlin.String?, points: kotlin.Long?) : RequestConfig<Unit> {
+    fun updatePackRequestConfig(accountId: kotlin.Long, packId: kotlin.Long, allocateTickets: kotlin.Boolean, ticketCount: kotlin.Long, title: kotlin.String?, description: kotlin.String?, searchTags: kotlin.String?, active: kotlin.Boolean?, gameType: kotlin.String?, appKey: kotlin.String?, packType: PackTypeUpdatePack?, packOrder: kotlin.Long?, sequenceType: SequenceTypeUpdatePack?, backgroundId: kotlin.Long?, imageId: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, authorOverride: kotlin.String?, price: kotlin.Int?, priceType: kotlin.String?, gameLevelIds: kotlin.String?, inGame: kotlin.Boolean?, highest: kotlin.Boolean?, ticketType: kotlin.String?, points: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -870,7 +855,7 @@ open class PackApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/pack/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/pack/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

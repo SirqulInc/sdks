@@ -42,15 +42,14 @@ open class FacebookApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * GET /api/{version}/facebook/getfbtoken
+     * GET /facebook/getfbtoken
      * Get Facebook Token
      * Gets a user&#39;s Facebook token.
-     * @param version 
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param latitude used to update the user&#39;s current location (optional)
@@ -64,8 +63,8 @@ open class FacebookApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getToken(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : TokenResponse {
-        val localVarResponse = getTokenWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun getToken(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : TokenResponse {
+        val localVarResponse = getTokenWithHttpInfo(deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TokenResponse
@@ -83,10 +82,9 @@ open class FacebookApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/facebook/getfbtoken
+     * GET /facebook/getfbtoken
      * Get Facebook Token
      * Gets a user&#39;s Facebook token.
-     * @param version 
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param latitude used to update the user&#39;s current location (optional)
@@ -97,8 +95,8 @@ open class FacebookApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTokenWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<TokenResponse?> {
-        val localVariableConfig = getTokenRequestConfig(version = version, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun getTokenWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<TokenResponse?> {
+        val localVariableConfig = getTokenRequestConfig(deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return request<Unit, TokenResponse>(
             localVariableConfig
@@ -108,14 +106,13 @@ open class FacebookApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation getToken
      *
-     * @param version 
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param latitude used to update the user&#39;s current location (optional)
      * @param longitude used to update the user&#39;s current location (optional)
      * @return RequestConfig
      */
-    fun getTokenRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun getTokenRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -136,7 +133,7 @@ open class FacebookApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/facebook/getfbtoken".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/facebook/getfbtoken",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -145,10 +142,9 @@ open class FacebookApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/facebook/graph
+     * POST /facebook/graph
      * Post to Facebook
      * Make Facebook posts on behalf of the user.
-     * @param version 
      * @param event the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -168,8 +164,8 @@ open class FacebookApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun graphInterface(version: java.math.BigDecimal, event: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, permissionableType: kotlin.String? = null, permissionableId: kotlin.Long? = null, assetId: kotlin.Long? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
-        val localVarResponse = graphInterfaceWithHttpInfo(version = version, event = event, deviceId = deviceId, accountId = accountId, permissionableType = permissionableType, permissionableId = permissionableId, assetId = assetId, gameType = gameType, appKey = appKey, latitude = latitude, longitude = longitude)
+    fun graphInterface(event: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, permissionableType: kotlin.String? = null, permissionableId: kotlin.Long? = null, assetId: kotlin.Long? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
+        val localVarResponse = graphInterfaceWithHttpInfo(event = event, deviceId = deviceId, accountId = accountId, permissionableType = permissionableType, permissionableId = permissionableId, assetId = assetId, gameType = gameType, appKey = appKey, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -187,10 +183,9 @@ open class FacebookApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/facebook/graph
+     * POST /facebook/graph
      * Post to Facebook
      * Make Facebook posts on behalf of the user.
-     * @param version 
      * @param event the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -207,8 +202,8 @@ open class FacebookApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun graphInterfaceWithHttpInfo(version: java.math.BigDecimal, event: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, permissionableType: kotlin.String?, permissionableId: kotlin.Long?, assetId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = graphInterfaceRequestConfig(version = version, event = event, deviceId = deviceId, accountId = accountId, permissionableType = permissionableType, permissionableId = permissionableId, assetId = assetId, gameType = gameType, appKey = appKey, latitude = latitude, longitude = longitude)
+    fun graphInterfaceWithHttpInfo(event: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, permissionableType: kotlin.String?, permissionableId: kotlin.Long?, assetId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = graphInterfaceRequestConfig(event = event, deviceId = deviceId, accountId = accountId, permissionableType = permissionableType, permissionableId = permissionableId, assetId = assetId, gameType = gameType, appKey = appKey, latitude = latitude, longitude = longitude)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -218,7 +213,6 @@ open class FacebookApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation graphInterface
      *
-     * @param version 
      * @param event the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -231,7 +225,7 @@ open class FacebookApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param longitude used to update the user&#39;s current location (optional)
      * @return RequestConfig
      */
-    fun graphInterfaceRequestConfig(version: java.math.BigDecimal, event: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, permissionableType: kotlin.String?, permissionableId: kotlin.Long?, assetId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun graphInterfaceRequestConfig(event: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, permissionableType: kotlin.String?, permissionableId: kotlin.Long?, assetId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -268,7 +262,7 @@ open class FacebookApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/facebook/graph".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/facebook/graph",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

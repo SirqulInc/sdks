@@ -44,15 +44,14 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/favorite/create
+     * POST /favorite/create
      * Create Favorite
      * Adds an offer, offer location, retailer location, or category to your favorites.
-     * @param version 
      * @param favoritableId The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM}
      * @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
@@ -68,8 +67,8 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun addFavorite(version: java.math.BigDecimal, favoritableId: kotlin.Long, favoritableType: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : WrappedResponse {
-        val localVarResponse = addFavoriteWithHttpInfo(version = version, favoritableId = favoritableId, favoritableType = favoritableType, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun addFavorite(favoritableId: kotlin.Long, favoritableType: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : WrappedResponse {
+        val localVarResponse = addFavoriteWithHttpInfo(favoritableId = favoritableId, favoritableType = favoritableType, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as WrappedResponse
@@ -87,10 +86,9 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/favorite/create
+     * POST /favorite/create
      * Create Favorite
      * Adds an offer, offer location, retailer location, or category to your favorites.
-     * @param version 
      * @param favoritableId The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM}
      * @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
@@ -103,8 +101,8 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun addFavoriteWithHttpInfo(version: java.math.BigDecimal, favoritableId: kotlin.Long, favoritableType: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<WrappedResponse?> {
-        val localVariableConfig = addFavoriteRequestConfig(version = version, favoritableId = favoritableId, favoritableType = favoritableType, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun addFavoriteWithHttpInfo(favoritableId: kotlin.Long, favoritableType: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<WrappedResponse?> {
+        val localVariableConfig = addFavoriteRequestConfig(favoritableId = favoritableId, favoritableType = favoritableType, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return request<Unit, WrappedResponse>(
             localVariableConfig
@@ -114,7 +112,6 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation addFavorite
      *
-     * @param version 
      * @param favoritableId The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM}
      * @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
@@ -123,7 +120,7 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param longitude The current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun addFavoriteRequestConfig(version: java.math.BigDecimal, favoritableId: kotlin.Long, favoritableType: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun addFavoriteRequestConfig(favoritableId: kotlin.Long, favoritableType: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -146,7 +143,7 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/favorite/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/favorite/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -155,10 +152,9 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/favorite/delete
+     * POST /favorite/delete
      * Delete Favorite
      * Removes a favorited item from the user&#39;s favorites list.
-     * @param version 
      * @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
      * @param favoriteId The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead) (optional)
@@ -173,8 +169,8 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteFavorite(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, favoriteId: kotlin.Long? = null, favoritableId: kotlin.Long? = null, favoritableType: kotlin.String? = null) : SirqulResponse {
-        val localVarResponse = deleteFavoriteWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, favoriteId = favoriteId, favoritableId = favoritableId, favoritableType = favoritableType)
+    fun deleteFavorite(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, favoriteId: kotlin.Long? = null, favoritableId: kotlin.Long? = null, favoritableType: kotlin.String? = null) : SirqulResponse {
+        val localVarResponse = deleteFavoriteWithHttpInfo(deviceId = deviceId, accountId = accountId, favoriteId = favoriteId, favoritableId = favoritableId, favoritableType = favoritableType)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -192,10 +188,9 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/favorite/delete
+     * POST /favorite/delete
      * Delete Favorite
      * Removes a favorited item from the user&#39;s favorites list.
-     * @param version 
      * @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
      * @param favoriteId The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead) (optional)
@@ -207,8 +202,8 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteFavoriteWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, favoriteId: kotlin.Long?, favoritableId: kotlin.Long?, favoritableType: kotlin.String?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteFavoriteRequestConfig(version = version, deviceId = deviceId, accountId = accountId, favoriteId = favoriteId, favoritableId = favoritableId, favoritableType = favoritableType)
+    fun deleteFavoriteWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, favoriteId: kotlin.Long?, favoritableId: kotlin.Long?, favoritableType: kotlin.String?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteFavoriteRequestConfig(deviceId = deviceId, accountId = accountId, favoriteId = favoriteId, favoritableId = favoritableId, favoritableType = favoritableType)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -218,7 +213,6 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation deleteFavorite
      *
-     * @param version 
      * @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
      * @param favoriteId The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead) (optional)
@@ -226,7 +220,7 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param favoritableType The type of the object to un-favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (this is required if favoriteId is NOT passed in) (optional)
      * @return RequestConfig
      */
-    fun deleteFavoriteRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, favoriteId: kotlin.Long?, favoritableId: kotlin.Long?, favoritableType: kotlin.String?) : RequestConfig<Unit> {
+    fun deleteFavoriteRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, favoriteId: kotlin.Long?, favoritableId: kotlin.Long?, favoritableType: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -250,7 +244,7 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/favorite/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/favorite/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -259,10 +253,9 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/favorite/get
+     * GET /favorite/get
      * Get Favorite
      * Retrieves a single favorited item.
-     * @param version 
      * @param favoriteId The ID of the favorite reference record
      * @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
@@ -277,8 +270,8 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getFavorite(version: java.math.BigDecimal, favoriteId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : WrappedResponse {
-        val localVarResponse = getFavoriteWithHttpInfo(version = version, favoriteId = favoriteId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun getFavorite(favoriteId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : WrappedResponse {
+        val localVarResponse = getFavoriteWithHttpInfo(favoriteId = favoriteId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as WrappedResponse
@@ -296,10 +289,9 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/favorite/get
+     * GET /favorite/get
      * Get Favorite
      * Retrieves a single favorited item.
-     * @param version 
      * @param favoriteId The ID of the favorite reference record
      * @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
@@ -311,8 +303,8 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getFavoriteWithHttpInfo(version: java.math.BigDecimal, favoriteId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<WrappedResponse?> {
-        val localVariableConfig = getFavoriteRequestConfig(version = version, favoriteId = favoriteId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun getFavoriteWithHttpInfo(favoriteId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<WrappedResponse?> {
+        val localVariableConfig = getFavoriteRequestConfig(favoriteId = favoriteId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return request<Unit, WrappedResponse>(
             localVariableConfig
@@ -322,7 +314,6 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation getFavorite
      *
-     * @param version 
      * @param favoriteId The ID of the favorite reference record
      * @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
@@ -330,7 +321,7 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param longitude The current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun getFavoriteRequestConfig(version: java.math.BigDecimal, favoriteId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun getFavoriteRequestConfig(favoriteId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -352,7 +343,7 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/favorite/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/favorite/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -383,10 +374,9 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      }
 
     /**
-     * GET /api/{version}/favorite/search
+     * GET /favorite/search
      * Search Favorites
      * Searches on the user&#39;s favorites.
-     * @param version 
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
      * @param sortField Determines what to sort the results by {CREATED, UPDATED, DISPLAY}
      * @param descending Determines whether the results are in descending order
@@ -410,8 +400,8 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchFavorites(version: java.math.BigDecimal, favoritableType: kotlin.String, sortField: SortFieldSearchFavorites, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, returnFullResponse: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionAccountId: kotlin.Long? = null, secondaryType: kotlin.String? = null, keyword: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SearchResponse {
-        val localVarResponse = searchFavoritesWithHttpInfo(version = version, favoritableType = favoritableType, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, returnFullResponse = returnFullResponse, deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, secondaryType = secondaryType, keyword = keyword, latitude = latitude, longitude = longitude)
+    fun searchFavorites(favoritableType: kotlin.String, sortField: SortFieldSearchFavorites, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, returnFullResponse: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionAccountId: kotlin.Long? = null, secondaryType: kotlin.String? = null, keyword: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SearchResponse {
+        val localVarResponse = searchFavoritesWithHttpInfo(favoritableType = favoritableType, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, returnFullResponse = returnFullResponse, deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, secondaryType = secondaryType, keyword = keyword, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SearchResponse
@@ -429,10 +419,9 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/favorite/search
+     * GET /favorite/search
      * Search Favorites
      * Searches on the user&#39;s favorites.
-     * @param version 
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
      * @param sortField Determines what to sort the results by {CREATED, UPDATED, DISPLAY}
      * @param descending Determines whether the results are in descending order
@@ -453,8 +442,8 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchFavoritesWithHttpInfo(version: java.math.BigDecimal, favoritableType: kotlin.String, sortField: SortFieldSearchFavorites, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, returnFullResponse: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, secondaryType: kotlin.String?, keyword: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SearchResponse?> {
-        val localVariableConfig = searchFavoritesRequestConfig(version = version, favoritableType = favoritableType, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, returnFullResponse = returnFullResponse, deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, secondaryType = secondaryType, keyword = keyword, latitude = latitude, longitude = longitude)
+    fun searchFavoritesWithHttpInfo(favoritableType: kotlin.String, sortField: SortFieldSearchFavorites, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, returnFullResponse: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, secondaryType: kotlin.String?, keyword: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SearchResponse?> {
+        val localVariableConfig = searchFavoritesRequestConfig(favoritableType = favoritableType, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, returnFullResponse = returnFullResponse, deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, secondaryType = secondaryType, keyword = keyword, latitude = latitude, longitude = longitude)
 
         return request<Unit, SearchResponse>(
             localVariableConfig
@@ -464,7 +453,6 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation searchFavorites
      *
-     * @param version 
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
      * @param sortField Determines what to sort the results by {CREATED, UPDATED, DISPLAY}
      * @param descending Determines whether the results are in descending order
@@ -481,7 +469,7 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param longitude The current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun searchFavoritesRequestConfig(version: java.math.BigDecimal, favoritableType: kotlin.String, sortField: SortFieldSearchFavorites, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, returnFullResponse: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, secondaryType: kotlin.String?, keyword: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun searchFavoritesRequestConfig(favoritableType: kotlin.String, sortField: SortFieldSearchFavorites, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, returnFullResponse: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, secondaryType: kotlin.String?, keyword: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -518,7 +506,7 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/favorite/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/favorite/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -527,10 +515,9 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/favorite/whois
+     * GET /favorite/whois
      * Who has Favorited
      * Searches for everyone that has favorited an item
-     * @param version 
      * @param favoritableId The ID of the favoritableType to search on
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
      * @param start The start index for pagination
@@ -549,8 +536,8 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun whoHasFavorited(version: java.math.BigDecimal, favoritableId: kotlin.Long, favoritableType: kotlin.String, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, keyword: kotlin.String? = null) : kotlin.collections.List<AccountResponse> {
-        val localVarResponse = whoHasFavoritedWithHttpInfo(version = version, favoritableId = favoritableId, favoritableType = favoritableType, start = start, limit = limit, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, keyword = keyword)
+    fun whoHasFavorited(favoritableId: kotlin.Long, favoritableType: kotlin.String, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, keyword: kotlin.String? = null) : kotlin.collections.List<AccountResponse> {
+        val localVarResponse = whoHasFavoritedWithHttpInfo(favoritableId = favoritableId, favoritableType = favoritableType, start = start, limit = limit, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, keyword = keyword)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<AccountResponse>
@@ -568,10 +555,9 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/favorite/whois
+     * GET /favorite/whois
      * Who has Favorited
      * Searches for everyone that has favorited an item
-     * @param version 
      * @param favoritableId The ID of the favoritableType to search on
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
      * @param start The start index for pagination
@@ -587,8 +573,8 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun whoHasFavoritedWithHttpInfo(version: java.math.BigDecimal, favoritableId: kotlin.Long, favoritableType: kotlin.String, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, keyword: kotlin.String?) : ApiResponse<kotlin.collections.List<AccountResponse>?> {
-        val localVariableConfig = whoHasFavoritedRequestConfig(version = version, favoritableId = favoritableId, favoritableType = favoritableType, start = start, limit = limit, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, keyword = keyword)
+    fun whoHasFavoritedWithHttpInfo(favoritableId: kotlin.Long, favoritableType: kotlin.String, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, keyword: kotlin.String?) : ApiResponse<kotlin.collections.List<AccountResponse>?> {
+        val localVariableConfig = whoHasFavoritedRequestConfig(favoritableId = favoritableId, favoritableType = favoritableType, start = start, limit = limit, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, keyword = keyword)
 
         return request<Unit, kotlin.collections.List<AccountResponse>>(
             localVariableConfig
@@ -598,7 +584,6 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation whoHasFavorited
      *
-     * @param version 
      * @param favoritableId The ID of the favoritableType to search on
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
      * @param start The start index for pagination
@@ -610,7 +595,7 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param keyword The keyword to limit that account list (optional)
      * @return RequestConfig
      */
-    fun whoHasFavoritedRequestConfig(version: java.math.BigDecimal, favoritableId: kotlin.Long, favoritableType: kotlin.String, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, keyword: kotlin.String?) : RequestConfig<Unit> {
+    fun whoHasFavoritedRequestConfig(favoritableId: kotlin.Long, favoritableType: kotlin.String, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, keyword: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -638,7 +623,7 @@ open class FavoriteApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/favorite/whois".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/favorite/whois",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

@@ -42,15 +42,14 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/postalCode/create
+     * POST /postalCode/create
      * Create Postal Code
      * Create a Postal Code
-     * @param version 
      * @param accountId the id of the logged in user
      * @param code the postal code
      * @param latitude the latitude of the postal code
@@ -67,8 +66,8 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createPostalCode(version: java.math.BigDecimal, accountId: kotlin.Long, code: kotlin.String, latitude: kotlin.Double, longitude: kotlin.Double, stateCode: kotlin.String? = null, city: kotlin.String? = null, active: kotlin.Boolean? = null) : PostalCodeResponse {
-        val localVarResponse = createPostalCodeWithHttpInfo(version = version, accountId = accountId, code = code, latitude = latitude, longitude = longitude, stateCode = stateCode, city = city, active = active)
+    fun createPostalCode(accountId: kotlin.Long, code: kotlin.String, latitude: kotlin.Double, longitude: kotlin.Double, stateCode: kotlin.String? = null, city: kotlin.String? = null, active: kotlin.Boolean? = null) : PostalCodeResponse {
+        val localVarResponse = createPostalCodeWithHttpInfo(accountId = accountId, code = code, latitude = latitude, longitude = longitude, stateCode = stateCode, city = city, active = active)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PostalCodeResponse
@@ -86,10 +85,9 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/postalCode/create
+     * POST /postalCode/create
      * Create Postal Code
      * Create a Postal Code
-     * @param version 
      * @param accountId the id of the logged in user
      * @param code the postal code
      * @param latitude the latitude of the postal code
@@ -103,8 +101,8 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createPostalCodeWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, code: kotlin.String, latitude: kotlin.Double, longitude: kotlin.Double, stateCode: kotlin.String?, city: kotlin.String?, active: kotlin.Boolean?) : ApiResponse<PostalCodeResponse?> {
-        val localVariableConfig = createPostalCodeRequestConfig(version = version, accountId = accountId, code = code, latitude = latitude, longitude = longitude, stateCode = stateCode, city = city, active = active)
+    fun createPostalCodeWithHttpInfo(accountId: kotlin.Long, code: kotlin.String, latitude: kotlin.Double, longitude: kotlin.Double, stateCode: kotlin.String?, city: kotlin.String?, active: kotlin.Boolean?) : ApiResponse<PostalCodeResponse?> {
+        val localVariableConfig = createPostalCodeRequestConfig(accountId = accountId, code = code, latitude = latitude, longitude = longitude, stateCode = stateCode, city = city, active = active)
 
         return request<Unit, PostalCodeResponse>(
             localVariableConfig
@@ -114,7 +112,6 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation createPostalCode
      *
-     * @param version 
      * @param accountId the id of the logged in user
      * @param code the postal code
      * @param latitude the latitude of the postal code
@@ -124,7 +121,7 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param active whether the postal code created should be active or inactive (optional)
      * @return RequestConfig
      */
-    fun createPostalCodeRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, code: kotlin.String, latitude: kotlin.Double, longitude: kotlin.Double, stateCode: kotlin.String?, city: kotlin.String?, active: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun createPostalCodeRequestConfig(accountId: kotlin.Long, code: kotlin.String, latitude: kotlin.Double, longitude: kotlin.Double, stateCode: kotlin.String?, city: kotlin.String?, active: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -146,7 +143,7 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/postalCode/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/postalCode/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -155,10 +152,9 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/postalCode/delete
+     * POST /postalCode/delete
      * Delete Postal Code
      * Delete a Postal Code
-     * @param version 
      * @param accountId the id of the logged in user
      * @param postalCodeId the id of the postal code to delete
      * @return SirqulResponse
@@ -170,8 +166,8 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deletePostalCode(version: java.math.BigDecimal, accountId: kotlin.Long, postalCodeId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = deletePostalCodeWithHttpInfo(version = version, accountId = accountId, postalCodeId = postalCodeId)
+    fun deletePostalCode(accountId: kotlin.Long, postalCodeId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = deletePostalCodeWithHttpInfo(accountId = accountId, postalCodeId = postalCodeId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -189,10 +185,9 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/postalCode/delete
+     * POST /postalCode/delete
      * Delete Postal Code
      * Delete a Postal Code
-     * @param version 
      * @param accountId the id of the logged in user
      * @param postalCodeId the id of the postal code to delete
      * @return ApiResponse<SirqulResponse?>
@@ -201,8 +196,8 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deletePostalCodeWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, postalCodeId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deletePostalCodeRequestConfig(version = version, accountId = accountId, postalCodeId = postalCodeId)
+    fun deletePostalCodeWithHttpInfo(accountId: kotlin.Long, postalCodeId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deletePostalCodeRequestConfig(accountId = accountId, postalCodeId = postalCodeId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -212,12 +207,11 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation deletePostalCode
      *
-     * @param version 
      * @param accountId the id of the logged in user
      * @param postalCodeId the id of the postal code to delete
      * @return RequestConfig
      */
-    fun deletePostalCodeRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, postalCodeId: kotlin.Long) : RequestConfig<Unit> {
+    fun deletePostalCodeRequestConfig(accountId: kotlin.Long, postalCodeId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -228,7 +222,7 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/postalCode/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/postalCode/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -237,10 +231,9 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/postalCode/get
+     * GET /postalCode/get
      * Get Postal Code
      * Get a Postal Code
-     * @param version 
      * @param postalCodeId the id of the postal code to get
      * @return PostalCodeResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -251,8 +244,8 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getPostalCode(version: java.math.BigDecimal, postalCodeId: kotlin.Long) : PostalCodeResponse {
-        val localVarResponse = getPostalCodeWithHttpInfo(version = version, postalCodeId = postalCodeId)
+    fun getPostalCode(postalCodeId: kotlin.Long) : PostalCodeResponse {
+        val localVarResponse = getPostalCodeWithHttpInfo(postalCodeId = postalCodeId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PostalCodeResponse
@@ -270,10 +263,9 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/postalCode/get
+     * GET /postalCode/get
      * Get Postal Code
      * Get a Postal Code
-     * @param version 
      * @param postalCodeId the id of the postal code to get
      * @return ApiResponse<PostalCodeResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -281,8 +273,8 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getPostalCodeWithHttpInfo(version: java.math.BigDecimal, postalCodeId: kotlin.Long) : ApiResponse<PostalCodeResponse?> {
-        val localVariableConfig = getPostalCodeRequestConfig(version = version, postalCodeId = postalCodeId)
+    fun getPostalCodeWithHttpInfo(postalCodeId: kotlin.Long) : ApiResponse<PostalCodeResponse?> {
+        val localVariableConfig = getPostalCodeRequestConfig(postalCodeId = postalCodeId)
 
         return request<Unit, PostalCodeResponse>(
             localVariableConfig
@@ -292,11 +284,10 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation getPostalCode
      *
-     * @param version 
      * @param postalCodeId the id of the postal code to get
      * @return RequestConfig
      */
-    fun getPostalCodeRequestConfig(version: java.math.BigDecimal, postalCodeId: kotlin.Long) : RequestConfig<Unit> {
+    fun getPostalCodeRequestConfig(postalCodeId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -306,7 +297,7 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/postalCode/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/postalCode/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -315,10 +306,9 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/postalCode/search
+     * GET /postalCode/search
      * Search Postal Codes
      * Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
-     * @param version 
      * @param sortField the field to sort the results on
      * @param descending whether to order results in ascending or descending order
      * @param latitude the latitude of the postal code to search on (optional)
@@ -336,8 +326,8 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getPostalCodes(version: java.math.BigDecimal, sortField: kotlin.String, descending: kotlin.Boolean, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, keyword: kotlin.String? = null, miles: kotlin.Double? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null) : kotlin.collections.List<PostalCodeResponse> {
-        val localVarResponse = getPostalCodesWithHttpInfo(version = version, sortField = sortField, descending = descending, latitude = latitude, longitude = longitude, keyword = keyword, miles = miles, start = start, limit = limit)
+    fun getPostalCodes(sortField: kotlin.String, descending: kotlin.Boolean, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, keyword: kotlin.String? = null, miles: kotlin.Double? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null) : kotlin.collections.List<PostalCodeResponse> {
+        val localVarResponse = getPostalCodesWithHttpInfo(sortField = sortField, descending = descending, latitude = latitude, longitude = longitude, keyword = keyword, miles = miles, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<PostalCodeResponse>
@@ -355,10 +345,9 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/postalCode/search
+     * GET /postalCode/search
      * Search Postal Codes
      * Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
-     * @param version 
      * @param sortField the field to sort the results on
      * @param descending whether to order results in ascending or descending order
      * @param latitude the latitude of the postal code to search on (optional)
@@ -373,8 +362,8 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getPostalCodesWithHttpInfo(version: java.math.BigDecimal, sortField: kotlin.String, descending: kotlin.Boolean, latitude: kotlin.Double?, longitude: kotlin.Double?, keyword: kotlin.String?, miles: kotlin.Double?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<PostalCodeResponse>?> {
-        val localVariableConfig = getPostalCodesRequestConfig(version = version, sortField = sortField, descending = descending, latitude = latitude, longitude = longitude, keyword = keyword, miles = miles, start = start, limit = limit)
+    fun getPostalCodesWithHttpInfo(sortField: kotlin.String, descending: kotlin.Boolean, latitude: kotlin.Double?, longitude: kotlin.Double?, keyword: kotlin.String?, miles: kotlin.Double?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<PostalCodeResponse>?> {
+        val localVariableConfig = getPostalCodesRequestConfig(sortField = sortField, descending = descending, latitude = latitude, longitude = longitude, keyword = keyword, miles = miles, start = start, limit = limit)
 
         return request<Unit, kotlin.collections.List<PostalCodeResponse>>(
             localVariableConfig
@@ -384,7 +373,6 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation getPostalCodes
      *
-     * @param version 
      * @param sortField the field to sort the results on
      * @param descending whether to order results in ascending or descending order
      * @param latitude the latitude of the postal code to search on (optional)
@@ -395,7 +383,7 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param limit the limit of the index and/or pagination (optional)
      * @return RequestConfig
      */
-    fun getPostalCodesRequestConfig(version: java.math.BigDecimal, sortField: kotlin.String, descending: kotlin.Boolean, latitude: kotlin.Double?, longitude: kotlin.Double?, keyword: kotlin.String?, miles: kotlin.Double?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun getPostalCodesRequestConfig(sortField: kotlin.String, descending: kotlin.Boolean, latitude: kotlin.Double?, longitude: kotlin.Double?, keyword: kotlin.String?, miles: kotlin.Double?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -424,7 +412,7 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/postalCode/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/postalCode/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -433,10 +421,9 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/postalCode/update
+     * POST /postalCode/update
      * Update Postal Code
      * Update a Postal Code
-     * @param version 
      * @param accountId the id of the logged in user
      * @param postalCodeId the id of the postal code to update
      * @param code the postal code to update (optional)
@@ -454,8 +441,8 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updatePostalCode(version: java.math.BigDecimal, accountId: kotlin.Long, postalCodeId: kotlin.Long, code: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, stateCode: kotlin.String? = null, city: kotlin.String? = null, active: kotlin.Boolean? = null) : PostalCodeResponse {
-        val localVarResponse = updatePostalCodeWithHttpInfo(version = version, accountId = accountId, postalCodeId = postalCodeId, code = code, latitude = latitude, longitude = longitude, stateCode = stateCode, city = city, active = active)
+    fun updatePostalCode(accountId: kotlin.Long, postalCodeId: kotlin.Long, code: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, stateCode: kotlin.String? = null, city: kotlin.String? = null, active: kotlin.Boolean? = null) : PostalCodeResponse {
+        val localVarResponse = updatePostalCodeWithHttpInfo(accountId = accountId, postalCodeId = postalCodeId, code = code, latitude = latitude, longitude = longitude, stateCode = stateCode, city = city, active = active)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PostalCodeResponse
@@ -473,10 +460,9 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/postalCode/update
+     * POST /postalCode/update
      * Update Postal Code
      * Update a Postal Code
-     * @param version 
      * @param accountId the id of the logged in user
      * @param postalCodeId the id of the postal code to update
      * @param code the postal code to update (optional)
@@ -491,8 +477,8 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updatePostalCodeWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, postalCodeId: kotlin.Long, code: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, stateCode: kotlin.String?, city: kotlin.String?, active: kotlin.Boolean?) : ApiResponse<PostalCodeResponse?> {
-        val localVariableConfig = updatePostalCodeRequestConfig(version = version, accountId = accountId, postalCodeId = postalCodeId, code = code, latitude = latitude, longitude = longitude, stateCode = stateCode, city = city, active = active)
+    fun updatePostalCodeWithHttpInfo(accountId: kotlin.Long, postalCodeId: kotlin.Long, code: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, stateCode: kotlin.String?, city: kotlin.String?, active: kotlin.Boolean?) : ApiResponse<PostalCodeResponse?> {
+        val localVariableConfig = updatePostalCodeRequestConfig(accountId = accountId, postalCodeId = postalCodeId, code = code, latitude = latitude, longitude = longitude, stateCode = stateCode, city = city, active = active)
 
         return request<Unit, PostalCodeResponse>(
             localVariableConfig
@@ -502,7 +488,6 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation updatePostalCode
      *
-     * @param version 
      * @param accountId the id of the logged in user
      * @param postalCodeId the id of the postal code to update
      * @param code the postal code to update (optional)
@@ -513,7 +498,7 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param active whether the postal code is active or inactive (optional)
      * @return RequestConfig
      */
-    fun updatePostalCodeRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, postalCodeId: kotlin.Long, code: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, stateCode: kotlin.String?, city: kotlin.String?, active: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun updatePostalCodeRequestConfig(accountId: kotlin.Long, postalCodeId: kotlin.Long, code: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, stateCode: kotlin.String?, city: kotlin.String?, active: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -542,7 +527,7 @@ open class PostalCodeApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/postalCode/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/postalCode/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

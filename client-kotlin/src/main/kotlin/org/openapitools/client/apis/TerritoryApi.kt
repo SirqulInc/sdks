@@ -42,15 +42,14 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/territory/create
+     * POST /territory/create
      * Create Territory
      * Creates a territory.
-     * @param version 
      * @param accountId The logged in user.
      * @param name The name of the territory
      * @param active If true set the game level as active. Default is true. (optional)
@@ -63,8 +62,8 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createTerritory(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, active: kotlin.Boolean? = null) : TerritoryResponse {
-        val localVarResponse = createTerritoryWithHttpInfo(version = version, accountId = accountId, name = name, active = active)
+    fun createTerritory(accountId: kotlin.Long, name: kotlin.String, active: kotlin.Boolean? = null) : TerritoryResponse {
+        val localVarResponse = createTerritoryWithHttpInfo(accountId = accountId, name = name, active = active)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TerritoryResponse
@@ -82,10 +81,9 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/territory/create
+     * POST /territory/create
      * Create Territory
      * Creates a territory.
-     * @param version 
      * @param accountId The logged in user.
      * @param name The name of the territory
      * @param active If true set the game level as active. Default is true. (optional)
@@ -95,8 +93,8 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createTerritoryWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, active: kotlin.Boolean?) : ApiResponse<TerritoryResponse?> {
-        val localVariableConfig = createTerritoryRequestConfig(version = version, accountId = accountId, name = name, active = active)
+    fun createTerritoryWithHttpInfo(accountId: kotlin.Long, name: kotlin.String, active: kotlin.Boolean?) : ApiResponse<TerritoryResponse?> {
+        val localVariableConfig = createTerritoryRequestConfig(accountId = accountId, name = name, active = active)
 
         return request<Unit, TerritoryResponse>(
             localVariableConfig
@@ -106,13 +104,12 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation createTerritory
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param name The name of the territory
      * @param active If true set the game level as active. Default is true. (optional)
      * @return RequestConfig
      */
-    fun createTerritoryRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, active: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun createTerritoryRequestConfig(accountId: kotlin.Long, name: kotlin.String, active: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -126,7 +123,7 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/territory/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/territory/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -135,10 +132,9 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/territory/delete
+     * POST /territory/delete
      * Delete Territory
      * Deletes a territory.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param territoryId the id of the territory to delete
      * @return SirqulResponse
@@ -150,8 +146,8 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteTerritory(version: java.math.BigDecimal, accountId: kotlin.Long, territoryId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = deleteTerritoryWithHttpInfo(version = version, accountId = accountId, territoryId = territoryId)
+    fun deleteTerritory(accountId: kotlin.Long, territoryId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = deleteTerritoryWithHttpInfo(accountId = accountId, territoryId = territoryId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -169,10 +165,9 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/territory/delete
+     * POST /territory/delete
      * Delete Territory
      * Deletes a territory.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param territoryId the id of the territory to delete
      * @return ApiResponse<SirqulResponse?>
@@ -181,8 +176,8 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteTerritoryWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, territoryId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteTerritoryRequestConfig(version = version, accountId = accountId, territoryId = territoryId)
+    fun deleteTerritoryWithHttpInfo(accountId: kotlin.Long, territoryId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteTerritoryRequestConfig(accountId = accountId, territoryId = territoryId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -192,12 +187,11 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation deleteTerritory
      *
-     * @param version 
      * @param accountId the id of the logged in user
      * @param territoryId the id of the territory to delete
      * @return RequestConfig
      */
-    fun deleteTerritoryRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, territoryId: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteTerritoryRequestConfig(accountId: kotlin.Long, territoryId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -208,7 +202,7 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/territory/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/territory/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -217,10 +211,9 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/territory/get
+     * GET /territory/get
      * Get Territory
      * Get a territory.
-     * @param version 
      * @param territoryId the id of the territory to get
      * @return TerritoryResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -231,8 +224,8 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTerritory(version: java.math.BigDecimal, territoryId: kotlin.Long) : TerritoryResponse {
-        val localVarResponse = getTerritoryWithHttpInfo(version = version, territoryId = territoryId)
+    fun getTerritory(territoryId: kotlin.Long) : TerritoryResponse {
+        val localVarResponse = getTerritoryWithHttpInfo(territoryId = territoryId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TerritoryResponse
@@ -250,10 +243,9 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/territory/get
+     * GET /territory/get
      * Get Territory
      * Get a territory.
-     * @param version 
      * @param territoryId the id of the territory to get
      * @return ApiResponse<TerritoryResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -261,8 +253,8 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTerritoryWithHttpInfo(version: java.math.BigDecimal, territoryId: kotlin.Long) : ApiResponse<TerritoryResponse?> {
-        val localVariableConfig = getTerritoryRequestConfig(version = version, territoryId = territoryId)
+    fun getTerritoryWithHttpInfo(territoryId: kotlin.Long) : ApiResponse<TerritoryResponse?> {
+        val localVariableConfig = getTerritoryRequestConfig(territoryId = territoryId)
 
         return request<Unit, TerritoryResponse>(
             localVariableConfig
@@ -272,11 +264,10 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation getTerritory
      *
-     * @param version 
      * @param territoryId the id of the territory to get
      * @return RequestConfig
      */
-    fun getTerritoryRequestConfig(version: java.math.BigDecimal, territoryId: kotlin.Long) : RequestConfig<Unit> {
+    fun getTerritoryRequestConfig(territoryId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -286,7 +277,7 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/territory/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/territory/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -314,10 +305,9 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
      }
 
     /**
-     * GET /api/{version}/territory/search
+     * GET /territory/search
      * Search Territories
      * Searches on territories.
-     * @param version 
      * @param sortField the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME
      * @param descending determines whether the sorted list is in descending or ascending order
      * @param keyword Return results that match this keyword. (optional)
@@ -332,8 +322,8 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchTerritories(version: java.math.BigDecimal, sortField: SortFieldSearchTerritories, descending: kotlin.Boolean, keyword: kotlin.String? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null) : kotlin.collections.List<TerritoryResponse> {
-        val localVarResponse = searchTerritoriesWithHttpInfo(version = version, sortField = sortField, descending = descending, keyword = keyword, start = start, limit = limit)
+    fun searchTerritories(sortField: SortFieldSearchTerritories, descending: kotlin.Boolean, keyword: kotlin.String? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null) : kotlin.collections.List<TerritoryResponse> {
+        val localVarResponse = searchTerritoriesWithHttpInfo(sortField = sortField, descending = descending, keyword = keyword, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<TerritoryResponse>
@@ -351,10 +341,9 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/territory/search
+     * GET /territory/search
      * Search Territories
      * Searches on territories.
-     * @param version 
      * @param sortField the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME
      * @param descending determines whether the sorted list is in descending or ascending order
      * @param keyword Return results that match this keyword. (optional)
@@ -366,8 +355,8 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchTerritoriesWithHttpInfo(version: java.math.BigDecimal, sortField: SortFieldSearchTerritories, descending: kotlin.Boolean, keyword: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<TerritoryResponse>?> {
-        val localVariableConfig = searchTerritoriesRequestConfig(version = version, sortField = sortField, descending = descending, keyword = keyword, start = start, limit = limit)
+    fun searchTerritoriesWithHttpInfo(sortField: SortFieldSearchTerritories, descending: kotlin.Boolean, keyword: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<TerritoryResponse>?> {
+        val localVariableConfig = searchTerritoriesRequestConfig(sortField = sortField, descending = descending, keyword = keyword, start = start, limit = limit)
 
         return request<Unit, kotlin.collections.List<TerritoryResponse>>(
             localVariableConfig
@@ -377,7 +366,6 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation searchTerritories
      *
-     * @param version 
      * @param sortField the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME
      * @param descending determines whether the sorted list is in descending or ascending order
      * @param keyword Return results that match this keyword. (optional)
@@ -385,7 +373,7 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param limit The limit for pagination (optional)
      * @return RequestConfig
      */
-    fun searchTerritoriesRequestConfig(version: java.math.BigDecimal, sortField: SortFieldSearchTerritories, descending: kotlin.Boolean, keyword: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchTerritoriesRequestConfig(sortField: SortFieldSearchTerritories, descending: kotlin.Boolean, keyword: kotlin.String?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -405,7 +393,7 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/territory/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/territory/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -414,10 +402,9 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/territory/update
+     * POST /territory/update
      * Update Territory
      * Updates a territory.
-     * @param version 
      * @param accountId The logged in user.
      * @param territoryId the id of the territory to update
      * @param name The name of the territory (optional)
@@ -431,8 +418,8 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateTerritory(version: java.math.BigDecimal, accountId: kotlin.Long, territoryId: kotlin.Long, name: kotlin.String? = null, active: kotlin.Boolean? = null) : TerritoryResponse {
-        val localVarResponse = updateTerritoryWithHttpInfo(version = version, accountId = accountId, territoryId = territoryId, name = name, active = active)
+    fun updateTerritory(accountId: kotlin.Long, territoryId: kotlin.Long, name: kotlin.String? = null, active: kotlin.Boolean? = null) : TerritoryResponse {
+        val localVarResponse = updateTerritoryWithHttpInfo(accountId = accountId, territoryId = territoryId, name = name, active = active)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TerritoryResponse
@@ -450,10 +437,9 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/territory/update
+     * POST /territory/update
      * Update Territory
      * Updates a territory.
-     * @param version 
      * @param accountId The logged in user.
      * @param territoryId the id of the territory to update
      * @param name The name of the territory (optional)
@@ -464,8 +450,8 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateTerritoryWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, territoryId: kotlin.Long, name: kotlin.String?, active: kotlin.Boolean?) : ApiResponse<TerritoryResponse?> {
-        val localVariableConfig = updateTerritoryRequestConfig(version = version, accountId = accountId, territoryId = territoryId, name = name, active = active)
+    fun updateTerritoryWithHttpInfo(accountId: kotlin.Long, territoryId: kotlin.Long, name: kotlin.String?, active: kotlin.Boolean?) : ApiResponse<TerritoryResponse?> {
+        val localVariableConfig = updateTerritoryRequestConfig(accountId = accountId, territoryId = territoryId, name = name, active = active)
 
         return request<Unit, TerritoryResponse>(
             localVariableConfig
@@ -475,14 +461,13 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation updateTerritory
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param territoryId the id of the territory to update
      * @param name The name of the territory (optional)
      * @param active If true set the game level as active. (optional)
      * @return RequestConfig
      */
-    fun updateTerritoryRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, territoryId: kotlin.Long, name: kotlin.String?, active: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun updateTerritoryRequestConfig(accountId: kotlin.Long, territoryId: kotlin.Long, name: kotlin.String?, active: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -499,7 +484,7 @@ open class TerritoryApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/territory/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/territory/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

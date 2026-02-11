@@ -45,15 +45,14 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/location/trilaterate/cache
+     * POST /location/trilaterate/cache
      * Create Trilateration Data with File
      * Creates trilateration samples for a source device (i.e. a router).
-     * @param version 
      * @param udid The unique identifier of the source device
      * @param sourceTime The current timestamp of the source device (optional)
      * @param minimumSampleSize the minimum number of Edysen devices that must be used to be able to trilaterate a device (optional)
@@ -68,8 +67,8 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun cacheTrilaterationData(version: java.math.BigDecimal, udid: kotlin.String, sourceTime: kotlin.Long? = null, minimumSampleSize: kotlin.Int? = null, `data`: kotlin.String? = null, dataFile: java.io.File? = null) : SirqulResponse {
-        val localVarResponse = cacheTrilaterationDataWithHttpInfo(version = version, udid = udid, sourceTime = sourceTime, minimumSampleSize = minimumSampleSize, `data` = `data`, dataFile = dataFile)
+    fun cacheTrilaterationData(udid: kotlin.String, sourceTime: kotlin.Long? = null, minimumSampleSize: kotlin.Int? = null, `data`: kotlin.String? = null, dataFile: java.io.File? = null) : SirqulResponse {
+        val localVarResponse = cacheTrilaterationDataWithHttpInfo(udid = udid, sourceTime = sourceTime, minimumSampleSize = minimumSampleSize, `data` = `data`, dataFile = dataFile)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -87,10 +86,9 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/location/trilaterate/cache
+     * POST /location/trilaterate/cache
      * Create Trilateration Data with File
      * Creates trilateration samples for a source device (i.e. a router).
-     * @param version 
      * @param udid The unique identifier of the source device
      * @param sourceTime The current timestamp of the source device (optional)
      * @param minimumSampleSize the minimum number of Edysen devices that must be used to be able to trilaterate a device (optional)
@@ -102,8 +100,8 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun cacheTrilaterationDataWithHttpInfo(version: java.math.BigDecimal, udid: kotlin.String, sourceTime: kotlin.Long?, minimumSampleSize: kotlin.Int?, `data`: kotlin.String?, dataFile: java.io.File?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = cacheTrilaterationDataRequestConfig(version = version, udid = udid, sourceTime = sourceTime, minimumSampleSize = minimumSampleSize, `data` = `data`, dataFile = dataFile)
+    fun cacheTrilaterationDataWithHttpInfo(udid: kotlin.String, sourceTime: kotlin.Long?, minimumSampleSize: kotlin.Int?, `data`: kotlin.String?, dataFile: java.io.File?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = cacheTrilaterationDataRequestConfig(udid = udid, sourceTime = sourceTime, minimumSampleSize = minimumSampleSize, `data` = `data`, dataFile = dataFile)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -113,7 +111,6 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation cacheTrilaterationData
      *
-     * @param version 
      * @param udid The unique identifier of the source device
      * @param sourceTime The current timestamp of the source device (optional)
      * @param minimumSampleSize the minimum number of Edysen devices that must be used to be able to trilaterate a device (optional)
@@ -121,7 +118,7 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param dataFile Binary file containing data (multipart upload) (optional)
      * @return RequestConfig
      */
-    fun cacheTrilaterationDataRequestConfig(version: java.math.BigDecimal, udid: kotlin.String, sourceTime: kotlin.Long?, minimumSampleSize: kotlin.Int?, `data`: kotlin.String?, dataFile: java.io.File?) : RequestConfig<Unit> {
+    fun cacheTrilaterationDataRequestConfig(udid: kotlin.String, sourceTime: kotlin.Long?, minimumSampleSize: kotlin.Int?, `data`: kotlin.String?, dataFile: java.io.File?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -143,7 +140,7 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/location/trilaterate/cache".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/location/trilaterate/cache",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -152,10 +149,9 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/location/trilaterate/cache/submit
+     * POST /location/trilaterate/cache/submit
      * Create Trilateration Data with Rest
      * Creates trilateration samples for a source device (i.e. a router).
-     * @param version 
      * @param body  (optional)
      * @return SirqulResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -166,8 +162,8 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun cacheTrilaterationDataGzip(version: java.math.BigDecimal, body: TrilatCacheRequest? = null) : SirqulResponse {
-        val localVarResponse = cacheTrilaterationDataGzipWithHttpInfo(version = version, body = body)
+    fun cacheTrilaterationDataGzip(body: TrilatCacheRequest? = null) : SirqulResponse {
+        val localVarResponse = cacheTrilaterationDataGzipWithHttpInfo(body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -185,10 +181,9 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /api/{version}/location/trilaterate/cache/submit
+     * POST /location/trilaterate/cache/submit
      * Create Trilateration Data with Rest
      * Creates trilateration samples for a source device (i.e. a router).
-     * @param version 
      * @param body  (optional)
      * @return ApiResponse<SirqulResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -196,8 +191,8 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun cacheTrilaterationDataGzipWithHttpInfo(version: java.math.BigDecimal, body: TrilatCacheRequest?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = cacheTrilaterationDataGzipRequestConfig(version = version, body = body)
+    fun cacheTrilaterationDataGzipWithHttpInfo(body: TrilatCacheRequest?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = cacheTrilaterationDataGzipRequestConfig(body = body)
 
         return request<TrilatCacheRequest, SirqulResponse>(
             localVariableConfig
@@ -207,18 +202,17 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation cacheTrilaterationDataGzip
      *
-     * @param version 
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun cacheTrilaterationDataGzipRequestConfig(version: java.math.BigDecimal, body: TrilatCacheRequest?) : RequestConfig<TrilatCacheRequest> {
+    fun cacheTrilaterationDataGzipRequestConfig(body: TrilatCacheRequest?) : RequestConfig<TrilatCacheRequest> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/location/trilaterate/cache/submit".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/location/trilaterate/cache/submit",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -227,10 +221,9 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/location/ip
+     * GET /location/ip
      * Get Location by IP
      * Get location information based on an IP address.
-     * @param version 
      * @param ip the ip address of the client device (optional)
      * @return CoordsResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -241,8 +234,8 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getLocationByIp(version: java.math.BigDecimal, ip: kotlin.String? = null) : CoordsResponse {
-        val localVarResponse = getLocationByIpWithHttpInfo(version = version, ip = ip)
+    fun getLocationByIp(ip: kotlin.String? = null) : CoordsResponse {
+        val localVarResponse = getLocationByIpWithHttpInfo(ip = ip)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CoordsResponse
@@ -260,10 +253,9 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/location/ip
+     * GET /location/ip
      * Get Location by IP
      * Get location information based on an IP address.
-     * @param version 
      * @param ip the ip address of the client device (optional)
      * @return ApiResponse<CoordsResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -271,8 +263,8 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getLocationByIpWithHttpInfo(version: java.math.BigDecimal, ip: kotlin.String?) : ApiResponse<CoordsResponse?> {
-        val localVariableConfig = getLocationByIpRequestConfig(version = version, ip = ip)
+    fun getLocationByIpWithHttpInfo(ip: kotlin.String?) : ApiResponse<CoordsResponse?> {
+        val localVariableConfig = getLocationByIpRequestConfig(ip = ip)
 
         return request<Unit, CoordsResponse>(
             localVariableConfig
@@ -282,11 +274,10 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation getLocationByIp
      *
-     * @param version 
      * @param ip the ip address of the client device (optional)
      * @return RequestConfig
      */
-    fun getLocationByIpRequestConfig(version: java.math.BigDecimal, ip: kotlin.String?) : RequestConfig<Unit> {
+    fun getLocationByIpRequestConfig(ip: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -298,7 +289,7 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/location/ip".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/location/ip",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -307,10 +298,9 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/account/location/trilaterate
+     * GET /account/location/trilaterate
      * Get Location by Trilateration
      * Send in device data and calculate a position based on signal strengths.
-     * @param version 
      * @param accountId The account making the request, if provided the last know location will be updated (optional)
      * @param latitude The known GPS latitude to compare to the calculated version (optional)
      * @param longitude The known GPS longitude to compare to the calculated version (optional)
@@ -325,8 +315,8 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getLocationByTrilateration(version: java.math.BigDecimal, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, `data`: kotlin.String? = null, responseFilters: kotlin.String? = null) : GeoPointResponse {
-        val localVarResponse = getLocationByTrilaterationWithHttpInfo(version = version, accountId = accountId, latitude = latitude, longitude = longitude, `data` = `data`, responseFilters = responseFilters)
+    fun getLocationByTrilateration(accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, `data`: kotlin.String? = null, responseFilters: kotlin.String? = null) : GeoPointResponse {
+        val localVarResponse = getLocationByTrilaterationWithHttpInfo(accountId = accountId, latitude = latitude, longitude = longitude, `data` = `data`, responseFilters = responseFilters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as GeoPointResponse
@@ -344,10 +334,9 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/account/location/trilaterate
+     * GET /account/location/trilaterate
      * Get Location by Trilateration
      * Send in device data and calculate a position based on signal strengths.
-     * @param version 
      * @param accountId The account making the request, if provided the last know location will be updated (optional)
      * @param latitude The known GPS latitude to compare to the calculated version (optional)
      * @param longitude The known GPS longitude to compare to the calculated version (optional)
@@ -359,8 +348,8 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getLocationByTrilaterationWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, `data`: kotlin.String?, responseFilters: kotlin.String?) : ApiResponse<GeoPointResponse?> {
-        val localVariableConfig = getLocationByTrilaterationRequestConfig(version = version, accountId = accountId, latitude = latitude, longitude = longitude, `data` = `data`, responseFilters = responseFilters)
+    fun getLocationByTrilaterationWithHttpInfo(accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, `data`: kotlin.String?, responseFilters: kotlin.String?) : ApiResponse<GeoPointResponse?> {
+        val localVariableConfig = getLocationByTrilaterationRequestConfig(accountId = accountId, latitude = latitude, longitude = longitude, `data` = `data`, responseFilters = responseFilters)
 
         return request<Unit, GeoPointResponse>(
             localVariableConfig
@@ -370,7 +359,6 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation getLocationByTrilateration
      *
-     * @param version 
      * @param accountId The account making the request, if provided the last know location will be updated (optional)
      * @param latitude The known GPS latitude to compare to the calculated version (optional)
      * @param longitude The known GPS longitude to compare to the calculated version (optional)
@@ -378,7 +366,7 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param responseFilters Optional response filters (not used currently) (optional)
      * @return RequestConfig
      */
-    fun getLocationByTrilaterationRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, `data`: kotlin.String?, responseFilters: kotlin.String?) : RequestConfig<Unit> {
+    fun getLocationByTrilaterationRequestConfig(accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, `data`: kotlin.String?, responseFilters: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -402,7 +390,7 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/account/location/trilaterate".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/location/trilaterate",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -411,10 +399,9 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/location/search
+     * GET /location/search
      * Search Regions or Postal Codes
      * Searches geographic locations by proximity via address or keyword.
-     * @param version 
      * @param deviceId the device id (optional)
      * @param accountId the account id (optional)
      * @param currentlatitude This parameter is deprecated. (optional)
@@ -443,8 +430,8 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getLocations(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, currentlatitude: kotlin.Double? = null, currentlongitude: kotlin.Double? = null, currentLatitude: kotlin.Double? = null, currentLongitude: kotlin.Double? = null, query: kotlin.String? = null, zipcode: kotlin.String? = null, zipCode: kotlin.String? = null, selectedMaplatitude: kotlin.Double? = null, selectedMaplongitude: kotlin.Double? = null, selectedMapLatitude: kotlin.Double? = null, selectedMapLongitude: kotlin.Double? = null, searchRange: kotlin.Double? = 5.0, useGeocode: kotlin.Boolean? = false, i: kotlin.Int? = null, start: kotlin.Int? = 0, l: kotlin.Int? = null, limit: kotlin.Int? = 20) : LocationSearchResponse {
-        val localVarResponse = getLocationsWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, currentlatitude = currentlatitude, currentlongitude = currentlongitude, currentLatitude = currentLatitude, currentLongitude = currentLongitude, query = query, zipcode = zipcode, zipCode = zipCode, selectedMaplatitude = selectedMaplatitude, selectedMaplongitude = selectedMaplongitude, selectedMapLatitude = selectedMapLatitude, selectedMapLongitude = selectedMapLongitude, searchRange = searchRange, useGeocode = useGeocode, i = i, start = start, l = l, limit = limit)
+    fun getLocations(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, currentlatitude: kotlin.Double? = null, currentlongitude: kotlin.Double? = null, currentLatitude: kotlin.Double? = null, currentLongitude: kotlin.Double? = null, query: kotlin.String? = null, zipcode: kotlin.String? = null, zipCode: kotlin.String? = null, selectedMaplatitude: kotlin.Double? = null, selectedMaplongitude: kotlin.Double? = null, selectedMapLatitude: kotlin.Double? = null, selectedMapLongitude: kotlin.Double? = null, searchRange: kotlin.Double? = 5.0, useGeocode: kotlin.Boolean? = false, i: kotlin.Int? = null, start: kotlin.Int? = 0, l: kotlin.Int? = null, limit: kotlin.Int? = 20) : LocationSearchResponse {
+        val localVarResponse = getLocationsWithHttpInfo(deviceId = deviceId, accountId = accountId, currentlatitude = currentlatitude, currentlongitude = currentlongitude, currentLatitude = currentLatitude, currentLongitude = currentLongitude, query = query, zipcode = zipcode, zipCode = zipCode, selectedMaplatitude = selectedMaplatitude, selectedMaplongitude = selectedMaplongitude, selectedMapLatitude = selectedMapLatitude, selectedMapLongitude = selectedMapLongitude, searchRange = searchRange, useGeocode = useGeocode, i = i, start = start, l = l, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as LocationSearchResponse
@@ -462,10 +449,9 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/{version}/location/search
+     * GET /location/search
      * Search Regions or Postal Codes
      * Searches geographic locations by proximity via address or keyword.
-     * @param version 
      * @param deviceId the device id (optional)
      * @param accountId the account id (optional)
      * @param currentlatitude This parameter is deprecated. (optional)
@@ -491,8 +477,8 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getLocationsWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, currentlatitude: kotlin.Double?, currentlongitude: kotlin.Double?, currentLatitude: kotlin.Double?, currentLongitude: kotlin.Double?, query: kotlin.String?, zipcode: kotlin.String?, zipCode: kotlin.String?, selectedMaplatitude: kotlin.Double?, selectedMaplongitude: kotlin.Double?, selectedMapLatitude: kotlin.Double?, selectedMapLongitude: kotlin.Double?, searchRange: kotlin.Double?, useGeocode: kotlin.Boolean?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<LocationSearchResponse?> {
-        val localVariableConfig = getLocationsRequestConfig(version = version, deviceId = deviceId, accountId = accountId, currentlatitude = currentlatitude, currentlongitude = currentlongitude, currentLatitude = currentLatitude, currentLongitude = currentLongitude, query = query, zipcode = zipcode, zipCode = zipCode, selectedMaplatitude = selectedMaplatitude, selectedMaplongitude = selectedMaplongitude, selectedMapLatitude = selectedMapLatitude, selectedMapLongitude = selectedMapLongitude, searchRange = searchRange, useGeocode = useGeocode, i = i, start = start, l = l, limit = limit)
+    fun getLocationsWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, currentlatitude: kotlin.Double?, currentlongitude: kotlin.Double?, currentLatitude: kotlin.Double?, currentLongitude: kotlin.Double?, query: kotlin.String?, zipcode: kotlin.String?, zipCode: kotlin.String?, selectedMaplatitude: kotlin.Double?, selectedMaplongitude: kotlin.Double?, selectedMapLatitude: kotlin.Double?, selectedMapLongitude: kotlin.Double?, searchRange: kotlin.Double?, useGeocode: kotlin.Boolean?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<LocationSearchResponse?> {
+        val localVariableConfig = getLocationsRequestConfig(deviceId = deviceId, accountId = accountId, currentlatitude = currentlatitude, currentlongitude = currentlongitude, currentLatitude = currentLatitude, currentLongitude = currentLongitude, query = query, zipcode = zipcode, zipCode = zipCode, selectedMaplatitude = selectedMaplatitude, selectedMaplongitude = selectedMaplongitude, selectedMapLatitude = selectedMapLatitude, selectedMapLongitude = selectedMapLongitude, searchRange = searchRange, useGeocode = useGeocode, i = i, start = start, l = l, limit = limit)
 
         return request<Unit, LocationSearchResponse>(
             localVariableConfig
@@ -502,7 +488,6 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation getLocations
      *
-     * @param version 
      * @param deviceId the device id (optional)
      * @param accountId the account id (optional)
      * @param currentlatitude This parameter is deprecated. (optional)
@@ -524,7 +509,7 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param limit the limit for pagination (optional, default to 20)
      * @return RequestConfig
      */
-    fun getLocationsRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, currentlatitude: kotlin.Double?, currentlongitude: kotlin.Double?, currentLatitude: kotlin.Double?, currentLongitude: kotlin.Double?, query: kotlin.String?, zipcode: kotlin.String?, zipCode: kotlin.String?, selectedMaplatitude: kotlin.Double?, selectedMaplongitude: kotlin.Double?, selectedMapLatitude: kotlin.Double?, selectedMapLongitude: kotlin.Double?, searchRange: kotlin.Double?, useGeocode: kotlin.Boolean?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun getLocationsRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, currentlatitude: kotlin.Double?, currentlongitude: kotlin.Double?, currentLatitude: kotlin.Double?, currentLongitude: kotlin.Double?, query: kotlin.String?, zipcode: kotlin.String?, zipCode: kotlin.String?, selectedMaplatitude: kotlin.Double?, selectedMaplongitude: kotlin.Double?, selectedMapLatitude: kotlin.Double?, selectedMapLongitude: kotlin.Double?, searchRange: kotlin.Double?, useGeocode: kotlin.Boolean?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -590,7 +575,7 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/location/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/location/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

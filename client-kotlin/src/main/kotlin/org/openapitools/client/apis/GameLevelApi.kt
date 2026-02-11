@@ -45,15 +45,14 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/level/create
+     * POST /level/create
      * Create Game Level
      * Create a game level. Currently does NOT support game objects.
-     * @param version 
      * @param accountId The logged in user.
      * @param name The name of the level.
      * @param gameData The game level data: xml, json, or other text based format.
@@ -89,8 +88,8 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createGameLevel(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, gameData: kotlin.String, gameDataSuffix: kotlin.String, appKey: kotlin.String? = null, description: kotlin.String? = null, difficulty: kotlin.String? = null, appVersion: kotlin.String? = null, assetImageId: kotlin.Long? = null, assetIconId: kotlin.Long? = null, visibility: kotlin.String? = null, friendGroup: kotlin.Boolean? = null, connectionIds: kotlin.String? = null, connectionGroupIds: kotlin.String? = null, balance: kotlin.Double? = null, active: kotlin.Boolean? = null, allocateTickets: kotlin.Boolean? = null, ticketCount: kotlin.Long? = null, ticketType: kotlin.String? = null, points: kotlin.Long? = null, tutorialTitle: kotlin.String? = null, tutorialMessage: kotlin.String? = null, tutorialAlignment: kotlin.String? = null, tutorialImageAssetId: kotlin.Long? = null, offerId: kotlin.Long? = null, metaData: kotlin.String? = null) : GameLevelResponse {
-        val localVarResponse = createGameLevelWithHttpInfo(version = version, accountId = accountId, name = name, gameData = gameData, gameDataSuffix = gameDataSuffix, appKey = appKey, description = description, difficulty = difficulty, appVersion = appVersion, assetImageId = assetImageId, assetIconId = assetIconId, visibility = visibility, friendGroup = friendGroup, connectionIds = connectionIds, connectionGroupIds = connectionGroupIds, balance = balance, active = active, allocateTickets = allocateTickets, ticketCount = ticketCount, ticketType = ticketType, points = points, tutorialTitle = tutorialTitle, tutorialMessage = tutorialMessage, tutorialAlignment = tutorialAlignment, tutorialImageAssetId = tutorialImageAssetId, offerId = offerId, metaData = metaData)
+    fun createGameLevel(accountId: kotlin.Long, name: kotlin.String, gameData: kotlin.String, gameDataSuffix: kotlin.String, appKey: kotlin.String? = null, description: kotlin.String? = null, difficulty: kotlin.String? = null, appVersion: kotlin.String? = null, assetImageId: kotlin.Long? = null, assetIconId: kotlin.Long? = null, visibility: kotlin.String? = null, friendGroup: kotlin.Boolean? = null, connectionIds: kotlin.String? = null, connectionGroupIds: kotlin.String? = null, balance: kotlin.Double? = null, active: kotlin.Boolean? = null, allocateTickets: kotlin.Boolean? = null, ticketCount: kotlin.Long? = null, ticketType: kotlin.String? = null, points: kotlin.Long? = null, tutorialTitle: kotlin.String? = null, tutorialMessage: kotlin.String? = null, tutorialAlignment: kotlin.String? = null, tutorialImageAssetId: kotlin.Long? = null, offerId: kotlin.Long? = null, metaData: kotlin.String? = null) : GameLevelResponse {
+        val localVarResponse = createGameLevelWithHttpInfo(accountId = accountId, name = name, gameData = gameData, gameDataSuffix = gameDataSuffix, appKey = appKey, description = description, difficulty = difficulty, appVersion = appVersion, assetImageId = assetImageId, assetIconId = assetIconId, visibility = visibility, friendGroup = friendGroup, connectionIds = connectionIds, connectionGroupIds = connectionGroupIds, balance = balance, active = active, allocateTickets = allocateTickets, ticketCount = ticketCount, ticketType = ticketType, points = points, tutorialTitle = tutorialTitle, tutorialMessage = tutorialMessage, tutorialAlignment = tutorialAlignment, tutorialImageAssetId = tutorialImageAssetId, offerId = offerId, metaData = metaData)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as GameLevelResponse
@@ -108,10 +107,9 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/level/create
+     * POST /level/create
      * Create Game Level
      * Create a game level. Currently does NOT support game objects.
-     * @param version 
      * @param accountId The logged in user.
      * @param name The name of the level.
      * @param gameData The game level data: xml, json, or other text based format.
@@ -144,8 +142,8 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createGameLevelWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, gameData: kotlin.String, gameDataSuffix: kotlin.String, appKey: kotlin.String?, description: kotlin.String?, difficulty: kotlin.String?, appVersion: kotlin.String?, assetImageId: kotlin.Long?, assetIconId: kotlin.Long?, visibility: kotlin.String?, friendGroup: kotlin.Boolean?, connectionIds: kotlin.String?, connectionGroupIds: kotlin.String?, balance: kotlin.Double?, active: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketCount: kotlin.Long?, ticketType: kotlin.String?, points: kotlin.Long?, tutorialTitle: kotlin.String?, tutorialMessage: kotlin.String?, tutorialAlignment: kotlin.String?, tutorialImageAssetId: kotlin.Long?, offerId: kotlin.Long?, metaData: kotlin.String?) : ApiResponse<GameLevelResponse?> {
-        val localVariableConfig = createGameLevelRequestConfig(version = version, accountId = accountId, name = name, gameData = gameData, gameDataSuffix = gameDataSuffix, appKey = appKey, description = description, difficulty = difficulty, appVersion = appVersion, assetImageId = assetImageId, assetIconId = assetIconId, visibility = visibility, friendGroup = friendGroup, connectionIds = connectionIds, connectionGroupIds = connectionGroupIds, balance = balance, active = active, allocateTickets = allocateTickets, ticketCount = ticketCount, ticketType = ticketType, points = points, tutorialTitle = tutorialTitle, tutorialMessage = tutorialMessage, tutorialAlignment = tutorialAlignment, tutorialImageAssetId = tutorialImageAssetId, offerId = offerId, metaData = metaData)
+    fun createGameLevelWithHttpInfo(accountId: kotlin.Long, name: kotlin.String, gameData: kotlin.String, gameDataSuffix: kotlin.String, appKey: kotlin.String?, description: kotlin.String?, difficulty: kotlin.String?, appVersion: kotlin.String?, assetImageId: kotlin.Long?, assetIconId: kotlin.Long?, visibility: kotlin.String?, friendGroup: kotlin.Boolean?, connectionIds: kotlin.String?, connectionGroupIds: kotlin.String?, balance: kotlin.Double?, active: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketCount: kotlin.Long?, ticketType: kotlin.String?, points: kotlin.Long?, tutorialTitle: kotlin.String?, tutorialMessage: kotlin.String?, tutorialAlignment: kotlin.String?, tutorialImageAssetId: kotlin.Long?, offerId: kotlin.Long?, metaData: kotlin.String?) : ApiResponse<GameLevelResponse?> {
+        val localVariableConfig = createGameLevelRequestConfig(accountId = accountId, name = name, gameData = gameData, gameDataSuffix = gameDataSuffix, appKey = appKey, description = description, difficulty = difficulty, appVersion = appVersion, assetImageId = assetImageId, assetIconId = assetIconId, visibility = visibility, friendGroup = friendGroup, connectionIds = connectionIds, connectionGroupIds = connectionGroupIds, balance = balance, active = active, allocateTickets = allocateTickets, ticketCount = ticketCount, ticketType = ticketType, points = points, tutorialTitle = tutorialTitle, tutorialMessage = tutorialMessage, tutorialAlignment = tutorialAlignment, tutorialImageAssetId = tutorialImageAssetId, offerId = offerId, metaData = metaData)
 
         return request<Unit, GameLevelResponse>(
             localVariableConfig
@@ -155,7 +153,6 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation createGameLevel
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param name The name of the level.
      * @param gameData The game level data: xml, json, or other text based format.
@@ -184,7 +181,7 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param metaData external custom client defined data (optional)
      * @return RequestConfig
      */
-    fun createGameLevelRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, gameData: kotlin.String, gameDataSuffix: kotlin.String, appKey: kotlin.String?, description: kotlin.String?, difficulty: kotlin.String?, appVersion: kotlin.String?, assetImageId: kotlin.Long?, assetIconId: kotlin.Long?, visibility: kotlin.String?, friendGroup: kotlin.Boolean?, connectionIds: kotlin.String?, connectionGroupIds: kotlin.String?, balance: kotlin.Double?, active: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketCount: kotlin.Long?, ticketType: kotlin.String?, points: kotlin.Long?, tutorialTitle: kotlin.String?, tutorialMessage: kotlin.String?, tutorialAlignment: kotlin.String?, tutorialImageAssetId: kotlin.Long?, offerId: kotlin.Long?, metaData: kotlin.String?) : RequestConfig<Unit> {
+    fun createGameLevelRequestConfig(accountId: kotlin.Long, name: kotlin.String, gameData: kotlin.String, gameDataSuffix: kotlin.String, appKey: kotlin.String?, description: kotlin.String?, difficulty: kotlin.String?, appVersion: kotlin.String?, assetImageId: kotlin.Long?, assetIconId: kotlin.Long?, visibility: kotlin.String?, friendGroup: kotlin.Boolean?, connectionIds: kotlin.String?, connectionGroupIds: kotlin.String?, balance: kotlin.Double?, active: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketCount: kotlin.Long?, ticketType: kotlin.String?, points: kotlin.Long?, tutorialTitle: kotlin.String?, tutorialMessage: kotlin.String?, tutorialAlignment: kotlin.String?, tutorialImageAssetId: kotlin.Long?, offerId: kotlin.Long?, metaData: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -263,7 +260,7 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/level/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/level/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -272,10 +269,9 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/level/delete
+     * POST /level/delete
      * Delete Game Level
      * Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
-     * @param version 
      * @param accountId The logged in user.
      * @param levelId The id of the level to return.
      * @return SirqulResponse
@@ -287,8 +283,8 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteGameLevel(version: java.math.BigDecimal, accountId: kotlin.Long, levelId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = deleteGameLevelWithHttpInfo(version = version, accountId = accountId, levelId = levelId)
+    fun deleteGameLevel(accountId: kotlin.Long, levelId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = deleteGameLevelWithHttpInfo(accountId = accountId, levelId = levelId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -306,10 +302,9 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/level/delete
+     * POST /level/delete
      * Delete Game Level
      * Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
-     * @param version 
      * @param accountId The logged in user.
      * @param levelId The id of the level to return.
      * @return ApiResponse<SirqulResponse?>
@@ -318,8 +313,8 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteGameLevelWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, levelId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteGameLevelRequestConfig(version = version, accountId = accountId, levelId = levelId)
+    fun deleteGameLevelWithHttpInfo(accountId: kotlin.Long, levelId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteGameLevelRequestConfig(accountId = accountId, levelId = levelId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -329,12 +324,11 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation deleteGameLevel
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param levelId The id of the level to return.
      * @return RequestConfig
      */
-    fun deleteGameLevelRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, levelId: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteGameLevelRequestConfig(accountId: kotlin.Long, levelId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -345,7 +339,7 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/level/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/level/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -354,10 +348,9 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/level/get
+     * GET /level/get
      * Get Game Level
      * Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
-     * @param version 
      * @param accountId The logged in user.
      * @param levelId The id of the level to return.
      * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false. (optional)
@@ -370,8 +363,8 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getGameLevel(version: java.math.BigDecimal, accountId: kotlin.Long, levelId: kotlin.Long, includeGameData: kotlin.Boolean? = null) : GameLevelResponse {
-        val localVarResponse = getGameLevelWithHttpInfo(version = version, accountId = accountId, levelId = levelId, includeGameData = includeGameData)
+    fun getGameLevel(accountId: kotlin.Long, levelId: kotlin.Long, includeGameData: kotlin.Boolean? = null) : GameLevelResponse {
+        val localVarResponse = getGameLevelWithHttpInfo(accountId = accountId, levelId = levelId, includeGameData = includeGameData)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as GameLevelResponse
@@ -389,10 +382,9 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/level/get
+     * GET /level/get
      * Get Game Level
      * Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
-     * @param version 
      * @param accountId The logged in user.
      * @param levelId The id of the level to return.
      * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false. (optional)
@@ -402,8 +394,8 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getGameLevelWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, levelId: kotlin.Long, includeGameData: kotlin.Boolean?) : ApiResponse<GameLevelResponse?> {
-        val localVariableConfig = getGameLevelRequestConfig(version = version, accountId = accountId, levelId = levelId, includeGameData = includeGameData)
+    fun getGameLevelWithHttpInfo(accountId: kotlin.Long, levelId: kotlin.Long, includeGameData: kotlin.Boolean?) : ApiResponse<GameLevelResponse?> {
+        val localVariableConfig = getGameLevelRequestConfig(accountId = accountId, levelId = levelId, includeGameData = includeGameData)
 
         return request<Unit, GameLevelResponse>(
             localVariableConfig
@@ -413,13 +405,12 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation getGameLevel
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param levelId The id of the level to return.
      * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false. (optional)
      * @return RequestConfig
      */
-    fun getGameLevelRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, levelId: kotlin.Long, includeGameData: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getGameLevelRequestConfig(accountId: kotlin.Long, levelId: kotlin.Long, includeGameData: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -433,7 +424,7 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/level/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/level/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -442,10 +433,9 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/level/search
+     * GET /level/search
      * Search Game Levels
      * Get a list of levels for an application, just those the account has permissions to view.
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey the application key
      * @param keyword Match the keyword to the owner name or level name. (optional)
@@ -465,8 +455,8 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getGameLevelsByApplication(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, keyword: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null, appVersion: kotlin.String? = null, includeGameData: kotlin.Boolean? = null, filters: kotlin.String? = null) : GameLevelListResponse {
-        val localVarResponse = getGameLevelsByApplicationWithHttpInfo(version = version, accountId = accountId, appKey = appKey, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit, appVersion = appVersion, includeGameData = includeGameData, filters = filters)
+    fun getGameLevelsByApplication(accountId: kotlin.Long, appKey: kotlin.String, keyword: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null, appVersion: kotlin.String? = null, includeGameData: kotlin.Boolean? = null, filters: kotlin.String? = null) : GameLevelListResponse {
+        val localVarResponse = getGameLevelsByApplicationWithHttpInfo(accountId = accountId, appKey = appKey, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit, appVersion = appVersion, includeGameData = includeGameData, filters = filters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as GameLevelListResponse
@@ -484,10 +474,9 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/level/search
+     * GET /level/search
      * Search Game Levels
      * Get a list of levels for an application, just those the account has permissions to view.
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey the application key
      * @param keyword Match the keyword to the owner name or level name. (optional)
@@ -504,8 +493,8 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getGameLevelsByApplicationWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, appVersion: kotlin.String?, includeGameData: kotlin.Boolean?, filters: kotlin.String?) : ApiResponse<GameLevelListResponse?> {
-        val localVariableConfig = getGameLevelsByApplicationRequestConfig(version = version, accountId = accountId, appKey = appKey, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit, appVersion = appVersion, includeGameData = includeGameData, filters = filters)
+    fun getGameLevelsByApplicationWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, appVersion: kotlin.String?, includeGameData: kotlin.Boolean?, filters: kotlin.String?) : ApiResponse<GameLevelListResponse?> {
+        val localVariableConfig = getGameLevelsByApplicationRequestConfig(accountId = accountId, appKey = appKey, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit, appVersion = appVersion, includeGameData = includeGameData, filters = filters)
 
         return request<Unit, GameLevelListResponse>(
             localVariableConfig
@@ -515,7 +504,6 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation getGameLevelsByApplication
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey the application key
      * @param keyword Match the keyword to the owner name or level name. (optional)
@@ -528,7 +516,7 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param filters  (optional)
      * @return RequestConfig
      */
-    fun getGameLevelsByApplicationRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, appVersion: kotlin.String?, includeGameData: kotlin.Boolean?, filters: kotlin.String?) : RequestConfig<Unit> {
+    fun getGameLevelsByApplicationRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, appVersion: kotlin.String?, includeGameData: kotlin.Boolean?, filters: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -563,7 +551,7 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/level/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/level/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -609,10 +597,9 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
      }
 
     /**
-     * GET /api/{version}/level/searchByBillableEntity
+     * GET /level/searchByBillableEntity
      * Search Game Level by Billable Entity
      * Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
-     * @param version 
      * @param accountId The account id of the user
      * @param appKey the application key (optional)
      * @param keyword The keyword used to search (optional)
@@ -630,8 +617,8 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getGameLevelsByBillableEntity(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String? = null, keyword: kotlin.String? = null, sortField: SortFieldGetGameLevelsByBillableEntity? = null, descending: kotlin.Boolean? = null, activeOnly: kotlin.Boolean? = null, start: kotlin.Long? = null, limit: kotlin.Long? = null) : GameLevelResponse {
-        val localVarResponse = getGameLevelsByBillableEntityWithHttpInfo(version = version, accountId = accountId, appKey = appKey, keyword = keyword, sortField = sortField, descending = descending, activeOnly = activeOnly, start = start, limit = limit)
+    fun getGameLevelsByBillableEntity(accountId: kotlin.Long, appKey: kotlin.String? = null, keyword: kotlin.String? = null, sortField: SortFieldGetGameLevelsByBillableEntity? = null, descending: kotlin.Boolean? = null, activeOnly: kotlin.Boolean? = null, start: kotlin.Long? = null, limit: kotlin.Long? = null) : GameLevelResponse {
+        val localVarResponse = getGameLevelsByBillableEntityWithHttpInfo(accountId = accountId, appKey = appKey, keyword = keyword, sortField = sortField, descending = descending, activeOnly = activeOnly, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as GameLevelResponse
@@ -649,10 +636,9 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/level/searchByBillableEntity
+     * GET /level/searchByBillableEntity
      * Search Game Level by Billable Entity
      * Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
-     * @param version 
      * @param accountId The account id of the user
      * @param appKey the application key (optional)
      * @param keyword The keyword used to search (optional)
@@ -667,8 +653,8 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getGameLevelsByBillableEntityWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String?, keyword: kotlin.String?, sortField: SortFieldGetGameLevelsByBillableEntity?, descending: kotlin.Boolean?, activeOnly: kotlin.Boolean?, start: kotlin.Long?, limit: kotlin.Long?) : ApiResponse<GameLevelResponse?> {
-        val localVariableConfig = getGameLevelsByBillableEntityRequestConfig(version = version, accountId = accountId, appKey = appKey, keyword = keyword, sortField = sortField, descending = descending, activeOnly = activeOnly, start = start, limit = limit)
+    fun getGameLevelsByBillableEntityWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String?, keyword: kotlin.String?, sortField: SortFieldGetGameLevelsByBillableEntity?, descending: kotlin.Boolean?, activeOnly: kotlin.Boolean?, start: kotlin.Long?, limit: kotlin.Long?) : ApiResponse<GameLevelResponse?> {
+        val localVariableConfig = getGameLevelsByBillableEntityRequestConfig(accountId = accountId, appKey = appKey, keyword = keyword, sortField = sortField, descending = descending, activeOnly = activeOnly, start = start, limit = limit)
 
         return request<Unit, GameLevelResponse>(
             localVariableConfig
@@ -678,7 +664,6 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation getGameLevelsByBillableEntity
      *
-     * @param version 
      * @param accountId The account id of the user
      * @param appKey the application key (optional)
      * @param keyword The keyword used to search (optional)
@@ -689,7 +674,7 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param limit The number of records to return (optional)
      * @return RequestConfig
      */
-    fun getGameLevelsByBillableEntityRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String?, keyword: kotlin.String?, sortField: SortFieldGetGameLevelsByBillableEntity?, descending: kotlin.Boolean?, activeOnly: kotlin.Boolean?, start: kotlin.Long?, limit: kotlin.Long?) : RequestConfig<Unit> {
+    fun getGameLevelsByBillableEntityRequestConfig(accountId: kotlin.Long, appKey: kotlin.String?, keyword: kotlin.String?, sortField: SortFieldGetGameLevelsByBillableEntity?, descending: kotlin.Boolean?, activeOnly: kotlin.Boolean?, start: kotlin.Long?, limit: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -720,7 +705,7 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/level/searchByBillableEntity".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/level/searchByBillableEntity",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -729,10 +714,9 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/level/questions/get
+     * GET /level/questions/get
      * Get Level Questions
      * Get questions within a level.
-     * @param version 
      * @param levelId the id of the level to get questions from
      * @param accountId the id of the logged in user
      * @return QuestionResponse
@@ -744,8 +728,8 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getQuestionsInLevel(version: java.math.BigDecimal, levelId: kotlin.Long, accountId: kotlin.Long) : QuestionResponse {
-        val localVarResponse = getQuestionsInLevelWithHttpInfo(version = version, levelId = levelId, accountId = accountId)
+    fun getQuestionsInLevel(levelId: kotlin.Long, accountId: kotlin.Long) : QuestionResponse {
+        val localVarResponse = getQuestionsInLevelWithHttpInfo(levelId = levelId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as QuestionResponse
@@ -763,10 +747,9 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/level/questions/get
+     * GET /level/questions/get
      * Get Level Questions
      * Get questions within a level.
-     * @param version 
      * @param levelId the id of the level to get questions from
      * @param accountId the id of the logged in user
      * @return ApiResponse<QuestionResponse?>
@@ -775,8 +758,8 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getQuestionsInLevelWithHttpInfo(version: java.math.BigDecimal, levelId: kotlin.Long, accountId: kotlin.Long) : ApiResponse<QuestionResponse?> {
-        val localVariableConfig = getQuestionsInLevelRequestConfig(version = version, levelId = levelId, accountId = accountId)
+    fun getQuestionsInLevelWithHttpInfo(levelId: kotlin.Long, accountId: kotlin.Long) : ApiResponse<QuestionResponse?> {
+        val localVariableConfig = getQuestionsInLevelRequestConfig(levelId = levelId, accountId = accountId)
 
         return request<Unit, QuestionResponse>(
             localVariableConfig
@@ -786,12 +769,11 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation getQuestionsInLevel
      *
-     * @param version 
      * @param levelId the id of the level to get questions from
      * @param accountId the id of the logged in user
      * @return RequestConfig
      */
-    fun getQuestionsInLevelRequestConfig(version: java.math.BigDecimal, levelId: kotlin.Long, accountId: kotlin.Long) : RequestConfig<Unit> {
+    fun getQuestionsInLevelRequestConfig(levelId: kotlin.Long, accountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -802,7 +784,7 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/level/questions/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/level/questions/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -811,10 +793,9 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/level/words/get
+     * GET /level/words/get
      * Get Level Words
      * Get words within a level.
-     * @param version 
      * @param levelId the id of the level to get words for
      * @param accountId the id of the logged in user
      * @return WordzWordResponse
@@ -826,8 +807,8 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWordsInLevel(version: java.math.BigDecimal, levelId: kotlin.Long, accountId: kotlin.Long) : WordzWordResponse {
-        val localVarResponse = getWordsInLevelWithHttpInfo(version = version, levelId = levelId, accountId = accountId)
+    fun getWordsInLevel(levelId: kotlin.Long, accountId: kotlin.Long) : WordzWordResponse {
+        val localVarResponse = getWordsInLevelWithHttpInfo(levelId = levelId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as WordzWordResponse
@@ -845,10 +826,9 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * GET /api/{version}/level/words/get
+     * GET /level/words/get
      * Get Level Words
      * Get words within a level.
-     * @param version 
      * @param levelId the id of the level to get words for
      * @param accountId the id of the logged in user
      * @return ApiResponse<WordzWordResponse?>
@@ -857,8 +837,8 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWordsInLevelWithHttpInfo(version: java.math.BigDecimal, levelId: kotlin.Long, accountId: kotlin.Long) : ApiResponse<WordzWordResponse?> {
-        val localVariableConfig = getWordsInLevelRequestConfig(version = version, levelId = levelId, accountId = accountId)
+    fun getWordsInLevelWithHttpInfo(levelId: kotlin.Long, accountId: kotlin.Long) : ApiResponse<WordzWordResponse?> {
+        val localVariableConfig = getWordsInLevelRequestConfig(levelId = levelId, accountId = accountId)
 
         return request<Unit, WordzWordResponse>(
             localVariableConfig
@@ -868,12 +848,11 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation getWordsInLevel
      *
-     * @param version 
      * @param levelId the id of the level to get words for
      * @param accountId the id of the logged in user
      * @return RequestConfig
      */
-    fun getWordsInLevelRequestConfig(version: java.math.BigDecimal, levelId: kotlin.Long, accountId: kotlin.Long) : RequestConfig<Unit> {
+    fun getWordsInLevelRequestConfig(levelId: kotlin.Long, accountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -884,7 +863,7 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/level/words/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/level/words/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -893,10 +872,9 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/level/update
+     * POST /level/update
      * Update Game Level
      * Update a game level. Currently does NOT support game objects.
-     * @param version 
      * @param accountId The logged in user.
      * @param levelId If update then include the level Id.
      * @param appKey The game application key to save the level for. (optional)
@@ -933,8 +911,8 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateGameLevel(version: java.math.BigDecimal, accountId: kotlin.Long, levelId: kotlin.Long, appKey: kotlin.String? = null, name: kotlin.String? = null, description: kotlin.String? = null, difficulty: kotlin.String? = null, appVersion: kotlin.String? = null, assetImageId: kotlin.Long? = null, assetIconId: kotlin.Long? = null, gameData: kotlin.String? = null, gameDataSuffix: kotlin.String? = null, visibility: kotlin.String? = null, friendGroup: kotlin.Boolean? = null, connectionIds: kotlin.String? = null, connectionGroupIds: kotlin.String? = null, balance: kotlin.Double? = null, active: kotlin.Boolean? = null, allocateTickets: kotlin.Boolean? = null, ticketCount: kotlin.Long? = null, ticketType: kotlin.String? = null, points: kotlin.Long? = null, tutorialTitle: kotlin.String? = null, tutorialMessage: kotlin.String? = null, tutorialAlignment: kotlin.String? = null, tutorialImageAssetId: kotlin.Long? = null, offerId: kotlin.Long? = null, metaData: kotlin.String? = null) : GameLevelResponse {
-        val localVarResponse = updateGameLevelWithHttpInfo(version = version, accountId = accountId, levelId = levelId, appKey = appKey, name = name, description = description, difficulty = difficulty, appVersion = appVersion, assetImageId = assetImageId, assetIconId = assetIconId, gameData = gameData, gameDataSuffix = gameDataSuffix, visibility = visibility, friendGroup = friendGroup, connectionIds = connectionIds, connectionGroupIds = connectionGroupIds, balance = balance, active = active, allocateTickets = allocateTickets, ticketCount = ticketCount, ticketType = ticketType, points = points, tutorialTitle = tutorialTitle, tutorialMessage = tutorialMessage, tutorialAlignment = tutorialAlignment, tutorialImageAssetId = tutorialImageAssetId, offerId = offerId, metaData = metaData)
+    fun updateGameLevel(accountId: kotlin.Long, levelId: kotlin.Long, appKey: kotlin.String? = null, name: kotlin.String? = null, description: kotlin.String? = null, difficulty: kotlin.String? = null, appVersion: kotlin.String? = null, assetImageId: kotlin.Long? = null, assetIconId: kotlin.Long? = null, gameData: kotlin.String? = null, gameDataSuffix: kotlin.String? = null, visibility: kotlin.String? = null, friendGroup: kotlin.Boolean? = null, connectionIds: kotlin.String? = null, connectionGroupIds: kotlin.String? = null, balance: kotlin.Double? = null, active: kotlin.Boolean? = null, allocateTickets: kotlin.Boolean? = null, ticketCount: kotlin.Long? = null, ticketType: kotlin.String? = null, points: kotlin.Long? = null, tutorialTitle: kotlin.String? = null, tutorialMessage: kotlin.String? = null, tutorialAlignment: kotlin.String? = null, tutorialImageAssetId: kotlin.Long? = null, offerId: kotlin.Long? = null, metaData: kotlin.String? = null) : GameLevelResponse {
+        val localVarResponse = updateGameLevelWithHttpInfo(accountId = accountId, levelId = levelId, appKey = appKey, name = name, description = description, difficulty = difficulty, appVersion = appVersion, assetImageId = assetImageId, assetIconId = assetIconId, gameData = gameData, gameDataSuffix = gameDataSuffix, visibility = visibility, friendGroup = friendGroup, connectionIds = connectionIds, connectionGroupIds = connectionGroupIds, balance = balance, active = active, allocateTickets = allocateTickets, ticketCount = ticketCount, ticketType = ticketType, points = points, tutorialTitle = tutorialTitle, tutorialMessage = tutorialMessage, tutorialAlignment = tutorialAlignment, tutorialImageAssetId = tutorialImageAssetId, offerId = offerId, metaData = metaData)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as GameLevelResponse
@@ -952,10 +930,9 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/level/update
+     * POST /level/update
      * Update Game Level
      * Update a game level. Currently does NOT support game objects.
-     * @param version 
      * @param accountId The logged in user.
      * @param levelId If update then include the level Id.
      * @param appKey The game application key to save the level for. (optional)
@@ -989,8 +966,8 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateGameLevelWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, levelId: kotlin.Long, appKey: kotlin.String?, name: kotlin.String?, description: kotlin.String?, difficulty: kotlin.String?, appVersion: kotlin.String?, assetImageId: kotlin.Long?, assetIconId: kotlin.Long?, gameData: kotlin.String?, gameDataSuffix: kotlin.String?, visibility: kotlin.String?, friendGroup: kotlin.Boolean?, connectionIds: kotlin.String?, connectionGroupIds: kotlin.String?, balance: kotlin.Double?, active: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketCount: kotlin.Long?, ticketType: kotlin.String?, points: kotlin.Long?, tutorialTitle: kotlin.String?, tutorialMessage: kotlin.String?, tutorialAlignment: kotlin.String?, tutorialImageAssetId: kotlin.Long?, offerId: kotlin.Long?, metaData: kotlin.String?) : ApiResponse<GameLevelResponse?> {
-        val localVariableConfig = updateGameLevelRequestConfig(version = version, accountId = accountId, levelId = levelId, appKey = appKey, name = name, description = description, difficulty = difficulty, appVersion = appVersion, assetImageId = assetImageId, assetIconId = assetIconId, gameData = gameData, gameDataSuffix = gameDataSuffix, visibility = visibility, friendGroup = friendGroup, connectionIds = connectionIds, connectionGroupIds = connectionGroupIds, balance = balance, active = active, allocateTickets = allocateTickets, ticketCount = ticketCount, ticketType = ticketType, points = points, tutorialTitle = tutorialTitle, tutorialMessage = tutorialMessage, tutorialAlignment = tutorialAlignment, tutorialImageAssetId = tutorialImageAssetId, offerId = offerId, metaData = metaData)
+    fun updateGameLevelWithHttpInfo(accountId: kotlin.Long, levelId: kotlin.Long, appKey: kotlin.String?, name: kotlin.String?, description: kotlin.String?, difficulty: kotlin.String?, appVersion: kotlin.String?, assetImageId: kotlin.Long?, assetIconId: kotlin.Long?, gameData: kotlin.String?, gameDataSuffix: kotlin.String?, visibility: kotlin.String?, friendGroup: kotlin.Boolean?, connectionIds: kotlin.String?, connectionGroupIds: kotlin.String?, balance: kotlin.Double?, active: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketCount: kotlin.Long?, ticketType: kotlin.String?, points: kotlin.Long?, tutorialTitle: kotlin.String?, tutorialMessage: kotlin.String?, tutorialAlignment: kotlin.String?, tutorialImageAssetId: kotlin.Long?, offerId: kotlin.Long?, metaData: kotlin.String?) : ApiResponse<GameLevelResponse?> {
+        val localVariableConfig = updateGameLevelRequestConfig(accountId = accountId, levelId = levelId, appKey = appKey, name = name, description = description, difficulty = difficulty, appVersion = appVersion, assetImageId = assetImageId, assetIconId = assetIconId, gameData = gameData, gameDataSuffix = gameDataSuffix, visibility = visibility, friendGroup = friendGroup, connectionIds = connectionIds, connectionGroupIds = connectionGroupIds, balance = balance, active = active, allocateTickets = allocateTickets, ticketCount = ticketCount, ticketType = ticketType, points = points, tutorialTitle = tutorialTitle, tutorialMessage = tutorialMessage, tutorialAlignment = tutorialAlignment, tutorialImageAssetId = tutorialImageAssetId, offerId = offerId, metaData = metaData)
 
         return request<Unit, GameLevelResponse>(
             localVariableConfig
@@ -1000,7 +977,6 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation updateGameLevel
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param levelId If update then include the level Id.
      * @param appKey The game application key to save the level for. (optional)
@@ -1030,7 +1006,7 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param metaData external custom client defined data (optional)
      * @return RequestConfig
      */
-    fun updateGameLevelRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, levelId: kotlin.Long, appKey: kotlin.String?, name: kotlin.String?, description: kotlin.String?, difficulty: kotlin.String?, appVersion: kotlin.String?, assetImageId: kotlin.Long?, assetIconId: kotlin.Long?, gameData: kotlin.String?, gameDataSuffix: kotlin.String?, visibility: kotlin.String?, friendGroup: kotlin.Boolean?, connectionIds: kotlin.String?, connectionGroupIds: kotlin.String?, balance: kotlin.Double?, active: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketCount: kotlin.Long?, ticketType: kotlin.String?, points: kotlin.Long?, tutorialTitle: kotlin.String?, tutorialMessage: kotlin.String?, tutorialAlignment: kotlin.String?, tutorialImageAssetId: kotlin.Long?, offerId: kotlin.Long?, metaData: kotlin.String?) : RequestConfig<Unit> {
+    fun updateGameLevelRequestConfig(accountId: kotlin.Long, levelId: kotlin.Long, appKey: kotlin.String?, name: kotlin.String?, description: kotlin.String?, difficulty: kotlin.String?, appVersion: kotlin.String?, assetImageId: kotlin.Long?, assetIconId: kotlin.Long?, gameData: kotlin.String?, gameDataSuffix: kotlin.String?, visibility: kotlin.String?, friendGroup: kotlin.Boolean?, connectionIds: kotlin.String?, connectionGroupIds: kotlin.String?, balance: kotlin.Double?, active: kotlin.Boolean?, allocateTickets: kotlin.Boolean?, ticketCount: kotlin.Long?, ticketType: kotlin.String?, points: kotlin.Long?, tutorialTitle: kotlin.String?, tutorialMessage: kotlin.String?, tutorialAlignment: kotlin.String?, tutorialImageAssetId: kotlin.Long?, offerId: kotlin.Long?, metaData: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1116,7 +1092,7 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/level/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/level/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1125,10 +1101,9 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/level/questions/update
+     * POST /level/questions/update
      * Update Level Questions
      * Updates a level with question game objects.
-     * @param version 
      * @param levelId the id of the level to update questions on
      * @param accountId the id of the logged in user
      * @param questionIds the IDs of the questions to update
@@ -1141,8 +1116,8 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateQuestionsInLevel(version: java.math.BigDecimal, levelId: kotlin.Long, accountId: kotlin.Long, questionIds: kotlin.String) : SirqulResponse {
-        val localVarResponse = updateQuestionsInLevelWithHttpInfo(version = version, levelId = levelId, accountId = accountId, questionIds = questionIds)
+    fun updateQuestionsInLevel(levelId: kotlin.Long, accountId: kotlin.Long, questionIds: kotlin.String) : SirqulResponse {
+        val localVarResponse = updateQuestionsInLevelWithHttpInfo(levelId = levelId, accountId = accountId, questionIds = questionIds)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -1160,10 +1135,9 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/level/questions/update
+     * POST /level/questions/update
      * Update Level Questions
      * Updates a level with question game objects.
-     * @param version 
      * @param levelId the id of the level to update questions on
      * @param accountId the id of the logged in user
      * @param questionIds the IDs of the questions to update
@@ -1173,8 +1147,8 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateQuestionsInLevelWithHttpInfo(version: java.math.BigDecimal, levelId: kotlin.Long, accountId: kotlin.Long, questionIds: kotlin.String) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = updateQuestionsInLevelRequestConfig(version = version, levelId = levelId, accountId = accountId, questionIds = questionIds)
+    fun updateQuestionsInLevelWithHttpInfo(levelId: kotlin.Long, accountId: kotlin.Long, questionIds: kotlin.String) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = updateQuestionsInLevelRequestConfig(levelId = levelId, accountId = accountId, questionIds = questionIds)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -1184,13 +1158,12 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation updateQuestionsInLevel
      *
-     * @param version 
      * @param levelId the id of the level to update questions on
      * @param accountId the id of the logged in user
      * @param questionIds the IDs of the questions to update
      * @return RequestConfig
      */
-    fun updateQuestionsInLevelRequestConfig(version: java.math.BigDecimal, levelId: kotlin.Long, accountId: kotlin.Long, questionIds: kotlin.String) : RequestConfig<Unit> {
+    fun updateQuestionsInLevelRequestConfig(levelId: kotlin.Long, accountId: kotlin.Long, questionIds: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1202,7 +1175,7 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/level/questions/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/level/questions/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1211,10 +1184,9 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/level/words/update
+     * POST /level/words/update
      * Update Level Words
      * Updates a level with word game objects.
-     * @param version 
      * @param levelId the id of the level to update words for
      * @param accountId the id of the logged in user
      * @param wordIds the ids of the words to update for the level
@@ -1227,8 +1199,8 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateWordsInLevel(version: java.math.BigDecimal, levelId: kotlin.Long, accountId: kotlin.Long, wordIds: kotlin.String) : SirqulResponse {
-        val localVarResponse = updateWordsInLevelWithHttpInfo(version = version, levelId = levelId, accountId = accountId, wordIds = wordIds)
+    fun updateWordsInLevel(levelId: kotlin.Long, accountId: kotlin.Long, wordIds: kotlin.String) : SirqulResponse {
+        val localVarResponse = updateWordsInLevelWithHttpInfo(levelId = levelId, accountId = accountId, wordIds = wordIds)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -1246,10 +1218,9 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * POST /api/{version}/level/words/update
+     * POST /level/words/update
      * Update Level Words
      * Updates a level with word game objects.
-     * @param version 
      * @param levelId the id of the level to update words for
      * @param accountId the id of the logged in user
      * @param wordIds the ids of the words to update for the level
@@ -1259,8 +1230,8 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateWordsInLevelWithHttpInfo(version: java.math.BigDecimal, levelId: kotlin.Long, accountId: kotlin.Long, wordIds: kotlin.String) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = updateWordsInLevelRequestConfig(version = version, levelId = levelId, accountId = accountId, wordIds = wordIds)
+    fun updateWordsInLevelWithHttpInfo(levelId: kotlin.Long, accountId: kotlin.Long, wordIds: kotlin.String) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = updateWordsInLevelRequestConfig(levelId = levelId, accountId = accountId, wordIds = wordIds)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -1270,13 +1241,12 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation updateWordsInLevel
      *
-     * @param version 
      * @param levelId the id of the level to update words for
      * @param accountId the id of the logged in user
      * @param wordIds the ids of the words to update for the level
      * @return RequestConfig
      */
-    fun updateWordsInLevelRequestConfig(version: java.math.BigDecimal, levelId: kotlin.Long, accountId: kotlin.Long, wordIds: kotlin.String) : RequestConfig<Unit> {
+    fun updateWordsInLevelRequestConfig(levelId: kotlin.Long, accountId: kotlin.Long, wordIds: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1288,7 +1258,7 @@ open class GameLevelApi(basePath: kotlin.String = defaultBasePath, client: Call.
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/level/words/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/level/words/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

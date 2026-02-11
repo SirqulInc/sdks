@@ -42,15 +42,14 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/leaderboard/create
+     * POST /leaderboard/create
      * Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
      * Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-     * @param version 
      * @param accountId The account id of the user creating the leaderboard. (optional)
      * @param appKey The application key (optional)
      * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (optional)
@@ -73,8 +72,8 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createLeaderboard(version: java.math.BigDecimal, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, rankType: kotlin.String? = null, leaderboardMode: kotlin.String? = null, iconMedia: java.io.File? = null, iconAssetId: kotlin.Long? = null, bannerMedia: java.io.File? = null, bannerAssetId: kotlin.Long? = null, limitation: kotlin.Int? = null, sortField: kotlin.String? = null, title: kotlin.String? = null, description: kotlin.String? = null, metaData: kotlin.String? = null) : LeaderboardResponse {
-        val localVarResponse = createLeaderboardWithHttpInfo(version = version, accountId = accountId, appKey = appKey, rankType = rankType, leaderboardMode = leaderboardMode, iconMedia = iconMedia, iconAssetId = iconAssetId, bannerMedia = bannerMedia, bannerAssetId = bannerAssetId, limitation = limitation, sortField = sortField, title = title, description = description, metaData = metaData)
+    fun createLeaderboard(accountId: kotlin.Long? = null, appKey: kotlin.String? = null, rankType: kotlin.String? = null, leaderboardMode: kotlin.String? = null, iconMedia: java.io.File? = null, iconAssetId: kotlin.Long? = null, bannerMedia: java.io.File? = null, bannerAssetId: kotlin.Long? = null, limitation: kotlin.Int? = null, sortField: kotlin.String? = null, title: kotlin.String? = null, description: kotlin.String? = null, metaData: kotlin.String? = null) : LeaderboardResponse {
+        val localVarResponse = createLeaderboardWithHttpInfo(accountId = accountId, appKey = appKey, rankType = rankType, leaderboardMode = leaderboardMode, iconMedia = iconMedia, iconAssetId = iconAssetId, bannerMedia = bannerMedia, bannerAssetId = bannerAssetId, limitation = limitation, sortField = sortField, title = title, description = description, metaData = metaData)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as LeaderboardResponse
@@ -92,10 +91,9 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/leaderboard/create
+     * POST /leaderboard/create
      * Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
      * Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-     * @param version 
      * @param accountId The account id of the user creating the leaderboard. (optional)
      * @param appKey The application key (optional)
      * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (optional)
@@ -115,8 +113,8 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createLeaderboardWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long?, appKey: kotlin.String?, rankType: kotlin.String?, leaderboardMode: kotlin.String?, iconMedia: java.io.File?, iconAssetId: kotlin.Long?, bannerMedia: java.io.File?, bannerAssetId: kotlin.Long?, limitation: kotlin.Int?, sortField: kotlin.String?, title: kotlin.String?, description: kotlin.String?, metaData: kotlin.String?) : ApiResponse<LeaderboardResponse?> {
-        val localVariableConfig = createLeaderboardRequestConfig(version = version, accountId = accountId, appKey = appKey, rankType = rankType, leaderboardMode = leaderboardMode, iconMedia = iconMedia, iconAssetId = iconAssetId, bannerMedia = bannerMedia, bannerAssetId = bannerAssetId, limitation = limitation, sortField = sortField, title = title, description = description, metaData = metaData)
+    fun createLeaderboardWithHttpInfo(accountId: kotlin.Long?, appKey: kotlin.String?, rankType: kotlin.String?, leaderboardMode: kotlin.String?, iconMedia: java.io.File?, iconAssetId: kotlin.Long?, bannerMedia: java.io.File?, bannerAssetId: kotlin.Long?, limitation: kotlin.Int?, sortField: kotlin.String?, title: kotlin.String?, description: kotlin.String?, metaData: kotlin.String?) : ApiResponse<LeaderboardResponse?> {
+        val localVariableConfig = createLeaderboardRequestConfig(accountId = accountId, appKey = appKey, rankType = rankType, leaderboardMode = leaderboardMode, iconMedia = iconMedia, iconAssetId = iconAssetId, bannerMedia = bannerMedia, bannerAssetId = bannerAssetId, limitation = limitation, sortField = sortField, title = title, description = description, metaData = metaData)
 
         return request<Unit, LeaderboardResponse>(
             localVariableConfig
@@ -126,7 +124,6 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation createLeaderboard
      *
-     * @param version 
      * @param accountId The account id of the user creating the leaderboard. (optional)
      * @param appKey The application key (optional)
      * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (optional)
@@ -142,7 +139,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param metaData custom meta data for the leaderboard (optional)
      * @return RequestConfig
      */
-    fun createLeaderboardRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long?, appKey: kotlin.String?, rankType: kotlin.String?, leaderboardMode: kotlin.String?, iconMedia: java.io.File?, iconAssetId: kotlin.Long?, bannerMedia: java.io.File?, bannerAssetId: kotlin.Long?, limitation: kotlin.Int?, sortField: kotlin.String?, title: kotlin.String?, description: kotlin.String?, metaData: kotlin.String?) : RequestConfig<Unit> {
+    fun createLeaderboardRequestConfig(accountId: kotlin.Long?, appKey: kotlin.String?, rankType: kotlin.String?, leaderboardMode: kotlin.String?, iconMedia: java.io.File?, iconAssetId: kotlin.Long?, bannerMedia: java.io.File?, bannerAssetId: kotlin.Long?, limitation: kotlin.Int?, sortField: kotlin.String?, title: kotlin.String?, description: kotlin.String?, metaData: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -190,7 +187,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/leaderboard/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/leaderboard/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -199,10 +196,9 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/leaderboard/delete
+     * POST /leaderboard/delete
      * Delete the Leader Board
      * Removes a leader board id.
-     * @param version 
      * @param leaderboardId The leaderboard id to delete.
      * @param accountId The account id of the user making the request. (optional)
      * @return SirqulResponse
@@ -214,8 +210,8 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteLeaderboard(version: java.math.BigDecimal, leaderboardId: kotlin.Long, accountId: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = deleteLeaderboardWithHttpInfo(version = version, leaderboardId = leaderboardId, accountId = accountId)
+    fun deleteLeaderboard(leaderboardId: kotlin.Long, accountId: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = deleteLeaderboardWithHttpInfo(leaderboardId = leaderboardId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -233,10 +229,9 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/leaderboard/delete
+     * POST /leaderboard/delete
      * Delete the Leader Board
      * Removes a leader board id.
-     * @param version 
      * @param leaderboardId The leaderboard id to delete.
      * @param accountId The account id of the user making the request. (optional)
      * @return ApiResponse<SirqulResponse?>
@@ -245,8 +240,8 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteLeaderboardWithHttpInfo(version: java.math.BigDecimal, leaderboardId: kotlin.Long, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteLeaderboardRequestConfig(version = version, leaderboardId = leaderboardId, accountId = accountId)
+    fun deleteLeaderboardWithHttpInfo(leaderboardId: kotlin.Long, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteLeaderboardRequestConfig(leaderboardId = leaderboardId, accountId = accountId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -256,12 +251,11 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation deleteLeaderboard
      *
-     * @param version 
      * @param leaderboardId The leaderboard id to delete.
      * @param accountId The account id of the user making the request. (optional)
      * @return RequestConfig
      */
-    fun deleteLeaderboardRequestConfig(version: java.math.BigDecimal, leaderboardId: kotlin.Long, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun deleteLeaderboardRequestConfig(leaderboardId: kotlin.Long, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -274,7 +268,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/leaderboard/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/leaderboard/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -283,10 +277,9 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/leaderboard/get
+     * GET /leaderboard/get
      * Read a leaderboard by id and retrieve the matching ranking list
      * Read a leaderboard by id and retrieve the matching ranking list
-     * @param version 
      * @param leaderboardId The leaderboard id.
      * @param accountId A valid account. (optional)
      * @param includeFullRankingList set to true if need to return the leaderboard&#39;s full ranking list (optional)
@@ -299,8 +292,8 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getLeaderboard(version: java.math.BigDecimal, leaderboardId: kotlin.Long, accountId: kotlin.Long? = null, includeFullRankingList: kotlin.Boolean? = null) : LeaderboardResponse {
-        val localVarResponse = getLeaderboardWithHttpInfo(version = version, leaderboardId = leaderboardId, accountId = accountId, includeFullRankingList = includeFullRankingList)
+    fun getLeaderboard(leaderboardId: kotlin.Long, accountId: kotlin.Long? = null, includeFullRankingList: kotlin.Boolean? = null) : LeaderboardResponse {
+        val localVarResponse = getLeaderboardWithHttpInfo(leaderboardId = leaderboardId, accountId = accountId, includeFullRankingList = includeFullRankingList)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as LeaderboardResponse
@@ -318,10 +311,9 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/leaderboard/get
+     * GET /leaderboard/get
      * Read a leaderboard by id and retrieve the matching ranking list
      * Read a leaderboard by id and retrieve the matching ranking list
-     * @param version 
      * @param leaderboardId The leaderboard id.
      * @param accountId A valid account. (optional)
      * @param includeFullRankingList set to true if need to return the leaderboard&#39;s full ranking list (optional)
@@ -331,8 +323,8 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getLeaderboardWithHttpInfo(version: java.math.BigDecimal, leaderboardId: kotlin.Long, accountId: kotlin.Long?, includeFullRankingList: kotlin.Boolean?) : ApiResponse<LeaderboardResponse?> {
-        val localVariableConfig = getLeaderboardRequestConfig(version = version, leaderboardId = leaderboardId, accountId = accountId, includeFullRankingList = includeFullRankingList)
+    fun getLeaderboardWithHttpInfo(leaderboardId: kotlin.Long, accountId: kotlin.Long?, includeFullRankingList: kotlin.Boolean?) : ApiResponse<LeaderboardResponse?> {
+        val localVariableConfig = getLeaderboardRequestConfig(leaderboardId = leaderboardId, accountId = accountId, includeFullRankingList = includeFullRankingList)
 
         return request<Unit, LeaderboardResponse>(
             localVariableConfig
@@ -342,13 +334,12 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation getLeaderboard
      *
-     * @param version 
      * @param leaderboardId The leaderboard id.
      * @param accountId A valid account. (optional)
      * @param includeFullRankingList set to true if need to return the leaderboard&#39;s full ranking list (optional)
      * @return RequestConfig
      */
-    fun getLeaderboardRequestConfig(version: java.math.BigDecimal, leaderboardId: kotlin.Long, accountId: kotlin.Long?, includeFullRankingList: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getLeaderboardRequestConfig(leaderboardId: kotlin.Long, accountId: kotlin.Long?, includeFullRankingList: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -364,7 +355,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/leaderboard/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/leaderboard/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -373,10 +364,9 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/leaderboard/search
+     * GET /leaderboard/search
      * Search leaderboard and retrieve the matching ranking list
      * Search leaderboard and retrieve the matching ranking list
-     * @param version 
      * @param accountId The account id of the user requesting the search. (optional)
      * @param appKey The application key. (optional)
      * @param globalOnly only include global leaderboards (this overrides the appKey filter) (optional)
@@ -398,8 +388,8 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchLeaderboards(version: java.math.BigDecimal, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, globalOnly: kotlin.Boolean? = null, keyword: kotlin.String? = null, leaderboardIds: kotlin.String? = null, rankTypes: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null, includeInactive: kotlin.Boolean? = null, includeAppResponse: kotlin.Boolean? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null) : LeaderboardResponse {
-        val localVarResponse = searchLeaderboardsWithHttpInfo(version = version, accountId = accountId, appKey = appKey, globalOnly = globalOnly, keyword = keyword, leaderboardIds = leaderboardIds, rankTypes = rankTypes, sortField = sortField, descending = descending, includeInactive = includeInactive, includeAppResponse = includeAppResponse, start = start, limit = limit)
+    fun searchLeaderboards(accountId: kotlin.Long? = null, appKey: kotlin.String? = null, globalOnly: kotlin.Boolean? = null, keyword: kotlin.String? = null, leaderboardIds: kotlin.String? = null, rankTypes: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null, includeInactive: kotlin.Boolean? = null, includeAppResponse: kotlin.Boolean? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null) : LeaderboardResponse {
+        val localVarResponse = searchLeaderboardsWithHttpInfo(accountId = accountId, appKey = appKey, globalOnly = globalOnly, keyword = keyword, leaderboardIds = leaderboardIds, rankTypes = rankTypes, sortField = sortField, descending = descending, includeInactive = includeInactive, includeAppResponse = includeAppResponse, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as LeaderboardResponse
@@ -417,10 +407,9 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/leaderboard/search
+     * GET /leaderboard/search
      * Search leaderboard and retrieve the matching ranking list
      * Search leaderboard and retrieve the matching ranking list
-     * @param version 
      * @param accountId The account id of the user requesting the search. (optional)
      * @param appKey The application key. (optional)
      * @param globalOnly only include global leaderboards (this overrides the appKey filter) (optional)
@@ -439,8 +428,8 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchLeaderboardsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long?, appKey: kotlin.String?, globalOnly: kotlin.Boolean?, keyword: kotlin.String?, leaderboardIds: kotlin.String?, rankTypes: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, includeInactive: kotlin.Boolean?, includeAppResponse: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<LeaderboardResponse?> {
-        val localVariableConfig = searchLeaderboardsRequestConfig(version = version, accountId = accountId, appKey = appKey, globalOnly = globalOnly, keyword = keyword, leaderboardIds = leaderboardIds, rankTypes = rankTypes, sortField = sortField, descending = descending, includeInactive = includeInactive, includeAppResponse = includeAppResponse, start = start, limit = limit)
+    fun searchLeaderboardsWithHttpInfo(accountId: kotlin.Long?, appKey: kotlin.String?, globalOnly: kotlin.Boolean?, keyword: kotlin.String?, leaderboardIds: kotlin.String?, rankTypes: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, includeInactive: kotlin.Boolean?, includeAppResponse: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<LeaderboardResponse?> {
+        val localVariableConfig = searchLeaderboardsRequestConfig(accountId = accountId, appKey = appKey, globalOnly = globalOnly, keyword = keyword, leaderboardIds = leaderboardIds, rankTypes = rankTypes, sortField = sortField, descending = descending, includeInactive = includeInactive, includeAppResponse = includeAppResponse, start = start, limit = limit)
 
         return request<Unit, LeaderboardResponse>(
             localVariableConfig
@@ -450,7 +439,6 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation searchLeaderboards
      *
-     * @param version 
      * @param accountId The account id of the user requesting the search. (optional)
      * @param appKey The application key. (optional)
      * @param globalOnly only include global leaderboards (this overrides the appKey filter) (optional)
@@ -465,7 +453,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param limit Limit the result to some number. (optional)
      * @return RequestConfig
      */
-    fun searchLeaderboardsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long?, appKey: kotlin.String?, globalOnly: kotlin.Boolean?, keyword: kotlin.String?, leaderboardIds: kotlin.String?, rankTypes: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, includeInactive: kotlin.Boolean?, includeAppResponse: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchLeaderboardsRequestConfig(accountId: kotlin.Long?, appKey: kotlin.String?, globalOnly: kotlin.Boolean?, keyword: kotlin.String?, leaderboardIds: kotlin.String?, rankTypes: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, includeInactive: kotlin.Boolean?, includeAppResponse: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -510,7 +498,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/leaderboard/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/leaderboard/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -519,10 +507,9 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/leaderboard/update
+     * POST /leaderboard/update
      * Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
      * Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-     * @param version 
      * @param leaderboardId The leaderboard id to update.
      * @param accountId The account id of the user updating the leaderboard. (optional)
      * @param appKey The application key (optional)
@@ -547,8 +534,8 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateLeaderboard(version: java.math.BigDecimal, leaderboardId: kotlin.Long, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, rankType: kotlin.String? = null, leaderboardMode: kotlin.String? = null, sortField: kotlin.String? = null, iconMedia: java.io.File? = null, iconAssetId: kotlin.Long? = null, bannerMedia: java.io.File? = null, bannerAssetId: kotlin.Long? = null, limitation: kotlin.Int? = null, active: kotlin.Boolean? = null, title: kotlin.String? = null, description: kotlin.String? = null, metaData: kotlin.String? = null) : LeaderboardResponse {
-        val localVarResponse = updateLeaderboardWithHttpInfo(version = version, leaderboardId = leaderboardId, accountId = accountId, appKey = appKey, rankType = rankType, leaderboardMode = leaderboardMode, sortField = sortField, iconMedia = iconMedia, iconAssetId = iconAssetId, bannerMedia = bannerMedia, bannerAssetId = bannerAssetId, limitation = limitation, active = active, title = title, description = description, metaData = metaData)
+    fun updateLeaderboard(leaderboardId: kotlin.Long, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, rankType: kotlin.String? = null, leaderboardMode: kotlin.String? = null, sortField: kotlin.String? = null, iconMedia: java.io.File? = null, iconAssetId: kotlin.Long? = null, bannerMedia: java.io.File? = null, bannerAssetId: kotlin.Long? = null, limitation: kotlin.Int? = null, active: kotlin.Boolean? = null, title: kotlin.String? = null, description: kotlin.String? = null, metaData: kotlin.String? = null) : LeaderboardResponse {
+        val localVarResponse = updateLeaderboardWithHttpInfo(leaderboardId = leaderboardId, accountId = accountId, appKey = appKey, rankType = rankType, leaderboardMode = leaderboardMode, sortField = sortField, iconMedia = iconMedia, iconAssetId = iconAssetId, bannerMedia = bannerMedia, bannerAssetId = bannerAssetId, limitation = limitation, active = active, title = title, description = description, metaData = metaData)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as LeaderboardResponse
@@ -566,10 +553,9 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/leaderboard/update
+     * POST /leaderboard/update
      * Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
      * Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-     * @param version 
      * @param leaderboardId The leaderboard id to update.
      * @param accountId The account id of the user updating the leaderboard. (optional)
      * @param appKey The application key (optional)
@@ -591,8 +577,8 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateLeaderboardWithHttpInfo(version: java.math.BigDecimal, leaderboardId: kotlin.Long, accountId: kotlin.Long?, appKey: kotlin.String?, rankType: kotlin.String?, leaderboardMode: kotlin.String?, sortField: kotlin.String?, iconMedia: java.io.File?, iconAssetId: kotlin.Long?, bannerMedia: java.io.File?, bannerAssetId: kotlin.Long?, limitation: kotlin.Int?, active: kotlin.Boolean?, title: kotlin.String?, description: kotlin.String?, metaData: kotlin.String?) : ApiResponse<LeaderboardResponse?> {
-        val localVariableConfig = updateLeaderboardRequestConfig(version = version, leaderboardId = leaderboardId, accountId = accountId, appKey = appKey, rankType = rankType, leaderboardMode = leaderboardMode, sortField = sortField, iconMedia = iconMedia, iconAssetId = iconAssetId, bannerMedia = bannerMedia, bannerAssetId = bannerAssetId, limitation = limitation, active = active, title = title, description = description, metaData = metaData)
+    fun updateLeaderboardWithHttpInfo(leaderboardId: kotlin.Long, accountId: kotlin.Long?, appKey: kotlin.String?, rankType: kotlin.String?, leaderboardMode: kotlin.String?, sortField: kotlin.String?, iconMedia: java.io.File?, iconAssetId: kotlin.Long?, bannerMedia: java.io.File?, bannerAssetId: kotlin.Long?, limitation: kotlin.Int?, active: kotlin.Boolean?, title: kotlin.String?, description: kotlin.String?, metaData: kotlin.String?) : ApiResponse<LeaderboardResponse?> {
+        val localVariableConfig = updateLeaderboardRequestConfig(leaderboardId = leaderboardId, accountId = accountId, appKey = appKey, rankType = rankType, leaderboardMode = leaderboardMode, sortField = sortField, iconMedia = iconMedia, iconAssetId = iconAssetId, bannerMedia = bannerMedia, bannerAssetId = bannerAssetId, limitation = limitation, active = active, title = title, description = description, metaData = metaData)
 
         return request<Unit, LeaderboardResponse>(
             localVariableConfig
@@ -602,7 +588,6 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation updateLeaderboard
      *
-     * @param version 
      * @param leaderboardId The leaderboard id to update.
      * @param accountId The account id of the user updating the leaderboard. (optional)
      * @param appKey The application key (optional)
@@ -620,7 +605,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param metaData custom meta data for the leaderboard (optional)
      * @return RequestConfig
      */
-    fun updateLeaderboardRequestConfig(version: java.math.BigDecimal, leaderboardId: kotlin.Long, accountId: kotlin.Long?, appKey: kotlin.String?, rankType: kotlin.String?, leaderboardMode: kotlin.String?, sortField: kotlin.String?, iconMedia: java.io.File?, iconAssetId: kotlin.Long?, bannerMedia: java.io.File?, bannerAssetId: kotlin.Long?, limitation: kotlin.Int?, active: kotlin.Boolean?, title: kotlin.String?, description: kotlin.String?, metaData: kotlin.String?) : RequestConfig<Unit> {
+    fun updateLeaderboardRequestConfig(leaderboardId: kotlin.Long, accountId: kotlin.Long?, appKey: kotlin.String?, rankType: kotlin.String?, leaderboardMode: kotlin.String?, sortField: kotlin.String?, iconMedia: java.io.File?, iconAssetId: kotlin.Long?, bannerMedia: java.io.File?, bannerAssetId: kotlin.Long?, limitation: kotlin.Int?, active: kotlin.Boolean?, title: kotlin.String?, description: kotlin.String?, metaData: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -672,7 +657,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/leaderboard/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/leaderboard/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

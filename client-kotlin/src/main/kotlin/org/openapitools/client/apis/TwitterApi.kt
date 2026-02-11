@@ -42,15 +42,14 @@ open class TwitterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/twitter/authorize
+     * POST /twitter/authorize
      * Authorize Twitter
      * Makes an authorization call to twitter for a user to login and allow any app permissions.
-     * @param version 
      * @param appKey the application key
      * @return SirqulResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -61,8 +60,8 @@ open class TwitterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun authorizeTwitter(version: java.math.BigDecimal, appKey: kotlin.String) : SirqulResponse {
-        val localVarResponse = authorizeTwitterWithHttpInfo(version = version, appKey = appKey)
+    fun authorizeTwitter(appKey: kotlin.String) : SirqulResponse {
+        val localVarResponse = authorizeTwitterWithHttpInfo(appKey = appKey)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -80,10 +79,9 @@ open class TwitterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/twitter/authorize
+     * POST /twitter/authorize
      * Authorize Twitter
      * Makes an authorization call to twitter for a user to login and allow any app permissions.
-     * @param version 
      * @param appKey the application key
      * @return ApiResponse<SirqulResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -91,8 +89,8 @@ open class TwitterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun authorizeTwitterWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = authorizeTwitterRequestConfig(version = version, appKey = appKey)
+    fun authorizeTwitterWithHttpInfo(appKey: kotlin.String) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = authorizeTwitterRequestConfig(appKey = appKey)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -102,11 +100,10 @@ open class TwitterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation authorizeTwitter
      *
-     * @param version 
      * @param appKey the application key
      * @return RequestConfig
      */
-    fun authorizeTwitterRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String) : RequestConfig<Unit> {
+    fun authorizeTwitterRequestConfig(appKey: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -116,7 +113,7 @@ open class TwitterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/twitter/authorize".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/twitter/authorize",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -125,10 +122,9 @@ open class TwitterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/twitter/login
+     * POST /twitter/login
      * Login Twitter
      * Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
-     * @param version 
      * @param accessToken The access token
      * @param accessTokenSecret The secret access token
      * @param appKey The application key
@@ -145,8 +141,8 @@ open class TwitterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun loginTwitter(version: java.math.BigDecimal, accessToken: kotlin.String, accessTokenSecret: kotlin.String, appKey: kotlin.String, responseFilters: kotlin.String, deviceId: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : ProfileResponse {
-        val localVarResponse = loginTwitterWithHttpInfo(version = version, accessToken = accessToken, accessTokenSecret = accessTokenSecret, appKey = appKey, responseFilters = responseFilters, deviceId = deviceId, latitude = latitude, longitude = longitude)
+    fun loginTwitter(accessToken: kotlin.String, accessTokenSecret: kotlin.String, appKey: kotlin.String, responseFilters: kotlin.String, deviceId: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : ProfileResponse {
+        val localVarResponse = loginTwitterWithHttpInfo(accessToken = accessToken, accessTokenSecret = accessTokenSecret, appKey = appKey, responseFilters = responseFilters, deviceId = deviceId, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ProfileResponse
@@ -164,10 +160,9 @@ open class TwitterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/twitter/login
+     * POST /twitter/login
      * Login Twitter
      * Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
-     * @param version 
      * @param accessToken The access token
      * @param accessTokenSecret The secret access token
      * @param appKey The application key
@@ -181,8 +176,8 @@ open class TwitterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun loginTwitterWithHttpInfo(version: java.math.BigDecimal, accessToken: kotlin.String, accessTokenSecret: kotlin.String, appKey: kotlin.String, responseFilters: kotlin.String, deviceId: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<ProfileResponse?> {
-        val localVariableConfig = loginTwitterRequestConfig(version = version, accessToken = accessToken, accessTokenSecret = accessTokenSecret, appKey = appKey, responseFilters = responseFilters, deviceId = deviceId, latitude = latitude, longitude = longitude)
+    fun loginTwitterWithHttpInfo(accessToken: kotlin.String, accessTokenSecret: kotlin.String, appKey: kotlin.String, responseFilters: kotlin.String, deviceId: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<ProfileResponse?> {
+        val localVariableConfig = loginTwitterRequestConfig(accessToken = accessToken, accessTokenSecret = accessTokenSecret, appKey = appKey, responseFilters = responseFilters, deviceId = deviceId, latitude = latitude, longitude = longitude)
 
         return request<Unit, ProfileResponse>(
             localVariableConfig
@@ -192,7 +187,6 @@ open class TwitterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation loginTwitter
      *
-     * @param version 
      * @param accessToken The access token
      * @param accessTokenSecret The secret access token
      * @param appKey The application key
@@ -202,7 +196,7 @@ open class TwitterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param longitude The current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun loginTwitterRequestConfig(version: java.math.BigDecimal, accessToken: kotlin.String, accessTokenSecret: kotlin.String, appKey: kotlin.String, responseFilters: kotlin.String, deviceId: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun loginTwitterRequestConfig(accessToken: kotlin.String, accessTokenSecret: kotlin.String, appKey: kotlin.String, responseFilters: kotlin.String, deviceId: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -224,7 +218,7 @@ open class TwitterApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/twitter/login".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/twitter/login",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

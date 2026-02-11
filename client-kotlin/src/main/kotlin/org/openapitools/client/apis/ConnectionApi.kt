@@ -45,15 +45,14 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/consumer/connection/group/addConnection
+     * POST /consumer/connection/group/addConnection
      * Add Connection
      * Adds a connection to a group.
-     * @param version 
      * @param returnNulls whether to return nulls or not
      * @param groupId the group id
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -72,8 +71,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun addConnectionToGroup(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, groupId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionId: kotlin.Long? = null, connectionAccountId: kotlin.Long? = null, pendingId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
-        val localVarResponse = addConnectionToGroupWithHttpInfo(version = version, returnNulls = returnNulls, groupId = groupId, deviceId = deviceId, accountId = accountId, connectionId = connectionId, connectionAccountId = connectionAccountId, pendingId = pendingId, latitude = latitude, longitude = longitude)
+    fun addConnectionToGroup(returnNulls: kotlin.Boolean, groupId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionId: kotlin.Long? = null, connectionAccountId: kotlin.Long? = null, pendingId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
+        val localVarResponse = addConnectionToGroupWithHttpInfo(returnNulls = returnNulls, groupId = groupId, deviceId = deviceId, accountId = accountId, connectionId = connectionId, connectionAccountId = connectionAccountId, pendingId = pendingId, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -91,10 +90,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/connection/group/addConnection
+     * POST /consumer/connection/group/addConnection
      * Add Connection
      * Adds a connection to a group.
-     * @param version 
      * @param returnNulls whether to return nulls or not
      * @param groupId the group id
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -110,8 +108,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun addConnectionToGroupWithHttpInfo(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, groupId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionId: kotlin.Long?, connectionAccountId: kotlin.Long?, pendingId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = addConnectionToGroupRequestConfig(version = version, returnNulls = returnNulls, groupId = groupId, deviceId = deviceId, accountId = accountId, connectionId = connectionId, connectionAccountId = connectionAccountId, pendingId = pendingId, latitude = latitude, longitude = longitude)
+    fun addConnectionToGroupWithHttpInfo(returnNulls: kotlin.Boolean, groupId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionId: kotlin.Long?, connectionAccountId: kotlin.Long?, pendingId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = addConnectionToGroupRequestConfig(returnNulls = returnNulls, groupId = groupId, deviceId = deviceId, accountId = accountId, connectionId = connectionId, connectionAccountId = connectionAccountId, pendingId = pendingId, latitude = latitude, longitude = longitude)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -121,7 +119,6 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation addConnectionToGroup
      *
-     * @param version 
      * @param returnNulls whether to return nulls or not
      * @param groupId the group id
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -133,7 +130,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param longitude the current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun addConnectionToGroupRequestConfig(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, groupId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionId: kotlin.Long?, connectionAccountId: kotlin.Long?, pendingId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun addConnectionToGroupRequestConfig(returnNulls: kotlin.Boolean, groupId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionId: kotlin.Long?, connectionAccountId: kotlin.Long?, pendingId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -165,7 +162,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/consumer/connection/group/addConnection".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/connection/group/addConnection",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -174,10 +171,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/connection/group/addConnections
+     * POST /connection/group/addConnections
      * Add Connections
      * Adds a list of connections to a group.
-     * @param version 
      * @param connectionGroupId the connection group ID
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -194,8 +190,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun addConnectionsToGroup(version: java.math.BigDecimal, connectionGroupId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionIds: kotlin.String? = null, connectionAccountIds: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
-        val localVarResponse = addConnectionsToGroupWithHttpInfo(version = version, connectionGroupId = connectionGroupId, deviceId = deviceId, accountId = accountId, connectionIds = connectionIds, connectionAccountIds = connectionAccountIds, latitude = latitude, longitude = longitude)
+    fun addConnectionsToGroup(connectionGroupId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionIds: kotlin.String? = null, connectionAccountIds: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
+        val localVarResponse = addConnectionsToGroupWithHttpInfo(connectionGroupId = connectionGroupId, deviceId = deviceId, accountId = accountId, connectionIds = connectionIds, connectionAccountIds = connectionAccountIds, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -213,10 +209,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/connection/group/addConnections
+     * POST /connection/group/addConnections
      * Add Connections
      * Adds a list of connections to a group.
-     * @param version 
      * @param connectionGroupId the connection group ID
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -230,8 +225,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun addConnectionsToGroupWithHttpInfo(version: java.math.BigDecimal, connectionGroupId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionIds: kotlin.String?, connectionAccountIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = addConnectionsToGroupRequestConfig(version = version, connectionGroupId = connectionGroupId, deviceId = deviceId, accountId = accountId, connectionIds = connectionIds, connectionAccountIds = connectionAccountIds, latitude = latitude, longitude = longitude)
+    fun addConnectionsToGroupWithHttpInfo(connectionGroupId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionIds: kotlin.String?, connectionAccountIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = addConnectionsToGroupRequestConfig(connectionGroupId = connectionGroupId, deviceId = deviceId, accountId = accountId, connectionIds = connectionIds, connectionAccountIds = connectionAccountIds, latitude = latitude, longitude = longitude)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -241,7 +236,6 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation addConnectionsToGroup
      *
-     * @param version 
      * @param connectionGroupId the connection group ID
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -251,7 +245,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param longitude the current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun addConnectionsToGroupRequestConfig(version: java.math.BigDecimal, connectionGroupId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionIds: kotlin.String?, connectionAccountIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun addConnectionsToGroupRequestConfig(connectionGroupId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionIds: kotlin.String?, connectionAccountIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -279,7 +273,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/connection/group/addConnections".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/connection/group/addConnections",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -288,10 +282,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/connection/group/addSubGroup
+     * POST /consumer/connection/group/addSubGroup
      * Add Connection Groups
      * Add sub groups to a group.
-     * @param version 
      * @param returnNulls whether to return nulls or not
      * @param groupId the parent group id
      * @param subGroupIds comma separated list of group IDs to add to the parent group
@@ -308,8 +301,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun addSubGroups(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, groupId: kotlin.Long, subGroupIds: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : ConnectionGroupResponse {
-        val localVarResponse = addSubGroupsWithHttpInfo(version = version, returnNulls = returnNulls, groupId = groupId, subGroupIds = subGroupIds, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun addSubGroups(returnNulls: kotlin.Boolean, groupId: kotlin.Long, subGroupIds: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : ConnectionGroupResponse {
+        val localVarResponse = addSubGroupsWithHttpInfo(returnNulls = returnNulls, groupId = groupId, subGroupIds = subGroupIds, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ConnectionGroupResponse
@@ -327,10 +320,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/connection/group/addSubGroup
+     * POST /consumer/connection/group/addSubGroup
      * Add Connection Groups
      * Add sub groups to a group.
-     * @param version 
      * @param returnNulls whether to return nulls or not
      * @param groupId the parent group id
      * @param subGroupIds comma separated list of group IDs to add to the parent group
@@ -344,8 +336,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun addSubGroupsWithHttpInfo(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, groupId: kotlin.Long, subGroupIds: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<ConnectionGroupResponse?> {
-        val localVariableConfig = addSubGroupsRequestConfig(version = version, returnNulls = returnNulls, groupId = groupId, subGroupIds = subGroupIds, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun addSubGroupsWithHttpInfo(returnNulls: kotlin.Boolean, groupId: kotlin.Long, subGroupIds: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<ConnectionGroupResponse?> {
+        val localVariableConfig = addSubGroupsRequestConfig(returnNulls = returnNulls, groupId = groupId, subGroupIds = subGroupIds, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return request<Unit, ConnectionGroupResponse>(
             localVariableConfig
@@ -355,7 +347,6 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation addSubGroups
      *
-     * @param version 
      * @param returnNulls whether to return nulls or not
      * @param groupId the parent group id
      * @param subGroupIds comma separated list of group IDs to add to the parent group
@@ -365,7 +356,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param longitude the current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun addSubGroupsRequestConfig(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, groupId: kotlin.Long, subGroupIds: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun addSubGroupsRequestConfig(returnNulls: kotlin.Boolean, groupId: kotlin.Long, subGroupIds: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -389,7 +380,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/consumer/connection/group/addSubGroup".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/connection/group/addSubGroup",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -398,10 +389,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/connection/add
+     * POST /consumer/connection/add
      * Create or Update Connection
      * Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
-     * @param version 
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param connectionId the connection id for editing (optional)
@@ -425,8 +415,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createOrUpdateConnection(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionId: kotlin.Long? = null, connectionAccountId: kotlin.Long? = null, pendingId: kotlin.Long? = null, groupId: kotlin.Long? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, isTrusted: kotlin.Boolean? = null, ignoreFriendRequest: kotlin.Boolean? = null, isContact: kotlin.Boolean? = null, isBlocked: kotlin.Boolean? = null, isFollowing: kotlin.Boolean? = null, connectionResponse: kotlin.Boolean? = null) : ConnectionResponse {
-        val localVarResponse = createOrUpdateConnectionWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, connectionId = connectionId, connectionAccountId = connectionAccountId, pendingId = pendingId, groupId = groupId, gameType = gameType, appKey = appKey, isTrusted = isTrusted, ignoreFriendRequest = ignoreFriendRequest, isContact = isContact, isBlocked = isBlocked, isFollowing = isFollowing, connectionResponse = connectionResponse)
+    fun createOrUpdateConnection(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionId: kotlin.Long? = null, connectionAccountId: kotlin.Long? = null, pendingId: kotlin.Long? = null, groupId: kotlin.Long? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, isTrusted: kotlin.Boolean? = null, ignoreFriendRequest: kotlin.Boolean? = null, isContact: kotlin.Boolean? = null, isBlocked: kotlin.Boolean? = null, isFollowing: kotlin.Boolean? = null, connectionResponse: kotlin.Boolean? = null) : ConnectionResponse {
+        val localVarResponse = createOrUpdateConnectionWithHttpInfo(deviceId = deviceId, accountId = accountId, connectionId = connectionId, connectionAccountId = connectionAccountId, pendingId = pendingId, groupId = groupId, gameType = gameType, appKey = appKey, isTrusted = isTrusted, ignoreFriendRequest = ignoreFriendRequest, isContact = isContact, isBlocked = isBlocked, isFollowing = isFollowing, connectionResponse = connectionResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ConnectionResponse
@@ -444,10 +434,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/connection/add
+     * POST /consumer/connection/add
      * Create or Update Connection
      * Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
-     * @param version 
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param connectionId the connection id for editing (optional)
@@ -468,8 +457,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createOrUpdateConnectionWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionId: kotlin.Long?, connectionAccountId: kotlin.Long?, pendingId: kotlin.Long?, groupId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, isTrusted: kotlin.Boolean?, ignoreFriendRequest: kotlin.Boolean?, isContact: kotlin.Boolean?, isBlocked: kotlin.Boolean?, isFollowing: kotlin.Boolean?, connectionResponse: kotlin.Boolean?) : ApiResponse<ConnectionResponse?> {
-        val localVariableConfig = createOrUpdateConnectionRequestConfig(version = version, deviceId = deviceId, accountId = accountId, connectionId = connectionId, connectionAccountId = connectionAccountId, pendingId = pendingId, groupId = groupId, gameType = gameType, appKey = appKey, isTrusted = isTrusted, ignoreFriendRequest = ignoreFriendRequest, isContact = isContact, isBlocked = isBlocked, isFollowing = isFollowing, connectionResponse = connectionResponse)
+    fun createOrUpdateConnectionWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, connectionId: kotlin.Long?, connectionAccountId: kotlin.Long?, pendingId: kotlin.Long?, groupId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, isTrusted: kotlin.Boolean?, ignoreFriendRequest: kotlin.Boolean?, isContact: kotlin.Boolean?, isBlocked: kotlin.Boolean?, isFollowing: kotlin.Boolean?, connectionResponse: kotlin.Boolean?) : ApiResponse<ConnectionResponse?> {
+        val localVariableConfig = createOrUpdateConnectionRequestConfig(deviceId = deviceId, accountId = accountId, connectionId = connectionId, connectionAccountId = connectionAccountId, pendingId = pendingId, groupId = groupId, gameType = gameType, appKey = appKey, isTrusted = isTrusted, ignoreFriendRequest = ignoreFriendRequest, isContact = isContact, isBlocked = isBlocked, isFollowing = isFollowing, connectionResponse = connectionResponse)
 
         return request<Unit, ConnectionResponse>(
             localVariableConfig
@@ -479,7 +468,6 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation createOrUpdateConnection
      *
-     * @param version 
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param connectionId the connection id for editing (optional)
@@ -496,7 +484,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param connectionResponse whether to return the connection response or not (optional)
      * @return RequestConfig
      */
-    fun createOrUpdateConnectionRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionId: kotlin.Long?, connectionAccountId: kotlin.Long?, pendingId: kotlin.Long?, groupId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, isTrusted: kotlin.Boolean?, ignoreFriendRequest: kotlin.Boolean?, isContact: kotlin.Boolean?, isBlocked: kotlin.Boolean?, isFollowing: kotlin.Boolean?, connectionResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun createOrUpdateConnectionRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, connectionId: kotlin.Long?, connectionAccountId: kotlin.Long?, pendingId: kotlin.Long?, groupId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, isTrusted: kotlin.Boolean?, ignoreFriendRequest: kotlin.Boolean?, isContact: kotlin.Boolean?, isBlocked: kotlin.Boolean?, isFollowing: kotlin.Boolean?, connectionResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -547,7 +535,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/consumer/connection/add".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/connection/add",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -556,10 +544,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/connection/group
+     * POST /consumer/connection/group
      * Create or Update Connection Group
      * Creates a new private group.
-     * @param version 
      * @param returnNulls whether to return nulls or not
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -583,8 +570,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createOrUpdateGroup(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, name: kotlin.String? = null, groupId: kotlin.Long? = null, assetId: kotlin.Long? = null, connections: kotlin.String? = null, description: kotlin.String? = null, canViewProfileInfo: kotlin.Boolean? = null, canViewGameInfo: kotlin.Boolean? = null, canViewFriendInfo: kotlin.Boolean? = null, active: kotlin.Boolean? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
-        val localVarResponse = createOrUpdateGroupWithHttpInfo(version = version, returnNulls = returnNulls, deviceId = deviceId, accountId = accountId, name = name, groupId = groupId, assetId = assetId, connections = connections, description = description, canViewProfileInfo = canViewProfileInfo, canViewGameInfo = canViewGameInfo, canViewFriendInfo = canViewFriendInfo, active = active, latitude = latitude, longitude = longitude)
+    fun createOrUpdateGroup(returnNulls: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, name: kotlin.String? = null, groupId: kotlin.Long? = null, assetId: kotlin.Long? = null, connections: kotlin.String? = null, description: kotlin.String? = null, canViewProfileInfo: kotlin.Boolean? = null, canViewGameInfo: kotlin.Boolean? = null, canViewFriendInfo: kotlin.Boolean? = null, active: kotlin.Boolean? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
+        val localVarResponse = createOrUpdateGroupWithHttpInfo(returnNulls = returnNulls, deviceId = deviceId, accountId = accountId, name = name, groupId = groupId, assetId = assetId, connections = connections, description = description, canViewProfileInfo = canViewProfileInfo, canViewGameInfo = canViewGameInfo, canViewFriendInfo = canViewFriendInfo, active = active, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -602,10 +589,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/connection/group
+     * POST /consumer/connection/group
      * Create or Update Connection Group
      * Creates a new private group.
-     * @param version 
      * @param returnNulls whether to return nulls or not
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -626,8 +612,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createOrUpdateGroupWithHttpInfo(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, groupId: kotlin.Long?, assetId: kotlin.Long?, connections: kotlin.String?, description: kotlin.String?, canViewProfileInfo: kotlin.Boolean?, canViewGameInfo: kotlin.Boolean?, canViewFriendInfo: kotlin.Boolean?, active: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = createOrUpdateGroupRequestConfig(version = version, returnNulls = returnNulls, deviceId = deviceId, accountId = accountId, name = name, groupId = groupId, assetId = assetId, connections = connections, description = description, canViewProfileInfo = canViewProfileInfo, canViewGameInfo = canViewGameInfo, canViewFriendInfo = canViewFriendInfo, active = active, latitude = latitude, longitude = longitude)
+    fun createOrUpdateGroupWithHttpInfo(returnNulls: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, groupId: kotlin.Long?, assetId: kotlin.Long?, connections: kotlin.String?, description: kotlin.String?, canViewProfileInfo: kotlin.Boolean?, canViewGameInfo: kotlin.Boolean?, canViewFriendInfo: kotlin.Boolean?, active: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = createOrUpdateGroupRequestConfig(returnNulls = returnNulls, deviceId = deviceId, accountId = accountId, name = name, groupId = groupId, assetId = assetId, connections = connections, description = description, canViewProfileInfo = canViewProfileInfo, canViewGameInfo = canViewGameInfo, canViewFriendInfo = canViewFriendInfo, active = active, latitude = latitude, longitude = longitude)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -637,7 +623,6 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation createOrUpdateGroup
      *
-     * @param version 
      * @param returnNulls whether to return nulls or not
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -654,7 +639,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param longitude the longitude of the group (optional)
      * @return RequestConfig
      */
-    fun createOrUpdateGroupRequestConfig(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, groupId: kotlin.Long?, assetId: kotlin.Long?, connections: kotlin.String?, description: kotlin.String?, canViewProfileInfo: kotlin.Boolean?, canViewGameInfo: kotlin.Boolean?, canViewFriendInfo: kotlin.Boolean?, active: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun createOrUpdateGroupRequestConfig(returnNulls: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, groupId: kotlin.Long?, assetId: kotlin.Long?, connections: kotlin.String?, description: kotlin.String?, canViewProfileInfo: kotlin.Boolean?, canViewGameInfo: kotlin.Boolean?, canViewFriendInfo: kotlin.Boolean?, active: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -703,7 +688,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/consumer/connection/group".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/connection/group",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -712,10 +697,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/follow/accept
+     * POST /consumer/follow/accept
      * Accept Follow Request
      * Accept someone&#39;s follow request.
-     * @param version 
      * @param accountId the account id of the user
      * @param connectionAccountId the account ID of the user who initiated the follow
      * @param appKey the application key for sending notifications
@@ -728,8 +712,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun followAccept(version: java.math.BigDecimal, accountId: kotlin.Long, connectionAccountId: kotlin.Long, appKey: kotlin.String) : SirqulResponse {
-        val localVarResponse = followAcceptWithHttpInfo(version = version, accountId = accountId, connectionAccountId = connectionAccountId, appKey = appKey)
+    fun followAccept(accountId: kotlin.Long, connectionAccountId: kotlin.Long, appKey: kotlin.String) : SirqulResponse {
+        val localVarResponse = followAcceptWithHttpInfo(accountId = accountId, connectionAccountId = connectionAccountId, appKey = appKey)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -747,10 +731,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/follow/accept
+     * POST /consumer/follow/accept
      * Accept Follow Request
      * Accept someone&#39;s follow request.
-     * @param version 
      * @param accountId the account id of the user
      * @param connectionAccountId the account ID of the user who initiated the follow
      * @param appKey the application key for sending notifications
@@ -760,8 +743,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun followAcceptWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, connectionAccountId: kotlin.Long, appKey: kotlin.String) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = followAcceptRequestConfig(version = version, accountId = accountId, connectionAccountId = connectionAccountId, appKey = appKey)
+    fun followAcceptWithHttpInfo(accountId: kotlin.Long, connectionAccountId: kotlin.Long, appKey: kotlin.String) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = followAcceptRequestConfig(accountId = accountId, connectionAccountId = connectionAccountId, appKey = appKey)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -771,13 +754,12 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation followAccept
      *
-     * @param version 
      * @param accountId the account id of the user
      * @param connectionAccountId the account ID of the user who initiated the follow
      * @param appKey the application key for sending notifications
      * @return RequestConfig
      */
-    fun followAcceptRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, connectionAccountId: kotlin.Long, appKey: kotlin.String) : RequestConfig<Unit> {
+    fun followAcceptRequestConfig(accountId: kotlin.Long, connectionAccountId: kotlin.Long, appKey: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -789,7 +771,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/consumer/follow/accept".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/follow/accept",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -798,10 +780,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/follow/reject
+     * POST /consumer/follow/reject
      * Reject Follow Request
      * Reject someone&#39;s follow request or remove them as a follower.
-     * @param version 
      * @param accountId the account id of the user
      * @param connectionAccountId the account ID of the user who initiated the follow
      * @param appKey the application key for sending notifications
@@ -814,8 +795,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun followReject(version: java.math.BigDecimal, accountId: kotlin.Long, connectionAccountId: kotlin.Long, appKey: kotlin.String) : SirqulResponse {
-        val localVarResponse = followRejectWithHttpInfo(version = version, accountId = accountId, connectionAccountId = connectionAccountId, appKey = appKey)
+    fun followReject(accountId: kotlin.Long, connectionAccountId: kotlin.Long, appKey: kotlin.String) : SirqulResponse {
+        val localVarResponse = followRejectWithHttpInfo(accountId = accountId, connectionAccountId = connectionAccountId, appKey = appKey)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -833,10 +814,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/follow/reject
+     * POST /consumer/follow/reject
      * Reject Follow Request
      * Reject someone&#39;s follow request or remove them as a follower.
-     * @param version 
      * @param accountId the account id of the user
      * @param connectionAccountId the account ID of the user who initiated the follow
      * @param appKey the application key for sending notifications
@@ -846,8 +826,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun followRejectWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, connectionAccountId: kotlin.Long, appKey: kotlin.String) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = followRejectRequestConfig(version = version, accountId = accountId, connectionAccountId = connectionAccountId, appKey = appKey)
+    fun followRejectWithHttpInfo(accountId: kotlin.Long, connectionAccountId: kotlin.Long, appKey: kotlin.String) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = followRejectRequestConfig(accountId = accountId, connectionAccountId = connectionAccountId, appKey = appKey)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -857,13 +837,12 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation followReject
      *
-     * @param version 
      * @param accountId the account id of the user
      * @param connectionAccountId the account ID of the user who initiated the follow
      * @param appKey the application key for sending notifications
      * @return RequestConfig
      */
-    fun followRejectRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, connectionAccountId: kotlin.Long, appKey: kotlin.String) : RequestConfig<Unit> {
+    fun followRejectRequestConfig(accountId: kotlin.Long, connectionAccountId: kotlin.Long, appKey: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -875,7 +854,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/consumer/follow/reject".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/follow/reject",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -884,10 +863,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/follow/remove
+     * POST /consumer/follow/remove
      * Remove Follower / Unfollow
      * Unfollow someone you are following or remove them as a follower.
-     * @param version 
      * @param accountId the account id of the user
      * @param connectionAccountId the account ID of the user who you want to unfollow
      * @param appKey the application key for sending notifications
@@ -900,8 +878,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun followRemove(version: java.math.BigDecimal, accountId: kotlin.Long, connectionAccountId: kotlin.Long, appKey: kotlin.String) : SirqulResponse {
-        val localVarResponse = followRemoveWithHttpInfo(version = version, accountId = accountId, connectionAccountId = connectionAccountId, appKey = appKey)
+    fun followRemove(accountId: kotlin.Long, connectionAccountId: kotlin.Long, appKey: kotlin.String) : SirqulResponse {
+        val localVarResponse = followRemoveWithHttpInfo(accountId = accountId, connectionAccountId = connectionAccountId, appKey = appKey)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -919,10 +897,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/follow/remove
+     * POST /consumer/follow/remove
      * Remove Follower / Unfollow
      * Unfollow someone you are following or remove them as a follower.
-     * @param version 
      * @param accountId the account id of the user
      * @param connectionAccountId the account ID of the user who you want to unfollow
      * @param appKey the application key for sending notifications
@@ -932,8 +909,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun followRemoveWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, connectionAccountId: kotlin.Long, appKey: kotlin.String) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = followRemoveRequestConfig(version = version, accountId = accountId, connectionAccountId = connectionAccountId, appKey = appKey)
+    fun followRemoveWithHttpInfo(accountId: kotlin.Long, connectionAccountId: kotlin.Long, appKey: kotlin.String) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = followRemoveRequestConfig(accountId = accountId, connectionAccountId = connectionAccountId, appKey = appKey)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -943,13 +920,12 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation followRemove
      *
-     * @param version 
      * @param accountId the account id of the user
      * @param connectionAccountId the account ID of the user who you want to unfollow
      * @param appKey the application key for sending notifications
      * @return RequestConfig
      */
-    fun followRemoveRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, connectionAccountId: kotlin.Long, appKey: kotlin.String) : RequestConfig<Unit> {
+    fun followRemoveRequestConfig(accountId: kotlin.Long, connectionAccountId: kotlin.Long, appKey: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -961,7 +937,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/consumer/follow/remove".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/follow/remove",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -970,10 +946,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/follow/request
+     * POST /consumer/follow/request
      * Send Follow Request
      * Send a request to follow someone.
-     * @param version 
      * @param accountId the account id of the user
      * @param connectionAccountId the account ID of the user who you want to follow
      * @param appKey the application key for sending notifications
@@ -987,8 +962,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun followRequest(version: java.math.BigDecimal, accountId: kotlin.Long, connectionAccountId: kotlin.Long, appKey: kotlin.String, approvalNeeded: kotlin.Boolean? = true) : SirqulResponse {
-        val localVarResponse = followRequestWithHttpInfo(version = version, accountId = accountId, connectionAccountId = connectionAccountId, appKey = appKey, approvalNeeded = approvalNeeded)
+    fun followRequest(accountId: kotlin.Long, connectionAccountId: kotlin.Long, appKey: kotlin.String, approvalNeeded: kotlin.Boolean? = true) : SirqulResponse {
+        val localVarResponse = followRequestWithHttpInfo(accountId = accountId, connectionAccountId = connectionAccountId, appKey = appKey, approvalNeeded = approvalNeeded)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -1006,10 +981,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/follow/request
+     * POST /consumer/follow/request
      * Send Follow Request
      * Send a request to follow someone.
-     * @param version 
      * @param accountId the account id of the user
      * @param connectionAccountId the account ID of the user who you want to follow
      * @param appKey the application key for sending notifications
@@ -1020,8 +994,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun followRequestWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, connectionAccountId: kotlin.Long, appKey: kotlin.String, approvalNeeded: kotlin.Boolean?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = followRequestRequestConfig(version = version, accountId = accountId, connectionAccountId = connectionAccountId, appKey = appKey, approvalNeeded = approvalNeeded)
+    fun followRequestWithHttpInfo(accountId: kotlin.Long, connectionAccountId: kotlin.Long, appKey: kotlin.String, approvalNeeded: kotlin.Boolean?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = followRequestRequestConfig(accountId = accountId, connectionAccountId = connectionAccountId, appKey = appKey, approvalNeeded = approvalNeeded)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -1031,14 +1005,13 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation followRequest
      *
-     * @param version 
      * @param accountId the account id of the user
      * @param connectionAccountId the account ID of the user who you want to follow
      * @param appKey the application key for sending notifications
      * @param approvalNeeded determines if the other user needs to confirm the follow request (optional, default to true)
      * @return RequestConfig
      */
-    fun followRequestRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, connectionAccountId: kotlin.Long, appKey: kotlin.String, approvalNeeded: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun followRequestRequestConfig(accountId: kotlin.Long, connectionAccountId: kotlin.Long, appKey: kotlin.String, approvalNeeded: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1053,7 +1026,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/consumer/follow/request".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/follow/request",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1062,10 +1035,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/friend/accept
+     * POST /consumer/friend/accept
      * Accept Friend
      * Accept a friend request and optionally sends a notification.
-     * @param version 
      * @param friendAccountId the friend&#39;s account id
      * @param notifyFriend determines whether to send a notification to the afflicting party
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -1082,8 +1054,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun friendAccept(version: java.math.BigDecimal, friendAccountId: kotlin.Long, notifyFriend: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, notificationMessage: kotlin.String? = null) : SirqulResponse {
-        val localVarResponse = friendAcceptWithHttpInfo(version = version, friendAccountId = friendAccountId, notifyFriend = notifyFriend, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, notificationMessage = notificationMessage)
+    fun friendAccept(friendAccountId: kotlin.Long, notifyFriend: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, notificationMessage: kotlin.String? = null) : SirqulResponse {
+        val localVarResponse = friendAcceptWithHttpInfo(friendAccountId = friendAccountId, notifyFriend = notifyFriend, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, notificationMessage = notificationMessage)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -1101,10 +1073,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/friend/accept
+     * POST /consumer/friend/accept
      * Accept Friend
      * Accept a friend request and optionally sends a notification.
-     * @param version 
      * @param friendAccountId the friend&#39;s account id
      * @param notifyFriend determines whether to send a notification to the afflicting party
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -1118,8 +1089,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun friendAcceptWithHttpInfo(version: java.math.BigDecimal, friendAccountId: kotlin.Long, notifyFriend: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, notificationMessage: kotlin.String?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = friendAcceptRequestConfig(version = version, friendAccountId = friendAccountId, notifyFriend = notifyFriend, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, notificationMessage = notificationMessage)
+    fun friendAcceptWithHttpInfo(friendAccountId: kotlin.Long, notifyFriend: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, notificationMessage: kotlin.String?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = friendAcceptRequestConfig(friendAccountId = friendAccountId, notifyFriend = notifyFriend, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, notificationMessage = notificationMessage)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -1129,7 +1100,6 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation friendAccept
      *
-     * @param version 
      * @param friendAccountId the friend&#39;s account id
      * @param notifyFriend determines whether to send a notification to the afflicting party
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -1139,7 +1109,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param notificationMessage optional message to send in a notification (optional)
      * @return RequestConfig
      */
-    fun friendAcceptRequestConfig(version: java.math.BigDecimal, friendAccountId: kotlin.Long, notifyFriend: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, notificationMessage: kotlin.String?) : RequestConfig<Unit> {
+    fun friendAcceptRequestConfig(friendAccountId: kotlin.Long, notifyFriend: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, notificationMessage: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1165,7 +1135,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/consumer/friend/accept".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/friend/accept",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1174,10 +1144,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/friend/reject
+     * POST /consumer/friend/reject
      * Decline Friend
      * Request a friend request and optionally sends a notification.
-     * @param version 
      * @param friendAccountId the friend&#39;s account id
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1194,8 +1163,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun friendReject(version: java.math.BigDecimal, friendAccountId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, notifyFriend: kotlin.Boolean? = null, notificationMessage: kotlin.String? = null) : SirqulResponse {
-        val localVarResponse = friendRejectWithHttpInfo(version = version, friendAccountId = friendAccountId, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, notifyFriend = notifyFriend, notificationMessage = notificationMessage)
+    fun friendReject(friendAccountId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, notifyFriend: kotlin.Boolean? = null, notificationMessage: kotlin.String? = null) : SirqulResponse {
+        val localVarResponse = friendRejectWithHttpInfo(friendAccountId = friendAccountId, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, notifyFriend = notifyFriend, notificationMessage = notificationMessage)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -1213,10 +1182,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/friend/reject
+     * POST /consumer/friend/reject
      * Decline Friend
      * Request a friend request and optionally sends a notification.
-     * @param version 
      * @param friendAccountId the friend&#39;s account id
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1230,8 +1198,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun friendRejectWithHttpInfo(version: java.math.BigDecimal, friendAccountId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, notifyFriend: kotlin.Boolean?, notificationMessage: kotlin.String?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = friendRejectRequestConfig(version = version, friendAccountId = friendAccountId, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, notifyFriend = notifyFriend, notificationMessage = notificationMessage)
+    fun friendRejectWithHttpInfo(friendAccountId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, notifyFriend: kotlin.Boolean?, notificationMessage: kotlin.String?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = friendRejectRequestConfig(friendAccountId = friendAccountId, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, notifyFriend = notifyFriend, notificationMessage = notificationMessage)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -1241,7 +1209,6 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation friendReject
      *
-     * @param version 
      * @param friendAccountId the friend&#39;s account id
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1251,7 +1218,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param notificationMessage optional message to send in a notification (optional)
      * @return RequestConfig
      */
-    fun friendRejectRequestConfig(version: java.math.BigDecimal, friendAccountId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, notifyFriend: kotlin.Boolean?, notificationMessage: kotlin.String?) : RequestConfig<Unit> {
+    fun friendRejectRequestConfig(friendAccountId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, notifyFriend: kotlin.Boolean?, notificationMessage: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1279,7 +1246,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/consumer/friend/reject".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/friend/reject",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1288,10 +1255,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/friend/remove
+     * POST /consumer/friend/remove
      * Delete Friend
      * Removes a friend from the user&#39;s friends list.
-     * @param version 
      * @param friendAccountId the account ID of the friend to remove
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1306,8 +1272,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun friendRemove(version: java.math.BigDecimal, friendAccountId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, notifyFriend: kotlin.Boolean? = null, removeFromGroups: kotlin.Boolean? = null) : SirqulResponse {
-        val localVarResponse = friendRemoveWithHttpInfo(version = version, friendAccountId = friendAccountId, deviceId = deviceId, accountId = accountId, notifyFriend = notifyFriend, removeFromGroups = removeFromGroups)
+    fun friendRemove(friendAccountId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, notifyFriend: kotlin.Boolean? = null, removeFromGroups: kotlin.Boolean? = null) : SirqulResponse {
+        val localVarResponse = friendRemoveWithHttpInfo(friendAccountId = friendAccountId, deviceId = deviceId, accountId = accountId, notifyFriend = notifyFriend, removeFromGroups = removeFromGroups)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -1325,10 +1291,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/friend/remove
+     * POST /consumer/friend/remove
      * Delete Friend
      * Removes a friend from the user&#39;s friends list.
-     * @param version 
      * @param friendAccountId the account ID of the friend to remove
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1340,8 +1305,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun friendRemoveWithHttpInfo(version: java.math.BigDecimal, friendAccountId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, notifyFriend: kotlin.Boolean?, removeFromGroups: kotlin.Boolean?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = friendRemoveRequestConfig(version = version, friendAccountId = friendAccountId, deviceId = deviceId, accountId = accountId, notifyFriend = notifyFriend, removeFromGroups = removeFromGroups)
+    fun friendRemoveWithHttpInfo(friendAccountId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, notifyFriend: kotlin.Boolean?, removeFromGroups: kotlin.Boolean?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = friendRemoveRequestConfig(friendAccountId = friendAccountId, deviceId = deviceId, accountId = accountId, notifyFriend = notifyFriend, removeFromGroups = removeFromGroups)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -1351,7 +1316,6 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation friendRemove
      *
-     * @param version 
      * @param friendAccountId the account ID of the friend to remove
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1359,7 +1323,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param removeFromGroups optionally removes the connection from the user&#39;s groups (optional)
      * @return RequestConfig
      */
-    fun friendRemoveRequestConfig(version: java.math.BigDecimal, friendAccountId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, notifyFriend: kotlin.Boolean?, removeFromGroups: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun friendRemoveRequestConfig(friendAccountId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, notifyFriend: kotlin.Boolean?, removeFromGroups: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1381,7 +1345,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/consumer/friend/remove".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/friend/remove",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1390,10 +1354,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/friend/request
+     * POST /consumer/friend/request
      * Request Friend
      * Sends a friend request notification to another user.
-     * @param version 
      * @param friendAccountId the friend&#39;s account id
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1409,8 +1372,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun friendRequest(version: java.math.BigDecimal, friendAccountId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, notificationMessage: kotlin.String? = null) : SirqulResponse {
-        val localVarResponse = friendRequestWithHttpInfo(version = version, friendAccountId = friendAccountId, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, notificationMessage = notificationMessage)
+    fun friendRequest(friendAccountId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, notificationMessage: kotlin.String? = null) : SirqulResponse {
+        val localVarResponse = friendRequestWithHttpInfo(friendAccountId = friendAccountId, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, notificationMessage = notificationMessage)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -1428,10 +1391,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/friend/request
+     * POST /consumer/friend/request
      * Request Friend
      * Sends a friend request notification to another user.
-     * @param version 
      * @param friendAccountId the friend&#39;s account id
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1444,8 +1406,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun friendRequestWithHttpInfo(version: java.math.BigDecimal, friendAccountId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, notificationMessage: kotlin.String?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = friendRequestRequestConfig(version = version, friendAccountId = friendAccountId, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, notificationMessage = notificationMessage)
+    fun friendRequestWithHttpInfo(friendAccountId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, notificationMessage: kotlin.String?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = friendRequestRequestConfig(friendAccountId = friendAccountId, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, notificationMessage = notificationMessage)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -1455,7 +1417,6 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation friendRequest
      *
-     * @param version 
      * @param friendAccountId the friend&#39;s account id
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1464,7 +1425,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param notificationMessage optional message to send in a notification (optional)
      * @return RequestConfig
      */
-    fun friendRequestRequestConfig(version: java.math.BigDecimal, friendAccountId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, notificationMessage: kotlin.String?) : RequestConfig<Unit> {
+    fun friendRequestRequestConfig(friendAccountId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, notificationMessage: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1489,7 +1450,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/consumer/friend/request".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/friend/request",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1498,10 +1459,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/consumer/connection/getRequested
+     * GET /consumer/connection/getRequested
      * Get Sent Friend Requests
      * Gets the connection sent friend requests.
-     * @param version 
      * @param deviceId the ID of the device (optional)
      * @param accountId the id of the account (optional)
      * @return ConnectionListResponse
@@ -1513,8 +1473,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getConnectionSentFriendRequests(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : ConnectionListResponse {
-        val localVarResponse = getConnectionSentFriendRequestsWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId)
+    fun getConnectionSentFriendRequests(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : ConnectionListResponse {
+        val localVarResponse = getConnectionSentFriendRequestsWithHttpInfo(deviceId = deviceId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ConnectionListResponse
@@ -1532,10 +1492,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/consumer/connection/getRequested
+     * GET /consumer/connection/getRequested
      * Get Sent Friend Requests
      * Gets the connection sent friend requests.
-     * @param version 
      * @param deviceId the ID of the device (optional)
      * @param accountId the id of the account (optional)
      * @return ApiResponse<ConnectionListResponse?>
@@ -1544,8 +1503,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getConnectionSentFriendRequestsWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<ConnectionListResponse?> {
-        val localVariableConfig = getConnectionSentFriendRequestsRequestConfig(version = version, deviceId = deviceId, accountId = accountId)
+    fun getConnectionSentFriendRequestsWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<ConnectionListResponse?> {
+        val localVariableConfig = getConnectionSentFriendRequestsRequestConfig(deviceId = deviceId, accountId = accountId)
 
         return request<Unit, ConnectionListResponse>(
             localVariableConfig
@@ -1555,12 +1514,11 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation getConnectionSentFriendRequests
      *
-     * @param version 
      * @param deviceId the ID of the device (optional)
      * @param accountId the id of the account (optional)
      * @return RequestConfig
      */
-    fun getConnectionSentFriendRequestsRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun getConnectionSentFriendRequestsRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1575,7 +1533,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/consumer/connection/getRequested".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/connection/getRequested",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1584,10 +1542,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/consumer/connection/get
+     * GET /consumer/connection/get
      * Search Connections
      * Gets the connections.
-     * @param version 
      * @param returnNulls whether to return nulls or not
      * @param filter a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following)
      * @param sortField sorts the response list by ConnectionApiMap
@@ -1612,8 +1569,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getConnections(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, filter: kotlin.String, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionAccountId: kotlin.Long? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, i: kotlin.Int? = null, l: kotlin.Int? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : ConnectionListResponse {
-        val localVarResponse = getConnectionsWithHttpInfo(version = version, returnNulls = returnNulls, filter = filter, sortField = sortField, descending = descending, start = start, limit = limit, deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, q = q, keyword = keyword, i = i, l = l, latitude = latitude, longitude = longitude)
+    fun getConnections(returnNulls: kotlin.Boolean, filter: kotlin.String, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionAccountId: kotlin.Long? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, i: kotlin.Int? = null, l: kotlin.Int? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : ConnectionListResponse {
+        val localVarResponse = getConnectionsWithHttpInfo(returnNulls = returnNulls, filter = filter, sortField = sortField, descending = descending, start = start, limit = limit, deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, q = q, keyword = keyword, i = i, l = l, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ConnectionListResponse
@@ -1631,10 +1588,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/consumer/connection/get
+     * GET /consumer/connection/get
      * Search Connections
      * Gets the connections.
-     * @param version 
      * @param returnNulls whether to return nulls or not
      * @param filter a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following)
      * @param sortField sorts the response list by ConnectionApiMap
@@ -1656,8 +1612,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getConnectionsWithHttpInfo(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, filter: kotlin.String, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, i: kotlin.Int?, l: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<ConnectionListResponse?> {
-        val localVariableConfig = getConnectionsRequestConfig(version = version, returnNulls = returnNulls, filter = filter, sortField = sortField, descending = descending, start = start, limit = limit, deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, q = q, keyword = keyword, i = i, l = l, latitude = latitude, longitude = longitude)
+    fun getConnectionsWithHttpInfo(returnNulls: kotlin.Boolean, filter: kotlin.String, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, i: kotlin.Int?, l: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<ConnectionListResponse?> {
+        val localVariableConfig = getConnectionsRequestConfig(returnNulls = returnNulls, filter = filter, sortField = sortField, descending = descending, start = start, limit = limit, deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, q = q, keyword = keyword, i = i, l = l, latitude = latitude, longitude = longitude)
 
         return request<Unit, ConnectionListResponse>(
             localVariableConfig
@@ -1667,7 +1623,6 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation getConnections
      *
-     * @param version 
      * @param returnNulls whether to return nulls or not
      * @param filter a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following)
      * @param sortField sorts the response list by ConnectionApiMap
@@ -1685,7 +1640,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param longitude the current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun getConnectionsRequestConfig(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, filter: kotlin.String, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, i: kotlin.Int?, l: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun getConnectionsRequestConfig(returnNulls: kotlin.Boolean, filter: kotlin.String, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, i: kotlin.Int?, l: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1727,7 +1682,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/consumer/connection/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/connection/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1736,10 +1691,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/consumer/connection/group/details/get
+     * GET /consumer/connection/group/details/get
      * Get Connection Group
      * 
-     * @param version 
      * @param combineConnections whether to combine connections or not
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1755,8 +1709,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getGroupDetails(version: java.math.BigDecimal, combineConnections: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, groupId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : ConnectionGroupResponse {
-        val localVarResponse = getGroupDetailsWithHttpInfo(version = version, combineConnections = combineConnections, deviceId = deviceId, accountId = accountId, groupId = groupId, latitude = latitude, longitude = longitude)
+    fun getGroupDetails(combineConnections: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, groupId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : ConnectionGroupResponse {
+        val localVarResponse = getGroupDetailsWithHttpInfo(combineConnections = combineConnections, deviceId = deviceId, accountId = accountId, groupId = groupId, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ConnectionGroupResponse
@@ -1774,10 +1728,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/consumer/connection/group/details/get
+     * GET /consumer/connection/group/details/get
      * Get Connection Group
      * 
-     * @param version 
      * @param combineConnections whether to combine connections or not
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1790,8 +1743,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getGroupDetailsWithHttpInfo(version: java.math.BigDecimal, combineConnections: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, groupId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<ConnectionGroupResponse?> {
-        val localVariableConfig = getGroupDetailsRequestConfig(version = version, combineConnections = combineConnections, deviceId = deviceId, accountId = accountId, groupId = groupId, latitude = latitude, longitude = longitude)
+    fun getGroupDetailsWithHttpInfo(combineConnections: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, groupId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<ConnectionGroupResponse?> {
+        val localVariableConfig = getGroupDetailsRequestConfig(combineConnections = combineConnections, deviceId = deviceId, accountId = accountId, groupId = groupId, latitude = latitude, longitude = longitude)
 
         return request<Unit, ConnectionGroupResponse>(
             localVariableConfig
@@ -1801,7 +1754,6 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation getGroupDetails
      *
-     * @param version 
      * @param combineConnections whether to combine connections or not
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1810,7 +1762,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param longitude the current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun getGroupDetailsRequestConfig(version: java.math.BigDecimal, combineConnections: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, groupId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun getGroupDetailsRequestConfig(combineConnections: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, groupId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1835,7 +1787,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/consumer/connection/group/details/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/connection/group/details/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1870,10 +1822,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      }
 
     /**
-     * GET /api/{version}/connection/group/search
+     * GET /connection/group/search
      * Search Connection Groups
      * Gets a user&#39;s private groups and default groups.
-     * @param version 
      * @param sortField the field to sort by
      * @param descending whether to return results in descending or ascending order
      * @param activeOnly to search on active only or not
@@ -1893,8 +1844,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun groupSearch(version: java.math.BigDecimal, sortField: SortFieldGroupSearch, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, keyword: kotlin.String? = null) : kotlin.collections.List<ConnectionInfoResponse> {
-        val localVarResponse = groupSearchWithHttpInfo(version = version, sortField = sortField, descending = descending, activeOnly = activeOnly, start = start, limit = limit, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, keyword = keyword)
+    fun groupSearch(sortField: SortFieldGroupSearch, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, keyword: kotlin.String? = null) : kotlin.collections.List<ConnectionInfoResponse> {
+        val localVarResponse = groupSearchWithHttpInfo(sortField = sortField, descending = descending, activeOnly = activeOnly, start = start, limit = limit, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, keyword = keyword)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<ConnectionInfoResponse>
@@ -1912,10 +1863,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/connection/group/search
+     * GET /connection/group/search
      * Search Connection Groups
      * Gets a user&#39;s private groups and default groups.
-     * @param version 
      * @param sortField the field to sort by
      * @param descending whether to return results in descending or ascending order
      * @param activeOnly to search on active only or not
@@ -1932,8 +1882,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun groupSearchWithHttpInfo(version: java.math.BigDecimal, sortField: SortFieldGroupSearch, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, keyword: kotlin.String?) : ApiResponse<kotlin.collections.List<ConnectionInfoResponse>?> {
-        val localVariableConfig = groupSearchRequestConfig(version = version, sortField = sortField, descending = descending, activeOnly = activeOnly, start = start, limit = limit, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, keyword = keyword)
+    fun groupSearchWithHttpInfo(sortField: SortFieldGroupSearch, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, keyword: kotlin.String?) : ApiResponse<kotlin.collections.List<ConnectionInfoResponse>?> {
+        val localVariableConfig = groupSearchRequestConfig(sortField = sortField, descending = descending, activeOnly = activeOnly, start = start, limit = limit, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, keyword = keyword)
 
         return request<Unit, kotlin.collections.List<ConnectionInfoResponse>>(
             localVariableConfig
@@ -1943,7 +1893,6 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation groupSearch
      *
-     * @param version 
      * @param sortField the field to sort by
      * @param descending whether to return results in descending or ascending order
      * @param activeOnly to search on active only or not
@@ -1956,7 +1905,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param keyword keyword search string (optional)
      * @return RequestConfig
      */
-    fun groupSearchRequestConfig(version: java.math.BigDecimal, sortField: SortFieldGroupSearch, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, keyword: kotlin.String?) : RequestConfig<Unit> {
+    fun groupSearchRequestConfig(sortField: SortFieldGroupSearch, descending: kotlin.Boolean, activeOnly: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, keyword: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1985,7 +1934,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/connection/group/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/connection/group/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1994,10 +1943,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/connection/group/removeConnection
+     * POST /consumer/connection/group/removeConnection
      * Delete Connection
      * Removes the connection from group.
-     * @param version 
      * @param returnNulls whether to return nulls or not
      * @param groupId the group id
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -2016,8 +1964,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun removeConnectionFromGroup(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, groupId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionId: kotlin.Long? = null, connectionAccountId: kotlin.Long? = null, pendingId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
-        val localVarResponse = removeConnectionFromGroupWithHttpInfo(version = version, returnNulls = returnNulls, groupId = groupId, deviceId = deviceId, accountId = accountId, connectionId = connectionId, connectionAccountId = connectionAccountId, pendingId = pendingId, latitude = latitude, longitude = longitude)
+    fun removeConnectionFromGroup(returnNulls: kotlin.Boolean, groupId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionId: kotlin.Long? = null, connectionAccountId: kotlin.Long? = null, pendingId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
+        val localVarResponse = removeConnectionFromGroupWithHttpInfo(returnNulls = returnNulls, groupId = groupId, deviceId = deviceId, accountId = accountId, connectionId = connectionId, connectionAccountId = connectionAccountId, pendingId = pendingId, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -2035,10 +1983,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/connection/group/removeConnection
+     * POST /consumer/connection/group/removeConnection
      * Delete Connection
      * Removes the connection from group.
-     * @param version 
      * @param returnNulls whether to return nulls or not
      * @param groupId the group id
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -2054,8 +2001,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun removeConnectionFromGroupWithHttpInfo(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, groupId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionId: kotlin.Long?, connectionAccountId: kotlin.Long?, pendingId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = removeConnectionFromGroupRequestConfig(version = version, returnNulls = returnNulls, groupId = groupId, deviceId = deviceId, accountId = accountId, connectionId = connectionId, connectionAccountId = connectionAccountId, pendingId = pendingId, latitude = latitude, longitude = longitude)
+    fun removeConnectionFromGroupWithHttpInfo(returnNulls: kotlin.Boolean, groupId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionId: kotlin.Long?, connectionAccountId: kotlin.Long?, pendingId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = removeConnectionFromGroupRequestConfig(returnNulls = returnNulls, groupId = groupId, deviceId = deviceId, accountId = accountId, connectionId = connectionId, connectionAccountId = connectionAccountId, pendingId = pendingId, latitude = latitude, longitude = longitude)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -2065,7 +2012,6 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation removeConnectionFromGroup
      *
-     * @param version 
      * @param returnNulls whether to return nulls or not
      * @param groupId the group id
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -2077,7 +2023,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param longitude the current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun removeConnectionFromGroupRequestConfig(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, groupId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionId: kotlin.Long?, connectionAccountId: kotlin.Long?, pendingId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun removeConnectionFromGroupRequestConfig(returnNulls: kotlin.Boolean, groupId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionId: kotlin.Long?, connectionAccountId: kotlin.Long?, pendingId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2109,7 +2055,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/consumer/connection/group/removeConnection".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/connection/group/removeConnection",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2118,10 +2064,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/connection/group/removeConnections
+     * POST /connection/group/removeConnections
      * Remove Connections
      * Remove a list of connections from a group.
-     * @param version 
      * @param connectionGroupId connection group id
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -2138,8 +2083,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun removeConnectionsFromGroup(version: java.math.BigDecimal, connectionGroupId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionIds: kotlin.String? = null, connectionAccountIds: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
-        val localVarResponse = removeConnectionsFromGroupWithHttpInfo(version = version, connectionGroupId = connectionGroupId, deviceId = deviceId, accountId = accountId, connectionIds = connectionIds, connectionAccountIds = connectionAccountIds, latitude = latitude, longitude = longitude)
+    fun removeConnectionsFromGroup(connectionGroupId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionIds: kotlin.String? = null, connectionAccountIds: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
+        val localVarResponse = removeConnectionsFromGroupWithHttpInfo(connectionGroupId = connectionGroupId, deviceId = deviceId, accountId = accountId, connectionIds = connectionIds, connectionAccountIds = connectionAccountIds, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -2157,10 +2102,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/connection/group/removeConnections
+     * POST /connection/group/removeConnections
      * Remove Connections
      * Remove a list of connections from a group.
-     * @param version 
      * @param connectionGroupId connection group id
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -2174,8 +2118,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun removeConnectionsFromGroupWithHttpInfo(version: java.math.BigDecimal, connectionGroupId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionIds: kotlin.String?, connectionAccountIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = removeConnectionsFromGroupRequestConfig(version = version, connectionGroupId = connectionGroupId, deviceId = deviceId, accountId = accountId, connectionIds = connectionIds, connectionAccountIds = connectionAccountIds, latitude = latitude, longitude = longitude)
+    fun removeConnectionsFromGroupWithHttpInfo(connectionGroupId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionIds: kotlin.String?, connectionAccountIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = removeConnectionsFromGroupRequestConfig(connectionGroupId = connectionGroupId, deviceId = deviceId, accountId = accountId, connectionIds = connectionIds, connectionAccountIds = connectionAccountIds, latitude = latitude, longitude = longitude)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -2185,7 +2129,6 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation removeConnectionsFromGroup
      *
-     * @param version 
      * @param connectionGroupId connection group id
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -2195,7 +2138,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param longitude the current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun removeConnectionsFromGroupRequestConfig(version: java.math.BigDecimal, connectionGroupId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionIds: kotlin.String?, connectionAccountIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun removeConnectionsFromGroupRequestConfig(connectionGroupId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionIds: kotlin.String?, connectionAccountIds: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2223,7 +2166,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/connection/group/removeConnections".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/connection/group/removeConnections",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2232,10 +2175,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/connection/group/remove
+     * POST /consumer/connection/group/remove
      * Delete Connection Group
      * Remove a user&#39;s group.
-     * @param version 
      * @param returnNulls whether to return nulls or not
      * @param groupId the group id
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -2251,8 +2193,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun removeGroup(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, groupId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
-        val localVarResponse = removeGroupWithHttpInfo(version = version, returnNulls = returnNulls, groupId = groupId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun removeGroup(returnNulls: kotlin.Boolean, groupId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
+        val localVarResponse = removeGroupWithHttpInfo(returnNulls = returnNulls, groupId = groupId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -2270,10 +2212,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/connection/group/remove
+     * POST /consumer/connection/group/remove
      * Delete Connection Group
      * Remove a user&#39;s group.
-     * @param version 
      * @param returnNulls whether to return nulls or not
      * @param groupId the group id
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -2286,8 +2227,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun removeGroupWithHttpInfo(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, groupId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = removeGroupRequestConfig(version = version, returnNulls = returnNulls, groupId = groupId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun removeGroupWithHttpInfo(returnNulls: kotlin.Boolean, groupId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = removeGroupRequestConfig(returnNulls = returnNulls, groupId = groupId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -2297,7 +2238,6 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation removeGroup
      *
-     * @param version 
      * @param returnNulls whether to return nulls or not
      * @param groupId the group id
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -2306,7 +2246,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param longitude the current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun removeGroupRequestConfig(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, groupId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun removeGroupRequestConfig(returnNulls: kotlin.Boolean, groupId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2329,7 +2269,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/consumer/connection/group/remove".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/connection/group/remove",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2338,10 +2278,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/connection/group/removeSubGroup
+     * POST /consumer/connection/group/removeSubGroup
      * Remove Connection Groups
      * Remove sub groups from a group
-     * @param version 
      * @param returnNulls whether to return nulls or not
      * @param groupId the parent group id
      * @param subGroupIds comma separated list of group IDs to remove from the parent group
@@ -2358,8 +2297,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun removeSubGroups(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, groupId: kotlin.Long, subGroupIds: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
-        val localVarResponse = removeSubGroupsWithHttpInfo(version = version, returnNulls = returnNulls, groupId = groupId, subGroupIds = subGroupIds, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun removeSubGroups(returnNulls: kotlin.Boolean, groupId: kotlin.Long, subGroupIds: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
+        val localVarResponse = removeSubGroupsWithHttpInfo(returnNulls = returnNulls, groupId = groupId, subGroupIds = subGroupIds, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -2377,10 +2316,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * POST /api/{version}/consumer/connection/group/removeSubGroup
+     * POST /consumer/connection/group/removeSubGroup
      * Remove Connection Groups
      * Remove sub groups from a group
-     * @param version 
      * @param returnNulls whether to return nulls or not
      * @param groupId the parent group id
      * @param subGroupIds comma separated list of group IDs to remove from the parent group
@@ -2394,8 +2332,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun removeSubGroupsWithHttpInfo(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, groupId: kotlin.Long, subGroupIds: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = removeSubGroupsRequestConfig(version = version, returnNulls = returnNulls, groupId = groupId, subGroupIds = subGroupIds, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun removeSubGroupsWithHttpInfo(returnNulls: kotlin.Boolean, groupId: kotlin.Long, subGroupIds: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = removeSubGroupsRequestConfig(returnNulls = returnNulls, groupId = groupId, subGroupIds = subGroupIds, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -2405,7 +2343,6 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation removeSubGroups
      *
-     * @param version 
      * @param returnNulls whether to return nulls or not
      * @param groupId the parent group id
      * @param subGroupIds comma separated list of group IDs to remove from the parent group
@@ -2415,7 +2352,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param longitude the current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun removeSubGroupsRequestConfig(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, groupId: kotlin.Long, subGroupIds: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun removeSubGroupsRequestConfig(returnNulls: kotlin.Boolean, groupId: kotlin.Long, subGroupIds: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2439,7 +2376,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/consumer/connection/group/removeSubGroup".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/connection/group/removeSubGroup",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2448,10 +2385,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/connection/search
+     * GET /connection/search
      * Search Possible Connections
      * Search for accounts that the user may not have a connection with.
-     * @param version 
      * @param returnNulls return all json attributes if true. defualt is true.
      * @param start start index of the pagination
      * @param limit limit of the pagination
@@ -2476,8 +2412,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchConnections(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, i: kotlin.Int? = null, l: kotlin.Int? = null, sortField: kotlin.String? = null, hasLocation: kotlin.Boolean? = null) : ConnectionListResponse {
-        val localVarResponse = searchConnectionsWithHttpInfo(version = version, returnNulls = returnNulls, start = start, limit = limit, deviceId = deviceId, accountId = accountId, q = q, keyword = keyword, latitude = latitude, longitude = longitude, gameType = gameType, appKey = appKey, i = i, l = l, sortField = sortField, hasLocation = hasLocation)
+    fun searchConnections(returnNulls: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, i: kotlin.Int? = null, l: kotlin.Int? = null, sortField: kotlin.String? = null, hasLocation: kotlin.Boolean? = null) : ConnectionListResponse {
+        val localVarResponse = searchConnectionsWithHttpInfo(returnNulls = returnNulls, start = start, limit = limit, deviceId = deviceId, accountId = accountId, q = q, keyword = keyword, latitude = latitude, longitude = longitude, gameType = gameType, appKey = appKey, i = i, l = l, sortField = sortField, hasLocation = hasLocation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ConnectionListResponse
@@ -2495,10 +2431,9 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * GET /api/{version}/connection/search
+     * GET /connection/search
      * Search Possible Connections
      * Search for accounts that the user may not have a connection with.
-     * @param version 
      * @param returnNulls return all json attributes if true. defualt is true.
      * @param start start index of the pagination
      * @param limit limit of the pagination
@@ -2520,8 +2455,8 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchConnectionsWithHttpInfo(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, gameType: kotlin.String?, appKey: kotlin.String?, i: kotlin.Int?, l: kotlin.Int?, sortField: kotlin.String?, hasLocation: kotlin.Boolean?) : ApiResponse<ConnectionListResponse?> {
-        val localVariableConfig = searchConnectionsRequestConfig(version = version, returnNulls = returnNulls, start = start, limit = limit, deviceId = deviceId, accountId = accountId, q = q, keyword = keyword, latitude = latitude, longitude = longitude, gameType = gameType, appKey = appKey, i = i, l = l, sortField = sortField, hasLocation = hasLocation)
+    fun searchConnectionsWithHttpInfo(returnNulls: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, gameType: kotlin.String?, appKey: kotlin.String?, i: kotlin.Int?, l: kotlin.Int?, sortField: kotlin.String?, hasLocation: kotlin.Boolean?) : ApiResponse<ConnectionListResponse?> {
+        val localVariableConfig = searchConnectionsRequestConfig(returnNulls = returnNulls, start = start, limit = limit, deviceId = deviceId, accountId = accountId, q = q, keyword = keyword, latitude = latitude, longitude = longitude, gameType = gameType, appKey = appKey, i = i, l = l, sortField = sortField, hasLocation = hasLocation)
 
         return request<Unit, ConnectionListResponse>(
             localVariableConfig
@@ -2531,7 +2466,6 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation searchConnections
      *
-     * @param version 
      * @param returnNulls return all json attributes if true. defualt is true.
      * @param start start index of the pagination
      * @param limit limit of the pagination
@@ -2549,7 +2483,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param hasLocation whether the search has location or not (optional)
      * @return RequestConfig
      */
-    fun searchConnectionsRequestConfig(version: java.math.BigDecimal, returnNulls: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, gameType: kotlin.String?, appKey: kotlin.String?, i: kotlin.Int?, l: kotlin.Int?, sortField: kotlin.String?, hasLocation: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchConnectionsRequestConfig(returnNulls: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, gameType: kotlin.String?, appKey: kotlin.String?, i: kotlin.Int?, l: kotlin.Int?, sortField: kotlin.String?, hasLocation: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2597,7 +2531,7 @@ open class ConnectionApi(basePath: kotlin.String = defaultBasePath, client: Call
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/connection/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/connection/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

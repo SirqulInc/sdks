@@ -42,15 +42,14 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/game/create
+     * POST /game/create
      * Create a Game
      * Create a Game.
-     * @param version 
      * @param accountId The logged in user. (optional)
      * @param appKey The game application key to save the level for. (optional)
      * @param title Title of the game. (optional)
@@ -67,8 +66,8 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createGame(version: java.math.BigDecimal, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, title: kotlin.String? = null, description: kotlin.String? = null, metaData: kotlin.String? = null, packIds: kotlin.String? = null, includeGameData: kotlin.Boolean? = null) : GameResponse {
-        val localVarResponse = createGameWithHttpInfo(version = version, accountId = accountId, appKey = appKey, title = title, description = description, metaData = metaData, packIds = packIds, includeGameData = includeGameData)
+    fun createGame(accountId: kotlin.Long? = null, appKey: kotlin.String? = null, title: kotlin.String? = null, description: kotlin.String? = null, metaData: kotlin.String? = null, packIds: kotlin.String? = null, includeGameData: kotlin.Boolean? = null) : GameResponse {
+        val localVarResponse = createGameWithHttpInfo(accountId = accountId, appKey = appKey, title = title, description = description, metaData = metaData, packIds = packIds, includeGameData = includeGameData)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as GameResponse
@@ -86,10 +85,9 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/game/create
+     * POST /game/create
      * Create a Game
      * Create a Game.
-     * @param version 
      * @param accountId The logged in user. (optional)
      * @param appKey The game application key to save the level for. (optional)
      * @param title Title of the game. (optional)
@@ -103,8 +101,8 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createGameWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long?, appKey: kotlin.String?, title: kotlin.String?, description: kotlin.String?, metaData: kotlin.String?, packIds: kotlin.String?, includeGameData: kotlin.Boolean?) : ApiResponse<GameResponse?> {
-        val localVariableConfig = createGameRequestConfig(version = version, accountId = accountId, appKey = appKey, title = title, description = description, metaData = metaData, packIds = packIds, includeGameData = includeGameData)
+    fun createGameWithHttpInfo(accountId: kotlin.Long?, appKey: kotlin.String?, title: kotlin.String?, description: kotlin.String?, metaData: kotlin.String?, packIds: kotlin.String?, includeGameData: kotlin.Boolean?) : ApiResponse<GameResponse?> {
+        val localVariableConfig = createGameRequestConfig(accountId = accountId, appKey = appKey, title = title, description = description, metaData = metaData, packIds = packIds, includeGameData = includeGameData)
 
         return request<Unit, GameResponse>(
             localVariableConfig
@@ -114,7 +112,6 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation createGame
      *
-     * @param version 
      * @param accountId The logged in user. (optional)
      * @param appKey The game application key to save the level for. (optional)
      * @param title Title of the game. (optional)
@@ -124,7 +121,7 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param includeGameData Show more details in response. (optional)
      * @return RequestConfig
      */
-    fun createGameRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long?, appKey: kotlin.String?, title: kotlin.String?, description: kotlin.String?, metaData: kotlin.String?, packIds: kotlin.String?, includeGameData: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun createGameRequestConfig(accountId: kotlin.Long?, appKey: kotlin.String?, title: kotlin.String?, description: kotlin.String?, metaData: kotlin.String?, packIds: kotlin.String?, includeGameData: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -154,7 +151,7 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/game/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/game/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -163,10 +160,9 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/game/delete
+     * POST /game/delete
      * Delete a Game
      * Delete a game.
-     * @param version 
      * @param accountId The logged in user.
      * @param gameId the updating game&#39;s id.
      * @return SirqulResponse
@@ -178,8 +174,8 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteGame(version: java.math.BigDecimal, accountId: kotlin.Long, gameId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = deleteGameWithHttpInfo(version = version, accountId = accountId, gameId = gameId)
+    fun deleteGame(accountId: kotlin.Long, gameId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = deleteGameWithHttpInfo(accountId = accountId, gameId = gameId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -197,10 +193,9 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/game/delete
+     * POST /game/delete
      * Delete a Game
      * Delete a game.
-     * @param version 
      * @param accountId The logged in user.
      * @param gameId the updating game&#39;s id.
      * @return ApiResponse<SirqulResponse?>
@@ -209,8 +204,8 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteGameWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, gameId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteGameRequestConfig(version = version, accountId = accountId, gameId = gameId)
+    fun deleteGameWithHttpInfo(accountId: kotlin.Long, gameId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteGameRequestConfig(accountId = accountId, gameId = gameId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -220,12 +215,11 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation deleteGame
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param gameId the updating game&#39;s id.
      * @return RequestConfig
      */
-    fun deleteGameRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, gameId: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteGameRequestConfig(accountId: kotlin.Long, gameId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -236,7 +230,7 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/game/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/game/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -245,10 +239,9 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/game/get
+     * GET /game/get
      * Get a Game by id
      * Get a Game by id.
-     * @param version 
      * @param accountId The logged in user.
      * @param gameId the updating game&#39;s id.
      * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false. (optional)
@@ -261,8 +254,8 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getGame(version: java.math.BigDecimal, accountId: kotlin.Long, gameId: kotlin.Long, includeGameData: kotlin.Boolean? = null) : GameResponse {
-        val localVarResponse = getGameWithHttpInfo(version = version, accountId = accountId, gameId = gameId, includeGameData = includeGameData)
+    fun getGame(accountId: kotlin.Long, gameId: kotlin.Long, includeGameData: kotlin.Boolean? = null) : GameResponse {
+        val localVarResponse = getGameWithHttpInfo(accountId = accountId, gameId = gameId, includeGameData = includeGameData)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as GameResponse
@@ -280,10 +273,9 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/game/get
+     * GET /game/get
      * Get a Game by id
      * Get a Game by id.
-     * @param version 
      * @param accountId The logged in user.
      * @param gameId the updating game&#39;s id.
      * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false. (optional)
@@ -293,8 +285,8 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getGameWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, gameId: kotlin.Long, includeGameData: kotlin.Boolean?) : ApiResponse<GameResponse?> {
-        val localVariableConfig = getGameRequestConfig(version = version, accountId = accountId, gameId = gameId, includeGameData = includeGameData)
+    fun getGameWithHttpInfo(accountId: kotlin.Long, gameId: kotlin.Long, includeGameData: kotlin.Boolean?) : ApiResponse<GameResponse?> {
+        val localVariableConfig = getGameRequestConfig(accountId = accountId, gameId = gameId, includeGameData = includeGameData)
 
         return request<Unit, GameResponse>(
             localVariableConfig
@@ -304,13 +296,12 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation getGame
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param gameId the updating game&#39;s id.
      * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false. (optional)
      * @return RequestConfig
      */
-    fun getGameRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, gameId: kotlin.Long, includeGameData: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getGameRequestConfig(accountId: kotlin.Long, gameId: kotlin.Long, includeGameData: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -324,7 +315,7 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/game/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/game/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -333,10 +324,9 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/game/search
+     * GET /game/search
      * Search a Game
      * Get a list of games for an application, just those the account has permissions to view.
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey the application key
      * @param start Start the result set at some index.
@@ -354,8 +344,8 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchGames(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, start: kotlin.Int, limit: kotlin.Int, keyword: kotlin.String? = null, appVersion: kotlin.String? = null, includeGameData: kotlin.Boolean? = null, includeInactive: kotlin.Boolean? = null) : GameResponse {
-        val localVarResponse = searchGamesWithHttpInfo(version = version, accountId = accountId, appKey = appKey, start = start, limit = limit, keyword = keyword, appVersion = appVersion, includeGameData = includeGameData, includeInactive = includeInactive)
+    fun searchGames(accountId: kotlin.Long, appKey: kotlin.String, start: kotlin.Int, limit: kotlin.Int, keyword: kotlin.String? = null, appVersion: kotlin.String? = null, includeGameData: kotlin.Boolean? = null, includeInactive: kotlin.Boolean? = null) : GameResponse {
+        val localVarResponse = searchGamesWithHttpInfo(accountId = accountId, appKey = appKey, start = start, limit = limit, keyword = keyword, appVersion = appVersion, includeGameData = includeGameData, includeInactive = includeInactive)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as GameResponse
@@ -373,10 +363,9 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/game/search
+     * GET /game/search
      * Search a Game
      * Get a list of games for an application, just those the account has permissions to view.
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey the application key
      * @param start Start the result set at some index.
@@ -391,8 +380,8 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchGamesWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, start: kotlin.Int, limit: kotlin.Int, keyword: kotlin.String?, appVersion: kotlin.String?, includeGameData: kotlin.Boolean?, includeInactive: kotlin.Boolean?) : ApiResponse<GameResponse?> {
-        val localVariableConfig = searchGamesRequestConfig(version = version, accountId = accountId, appKey = appKey, start = start, limit = limit, keyword = keyword, appVersion = appVersion, includeGameData = includeGameData, includeInactive = includeInactive)
+    fun searchGamesWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, start: kotlin.Int, limit: kotlin.Int, keyword: kotlin.String?, appVersion: kotlin.String?, includeGameData: kotlin.Boolean?, includeInactive: kotlin.Boolean?) : ApiResponse<GameResponse?> {
+        val localVariableConfig = searchGamesRequestConfig(accountId = accountId, appKey = appKey, start = start, limit = limit, keyword = keyword, appVersion = appVersion, includeGameData = includeGameData, includeInactive = includeInactive)
 
         return request<Unit, GameResponse>(
             localVariableConfig
@@ -402,7 +391,6 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation searchGames
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey the application key
      * @param start Start the result set at some index.
@@ -413,7 +401,7 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param includeInactive more details in response (optional)
      * @return RequestConfig
      */
-    fun searchGamesRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, start: kotlin.Int, limit: kotlin.Int, keyword: kotlin.String?, appVersion: kotlin.String?, includeGameData: kotlin.Boolean?, includeInactive: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchGamesRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, start: kotlin.Int, limit: kotlin.Int, keyword: kotlin.String?, appVersion: kotlin.String?, includeGameData: kotlin.Boolean?, includeInactive: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -438,7 +426,7 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/game/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/game/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -447,10 +435,9 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/game/update
+     * POST /game/update
      * Update a Game
      * Update a Game
-     * @param version 
      * @param accountId The logged in user. (optional)
      * @param gameId the updating game&#39;s id (optional)
      * @param appKey The game application key to save the level for. (optional)
@@ -468,8 +455,8 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateGame(version: java.math.BigDecimal, accountId: kotlin.Long? = null, gameId: kotlin.Long? = null, appKey: kotlin.String? = null, title: kotlin.String? = null, description: kotlin.String? = null, metaData: kotlin.String? = null, packIds: kotlin.String? = null, includeGameData: kotlin.Boolean? = null) : GameResponse {
-        val localVarResponse = updateGameWithHttpInfo(version = version, accountId = accountId, gameId = gameId, appKey = appKey, title = title, description = description, metaData = metaData, packIds = packIds, includeGameData = includeGameData)
+    fun updateGame(accountId: kotlin.Long? = null, gameId: kotlin.Long? = null, appKey: kotlin.String? = null, title: kotlin.String? = null, description: kotlin.String? = null, metaData: kotlin.String? = null, packIds: kotlin.String? = null, includeGameData: kotlin.Boolean? = null) : GameResponse {
+        val localVarResponse = updateGameWithHttpInfo(accountId = accountId, gameId = gameId, appKey = appKey, title = title, description = description, metaData = metaData, packIds = packIds, includeGameData = includeGameData)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as GameResponse
@@ -487,10 +474,9 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/game/update
+     * POST /game/update
      * Update a Game
      * Update a Game
-     * @param version 
      * @param accountId The logged in user. (optional)
      * @param gameId the updating game&#39;s id (optional)
      * @param appKey The game application key to save the level for. (optional)
@@ -505,8 +491,8 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateGameWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long?, gameId: kotlin.Long?, appKey: kotlin.String?, title: kotlin.String?, description: kotlin.String?, metaData: kotlin.String?, packIds: kotlin.String?, includeGameData: kotlin.Boolean?) : ApiResponse<GameResponse?> {
-        val localVariableConfig = updateGameRequestConfig(version = version, accountId = accountId, gameId = gameId, appKey = appKey, title = title, description = description, metaData = metaData, packIds = packIds, includeGameData = includeGameData)
+    fun updateGameWithHttpInfo(accountId: kotlin.Long?, gameId: kotlin.Long?, appKey: kotlin.String?, title: kotlin.String?, description: kotlin.String?, metaData: kotlin.String?, packIds: kotlin.String?, includeGameData: kotlin.Boolean?) : ApiResponse<GameResponse?> {
+        val localVariableConfig = updateGameRequestConfig(accountId = accountId, gameId = gameId, appKey = appKey, title = title, description = description, metaData = metaData, packIds = packIds, includeGameData = includeGameData)
 
         return request<Unit, GameResponse>(
             localVariableConfig
@@ -516,7 +502,6 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation updateGame
      *
-     * @param version 
      * @param accountId The logged in user. (optional)
      * @param gameId the updating game&#39;s id (optional)
      * @param appKey The game application key to save the level for. (optional)
@@ -527,7 +512,7 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param includeGameData show more details in response. (optional)
      * @return RequestConfig
      */
-    fun updateGameRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long?, gameId: kotlin.Long?, appKey: kotlin.String?, title: kotlin.String?, description: kotlin.String?, metaData: kotlin.String?, packIds: kotlin.String?, includeGameData: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun updateGameRequestConfig(accountId: kotlin.Long?, gameId: kotlin.Long?, appKey: kotlin.String?, title: kotlin.String?, description: kotlin.String?, metaData: kotlin.String?, packIds: kotlin.String?, includeGameData: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -560,7 +545,7 @@ open class GameApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/game/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/game/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

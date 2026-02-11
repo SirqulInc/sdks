@@ -43,15 +43,14 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/invite/accept
+     * POST /invite/accept
      * Accept Invite
      * Allows a user to accept an invite. The user could also become the inviter&#39;s friend.
-     * @param version 
      * @param token the invite token
      * @param accountId the accountId of the user who is accepting the invite
      * @param albumId the album id associated with this invite (if applicable) (optional)
@@ -75,8 +74,8 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun acceptInvite(version: java.math.BigDecimal, token: kotlin.String, accountId: kotlin.Long, albumId: kotlin.Long? = null, missionId: kotlin.Long? = null, albumContestId: kotlin.Long? = null, offerId: kotlin.Long? = null, offerLocationId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, appKey: kotlin.String? = null, autoFriend: kotlin.Boolean? = true, autoAttendEvent: kotlin.Boolean? = false, autoFavoriteOffer: kotlin.Boolean? = false, autoFavoriteOfferLocation: kotlin.Boolean? = false, autoFavoriteRetailerLocation: kotlin.Boolean? = false) : ConsumerInviteResponse {
-        val localVarResponse = acceptInviteWithHttpInfo(version = version, token = token, accountId = accountId, albumId = albumId, missionId = missionId, albumContestId = albumContestId, offerId = offerId, offerLocationId = offerLocationId, retailerLocationId = retailerLocationId, appKey = appKey, autoFriend = autoFriend, autoAttendEvent = autoAttendEvent, autoFavoriteOffer = autoFavoriteOffer, autoFavoriteOfferLocation = autoFavoriteOfferLocation, autoFavoriteRetailerLocation = autoFavoriteRetailerLocation)
+    fun acceptInvite(token: kotlin.String, accountId: kotlin.Long, albumId: kotlin.Long? = null, missionId: kotlin.Long? = null, albumContestId: kotlin.Long? = null, offerId: kotlin.Long? = null, offerLocationId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, appKey: kotlin.String? = null, autoFriend: kotlin.Boolean? = true, autoAttendEvent: kotlin.Boolean? = false, autoFavoriteOffer: kotlin.Boolean? = false, autoFavoriteOfferLocation: kotlin.Boolean? = false, autoFavoriteRetailerLocation: kotlin.Boolean? = false) : ConsumerInviteResponse {
+        val localVarResponse = acceptInviteWithHttpInfo(token = token, accountId = accountId, albumId = albumId, missionId = missionId, albumContestId = albumContestId, offerId = offerId, offerLocationId = offerLocationId, retailerLocationId = retailerLocationId, appKey = appKey, autoFriend = autoFriend, autoAttendEvent = autoAttendEvent, autoFavoriteOffer = autoFavoriteOffer, autoFavoriteOfferLocation = autoFavoriteOfferLocation, autoFavoriteRetailerLocation = autoFavoriteRetailerLocation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ConsumerInviteResponse
@@ -94,10 +93,9 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/invite/accept
+     * POST /invite/accept
      * Accept Invite
      * Allows a user to accept an invite. The user could also become the inviter&#39;s friend.
-     * @param version 
      * @param token the invite token
      * @param accountId the accountId of the user who is accepting the invite
      * @param albumId the album id associated with this invite (if applicable) (optional)
@@ -118,8 +116,8 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun acceptInviteWithHttpInfo(version: java.math.BigDecimal, token: kotlin.String, accountId: kotlin.Long, albumId: kotlin.Long?, missionId: kotlin.Long?, albumContestId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, retailerLocationId: kotlin.Long?, appKey: kotlin.String?, autoFriend: kotlin.Boolean?, autoAttendEvent: kotlin.Boolean?, autoFavoriteOffer: kotlin.Boolean?, autoFavoriteOfferLocation: kotlin.Boolean?, autoFavoriteRetailerLocation: kotlin.Boolean?) : ApiResponse<ConsumerInviteResponse?> {
-        val localVariableConfig = acceptInviteRequestConfig(version = version, token = token, accountId = accountId, albumId = albumId, missionId = missionId, albumContestId = albumContestId, offerId = offerId, offerLocationId = offerLocationId, retailerLocationId = retailerLocationId, appKey = appKey, autoFriend = autoFriend, autoAttendEvent = autoAttendEvent, autoFavoriteOffer = autoFavoriteOffer, autoFavoriteOfferLocation = autoFavoriteOfferLocation, autoFavoriteRetailerLocation = autoFavoriteRetailerLocation)
+    fun acceptInviteWithHttpInfo(token: kotlin.String, accountId: kotlin.Long, albumId: kotlin.Long?, missionId: kotlin.Long?, albumContestId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, retailerLocationId: kotlin.Long?, appKey: kotlin.String?, autoFriend: kotlin.Boolean?, autoAttendEvent: kotlin.Boolean?, autoFavoriteOffer: kotlin.Boolean?, autoFavoriteOfferLocation: kotlin.Boolean?, autoFavoriteRetailerLocation: kotlin.Boolean?) : ApiResponse<ConsumerInviteResponse?> {
+        val localVariableConfig = acceptInviteRequestConfig(token = token, accountId = accountId, albumId = albumId, missionId = missionId, albumContestId = albumContestId, offerId = offerId, offerLocationId = offerLocationId, retailerLocationId = retailerLocationId, appKey = appKey, autoFriend = autoFriend, autoAttendEvent = autoAttendEvent, autoFavoriteOffer = autoFavoriteOffer, autoFavoriteOfferLocation = autoFavoriteOfferLocation, autoFavoriteRetailerLocation = autoFavoriteRetailerLocation)
 
         return request<Unit, ConsumerInviteResponse>(
             localVariableConfig
@@ -129,7 +127,6 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation acceptInvite
      *
-     * @param version 
      * @param token the invite token
      * @param accountId the accountId of the user who is accepting the invite
      * @param albumId the album id associated with this invite (if applicable) (optional)
@@ -146,7 +143,7 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param autoFavoriteRetailerLocation whether to mark the retailer location as favorited automatically after invite is accepted (optional, default to false)
      * @return RequestConfig
      */
-    fun acceptInviteRequestConfig(version: java.math.BigDecimal, token: kotlin.String, accountId: kotlin.Long, albumId: kotlin.Long?, missionId: kotlin.Long?, albumContestId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, retailerLocationId: kotlin.Long?, appKey: kotlin.String?, autoFriend: kotlin.Boolean?, autoAttendEvent: kotlin.Boolean?, autoFavoriteOffer: kotlin.Boolean?, autoFavoriteOfferLocation: kotlin.Boolean?, autoFavoriteRetailerLocation: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun acceptInviteRequestConfig(token: kotlin.String, accountId: kotlin.Long, albumId: kotlin.Long?, missionId: kotlin.Long?, albumContestId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, retailerLocationId: kotlin.Long?, appKey: kotlin.String?, autoFriend: kotlin.Boolean?, autoAttendEvent: kotlin.Boolean?, autoFavoriteOffer: kotlin.Boolean?, autoFavoriteOfferLocation: kotlin.Boolean?, autoFavoriteRetailerLocation: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -193,7 +190,7 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/invite/accept".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/invite/accept",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -202,10 +199,9 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/invite/albumContest
+     * POST /invite/albumContest
      * Invite to Contest
      * Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-     * @param version 
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -222,8 +218,8 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun albumContestInvite(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appId: kotlin.Long? = null, appKey: kotlin.String? = null, albumContestId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : InviteResponse {
-        val localVarResponse = albumContestInviteWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, appId = appId, appKey = appKey, albumContestId = albumContestId, latitude = latitude, longitude = longitude)
+    fun albumContestInvite(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appId: kotlin.Long? = null, appKey: kotlin.String? = null, albumContestId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : InviteResponse {
+        val localVarResponse = albumContestInviteWithHttpInfo(deviceId = deviceId, accountId = accountId, appId = appId, appKey = appKey, albumContestId = albumContestId, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as InviteResponse
@@ -241,10 +237,9 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/invite/albumContest
+     * POST /invite/albumContest
      * Invite to Contest
      * Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-     * @param version 
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -258,8 +253,8 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun albumContestInviteWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, appId: kotlin.Long?, appKey: kotlin.String?, albumContestId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<InviteResponse?> {
-        val localVariableConfig = albumContestInviteRequestConfig(version = version, deviceId = deviceId, accountId = accountId, appId = appId, appKey = appKey, albumContestId = albumContestId, latitude = latitude, longitude = longitude)
+    fun albumContestInviteWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, appId: kotlin.Long?, appKey: kotlin.String?, albumContestId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<InviteResponse?> {
+        val localVariableConfig = albumContestInviteRequestConfig(deviceId = deviceId, accountId = accountId, appId = appId, appKey = appKey, albumContestId = albumContestId, latitude = latitude, longitude = longitude)
 
         return request<Unit, InviteResponse>(
             localVariableConfig
@@ -269,7 +264,6 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation albumContestInvite
      *
-     * @param version 
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -279,7 +273,7 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param longitude the current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun albumContestInviteRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, appId: kotlin.Long?, appKey: kotlin.String?, albumContestId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun albumContestInviteRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, appId: kotlin.Long?, appKey: kotlin.String?, albumContestId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -309,7 +303,7 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/invite/albumContest".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/invite/albumContest",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -318,10 +312,9 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/invite/album
+     * POST /invite/album
      * Invite to Collection
      * Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-     * @param version 
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -338,8 +331,8 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun albumInvite(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appId: kotlin.Long? = null, appKey: kotlin.String? = null, albumId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : InviteResponse {
-        val localVarResponse = albumInviteWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, appId = appId, appKey = appKey, albumId = albumId, latitude = latitude, longitude = longitude)
+    fun albumInvite(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appId: kotlin.Long? = null, appKey: kotlin.String? = null, albumId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : InviteResponse {
+        val localVarResponse = albumInviteWithHttpInfo(deviceId = deviceId, accountId = accountId, appId = appId, appKey = appKey, albumId = albumId, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as InviteResponse
@@ -357,10 +350,9 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/invite/album
+     * POST /invite/album
      * Invite to Collection
      * Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-     * @param version 
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -374,8 +366,8 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun albumInviteWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, appId: kotlin.Long?, appKey: kotlin.String?, albumId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<InviteResponse?> {
-        val localVariableConfig = albumInviteRequestConfig(version = version, deviceId = deviceId, accountId = accountId, appId = appId, appKey = appKey, albumId = albumId, latitude = latitude, longitude = longitude)
+    fun albumInviteWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, appId: kotlin.Long?, appKey: kotlin.String?, albumId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<InviteResponse?> {
+        val localVariableConfig = albumInviteRequestConfig(deviceId = deviceId, accountId = accountId, appId = appId, appKey = appKey, albumId = albumId, latitude = latitude, longitude = longitude)
 
         return request<Unit, InviteResponse>(
             localVariableConfig
@@ -385,7 +377,6 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation albumInvite
      *
-     * @param version 
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -395,7 +386,7 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param longitude the current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun albumInviteRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, appId: kotlin.Long?, appKey: kotlin.String?, albumId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun albumInviteRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, appId: kotlin.Long?, appKey: kotlin.String?, albumId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -425,7 +416,7 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/invite/album".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/invite/album",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -434,10 +425,9 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/invite/event
+     * POST /invite/event
      * Invite to Event
      * Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
-     * @param version 
      * @param accountId the account ID of the user making the share
      * @param appKey the application key
      * @param listingId The ID of the event listing
@@ -452,8 +442,8 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun eventInvite(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, listingId: kotlin.Long, receiverAccountIds: kotlin.String? = null, retailerLocationId: kotlin.Long? = null) : InviteResponse {
-        val localVarResponse = eventInviteWithHttpInfo(version = version, accountId = accountId, appKey = appKey, listingId = listingId, receiverAccountIds = receiverAccountIds, retailerLocationId = retailerLocationId)
+    fun eventInvite(accountId: kotlin.Long, appKey: kotlin.String, listingId: kotlin.Long, receiverAccountIds: kotlin.String? = null, retailerLocationId: kotlin.Long? = null) : InviteResponse {
+        val localVarResponse = eventInviteWithHttpInfo(accountId = accountId, appKey = appKey, listingId = listingId, receiverAccountIds = receiverAccountIds, retailerLocationId = retailerLocationId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as InviteResponse
@@ -471,10 +461,9 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/invite/event
+     * POST /invite/event
      * Invite to Event
      * Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
-     * @param version 
      * @param accountId the account ID of the user making the share
      * @param appKey the application key
      * @param listingId The ID of the event listing
@@ -486,8 +475,8 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun eventInviteWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, listingId: kotlin.Long, receiverAccountIds: kotlin.String?, retailerLocationId: kotlin.Long?) : ApiResponse<InviteResponse?> {
-        val localVariableConfig = eventInviteRequestConfig(version = version, accountId = accountId, appKey = appKey, listingId = listingId, receiverAccountIds = receiverAccountIds, retailerLocationId = retailerLocationId)
+    fun eventInviteWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, listingId: kotlin.Long, receiverAccountIds: kotlin.String?, retailerLocationId: kotlin.Long?) : ApiResponse<InviteResponse?> {
+        val localVariableConfig = eventInviteRequestConfig(accountId = accountId, appKey = appKey, listingId = listingId, receiverAccountIds = receiverAccountIds, retailerLocationId = retailerLocationId)
 
         return request<Unit, InviteResponse>(
             localVariableConfig
@@ -497,7 +486,6 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation eventInvite
      *
-     * @param version 
      * @param accountId the account ID of the user making the share
      * @param appKey the application key
      * @param listingId The ID of the event listing
@@ -505,7 +493,7 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param retailerLocationId The retailer location id of where the event will take place (optional)
      * @return RequestConfig
      */
-    fun eventInviteRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, listingId: kotlin.Long, receiverAccountIds: kotlin.String?, retailerLocationId: kotlin.Long?) : RequestConfig<Unit> {
+    fun eventInviteRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, listingId: kotlin.Long, receiverAccountIds: kotlin.String?, retailerLocationId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -523,7 +511,7 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/invite/event".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/invite/event",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -532,10 +520,9 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/invite/gameLevel
+     * POST /invite/gameLevel
      * Invite to Game Level
      * Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-     * @param version 
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -552,8 +539,8 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun gameInvite(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appId: kotlin.Long? = null, appKey: kotlin.String? = null, gameLevelId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : InviteResponse {
-        val localVarResponse = gameInviteWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, appId = appId, appKey = appKey, gameLevelId = gameLevelId, latitude = latitude, longitude = longitude)
+    fun gameInvite(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appId: kotlin.Long? = null, appKey: kotlin.String? = null, gameLevelId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : InviteResponse {
+        val localVarResponse = gameInviteWithHttpInfo(deviceId = deviceId, accountId = accountId, appId = appId, appKey = appKey, gameLevelId = gameLevelId, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as InviteResponse
@@ -571,10 +558,9 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/invite/gameLevel
+     * POST /invite/gameLevel
      * Invite to Game Level
      * Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-     * @param version 
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -588,8 +574,8 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun gameInviteWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, appId: kotlin.Long?, appKey: kotlin.String?, gameLevelId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<InviteResponse?> {
-        val localVariableConfig = gameInviteRequestConfig(version = version, deviceId = deviceId, accountId = accountId, appId = appId, appKey = appKey, gameLevelId = gameLevelId, latitude = latitude, longitude = longitude)
+    fun gameInviteWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, appId: kotlin.Long?, appKey: kotlin.String?, gameLevelId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<InviteResponse?> {
+        val localVariableConfig = gameInviteRequestConfig(deviceId = deviceId, accountId = accountId, appId = appId, appKey = appKey, gameLevelId = gameLevelId, latitude = latitude, longitude = longitude)
 
         return request<Unit, InviteResponse>(
             localVariableConfig
@@ -599,7 +585,6 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation gameInvite
      *
-     * @param version 
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -609,7 +594,7 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param longitude the current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun gameInviteRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, appId: kotlin.Long?, appKey: kotlin.String?, gameLevelId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun gameInviteRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, appId: kotlin.Long?, appKey: kotlin.String?, gameLevelId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -639,7 +624,7 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/invite/gameLevel".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/invite/gameLevel",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -648,10 +633,9 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * GET /api/{version}/invite/get
+     * GET /invite/get
      * Get Invite
      * This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
-     * @param version 
      * @param accountId Account ID of the user if they are logged in (optional)
      * @param token the invite token (optional)
      * @param albumId album id to match the invite against (if applicable) (optional)
@@ -670,8 +654,8 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getInvite(version: java.math.BigDecimal, accountId: kotlin.Long? = null, token: kotlin.String? = null, albumId: kotlin.Long? = null, missionId: kotlin.Long? = null, albumContestId: kotlin.Long? = null, offerId: kotlin.Long? = null, offerLocationId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, appKey: kotlin.String? = null) : SirqulResponse {
-        val localVarResponse = getInviteWithHttpInfo(version = version, accountId = accountId, token = token, albumId = albumId, missionId = missionId, albumContestId = albumContestId, offerId = offerId, offerLocationId = offerLocationId, retailerLocationId = retailerLocationId, appKey = appKey)
+    fun getInvite(accountId: kotlin.Long? = null, token: kotlin.String? = null, albumId: kotlin.Long? = null, missionId: kotlin.Long? = null, albumContestId: kotlin.Long? = null, offerId: kotlin.Long? = null, offerLocationId: kotlin.Long? = null, retailerLocationId: kotlin.Long? = null, appKey: kotlin.String? = null) : SirqulResponse {
+        val localVarResponse = getInviteWithHttpInfo(accountId = accountId, token = token, albumId = albumId, missionId = missionId, albumContestId = albumContestId, offerId = offerId, offerLocationId = offerLocationId, retailerLocationId = retailerLocationId, appKey = appKey)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -689,10 +673,9 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * GET /api/{version}/invite/get
+     * GET /invite/get
      * Get Invite
      * This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
-     * @param version 
      * @param accountId Account ID of the user if they are logged in (optional)
      * @param token the invite token (optional)
      * @param albumId album id to match the invite against (if applicable) (optional)
@@ -708,8 +691,8 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getInviteWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long?, token: kotlin.String?, albumId: kotlin.Long?, missionId: kotlin.Long?, albumContestId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, retailerLocationId: kotlin.Long?, appKey: kotlin.String?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = getInviteRequestConfig(version = version, accountId = accountId, token = token, albumId = albumId, missionId = missionId, albumContestId = albumContestId, offerId = offerId, offerLocationId = offerLocationId, retailerLocationId = retailerLocationId, appKey = appKey)
+    fun getInviteWithHttpInfo(accountId: kotlin.Long?, token: kotlin.String?, albumId: kotlin.Long?, missionId: kotlin.Long?, albumContestId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, retailerLocationId: kotlin.Long?, appKey: kotlin.String?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = getInviteRequestConfig(accountId = accountId, token = token, albumId = albumId, missionId = missionId, albumContestId = albumContestId, offerId = offerId, offerLocationId = offerLocationId, retailerLocationId = retailerLocationId, appKey = appKey)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -719,7 +702,6 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation getInvite
      *
-     * @param version 
      * @param accountId Account ID of the user if they are logged in (optional)
      * @param token the invite token (optional)
      * @param albumId album id to match the invite against (if applicable) (optional)
@@ -731,7 +713,7 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param appKey the application key (optional)
      * @return RequestConfig
      */
-    fun getInviteRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long?, token: kotlin.String?, albumId: kotlin.Long?, missionId: kotlin.Long?, albumContestId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, retailerLocationId: kotlin.Long?, appKey: kotlin.String?) : RequestConfig<Unit> {
+    fun getInviteRequestConfig(accountId: kotlin.Long?, token: kotlin.String?, albumId: kotlin.Long?, missionId: kotlin.Long?, albumContestId: kotlin.Long?, offerId: kotlin.Long?, offerLocationId: kotlin.Long?, retailerLocationId: kotlin.Long?, appKey: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -767,7 +749,7 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/invite/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/invite/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -776,10 +758,9 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/invite/mission
+     * POST /invite/mission
      * Invite to Mission
      * Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-     * @param version 
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -796,8 +777,8 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun missionInvite(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appId: kotlin.Long? = null, appKey: kotlin.String? = null, missionId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : InviteResponse {
-        val localVarResponse = missionInviteWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, appId = appId, appKey = appKey, missionId = missionId, latitude = latitude, longitude = longitude)
+    fun missionInvite(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appId: kotlin.Long? = null, appKey: kotlin.String? = null, missionId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : InviteResponse {
+        val localVarResponse = missionInviteWithHttpInfo(deviceId = deviceId, accountId = accountId, appId = appId, appKey = appKey, missionId = missionId, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as InviteResponse
@@ -815,10 +796,9 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/invite/mission
+     * POST /invite/mission
      * Invite to Mission
      * Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-     * @param version 
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -832,8 +812,8 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun missionInviteWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, appId: kotlin.Long?, appKey: kotlin.String?, missionId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<InviteResponse?> {
-        val localVariableConfig = missionInviteRequestConfig(version = version, deviceId = deviceId, accountId = accountId, appId = appId, appKey = appKey, missionId = missionId, latitude = latitude, longitude = longitude)
+    fun missionInviteWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, appId: kotlin.Long?, appKey: kotlin.String?, missionId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<InviteResponse?> {
+        val localVariableConfig = missionInviteRequestConfig(deviceId = deviceId, accountId = accountId, appId = appId, appKey = appKey, missionId = missionId, latitude = latitude, longitude = longitude)
 
         return request<Unit, InviteResponse>(
             localVariableConfig
@@ -843,7 +823,6 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation missionInvite
      *
-     * @param version 
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -853,7 +832,7 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param longitude the current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun missionInviteRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, appId: kotlin.Long?, appKey: kotlin.String?, missionId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun missionInviteRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, appId: kotlin.Long?, appKey: kotlin.String?, missionId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -883,7 +862,7 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/invite/mission".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/invite/mission",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -892,10 +871,9 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/invite/offer
+     * POST /invite/offer
      * Invite to Offer
      * Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite&#39;s list.
-     * @param version 
      * @param accountId the account ID of the user making the share
      * @param appKey the application key
      * @param offerId the ID of the offer used to invite to favorite
@@ -908,8 +886,8 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun offerInvite(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, offerId: kotlin.Long) : InviteResponse {
-        val localVarResponse = offerInviteWithHttpInfo(version = version, accountId = accountId, appKey = appKey, offerId = offerId)
+    fun offerInvite(accountId: kotlin.Long, appKey: kotlin.String, offerId: kotlin.Long) : InviteResponse {
+        val localVarResponse = offerInviteWithHttpInfo(accountId = accountId, appKey = appKey, offerId = offerId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as InviteResponse
@@ -927,10 +905,9 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/invite/offer
+     * POST /invite/offer
      * Invite to Offer
      * Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite&#39;s list.
-     * @param version 
      * @param accountId the account ID of the user making the share
      * @param appKey the application key
      * @param offerId the ID of the offer used to invite to favorite
@@ -940,8 +917,8 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun offerInviteWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, offerId: kotlin.Long) : ApiResponse<InviteResponse?> {
-        val localVariableConfig = offerInviteRequestConfig(version = version, accountId = accountId, appKey = appKey, offerId = offerId)
+    fun offerInviteWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, offerId: kotlin.Long) : ApiResponse<InviteResponse?> {
+        val localVariableConfig = offerInviteRequestConfig(accountId = accountId, appKey = appKey, offerId = offerId)
 
         return request<Unit, InviteResponse>(
             localVariableConfig
@@ -951,13 +928,12 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation offerInvite
      *
-     * @param version 
      * @param accountId the account ID of the user making the share
      * @param appKey the application key
      * @param offerId the ID of the offer used to invite to favorite
      * @return RequestConfig
      */
-    fun offerInviteRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, offerId: kotlin.Long) : RequestConfig<Unit> {
+    fun offerInviteRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, offerId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -969,7 +945,7 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/invite/offer".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/invite/offer",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -978,10 +954,9 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/invite/offerLocation
+     * POST /invite/offerLocation
      * Invite to Offer Location
      * Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite&#39;s list.
-     * @param version 
      * @param accountId the account ID of the user making the share
      * @param appKey the application key
      * @param offerLocationId the id of the offer location to share
@@ -994,8 +969,8 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun offerLocationInvite(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, offerLocationId: kotlin.Long) : InviteResponse {
-        val localVarResponse = offerLocationInviteWithHttpInfo(version = version, accountId = accountId, appKey = appKey, offerLocationId = offerLocationId)
+    fun offerLocationInvite(accountId: kotlin.Long, appKey: kotlin.String, offerLocationId: kotlin.Long) : InviteResponse {
+        val localVarResponse = offerLocationInviteWithHttpInfo(accountId = accountId, appKey = appKey, offerLocationId = offerLocationId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as InviteResponse
@@ -1013,10 +988,9 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/invite/offerLocation
+     * POST /invite/offerLocation
      * Invite to Offer Location
      * Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite&#39;s list.
-     * @param version 
      * @param accountId the account ID of the user making the share
      * @param appKey the application key
      * @param offerLocationId the id of the offer location to share
@@ -1026,8 +1000,8 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun offerLocationInviteWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, offerLocationId: kotlin.Long) : ApiResponse<InviteResponse?> {
-        val localVariableConfig = offerLocationInviteRequestConfig(version = version, accountId = accountId, appKey = appKey, offerLocationId = offerLocationId)
+    fun offerLocationInviteWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, offerLocationId: kotlin.Long) : ApiResponse<InviteResponse?> {
+        val localVariableConfig = offerLocationInviteRequestConfig(accountId = accountId, appKey = appKey, offerLocationId = offerLocationId)
 
         return request<Unit, InviteResponse>(
             localVariableConfig
@@ -1037,13 +1011,12 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation offerLocationInvite
      *
-     * @param version 
      * @param accountId the account ID of the user making the share
      * @param appKey the application key
      * @param offerLocationId the id of the offer location to share
      * @return RequestConfig
      */
-    fun offerLocationInviteRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, offerLocationId: kotlin.Long) : RequestConfig<Unit> {
+    fun offerLocationInviteRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, offerLocationId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1055,7 +1028,7 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/invite/offerLocation".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/invite/offerLocation",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1064,10 +1037,9 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/invite/retailerLocation
+     * POST /invite/retailerLocation
      * Invite to Retailer Location
      * Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite&#39;s list.
-     * @param version 
      * @param accountId the account ID of the user making the share
      * @param appKey the application key
      * @param retailerLocationId The retailer location id of where the event will take place
@@ -1081,8 +1053,8 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun retailerLocationInvite(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, retailerLocationId: kotlin.Long, albumId: kotlin.Long? = null) : InviteResponse {
-        val localVarResponse = retailerLocationInviteWithHttpInfo(version = version, accountId = accountId, appKey = appKey, retailerLocationId = retailerLocationId, albumId = albumId)
+    fun retailerLocationInvite(accountId: kotlin.Long, appKey: kotlin.String, retailerLocationId: kotlin.Long, albumId: kotlin.Long? = null) : InviteResponse {
+        val localVarResponse = retailerLocationInviteWithHttpInfo(accountId = accountId, appKey = appKey, retailerLocationId = retailerLocationId, albumId = albumId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as InviteResponse
@@ -1100,10 +1072,9 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/invite/retailerLocation
+     * POST /invite/retailerLocation
      * Invite to Retailer Location
      * Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite&#39;s list.
-     * @param version 
      * @param accountId the account ID of the user making the share
      * @param appKey the application key
      * @param retailerLocationId The retailer location id of where the event will take place
@@ -1114,8 +1085,8 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun retailerLocationInviteWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, retailerLocationId: kotlin.Long, albumId: kotlin.Long?) : ApiResponse<InviteResponse?> {
-        val localVariableConfig = retailerLocationInviteRequestConfig(version = version, accountId = accountId, appKey = appKey, retailerLocationId = retailerLocationId, albumId = albumId)
+    fun retailerLocationInviteWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, retailerLocationId: kotlin.Long, albumId: kotlin.Long?) : ApiResponse<InviteResponse?> {
+        val localVariableConfig = retailerLocationInviteRequestConfig(accountId = accountId, appKey = appKey, retailerLocationId = retailerLocationId, albumId = albumId)
 
         return request<Unit, InviteResponse>(
             localVariableConfig
@@ -1125,14 +1096,13 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation retailerLocationInvite
      *
-     * @param version 
      * @param accountId the account ID of the user making the share
      * @param appKey the application key
      * @param retailerLocationId The retailer location id of where the event will take place
      * @param albumId Optional album id to link with the invite (optional)
      * @return RequestConfig
      */
-    fun retailerLocationInviteRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, retailerLocationId: kotlin.Long, albumId: kotlin.Long?) : RequestConfig<Unit> {
+    fun retailerLocationInviteRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, retailerLocationId: kotlin.Long, albumId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1147,7 +1117,7 @@ open class InviteApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/invite/retailerLocation".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/invite/retailerLocation",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

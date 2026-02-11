@@ -41,15 +41,14 @@ open class ScoreApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/score/create
+     * POST /score/create
      * Create Score
      * Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via  a list of {@link MessageResponse}.
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey The game application key to save the score for.
      * @param points The score
@@ -69,8 +68,8 @@ open class ScoreApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createScore(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, points: kotlin.Int, missionId: kotlin.Long? = null, gameId: kotlin.Long? = null, packId: kotlin.Long? = null, gameLevelId: kotlin.Long? = null, gameObjectId: kotlin.Long? = null, timeTaken: kotlin.Int? = null, highest: kotlin.Boolean? = null) : ScoreResponse {
-        val localVarResponse = createScoreWithHttpInfo(version = version, accountId = accountId, appKey = appKey, points = points, missionId = missionId, gameId = gameId, packId = packId, gameLevelId = gameLevelId, gameObjectId = gameObjectId, timeTaken = timeTaken, highest = highest)
+    fun createScore(accountId: kotlin.Long, appKey: kotlin.String, points: kotlin.Int, missionId: kotlin.Long? = null, gameId: kotlin.Long? = null, packId: kotlin.Long? = null, gameLevelId: kotlin.Long? = null, gameObjectId: kotlin.Long? = null, timeTaken: kotlin.Int? = null, highest: kotlin.Boolean? = null) : ScoreResponse {
+        val localVarResponse = createScoreWithHttpInfo(accountId = accountId, appKey = appKey, points = points, missionId = missionId, gameId = gameId, packId = packId, gameLevelId = gameLevelId, gameObjectId = gameObjectId, timeTaken = timeTaken, highest = highest)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ScoreResponse
@@ -88,10 +87,9 @@ open class ScoreApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/score/create
+     * POST /score/create
      * Create Score
      * Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via  a list of {@link MessageResponse}.
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey The game application key to save the score for.
      * @param points The score
@@ -108,8 +106,8 @@ open class ScoreApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createScoreWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, points: kotlin.Int, missionId: kotlin.Long?, gameId: kotlin.Long?, packId: kotlin.Long?, gameLevelId: kotlin.Long?, gameObjectId: kotlin.Long?, timeTaken: kotlin.Int?, highest: kotlin.Boolean?) : ApiResponse<ScoreResponse?> {
-        val localVariableConfig = createScoreRequestConfig(version = version, accountId = accountId, appKey = appKey, points = points, missionId = missionId, gameId = gameId, packId = packId, gameLevelId = gameLevelId, gameObjectId = gameObjectId, timeTaken = timeTaken, highest = highest)
+    fun createScoreWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, points: kotlin.Int, missionId: kotlin.Long?, gameId: kotlin.Long?, packId: kotlin.Long?, gameLevelId: kotlin.Long?, gameObjectId: kotlin.Long?, timeTaken: kotlin.Int?, highest: kotlin.Boolean?) : ApiResponse<ScoreResponse?> {
+        val localVariableConfig = createScoreRequestConfig(accountId = accountId, appKey = appKey, points = points, missionId = missionId, gameId = gameId, packId = packId, gameLevelId = gameLevelId, gameObjectId = gameObjectId, timeTaken = timeTaken, highest = highest)
 
         return request<Unit, ScoreResponse>(
             localVariableConfig
@@ -119,7 +117,6 @@ open class ScoreApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation createScore
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey The game application key to save the score for.
      * @param points The score
@@ -132,7 +129,7 @@ open class ScoreApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param highest  (optional)
      * @return RequestConfig
      */
-    fun createScoreRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, points: kotlin.Int, missionId: kotlin.Long?, gameId: kotlin.Long?, packId: kotlin.Long?, gameLevelId: kotlin.Long?, gameObjectId: kotlin.Long?, timeTaken: kotlin.Int?, highest: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun createScoreRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, points: kotlin.Int, missionId: kotlin.Long?, gameId: kotlin.Long?, packId: kotlin.Long?, gameLevelId: kotlin.Long?, gameObjectId: kotlin.Long?, timeTaken: kotlin.Int?, highest: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -165,7 +162,7 @@ open class ScoreApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/score/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/score/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -174,10 +171,9 @@ open class ScoreApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/score/get
+     * GET /score/get
      * Get Score
      * Get the high score for an item.  Pass in the full path IDs for the score.
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey The game application key to get the level for.
      * @param missionId The missionId to score for, null if not playing mission. (optional)
@@ -196,8 +192,8 @@ open class ScoreApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getScore(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, missionId: kotlin.Long? = null, gameId: kotlin.Long? = null, packId: kotlin.Long? = null, gameLevelId: kotlin.Long? = null, gameObjectId: kotlin.Long? = null, scoreObjectType: kotlin.String? = null, scoreStatus: kotlin.String? = null) : ScoreResponse {
-        val localVarResponse = getScoreWithHttpInfo(version = version, accountId = accountId, appKey = appKey, missionId = missionId, gameId = gameId, packId = packId, gameLevelId = gameLevelId, gameObjectId = gameObjectId, scoreObjectType = scoreObjectType, scoreStatus = scoreStatus)
+    fun getScore(accountId: kotlin.Long, appKey: kotlin.String, missionId: kotlin.Long? = null, gameId: kotlin.Long? = null, packId: kotlin.Long? = null, gameLevelId: kotlin.Long? = null, gameObjectId: kotlin.Long? = null, scoreObjectType: kotlin.String? = null, scoreStatus: kotlin.String? = null) : ScoreResponse {
+        val localVarResponse = getScoreWithHttpInfo(accountId = accountId, appKey = appKey, missionId = missionId, gameId = gameId, packId = packId, gameLevelId = gameLevelId, gameObjectId = gameObjectId, scoreObjectType = scoreObjectType, scoreStatus = scoreStatus)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ScoreResponse
@@ -215,10 +211,9 @@ open class ScoreApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/score/get
+     * GET /score/get
      * Get Score
      * Get the high score for an item.  Pass in the full path IDs for the score.
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey The game application key to get the level for.
      * @param missionId The missionId to score for, null if not playing mission. (optional)
@@ -234,8 +229,8 @@ open class ScoreApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getScoreWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, missionId: kotlin.Long?, gameId: kotlin.Long?, packId: kotlin.Long?, gameLevelId: kotlin.Long?, gameObjectId: kotlin.Long?, scoreObjectType: kotlin.String?, scoreStatus: kotlin.String?) : ApiResponse<ScoreResponse?> {
-        val localVariableConfig = getScoreRequestConfig(version = version, accountId = accountId, appKey = appKey, missionId = missionId, gameId = gameId, packId = packId, gameLevelId = gameLevelId, gameObjectId = gameObjectId, scoreObjectType = scoreObjectType, scoreStatus = scoreStatus)
+    fun getScoreWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, missionId: kotlin.Long?, gameId: kotlin.Long?, packId: kotlin.Long?, gameLevelId: kotlin.Long?, gameObjectId: kotlin.Long?, scoreObjectType: kotlin.String?, scoreStatus: kotlin.String?) : ApiResponse<ScoreResponse?> {
+        val localVariableConfig = getScoreRequestConfig(accountId = accountId, appKey = appKey, missionId = missionId, gameId = gameId, packId = packId, gameLevelId = gameLevelId, gameObjectId = gameObjectId, scoreObjectType = scoreObjectType, scoreStatus = scoreStatus)
 
         return request<Unit, ScoreResponse>(
             localVariableConfig
@@ -245,7 +240,6 @@ open class ScoreApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getScore
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey The game application key to get the level for.
      * @param missionId The missionId to score for, null if not playing mission. (optional)
@@ -257,7 +251,7 @@ open class ScoreApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param scoreStatus The status of the score to filter (ScoreStatus) (optional)
      * @return RequestConfig
      */
-    fun getScoreRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, missionId: kotlin.Long?, gameId: kotlin.Long?, packId: kotlin.Long?, gameLevelId: kotlin.Long?, gameObjectId: kotlin.Long?, scoreObjectType: kotlin.String?, scoreStatus: kotlin.String?) : RequestConfig<Unit> {
+    fun getScoreRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, missionId: kotlin.Long?, gameId: kotlin.Long?, packId: kotlin.Long?, gameLevelId: kotlin.Long?, gameObjectId: kotlin.Long?, scoreObjectType: kotlin.String?, scoreStatus: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -289,7 +283,7 @@ open class ScoreApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/score/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/score/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -298,10 +292,9 @@ open class ScoreApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/score/search
+     * GET /score/search
      * Search Score
      * Search the scores for an item.  Pass in the full path IDs for the scores.
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey The game application key to get the level for.
      * @param missionId The missionId to score for, null if not playing mission. (optional)
@@ -318,8 +311,8 @@ open class ScoreApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchScores(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, missionId: kotlin.Long? = null, gameId: kotlin.Long? = null, packId: kotlin.Long? = null, gameLevelId: kotlin.Long? = null, gameObjectId: kotlin.Long? = null) : kotlin.collections.List<ScoreResponse> {
-        val localVarResponse = searchScoresWithHttpInfo(version = version, accountId = accountId, appKey = appKey, missionId = missionId, gameId = gameId, packId = packId, gameLevelId = gameLevelId, gameObjectId = gameObjectId)
+    fun searchScores(accountId: kotlin.Long, appKey: kotlin.String, missionId: kotlin.Long? = null, gameId: kotlin.Long? = null, packId: kotlin.Long? = null, gameLevelId: kotlin.Long? = null, gameObjectId: kotlin.Long? = null) : kotlin.collections.List<ScoreResponse> {
+        val localVarResponse = searchScoresWithHttpInfo(accountId = accountId, appKey = appKey, missionId = missionId, gameId = gameId, packId = packId, gameLevelId = gameLevelId, gameObjectId = gameObjectId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<ScoreResponse>
@@ -337,10 +330,9 @@ open class ScoreApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/score/search
+     * GET /score/search
      * Search Score
      * Search the scores for an item.  Pass in the full path IDs for the scores.
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey The game application key to get the level for.
      * @param missionId The missionId to score for, null if not playing mission. (optional)
@@ -354,8 +346,8 @@ open class ScoreApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchScoresWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, missionId: kotlin.Long?, gameId: kotlin.Long?, packId: kotlin.Long?, gameLevelId: kotlin.Long?, gameObjectId: kotlin.Long?) : ApiResponse<kotlin.collections.List<ScoreResponse>?> {
-        val localVariableConfig = searchScoresRequestConfig(version = version, accountId = accountId, appKey = appKey, missionId = missionId, gameId = gameId, packId = packId, gameLevelId = gameLevelId, gameObjectId = gameObjectId)
+    fun searchScoresWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, missionId: kotlin.Long?, gameId: kotlin.Long?, packId: kotlin.Long?, gameLevelId: kotlin.Long?, gameObjectId: kotlin.Long?) : ApiResponse<kotlin.collections.List<ScoreResponse>?> {
+        val localVariableConfig = searchScoresRequestConfig(accountId = accountId, appKey = appKey, missionId = missionId, gameId = gameId, packId = packId, gameLevelId = gameLevelId, gameObjectId = gameObjectId)
 
         return request<Unit, kotlin.collections.List<ScoreResponse>>(
             localVariableConfig
@@ -365,7 +357,6 @@ open class ScoreApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation searchScores
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey The game application key to get the level for.
      * @param missionId The missionId to score for, null if not playing mission. (optional)
@@ -375,7 +366,7 @@ open class ScoreApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param gameObjectId The gameObjectId to score for, null if level based scoring. (optional)
      * @return RequestConfig
      */
-    fun searchScoresRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, missionId: kotlin.Long?, gameId: kotlin.Long?, packId: kotlin.Long?, gameLevelId: kotlin.Long?, gameObjectId: kotlin.Long?) : RequestConfig<Unit> {
+    fun searchScoresRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, missionId: kotlin.Long?, gameId: kotlin.Long?, packId: kotlin.Long?, gameLevelId: kotlin.Long?, gameObjectId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -401,7 +392,7 @@ open class ScoreApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/score/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/score/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

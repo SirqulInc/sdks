@@ -42,7 +42,7 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
@@ -65,10 +65,9 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      }
 
     /**
-     * POST /api/{version}/task/create
+     * POST /task/create
      * Create Task
      * Create a Task
-     * @param version 
      * @param accountId The logged in user.
      * @param name The name of the task
      * @param appKey The application to target (optional)
@@ -90,8 +89,8 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createTask(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, appKey: kotlin.String? = null, groupingId: kotlin.String? = null, endpointURL: kotlin.String? = null, payload: kotlin.String? = null, scheduledDate: kotlin.Long? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, cronExpression: kotlin.String? = null, visibility: VisibilityCreateTask? = null, active: kotlin.Boolean? = true) : TaskResponse {
-        val localVarResponse = createTaskWithHttpInfo(version = version, accountId = accountId, name = name, appKey = appKey, groupingId = groupingId, endpointURL = endpointURL, payload = payload, scheduledDate = scheduledDate, startDate = startDate, endDate = endDate, cronExpression = cronExpression, visibility = visibility, active = active)
+    fun createTask(accountId: kotlin.Long, name: kotlin.String, appKey: kotlin.String? = null, groupingId: kotlin.String? = null, endpointURL: kotlin.String? = null, payload: kotlin.String? = null, scheduledDate: kotlin.Long? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, cronExpression: kotlin.String? = null, visibility: VisibilityCreateTask? = null, active: kotlin.Boolean? = true) : TaskResponse {
+        val localVarResponse = createTaskWithHttpInfo(accountId = accountId, name = name, appKey = appKey, groupingId = groupingId, endpointURL = endpointURL, payload = payload, scheduledDate = scheduledDate, startDate = startDate, endDate = endDate, cronExpression = cronExpression, visibility = visibility, active = active)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TaskResponse
@@ -109,10 +108,9 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/task/create
+     * POST /task/create
      * Create Task
      * Create a Task
-     * @param version 
      * @param accountId The logged in user.
      * @param name The name of the task
      * @param appKey The application to target (optional)
@@ -131,8 +129,8 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createTaskWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, appKey: kotlin.String?, groupingId: kotlin.String?, endpointURL: kotlin.String?, payload: kotlin.String?, scheduledDate: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, cronExpression: kotlin.String?, visibility: VisibilityCreateTask?, active: kotlin.Boolean?) : ApiResponse<TaskResponse?> {
-        val localVariableConfig = createTaskRequestConfig(version = version, accountId = accountId, name = name, appKey = appKey, groupingId = groupingId, endpointURL = endpointURL, payload = payload, scheduledDate = scheduledDate, startDate = startDate, endDate = endDate, cronExpression = cronExpression, visibility = visibility, active = active)
+    fun createTaskWithHttpInfo(accountId: kotlin.Long, name: kotlin.String, appKey: kotlin.String?, groupingId: kotlin.String?, endpointURL: kotlin.String?, payload: kotlin.String?, scheduledDate: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, cronExpression: kotlin.String?, visibility: VisibilityCreateTask?, active: kotlin.Boolean?) : ApiResponse<TaskResponse?> {
+        val localVariableConfig = createTaskRequestConfig(accountId = accountId, name = name, appKey = appKey, groupingId = groupingId, endpointURL = endpointURL, payload = payload, scheduledDate = scheduledDate, startDate = startDate, endDate = endDate, cronExpression = cronExpression, visibility = visibility, active = active)
 
         return request<Unit, TaskResponse>(
             localVariableConfig
@@ -142,7 +140,6 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation createTask
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param name The name of the task
      * @param appKey The application to target (optional)
@@ -157,7 +154,7 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param active Sets whether the Task is active or not (inactive Tasks are not processed) (optional, default to true)
      * @return RequestConfig
      */
-    fun createTaskRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, appKey: kotlin.String?, groupingId: kotlin.String?, endpointURL: kotlin.String?, payload: kotlin.String?, scheduledDate: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, cronExpression: kotlin.String?, visibility: VisibilityCreateTask?, active: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun createTaskRequestConfig(accountId: kotlin.Long, name: kotlin.String, appKey: kotlin.String?, groupingId: kotlin.String?, endpointURL: kotlin.String?, payload: kotlin.String?, scheduledDate: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, cronExpression: kotlin.String?, visibility: VisibilityCreateTask?, active: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -198,7 +195,7 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/task/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/task/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -207,10 +204,9 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/task/delete
+     * POST /task/delete
      * Delete Task
      * Delete a Task
-     * @param version 
      * @param accountId The logged in user.
      * @param taskId The id of the Task to delete.
      * @return SirqulResponse
@@ -222,8 +218,8 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteTask(version: java.math.BigDecimal, accountId: kotlin.Long, taskId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = deleteTaskWithHttpInfo(version = version, accountId = accountId, taskId = taskId)
+    fun deleteTask(accountId: kotlin.Long, taskId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = deleteTaskWithHttpInfo(accountId = accountId, taskId = taskId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -241,10 +237,9 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/task/delete
+     * POST /task/delete
      * Delete Task
      * Delete a Task
-     * @param version 
      * @param accountId The logged in user.
      * @param taskId The id of the Task to delete.
      * @return ApiResponse<SirqulResponse?>
@@ -253,8 +248,8 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteTaskWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, taskId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteTaskRequestConfig(version = version, accountId = accountId, taskId = taskId)
+    fun deleteTaskWithHttpInfo(accountId: kotlin.Long, taskId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteTaskRequestConfig(accountId = accountId, taskId = taskId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -264,12 +259,11 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation deleteTask
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param taskId The id of the Task to delete.
      * @return RequestConfig
      */
-    fun deleteTaskRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, taskId: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteTaskRequestConfig(accountId: kotlin.Long, taskId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -280,7 +274,7 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/task/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/task/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -289,10 +283,9 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/task/get
+     * GET /task/get
      * Get Task
      * Get a Task
-     * @param version 
      * @param accountId The logged in user.
      * @param taskId The id of the Task to return.
      * @return TaskResponse
@@ -304,8 +297,8 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTask(version: java.math.BigDecimal, accountId: kotlin.Long, taskId: kotlin.Long) : TaskResponse {
-        val localVarResponse = getTaskWithHttpInfo(version = version, accountId = accountId, taskId = taskId)
+    fun getTask(accountId: kotlin.Long, taskId: kotlin.Long) : TaskResponse {
+        val localVarResponse = getTaskWithHttpInfo(accountId = accountId, taskId = taskId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TaskResponse
@@ -323,10 +316,9 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/task/get
+     * GET /task/get
      * Get Task
      * Get a Task
-     * @param version 
      * @param accountId The logged in user.
      * @param taskId The id of the Task to return.
      * @return ApiResponse<TaskResponse?>
@@ -335,8 +327,8 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTaskWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, taskId: kotlin.Long) : ApiResponse<TaskResponse?> {
-        val localVariableConfig = getTaskRequestConfig(version = version, accountId = accountId, taskId = taskId)
+    fun getTaskWithHttpInfo(accountId: kotlin.Long, taskId: kotlin.Long) : ApiResponse<TaskResponse?> {
+        val localVariableConfig = getTaskRequestConfig(accountId = accountId, taskId = taskId)
 
         return request<Unit, TaskResponse>(
             localVariableConfig
@@ -346,12 +338,11 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation getTask
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param taskId The id of the Task to return.
      * @return RequestConfig
      */
-    fun getTaskRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, taskId: kotlin.Long) : RequestConfig<Unit> {
+    fun getTaskRequestConfig(accountId: kotlin.Long, taskId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -362,7 +353,7 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/task/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/task/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -371,10 +362,9 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/task/search
+     * GET /task/search
      * Search Tasks
      * Search on Tasks
-     * @param version 
      * @param accountId The logged in user.
      * @param groupingId Filter results by a grouping identifier defined by the client (optional)
      * @param filter A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks  (optional, default to "MINE")
@@ -396,8 +386,8 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchTasks(version: java.math.BigDecimal, accountId: kotlin.Long, groupingId: kotlin.String? = null, filter: kotlin.String? = "MINE", statuses: kotlin.String? = "NEW,ERROR,COMPLETE,PROCESSING", templateTypes: kotlin.String? = null, appKey: kotlin.String? = null, keyword: kotlin.String? = null, sortField: kotlin.String? = "CREATED", descending: kotlin.Boolean? = true, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, activeOnly: kotlin.Boolean? = true) : kotlin.collections.List<TaskResponse> {
-        val localVarResponse = searchTasksWithHttpInfo(version = version, accountId = accountId, groupingId = groupingId, filter = filter, statuses = statuses, templateTypes = templateTypes, appKey = appKey, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
+    fun searchTasks(accountId: kotlin.Long, groupingId: kotlin.String? = null, filter: kotlin.String? = "MINE", statuses: kotlin.String? = "NEW,ERROR,COMPLETE,PROCESSING", templateTypes: kotlin.String? = null, appKey: kotlin.String? = null, keyword: kotlin.String? = null, sortField: kotlin.String? = "CREATED", descending: kotlin.Boolean? = true, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, activeOnly: kotlin.Boolean? = true) : kotlin.collections.List<TaskResponse> {
+        val localVarResponse = searchTasksWithHttpInfo(accountId = accountId, groupingId = groupingId, filter = filter, statuses = statuses, templateTypes = templateTypes, appKey = appKey, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<TaskResponse>
@@ -415,10 +405,9 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * GET /api/{version}/task/search
+     * GET /task/search
      * Search Tasks
      * Search on Tasks
-     * @param version 
      * @param accountId The logged in user.
      * @param groupingId Filter results by a grouping identifier defined by the client (optional)
      * @param filter A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks  (optional, default to "MINE")
@@ -437,8 +426,8 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchTasksWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, groupingId: kotlin.String?, filter: kotlin.String?, statuses: kotlin.String?, templateTypes: kotlin.String?, appKey: kotlin.String?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<TaskResponse>?> {
-        val localVariableConfig = searchTasksRequestConfig(version = version, accountId = accountId, groupingId = groupingId, filter = filter, statuses = statuses, templateTypes = templateTypes, appKey = appKey, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
+    fun searchTasksWithHttpInfo(accountId: kotlin.Long, groupingId: kotlin.String?, filter: kotlin.String?, statuses: kotlin.String?, templateTypes: kotlin.String?, appKey: kotlin.String?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<TaskResponse>?> {
+        val localVariableConfig = searchTasksRequestConfig(accountId = accountId, groupingId = groupingId, filter = filter, statuses = statuses, templateTypes = templateTypes, appKey = appKey, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
 
         return request<Unit, kotlin.collections.List<TaskResponse>>(
             localVariableConfig
@@ -448,7 +437,6 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation searchTasks
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param groupingId Filter results by a grouping identifier defined by the client (optional)
      * @param filter A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks  (optional, default to "MINE")
@@ -463,7 +451,7 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param activeOnly Determines whether to return only active results (optional, default to true)
      * @return RequestConfig
      */
-    fun searchTasksRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, groupingId: kotlin.String?, filter: kotlin.String?, statuses: kotlin.String?, templateTypes: kotlin.String?, appKey: kotlin.String?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchTasksRequestConfig(accountId: kotlin.Long, groupingId: kotlin.String?, filter: kotlin.String?, statuses: kotlin.String?, templateTypes: kotlin.String?, appKey: kotlin.String?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -506,7 +494,7 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/task/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/task/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -533,10 +521,9 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      }
 
     /**
-     * POST /api/{version}/task/update
+     * POST /task/update
      * Update Task
      * Update a Task
-     * @param version 
      * @param taskId Task Id
      * @param accountId The logged in user.
      * @param name The name of the task (optional)
@@ -559,8 +546,8 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateTask(version: java.math.BigDecimal, taskId: kotlin.Long, accountId: kotlin.Long, name: kotlin.String? = null, appKey: kotlin.String? = null, groupingId: kotlin.String? = null, endpointURL: kotlin.String? = null, payload: kotlin.String? = null, scheduledDate: kotlin.Long? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, cronExpression: kotlin.String? = null, visibility: VisibilityUpdateTask? = null, active: kotlin.Boolean? = null) : TaskResponse {
-        val localVarResponse = updateTaskWithHttpInfo(version = version, taskId = taskId, accountId = accountId, name = name, appKey = appKey, groupingId = groupingId, endpointURL = endpointURL, payload = payload, scheduledDate = scheduledDate, startDate = startDate, endDate = endDate, cronExpression = cronExpression, visibility = visibility, active = active)
+    fun updateTask(taskId: kotlin.Long, accountId: kotlin.Long, name: kotlin.String? = null, appKey: kotlin.String? = null, groupingId: kotlin.String? = null, endpointURL: kotlin.String? = null, payload: kotlin.String? = null, scheduledDate: kotlin.Long? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, cronExpression: kotlin.String? = null, visibility: VisibilityUpdateTask? = null, active: kotlin.Boolean? = null) : TaskResponse {
+        val localVarResponse = updateTaskWithHttpInfo(taskId = taskId, accountId = accountId, name = name, appKey = appKey, groupingId = groupingId, endpointURL = endpointURL, payload = payload, scheduledDate = scheduledDate, startDate = startDate, endDate = endDate, cronExpression = cronExpression, visibility = visibility, active = active)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TaskResponse
@@ -578,10 +565,9 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * POST /api/{version}/task/update
+     * POST /task/update
      * Update Task
      * Update a Task
-     * @param version 
      * @param taskId Task Id
      * @param accountId The logged in user.
      * @param name The name of the task (optional)
@@ -601,8 +587,8 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateTaskWithHttpInfo(version: java.math.BigDecimal, taskId: kotlin.Long, accountId: kotlin.Long, name: kotlin.String?, appKey: kotlin.String?, groupingId: kotlin.String?, endpointURL: kotlin.String?, payload: kotlin.String?, scheduledDate: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, cronExpression: kotlin.String?, visibility: VisibilityUpdateTask?, active: kotlin.Boolean?) : ApiResponse<TaskResponse?> {
-        val localVariableConfig = updateTaskRequestConfig(version = version, taskId = taskId, accountId = accountId, name = name, appKey = appKey, groupingId = groupingId, endpointURL = endpointURL, payload = payload, scheduledDate = scheduledDate, startDate = startDate, endDate = endDate, cronExpression = cronExpression, visibility = visibility, active = active)
+    fun updateTaskWithHttpInfo(taskId: kotlin.Long, accountId: kotlin.Long, name: kotlin.String?, appKey: kotlin.String?, groupingId: kotlin.String?, endpointURL: kotlin.String?, payload: kotlin.String?, scheduledDate: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, cronExpression: kotlin.String?, visibility: VisibilityUpdateTask?, active: kotlin.Boolean?) : ApiResponse<TaskResponse?> {
+        val localVariableConfig = updateTaskRequestConfig(taskId = taskId, accountId = accountId, name = name, appKey = appKey, groupingId = groupingId, endpointURL = endpointURL, payload = payload, scheduledDate = scheduledDate, startDate = startDate, endDate = endDate, cronExpression = cronExpression, visibility = visibility, active = active)
 
         return request<Unit, TaskResponse>(
             localVariableConfig
@@ -612,7 +598,6 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation updateTask
      *
-     * @param version 
      * @param taskId Task Id
      * @param accountId The logged in user.
      * @param name The name of the task (optional)
@@ -628,7 +613,7 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param active Sets whether the Task is active or not (inactive Tasks are not processed) (optional)
      * @return RequestConfig
      */
-    fun updateTaskRequestConfig(version: java.math.BigDecimal, taskId: kotlin.Long, accountId: kotlin.Long, name: kotlin.String?, appKey: kotlin.String?, groupingId: kotlin.String?, endpointURL: kotlin.String?, payload: kotlin.String?, scheduledDate: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, cronExpression: kotlin.String?, visibility: VisibilityUpdateTask?, active: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun updateTaskRequestConfig(taskId: kotlin.Long, accountId: kotlin.Long, name: kotlin.String?, appKey: kotlin.String?, groupingId: kotlin.String?, endpointURL: kotlin.String?, payload: kotlin.String?, scheduledDate: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, cronExpression: kotlin.String?, visibility: VisibilityUpdateTask?, active: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -672,7 +657,7 @@ open class TaskApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/task/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/task/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

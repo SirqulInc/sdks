@@ -42,7 +42,7 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
@@ -65,10 +65,9 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
      }
 
     /**
-     * POST /api/{version}/notification/schedule/create
+     * POST /notification/schedule/create
      * Create Scheduled Notification
      * This endpoint creates a Scheduled Notification message that can be configured to process and send periodically at set time periods
-     * @param version 
      * @param accountId The logged in user.
      * @param name The name of the scheduled notification
      * @param type The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages
@@ -112,8 +111,8 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createScheduledNotification(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, type: kotlin.String, message: kotlin.String, contentId: kotlin.Long? = null, contentName: kotlin.String? = null, contentType: kotlin.String? = null, parentId: kotlin.Long? = null, parentType: kotlin.String? = null, appKey: kotlin.String? = null, groupingId: kotlin.String? = null, connectionGroupIds: kotlin.String? = null, connectionAccountIds: kotlin.String? = null, audienceId: kotlin.Long? = null, audienceIds: kotlin.String? = null, albumIds: kotlin.String? = null, reportId: kotlin.Long? = null, reportParams: kotlin.String? = null, endpointURL: kotlin.String? = null, payload: kotlin.String? = null, scheduledDate: kotlin.Long? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, cronExpression: kotlin.String? = null, cronType: kotlin.String? = null, metaData: kotlin.String? = null, conditionalInput: kotlin.String? = null, templateType: kotlin.String? = null, visibility: VisibilityCreateScheduledNotification? = null, active: kotlin.Boolean? = null, sendNow: kotlin.Boolean? = null, eventType: kotlin.String? = "CUSTOM", deepLinkURI: kotlin.String? = null, sendToAll: kotlin.Boolean? = null) : ScheduledNotificationFullResponse {
-        val localVarResponse = createScheduledNotificationWithHttpInfo(version = version, accountId = accountId, name = name, type = type, message = message, contentId = contentId, contentName = contentName, contentType = contentType, parentId = parentId, parentType = parentType, appKey = appKey, groupingId = groupingId, connectionGroupIds = connectionGroupIds, connectionAccountIds = connectionAccountIds, audienceId = audienceId, audienceIds = audienceIds, albumIds = albumIds, reportId = reportId, reportParams = reportParams, endpointURL = endpointURL, payload = payload, scheduledDate = scheduledDate, startDate = startDate, endDate = endDate, cronExpression = cronExpression, cronType = cronType, metaData = metaData, conditionalInput = conditionalInput, templateType = templateType, visibility = visibility, active = active, sendNow = sendNow, eventType = eventType, deepLinkURI = deepLinkURI, sendToAll = sendToAll)
+    fun createScheduledNotification(accountId: kotlin.Long, name: kotlin.String, type: kotlin.String, message: kotlin.String, contentId: kotlin.Long? = null, contentName: kotlin.String? = null, contentType: kotlin.String? = null, parentId: kotlin.Long? = null, parentType: kotlin.String? = null, appKey: kotlin.String? = null, groupingId: kotlin.String? = null, connectionGroupIds: kotlin.String? = null, connectionAccountIds: kotlin.String? = null, audienceId: kotlin.Long? = null, audienceIds: kotlin.String? = null, albumIds: kotlin.String? = null, reportId: kotlin.Long? = null, reportParams: kotlin.String? = null, endpointURL: kotlin.String? = null, payload: kotlin.String? = null, scheduledDate: kotlin.Long? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, cronExpression: kotlin.String? = null, cronType: kotlin.String? = null, metaData: kotlin.String? = null, conditionalInput: kotlin.String? = null, templateType: kotlin.String? = null, visibility: VisibilityCreateScheduledNotification? = null, active: kotlin.Boolean? = null, sendNow: kotlin.Boolean? = null, eventType: kotlin.String? = "CUSTOM", deepLinkURI: kotlin.String? = null, sendToAll: kotlin.Boolean? = null) : ScheduledNotificationFullResponse {
+        val localVarResponse = createScheduledNotificationWithHttpInfo(accountId = accountId, name = name, type = type, message = message, contentId = contentId, contentName = contentName, contentType = contentType, parentId = parentId, parentType = parentType, appKey = appKey, groupingId = groupingId, connectionGroupIds = connectionGroupIds, connectionAccountIds = connectionAccountIds, audienceId = audienceId, audienceIds = audienceIds, albumIds = albumIds, reportId = reportId, reportParams = reportParams, endpointURL = endpointURL, payload = payload, scheduledDate = scheduledDate, startDate = startDate, endDate = endDate, cronExpression = cronExpression, cronType = cronType, metaData = metaData, conditionalInput = conditionalInput, templateType = templateType, visibility = visibility, active = active, sendNow = sendNow, eventType = eventType, deepLinkURI = deepLinkURI, sendToAll = sendToAll)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ScheduledNotificationFullResponse
@@ -131,10 +130,9 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * POST /api/{version}/notification/schedule/create
+     * POST /notification/schedule/create
      * Create Scheduled Notification
      * This endpoint creates a Scheduled Notification message that can be configured to process and send periodically at set time periods
-     * @param version 
      * @param accountId The logged in user.
      * @param name The name of the scheduled notification
      * @param type The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages
@@ -175,8 +173,8 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createScheduledNotificationWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, type: kotlin.String, message: kotlin.String, contentId: kotlin.Long?, contentName: kotlin.String?, contentType: kotlin.String?, parentId: kotlin.Long?, parentType: kotlin.String?, appKey: kotlin.String?, groupingId: kotlin.String?, connectionGroupIds: kotlin.String?, connectionAccountIds: kotlin.String?, audienceId: kotlin.Long?, audienceIds: kotlin.String?, albumIds: kotlin.String?, reportId: kotlin.Long?, reportParams: kotlin.String?, endpointURL: kotlin.String?, payload: kotlin.String?, scheduledDate: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, cronExpression: kotlin.String?, cronType: kotlin.String?, metaData: kotlin.String?, conditionalInput: kotlin.String?, templateType: kotlin.String?, visibility: VisibilityCreateScheduledNotification?, active: kotlin.Boolean?, sendNow: kotlin.Boolean?, eventType: kotlin.String?, deepLinkURI: kotlin.String?, sendToAll: kotlin.Boolean?) : ApiResponse<ScheduledNotificationFullResponse?> {
-        val localVariableConfig = createScheduledNotificationRequestConfig(version = version, accountId = accountId, name = name, type = type, message = message, contentId = contentId, contentName = contentName, contentType = contentType, parentId = parentId, parentType = parentType, appKey = appKey, groupingId = groupingId, connectionGroupIds = connectionGroupIds, connectionAccountIds = connectionAccountIds, audienceId = audienceId, audienceIds = audienceIds, albumIds = albumIds, reportId = reportId, reportParams = reportParams, endpointURL = endpointURL, payload = payload, scheduledDate = scheduledDate, startDate = startDate, endDate = endDate, cronExpression = cronExpression, cronType = cronType, metaData = metaData, conditionalInput = conditionalInput, templateType = templateType, visibility = visibility, active = active, sendNow = sendNow, eventType = eventType, deepLinkURI = deepLinkURI, sendToAll = sendToAll)
+    fun createScheduledNotificationWithHttpInfo(accountId: kotlin.Long, name: kotlin.String, type: kotlin.String, message: kotlin.String, contentId: kotlin.Long?, contentName: kotlin.String?, contentType: kotlin.String?, parentId: kotlin.Long?, parentType: kotlin.String?, appKey: kotlin.String?, groupingId: kotlin.String?, connectionGroupIds: kotlin.String?, connectionAccountIds: kotlin.String?, audienceId: kotlin.Long?, audienceIds: kotlin.String?, albumIds: kotlin.String?, reportId: kotlin.Long?, reportParams: kotlin.String?, endpointURL: kotlin.String?, payload: kotlin.String?, scheduledDate: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, cronExpression: kotlin.String?, cronType: kotlin.String?, metaData: kotlin.String?, conditionalInput: kotlin.String?, templateType: kotlin.String?, visibility: VisibilityCreateScheduledNotification?, active: kotlin.Boolean?, sendNow: kotlin.Boolean?, eventType: kotlin.String?, deepLinkURI: kotlin.String?, sendToAll: kotlin.Boolean?) : ApiResponse<ScheduledNotificationFullResponse?> {
+        val localVariableConfig = createScheduledNotificationRequestConfig(accountId = accountId, name = name, type = type, message = message, contentId = contentId, contentName = contentName, contentType = contentType, parentId = parentId, parentType = parentType, appKey = appKey, groupingId = groupingId, connectionGroupIds = connectionGroupIds, connectionAccountIds = connectionAccountIds, audienceId = audienceId, audienceIds = audienceIds, albumIds = albumIds, reportId = reportId, reportParams = reportParams, endpointURL = endpointURL, payload = payload, scheduledDate = scheduledDate, startDate = startDate, endDate = endDate, cronExpression = cronExpression, cronType = cronType, metaData = metaData, conditionalInput = conditionalInput, templateType = templateType, visibility = visibility, active = active, sendNow = sendNow, eventType = eventType, deepLinkURI = deepLinkURI, sendToAll = sendToAll)
 
         return request<Unit, ScheduledNotificationFullResponse>(
             localVariableConfig
@@ -186,7 +184,6 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
     /**
      * To obtain the request config of the operation createScheduledNotification
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param name The name of the scheduled notification
      * @param type The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages
@@ -223,7 +220,7 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
      * @param sendToAll Determines whether to send to all users of the app if set to true for push notifications (appKey is required) (optional)
      * @return RequestConfig
      */
-    fun createScheduledNotificationRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, type: kotlin.String, message: kotlin.String, contentId: kotlin.Long?, contentName: kotlin.String?, contentType: kotlin.String?, parentId: kotlin.Long?, parentType: kotlin.String?, appKey: kotlin.String?, groupingId: kotlin.String?, connectionGroupIds: kotlin.String?, connectionAccountIds: kotlin.String?, audienceId: kotlin.Long?, audienceIds: kotlin.String?, albumIds: kotlin.String?, reportId: kotlin.Long?, reportParams: kotlin.String?, endpointURL: kotlin.String?, payload: kotlin.String?, scheduledDate: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, cronExpression: kotlin.String?, cronType: kotlin.String?, metaData: kotlin.String?, conditionalInput: kotlin.String?, templateType: kotlin.String?, visibility: VisibilityCreateScheduledNotification?, active: kotlin.Boolean?, sendNow: kotlin.Boolean?, eventType: kotlin.String?, deepLinkURI: kotlin.String?, sendToAll: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun createScheduledNotificationRequestConfig(accountId: kotlin.Long, name: kotlin.String, type: kotlin.String, message: kotlin.String, contentId: kotlin.Long?, contentName: kotlin.String?, contentType: kotlin.String?, parentId: kotlin.Long?, parentType: kotlin.String?, appKey: kotlin.String?, groupingId: kotlin.String?, connectionGroupIds: kotlin.String?, connectionAccountIds: kotlin.String?, audienceId: kotlin.Long?, audienceIds: kotlin.String?, albumIds: kotlin.String?, reportId: kotlin.Long?, reportParams: kotlin.String?, endpointURL: kotlin.String?, payload: kotlin.String?, scheduledDate: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, cronExpression: kotlin.String?, cronType: kotlin.String?, metaData: kotlin.String?, conditionalInput: kotlin.String?, templateType: kotlin.String?, visibility: VisibilityCreateScheduledNotification?, active: kotlin.Boolean?, sendNow: kotlin.Boolean?, eventType: kotlin.String?, deepLinkURI: kotlin.String?, sendToAll: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -326,7 +323,7 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/notification/schedule/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/notification/schedule/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -335,10 +332,9 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * POST /api/{version}/notification/schedule/delete
+     * POST /notification/schedule/delete
      * Delete Scheduled Notification
      * This endpoint deletes a Scheduled Notification. Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using the UserPermissionsApi.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param scheduledNotificationId the id of the scheduled notification to delete
      * @param deleteByGroupingId If set to true, also deletes Scheduled Notifications under the same account with the same groupingId. (optional)
@@ -351,8 +347,8 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteScheduledNotification(version: java.math.BigDecimal, accountId: kotlin.Long, scheduledNotificationId: kotlin.Long, deleteByGroupingId: kotlin.Boolean? = null) : ScheduledNotificationFullResponse {
-        val localVarResponse = deleteScheduledNotificationWithHttpInfo(version = version, accountId = accountId, scheduledNotificationId = scheduledNotificationId, deleteByGroupingId = deleteByGroupingId)
+    fun deleteScheduledNotification(accountId: kotlin.Long, scheduledNotificationId: kotlin.Long, deleteByGroupingId: kotlin.Boolean? = null) : ScheduledNotificationFullResponse {
+        val localVarResponse = deleteScheduledNotificationWithHttpInfo(accountId = accountId, scheduledNotificationId = scheduledNotificationId, deleteByGroupingId = deleteByGroupingId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ScheduledNotificationFullResponse
@@ -370,10 +366,9 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * POST /api/{version}/notification/schedule/delete
+     * POST /notification/schedule/delete
      * Delete Scheduled Notification
      * This endpoint deletes a Scheduled Notification. Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using the UserPermissionsApi.
-     * @param version 
      * @param accountId the id of the logged in user
      * @param scheduledNotificationId the id of the scheduled notification to delete
      * @param deleteByGroupingId If set to true, also deletes Scheduled Notifications under the same account with the same groupingId. (optional)
@@ -383,8 +378,8 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteScheduledNotificationWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, scheduledNotificationId: kotlin.Long, deleteByGroupingId: kotlin.Boolean?) : ApiResponse<ScheduledNotificationFullResponse?> {
-        val localVariableConfig = deleteScheduledNotificationRequestConfig(version = version, accountId = accountId, scheduledNotificationId = scheduledNotificationId, deleteByGroupingId = deleteByGroupingId)
+    fun deleteScheduledNotificationWithHttpInfo(accountId: kotlin.Long, scheduledNotificationId: kotlin.Long, deleteByGroupingId: kotlin.Boolean?) : ApiResponse<ScheduledNotificationFullResponse?> {
+        val localVariableConfig = deleteScheduledNotificationRequestConfig(accountId = accountId, scheduledNotificationId = scheduledNotificationId, deleteByGroupingId = deleteByGroupingId)
 
         return request<Unit, ScheduledNotificationFullResponse>(
             localVariableConfig
@@ -394,13 +389,12 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
     /**
      * To obtain the request config of the operation deleteScheduledNotification
      *
-     * @param version 
      * @param accountId the id of the logged in user
      * @param scheduledNotificationId the id of the scheduled notification to delete
      * @param deleteByGroupingId If set to true, also deletes Scheduled Notifications under the same account with the same groupingId. (optional)
      * @return RequestConfig
      */
-    fun deleteScheduledNotificationRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, scheduledNotificationId: kotlin.Long, deleteByGroupingId: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun deleteScheduledNotificationRequestConfig(accountId: kotlin.Long, scheduledNotificationId: kotlin.Long, deleteByGroupingId: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -414,7 +408,7 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/notification/schedule/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/notification/schedule/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -423,10 +417,9 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * GET /api/{version}/notification/schedule/get
+     * GET /notification/schedule/get
      * Get Scheduled Notification
      * Get a ScheduledNotification
-     * @param version 
      * @param accountId the id of the account logged in
      * @param scheduledNotificationId the id of the scheduled notification to get
      * @return ScheduledNotificationFullResponse
@@ -438,8 +431,8 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getScheduledNotification(version: java.math.BigDecimal, accountId: kotlin.Long, scheduledNotificationId: kotlin.Long) : ScheduledNotificationFullResponse {
-        val localVarResponse = getScheduledNotificationWithHttpInfo(version = version, accountId = accountId, scheduledNotificationId = scheduledNotificationId)
+    fun getScheduledNotification(accountId: kotlin.Long, scheduledNotificationId: kotlin.Long) : ScheduledNotificationFullResponse {
+        val localVarResponse = getScheduledNotificationWithHttpInfo(accountId = accountId, scheduledNotificationId = scheduledNotificationId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ScheduledNotificationFullResponse
@@ -457,10 +450,9 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * GET /api/{version}/notification/schedule/get
+     * GET /notification/schedule/get
      * Get Scheduled Notification
      * Get a ScheduledNotification
-     * @param version 
      * @param accountId the id of the account logged in
      * @param scheduledNotificationId the id of the scheduled notification to get
      * @return ApiResponse<ScheduledNotificationFullResponse?>
@@ -469,8 +461,8 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getScheduledNotificationWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, scheduledNotificationId: kotlin.Long) : ApiResponse<ScheduledNotificationFullResponse?> {
-        val localVariableConfig = getScheduledNotificationRequestConfig(version = version, accountId = accountId, scheduledNotificationId = scheduledNotificationId)
+    fun getScheduledNotificationWithHttpInfo(accountId: kotlin.Long, scheduledNotificationId: kotlin.Long) : ApiResponse<ScheduledNotificationFullResponse?> {
+        val localVariableConfig = getScheduledNotificationRequestConfig(accountId = accountId, scheduledNotificationId = scheduledNotificationId)
 
         return request<Unit, ScheduledNotificationFullResponse>(
             localVariableConfig
@@ -480,12 +472,11 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
     /**
      * To obtain the request config of the operation getScheduledNotification
      *
-     * @param version 
      * @param accountId the id of the account logged in
      * @param scheduledNotificationId the id of the scheduled notification to get
      * @return RequestConfig
      */
-    fun getScheduledNotificationRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, scheduledNotificationId: kotlin.Long) : RequestConfig<Unit> {
+    fun getScheduledNotificationRequestConfig(accountId: kotlin.Long, scheduledNotificationId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -496,7 +487,7 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/notification/schedule/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/notification/schedule/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -505,10 +496,9 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * POST /api/{version}/notification/schedule/generate
+     * POST /notification/schedule/generate
      * Generate Schedule Notifications
      * Use a report to identify events that are starting soon and then create a scheduled notification to push a message to matching users.
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey The application to target
      * @param reportName The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail
@@ -526,8 +516,8 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun scheduleNotificationListings(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, reportName: kotlin.String, message: kotlin.String, offset: kotlin.Int, recipientReportId: kotlin.Long, reportParams: kotlin.String? = null, type: kotlin.String? = null) : SirqulResponse {
-        val localVarResponse = scheduleNotificationListingsWithHttpInfo(version = version, accountId = accountId, appKey = appKey, reportName = reportName, message = message, offset = offset, recipientReportId = recipientReportId, reportParams = reportParams, type = type)
+    fun scheduleNotificationListings(accountId: kotlin.Long, appKey: kotlin.String, reportName: kotlin.String, message: kotlin.String, offset: kotlin.Int, recipientReportId: kotlin.Long, reportParams: kotlin.String? = null, type: kotlin.String? = null) : SirqulResponse {
+        val localVarResponse = scheduleNotificationListingsWithHttpInfo(accountId = accountId, appKey = appKey, reportName = reportName, message = message, offset = offset, recipientReportId = recipientReportId, reportParams = reportParams, type = type)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -545,10 +535,9 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * POST /api/{version}/notification/schedule/generate
+     * POST /notification/schedule/generate
      * Generate Schedule Notifications
      * Use a report to identify events that are starting soon and then create a scheduled notification to push a message to matching users.
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey The application to target
      * @param reportName The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail
@@ -563,8 +552,8 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun scheduleNotificationListingsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, reportName: kotlin.String, message: kotlin.String, offset: kotlin.Int, recipientReportId: kotlin.Long, reportParams: kotlin.String?, type: kotlin.String?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = scheduleNotificationListingsRequestConfig(version = version, accountId = accountId, appKey = appKey, reportName = reportName, message = message, offset = offset, recipientReportId = recipientReportId, reportParams = reportParams, type = type)
+    fun scheduleNotificationListingsWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, reportName: kotlin.String, message: kotlin.String, offset: kotlin.Int, recipientReportId: kotlin.Long, reportParams: kotlin.String?, type: kotlin.String?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = scheduleNotificationListingsRequestConfig(accountId = accountId, appKey = appKey, reportName = reportName, message = message, offset = offset, recipientReportId = recipientReportId, reportParams = reportParams, type = type)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -574,7 +563,6 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
     /**
      * To obtain the request config of the operation scheduleNotificationListings
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param appKey The application to target
      * @param reportName The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail
@@ -585,7 +573,7 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
      * @param type The type of scheduled notification; supported values are: MOBILE_NOTIFICATION (optional)
      * @return RequestConfig
      */
-    fun scheduleNotificationListingsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, reportName: kotlin.String, message: kotlin.String, offset: kotlin.Int, recipientReportId: kotlin.Long, reportParams: kotlin.String?, type: kotlin.String?) : RequestConfig<Unit> {
+    fun scheduleNotificationListingsRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, reportName: kotlin.String, message: kotlin.String, offset: kotlin.Int, recipientReportId: kotlin.Long, reportParams: kotlin.String?, type: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -606,7 +594,7 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/notification/schedule/generate".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/notification/schedule/generate",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -615,10 +603,9 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * GET /api/{version}/notification/schedule/search
+     * GET /notification/schedule/search
      * Search Scheduled Notifications
      * This endpoint searches on Scheduled Notifications. If a scheduled notification was created with the visibility parameter set to PUBLIC, then anyone can search on it if the filter parameter includes the PUBLIC value. PRIVATE visibility means that it can only be searched on by the owner or if it has been shared to the user using the UserPermissionsApi.  In addition, if a PUBLIC Scheduled Notification was created for an application that requires content approval (using the publicContentApproval parameter), then an administrator of the application needs to approve it before it can be search on by other users. Before this happens, it is in a PENDING state, and only the original creator or the owner of the application can search and see it. Also, only the owner of the application can use the UserPermissionsApi to approve or reject it. Scheduled notifications that have been rejected are only visible to the original creators.
-     * @param version 
      * @param accountId The logged in user.
      * @param groupingId Filter results by a grouping identifier defined by the client (optional)
      * @param audienceId Filter results by audience (optional)
@@ -648,8 +635,8 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchScheduledNotifications(version: java.math.BigDecimal, accountId: kotlin.Long, groupingId: kotlin.String? = null, audienceId: kotlin.Long? = null, filter: kotlin.String? = null, types: kotlin.String? = null, contentIds: kotlin.String? = null, contentTypes: kotlin.String? = null, parentIds: kotlin.String? = null, parentTypes: kotlin.String? = null, statuses: kotlin.String? = null, templateTypes: kotlin.String? = null, appKey: kotlin.String? = null, keyword: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null, activeOnly: kotlin.Boolean? = null, groupByGroupingId: kotlin.Boolean? = null, returnAudienceAccountCount: kotlin.Boolean? = null) : ScheduledNotificationFullResponse {
-        val localVarResponse = searchScheduledNotificationsWithHttpInfo(version = version, accountId = accountId, groupingId = groupingId, audienceId = audienceId, filter = filter, types = types, contentIds = contentIds, contentTypes = contentTypes, parentIds = parentIds, parentTypes = parentTypes, statuses = statuses, templateTypes = templateTypes, appKey = appKey, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, groupByGroupingId = groupByGroupingId, returnAudienceAccountCount = returnAudienceAccountCount)
+    fun searchScheduledNotifications(accountId: kotlin.Long, groupingId: kotlin.String? = null, audienceId: kotlin.Long? = null, filter: kotlin.String? = null, types: kotlin.String? = null, contentIds: kotlin.String? = null, contentTypes: kotlin.String? = null, parentIds: kotlin.String? = null, parentTypes: kotlin.String? = null, statuses: kotlin.String? = null, templateTypes: kotlin.String? = null, appKey: kotlin.String? = null, keyword: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null, activeOnly: kotlin.Boolean? = null, groupByGroupingId: kotlin.Boolean? = null, returnAudienceAccountCount: kotlin.Boolean? = null) : ScheduledNotificationFullResponse {
+        val localVarResponse = searchScheduledNotificationsWithHttpInfo(accountId = accountId, groupingId = groupingId, audienceId = audienceId, filter = filter, types = types, contentIds = contentIds, contentTypes = contentTypes, parentIds = parentIds, parentTypes = parentTypes, statuses = statuses, templateTypes = templateTypes, appKey = appKey, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, groupByGroupingId = groupByGroupingId, returnAudienceAccountCount = returnAudienceAccountCount)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ScheduledNotificationFullResponse
@@ -667,10 +654,9 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * GET /api/{version}/notification/schedule/search
+     * GET /notification/schedule/search
      * Search Scheduled Notifications
      * This endpoint searches on Scheduled Notifications. If a scheduled notification was created with the visibility parameter set to PUBLIC, then anyone can search on it if the filter parameter includes the PUBLIC value. PRIVATE visibility means that it can only be searched on by the owner or if it has been shared to the user using the UserPermissionsApi.  In addition, if a PUBLIC Scheduled Notification was created for an application that requires content approval (using the publicContentApproval parameter), then an administrator of the application needs to approve it before it can be search on by other users. Before this happens, it is in a PENDING state, and only the original creator or the owner of the application can search and see it. Also, only the owner of the application can use the UserPermissionsApi to approve or reject it. Scheduled notifications that have been rejected are only visible to the original creators.
-     * @param version 
      * @param accountId The logged in user.
      * @param groupingId Filter results by a grouping identifier defined by the client (optional)
      * @param audienceId Filter results by audience (optional)
@@ -697,8 +683,8 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchScheduledNotificationsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, groupingId: kotlin.String?, audienceId: kotlin.Long?, filter: kotlin.String?, types: kotlin.String?, contentIds: kotlin.String?, contentTypes: kotlin.String?, parentIds: kotlin.String?, parentTypes: kotlin.String?, statuses: kotlin.String?, templateTypes: kotlin.String?, appKey: kotlin.String?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?, groupByGroupingId: kotlin.Boolean?, returnAudienceAccountCount: kotlin.Boolean?) : ApiResponse<ScheduledNotificationFullResponse?> {
-        val localVariableConfig = searchScheduledNotificationsRequestConfig(version = version, accountId = accountId, groupingId = groupingId, audienceId = audienceId, filter = filter, types = types, contentIds = contentIds, contentTypes = contentTypes, parentIds = parentIds, parentTypes = parentTypes, statuses = statuses, templateTypes = templateTypes, appKey = appKey, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, groupByGroupingId = groupByGroupingId, returnAudienceAccountCount = returnAudienceAccountCount)
+    fun searchScheduledNotificationsWithHttpInfo(accountId: kotlin.Long, groupingId: kotlin.String?, audienceId: kotlin.Long?, filter: kotlin.String?, types: kotlin.String?, contentIds: kotlin.String?, contentTypes: kotlin.String?, parentIds: kotlin.String?, parentTypes: kotlin.String?, statuses: kotlin.String?, templateTypes: kotlin.String?, appKey: kotlin.String?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?, groupByGroupingId: kotlin.Boolean?, returnAudienceAccountCount: kotlin.Boolean?) : ApiResponse<ScheduledNotificationFullResponse?> {
+        val localVariableConfig = searchScheduledNotificationsRequestConfig(accountId = accountId, groupingId = groupingId, audienceId = audienceId, filter = filter, types = types, contentIds = contentIds, contentTypes = contentTypes, parentIds = parentIds, parentTypes = parentTypes, statuses = statuses, templateTypes = templateTypes, appKey = appKey, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, groupByGroupingId = groupByGroupingId, returnAudienceAccountCount = returnAudienceAccountCount)
 
         return request<Unit, ScheduledNotificationFullResponse>(
             localVariableConfig
@@ -708,7 +694,6 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
     /**
      * To obtain the request config of the operation searchScheduledNotifications
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param groupingId Filter results by a grouping identifier defined by the client (optional)
      * @param audienceId Filter results by audience (optional)
@@ -731,7 +716,7 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
      * @param returnAudienceAccountCount If true, include audience account counts in the response (optional)
      * @return RequestConfig
      */
-    fun searchScheduledNotificationsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, groupingId: kotlin.String?, audienceId: kotlin.Long?, filter: kotlin.String?, types: kotlin.String?, contentIds: kotlin.String?, contentTypes: kotlin.String?, parentIds: kotlin.String?, parentTypes: kotlin.String?, statuses: kotlin.String?, templateTypes: kotlin.String?, appKey: kotlin.String?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?, groupByGroupingId: kotlin.Boolean?, returnAudienceAccountCount: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchScheduledNotificationsRequestConfig(accountId: kotlin.Long, groupingId: kotlin.String?, audienceId: kotlin.Long?, filter: kotlin.String?, types: kotlin.String?, contentIds: kotlin.String?, contentTypes: kotlin.String?, parentIds: kotlin.String?, parentTypes: kotlin.String?, statuses: kotlin.String?, templateTypes: kotlin.String?, appKey: kotlin.String?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?, groupByGroupingId: kotlin.Boolean?, returnAudienceAccountCount: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -798,7 +783,7 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/notification/schedule/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/notification/schedule/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -825,10 +810,9 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
      }
 
     /**
-     * POST /api/{version}/notification/schedule/update
+     * POST /notification/schedule/update
      * Update Scheduled Notification
      * This endpoint updates a Scheduled Notification message that can be configured to process and send periodically at set time periods. Please see createScheduledNotification for more details.  Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using theUserPermissionsApi.
-     * @param version 
      * @param scheduledNotificationId The id of scheduled notification to update
      * @param accountId The logged in user.
      * @param name The name of the scheduled notification (optional)
@@ -876,8 +860,8 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateScheduledNotification(version: java.math.BigDecimal, scheduledNotificationId: kotlin.Long, accountId: kotlin.Long, name: kotlin.String? = null, type: kotlin.String? = null, message: kotlin.String? = null, payload: kotlin.String? = null, contentId: kotlin.Long? = null, contentName: kotlin.String? = null, contentType: kotlin.String? = null, parentId: kotlin.Long? = null, parentType: kotlin.String? = null, appKey: kotlin.String? = null, groupingId: kotlin.String? = null, connectionGroupIds: kotlin.String? = null, connectionAccountIds: kotlin.String? = null, audienceId: kotlin.Long? = null, audienceIds: kotlin.String? = null, albumIds: kotlin.String? = null, reportId: kotlin.Long? = null, reportParams: kotlin.String? = null, endpointURL: kotlin.String? = null, scheduledDate: kotlin.Long? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, cronExpression: kotlin.String? = null, cronType: kotlin.String? = null, metaData: kotlin.String? = null, conditionalInput: kotlin.String? = null, templateType: kotlin.String? = null, visibility: VisibilityUpdateScheduledNotification? = null, active: kotlin.Boolean? = null, errorMessage: kotlin.String? = null, status: kotlin.String? = null, updateByGroupingId: kotlin.Boolean? = null, sendNow: kotlin.Boolean? = null, eventType: kotlin.String? = "CUSTOM", deepLinkURI: kotlin.String? = null, sendToAll: kotlin.Boolean? = null) : ScheduledNotificationFullResponse {
-        val localVarResponse = updateScheduledNotificationWithHttpInfo(version = version, scheduledNotificationId = scheduledNotificationId, accountId = accountId, name = name, type = type, message = message, payload = payload, contentId = contentId, contentName = contentName, contentType = contentType, parentId = parentId, parentType = parentType, appKey = appKey, groupingId = groupingId, connectionGroupIds = connectionGroupIds, connectionAccountIds = connectionAccountIds, audienceId = audienceId, audienceIds = audienceIds, albumIds = albumIds, reportId = reportId, reportParams = reportParams, endpointURL = endpointURL, scheduledDate = scheduledDate, startDate = startDate, endDate = endDate, cronExpression = cronExpression, cronType = cronType, metaData = metaData, conditionalInput = conditionalInput, templateType = templateType, visibility = visibility, active = active, errorMessage = errorMessage, status = status, updateByGroupingId = updateByGroupingId, sendNow = sendNow, eventType = eventType, deepLinkURI = deepLinkURI, sendToAll = sendToAll)
+    fun updateScheduledNotification(scheduledNotificationId: kotlin.Long, accountId: kotlin.Long, name: kotlin.String? = null, type: kotlin.String? = null, message: kotlin.String? = null, payload: kotlin.String? = null, contentId: kotlin.Long? = null, contentName: kotlin.String? = null, contentType: kotlin.String? = null, parentId: kotlin.Long? = null, parentType: kotlin.String? = null, appKey: kotlin.String? = null, groupingId: kotlin.String? = null, connectionGroupIds: kotlin.String? = null, connectionAccountIds: kotlin.String? = null, audienceId: kotlin.Long? = null, audienceIds: kotlin.String? = null, albumIds: kotlin.String? = null, reportId: kotlin.Long? = null, reportParams: kotlin.String? = null, endpointURL: kotlin.String? = null, scheduledDate: kotlin.Long? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, cronExpression: kotlin.String? = null, cronType: kotlin.String? = null, metaData: kotlin.String? = null, conditionalInput: kotlin.String? = null, templateType: kotlin.String? = null, visibility: VisibilityUpdateScheduledNotification? = null, active: kotlin.Boolean? = null, errorMessage: kotlin.String? = null, status: kotlin.String? = null, updateByGroupingId: kotlin.Boolean? = null, sendNow: kotlin.Boolean? = null, eventType: kotlin.String? = "CUSTOM", deepLinkURI: kotlin.String? = null, sendToAll: kotlin.Boolean? = null) : ScheduledNotificationFullResponse {
+        val localVarResponse = updateScheduledNotificationWithHttpInfo(scheduledNotificationId = scheduledNotificationId, accountId = accountId, name = name, type = type, message = message, payload = payload, contentId = contentId, contentName = contentName, contentType = contentType, parentId = parentId, parentType = parentType, appKey = appKey, groupingId = groupingId, connectionGroupIds = connectionGroupIds, connectionAccountIds = connectionAccountIds, audienceId = audienceId, audienceIds = audienceIds, albumIds = albumIds, reportId = reportId, reportParams = reportParams, endpointURL = endpointURL, scheduledDate = scheduledDate, startDate = startDate, endDate = endDate, cronExpression = cronExpression, cronType = cronType, metaData = metaData, conditionalInput = conditionalInput, templateType = templateType, visibility = visibility, active = active, errorMessage = errorMessage, status = status, updateByGroupingId = updateByGroupingId, sendNow = sendNow, eventType = eventType, deepLinkURI = deepLinkURI, sendToAll = sendToAll)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ScheduledNotificationFullResponse
@@ -895,10 +879,9 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
     }
 
     /**
-     * POST /api/{version}/notification/schedule/update
+     * POST /notification/schedule/update
      * Update Scheduled Notification
      * This endpoint updates a Scheduled Notification message that can be configured to process and send periodically at set time periods. Please see createScheduledNotification for more details.  Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using theUserPermissionsApi.
-     * @param version 
      * @param scheduledNotificationId The id of scheduled notification to update
      * @param accountId The logged in user.
      * @param name The name of the scheduled notification (optional)
@@ -943,8 +926,8 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateScheduledNotificationWithHttpInfo(version: java.math.BigDecimal, scheduledNotificationId: kotlin.Long, accountId: kotlin.Long, name: kotlin.String?, type: kotlin.String?, message: kotlin.String?, payload: kotlin.String?, contentId: kotlin.Long?, contentName: kotlin.String?, contentType: kotlin.String?, parentId: kotlin.Long?, parentType: kotlin.String?, appKey: kotlin.String?, groupingId: kotlin.String?, connectionGroupIds: kotlin.String?, connectionAccountIds: kotlin.String?, audienceId: kotlin.Long?, audienceIds: kotlin.String?, albumIds: kotlin.String?, reportId: kotlin.Long?, reportParams: kotlin.String?, endpointURL: kotlin.String?, scheduledDate: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, cronExpression: kotlin.String?, cronType: kotlin.String?, metaData: kotlin.String?, conditionalInput: kotlin.String?, templateType: kotlin.String?, visibility: VisibilityUpdateScheduledNotification?, active: kotlin.Boolean?, errorMessage: kotlin.String?, status: kotlin.String?, updateByGroupingId: kotlin.Boolean?, sendNow: kotlin.Boolean?, eventType: kotlin.String?, deepLinkURI: kotlin.String?, sendToAll: kotlin.Boolean?) : ApiResponse<ScheduledNotificationFullResponse?> {
-        val localVariableConfig = updateScheduledNotificationRequestConfig(version = version, scheduledNotificationId = scheduledNotificationId, accountId = accountId, name = name, type = type, message = message, payload = payload, contentId = contentId, contentName = contentName, contentType = contentType, parentId = parentId, parentType = parentType, appKey = appKey, groupingId = groupingId, connectionGroupIds = connectionGroupIds, connectionAccountIds = connectionAccountIds, audienceId = audienceId, audienceIds = audienceIds, albumIds = albumIds, reportId = reportId, reportParams = reportParams, endpointURL = endpointURL, scheduledDate = scheduledDate, startDate = startDate, endDate = endDate, cronExpression = cronExpression, cronType = cronType, metaData = metaData, conditionalInput = conditionalInput, templateType = templateType, visibility = visibility, active = active, errorMessage = errorMessage, status = status, updateByGroupingId = updateByGroupingId, sendNow = sendNow, eventType = eventType, deepLinkURI = deepLinkURI, sendToAll = sendToAll)
+    fun updateScheduledNotificationWithHttpInfo(scheduledNotificationId: kotlin.Long, accountId: kotlin.Long, name: kotlin.String?, type: kotlin.String?, message: kotlin.String?, payload: kotlin.String?, contentId: kotlin.Long?, contentName: kotlin.String?, contentType: kotlin.String?, parentId: kotlin.Long?, parentType: kotlin.String?, appKey: kotlin.String?, groupingId: kotlin.String?, connectionGroupIds: kotlin.String?, connectionAccountIds: kotlin.String?, audienceId: kotlin.Long?, audienceIds: kotlin.String?, albumIds: kotlin.String?, reportId: kotlin.Long?, reportParams: kotlin.String?, endpointURL: kotlin.String?, scheduledDate: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, cronExpression: kotlin.String?, cronType: kotlin.String?, metaData: kotlin.String?, conditionalInput: kotlin.String?, templateType: kotlin.String?, visibility: VisibilityUpdateScheduledNotification?, active: kotlin.Boolean?, errorMessage: kotlin.String?, status: kotlin.String?, updateByGroupingId: kotlin.Boolean?, sendNow: kotlin.Boolean?, eventType: kotlin.String?, deepLinkURI: kotlin.String?, sendToAll: kotlin.Boolean?) : ApiResponse<ScheduledNotificationFullResponse?> {
+        val localVariableConfig = updateScheduledNotificationRequestConfig(scheduledNotificationId = scheduledNotificationId, accountId = accountId, name = name, type = type, message = message, payload = payload, contentId = contentId, contentName = contentName, contentType = contentType, parentId = parentId, parentType = parentType, appKey = appKey, groupingId = groupingId, connectionGroupIds = connectionGroupIds, connectionAccountIds = connectionAccountIds, audienceId = audienceId, audienceIds = audienceIds, albumIds = albumIds, reportId = reportId, reportParams = reportParams, endpointURL = endpointURL, scheduledDate = scheduledDate, startDate = startDate, endDate = endDate, cronExpression = cronExpression, cronType = cronType, metaData = metaData, conditionalInput = conditionalInput, templateType = templateType, visibility = visibility, active = active, errorMessage = errorMessage, status = status, updateByGroupingId = updateByGroupingId, sendNow = sendNow, eventType = eventType, deepLinkURI = deepLinkURI, sendToAll = sendToAll)
 
         return request<Unit, ScheduledNotificationFullResponse>(
             localVariableConfig
@@ -954,7 +937,6 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
     /**
      * To obtain the request config of the operation updateScheduledNotification
      *
-     * @param version 
      * @param scheduledNotificationId The id of scheduled notification to update
      * @param accountId The logged in user.
      * @param name The name of the scheduled notification (optional)
@@ -995,7 +977,7 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
      * @param sendToAll Determines whether to send to all users of the app if set to true for push notifications (appKey is required) (optional)
      * @return RequestConfig
      */
-    fun updateScheduledNotificationRequestConfig(version: java.math.BigDecimal, scheduledNotificationId: kotlin.Long, accountId: kotlin.Long, name: kotlin.String?, type: kotlin.String?, message: kotlin.String?, payload: kotlin.String?, contentId: kotlin.Long?, contentName: kotlin.String?, contentType: kotlin.String?, parentId: kotlin.Long?, parentType: kotlin.String?, appKey: kotlin.String?, groupingId: kotlin.String?, connectionGroupIds: kotlin.String?, connectionAccountIds: kotlin.String?, audienceId: kotlin.Long?, audienceIds: kotlin.String?, albumIds: kotlin.String?, reportId: kotlin.Long?, reportParams: kotlin.String?, endpointURL: kotlin.String?, scheduledDate: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, cronExpression: kotlin.String?, cronType: kotlin.String?, metaData: kotlin.String?, conditionalInput: kotlin.String?, templateType: kotlin.String?, visibility: VisibilityUpdateScheduledNotification?, active: kotlin.Boolean?, errorMessage: kotlin.String?, status: kotlin.String?, updateByGroupingId: kotlin.Boolean?, sendNow: kotlin.Boolean?, eventType: kotlin.String?, deepLinkURI: kotlin.String?, sendToAll: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun updateScheduledNotificationRequestConfig(scheduledNotificationId: kotlin.Long, accountId: kotlin.Long, name: kotlin.String?, type: kotlin.String?, message: kotlin.String?, payload: kotlin.String?, contentId: kotlin.Long?, contentName: kotlin.String?, contentType: kotlin.String?, parentId: kotlin.Long?, parentType: kotlin.String?, appKey: kotlin.String?, groupingId: kotlin.String?, connectionGroupIds: kotlin.String?, connectionAccountIds: kotlin.String?, audienceId: kotlin.Long?, audienceIds: kotlin.String?, albumIds: kotlin.String?, reportId: kotlin.Long?, reportParams: kotlin.String?, endpointURL: kotlin.String?, scheduledDate: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, cronExpression: kotlin.String?, cronType: kotlin.String?, metaData: kotlin.String?, conditionalInput: kotlin.String?, templateType: kotlin.String?, visibility: VisibilityUpdateScheduledNotification?, active: kotlin.Boolean?, errorMessage: kotlin.String?, status: kotlin.String?, updateByGroupingId: kotlin.Boolean?, sendNow: kotlin.Boolean?, eventType: kotlin.String?, deepLinkURI: kotlin.String?, sendToAll: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1114,7 +1096,7 @@ open class ScheduledNotificationApi(basePath: kotlin.String = defaultBasePath, c
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/notification/schedule/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/notification/schedule/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

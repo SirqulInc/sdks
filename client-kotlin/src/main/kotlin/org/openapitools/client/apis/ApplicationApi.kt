@@ -46,7 +46,7 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
@@ -118,10 +118,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      }
 
     /**
-     * POST /api/{version}/application/create
+     * POST /application/create
      * Create Application
      * Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
-     * @param version 
      * @param appName The name of the application
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -210,8 +209,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createApplication(version: java.math.BigDecimal, appName: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, about: kotlin.String? = null, bundleId: kotlin.String? = null, appIconAssetId: kotlin.Long? = null, appLogoAssetId: kotlin.Long? = null, facebookAppId: kotlin.String? = null, facebookAppSecret: kotlin.String? = null, googleApiKey: kotlin.String? = null, updateEULADate: kotlin.Boolean? = null, eulaVersion: kotlin.String? = null, landingPageUrl: kotlin.String? = null, showInActivities: kotlin.Boolean? = null, activityDescription: kotlin.String? = null, inviteWelcomeText: kotlin.String? = null, invitePageUrl: kotlin.String? = null, urlScheme: kotlin.String? = null, platforms: kotlin.String? = null, downloadUrls: kotlin.String? = null, categoryIds: kotlin.String? = null, scoringType: ScoringTypeCreateApplication? = ScoringTypeCreateApplication.GAME_LEVEL, hintCost: kotlin.Int? = 11, maxScore: kotlin.Int? = 125, ticketsPerPoint: kotlin.Float? = 0.037f, hasGameData: kotlin.Boolean? = true, publicNotifications: kotlin.Boolean? = null, useMatchingAlgorithm: kotlin.Boolean? = null, globalTickets: kotlin.Boolean? = false, buildVersion: kotlin.Float? = 1f, apiVersion: kotlin.Float? = null, placementName: kotlin.String? = null, placementDescription: kotlin.String? = null, placementSize: PlacementSizeCreateApplication? = null, placementHeight: kotlin.Int? = null, placementWidth: kotlin.Int? = null, placementRefreshInterval: kotlin.Int? = null, createObjectStore: kotlin.Boolean? = true, publicContentApproval: kotlin.Boolean? = false, productionMode: kotlin.Boolean? = false, minimumSessionLength: kotlin.Int? = null, sessionGapLength: kotlin.Int? = null, localAdsEnabled: kotlin.Boolean? = false, sqootApiKey: kotlin.String? = null, trilatProcessingType: TrilatProcessingTypeCreateApplication? = TrilatProcessingTypeCreateApplication.FINGERPRINT, maxSampleSize: kotlin.Int? = null, minRSSI: kotlin.Double? = null, modules: kotlin.String? = "ALL", authorizedCount: kotlin.Int? = 1, authorizedServers: kotlin.String? = null, defaultTimezone: kotlin.String? = null, smtpPass: kotlin.String? = null, metaData: kotlin.String? = null, placementMetaData: kotlin.String? = null, ipsFloor: kotlin.Boolean? = false, enableAPNSBadge: kotlin.Boolean? = true, includeInReport: kotlin.Boolean? = true, defaultAppFilterId: kotlin.Long? = null, enableWelcomeEmail: kotlin.Boolean? = null, appleAppId: kotlin.String? = null, appleTeamId: kotlin.String? = null, appleAuthKeyId: kotlin.String? = null, appleAuthKey: java.io.File? = null, appleIssuerId: kotlin.String? = null, appStoreKeyId: kotlin.String? = null, appStoreKey: java.io.File? = null, googlePrivateKeyFile: java.io.File? = null, authorizeNetApiKey: kotlin.String? = null, authorizeNetTransactionKey: kotlin.String? = null, emailSender: kotlin.String? = null, smtpUser: kotlin.String? = null, smtpHost: kotlin.String? = null, vatomBusinessId: kotlin.String? = null, vatomRestClientId: kotlin.String? = null, vatomRestSecretKey: kotlin.String? = null, twilioAccountSID: kotlin.String? = null, twilioAuthToken: kotlin.String? = null, twilioSenderPhoneNumber: kotlin.String? = null, openAISecretKey: kotlin.String? = null) : ApplicationResponse {
-        val localVarResponse = createApplicationWithHttpInfo(version = version, appName = appName, deviceId = deviceId, accountId = accountId, about = about, bundleId = bundleId, appIconAssetId = appIconAssetId, appLogoAssetId = appLogoAssetId, facebookAppId = facebookAppId, facebookAppSecret = facebookAppSecret, googleApiKey = googleApiKey, updateEULADate = updateEULADate, eulaVersion = eulaVersion, landingPageUrl = landingPageUrl, showInActivities = showInActivities, activityDescription = activityDescription, inviteWelcomeText = inviteWelcomeText, invitePageUrl = invitePageUrl, urlScheme = urlScheme, platforms = platforms, downloadUrls = downloadUrls, categoryIds = categoryIds, scoringType = scoringType, hintCost = hintCost, maxScore = maxScore, ticketsPerPoint = ticketsPerPoint, hasGameData = hasGameData, publicNotifications = publicNotifications, useMatchingAlgorithm = useMatchingAlgorithm, globalTickets = globalTickets, buildVersion = buildVersion, apiVersion = apiVersion, placementName = placementName, placementDescription = placementDescription, placementSize = placementSize, placementHeight = placementHeight, placementWidth = placementWidth, placementRefreshInterval = placementRefreshInterval, createObjectStore = createObjectStore, publicContentApproval = publicContentApproval, productionMode = productionMode, minimumSessionLength = minimumSessionLength, sessionGapLength = sessionGapLength, localAdsEnabled = localAdsEnabled, sqootApiKey = sqootApiKey, trilatProcessingType = trilatProcessingType, maxSampleSize = maxSampleSize, minRSSI = minRSSI, modules = modules, authorizedCount = authorizedCount, authorizedServers = authorizedServers, defaultTimezone = defaultTimezone, smtpPass = smtpPass, metaData = metaData, placementMetaData = placementMetaData, ipsFloor = ipsFloor, enableAPNSBadge = enableAPNSBadge, includeInReport = includeInReport, defaultAppFilterId = defaultAppFilterId, enableWelcomeEmail = enableWelcomeEmail, appleAppId = appleAppId, appleTeamId = appleTeamId, appleAuthKeyId = appleAuthKeyId, appleAuthKey = appleAuthKey, appleIssuerId = appleIssuerId, appStoreKeyId = appStoreKeyId, appStoreKey = appStoreKey, googlePrivateKeyFile = googlePrivateKeyFile, authorizeNetApiKey = authorizeNetApiKey, authorizeNetTransactionKey = authorizeNetTransactionKey, emailSender = emailSender, smtpUser = smtpUser, smtpHost = smtpHost, vatomBusinessId = vatomBusinessId, vatomRestClientId = vatomRestClientId, vatomRestSecretKey = vatomRestSecretKey, twilioAccountSID = twilioAccountSID, twilioAuthToken = twilioAuthToken, twilioSenderPhoneNumber = twilioSenderPhoneNumber, openAISecretKey = openAISecretKey)
+    fun createApplication(appName: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, about: kotlin.String? = null, bundleId: kotlin.String? = null, appIconAssetId: kotlin.Long? = null, appLogoAssetId: kotlin.Long? = null, facebookAppId: kotlin.String? = null, facebookAppSecret: kotlin.String? = null, googleApiKey: kotlin.String? = null, updateEULADate: kotlin.Boolean? = null, eulaVersion: kotlin.String? = null, landingPageUrl: kotlin.String? = null, showInActivities: kotlin.Boolean? = null, activityDescription: kotlin.String? = null, inviteWelcomeText: kotlin.String? = null, invitePageUrl: kotlin.String? = null, urlScheme: kotlin.String? = null, platforms: kotlin.String? = null, downloadUrls: kotlin.String? = null, categoryIds: kotlin.String? = null, scoringType: ScoringTypeCreateApplication? = ScoringTypeCreateApplication.GAME_LEVEL, hintCost: kotlin.Int? = 11, maxScore: kotlin.Int? = 125, ticketsPerPoint: kotlin.Float? = 0.037f, hasGameData: kotlin.Boolean? = true, publicNotifications: kotlin.Boolean? = null, useMatchingAlgorithm: kotlin.Boolean? = null, globalTickets: kotlin.Boolean? = false, buildVersion: kotlin.Float? = 1f, apiVersion: kotlin.Float? = null, placementName: kotlin.String? = null, placementDescription: kotlin.String? = null, placementSize: PlacementSizeCreateApplication? = null, placementHeight: kotlin.Int? = null, placementWidth: kotlin.Int? = null, placementRefreshInterval: kotlin.Int? = null, createObjectStore: kotlin.Boolean? = true, publicContentApproval: kotlin.Boolean? = false, productionMode: kotlin.Boolean? = false, minimumSessionLength: kotlin.Int? = null, sessionGapLength: kotlin.Int? = null, localAdsEnabled: kotlin.Boolean? = false, sqootApiKey: kotlin.String? = null, trilatProcessingType: TrilatProcessingTypeCreateApplication? = TrilatProcessingTypeCreateApplication.FINGERPRINT, maxSampleSize: kotlin.Int? = null, minRSSI: kotlin.Double? = null, modules: kotlin.String? = "ALL", authorizedCount: kotlin.Int? = 1, authorizedServers: kotlin.String? = null, defaultTimezone: kotlin.String? = null, smtpPass: kotlin.String? = null, metaData: kotlin.String? = null, placementMetaData: kotlin.String? = null, ipsFloor: kotlin.Boolean? = false, enableAPNSBadge: kotlin.Boolean? = true, includeInReport: kotlin.Boolean? = true, defaultAppFilterId: kotlin.Long? = null, enableWelcomeEmail: kotlin.Boolean? = null, appleAppId: kotlin.String? = null, appleTeamId: kotlin.String? = null, appleAuthKeyId: kotlin.String? = null, appleAuthKey: java.io.File? = null, appleIssuerId: kotlin.String? = null, appStoreKeyId: kotlin.String? = null, appStoreKey: java.io.File? = null, googlePrivateKeyFile: java.io.File? = null, authorizeNetApiKey: kotlin.String? = null, authorizeNetTransactionKey: kotlin.String? = null, emailSender: kotlin.String? = null, smtpUser: kotlin.String? = null, smtpHost: kotlin.String? = null, vatomBusinessId: kotlin.String? = null, vatomRestClientId: kotlin.String? = null, vatomRestSecretKey: kotlin.String? = null, twilioAccountSID: kotlin.String? = null, twilioAuthToken: kotlin.String? = null, twilioSenderPhoneNumber: kotlin.String? = null, openAISecretKey: kotlin.String? = null) : ApplicationResponse {
+        val localVarResponse = createApplicationWithHttpInfo(appName = appName, deviceId = deviceId, accountId = accountId, about = about, bundleId = bundleId, appIconAssetId = appIconAssetId, appLogoAssetId = appLogoAssetId, facebookAppId = facebookAppId, facebookAppSecret = facebookAppSecret, googleApiKey = googleApiKey, updateEULADate = updateEULADate, eulaVersion = eulaVersion, landingPageUrl = landingPageUrl, showInActivities = showInActivities, activityDescription = activityDescription, inviteWelcomeText = inviteWelcomeText, invitePageUrl = invitePageUrl, urlScheme = urlScheme, platforms = platforms, downloadUrls = downloadUrls, categoryIds = categoryIds, scoringType = scoringType, hintCost = hintCost, maxScore = maxScore, ticketsPerPoint = ticketsPerPoint, hasGameData = hasGameData, publicNotifications = publicNotifications, useMatchingAlgorithm = useMatchingAlgorithm, globalTickets = globalTickets, buildVersion = buildVersion, apiVersion = apiVersion, placementName = placementName, placementDescription = placementDescription, placementSize = placementSize, placementHeight = placementHeight, placementWidth = placementWidth, placementRefreshInterval = placementRefreshInterval, createObjectStore = createObjectStore, publicContentApproval = publicContentApproval, productionMode = productionMode, minimumSessionLength = minimumSessionLength, sessionGapLength = sessionGapLength, localAdsEnabled = localAdsEnabled, sqootApiKey = sqootApiKey, trilatProcessingType = trilatProcessingType, maxSampleSize = maxSampleSize, minRSSI = minRSSI, modules = modules, authorizedCount = authorizedCount, authorizedServers = authorizedServers, defaultTimezone = defaultTimezone, smtpPass = smtpPass, metaData = metaData, placementMetaData = placementMetaData, ipsFloor = ipsFloor, enableAPNSBadge = enableAPNSBadge, includeInReport = includeInReport, defaultAppFilterId = defaultAppFilterId, enableWelcomeEmail = enableWelcomeEmail, appleAppId = appleAppId, appleTeamId = appleTeamId, appleAuthKeyId = appleAuthKeyId, appleAuthKey = appleAuthKey, appleIssuerId = appleIssuerId, appStoreKeyId = appStoreKeyId, appStoreKey = appStoreKey, googlePrivateKeyFile = googlePrivateKeyFile, authorizeNetApiKey = authorizeNetApiKey, authorizeNetTransactionKey = authorizeNetTransactionKey, emailSender = emailSender, smtpUser = smtpUser, smtpHost = smtpHost, vatomBusinessId = vatomBusinessId, vatomRestClientId = vatomRestClientId, vatomRestSecretKey = vatomRestSecretKey, twilioAccountSID = twilioAccountSID, twilioAuthToken = twilioAuthToken, twilioSenderPhoneNumber = twilioSenderPhoneNumber, openAISecretKey = openAISecretKey)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ApplicationResponse
@@ -229,10 +228,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/application/create
+     * POST /application/create
      * Create Application
      * Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
-     * @param version 
      * @param appName The name of the application
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -318,8 +316,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createApplicationWithHttpInfo(version: java.math.BigDecimal, appName: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, about: kotlin.String?, bundleId: kotlin.String?, appIconAssetId: kotlin.Long?, appLogoAssetId: kotlin.Long?, facebookAppId: kotlin.String?, facebookAppSecret: kotlin.String?, googleApiKey: kotlin.String?, updateEULADate: kotlin.Boolean?, eulaVersion: kotlin.String?, landingPageUrl: kotlin.String?, showInActivities: kotlin.Boolean?, activityDescription: kotlin.String?, inviteWelcomeText: kotlin.String?, invitePageUrl: kotlin.String?, urlScheme: kotlin.String?, platforms: kotlin.String?, downloadUrls: kotlin.String?, categoryIds: kotlin.String?, scoringType: ScoringTypeCreateApplication?, hintCost: kotlin.Int?, maxScore: kotlin.Int?, ticketsPerPoint: kotlin.Float?, hasGameData: kotlin.Boolean?, publicNotifications: kotlin.Boolean?, useMatchingAlgorithm: kotlin.Boolean?, globalTickets: kotlin.Boolean?, buildVersion: kotlin.Float?, apiVersion: kotlin.Float?, placementName: kotlin.String?, placementDescription: kotlin.String?, placementSize: PlacementSizeCreateApplication?, placementHeight: kotlin.Int?, placementWidth: kotlin.Int?, placementRefreshInterval: kotlin.Int?, createObjectStore: kotlin.Boolean?, publicContentApproval: kotlin.Boolean?, productionMode: kotlin.Boolean?, minimumSessionLength: kotlin.Int?, sessionGapLength: kotlin.Int?, localAdsEnabled: kotlin.Boolean?, sqootApiKey: kotlin.String?, trilatProcessingType: TrilatProcessingTypeCreateApplication?, maxSampleSize: kotlin.Int?, minRSSI: kotlin.Double?, modules: kotlin.String?, authorizedCount: kotlin.Int?, authorizedServers: kotlin.String?, defaultTimezone: kotlin.String?, smtpPass: kotlin.String?, metaData: kotlin.String?, placementMetaData: kotlin.String?, ipsFloor: kotlin.Boolean?, enableAPNSBadge: kotlin.Boolean?, includeInReport: kotlin.Boolean?, defaultAppFilterId: kotlin.Long?, enableWelcomeEmail: kotlin.Boolean?, appleAppId: kotlin.String?, appleTeamId: kotlin.String?, appleAuthKeyId: kotlin.String?, appleAuthKey: java.io.File?, appleIssuerId: kotlin.String?, appStoreKeyId: kotlin.String?, appStoreKey: java.io.File?, googlePrivateKeyFile: java.io.File?, authorizeNetApiKey: kotlin.String?, authorizeNetTransactionKey: kotlin.String?, emailSender: kotlin.String?, smtpUser: kotlin.String?, smtpHost: kotlin.String?, vatomBusinessId: kotlin.String?, vatomRestClientId: kotlin.String?, vatomRestSecretKey: kotlin.String?, twilioAccountSID: kotlin.String?, twilioAuthToken: kotlin.String?, twilioSenderPhoneNumber: kotlin.String?, openAISecretKey: kotlin.String?) : ApiResponse<ApplicationResponse?> {
-        val localVariableConfig = createApplicationRequestConfig(version = version, appName = appName, deviceId = deviceId, accountId = accountId, about = about, bundleId = bundleId, appIconAssetId = appIconAssetId, appLogoAssetId = appLogoAssetId, facebookAppId = facebookAppId, facebookAppSecret = facebookAppSecret, googleApiKey = googleApiKey, updateEULADate = updateEULADate, eulaVersion = eulaVersion, landingPageUrl = landingPageUrl, showInActivities = showInActivities, activityDescription = activityDescription, inviteWelcomeText = inviteWelcomeText, invitePageUrl = invitePageUrl, urlScheme = urlScheme, platforms = platforms, downloadUrls = downloadUrls, categoryIds = categoryIds, scoringType = scoringType, hintCost = hintCost, maxScore = maxScore, ticketsPerPoint = ticketsPerPoint, hasGameData = hasGameData, publicNotifications = publicNotifications, useMatchingAlgorithm = useMatchingAlgorithm, globalTickets = globalTickets, buildVersion = buildVersion, apiVersion = apiVersion, placementName = placementName, placementDescription = placementDescription, placementSize = placementSize, placementHeight = placementHeight, placementWidth = placementWidth, placementRefreshInterval = placementRefreshInterval, createObjectStore = createObjectStore, publicContentApproval = publicContentApproval, productionMode = productionMode, minimumSessionLength = minimumSessionLength, sessionGapLength = sessionGapLength, localAdsEnabled = localAdsEnabled, sqootApiKey = sqootApiKey, trilatProcessingType = trilatProcessingType, maxSampleSize = maxSampleSize, minRSSI = minRSSI, modules = modules, authorizedCount = authorizedCount, authorizedServers = authorizedServers, defaultTimezone = defaultTimezone, smtpPass = smtpPass, metaData = metaData, placementMetaData = placementMetaData, ipsFloor = ipsFloor, enableAPNSBadge = enableAPNSBadge, includeInReport = includeInReport, defaultAppFilterId = defaultAppFilterId, enableWelcomeEmail = enableWelcomeEmail, appleAppId = appleAppId, appleTeamId = appleTeamId, appleAuthKeyId = appleAuthKeyId, appleAuthKey = appleAuthKey, appleIssuerId = appleIssuerId, appStoreKeyId = appStoreKeyId, appStoreKey = appStoreKey, googlePrivateKeyFile = googlePrivateKeyFile, authorizeNetApiKey = authorizeNetApiKey, authorizeNetTransactionKey = authorizeNetTransactionKey, emailSender = emailSender, smtpUser = smtpUser, smtpHost = smtpHost, vatomBusinessId = vatomBusinessId, vatomRestClientId = vatomRestClientId, vatomRestSecretKey = vatomRestSecretKey, twilioAccountSID = twilioAccountSID, twilioAuthToken = twilioAuthToken, twilioSenderPhoneNumber = twilioSenderPhoneNumber, openAISecretKey = openAISecretKey)
+    fun createApplicationWithHttpInfo(appName: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, about: kotlin.String?, bundleId: kotlin.String?, appIconAssetId: kotlin.Long?, appLogoAssetId: kotlin.Long?, facebookAppId: kotlin.String?, facebookAppSecret: kotlin.String?, googleApiKey: kotlin.String?, updateEULADate: kotlin.Boolean?, eulaVersion: kotlin.String?, landingPageUrl: kotlin.String?, showInActivities: kotlin.Boolean?, activityDescription: kotlin.String?, inviteWelcomeText: kotlin.String?, invitePageUrl: kotlin.String?, urlScheme: kotlin.String?, platforms: kotlin.String?, downloadUrls: kotlin.String?, categoryIds: kotlin.String?, scoringType: ScoringTypeCreateApplication?, hintCost: kotlin.Int?, maxScore: kotlin.Int?, ticketsPerPoint: kotlin.Float?, hasGameData: kotlin.Boolean?, publicNotifications: kotlin.Boolean?, useMatchingAlgorithm: kotlin.Boolean?, globalTickets: kotlin.Boolean?, buildVersion: kotlin.Float?, apiVersion: kotlin.Float?, placementName: kotlin.String?, placementDescription: kotlin.String?, placementSize: PlacementSizeCreateApplication?, placementHeight: kotlin.Int?, placementWidth: kotlin.Int?, placementRefreshInterval: kotlin.Int?, createObjectStore: kotlin.Boolean?, publicContentApproval: kotlin.Boolean?, productionMode: kotlin.Boolean?, minimumSessionLength: kotlin.Int?, sessionGapLength: kotlin.Int?, localAdsEnabled: kotlin.Boolean?, sqootApiKey: kotlin.String?, trilatProcessingType: TrilatProcessingTypeCreateApplication?, maxSampleSize: kotlin.Int?, minRSSI: kotlin.Double?, modules: kotlin.String?, authorizedCount: kotlin.Int?, authorizedServers: kotlin.String?, defaultTimezone: kotlin.String?, smtpPass: kotlin.String?, metaData: kotlin.String?, placementMetaData: kotlin.String?, ipsFloor: kotlin.Boolean?, enableAPNSBadge: kotlin.Boolean?, includeInReport: kotlin.Boolean?, defaultAppFilterId: kotlin.Long?, enableWelcomeEmail: kotlin.Boolean?, appleAppId: kotlin.String?, appleTeamId: kotlin.String?, appleAuthKeyId: kotlin.String?, appleAuthKey: java.io.File?, appleIssuerId: kotlin.String?, appStoreKeyId: kotlin.String?, appStoreKey: java.io.File?, googlePrivateKeyFile: java.io.File?, authorizeNetApiKey: kotlin.String?, authorizeNetTransactionKey: kotlin.String?, emailSender: kotlin.String?, smtpUser: kotlin.String?, smtpHost: kotlin.String?, vatomBusinessId: kotlin.String?, vatomRestClientId: kotlin.String?, vatomRestSecretKey: kotlin.String?, twilioAccountSID: kotlin.String?, twilioAuthToken: kotlin.String?, twilioSenderPhoneNumber: kotlin.String?, openAISecretKey: kotlin.String?) : ApiResponse<ApplicationResponse?> {
+        val localVariableConfig = createApplicationRequestConfig(appName = appName, deviceId = deviceId, accountId = accountId, about = about, bundleId = bundleId, appIconAssetId = appIconAssetId, appLogoAssetId = appLogoAssetId, facebookAppId = facebookAppId, facebookAppSecret = facebookAppSecret, googleApiKey = googleApiKey, updateEULADate = updateEULADate, eulaVersion = eulaVersion, landingPageUrl = landingPageUrl, showInActivities = showInActivities, activityDescription = activityDescription, inviteWelcomeText = inviteWelcomeText, invitePageUrl = invitePageUrl, urlScheme = urlScheme, platforms = platforms, downloadUrls = downloadUrls, categoryIds = categoryIds, scoringType = scoringType, hintCost = hintCost, maxScore = maxScore, ticketsPerPoint = ticketsPerPoint, hasGameData = hasGameData, publicNotifications = publicNotifications, useMatchingAlgorithm = useMatchingAlgorithm, globalTickets = globalTickets, buildVersion = buildVersion, apiVersion = apiVersion, placementName = placementName, placementDescription = placementDescription, placementSize = placementSize, placementHeight = placementHeight, placementWidth = placementWidth, placementRefreshInterval = placementRefreshInterval, createObjectStore = createObjectStore, publicContentApproval = publicContentApproval, productionMode = productionMode, minimumSessionLength = minimumSessionLength, sessionGapLength = sessionGapLength, localAdsEnabled = localAdsEnabled, sqootApiKey = sqootApiKey, trilatProcessingType = trilatProcessingType, maxSampleSize = maxSampleSize, minRSSI = minRSSI, modules = modules, authorizedCount = authorizedCount, authorizedServers = authorizedServers, defaultTimezone = defaultTimezone, smtpPass = smtpPass, metaData = metaData, placementMetaData = placementMetaData, ipsFloor = ipsFloor, enableAPNSBadge = enableAPNSBadge, includeInReport = includeInReport, defaultAppFilterId = defaultAppFilterId, enableWelcomeEmail = enableWelcomeEmail, appleAppId = appleAppId, appleTeamId = appleTeamId, appleAuthKeyId = appleAuthKeyId, appleAuthKey = appleAuthKey, appleIssuerId = appleIssuerId, appStoreKeyId = appStoreKeyId, appStoreKey = appStoreKey, googlePrivateKeyFile = googlePrivateKeyFile, authorizeNetApiKey = authorizeNetApiKey, authorizeNetTransactionKey = authorizeNetTransactionKey, emailSender = emailSender, smtpUser = smtpUser, smtpHost = smtpHost, vatomBusinessId = vatomBusinessId, vatomRestClientId = vatomRestClientId, vatomRestSecretKey = vatomRestSecretKey, twilioAccountSID = twilioAccountSID, twilioAuthToken = twilioAuthToken, twilioSenderPhoneNumber = twilioSenderPhoneNumber, openAISecretKey = openAISecretKey)
 
         return request<Unit, ApplicationResponse>(
             localVariableConfig
@@ -329,7 +327,6 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation createApplication
      *
-     * @param version 
      * @param appName The name of the application
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -411,7 +408,7 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param openAISecretKey OpenAI Secret API Key (optional)
      * @return RequestConfig
      */
-    fun createApplicationRequestConfig(version: java.math.BigDecimal, appName: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, about: kotlin.String?, bundleId: kotlin.String?, appIconAssetId: kotlin.Long?, appLogoAssetId: kotlin.Long?, facebookAppId: kotlin.String?, facebookAppSecret: kotlin.String?, googleApiKey: kotlin.String?, updateEULADate: kotlin.Boolean?, eulaVersion: kotlin.String?, landingPageUrl: kotlin.String?, showInActivities: kotlin.Boolean?, activityDescription: kotlin.String?, inviteWelcomeText: kotlin.String?, invitePageUrl: kotlin.String?, urlScheme: kotlin.String?, platforms: kotlin.String?, downloadUrls: kotlin.String?, categoryIds: kotlin.String?, scoringType: ScoringTypeCreateApplication?, hintCost: kotlin.Int?, maxScore: kotlin.Int?, ticketsPerPoint: kotlin.Float?, hasGameData: kotlin.Boolean?, publicNotifications: kotlin.Boolean?, useMatchingAlgorithm: kotlin.Boolean?, globalTickets: kotlin.Boolean?, buildVersion: kotlin.Float?, apiVersion: kotlin.Float?, placementName: kotlin.String?, placementDescription: kotlin.String?, placementSize: PlacementSizeCreateApplication?, placementHeight: kotlin.Int?, placementWidth: kotlin.Int?, placementRefreshInterval: kotlin.Int?, createObjectStore: kotlin.Boolean?, publicContentApproval: kotlin.Boolean?, productionMode: kotlin.Boolean?, minimumSessionLength: kotlin.Int?, sessionGapLength: kotlin.Int?, localAdsEnabled: kotlin.Boolean?, sqootApiKey: kotlin.String?, trilatProcessingType: TrilatProcessingTypeCreateApplication?, maxSampleSize: kotlin.Int?, minRSSI: kotlin.Double?, modules: kotlin.String?, authorizedCount: kotlin.Int?, authorizedServers: kotlin.String?, defaultTimezone: kotlin.String?, smtpPass: kotlin.String?, metaData: kotlin.String?, placementMetaData: kotlin.String?, ipsFloor: kotlin.Boolean?, enableAPNSBadge: kotlin.Boolean?, includeInReport: kotlin.Boolean?, defaultAppFilterId: kotlin.Long?, enableWelcomeEmail: kotlin.Boolean?, appleAppId: kotlin.String?, appleTeamId: kotlin.String?, appleAuthKeyId: kotlin.String?, appleAuthKey: java.io.File?, appleIssuerId: kotlin.String?, appStoreKeyId: kotlin.String?, appStoreKey: java.io.File?, googlePrivateKeyFile: java.io.File?, authorizeNetApiKey: kotlin.String?, authorizeNetTransactionKey: kotlin.String?, emailSender: kotlin.String?, smtpUser: kotlin.String?, smtpHost: kotlin.String?, vatomBusinessId: kotlin.String?, vatomRestClientId: kotlin.String?, vatomRestSecretKey: kotlin.String?, twilioAccountSID: kotlin.String?, twilioAuthToken: kotlin.String?, twilioSenderPhoneNumber: kotlin.String?, openAISecretKey: kotlin.String?) : RequestConfig<Unit> {
+    fun createApplicationRequestConfig(appName: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, about: kotlin.String?, bundleId: kotlin.String?, appIconAssetId: kotlin.Long?, appLogoAssetId: kotlin.Long?, facebookAppId: kotlin.String?, facebookAppSecret: kotlin.String?, googleApiKey: kotlin.String?, updateEULADate: kotlin.Boolean?, eulaVersion: kotlin.String?, landingPageUrl: kotlin.String?, showInActivities: kotlin.Boolean?, activityDescription: kotlin.String?, inviteWelcomeText: kotlin.String?, invitePageUrl: kotlin.String?, urlScheme: kotlin.String?, platforms: kotlin.String?, downloadUrls: kotlin.String?, categoryIds: kotlin.String?, scoringType: ScoringTypeCreateApplication?, hintCost: kotlin.Int?, maxScore: kotlin.Int?, ticketsPerPoint: kotlin.Float?, hasGameData: kotlin.Boolean?, publicNotifications: kotlin.Boolean?, useMatchingAlgorithm: kotlin.Boolean?, globalTickets: kotlin.Boolean?, buildVersion: kotlin.Float?, apiVersion: kotlin.Float?, placementName: kotlin.String?, placementDescription: kotlin.String?, placementSize: PlacementSizeCreateApplication?, placementHeight: kotlin.Int?, placementWidth: kotlin.Int?, placementRefreshInterval: kotlin.Int?, createObjectStore: kotlin.Boolean?, publicContentApproval: kotlin.Boolean?, productionMode: kotlin.Boolean?, minimumSessionLength: kotlin.Int?, sessionGapLength: kotlin.Int?, localAdsEnabled: kotlin.Boolean?, sqootApiKey: kotlin.String?, trilatProcessingType: TrilatProcessingTypeCreateApplication?, maxSampleSize: kotlin.Int?, minRSSI: kotlin.Double?, modules: kotlin.String?, authorizedCount: kotlin.Int?, authorizedServers: kotlin.String?, defaultTimezone: kotlin.String?, smtpPass: kotlin.String?, metaData: kotlin.String?, placementMetaData: kotlin.String?, ipsFloor: kotlin.Boolean?, enableAPNSBadge: kotlin.Boolean?, includeInReport: kotlin.Boolean?, defaultAppFilterId: kotlin.Long?, enableWelcomeEmail: kotlin.Boolean?, appleAppId: kotlin.String?, appleTeamId: kotlin.String?, appleAuthKeyId: kotlin.String?, appleAuthKey: java.io.File?, appleIssuerId: kotlin.String?, appStoreKeyId: kotlin.String?, appStoreKey: java.io.File?, googlePrivateKeyFile: java.io.File?, authorizeNetApiKey: kotlin.String?, authorizeNetTransactionKey: kotlin.String?, emailSender: kotlin.String?, smtpUser: kotlin.String?, smtpHost: kotlin.String?, vatomBusinessId: kotlin.String?, vatomRestClientId: kotlin.String?, vatomRestSecretKey: kotlin.String?, twilioAccountSID: kotlin.String?, twilioAuthToken: kotlin.String?, twilioSenderPhoneNumber: kotlin.String?, openAISecretKey: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -655,7 +652,7 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/application/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/application/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -696,10 +693,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      }
 
     /**
-     * POST /api/{version}/application/placement/create
+     * POST /application/placement/create
      * Create Ad Placement
      * Creates a new ad placement for an application.
-     * @param version 
      * @param appKey The appKey of the application the ad placement is for
      * @param size The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -720,8 +716,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createApplicationPlacement(version: java.math.BigDecimal, appKey: kotlin.String, size: PropertySizeCreateApplicationPlacement, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, name: kotlin.String? = null, description: kotlin.String? = null, height: kotlin.Int? = null, width: kotlin.Int? = null, refreshInterval: kotlin.Int? = null, defaultImageId: kotlin.Long? = null, active: kotlin.Boolean? = null) : PlacementResponse {
-        val localVarResponse = createApplicationPlacementWithHttpInfo(version = version, appKey = appKey, size = size, deviceId = deviceId, accountId = accountId, name = name, description = description, height = height, width = width, refreshInterval = refreshInterval, defaultImageId = defaultImageId, active = active)
+    fun createApplicationPlacement(appKey: kotlin.String, size: PropertySizeCreateApplicationPlacement, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, name: kotlin.String? = null, description: kotlin.String? = null, height: kotlin.Int? = null, width: kotlin.Int? = null, refreshInterval: kotlin.Int? = null, defaultImageId: kotlin.Long? = null, active: kotlin.Boolean? = null) : PlacementResponse {
+        val localVarResponse = createApplicationPlacementWithHttpInfo(appKey = appKey, size = size, deviceId = deviceId, accountId = accountId, name = name, description = description, height = height, width = width, refreshInterval = refreshInterval, defaultImageId = defaultImageId, active = active)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PlacementResponse
@@ -739,10 +735,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/application/placement/create
+     * POST /application/placement/create
      * Create Ad Placement
      * Creates a new ad placement for an application.
-     * @param version 
      * @param appKey The appKey of the application the ad placement is for
      * @param size The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -760,8 +755,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createApplicationPlacementWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String, size: PropertySizeCreateApplicationPlacement, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, description: kotlin.String?, height: kotlin.Int?, width: kotlin.Int?, refreshInterval: kotlin.Int?, defaultImageId: kotlin.Long?, active: kotlin.Boolean?) : ApiResponse<PlacementResponse?> {
-        val localVariableConfig = createApplicationPlacementRequestConfig(version = version, appKey = appKey, size = size, deviceId = deviceId, accountId = accountId, name = name, description = description, height = height, width = width, refreshInterval = refreshInterval, defaultImageId = defaultImageId, active = active)
+    fun createApplicationPlacementWithHttpInfo(appKey: kotlin.String, size: PropertySizeCreateApplicationPlacement, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, description: kotlin.String?, height: kotlin.Int?, width: kotlin.Int?, refreshInterval: kotlin.Int?, defaultImageId: kotlin.Long?, active: kotlin.Boolean?) : ApiResponse<PlacementResponse?> {
+        val localVariableConfig = createApplicationPlacementRequestConfig(appKey = appKey, size = size, deviceId = deviceId, accountId = accountId, name = name, description = description, height = height, width = width, refreshInterval = refreshInterval, defaultImageId = defaultImageId, active = active)
 
         return request<Unit, PlacementResponse>(
             localVariableConfig
@@ -771,7 +766,6 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation createApplicationPlacement
      *
-     * @param version 
      * @param appKey The appKey of the application the ad placement is for
      * @param size The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -785,7 +779,7 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param active Active (optional)
      * @return RequestConfig
      */
-    fun createApplicationPlacementRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String, size: PropertySizeCreateApplicationPlacement, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, description: kotlin.String?, height: kotlin.Int?, width: kotlin.Int?, refreshInterval: kotlin.Int?, defaultImageId: kotlin.Long?, active: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun createApplicationPlacementRequestConfig(appKey: kotlin.String, size: PropertySizeCreateApplicationPlacement, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, description: kotlin.String?, height: kotlin.Int?, width: kotlin.Int?, refreshInterval: kotlin.Int?, defaultImageId: kotlin.Long?, active: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -823,7 +817,7 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/application/placement/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/application/placement/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -832,10 +826,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/application/delete
+     * POST /application/delete
      * Delete Application
      * Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
-     * @param version 
      * @param accountId The account used to perform the delete, must have rights to edit the application. (optional)
      * @param appKey The key of the application to be deleted (optional)
      * @return SirqulResponse
@@ -847,8 +840,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteApplication(version: java.math.BigDecimal, accountId: kotlin.Long? = null, appKey: kotlin.String? = null) : SirqulResponse {
-        val localVarResponse = deleteApplicationWithHttpInfo(version = version, accountId = accountId, appKey = appKey)
+    fun deleteApplication(accountId: kotlin.Long? = null, appKey: kotlin.String? = null) : SirqulResponse {
+        val localVarResponse = deleteApplicationWithHttpInfo(accountId = accountId, appKey = appKey)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -866,10 +859,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/application/delete
+     * POST /application/delete
      * Delete Application
      * Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
-     * @param version 
      * @param accountId The account used to perform the delete, must have rights to edit the application. (optional)
      * @param appKey The key of the application to be deleted (optional)
      * @return ApiResponse<SirqulResponse?>
@@ -878,8 +870,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteApplicationWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long?, appKey: kotlin.String?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteApplicationRequestConfig(version = version, accountId = accountId, appKey = appKey)
+    fun deleteApplicationWithHttpInfo(accountId: kotlin.Long?, appKey: kotlin.String?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteApplicationRequestConfig(accountId = accountId, appKey = appKey)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -889,12 +881,11 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation deleteApplication
      *
-     * @param version 
      * @param accountId The account used to perform the delete, must have rights to edit the application. (optional)
      * @param appKey The key of the application to be deleted (optional)
      * @return RequestConfig
      */
-    fun deleteApplicationRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long?, appKey: kotlin.String?) : RequestConfig<Unit> {
+    fun deleteApplicationRequestConfig(accountId: kotlin.Long?, appKey: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -909,7 +900,7 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/application/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/application/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -918,10 +909,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/application/placement/delete
+     * POST /application/placement/delete
      * Delete Ad Placement
      * Deletes an ad placement for an application.
-     * @param version 
      * @param placementId The id of the placement to delete, the user must have rights to the application the ad placement is for
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -934,8 +924,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteApplicationPlacement(version: java.math.BigDecimal, placementId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : PlacementResponse {
-        val localVarResponse = deleteApplicationPlacementWithHttpInfo(version = version, placementId = placementId, deviceId = deviceId, accountId = accountId)
+    fun deleteApplicationPlacement(placementId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : PlacementResponse {
+        val localVarResponse = deleteApplicationPlacementWithHttpInfo(placementId = placementId, deviceId = deviceId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PlacementResponse
@@ -953,10 +943,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/application/placement/delete
+     * POST /application/placement/delete
      * Delete Ad Placement
      * Deletes an ad placement for an application.
-     * @param version 
      * @param placementId The id of the placement to delete, the user must have rights to the application the ad placement is for
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -966,8 +955,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteApplicationPlacementWithHttpInfo(version: java.math.BigDecimal, placementId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<PlacementResponse?> {
-        val localVariableConfig = deleteApplicationPlacementRequestConfig(version = version, placementId = placementId, deviceId = deviceId, accountId = accountId)
+    fun deleteApplicationPlacementWithHttpInfo(placementId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<PlacementResponse?> {
+        val localVariableConfig = deleteApplicationPlacementRequestConfig(placementId = placementId, deviceId = deviceId, accountId = accountId)
 
         return request<Unit, PlacementResponse>(
             localVariableConfig
@@ -977,13 +966,12 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation deleteApplicationPlacement
      *
-     * @param version 
      * @param placementId The id of the placement to delete, the user must have rights to the application the ad placement is for
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @return RequestConfig
      */
-    fun deleteApplicationPlacementRequestConfig(version: java.math.BigDecimal, placementId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun deleteApplicationPlacementRequestConfig(placementId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -999,7 +987,7 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/application/placement/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/application/placement/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1008,10 +996,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/application/get
+     * GET /application/get
      * Get Application
      * Get a specific application by appKey
-     * @param version 
      * @param appKey The key of the application (optional)
      * @param applicationId Application Id (optional)
      * @return ApplicationResponse
@@ -1023,8 +1010,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getApplication(version: java.math.BigDecimal, appKey: kotlin.String? = null, applicationId: kotlin.Long? = null) : ApplicationResponse {
-        val localVarResponse = getApplicationWithHttpInfo(version = version, appKey = appKey, applicationId = applicationId)
+    fun getApplication(appKey: kotlin.String? = null, applicationId: kotlin.Long? = null) : ApplicationResponse {
+        val localVarResponse = getApplicationWithHttpInfo(appKey = appKey, applicationId = applicationId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ApplicationResponse
@@ -1042,10 +1029,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/application/get
+     * GET /application/get
      * Get Application
      * Get a specific application by appKey
-     * @param version 
      * @param appKey The key of the application (optional)
      * @param applicationId Application Id (optional)
      * @return ApiResponse<ApplicationResponse?>
@@ -1054,8 +1040,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getApplicationWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String?, applicationId: kotlin.Long?) : ApiResponse<ApplicationResponse?> {
-        val localVariableConfig = getApplicationRequestConfig(version = version, appKey = appKey, applicationId = applicationId)
+    fun getApplicationWithHttpInfo(appKey: kotlin.String?, applicationId: kotlin.Long?) : ApiResponse<ApplicationResponse?> {
+        val localVariableConfig = getApplicationRequestConfig(appKey = appKey, applicationId = applicationId)
 
         return request<Unit, ApplicationResponse>(
             localVariableConfig
@@ -1065,12 +1051,11 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation getApplication
      *
-     * @param version 
      * @param appKey The key of the application (optional)
      * @param applicationId Application Id (optional)
      * @return RequestConfig
      */
-    fun getApplicationRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String?, applicationId: kotlin.Long?) : RequestConfig<Unit> {
+    fun getApplicationRequestConfig(appKey: kotlin.String?, applicationId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1085,7 +1070,7 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/application/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/application/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1094,10 +1079,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/application/placement/get
+     * GET /application/placement/get
      * Get Ad Placement
      * Get details of an ad placement
-     * @param version 
      * @param placementId The id of the placement
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1110,8 +1094,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getApplicationPlacement(version: java.math.BigDecimal, placementId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : PlacementResponse {
-        val localVarResponse = getApplicationPlacementWithHttpInfo(version = version, placementId = placementId, deviceId = deviceId, accountId = accountId)
+    fun getApplicationPlacement(placementId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : PlacementResponse {
+        val localVarResponse = getApplicationPlacementWithHttpInfo(placementId = placementId, deviceId = deviceId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PlacementResponse
@@ -1129,10 +1113,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/application/placement/get
+     * GET /application/placement/get
      * Get Ad Placement
      * Get details of an ad placement
-     * @param version 
      * @param placementId The id of the placement
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1142,8 +1125,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getApplicationPlacementWithHttpInfo(version: java.math.BigDecimal, placementId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<PlacementResponse?> {
-        val localVariableConfig = getApplicationPlacementRequestConfig(version = version, placementId = placementId, deviceId = deviceId, accountId = accountId)
+    fun getApplicationPlacementWithHttpInfo(placementId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<PlacementResponse?> {
+        val localVariableConfig = getApplicationPlacementRequestConfig(placementId = placementId, deviceId = deviceId, accountId = accountId)
 
         return request<Unit, PlacementResponse>(
             localVariableConfig
@@ -1153,13 +1136,12 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation getApplicationPlacement
      *
-     * @param version 
      * @param placementId The id of the placement
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @return RequestConfig
      */
-    fun getApplicationPlacementRequestConfig(version: java.math.BigDecimal, placementId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun getApplicationPlacementRequestConfig(placementId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1175,7 +1157,7 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/application/placement/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/application/placement/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1184,10 +1166,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/application/versions
+     * GET /application/versions
      * Get API versions
      * Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
-     * @param version 
      * @return SirqulResponse
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1197,8 +1178,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getApplicationVersions(version: java.math.BigDecimal) : SirqulResponse {
-        val localVarResponse = getApplicationVersionsWithHttpInfo(version = version)
+    fun getApplicationVersions() : SirqulResponse {
+        val localVarResponse = getApplicationVersionsWithHttpInfo()
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -1216,18 +1197,17 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/application/versions
+     * GET /application/versions
      * Get API versions
      * Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
-     * @param version 
      * @return ApiResponse<SirqulResponse?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getApplicationVersionsWithHttpInfo(version: java.math.BigDecimal) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = getApplicationVersionsRequestConfig(version = version)
+    fun getApplicationVersionsWithHttpInfo() : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = getApplicationVersionsRequestConfig()
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -1237,17 +1217,16 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation getApplicationVersions
      *
-     * @param version 
      * @return RequestConfig
      */
-    fun getApplicationVersionsRequestConfig(version: java.math.BigDecimal) : RequestConfig<Unit> {
+    fun getApplicationVersionsRequestConfig() : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/application/versions".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/application/versions",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1256,10 +1235,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/application/users
+     * GET /application/users
      * Search Application Users
      * Get a list of users per application
-     * @param version 
      * @param appKey The application key
      * @param q Q (optional)
      * @param keyword The keyword used to search (optional)
@@ -1277,8 +1255,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getUniqueUsersByApp(version: java.math.BigDecimal, appKey: kotlin.String, q: kotlin.String? = null, keyword: kotlin.String? = null, since: kotlin.Long? = null, i: kotlin.Int? = null, start: kotlin.Int? = 0, l: kotlin.Int? = null, limit: kotlin.Int? = 20) : AccountListResponse {
-        val localVarResponse = getUniqueUsersByAppWithHttpInfo(version = version, appKey = appKey, q = q, keyword = keyword, since = since, i = i, start = start, l = l, limit = limit)
+    fun getUniqueUsersByApp(appKey: kotlin.String, q: kotlin.String? = null, keyword: kotlin.String? = null, since: kotlin.Long? = null, i: kotlin.Int? = null, start: kotlin.Int? = 0, l: kotlin.Int? = null, limit: kotlin.Int? = 20) : AccountListResponse {
+        val localVarResponse = getUniqueUsersByAppWithHttpInfo(appKey = appKey, q = q, keyword = keyword, since = since, i = i, start = start, l = l, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AccountListResponse
@@ -1296,10 +1274,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/application/users
+     * GET /application/users
      * Search Application Users
      * Get a list of users per application
-     * @param version 
      * @param appKey The application key
      * @param q Q (optional)
      * @param keyword The keyword used to search (optional)
@@ -1314,8 +1291,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getUniqueUsersByAppWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String, q: kotlin.String?, keyword: kotlin.String?, since: kotlin.Long?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<AccountListResponse?> {
-        val localVariableConfig = getUniqueUsersByAppRequestConfig(version = version, appKey = appKey, q = q, keyword = keyword, since = since, i = i, start = start, l = l, limit = limit)
+    fun getUniqueUsersByAppWithHttpInfo(appKey: kotlin.String, q: kotlin.String?, keyword: kotlin.String?, since: kotlin.Long?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<AccountListResponse?> {
+        val localVariableConfig = getUniqueUsersByAppRequestConfig(appKey = appKey, q = q, keyword = keyword, since = since, i = i, start = start, l = l, limit = limit)
 
         return request<Unit, AccountListResponse>(
             localVariableConfig
@@ -1325,7 +1302,6 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation getUniqueUsersByApp
      *
-     * @param version 
      * @param appKey The application key
      * @param q Q (optional)
      * @param keyword The keyword used to search (optional)
@@ -1336,7 +1312,7 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param limit The limit of the pagination (optional, default to 20)
      * @return RequestConfig
      */
-    fun getUniqueUsersByAppRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String, q: kotlin.String?, keyword: kotlin.String?, since: kotlin.Long?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun getUniqueUsersByAppRequestConfig(appKey: kotlin.String, q: kotlin.String?, keyword: kotlin.String?, since: kotlin.Long?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1367,7 +1343,7 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/application/users".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/application/users",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1415,10 +1391,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      }
 
     /**
-     * GET /api/{version}/application/list
+     * GET /application/list
      * List Applications
      * List active applications matching the criteria (as a consumer)
-     * @param version 
      * @param accountId The account id of the application owner/manager (optional)
      * @param q Q (optional)
      * @param keyword The keyword used to search for title, about, and description fields (optional)
@@ -1448,8 +1423,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listApplications(version: java.math.BigDecimal, accountId: kotlin.Long? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, platforms: kotlin.String? = null, deviceIds: kotlin.String? = null, deviceVersions: kotlin.String? = null, categoryIds: kotlin.String? = null, sortField: SortFieldListApplications? = SortFieldListApplications.UPDATED, hasAds: kotlin.Boolean? = null, publicNotifications: kotlin.Boolean? = null, filterBillable: kotlin.Boolean? = null, filterContentAdmin: kotlin.Boolean? = null, descending: kotlin.Boolean? = true, i: kotlin.Int? = null, start: kotlin.Int? = 0, l: kotlin.Int? = null, limit: kotlin.Int? = 20, applicationIds: kotlin.String? = null, hasObjectStore: kotlin.Boolean? = false, activeOnly: kotlin.Boolean? = true) : kotlin.collections.List<ApplicationShortResponse> {
-        val localVarResponse = listApplicationsWithHttpInfo(version = version, accountId = accountId, q = q, keyword = keyword, platforms = platforms, deviceIds = deviceIds, deviceVersions = deviceVersions, categoryIds = categoryIds, sortField = sortField, hasAds = hasAds, publicNotifications = publicNotifications, filterBillable = filterBillable, filterContentAdmin = filterContentAdmin, descending = descending, i = i, start = start, l = l, limit = limit, applicationIds = applicationIds, hasObjectStore = hasObjectStore, activeOnly = activeOnly)
+    fun listApplications(accountId: kotlin.Long? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, platforms: kotlin.String? = null, deviceIds: kotlin.String? = null, deviceVersions: kotlin.String? = null, categoryIds: kotlin.String? = null, sortField: SortFieldListApplications? = SortFieldListApplications.UPDATED, hasAds: kotlin.Boolean? = null, publicNotifications: kotlin.Boolean? = null, filterBillable: kotlin.Boolean? = null, filterContentAdmin: kotlin.Boolean? = null, descending: kotlin.Boolean? = true, i: kotlin.Int? = null, start: kotlin.Int? = 0, l: kotlin.Int? = null, limit: kotlin.Int? = 20, applicationIds: kotlin.String? = null, hasObjectStore: kotlin.Boolean? = false, activeOnly: kotlin.Boolean? = true) : kotlin.collections.List<ApplicationShortResponse> {
+        val localVarResponse = listApplicationsWithHttpInfo(accountId = accountId, q = q, keyword = keyword, platforms = platforms, deviceIds = deviceIds, deviceVersions = deviceVersions, categoryIds = categoryIds, sortField = sortField, hasAds = hasAds, publicNotifications = publicNotifications, filterBillable = filterBillable, filterContentAdmin = filterContentAdmin, descending = descending, i = i, start = start, l = l, limit = limit, applicationIds = applicationIds, hasObjectStore = hasObjectStore, activeOnly = activeOnly)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<ApplicationShortResponse>
@@ -1467,10 +1442,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/application/list
+     * GET /application/list
      * List Applications
      * List active applications matching the criteria (as a consumer)
-     * @param version 
      * @param accountId The account id of the application owner/manager (optional)
      * @param q Q (optional)
      * @param keyword The keyword used to search for title, about, and description fields (optional)
@@ -1497,8 +1471,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun listApplicationsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, platforms: kotlin.String?, deviceIds: kotlin.String?, deviceVersions: kotlin.String?, categoryIds: kotlin.String?, sortField: SortFieldListApplications?, hasAds: kotlin.Boolean?, publicNotifications: kotlin.Boolean?, filterBillable: kotlin.Boolean?, filterContentAdmin: kotlin.Boolean?, descending: kotlin.Boolean?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?, applicationIds: kotlin.String?, hasObjectStore: kotlin.Boolean?, activeOnly: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<ApplicationShortResponse>?> {
-        val localVariableConfig = listApplicationsRequestConfig(version = version, accountId = accountId, q = q, keyword = keyword, platforms = platforms, deviceIds = deviceIds, deviceVersions = deviceVersions, categoryIds = categoryIds, sortField = sortField, hasAds = hasAds, publicNotifications = publicNotifications, filterBillable = filterBillable, filterContentAdmin = filterContentAdmin, descending = descending, i = i, start = start, l = l, limit = limit, applicationIds = applicationIds, hasObjectStore = hasObjectStore, activeOnly = activeOnly)
+    fun listApplicationsWithHttpInfo(accountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, platforms: kotlin.String?, deviceIds: kotlin.String?, deviceVersions: kotlin.String?, categoryIds: kotlin.String?, sortField: SortFieldListApplications?, hasAds: kotlin.Boolean?, publicNotifications: kotlin.Boolean?, filterBillable: kotlin.Boolean?, filterContentAdmin: kotlin.Boolean?, descending: kotlin.Boolean?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?, applicationIds: kotlin.String?, hasObjectStore: kotlin.Boolean?, activeOnly: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<ApplicationShortResponse>?> {
+        val localVariableConfig = listApplicationsRequestConfig(accountId = accountId, q = q, keyword = keyword, platforms = platforms, deviceIds = deviceIds, deviceVersions = deviceVersions, categoryIds = categoryIds, sortField = sortField, hasAds = hasAds, publicNotifications = publicNotifications, filterBillable = filterBillable, filterContentAdmin = filterContentAdmin, descending = descending, i = i, start = start, l = l, limit = limit, applicationIds = applicationIds, hasObjectStore = hasObjectStore, activeOnly = activeOnly)
 
         return request<Unit, kotlin.collections.List<ApplicationShortResponse>>(
             localVariableConfig
@@ -1508,7 +1482,6 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation listApplications
      *
-     * @param version 
      * @param accountId The account id of the application owner/manager (optional)
      * @param q Q (optional)
      * @param keyword The keyword used to search for title, about, and description fields (optional)
@@ -1531,7 +1504,7 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param activeOnly Return only active results (optional, default to true)
      * @return RequestConfig
      */
-    fun listApplicationsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, platforms: kotlin.String?, deviceIds: kotlin.String?, deviceVersions: kotlin.String?, categoryIds: kotlin.String?, sortField: SortFieldListApplications?, hasAds: kotlin.Boolean?, publicNotifications: kotlin.Boolean?, filterBillable: kotlin.Boolean?, filterContentAdmin: kotlin.Boolean?, descending: kotlin.Boolean?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?, applicationIds: kotlin.String?, hasObjectStore: kotlin.Boolean?, activeOnly: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun listApplicationsRequestConfig(accountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, platforms: kotlin.String?, deviceIds: kotlin.String?, deviceVersions: kotlin.String?, categoryIds: kotlin.String?, sortField: SortFieldListApplications?, hasAds: kotlin.Boolean?, publicNotifications: kotlin.Boolean?, filterBillable: kotlin.Boolean?, filterContentAdmin: kotlin.Boolean?, descending: kotlin.Boolean?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?, applicationIds: kotlin.String?, hasObjectStore: kotlin.Boolean?, activeOnly: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1600,7 +1573,7 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/application/list".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/application/list",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1609,10 +1582,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/application/placement/search
+     * GET /application/placement/search
      * Search for Ad Placements
      * Searches placements for an application.
-     * @param version 
      * @param appKey The key of the application
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1627,8 +1599,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchApplicationPlacement(version: java.math.BigDecimal, appKey: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, start: kotlin.Int? = 0, limit: kotlin.Int? = 100) : kotlin.collections.List<PlacementResponse> {
-        val localVarResponse = searchApplicationPlacementWithHttpInfo(version = version, appKey = appKey, deviceId = deviceId, accountId = accountId, start = start, limit = limit)
+    fun searchApplicationPlacement(appKey: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, start: kotlin.Int? = 0, limit: kotlin.Int? = 100) : kotlin.collections.List<PlacementResponse> {
+        val localVarResponse = searchApplicationPlacementWithHttpInfo(appKey = appKey, deviceId = deviceId, accountId = accountId, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<PlacementResponse>
@@ -1646,10 +1618,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/application/placement/search
+     * GET /application/placement/search
      * Search for Ad Placements
      * Searches placements for an application.
-     * @param version 
      * @param appKey The key of the application
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1661,8 +1632,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchApplicationPlacementWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<PlacementResponse>?> {
-        val localVariableConfig = searchApplicationPlacementRequestConfig(version = version, appKey = appKey, deviceId = deviceId, accountId = accountId, start = start, limit = limit)
+    fun searchApplicationPlacementWithHttpInfo(appKey: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<PlacementResponse>?> {
+        val localVariableConfig = searchApplicationPlacementRequestConfig(appKey = appKey, deviceId = deviceId, accountId = accountId, start = start, limit = limit)
 
         return request<Unit, kotlin.collections.List<PlacementResponse>>(
             localVariableConfig
@@ -1672,7 +1643,6 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation searchApplicationPlacement
      *
-     * @param version 
      * @param appKey The key of the application
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1680,7 +1650,7 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param limit The limit of the pagination (optional, default to 100)
      * @return RequestConfig
      */
-    fun searchApplicationPlacementRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchApplicationPlacementRequestConfig(appKey: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1702,7 +1672,7 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/application/placement/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/application/placement/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1711,10 +1681,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/application/settings/search
+     * GET /application/settings/search
      * Search for Application Settings
      * Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId The account id used to view another person&#39;s account (optional)
@@ -1732,8 +1701,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchApplicationSettings(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionAccountId: kotlin.Long? = null, keyword: kotlin.String? = null, sortField: kotlin.String? = "APPLICATION_TITLE", descending: kotlin.Boolean? = false, start: kotlin.Int? = 0, limit: kotlin.Int? = 20) : ApplicationSettingsResponse {
-        val localVarResponse = searchApplicationSettingsWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit)
+    fun searchApplicationSettings(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionAccountId: kotlin.Long? = null, keyword: kotlin.String? = null, sortField: kotlin.String? = "APPLICATION_TITLE", descending: kotlin.Boolean? = false, start: kotlin.Int? = 0, limit: kotlin.Int? = 20) : ApplicationSettingsResponse {
+        val localVarResponse = searchApplicationSettingsWithHttpInfo(deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ApplicationSettingsResponse
@@ -1751,10 +1720,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/application/settings/search
+     * GET /application/settings/search
      * Search for Application Settings
      * Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId The account id used to view another person&#39;s account (optional)
@@ -1769,8 +1737,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchApplicationSettingsWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<ApplicationSettingsResponse?> {
-        val localVariableConfig = searchApplicationSettingsRequestConfig(version = version, deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit)
+    fun searchApplicationSettingsWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<ApplicationSettingsResponse?> {
+        val localVariableConfig = searchApplicationSettingsRequestConfig(deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit)
 
         return request<Unit, ApplicationSettingsResponse>(
             localVariableConfig
@@ -1780,7 +1748,6 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation searchApplicationSettings
      *
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId The account id used to view another person&#39;s account (optional)
@@ -1791,7 +1758,7 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param limit The limit per result set for pagination (optional, default to 20)
      * @return RequestConfig
      */
-    fun searchApplicationSettingsRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchApplicationSettingsRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1824,7 +1791,7 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/application/settings/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/application/settings/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1872,10 +1839,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      }
 
     /**
-     * GET /api/{version}/application/search
+     * GET /application/search
      * Search Applications
      * Search for applications matching the criteria that the logged in user has access to
-     * @param version 
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude The location of the device (optional)
@@ -1901,8 +1867,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchApplications(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, qSearchFields: kotlin.String? = "NAME,ABOUT,BILLABLE_ENTITY_NAME", sortField: SortFieldSearchApplications? = SortFieldSearchApplications.APPLICATION_ID, descending: kotlin.Boolean? = false, i: kotlin.Int? = null, start: kotlin.Int? = 0, l: kotlin.Int? = null, limit: kotlin.Int? = 100, hasAds: kotlin.Boolean? = null, publicNotifications: kotlin.Boolean? = null, activeOnly: kotlin.Boolean? = false) : kotlin.collections.List<ApplicationResponse> {
-        val localVarResponse = searchApplicationsWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, q = q, keyword = keyword, qSearchFields = qSearchFields, sortField = sortField, descending = descending, i = i, start = start, l = l, limit = limit, hasAds = hasAds, publicNotifications = publicNotifications, activeOnly = activeOnly)
+    fun searchApplications(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, qSearchFields: kotlin.String? = "NAME,ABOUT,BILLABLE_ENTITY_NAME", sortField: SortFieldSearchApplications? = SortFieldSearchApplications.APPLICATION_ID, descending: kotlin.Boolean? = false, i: kotlin.Int? = null, start: kotlin.Int? = 0, l: kotlin.Int? = null, limit: kotlin.Int? = 100, hasAds: kotlin.Boolean? = null, publicNotifications: kotlin.Boolean? = null, activeOnly: kotlin.Boolean? = false) : kotlin.collections.List<ApplicationResponse> {
+        val localVarResponse = searchApplicationsWithHttpInfo(deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, q = q, keyword = keyword, qSearchFields = qSearchFields, sortField = sortField, descending = descending, i = i, start = start, l = l, limit = limit, hasAds = hasAds, publicNotifications = publicNotifications, activeOnly = activeOnly)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<ApplicationResponse>
@@ -1920,10 +1886,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/application/search
+     * GET /application/search
      * Search Applications
      * Search for applications matching the criteria that the logged in user has access to
-     * @param version 
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude The location of the device (optional)
@@ -1946,8 +1911,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchApplicationsWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, q: kotlin.String?, keyword: kotlin.String?, qSearchFields: kotlin.String?, sortField: SortFieldSearchApplications?, descending: kotlin.Boolean?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?, hasAds: kotlin.Boolean?, publicNotifications: kotlin.Boolean?, activeOnly: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<ApplicationResponse>?> {
-        val localVariableConfig = searchApplicationsRequestConfig(version = version, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, q = q, keyword = keyword, qSearchFields = qSearchFields, sortField = sortField, descending = descending, i = i, start = start, l = l, limit = limit, hasAds = hasAds, publicNotifications = publicNotifications, activeOnly = activeOnly)
+    fun searchApplicationsWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, q: kotlin.String?, keyword: kotlin.String?, qSearchFields: kotlin.String?, sortField: SortFieldSearchApplications?, descending: kotlin.Boolean?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?, hasAds: kotlin.Boolean?, publicNotifications: kotlin.Boolean?, activeOnly: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<ApplicationResponse>?> {
+        val localVariableConfig = searchApplicationsRequestConfig(deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, q = q, keyword = keyword, qSearchFields = qSearchFields, sortField = sortField, descending = descending, i = i, start = start, l = l, limit = limit, hasAds = hasAds, publicNotifications = publicNotifications, activeOnly = activeOnly)
 
         return request<Unit, kotlin.collections.List<ApplicationResponse>>(
             localVariableConfig
@@ -1957,7 +1922,6 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation searchApplications
      *
-     * @param version 
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude The location of the device (optional)
@@ -1976,7 +1940,7 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param activeOnly Return only active results (optional, default to false)
      * @return RequestConfig
      */
-    fun searchApplicationsRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, q: kotlin.String?, keyword: kotlin.String?, qSearchFields: kotlin.String?, sortField: SortFieldSearchApplications?, descending: kotlin.Boolean?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?, hasAds: kotlin.Boolean?, publicNotifications: kotlin.Boolean?, activeOnly: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchApplicationsRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, q: kotlin.String?, keyword: kotlin.String?, qSearchFields: kotlin.String?, sortField: SortFieldSearchApplications?, descending: kotlin.Boolean?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?, hasAds: kotlin.Boolean?, publicNotifications: kotlin.Boolean?, activeOnly: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2033,7 +1997,7 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/application/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/application/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2109,10 +2073,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      }
 
     /**
-     * POST /api/{version}/application/update
+     * POST /application/update
      * Update Application
      * Update an application record
-     * @param version 
      * @param appKey The application key for updating an existing application
      * @param appName The name of the application
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -2202,8 +2165,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateApplication(version: java.math.BigDecimal, appKey: kotlin.String, appName: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, about: kotlin.String? = null, bundleId: kotlin.String? = null, appIconAssetId: kotlin.Long? = null, appLogoAssetId: kotlin.Long? = null, facebookAppId: kotlin.String? = null, facebookAppSecret: kotlin.String? = null, googleApiKey: kotlin.String? = null, updateEULADate: kotlin.Boolean? = null, eulaVersion: kotlin.String? = null, landingPageUrl: kotlin.String? = null, showInActivities: kotlin.Boolean? = null, activityDescription: kotlin.String? = null, inviteWelcomeText: kotlin.String? = null, invitePageUrl: kotlin.String? = null, urlScheme: kotlin.String? = null, platforms: kotlin.String? = null, downloadUrls: kotlin.String? = null, categoryIds: kotlin.String? = null, scoringType: ScoringTypeUpdateApplication? = ScoringTypeUpdateApplication.GAME_LEVEL, hintCost: kotlin.Int? = 11, maxScore: kotlin.Int? = 125, ticketsPerPoint: kotlin.Float? = 0.037f, hasGameData: kotlin.Boolean? = true, publicNotifications: kotlin.Boolean? = null, useMatchingAlgorithm: kotlin.Boolean? = null, globalTickets: kotlin.Boolean? = false, buildVersion: kotlin.Float? = 1f, apiVersion: kotlin.Float? = null, placementName: kotlin.String? = null, placementDescription: kotlin.String? = null, placementSize: PlacementSizeUpdateApplication? = null, placementHeight: kotlin.Int? = null, placementWidth: kotlin.Int? = null, placementRefreshInterval: kotlin.Int? = null, createObjectStore: kotlin.Boolean? = true, publicContentApproval: kotlin.Boolean? = false, productionMode: kotlin.Boolean? = false, minimumSessionLength: kotlin.Int? = null, sessionGapLength: kotlin.Int? = null, localAdsEnabled: kotlin.Boolean? = false, sqootApiKey: kotlin.String? = null, trilatProcessingType: TrilatProcessingTypeUpdateApplication? = TrilatProcessingTypeUpdateApplication.FINGERPRINT, maxSampleSize: kotlin.Int? = null, minRSSI: kotlin.Double? = null, modules: kotlin.String? = "ALL", authorizedCount: kotlin.Int? = 1, authorizedServers: kotlin.String? = null, defaultTimezone: kotlin.String? = null, smtpPass: kotlin.String? = null, metaData: kotlin.String? = null, placementMetaData: kotlin.String? = null, ipsFloor: kotlin.Boolean? = false, enableAPNSBadge: kotlin.Boolean? = true, includeInReport: kotlin.Boolean? = true, defaultAppFilterId: kotlin.Long? = null, enableWelcomeEmail: kotlin.Boolean? = null, appleAppId: kotlin.String? = null, appleTeamId: kotlin.String? = null, appleAuthKeyId: kotlin.String? = null, appleAuthKey: java.io.File? = null, appleIssuerId: kotlin.String? = null, appStoreKeyId: kotlin.String? = null, appStoreKey: java.io.File? = null, googlePrivateKeyFile: java.io.File? = null, authorizeNetApiKey: kotlin.String? = null, authorizeNetTransactionKey: kotlin.String? = null, emailSender: kotlin.String? = null, smtpUser: kotlin.String? = null, smtpHost: kotlin.String? = null, vatomBusinessId: kotlin.String? = null, vatomRestClientId: kotlin.String? = null, vatomRestSecretKey: kotlin.String? = null, twilioAccountSID: kotlin.String? = null, twilioAuthToken: kotlin.String? = null, twilioSenderPhoneNumber: kotlin.String? = null, openAISecretKey: kotlin.String? = null) : ApplicationResponse {
-        val localVarResponse = updateApplicationWithHttpInfo(version = version, appKey = appKey, appName = appName, deviceId = deviceId, accountId = accountId, about = about, bundleId = bundleId, appIconAssetId = appIconAssetId, appLogoAssetId = appLogoAssetId, facebookAppId = facebookAppId, facebookAppSecret = facebookAppSecret, googleApiKey = googleApiKey, updateEULADate = updateEULADate, eulaVersion = eulaVersion, landingPageUrl = landingPageUrl, showInActivities = showInActivities, activityDescription = activityDescription, inviteWelcomeText = inviteWelcomeText, invitePageUrl = invitePageUrl, urlScheme = urlScheme, platforms = platforms, downloadUrls = downloadUrls, categoryIds = categoryIds, scoringType = scoringType, hintCost = hintCost, maxScore = maxScore, ticketsPerPoint = ticketsPerPoint, hasGameData = hasGameData, publicNotifications = publicNotifications, useMatchingAlgorithm = useMatchingAlgorithm, globalTickets = globalTickets, buildVersion = buildVersion, apiVersion = apiVersion, placementName = placementName, placementDescription = placementDescription, placementSize = placementSize, placementHeight = placementHeight, placementWidth = placementWidth, placementRefreshInterval = placementRefreshInterval, createObjectStore = createObjectStore, publicContentApproval = publicContentApproval, productionMode = productionMode, minimumSessionLength = minimumSessionLength, sessionGapLength = sessionGapLength, localAdsEnabled = localAdsEnabled, sqootApiKey = sqootApiKey, trilatProcessingType = trilatProcessingType, maxSampleSize = maxSampleSize, minRSSI = minRSSI, modules = modules, authorizedCount = authorizedCount, authorizedServers = authorizedServers, defaultTimezone = defaultTimezone, smtpPass = smtpPass, metaData = metaData, placementMetaData = placementMetaData, ipsFloor = ipsFloor, enableAPNSBadge = enableAPNSBadge, includeInReport = includeInReport, defaultAppFilterId = defaultAppFilterId, enableWelcomeEmail = enableWelcomeEmail, appleAppId = appleAppId, appleTeamId = appleTeamId, appleAuthKeyId = appleAuthKeyId, appleAuthKey = appleAuthKey, appleIssuerId = appleIssuerId, appStoreKeyId = appStoreKeyId, appStoreKey = appStoreKey, googlePrivateKeyFile = googlePrivateKeyFile, authorizeNetApiKey = authorizeNetApiKey, authorizeNetTransactionKey = authorizeNetTransactionKey, emailSender = emailSender, smtpUser = smtpUser, smtpHost = smtpHost, vatomBusinessId = vatomBusinessId, vatomRestClientId = vatomRestClientId, vatomRestSecretKey = vatomRestSecretKey, twilioAccountSID = twilioAccountSID, twilioAuthToken = twilioAuthToken, twilioSenderPhoneNumber = twilioSenderPhoneNumber, openAISecretKey = openAISecretKey)
+    fun updateApplication(appKey: kotlin.String, appName: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, about: kotlin.String? = null, bundleId: kotlin.String? = null, appIconAssetId: kotlin.Long? = null, appLogoAssetId: kotlin.Long? = null, facebookAppId: kotlin.String? = null, facebookAppSecret: kotlin.String? = null, googleApiKey: kotlin.String? = null, updateEULADate: kotlin.Boolean? = null, eulaVersion: kotlin.String? = null, landingPageUrl: kotlin.String? = null, showInActivities: kotlin.Boolean? = null, activityDescription: kotlin.String? = null, inviteWelcomeText: kotlin.String? = null, invitePageUrl: kotlin.String? = null, urlScheme: kotlin.String? = null, platforms: kotlin.String? = null, downloadUrls: kotlin.String? = null, categoryIds: kotlin.String? = null, scoringType: ScoringTypeUpdateApplication? = ScoringTypeUpdateApplication.GAME_LEVEL, hintCost: kotlin.Int? = 11, maxScore: kotlin.Int? = 125, ticketsPerPoint: kotlin.Float? = 0.037f, hasGameData: kotlin.Boolean? = true, publicNotifications: kotlin.Boolean? = null, useMatchingAlgorithm: kotlin.Boolean? = null, globalTickets: kotlin.Boolean? = false, buildVersion: kotlin.Float? = 1f, apiVersion: kotlin.Float? = null, placementName: kotlin.String? = null, placementDescription: kotlin.String? = null, placementSize: PlacementSizeUpdateApplication? = null, placementHeight: kotlin.Int? = null, placementWidth: kotlin.Int? = null, placementRefreshInterval: kotlin.Int? = null, createObjectStore: kotlin.Boolean? = true, publicContentApproval: kotlin.Boolean? = false, productionMode: kotlin.Boolean? = false, minimumSessionLength: kotlin.Int? = null, sessionGapLength: kotlin.Int? = null, localAdsEnabled: kotlin.Boolean? = false, sqootApiKey: kotlin.String? = null, trilatProcessingType: TrilatProcessingTypeUpdateApplication? = TrilatProcessingTypeUpdateApplication.FINGERPRINT, maxSampleSize: kotlin.Int? = null, minRSSI: kotlin.Double? = null, modules: kotlin.String? = "ALL", authorizedCount: kotlin.Int? = 1, authorizedServers: kotlin.String? = null, defaultTimezone: kotlin.String? = null, smtpPass: kotlin.String? = null, metaData: kotlin.String? = null, placementMetaData: kotlin.String? = null, ipsFloor: kotlin.Boolean? = false, enableAPNSBadge: kotlin.Boolean? = true, includeInReport: kotlin.Boolean? = true, defaultAppFilterId: kotlin.Long? = null, enableWelcomeEmail: kotlin.Boolean? = null, appleAppId: kotlin.String? = null, appleTeamId: kotlin.String? = null, appleAuthKeyId: kotlin.String? = null, appleAuthKey: java.io.File? = null, appleIssuerId: kotlin.String? = null, appStoreKeyId: kotlin.String? = null, appStoreKey: java.io.File? = null, googlePrivateKeyFile: java.io.File? = null, authorizeNetApiKey: kotlin.String? = null, authorizeNetTransactionKey: kotlin.String? = null, emailSender: kotlin.String? = null, smtpUser: kotlin.String? = null, smtpHost: kotlin.String? = null, vatomBusinessId: kotlin.String? = null, vatomRestClientId: kotlin.String? = null, vatomRestSecretKey: kotlin.String? = null, twilioAccountSID: kotlin.String? = null, twilioAuthToken: kotlin.String? = null, twilioSenderPhoneNumber: kotlin.String? = null, openAISecretKey: kotlin.String? = null) : ApplicationResponse {
+        val localVarResponse = updateApplicationWithHttpInfo(appKey = appKey, appName = appName, deviceId = deviceId, accountId = accountId, about = about, bundleId = bundleId, appIconAssetId = appIconAssetId, appLogoAssetId = appLogoAssetId, facebookAppId = facebookAppId, facebookAppSecret = facebookAppSecret, googleApiKey = googleApiKey, updateEULADate = updateEULADate, eulaVersion = eulaVersion, landingPageUrl = landingPageUrl, showInActivities = showInActivities, activityDescription = activityDescription, inviteWelcomeText = inviteWelcomeText, invitePageUrl = invitePageUrl, urlScheme = urlScheme, platforms = platforms, downloadUrls = downloadUrls, categoryIds = categoryIds, scoringType = scoringType, hintCost = hintCost, maxScore = maxScore, ticketsPerPoint = ticketsPerPoint, hasGameData = hasGameData, publicNotifications = publicNotifications, useMatchingAlgorithm = useMatchingAlgorithm, globalTickets = globalTickets, buildVersion = buildVersion, apiVersion = apiVersion, placementName = placementName, placementDescription = placementDescription, placementSize = placementSize, placementHeight = placementHeight, placementWidth = placementWidth, placementRefreshInterval = placementRefreshInterval, createObjectStore = createObjectStore, publicContentApproval = publicContentApproval, productionMode = productionMode, minimumSessionLength = minimumSessionLength, sessionGapLength = sessionGapLength, localAdsEnabled = localAdsEnabled, sqootApiKey = sqootApiKey, trilatProcessingType = trilatProcessingType, maxSampleSize = maxSampleSize, minRSSI = minRSSI, modules = modules, authorizedCount = authorizedCount, authorizedServers = authorizedServers, defaultTimezone = defaultTimezone, smtpPass = smtpPass, metaData = metaData, placementMetaData = placementMetaData, ipsFloor = ipsFloor, enableAPNSBadge = enableAPNSBadge, includeInReport = includeInReport, defaultAppFilterId = defaultAppFilterId, enableWelcomeEmail = enableWelcomeEmail, appleAppId = appleAppId, appleTeamId = appleTeamId, appleAuthKeyId = appleAuthKeyId, appleAuthKey = appleAuthKey, appleIssuerId = appleIssuerId, appStoreKeyId = appStoreKeyId, appStoreKey = appStoreKey, googlePrivateKeyFile = googlePrivateKeyFile, authorizeNetApiKey = authorizeNetApiKey, authorizeNetTransactionKey = authorizeNetTransactionKey, emailSender = emailSender, smtpUser = smtpUser, smtpHost = smtpHost, vatomBusinessId = vatomBusinessId, vatomRestClientId = vatomRestClientId, vatomRestSecretKey = vatomRestSecretKey, twilioAccountSID = twilioAccountSID, twilioAuthToken = twilioAuthToken, twilioSenderPhoneNumber = twilioSenderPhoneNumber, openAISecretKey = openAISecretKey)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ApplicationResponse
@@ -2221,10 +2184,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/application/update
+     * POST /application/update
      * Update Application
      * Update an application record
-     * @param version 
      * @param appKey The application key for updating an existing application
      * @param appName The name of the application
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -2311,8 +2273,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateApplicationWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String, appName: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, about: kotlin.String?, bundleId: kotlin.String?, appIconAssetId: kotlin.Long?, appLogoAssetId: kotlin.Long?, facebookAppId: kotlin.String?, facebookAppSecret: kotlin.String?, googleApiKey: kotlin.String?, updateEULADate: kotlin.Boolean?, eulaVersion: kotlin.String?, landingPageUrl: kotlin.String?, showInActivities: kotlin.Boolean?, activityDescription: kotlin.String?, inviteWelcomeText: kotlin.String?, invitePageUrl: kotlin.String?, urlScheme: kotlin.String?, platforms: kotlin.String?, downloadUrls: kotlin.String?, categoryIds: kotlin.String?, scoringType: ScoringTypeUpdateApplication?, hintCost: kotlin.Int?, maxScore: kotlin.Int?, ticketsPerPoint: kotlin.Float?, hasGameData: kotlin.Boolean?, publicNotifications: kotlin.Boolean?, useMatchingAlgorithm: kotlin.Boolean?, globalTickets: kotlin.Boolean?, buildVersion: kotlin.Float?, apiVersion: kotlin.Float?, placementName: kotlin.String?, placementDescription: kotlin.String?, placementSize: PlacementSizeUpdateApplication?, placementHeight: kotlin.Int?, placementWidth: kotlin.Int?, placementRefreshInterval: kotlin.Int?, createObjectStore: kotlin.Boolean?, publicContentApproval: kotlin.Boolean?, productionMode: kotlin.Boolean?, minimumSessionLength: kotlin.Int?, sessionGapLength: kotlin.Int?, localAdsEnabled: kotlin.Boolean?, sqootApiKey: kotlin.String?, trilatProcessingType: TrilatProcessingTypeUpdateApplication?, maxSampleSize: kotlin.Int?, minRSSI: kotlin.Double?, modules: kotlin.String?, authorizedCount: kotlin.Int?, authorizedServers: kotlin.String?, defaultTimezone: kotlin.String?, smtpPass: kotlin.String?, metaData: kotlin.String?, placementMetaData: kotlin.String?, ipsFloor: kotlin.Boolean?, enableAPNSBadge: kotlin.Boolean?, includeInReport: kotlin.Boolean?, defaultAppFilterId: kotlin.Long?, enableWelcomeEmail: kotlin.Boolean?, appleAppId: kotlin.String?, appleTeamId: kotlin.String?, appleAuthKeyId: kotlin.String?, appleAuthKey: java.io.File?, appleIssuerId: kotlin.String?, appStoreKeyId: kotlin.String?, appStoreKey: java.io.File?, googlePrivateKeyFile: java.io.File?, authorizeNetApiKey: kotlin.String?, authorizeNetTransactionKey: kotlin.String?, emailSender: kotlin.String?, smtpUser: kotlin.String?, smtpHost: kotlin.String?, vatomBusinessId: kotlin.String?, vatomRestClientId: kotlin.String?, vatomRestSecretKey: kotlin.String?, twilioAccountSID: kotlin.String?, twilioAuthToken: kotlin.String?, twilioSenderPhoneNumber: kotlin.String?, openAISecretKey: kotlin.String?) : ApiResponse<ApplicationResponse?> {
-        val localVariableConfig = updateApplicationRequestConfig(version = version, appKey = appKey, appName = appName, deviceId = deviceId, accountId = accountId, about = about, bundleId = bundleId, appIconAssetId = appIconAssetId, appLogoAssetId = appLogoAssetId, facebookAppId = facebookAppId, facebookAppSecret = facebookAppSecret, googleApiKey = googleApiKey, updateEULADate = updateEULADate, eulaVersion = eulaVersion, landingPageUrl = landingPageUrl, showInActivities = showInActivities, activityDescription = activityDescription, inviteWelcomeText = inviteWelcomeText, invitePageUrl = invitePageUrl, urlScheme = urlScheme, platforms = platforms, downloadUrls = downloadUrls, categoryIds = categoryIds, scoringType = scoringType, hintCost = hintCost, maxScore = maxScore, ticketsPerPoint = ticketsPerPoint, hasGameData = hasGameData, publicNotifications = publicNotifications, useMatchingAlgorithm = useMatchingAlgorithm, globalTickets = globalTickets, buildVersion = buildVersion, apiVersion = apiVersion, placementName = placementName, placementDescription = placementDescription, placementSize = placementSize, placementHeight = placementHeight, placementWidth = placementWidth, placementRefreshInterval = placementRefreshInterval, createObjectStore = createObjectStore, publicContentApproval = publicContentApproval, productionMode = productionMode, minimumSessionLength = minimumSessionLength, sessionGapLength = sessionGapLength, localAdsEnabled = localAdsEnabled, sqootApiKey = sqootApiKey, trilatProcessingType = trilatProcessingType, maxSampleSize = maxSampleSize, minRSSI = minRSSI, modules = modules, authorizedCount = authorizedCount, authorizedServers = authorizedServers, defaultTimezone = defaultTimezone, smtpPass = smtpPass, metaData = metaData, placementMetaData = placementMetaData, ipsFloor = ipsFloor, enableAPNSBadge = enableAPNSBadge, includeInReport = includeInReport, defaultAppFilterId = defaultAppFilterId, enableWelcomeEmail = enableWelcomeEmail, appleAppId = appleAppId, appleTeamId = appleTeamId, appleAuthKeyId = appleAuthKeyId, appleAuthKey = appleAuthKey, appleIssuerId = appleIssuerId, appStoreKeyId = appStoreKeyId, appStoreKey = appStoreKey, googlePrivateKeyFile = googlePrivateKeyFile, authorizeNetApiKey = authorizeNetApiKey, authorizeNetTransactionKey = authorizeNetTransactionKey, emailSender = emailSender, smtpUser = smtpUser, smtpHost = smtpHost, vatomBusinessId = vatomBusinessId, vatomRestClientId = vatomRestClientId, vatomRestSecretKey = vatomRestSecretKey, twilioAccountSID = twilioAccountSID, twilioAuthToken = twilioAuthToken, twilioSenderPhoneNumber = twilioSenderPhoneNumber, openAISecretKey = openAISecretKey)
+    fun updateApplicationWithHttpInfo(appKey: kotlin.String, appName: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, about: kotlin.String?, bundleId: kotlin.String?, appIconAssetId: kotlin.Long?, appLogoAssetId: kotlin.Long?, facebookAppId: kotlin.String?, facebookAppSecret: kotlin.String?, googleApiKey: kotlin.String?, updateEULADate: kotlin.Boolean?, eulaVersion: kotlin.String?, landingPageUrl: kotlin.String?, showInActivities: kotlin.Boolean?, activityDescription: kotlin.String?, inviteWelcomeText: kotlin.String?, invitePageUrl: kotlin.String?, urlScheme: kotlin.String?, platforms: kotlin.String?, downloadUrls: kotlin.String?, categoryIds: kotlin.String?, scoringType: ScoringTypeUpdateApplication?, hintCost: kotlin.Int?, maxScore: kotlin.Int?, ticketsPerPoint: kotlin.Float?, hasGameData: kotlin.Boolean?, publicNotifications: kotlin.Boolean?, useMatchingAlgorithm: kotlin.Boolean?, globalTickets: kotlin.Boolean?, buildVersion: kotlin.Float?, apiVersion: kotlin.Float?, placementName: kotlin.String?, placementDescription: kotlin.String?, placementSize: PlacementSizeUpdateApplication?, placementHeight: kotlin.Int?, placementWidth: kotlin.Int?, placementRefreshInterval: kotlin.Int?, createObjectStore: kotlin.Boolean?, publicContentApproval: kotlin.Boolean?, productionMode: kotlin.Boolean?, minimumSessionLength: kotlin.Int?, sessionGapLength: kotlin.Int?, localAdsEnabled: kotlin.Boolean?, sqootApiKey: kotlin.String?, trilatProcessingType: TrilatProcessingTypeUpdateApplication?, maxSampleSize: kotlin.Int?, minRSSI: kotlin.Double?, modules: kotlin.String?, authorizedCount: kotlin.Int?, authorizedServers: kotlin.String?, defaultTimezone: kotlin.String?, smtpPass: kotlin.String?, metaData: kotlin.String?, placementMetaData: kotlin.String?, ipsFloor: kotlin.Boolean?, enableAPNSBadge: kotlin.Boolean?, includeInReport: kotlin.Boolean?, defaultAppFilterId: kotlin.Long?, enableWelcomeEmail: kotlin.Boolean?, appleAppId: kotlin.String?, appleTeamId: kotlin.String?, appleAuthKeyId: kotlin.String?, appleAuthKey: java.io.File?, appleIssuerId: kotlin.String?, appStoreKeyId: kotlin.String?, appStoreKey: java.io.File?, googlePrivateKeyFile: java.io.File?, authorizeNetApiKey: kotlin.String?, authorizeNetTransactionKey: kotlin.String?, emailSender: kotlin.String?, smtpUser: kotlin.String?, smtpHost: kotlin.String?, vatomBusinessId: kotlin.String?, vatomRestClientId: kotlin.String?, vatomRestSecretKey: kotlin.String?, twilioAccountSID: kotlin.String?, twilioAuthToken: kotlin.String?, twilioSenderPhoneNumber: kotlin.String?, openAISecretKey: kotlin.String?) : ApiResponse<ApplicationResponse?> {
+        val localVariableConfig = updateApplicationRequestConfig(appKey = appKey, appName = appName, deviceId = deviceId, accountId = accountId, about = about, bundleId = bundleId, appIconAssetId = appIconAssetId, appLogoAssetId = appLogoAssetId, facebookAppId = facebookAppId, facebookAppSecret = facebookAppSecret, googleApiKey = googleApiKey, updateEULADate = updateEULADate, eulaVersion = eulaVersion, landingPageUrl = landingPageUrl, showInActivities = showInActivities, activityDescription = activityDescription, inviteWelcomeText = inviteWelcomeText, invitePageUrl = invitePageUrl, urlScheme = urlScheme, platforms = platforms, downloadUrls = downloadUrls, categoryIds = categoryIds, scoringType = scoringType, hintCost = hintCost, maxScore = maxScore, ticketsPerPoint = ticketsPerPoint, hasGameData = hasGameData, publicNotifications = publicNotifications, useMatchingAlgorithm = useMatchingAlgorithm, globalTickets = globalTickets, buildVersion = buildVersion, apiVersion = apiVersion, placementName = placementName, placementDescription = placementDescription, placementSize = placementSize, placementHeight = placementHeight, placementWidth = placementWidth, placementRefreshInterval = placementRefreshInterval, createObjectStore = createObjectStore, publicContentApproval = publicContentApproval, productionMode = productionMode, minimumSessionLength = minimumSessionLength, sessionGapLength = sessionGapLength, localAdsEnabled = localAdsEnabled, sqootApiKey = sqootApiKey, trilatProcessingType = trilatProcessingType, maxSampleSize = maxSampleSize, minRSSI = minRSSI, modules = modules, authorizedCount = authorizedCount, authorizedServers = authorizedServers, defaultTimezone = defaultTimezone, smtpPass = smtpPass, metaData = metaData, placementMetaData = placementMetaData, ipsFloor = ipsFloor, enableAPNSBadge = enableAPNSBadge, includeInReport = includeInReport, defaultAppFilterId = defaultAppFilterId, enableWelcomeEmail = enableWelcomeEmail, appleAppId = appleAppId, appleTeamId = appleTeamId, appleAuthKeyId = appleAuthKeyId, appleAuthKey = appleAuthKey, appleIssuerId = appleIssuerId, appStoreKeyId = appStoreKeyId, appStoreKey = appStoreKey, googlePrivateKeyFile = googlePrivateKeyFile, authorizeNetApiKey = authorizeNetApiKey, authorizeNetTransactionKey = authorizeNetTransactionKey, emailSender = emailSender, smtpUser = smtpUser, smtpHost = smtpHost, vatomBusinessId = vatomBusinessId, vatomRestClientId = vatomRestClientId, vatomRestSecretKey = vatomRestSecretKey, twilioAccountSID = twilioAccountSID, twilioAuthToken = twilioAuthToken, twilioSenderPhoneNumber = twilioSenderPhoneNumber, openAISecretKey = openAISecretKey)
 
         return request<Unit, ApplicationResponse>(
             localVariableConfig
@@ -2322,7 +2284,6 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation updateApplication
      *
-     * @param version 
      * @param appKey The application key for updating an existing application
      * @param appName The name of the application
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -2405,7 +2366,7 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param openAISecretKey OpenAI Secret API Key (optional)
      * @return RequestConfig
      */
-    fun updateApplicationRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String, appName: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, about: kotlin.String?, bundleId: kotlin.String?, appIconAssetId: kotlin.Long?, appLogoAssetId: kotlin.Long?, facebookAppId: kotlin.String?, facebookAppSecret: kotlin.String?, googleApiKey: kotlin.String?, updateEULADate: kotlin.Boolean?, eulaVersion: kotlin.String?, landingPageUrl: kotlin.String?, showInActivities: kotlin.Boolean?, activityDescription: kotlin.String?, inviteWelcomeText: kotlin.String?, invitePageUrl: kotlin.String?, urlScheme: kotlin.String?, platforms: kotlin.String?, downloadUrls: kotlin.String?, categoryIds: kotlin.String?, scoringType: ScoringTypeUpdateApplication?, hintCost: kotlin.Int?, maxScore: kotlin.Int?, ticketsPerPoint: kotlin.Float?, hasGameData: kotlin.Boolean?, publicNotifications: kotlin.Boolean?, useMatchingAlgorithm: kotlin.Boolean?, globalTickets: kotlin.Boolean?, buildVersion: kotlin.Float?, apiVersion: kotlin.Float?, placementName: kotlin.String?, placementDescription: kotlin.String?, placementSize: PlacementSizeUpdateApplication?, placementHeight: kotlin.Int?, placementWidth: kotlin.Int?, placementRefreshInterval: kotlin.Int?, createObjectStore: kotlin.Boolean?, publicContentApproval: kotlin.Boolean?, productionMode: kotlin.Boolean?, minimumSessionLength: kotlin.Int?, sessionGapLength: kotlin.Int?, localAdsEnabled: kotlin.Boolean?, sqootApiKey: kotlin.String?, trilatProcessingType: TrilatProcessingTypeUpdateApplication?, maxSampleSize: kotlin.Int?, minRSSI: kotlin.Double?, modules: kotlin.String?, authorizedCount: kotlin.Int?, authorizedServers: kotlin.String?, defaultTimezone: kotlin.String?, smtpPass: kotlin.String?, metaData: kotlin.String?, placementMetaData: kotlin.String?, ipsFloor: kotlin.Boolean?, enableAPNSBadge: kotlin.Boolean?, includeInReport: kotlin.Boolean?, defaultAppFilterId: kotlin.Long?, enableWelcomeEmail: kotlin.Boolean?, appleAppId: kotlin.String?, appleTeamId: kotlin.String?, appleAuthKeyId: kotlin.String?, appleAuthKey: java.io.File?, appleIssuerId: kotlin.String?, appStoreKeyId: kotlin.String?, appStoreKey: java.io.File?, googlePrivateKeyFile: java.io.File?, authorizeNetApiKey: kotlin.String?, authorizeNetTransactionKey: kotlin.String?, emailSender: kotlin.String?, smtpUser: kotlin.String?, smtpHost: kotlin.String?, vatomBusinessId: kotlin.String?, vatomRestClientId: kotlin.String?, vatomRestSecretKey: kotlin.String?, twilioAccountSID: kotlin.String?, twilioAuthToken: kotlin.String?, twilioSenderPhoneNumber: kotlin.String?, openAISecretKey: kotlin.String?) : RequestConfig<Unit> {
+    fun updateApplicationRequestConfig(appKey: kotlin.String, appName: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, about: kotlin.String?, bundleId: kotlin.String?, appIconAssetId: kotlin.Long?, appLogoAssetId: kotlin.Long?, facebookAppId: kotlin.String?, facebookAppSecret: kotlin.String?, googleApiKey: kotlin.String?, updateEULADate: kotlin.Boolean?, eulaVersion: kotlin.String?, landingPageUrl: kotlin.String?, showInActivities: kotlin.Boolean?, activityDescription: kotlin.String?, inviteWelcomeText: kotlin.String?, invitePageUrl: kotlin.String?, urlScheme: kotlin.String?, platforms: kotlin.String?, downloadUrls: kotlin.String?, categoryIds: kotlin.String?, scoringType: ScoringTypeUpdateApplication?, hintCost: kotlin.Int?, maxScore: kotlin.Int?, ticketsPerPoint: kotlin.Float?, hasGameData: kotlin.Boolean?, publicNotifications: kotlin.Boolean?, useMatchingAlgorithm: kotlin.Boolean?, globalTickets: kotlin.Boolean?, buildVersion: kotlin.Float?, apiVersion: kotlin.Float?, placementName: kotlin.String?, placementDescription: kotlin.String?, placementSize: PlacementSizeUpdateApplication?, placementHeight: kotlin.Int?, placementWidth: kotlin.Int?, placementRefreshInterval: kotlin.Int?, createObjectStore: kotlin.Boolean?, publicContentApproval: kotlin.Boolean?, productionMode: kotlin.Boolean?, minimumSessionLength: kotlin.Int?, sessionGapLength: kotlin.Int?, localAdsEnabled: kotlin.Boolean?, sqootApiKey: kotlin.String?, trilatProcessingType: TrilatProcessingTypeUpdateApplication?, maxSampleSize: kotlin.Int?, minRSSI: kotlin.Double?, modules: kotlin.String?, authorizedCount: kotlin.Int?, authorizedServers: kotlin.String?, defaultTimezone: kotlin.String?, smtpPass: kotlin.String?, metaData: kotlin.String?, placementMetaData: kotlin.String?, ipsFloor: kotlin.Boolean?, enableAPNSBadge: kotlin.Boolean?, includeInReport: kotlin.Boolean?, defaultAppFilterId: kotlin.Long?, enableWelcomeEmail: kotlin.Boolean?, appleAppId: kotlin.String?, appleTeamId: kotlin.String?, appleAuthKeyId: kotlin.String?, appleAuthKey: java.io.File?, appleIssuerId: kotlin.String?, appStoreKeyId: kotlin.String?, appStoreKey: java.io.File?, googlePrivateKeyFile: java.io.File?, authorizeNetApiKey: kotlin.String?, authorizeNetTransactionKey: kotlin.String?, emailSender: kotlin.String?, smtpUser: kotlin.String?, smtpHost: kotlin.String?, vatomBusinessId: kotlin.String?, vatomRestClientId: kotlin.String?, vatomRestSecretKey: kotlin.String?, twilioAccountSID: kotlin.String?, twilioAuthToken: kotlin.String?, twilioSenderPhoneNumber: kotlin.String?, openAISecretKey: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2650,7 +2611,7 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/application/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/application/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2659,10 +2620,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/application/active
+     * POST /application/active
      * Change Appliation Status
      * Set the application&#39;s active flag to true/false. This effectively activates or deactivates the application.
-     * @param version 
      * @param accountId The account used to perform the delete, must have rights to edit the application.
      * @param appKey The key of the application to be deleted
      * @param active If true then set to active, false otherwise
@@ -2675,8 +2635,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateApplicationActive(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, active: kotlin.Boolean) : SirqulResponse {
-        val localVarResponse = updateApplicationActiveWithHttpInfo(version = version, accountId = accountId, appKey = appKey, active = active)
+    fun updateApplicationActive(accountId: kotlin.Long, appKey: kotlin.String, active: kotlin.Boolean) : SirqulResponse {
+        val localVarResponse = updateApplicationActiveWithHttpInfo(accountId = accountId, appKey = appKey, active = active)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -2694,10 +2654,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/application/active
+     * POST /application/active
      * Change Appliation Status
      * Set the application&#39;s active flag to true/false. This effectively activates or deactivates the application.
-     * @param version 
      * @param accountId The account used to perform the delete, must have rights to edit the application.
      * @param appKey The key of the application to be deleted
      * @param active If true then set to active, false otherwise
@@ -2707,8 +2666,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateApplicationActiveWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, active: kotlin.Boolean) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = updateApplicationActiveRequestConfig(version = version, accountId = accountId, appKey = appKey, active = active)
+    fun updateApplicationActiveWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, active: kotlin.Boolean) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = updateApplicationActiveRequestConfig(accountId = accountId, appKey = appKey, active = active)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -2718,13 +2677,12 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation updateApplicationActive
      *
-     * @param version 
      * @param accountId The account used to perform the delete, must have rights to edit the application.
      * @param appKey The key of the application to be deleted
      * @param active If true then set to active, false otherwise
      * @return RequestConfig
      */
-    fun updateApplicationActiveRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, active: kotlin.Boolean) : RequestConfig<Unit> {
+    fun updateApplicationActiveRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, active: kotlin.Boolean) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2736,7 +2694,7 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/application/active".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/application/active",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2777,10 +2735,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      }
 
     /**
-     * POST /api/{version}/application/placement/update
+     * POST /application/placement/update
      * Update Ad Placement
      * Updates an ad placement for an application.
-     * @param version 
      * @param placementId The id of the placement to update, the user must have rights to the application the ad placement is for
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -2801,8 +2758,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateApplicationPlacement(version: java.math.BigDecimal, placementId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, name: kotlin.String? = null, description: kotlin.String? = null, size: PropertySizeUpdateApplicationPlacement? = null, height: kotlin.Int? = null, width: kotlin.Int? = null, refreshInterval: kotlin.Int? = null, defaultImageId: kotlin.Long? = null, active: kotlin.Boolean? = null) : PlacementResponse {
-        val localVarResponse = updateApplicationPlacementWithHttpInfo(version = version, placementId = placementId, deviceId = deviceId, accountId = accountId, name = name, description = description, size = size, height = height, width = width, refreshInterval = refreshInterval, defaultImageId = defaultImageId, active = active)
+    fun updateApplicationPlacement(placementId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, name: kotlin.String? = null, description: kotlin.String? = null, size: PropertySizeUpdateApplicationPlacement? = null, height: kotlin.Int? = null, width: kotlin.Int? = null, refreshInterval: kotlin.Int? = null, defaultImageId: kotlin.Long? = null, active: kotlin.Boolean? = null) : PlacementResponse {
+        val localVarResponse = updateApplicationPlacementWithHttpInfo(placementId = placementId, deviceId = deviceId, accountId = accountId, name = name, description = description, size = size, height = height, width = width, refreshInterval = refreshInterval, defaultImageId = defaultImageId, active = active)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PlacementResponse
@@ -2820,10 +2777,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/application/placement/update
+     * POST /application/placement/update
      * Update Ad Placement
      * Updates an ad placement for an application.
-     * @param version 
      * @param placementId The id of the placement to update, the user must have rights to the application the ad placement is for
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -2841,8 +2797,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateApplicationPlacementWithHttpInfo(version: java.math.BigDecimal, placementId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, description: kotlin.String?, size: PropertySizeUpdateApplicationPlacement?, height: kotlin.Int?, width: kotlin.Int?, refreshInterval: kotlin.Int?, defaultImageId: kotlin.Long?, active: kotlin.Boolean?) : ApiResponse<PlacementResponse?> {
-        val localVariableConfig = updateApplicationPlacementRequestConfig(version = version, placementId = placementId, deviceId = deviceId, accountId = accountId, name = name, description = description, size = size, height = height, width = width, refreshInterval = refreshInterval, defaultImageId = defaultImageId, active = active)
+    fun updateApplicationPlacementWithHttpInfo(placementId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, description: kotlin.String?, size: PropertySizeUpdateApplicationPlacement?, height: kotlin.Int?, width: kotlin.Int?, refreshInterval: kotlin.Int?, defaultImageId: kotlin.Long?, active: kotlin.Boolean?) : ApiResponse<PlacementResponse?> {
+        val localVariableConfig = updateApplicationPlacementRequestConfig(placementId = placementId, deviceId = deviceId, accountId = accountId, name = name, description = description, size = size, height = height, width = width, refreshInterval = refreshInterval, defaultImageId = defaultImageId, active = active)
 
         return request<Unit, PlacementResponse>(
             localVariableConfig
@@ -2852,7 +2808,6 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation updateApplicationPlacement
      *
-     * @param version 
      * @param placementId The id of the placement to update, the user must have rights to the application the ad placement is for
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -2866,7 +2821,7 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param active Active (optional)
      * @return RequestConfig
      */
-    fun updateApplicationPlacementRequestConfig(version: java.math.BigDecimal, placementId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, description: kotlin.String?, size: PropertySizeUpdateApplicationPlacement?, height: kotlin.Int?, width: kotlin.Int?, refreshInterval: kotlin.Int?, defaultImageId: kotlin.Long?, active: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun updateApplicationPlacementRequestConfig(placementId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, name: kotlin.String?, description: kotlin.String?, size: PropertySizeUpdateApplicationPlacement?, height: kotlin.Int?, width: kotlin.Int?, refreshInterval: kotlin.Int?, defaultImageId: kotlin.Long?, active: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2906,7 +2861,7 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/application/placement/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/application/placement/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2915,10 +2870,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/application/certificate/create
+     * POST /application/certificate/create
      * Create Application Certificate
      * Uploads a certificate for an application that the user has access to.
-     * @param version 
      * @param appKey The key of the application
      * @param deviceId Device Id (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the application. (optional)
@@ -2932,8 +2886,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun uploadApplicationCertificate(version: java.math.BigDecimal, appKey: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, certificate: java.io.File? = null) : SirqulResponse {
-        val localVarResponse = uploadApplicationCertificateWithHttpInfo(version = version, appKey = appKey, deviceId = deviceId, accountId = accountId, certificate = certificate)
+    fun uploadApplicationCertificate(appKey: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, certificate: java.io.File? = null) : SirqulResponse {
+        val localVarResponse = uploadApplicationCertificateWithHttpInfo(appKey = appKey, deviceId = deviceId, accountId = accountId, certificate = certificate)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -2951,10 +2905,9 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/application/certificate/create
+     * POST /application/certificate/create
      * Create Application Certificate
      * Uploads a certificate for an application that the user has access to.
-     * @param version 
      * @param appKey The key of the application
      * @param deviceId Device Id (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the application. (optional)
@@ -2965,8 +2918,8 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun uploadApplicationCertificateWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, certificate: java.io.File?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = uploadApplicationCertificateRequestConfig(version = version, appKey = appKey, deviceId = deviceId, accountId = accountId, certificate = certificate)
+    fun uploadApplicationCertificateWithHttpInfo(appKey: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, certificate: java.io.File?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = uploadApplicationCertificateRequestConfig(appKey = appKey, deviceId = deviceId, accountId = accountId, certificate = certificate)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -2976,14 +2929,13 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation uploadApplicationCertificate
      *
-     * @param version 
      * @param appKey The key of the application
      * @param deviceId Device Id (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the application. (optional)
      * @param certificate Certificate (optional)
      * @return RequestConfig
      */
-    fun uploadApplicationCertificateRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, certificate: java.io.File?) : RequestConfig<Unit> {
+    fun uploadApplicationCertificateRequestConfig(appKey: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?, certificate: java.io.File?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -3002,7 +2954,7 @@ open class ApplicationApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/application/certificate/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/application/certificate/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

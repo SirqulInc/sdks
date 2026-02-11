@@ -42,15 +42,14 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/offer/status/create
+     * POST /offer/status/create
      * Create Offer Status
      * Create an offer status record
-     * @param version 
      * @param name The name of the status
      * @param code The status code, must be unique 
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -70,8 +69,8 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createOfferTransactionStatus(version: java.math.BigDecimal, name: kotlin.String, code: kotlin.Int, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, description: kotlin.String? = null, role: kotlin.String? = "ANY", active: kotlin.Boolean? = true, applicationIds: kotlin.String? = null) : OfferTransactionStatusResponse {
-        val localVarResponse = createOfferTransactionStatusWithHttpInfo(version = version, name = name, code = code, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, description = description, role = role, active = active, applicationIds = applicationIds)
+    fun createOfferTransactionStatus(name: kotlin.String, code: kotlin.Int, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, description: kotlin.String? = null, role: kotlin.String? = "ANY", active: kotlin.Boolean? = true, applicationIds: kotlin.String? = null) : OfferTransactionStatusResponse {
+        val localVarResponse = createOfferTransactionStatusWithHttpInfo(name = name, code = code, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, description = description, role = role, active = active, applicationIds = applicationIds)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OfferTransactionStatusResponse
@@ -89,10 +88,9 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/offer/status/create
+     * POST /offer/status/create
      * Create Offer Status
      * Create an offer status record
-     * @param version 
      * @param name The name of the status
      * @param code The status code, must be unique 
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -109,8 +107,8 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createOfferTransactionStatusWithHttpInfo(version: java.math.BigDecimal, name: kotlin.String, code: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, description: kotlin.String?, role: kotlin.String?, active: kotlin.Boolean?, applicationIds: kotlin.String?) : ApiResponse<OfferTransactionStatusResponse?> {
-        val localVariableConfig = createOfferTransactionStatusRequestConfig(version = version, name = name, code = code, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, description = description, role = role, active = active, applicationIds = applicationIds)
+    fun createOfferTransactionStatusWithHttpInfo(name: kotlin.String, code: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, description: kotlin.String?, role: kotlin.String?, active: kotlin.Boolean?, applicationIds: kotlin.String?) : ApiResponse<OfferTransactionStatusResponse?> {
+        val localVariableConfig = createOfferTransactionStatusRequestConfig(name = name, code = code, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, description = description, role = role, active = active, applicationIds = applicationIds)
 
         return request<Unit, OfferTransactionStatusResponse>(
             localVariableConfig
@@ -120,7 +118,6 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation createOfferTransactionStatus
      *
-     * @param version 
      * @param name The name of the status
      * @param code The status code, must be unique 
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -133,7 +130,7 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param applicationIds The applications to associate the status with, if null then for all. (optional)
      * @return RequestConfig
      */
-    fun createOfferTransactionStatusRequestConfig(version: java.math.BigDecimal, name: kotlin.String, code: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, description: kotlin.String?, role: kotlin.String?, active: kotlin.Boolean?, applicationIds: kotlin.String?) : RequestConfig<Unit> {
+    fun createOfferTransactionStatusRequestConfig(name: kotlin.String, code: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, description: kotlin.String?, role: kotlin.String?, active: kotlin.Boolean?, applicationIds: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -168,7 +165,7 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/offer/status/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/offer/status/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -177,10 +174,9 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/offer/status/delete
+     * POST /offer/status/delete
      * Delete Offer Status
      * Mark an offer status record as deleted
-     * @param version 
      * @param statusId The id of the record to delete
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -195,8 +191,8 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteOfferTransactionStatus(version: java.math.BigDecimal, statusId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
-        val localVarResponse = deleteOfferTransactionStatusWithHttpInfo(version = version, statusId = statusId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun deleteOfferTransactionStatus(statusId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
+        val localVarResponse = deleteOfferTransactionStatusWithHttpInfo(statusId = statusId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -214,10 +210,9 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/offer/status/delete
+     * POST /offer/status/delete
      * Delete Offer Status
      * Mark an offer status record as deleted
-     * @param version 
      * @param statusId The id of the record to delete
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -229,8 +224,8 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteOfferTransactionStatusWithHttpInfo(version: java.math.BigDecimal, statusId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteOfferTransactionStatusRequestConfig(version = version, statusId = statusId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun deleteOfferTransactionStatusWithHttpInfo(statusId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteOfferTransactionStatusRequestConfig(statusId = statusId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -240,7 +235,6 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation deleteOfferTransactionStatus
      *
-     * @param version 
      * @param statusId The id of the record to delete
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -248,7 +242,7 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param longitude Used to update the user&#39;s current location (optional)
      * @return RequestConfig
      */
-    fun deleteOfferTransactionStatusRequestConfig(version: java.math.BigDecimal, statusId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun deleteOfferTransactionStatusRequestConfig(statusId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -270,7 +264,7 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/offer/status/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/offer/status/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -279,10 +273,9 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/offer/status/get
+     * GET /offer/status/get
      * Get Offer Status
      * Get an offer status record
-     * @param version 
      * @param statusId The id of the record to get 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -297,8 +290,8 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getOfferTransactionStatus(version: java.math.BigDecimal, statusId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : OfferTransactionStatusResponse {
-        val localVarResponse = getOfferTransactionStatusWithHttpInfo(version = version, statusId = statusId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun getOfferTransactionStatus(statusId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : OfferTransactionStatusResponse {
+        val localVarResponse = getOfferTransactionStatusWithHttpInfo(statusId = statusId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OfferTransactionStatusResponse
@@ -316,10 +309,9 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/offer/status/get
+     * GET /offer/status/get
      * Get Offer Status
      * Get an offer status record
-     * @param version 
      * @param statusId The id of the record to get 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -331,8 +323,8 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getOfferTransactionStatusWithHttpInfo(version: java.math.BigDecimal, statusId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<OfferTransactionStatusResponse?> {
-        val localVariableConfig = getOfferTransactionStatusRequestConfig(version = version, statusId = statusId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun getOfferTransactionStatusWithHttpInfo(statusId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<OfferTransactionStatusResponse?> {
+        val localVariableConfig = getOfferTransactionStatusRequestConfig(statusId = statusId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return request<Unit, OfferTransactionStatusResponse>(
             localVariableConfig
@@ -342,7 +334,6 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation getOfferTransactionStatus
      *
-     * @param version 
      * @param statusId The id of the record to get 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -350,7 +341,7 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param longitude Used to update the user&#39;s current location (optional)
      * @return RequestConfig
      */
-    fun getOfferTransactionStatusRequestConfig(version: java.math.BigDecimal, statusId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun getOfferTransactionStatusRequestConfig(statusId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -372,7 +363,7 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/offer/status/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/offer/status/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -406,10 +397,9 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
      }
 
     /**
-     * GET /api/{version}/offer/status/search
+     * GET /offer/status/search
      * Search Offer Status
      * Search for the available offer statuses
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude Used to update the user&#39;s current location (optional)
@@ -431,8 +421,8 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchOfferTransactionStatuses(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, keyword: kotlin.String? = null, role: kotlin.String? = null, appKey: kotlin.String? = null, sortField: SortFieldSearchOfferTransactionStatuses? = SortFieldSearchOfferTransactionStatuses.CODE, descending: kotlin.Boolean? = true, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, includeInactive: kotlin.Boolean? = false) : kotlin.collections.List<OfferTransactionStatusResponse> {
-        val localVarResponse = searchOfferTransactionStatusesWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, keyword = keyword, role = role, appKey = appKey, sortField = sortField, descending = descending, start = start, limit = limit, includeInactive = includeInactive)
+    fun searchOfferTransactionStatuses(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, keyword: kotlin.String? = null, role: kotlin.String? = null, appKey: kotlin.String? = null, sortField: SortFieldSearchOfferTransactionStatuses? = SortFieldSearchOfferTransactionStatuses.CODE, descending: kotlin.Boolean? = true, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, includeInactive: kotlin.Boolean? = false) : kotlin.collections.List<OfferTransactionStatusResponse> {
+        val localVarResponse = searchOfferTransactionStatusesWithHttpInfo(deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, keyword = keyword, role = role, appKey = appKey, sortField = sortField, descending = descending, start = start, limit = limit, includeInactive = includeInactive)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<OfferTransactionStatusResponse>
@@ -450,10 +440,9 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * GET /api/{version}/offer/status/search
+     * GET /offer/status/search
      * Search Offer Status
      * Search for the available offer statuses
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude Used to update the user&#39;s current location (optional)
@@ -472,8 +461,8 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchOfferTransactionStatusesWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, keyword: kotlin.String?, role: kotlin.String?, appKey: kotlin.String?, sortField: SortFieldSearchOfferTransactionStatuses?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, includeInactive: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<OfferTransactionStatusResponse>?> {
-        val localVariableConfig = searchOfferTransactionStatusesRequestConfig(version = version, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, keyword = keyword, role = role, appKey = appKey, sortField = sortField, descending = descending, start = start, limit = limit, includeInactive = includeInactive)
+    fun searchOfferTransactionStatusesWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, keyword: kotlin.String?, role: kotlin.String?, appKey: kotlin.String?, sortField: SortFieldSearchOfferTransactionStatuses?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, includeInactive: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<OfferTransactionStatusResponse>?> {
+        val localVariableConfig = searchOfferTransactionStatusesRequestConfig(deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, keyword = keyword, role = role, appKey = appKey, sortField = sortField, descending = descending, start = start, limit = limit, includeInactive = includeInactive)
 
         return request<Unit, kotlin.collections.List<OfferTransactionStatusResponse>>(
             localVariableConfig
@@ -483,7 +472,6 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation searchOfferTransactionStatuses
      *
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude Used to update the user&#39;s current location (optional)
@@ -498,7 +486,7 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param includeInactive If true include inactive items (optional, default to false)
      * @return RequestConfig
      */
-    fun searchOfferTransactionStatusesRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, keyword: kotlin.String?, role: kotlin.String?, appKey: kotlin.String?, sortField: SortFieldSearchOfferTransactionStatuses?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, includeInactive: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchOfferTransactionStatusesRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, keyword: kotlin.String?, role: kotlin.String?, appKey: kotlin.String?, sortField: SortFieldSearchOfferTransactionStatuses?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, includeInactive: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -543,7 +531,7 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/offer/status/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/offer/status/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -552,10 +540,9 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/offer/status/update
+     * POST /offer/status/update
      * Update Offer Status
      * Update an offer status record
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude Used to update the user&#39;s current location (optional)
@@ -576,8 +563,8 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateOfferTransactionStatus(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, statusId: kotlin.Long? = null, name: kotlin.String? = null, description: kotlin.String? = null, code: kotlin.Int? = null, role: kotlin.String? = null, active: kotlin.Boolean? = null, applicationIds: kotlin.String? = null) : OfferTransactionStatusResponse {
-        val localVarResponse = updateOfferTransactionStatusWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, statusId = statusId, name = name, description = description, code = code, role = role, active = active, applicationIds = applicationIds)
+    fun updateOfferTransactionStatus(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, statusId: kotlin.Long? = null, name: kotlin.String? = null, description: kotlin.String? = null, code: kotlin.Int? = null, role: kotlin.String? = null, active: kotlin.Boolean? = null, applicationIds: kotlin.String? = null) : OfferTransactionStatusResponse {
+        val localVarResponse = updateOfferTransactionStatusWithHttpInfo(deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, statusId = statusId, name = name, description = description, code = code, role = role, active = active, applicationIds = applicationIds)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OfferTransactionStatusResponse
@@ -595,10 +582,9 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * POST /api/{version}/offer/status/update
+     * POST /offer/status/update
      * Update Offer Status
      * Update an offer status record
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude Used to update the user&#39;s current location (optional)
@@ -616,8 +602,8 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateOfferTransactionStatusWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, statusId: kotlin.Long?, name: kotlin.String?, description: kotlin.String?, code: kotlin.Int?, role: kotlin.String?, active: kotlin.Boolean?, applicationIds: kotlin.String?) : ApiResponse<OfferTransactionStatusResponse?> {
-        val localVariableConfig = updateOfferTransactionStatusRequestConfig(version = version, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, statusId = statusId, name = name, description = description, code = code, role = role, active = active, applicationIds = applicationIds)
+    fun updateOfferTransactionStatusWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, statusId: kotlin.Long?, name: kotlin.String?, description: kotlin.String?, code: kotlin.Int?, role: kotlin.String?, active: kotlin.Boolean?, applicationIds: kotlin.String?) : ApiResponse<OfferTransactionStatusResponse?> {
+        val localVariableConfig = updateOfferTransactionStatusRequestConfig(deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, statusId = statusId, name = name, description = description, code = code, role = role, active = active, applicationIds = applicationIds)
 
         return request<Unit, OfferTransactionStatusResponse>(
             localVariableConfig
@@ -627,7 +613,6 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation updateOfferTransactionStatus
      *
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude Used to update the user&#39;s current location (optional)
@@ -641,7 +626,7 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param applicationIds The applications to associate the status with, if null then for all. (optional)
      * @return RequestConfig
      */
-    fun updateOfferTransactionStatusRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, statusId: kotlin.Long?, name: kotlin.String?, description: kotlin.String?, code: kotlin.Int?, role: kotlin.String?, active: kotlin.Boolean?, applicationIds: kotlin.String?) : RequestConfig<Unit> {
+    fun updateOfferTransactionStatusRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, statusId: kotlin.Long?, name: kotlin.String?, description: kotlin.String?, code: kotlin.Int?, role: kotlin.String?, active: kotlin.Boolean?, applicationIds: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -683,7 +668,7 @@ open class OfferStatusApi(basePath: kotlin.String = defaultBasePath, client: Cal
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/offer/status/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/offer/status/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

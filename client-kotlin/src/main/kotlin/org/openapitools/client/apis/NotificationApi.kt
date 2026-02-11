@@ -46,15 +46,14 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/notification/template/create
+     * POST /notification/template/create
      * Create Notification Template
      * Create a notification template. Developers will only be able to create notification templates for their own applications.
-     * @param version 
      * @param accountId The account ID of the user.
      * @param conduit Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.
      * @param title title of the notification template
@@ -71,8 +70,8 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createNotificationTemplate(version: java.math.BigDecimal, accountId: kotlin.Long, conduit: kotlin.String, title: kotlin.String, body: kotlin.String, appKey: kotlin.String? = null, event: kotlin.String? = null, tags: kotlin.String? = null) : NotificationTemplateResponse {
-        val localVarResponse = createNotificationTemplateWithHttpInfo(version = version, accountId = accountId, conduit = conduit, title = title, body = body, appKey = appKey, event = event, tags = tags)
+    fun createNotificationTemplate(accountId: kotlin.Long, conduit: kotlin.String, title: kotlin.String, body: kotlin.String, appKey: kotlin.String? = null, event: kotlin.String? = null, tags: kotlin.String? = null) : NotificationTemplateResponse {
+        val localVarResponse = createNotificationTemplateWithHttpInfo(accountId = accountId, conduit = conduit, title = title, body = body, appKey = appKey, event = event, tags = tags)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as NotificationTemplateResponse
@@ -90,10 +89,9 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/notification/template/create
+     * POST /notification/template/create
      * Create Notification Template
      * Create a notification template. Developers will only be able to create notification templates for their own applications.
-     * @param version 
      * @param accountId The account ID of the user.
      * @param conduit Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.
      * @param title title of the notification template
@@ -107,8 +105,8 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createNotificationTemplateWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, conduit: kotlin.String, title: kotlin.String, body: kotlin.String, appKey: kotlin.String?, event: kotlin.String?, tags: kotlin.String?) : ApiResponse<NotificationTemplateResponse?> {
-        val localVariableConfig = createNotificationTemplateRequestConfig(version = version, accountId = accountId, conduit = conduit, title = title, body = body, appKey = appKey, event = event, tags = tags)
+    fun createNotificationTemplateWithHttpInfo(accountId: kotlin.Long, conduit: kotlin.String, title: kotlin.String, body: kotlin.String, appKey: kotlin.String?, event: kotlin.String?, tags: kotlin.String?) : ApiResponse<NotificationTemplateResponse?> {
+        val localVariableConfig = createNotificationTemplateRequestConfig(accountId = accountId, conduit = conduit, title = title, body = body, appKey = appKey, event = event, tags = tags)
 
         return request<Unit, NotificationTemplateResponse>(
             localVariableConfig
@@ -118,7 +116,6 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation createNotificationTemplate
      *
-     * @param version 
      * @param accountId The account ID of the user.
      * @param conduit Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.
      * @param title title of the notification template
@@ -128,7 +125,7 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tags tags associated with the note template (optional)
      * @return RequestConfig
      */
-    fun createNotificationTemplateRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, conduit: kotlin.String, title: kotlin.String, body: kotlin.String, appKey: kotlin.String?, event: kotlin.String?, tags: kotlin.String?) : RequestConfig<Unit> {
+    fun createNotificationTemplateRequestConfig(accountId: kotlin.Long, conduit: kotlin.String, title: kotlin.String, body: kotlin.String, appKey: kotlin.String?, event: kotlin.String?, tags: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -150,7 +147,7 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/notification/template/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/notification/template/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -159,10 +156,9 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/notification/blocked/batch
+     * POST /notification/blocked/batch
      * Create or update blocked notification settings
      * Create or update blocked notification settings
-     * @param version 
      * @param appKey The application key
      * @param `data` batch data payload (application specific)
      * @param accountId the account id of the user (optional)
@@ -175,8 +171,8 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createOrUpdateBlockedNotifications(version: java.math.BigDecimal, appKey: kotlin.String, `data`: kotlin.String, accountId: kotlin.Long? = null) : BlockedNotificationResponse {
-        val localVarResponse = createOrUpdateBlockedNotificationsWithHttpInfo(version = version, appKey = appKey, `data` = `data`, accountId = accountId)
+    fun createOrUpdateBlockedNotifications(appKey: kotlin.String, `data`: kotlin.String, accountId: kotlin.Long? = null) : BlockedNotificationResponse {
+        val localVarResponse = createOrUpdateBlockedNotificationsWithHttpInfo(appKey = appKey, `data` = `data`, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as BlockedNotificationResponse
@@ -194,10 +190,9 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/notification/blocked/batch
+     * POST /notification/blocked/batch
      * Create or update blocked notification settings
      * Create or update blocked notification settings
-     * @param version 
      * @param appKey The application key
      * @param `data` batch data payload (application specific)
      * @param accountId the account id of the user (optional)
@@ -207,8 +202,8 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createOrUpdateBlockedNotificationsWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String, `data`: kotlin.String, accountId: kotlin.Long?) : ApiResponse<BlockedNotificationResponse?> {
-        val localVariableConfig = createOrUpdateBlockedNotificationsRequestConfig(version = version, appKey = appKey, `data` = `data`, accountId = accountId)
+    fun createOrUpdateBlockedNotificationsWithHttpInfo(appKey: kotlin.String, `data`: kotlin.String, accountId: kotlin.Long?) : ApiResponse<BlockedNotificationResponse?> {
+        val localVariableConfig = createOrUpdateBlockedNotificationsRequestConfig(appKey = appKey, `data` = `data`, accountId = accountId)
 
         return request<Unit, BlockedNotificationResponse>(
             localVariableConfig
@@ -218,13 +213,12 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation createOrUpdateBlockedNotifications
      *
-     * @param version 
      * @param appKey The application key
      * @param `data` batch data payload (application specific)
      * @param accountId the account id of the user (optional)
      * @return RequestConfig
      */
-    fun createOrUpdateBlockedNotificationsRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String, `data`: kotlin.String, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun createOrUpdateBlockedNotificationsRequestConfig(appKey: kotlin.String, `data`: kotlin.String, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -238,7 +232,7 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/notification/blocked/batch".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/notification/blocked/batch",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -247,10 +241,9 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/notification/template/delete
+     * POST /notification/template/delete
      * Delete Notification Template
      * Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
-     * @param version 
      * @param accountId the account id of the user
      * @param notificationTemplateId the id of the notification template to delete
      * @return NotificationTemplateResponse
@@ -262,8 +255,8 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteNotificationTemplate(version: java.math.BigDecimal, accountId: kotlin.Long, notificationTemplateId: kotlin.Long) : NotificationTemplateResponse {
-        val localVarResponse = deleteNotificationTemplateWithHttpInfo(version = version, accountId = accountId, notificationTemplateId = notificationTemplateId)
+    fun deleteNotificationTemplate(accountId: kotlin.Long, notificationTemplateId: kotlin.Long) : NotificationTemplateResponse {
+        val localVarResponse = deleteNotificationTemplateWithHttpInfo(accountId = accountId, notificationTemplateId = notificationTemplateId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as NotificationTemplateResponse
@@ -281,10 +274,9 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/notification/template/delete
+     * POST /notification/template/delete
      * Delete Notification Template
      * Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
-     * @param version 
      * @param accountId the account id of the user
      * @param notificationTemplateId the id of the notification template to delete
      * @return ApiResponse<NotificationTemplateResponse?>
@@ -293,8 +285,8 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteNotificationTemplateWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, notificationTemplateId: kotlin.Long) : ApiResponse<NotificationTemplateResponse?> {
-        val localVariableConfig = deleteNotificationTemplateRequestConfig(version = version, accountId = accountId, notificationTemplateId = notificationTemplateId)
+    fun deleteNotificationTemplateWithHttpInfo(accountId: kotlin.Long, notificationTemplateId: kotlin.Long) : ApiResponse<NotificationTemplateResponse?> {
+        val localVariableConfig = deleteNotificationTemplateRequestConfig(accountId = accountId, notificationTemplateId = notificationTemplateId)
 
         return request<Unit, NotificationTemplateResponse>(
             localVariableConfig
@@ -304,12 +296,11 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation deleteNotificationTemplate
      *
-     * @param version 
      * @param accountId the account id of the user
      * @param notificationTemplateId the id of the notification template to delete
      * @return RequestConfig
      */
-    fun deleteNotificationTemplateRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, notificationTemplateId: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteNotificationTemplateRequestConfig(accountId: kotlin.Long, notificationTemplateId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -320,7 +311,7 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/notification/template/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/notification/template/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -329,10 +320,9 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/notification/template/get
+     * GET /notification/template/get
      * Get Notification Template
      * Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
-     * @param version 
      * @param accountId the id of the account
      * @param notificationTemplateId the id of the notification template to get
      * @return NotificationTemplateResponse
@@ -344,8 +334,8 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getNotificationTemplate(version: java.math.BigDecimal, accountId: kotlin.Long, notificationTemplateId: kotlin.Long) : NotificationTemplateResponse {
-        val localVarResponse = getNotificationTemplateWithHttpInfo(version = version, accountId = accountId, notificationTemplateId = notificationTemplateId)
+    fun getNotificationTemplate(accountId: kotlin.Long, notificationTemplateId: kotlin.Long) : NotificationTemplateResponse {
+        val localVarResponse = getNotificationTemplateWithHttpInfo(accountId = accountId, notificationTemplateId = notificationTemplateId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as NotificationTemplateResponse
@@ -363,10 +353,9 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/notification/template/get
+     * GET /notification/template/get
      * Get Notification Template
      * Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
-     * @param version 
      * @param accountId the id of the account
      * @param notificationTemplateId the id of the notification template to get
      * @return ApiResponse<NotificationTemplateResponse?>
@@ -375,8 +364,8 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getNotificationTemplateWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, notificationTemplateId: kotlin.Long) : ApiResponse<NotificationTemplateResponse?> {
-        val localVariableConfig = getNotificationTemplateRequestConfig(version = version, accountId = accountId, notificationTemplateId = notificationTemplateId)
+    fun getNotificationTemplateWithHttpInfo(accountId: kotlin.Long, notificationTemplateId: kotlin.Long) : ApiResponse<NotificationTemplateResponse?> {
+        val localVariableConfig = getNotificationTemplateRequestConfig(accountId = accountId, notificationTemplateId = notificationTemplateId)
 
         return request<Unit, NotificationTemplateResponse>(
             localVariableConfig
@@ -386,12 +375,11 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation getNotificationTemplate
      *
-     * @param version 
      * @param accountId the id of the account
      * @param notificationTemplateId the id of the notification template to get
      * @return RequestConfig
      */
-    fun getNotificationTemplateRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, notificationTemplateId: kotlin.Long) : RequestConfig<Unit> {
+    fun getNotificationTemplateRequestConfig(accountId: kotlin.Long, notificationTemplateId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -402,7 +390,7 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/notification/template/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/notification/template/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -411,10 +399,9 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/notification/search
+     * GET /notification/search
      * Get Notifications
      * Get a list of notifications for a user. If the \&quot;markAsRead\&quot; parameter is set to true, the returned notifications will be marked as \&quot;read\&quot; after the response has been sent. By default, read messages will not be returned, so to see read messages, set \&quot;returnReadMessages\&quot; to true.
-     * @param version 
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId the account id used to view another person&#39;s notifications (optional)
@@ -445,8 +432,8 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getNotifications(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionAccountId: kotlin.Long? = null, appKey: kotlin.String? = null, eventType: kotlin.String? = null, contentIds: kotlin.String? = null, contentTypes: kotlin.String? = null, parentIds: kotlin.String? = null, parentTypes: kotlin.String? = null, actionCategory: kotlin.String? = null, conduits: kotlin.String? = null, keyword: kotlin.String? = null, returnReadMessages: kotlin.Boolean? = null, markAsRead: kotlin.Boolean? = null, fromDate: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, returnSent: kotlin.Boolean? = null, ignoreFlagged: kotlin.Boolean? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null) : NotificationMessageListResponse {
-        val localVarResponse = getNotificationsWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, appKey = appKey, eventType = eventType, contentIds = contentIds, contentTypes = contentTypes, parentIds = parentIds, parentTypes = parentTypes, actionCategory = actionCategory, conduits = conduits, keyword = keyword, returnReadMessages = returnReadMessages, markAsRead = markAsRead, fromDate = fromDate, latitude = latitude, longitude = longitude, returnSent = returnSent, ignoreFlagged = ignoreFlagged, start = start, limit = limit)
+    fun getNotifications(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionAccountId: kotlin.Long? = null, appKey: kotlin.String? = null, eventType: kotlin.String? = null, contentIds: kotlin.String? = null, contentTypes: kotlin.String? = null, parentIds: kotlin.String? = null, parentTypes: kotlin.String? = null, actionCategory: kotlin.String? = null, conduits: kotlin.String? = null, keyword: kotlin.String? = null, returnReadMessages: kotlin.Boolean? = null, markAsRead: kotlin.Boolean? = null, fromDate: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, returnSent: kotlin.Boolean? = null, ignoreFlagged: kotlin.Boolean? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null) : NotificationMessageListResponse {
+        val localVarResponse = getNotificationsWithHttpInfo(deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, appKey = appKey, eventType = eventType, contentIds = contentIds, contentTypes = contentTypes, parentIds = parentIds, parentTypes = parentTypes, actionCategory = actionCategory, conduits = conduits, keyword = keyword, returnReadMessages = returnReadMessages, markAsRead = markAsRead, fromDate = fromDate, latitude = latitude, longitude = longitude, returnSent = returnSent, ignoreFlagged = ignoreFlagged, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as NotificationMessageListResponse
@@ -464,10 +451,9 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/notification/search
+     * GET /notification/search
      * Get Notifications
      * Get a list of notifications for a user. If the \&quot;markAsRead\&quot; parameter is set to true, the returned notifications will be marked as \&quot;read\&quot; after the response has been sent. By default, read messages will not be returned, so to see read messages, set \&quot;returnReadMessages\&quot; to true.
-     * @param version 
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId the account id used to view another person&#39;s notifications (optional)
@@ -495,8 +481,8 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getNotificationsWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, appKey: kotlin.String?, eventType: kotlin.String?, contentIds: kotlin.String?, contentTypes: kotlin.String?, parentIds: kotlin.String?, parentTypes: kotlin.String?, actionCategory: kotlin.String?, conduits: kotlin.String?, keyword: kotlin.String?, returnReadMessages: kotlin.Boolean?, markAsRead: kotlin.Boolean?, fromDate: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, returnSent: kotlin.Boolean?, ignoreFlagged: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<NotificationMessageListResponse?> {
-        val localVariableConfig = getNotificationsRequestConfig(version = version, deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, appKey = appKey, eventType = eventType, contentIds = contentIds, contentTypes = contentTypes, parentIds = parentIds, parentTypes = parentTypes, actionCategory = actionCategory, conduits = conduits, keyword = keyword, returnReadMessages = returnReadMessages, markAsRead = markAsRead, fromDate = fromDate, latitude = latitude, longitude = longitude, returnSent = returnSent, ignoreFlagged = ignoreFlagged, start = start, limit = limit)
+    fun getNotificationsWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, appKey: kotlin.String?, eventType: kotlin.String?, contentIds: kotlin.String?, contentTypes: kotlin.String?, parentIds: kotlin.String?, parentTypes: kotlin.String?, actionCategory: kotlin.String?, conduits: kotlin.String?, keyword: kotlin.String?, returnReadMessages: kotlin.Boolean?, markAsRead: kotlin.Boolean?, fromDate: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, returnSent: kotlin.Boolean?, ignoreFlagged: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<NotificationMessageListResponse?> {
+        val localVariableConfig = getNotificationsRequestConfig(deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, appKey = appKey, eventType = eventType, contentIds = contentIds, contentTypes = contentTypes, parentIds = parentIds, parentTypes = parentTypes, actionCategory = actionCategory, conduits = conduits, keyword = keyword, returnReadMessages = returnReadMessages, markAsRead = markAsRead, fromDate = fromDate, latitude = latitude, longitude = longitude, returnSent = returnSent, ignoreFlagged = ignoreFlagged, start = start, limit = limit)
 
         return request<Unit, NotificationMessageListResponse>(
             localVariableConfig
@@ -506,7 +492,6 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation getNotifications
      *
-     * @param version 
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId the account id used to view another person&#39;s notifications (optional)
@@ -530,7 +515,7 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param limit limit of the pagination (optional)
      * @return RequestConfig
      */
-    fun getNotificationsRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, appKey: kotlin.String?, eventType: kotlin.String?, contentIds: kotlin.String?, contentTypes: kotlin.String?, parentIds: kotlin.String?, parentTypes: kotlin.String?, actionCategory: kotlin.String?, conduits: kotlin.String?, keyword: kotlin.String?, returnReadMessages: kotlin.Boolean?, markAsRead: kotlin.Boolean?, fromDate: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, returnSent: kotlin.Boolean?, ignoreFlagged: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun getNotificationsRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, appKey: kotlin.String?, eventType: kotlin.String?, contentIds: kotlin.String?, contentTypes: kotlin.String?, parentIds: kotlin.String?, parentTypes: kotlin.String?, actionCategory: kotlin.String?, conduits: kotlin.String?, keyword: kotlin.String?, returnReadMessages: kotlin.Boolean?, markAsRead: kotlin.Boolean?, fromDate: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, returnSent: kotlin.Boolean?, ignoreFlagged: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -602,7 +587,7 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/notification/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/notification/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -631,10 +616,9 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      }
 
     /**
-     * POST /api/{version}/notification/token
+     * POST /notification/token
      * Register Notification Token
      * Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
-     * @param version 
      * @param token A token that is generated by the device to sign requests for the notification service providers
      * @param pushType The type of push notification. Possible values include: APNS, GCM
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -654,8 +638,8 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun registerNotificationToken(version: java.math.BigDecimal, token: kotlin.String, pushType: PushTypeRegisterNotificationToken, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, environment: kotlin.String? = null, appKey: kotlin.String? = null, gameType: kotlin.String? = null, active: kotlin.Boolean? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
-        val localVarResponse = registerNotificationTokenWithHttpInfo(version = version, token = token, pushType = pushType, deviceId = deviceId, accountId = accountId, environment = environment, appKey = appKey, gameType = gameType, active = active, latitude = latitude, longitude = longitude)
+    fun registerNotificationToken(token: kotlin.String, pushType: PushTypeRegisterNotificationToken, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, environment: kotlin.String? = null, appKey: kotlin.String? = null, gameType: kotlin.String? = null, active: kotlin.Boolean? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
+        val localVarResponse = registerNotificationTokenWithHttpInfo(token = token, pushType = pushType, deviceId = deviceId, accountId = accountId, environment = environment, appKey = appKey, gameType = gameType, active = active, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -673,10 +657,9 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/notification/token
+     * POST /notification/token
      * Register Notification Token
      * Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
-     * @param version 
      * @param token A token that is generated by the device to sign requests for the notification service providers
      * @param pushType The type of push notification. Possible values include: APNS, GCM
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -693,8 +676,8 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun registerNotificationTokenWithHttpInfo(version: java.math.BigDecimal, token: kotlin.String, pushType: PushTypeRegisterNotificationToken, deviceId: kotlin.String?, accountId: kotlin.Long?, environment: kotlin.String?, appKey: kotlin.String?, gameType: kotlin.String?, active: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = registerNotificationTokenRequestConfig(version = version, token = token, pushType = pushType, deviceId = deviceId, accountId = accountId, environment = environment, appKey = appKey, gameType = gameType, active = active, latitude = latitude, longitude = longitude)
+    fun registerNotificationTokenWithHttpInfo(token: kotlin.String, pushType: PushTypeRegisterNotificationToken, deviceId: kotlin.String?, accountId: kotlin.Long?, environment: kotlin.String?, appKey: kotlin.String?, gameType: kotlin.String?, active: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = registerNotificationTokenRequestConfig(token = token, pushType = pushType, deviceId = deviceId, accountId = accountId, environment = environment, appKey = appKey, gameType = gameType, active = active, latitude = latitude, longitude = longitude)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -704,7 +687,6 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation registerNotificationToken
      *
-     * @param version 
      * @param token A token that is generated by the device to sign requests for the notification service providers
      * @param pushType The type of push notification. Possible values include: APNS, GCM
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -717,7 +699,7 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param longitude Longitude used to update the user&#39;s current location (optional)
      * @return RequestConfig
      */
-    fun registerNotificationTokenRequestConfig(version: java.math.BigDecimal, token: kotlin.String, pushType: PushTypeRegisterNotificationToken, deviceId: kotlin.String?, accountId: kotlin.Long?, environment: kotlin.String?, appKey: kotlin.String?, gameType: kotlin.String?, active: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun registerNotificationTokenRequestConfig(token: kotlin.String, pushType: PushTypeRegisterNotificationToken, deviceId: kotlin.String?, accountId: kotlin.Long?, environment: kotlin.String?, appKey: kotlin.String?, gameType: kotlin.String?, active: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -752,7 +734,7 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/notification/token".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/notification/token",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -761,10 +743,9 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/notification/blocked/search
+     * GET /notification/blocked/search
      * Search on the user&#39;s blocked notification settings
      * Search on the user&#39;s blocked notification settings
-     * @param version 
      * @param appKey The application key
      * @param accountId the account id of the user (optional)
      * @param searchTags search tags to filter results (optional)
@@ -786,8 +767,8 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchBlockedNotifications(version: java.math.BigDecimal, appKey: kotlin.String, accountId: kotlin.Long? = null, searchTags: kotlin.String? = null, events: kotlin.String? = null, conduits: kotlin.String? = null, customTypes: kotlin.String? = null, contentTypes: kotlin.String? = null, contentIds: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null) : BlockedNotificationResponse {
-        val localVarResponse = searchBlockedNotificationsWithHttpInfo(version = version, appKey = appKey, accountId = accountId, searchTags = searchTags, events = events, conduits = conduits, customTypes = customTypes, contentTypes = contentTypes, contentIds = contentIds, sortField = sortField, descending = descending, start = start, limit = limit)
+    fun searchBlockedNotifications(appKey: kotlin.String, accountId: kotlin.Long? = null, searchTags: kotlin.String? = null, events: kotlin.String? = null, conduits: kotlin.String? = null, customTypes: kotlin.String? = null, contentTypes: kotlin.String? = null, contentIds: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null) : BlockedNotificationResponse {
+        val localVarResponse = searchBlockedNotificationsWithHttpInfo(appKey = appKey, accountId = accountId, searchTags = searchTags, events = events, conduits = conduits, customTypes = customTypes, contentTypes = contentTypes, contentIds = contentIds, sortField = sortField, descending = descending, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as BlockedNotificationResponse
@@ -805,10 +786,9 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/notification/blocked/search
+     * GET /notification/blocked/search
      * Search on the user&#39;s blocked notification settings
      * Search on the user&#39;s blocked notification settings
-     * @param version 
      * @param appKey The application key
      * @param accountId the account id of the user (optional)
      * @param searchTags search tags to filter results (optional)
@@ -827,8 +807,8 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchBlockedNotificationsWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String, accountId: kotlin.Long?, searchTags: kotlin.String?, events: kotlin.String?, conduits: kotlin.String?, customTypes: kotlin.String?, contentTypes: kotlin.String?, contentIds: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<BlockedNotificationResponse?> {
-        val localVariableConfig = searchBlockedNotificationsRequestConfig(version = version, appKey = appKey, accountId = accountId, searchTags = searchTags, events = events, conduits = conduits, customTypes = customTypes, contentTypes = contentTypes, contentIds = contentIds, sortField = sortField, descending = descending, start = start, limit = limit)
+    fun searchBlockedNotificationsWithHttpInfo(appKey: kotlin.String, accountId: kotlin.Long?, searchTags: kotlin.String?, events: kotlin.String?, conduits: kotlin.String?, customTypes: kotlin.String?, contentTypes: kotlin.String?, contentIds: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<BlockedNotificationResponse?> {
+        val localVariableConfig = searchBlockedNotificationsRequestConfig(appKey = appKey, accountId = accountId, searchTags = searchTags, events = events, conduits = conduits, customTypes = customTypes, contentTypes = contentTypes, contentIds = contentIds, sortField = sortField, descending = descending, start = start, limit = limit)
 
         return request<Unit, BlockedNotificationResponse>(
             localVariableConfig
@@ -838,7 +818,6 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation searchBlockedNotifications
      *
-     * @param version 
      * @param appKey The application key
      * @param accountId the account id of the user (optional)
      * @param searchTags search tags to filter results (optional)
@@ -853,7 +832,7 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param limit limit of the pagination (optional)
      * @return RequestConfig
      */
-    fun searchBlockedNotificationsRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String, accountId: kotlin.Long?, searchTags: kotlin.String?, events: kotlin.String?, conduits: kotlin.String?, customTypes: kotlin.String?, contentTypes: kotlin.String?, contentIds: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchBlockedNotificationsRequestConfig(appKey: kotlin.String, accountId: kotlin.Long?, searchTags: kotlin.String?, events: kotlin.String?, conduits: kotlin.String?, customTypes: kotlin.String?, contentTypes: kotlin.String?, contentIds: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -896,7 +875,7 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/notification/blocked/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/notification/blocked/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -905,10 +884,9 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/notification/template/search
+     * GET /notification/template/search
      * Search Notification Templates
      * Search for notification templates on owned applications.
-     * @param version 
      * @param accountId The account ID of the user.
      * @param sortField Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (&#39;global&#39; templates will not have an application and will be returned last if &#39;descending&#39; is set to false.
      * @param descending Specified whether the results are returned in descending or ascending order.
@@ -929,8 +907,8 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchNotificationTemplate(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, appKey: kotlin.String? = null, event: kotlin.String? = null, conduit: kotlin.String? = null, globalOnly: kotlin.Boolean? = null, reservedOnly: kotlin.Boolean? = null, keyword: kotlin.String? = null) : NotificationTemplateResponse {
-        val localVarResponse = searchNotificationTemplateWithHttpInfo(version = version, accountId = accountId, sortField = sortField, descending = descending, start = start, limit = limit, appKey = appKey, event = event, conduit = conduit, globalOnly = globalOnly, reservedOnly = reservedOnly, keyword = keyword)
+    fun searchNotificationTemplate(accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, appKey: kotlin.String? = null, event: kotlin.String? = null, conduit: kotlin.String? = null, globalOnly: kotlin.Boolean? = null, reservedOnly: kotlin.Boolean? = null, keyword: kotlin.String? = null) : NotificationTemplateResponse {
+        val localVarResponse = searchNotificationTemplateWithHttpInfo(accountId = accountId, sortField = sortField, descending = descending, start = start, limit = limit, appKey = appKey, event = event, conduit = conduit, globalOnly = globalOnly, reservedOnly = reservedOnly, keyword = keyword)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as NotificationTemplateResponse
@@ -948,10 +926,9 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/notification/template/search
+     * GET /notification/template/search
      * Search Notification Templates
      * Search for notification templates on owned applications.
-     * @param version 
      * @param accountId The account ID of the user.
      * @param sortField Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (&#39;global&#39; templates will not have an application and will be returned last if &#39;descending&#39; is set to false.
      * @param descending Specified whether the results are returned in descending or ascending order.
@@ -969,8 +946,8 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchNotificationTemplateWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, appKey: kotlin.String?, event: kotlin.String?, conduit: kotlin.String?, globalOnly: kotlin.Boolean?, reservedOnly: kotlin.Boolean?, keyword: kotlin.String?) : ApiResponse<NotificationTemplateResponse?> {
-        val localVariableConfig = searchNotificationTemplateRequestConfig(version = version, accountId = accountId, sortField = sortField, descending = descending, start = start, limit = limit, appKey = appKey, event = event, conduit = conduit, globalOnly = globalOnly, reservedOnly = reservedOnly, keyword = keyword)
+    fun searchNotificationTemplateWithHttpInfo(accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, appKey: kotlin.String?, event: kotlin.String?, conduit: kotlin.String?, globalOnly: kotlin.Boolean?, reservedOnly: kotlin.Boolean?, keyword: kotlin.String?) : ApiResponse<NotificationTemplateResponse?> {
+        val localVariableConfig = searchNotificationTemplateRequestConfig(accountId = accountId, sortField = sortField, descending = descending, start = start, limit = limit, appKey = appKey, event = event, conduit = conduit, globalOnly = globalOnly, reservedOnly = reservedOnly, keyword = keyword)
 
         return request<Unit, NotificationTemplateResponse>(
             localVariableConfig
@@ -980,7 +957,6 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation searchNotificationTemplate
      *
-     * @param version 
      * @param accountId The account ID of the user.
      * @param sortField Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (&#39;global&#39; templates will not have an application and will be returned last if &#39;descending&#39; is set to false.
      * @param descending Specified whether the results are returned in descending or ascending order.
@@ -994,7 +970,7 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param keyword Filter results by keyword on the title, tags. (optional)
      * @return RequestConfig
      */
-    fun searchNotificationTemplateRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, appKey: kotlin.String?, event: kotlin.String?, conduit: kotlin.String?, globalOnly: kotlin.Boolean?, reservedOnly: kotlin.Boolean?, keyword: kotlin.String?) : RequestConfig<Unit> {
+    fun searchNotificationTemplateRequestConfig(accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, appKey: kotlin.String?, event: kotlin.String?, conduit: kotlin.String?, globalOnly: kotlin.Boolean?, reservedOnly: kotlin.Boolean?, keyword: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1026,7 +1002,7 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/notification/template/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/notification/template/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1061,10 +1037,9 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      }
 
     /**
-     * GET /api/{version}/notification/recipient/search
+     * GET /notification/recipient/search
      * Search for Recipients
      * Search for application users to send notifications.
-     * @param version 
      * @param sortField The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1087,8 +1062,8 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchRecipients(version: java.math.BigDecimal, sortField: SortFieldSearchRecipients, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, conduit: kotlin.String? = null, keyword: kotlin.String? = null, audienceId: kotlin.Long? = null, audienceIds: kotlin.String? = null, connectionGroupIds: kotlin.String? = null, recipientAccountIds: kotlin.String? = null, descending: kotlin.Boolean? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null) : kotlin.collections.List<NotificationRecipientResponse> {
-        val localVarResponse = searchRecipientsWithHttpInfo(version = version, sortField = sortField, deviceId = deviceId, accountId = accountId, appKey = appKey, conduit = conduit, keyword = keyword, audienceId = audienceId, audienceIds = audienceIds, connectionGroupIds = connectionGroupIds, recipientAccountIds = recipientAccountIds, descending = descending, start = start, limit = limit)
+    fun searchRecipients(sortField: SortFieldSearchRecipients, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, conduit: kotlin.String? = null, keyword: kotlin.String? = null, audienceId: kotlin.Long? = null, audienceIds: kotlin.String? = null, connectionGroupIds: kotlin.String? = null, recipientAccountIds: kotlin.String? = null, descending: kotlin.Boolean? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null) : kotlin.collections.List<NotificationRecipientResponse> {
+        val localVarResponse = searchRecipientsWithHttpInfo(sortField = sortField, deviceId = deviceId, accountId = accountId, appKey = appKey, conduit = conduit, keyword = keyword, audienceId = audienceId, audienceIds = audienceIds, connectionGroupIds = connectionGroupIds, recipientAccountIds = recipientAccountIds, descending = descending, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<NotificationRecipientResponse>
@@ -1106,10 +1081,9 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/notification/recipient/search
+     * GET /notification/recipient/search
      * Search for Recipients
      * Search for application users to send notifications.
-     * @param version 
      * @param sortField The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1129,8 +1103,8 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchRecipientsWithHttpInfo(version: java.math.BigDecimal, sortField: SortFieldSearchRecipients, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, conduit: kotlin.String?, keyword: kotlin.String?, audienceId: kotlin.Long?, audienceIds: kotlin.String?, connectionGroupIds: kotlin.String?, recipientAccountIds: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<NotificationRecipientResponse>?> {
-        val localVariableConfig = searchRecipientsRequestConfig(version = version, sortField = sortField, deviceId = deviceId, accountId = accountId, appKey = appKey, conduit = conduit, keyword = keyword, audienceId = audienceId, audienceIds = audienceIds, connectionGroupIds = connectionGroupIds, recipientAccountIds = recipientAccountIds, descending = descending, start = start, limit = limit)
+    fun searchRecipientsWithHttpInfo(sortField: SortFieldSearchRecipients, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, conduit: kotlin.String?, keyword: kotlin.String?, audienceId: kotlin.Long?, audienceIds: kotlin.String?, connectionGroupIds: kotlin.String?, recipientAccountIds: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<NotificationRecipientResponse>?> {
+        val localVariableConfig = searchRecipientsRequestConfig(sortField = sortField, deviceId = deviceId, accountId = accountId, appKey = appKey, conduit = conduit, keyword = keyword, audienceId = audienceId, audienceIds = audienceIds, connectionGroupIds = connectionGroupIds, recipientAccountIds = recipientAccountIds, descending = descending, start = start, limit = limit)
 
         return request<Unit, kotlin.collections.List<NotificationRecipientResponse>>(
             localVariableConfig
@@ -1140,7 +1114,6 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation searchRecipients
      *
-     * @param version 
      * @param sortField The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1156,7 +1129,7 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param limit limit of the pagination (hard limit of 1000) (optional)
      * @return RequestConfig
      */
-    fun searchRecipientsRequestConfig(version: java.math.BigDecimal, sortField: SortFieldSearchRecipients, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, conduit: kotlin.String?, keyword: kotlin.String?, audienceId: kotlin.Long?, audienceIds: kotlin.String?, connectionGroupIds: kotlin.String?, recipientAccountIds: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchRecipientsRequestConfig(sortField: SortFieldSearchRecipients, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, conduit: kotlin.String?, keyword: kotlin.String?, audienceId: kotlin.Long?, audienceIds: kotlin.String?, connectionGroupIds: kotlin.String?, recipientAccountIds: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1202,7 +1175,7 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/notification/recipient/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/notification/recipient/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1211,10 +1184,9 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/notification/recipient/search/count
+     * GET /notification/recipient/search/count
      * Search for Recipients (Counts/Grouped)
      * Search for application users to send notifications (count/grouped variant).
-     * @param version 
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param appKey filters results by application. If this is empty, will return all recipients for all applications that the user has access to. (optional)
@@ -1236,8 +1208,8 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchRecipientsCount(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, conduit: kotlin.String? = null, keyword: kotlin.String? = null, audienceId: kotlin.Long? = null, audienceIds: kotlin.String? = null, connectionGroupIds: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null) : NotificationRecipientResponseListResponse {
-        val localVarResponse = searchRecipientsCountWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, appKey = appKey, conduit = conduit, keyword = keyword, audienceId = audienceId, audienceIds = audienceIds, connectionGroupIds = connectionGroupIds, sortField = sortField, descending = descending, start = start, limit = limit)
+    fun searchRecipientsCount(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, conduit: kotlin.String? = null, keyword: kotlin.String? = null, audienceId: kotlin.Long? = null, audienceIds: kotlin.String? = null, connectionGroupIds: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null) : NotificationRecipientResponseListResponse {
+        val localVarResponse = searchRecipientsCountWithHttpInfo(deviceId = deviceId, accountId = accountId, appKey = appKey, conduit = conduit, keyword = keyword, audienceId = audienceId, audienceIds = audienceIds, connectionGroupIds = connectionGroupIds, sortField = sortField, descending = descending, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as NotificationRecipientResponseListResponse
@@ -1255,10 +1227,9 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/notification/recipient/search/count
+     * GET /notification/recipient/search/count
      * Search for Recipients (Counts/Grouped)
      * Search for application users to send notifications (count/grouped variant).
-     * @param version 
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param appKey filters results by application. If this is empty, will return all recipients for all applications that the user has access to. (optional)
@@ -1277,8 +1248,8 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchRecipientsCountWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, conduit: kotlin.String?, keyword: kotlin.String?, audienceId: kotlin.Long?, audienceIds: kotlin.String?, connectionGroupIds: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<NotificationRecipientResponseListResponse?> {
-        val localVariableConfig = searchRecipientsCountRequestConfig(version = version, deviceId = deviceId, accountId = accountId, appKey = appKey, conduit = conduit, keyword = keyword, audienceId = audienceId, audienceIds = audienceIds, connectionGroupIds = connectionGroupIds, sortField = sortField, descending = descending, start = start, limit = limit)
+    fun searchRecipientsCountWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, conduit: kotlin.String?, keyword: kotlin.String?, audienceId: kotlin.Long?, audienceIds: kotlin.String?, connectionGroupIds: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<NotificationRecipientResponseListResponse?> {
+        val localVariableConfig = searchRecipientsCountRequestConfig(deviceId = deviceId, accountId = accountId, appKey = appKey, conduit = conduit, keyword = keyword, audienceId = audienceId, audienceIds = audienceIds, connectionGroupIds = connectionGroupIds, sortField = sortField, descending = descending, start = start, limit = limit)
 
         return request<Unit, NotificationRecipientResponseListResponse>(
             localVariableConfig
@@ -1288,7 +1259,6 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation searchRecipientsCount
      *
-     * @param version 
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param appKey filters results by application. If this is empty, will return all recipients for all applications that the user has access to. (optional)
@@ -1303,7 +1273,7 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param limit limit of the pagination (optional)
      * @return RequestConfig
      */
-    fun searchRecipientsCountRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, conduit: kotlin.String?, keyword: kotlin.String?, audienceId: kotlin.Long?, audienceIds: kotlin.String?, connectionGroupIds: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchRecipientsCountRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, conduit: kotlin.String?, keyword: kotlin.String?, audienceId: kotlin.Long?, audienceIds: kotlin.String?, connectionGroupIds: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1348,7 +1318,7 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/notification/recipient/search/count".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/notification/recipient/search/count",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1357,10 +1327,9 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/notification/batch
+     * POST /notification/batch
      * Send Batch Notifications
      * Send notifications to all users of an application. Only someone with permissions to the application can do this.
-     * @param version 
      * @param accountId The account id of the application owner/manager
      * @param appKey The application key for updating an existing application
      * @param customMessage Message string that will be displayed in on the notification
@@ -1379,8 +1348,8 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun sendBatchNotifications(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, customMessage: kotlin.String, conduit: kotlin.String? = null, contentId: kotlin.Long? = null, contentName: kotlin.String? = null, contentType: kotlin.String? = null, parentId: kotlin.Long? = null, parentType: kotlin.String? = null) : SirqulResponse {
-        val localVarResponse = sendBatchNotificationsWithHttpInfo(version = version, accountId = accountId, appKey = appKey, customMessage = customMessage, conduit = conduit, contentId = contentId, contentName = contentName, contentType = contentType, parentId = parentId, parentType = parentType)
+    fun sendBatchNotifications(accountId: kotlin.Long, appKey: kotlin.String, customMessage: kotlin.String, conduit: kotlin.String? = null, contentId: kotlin.Long? = null, contentName: kotlin.String? = null, contentType: kotlin.String? = null, parentId: kotlin.Long? = null, parentType: kotlin.String? = null) : SirqulResponse {
+        val localVarResponse = sendBatchNotificationsWithHttpInfo(accountId = accountId, appKey = appKey, customMessage = customMessage, conduit = conduit, contentId = contentId, contentName = contentName, contentType = contentType, parentId = parentId, parentType = parentType)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -1398,10 +1367,9 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/notification/batch
+     * POST /notification/batch
      * Send Batch Notifications
      * Send notifications to all users of an application. Only someone with permissions to the application can do this.
-     * @param version 
      * @param accountId The account id of the application owner/manager
      * @param appKey The application key for updating an existing application
      * @param customMessage Message string that will be displayed in on the notification
@@ -1417,8 +1385,8 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun sendBatchNotificationsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, customMessage: kotlin.String, conduit: kotlin.String?, contentId: kotlin.Long?, contentName: kotlin.String?, contentType: kotlin.String?, parentId: kotlin.Long?, parentType: kotlin.String?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = sendBatchNotificationsRequestConfig(version = version, accountId = accountId, appKey = appKey, customMessage = customMessage, conduit = conduit, contentId = contentId, contentName = contentName, contentType = contentType, parentId = parentId, parentType = parentType)
+    fun sendBatchNotificationsWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, customMessage: kotlin.String, conduit: kotlin.String?, contentId: kotlin.Long?, contentName: kotlin.String?, contentType: kotlin.String?, parentId: kotlin.Long?, parentType: kotlin.String?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = sendBatchNotificationsRequestConfig(accountId = accountId, appKey = appKey, customMessage = customMessage, conduit = conduit, contentId = contentId, contentName = contentName, contentType = contentType, parentId = parentId, parentType = parentType)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -1428,7 +1396,6 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation sendBatchNotifications
      *
-     * @param version 
      * @param accountId The account id of the application owner/manager
      * @param appKey The application key for updating an existing application
      * @param customMessage Message string that will be displayed in on the notification
@@ -1440,7 +1407,7 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param parentType Default notification pay-load field (usage is dependent on the app and the type of event) (optional)
      * @return RequestConfig
      */
-    fun sendBatchNotificationsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, customMessage: kotlin.String, conduit: kotlin.String?, contentId: kotlin.Long?, contentName: kotlin.String?, contentType: kotlin.String?, parentId: kotlin.Long?, parentType: kotlin.String?) : RequestConfig<Unit> {
+    fun sendBatchNotificationsRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, customMessage: kotlin.String, conduit: kotlin.String?, contentId: kotlin.Long?, contentName: kotlin.String?, contentType: kotlin.String?, parentId: kotlin.Long?, parentType: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1470,7 +1437,7 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/notification/batch".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/notification/batch",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1479,10 +1446,9 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/notification/custom
+     * POST /notification/custom
      * Send Custom Notifications
      * Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
-     * @param version 
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param receiverAccountIds comma separated list of account IDs that will receive the notification (optional)
@@ -1510,8 +1476,8 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun sendCustomNotifications(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, receiverAccountIds: kotlin.String? = null, includeFriendGroup: kotlin.Boolean? = null, appKey: kotlin.String? = null, gameType: kotlin.String? = null, conduit: kotlin.String? = null, contentId: kotlin.Long? = null, contentName: kotlin.String? = null, contentType: kotlin.String? = null, parentId: kotlin.Long? = null, parentType: kotlin.String? = null, actionCategory: kotlin.String? = null, subject: kotlin.String? = null, customMessage: kotlin.String? = null, friendOnlyAPNS: kotlin.Boolean? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
-        val localVarResponse = sendCustomNotificationsWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, receiverAccountIds = receiverAccountIds, includeFriendGroup = includeFriendGroup, appKey = appKey, gameType = gameType, conduit = conduit, contentId = contentId, contentName = contentName, contentType = contentType, parentId = parentId, parentType = parentType, actionCategory = actionCategory, subject = subject, customMessage = customMessage, friendOnlyAPNS = friendOnlyAPNS, latitude = latitude, longitude = longitude)
+    fun sendCustomNotifications(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, receiverAccountIds: kotlin.String? = null, includeFriendGroup: kotlin.Boolean? = null, appKey: kotlin.String? = null, gameType: kotlin.String? = null, conduit: kotlin.String? = null, contentId: kotlin.Long? = null, contentName: kotlin.String? = null, contentType: kotlin.String? = null, parentId: kotlin.Long? = null, parentType: kotlin.String? = null, actionCategory: kotlin.String? = null, subject: kotlin.String? = null, customMessage: kotlin.String? = null, friendOnlyAPNS: kotlin.Boolean? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
+        val localVarResponse = sendCustomNotificationsWithHttpInfo(deviceId = deviceId, accountId = accountId, receiverAccountIds = receiverAccountIds, includeFriendGroup = includeFriendGroup, appKey = appKey, gameType = gameType, conduit = conduit, contentId = contentId, contentName = contentName, contentType = contentType, parentId = parentId, parentType = parentType, actionCategory = actionCategory, subject = subject, customMessage = customMessage, friendOnlyAPNS = friendOnlyAPNS, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -1529,10 +1495,9 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/notification/custom
+     * POST /notification/custom
      * Send Custom Notifications
      * Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
-     * @param version 
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param receiverAccountIds comma separated list of account IDs that will receive the notification (optional)
@@ -1557,8 +1522,8 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun sendCustomNotificationsWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, receiverAccountIds: kotlin.String?, includeFriendGroup: kotlin.Boolean?, appKey: kotlin.String?, gameType: kotlin.String?, conduit: kotlin.String?, contentId: kotlin.Long?, contentName: kotlin.String?, contentType: kotlin.String?, parentId: kotlin.Long?, parentType: kotlin.String?, actionCategory: kotlin.String?, subject: kotlin.String?, customMessage: kotlin.String?, friendOnlyAPNS: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = sendCustomNotificationsRequestConfig(version = version, deviceId = deviceId, accountId = accountId, receiverAccountIds = receiverAccountIds, includeFriendGroup = includeFriendGroup, appKey = appKey, gameType = gameType, conduit = conduit, contentId = contentId, contentName = contentName, contentType = contentType, parentId = parentId, parentType = parentType, actionCategory = actionCategory, subject = subject, customMessage = customMessage, friendOnlyAPNS = friendOnlyAPNS, latitude = latitude, longitude = longitude)
+    fun sendCustomNotificationsWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, receiverAccountIds: kotlin.String?, includeFriendGroup: kotlin.Boolean?, appKey: kotlin.String?, gameType: kotlin.String?, conduit: kotlin.String?, contentId: kotlin.Long?, contentName: kotlin.String?, contentType: kotlin.String?, parentId: kotlin.Long?, parentType: kotlin.String?, actionCategory: kotlin.String?, subject: kotlin.String?, customMessage: kotlin.String?, friendOnlyAPNS: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = sendCustomNotificationsRequestConfig(deviceId = deviceId, accountId = accountId, receiverAccountIds = receiverAccountIds, includeFriendGroup = includeFriendGroup, appKey = appKey, gameType = gameType, conduit = conduit, contentId = contentId, contentName = contentName, contentType = contentType, parentId = parentId, parentType = parentType, actionCategory = actionCategory, subject = subject, customMessage = customMessage, friendOnlyAPNS = friendOnlyAPNS, latitude = latitude, longitude = longitude)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -1568,7 +1533,6 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation sendCustomNotifications
      *
-     * @param version 
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param receiverAccountIds comma separated list of account IDs that will receive the notification (optional)
@@ -1589,7 +1553,7 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param longitude longitude used to update the user&#39;s current location (optional)
      * @return RequestConfig
      */
-    fun sendCustomNotificationsRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, receiverAccountIds: kotlin.String?, includeFriendGroup: kotlin.Boolean?, appKey: kotlin.String?, gameType: kotlin.String?, conduit: kotlin.String?, contentId: kotlin.Long?, contentName: kotlin.String?, contentType: kotlin.String?, parentId: kotlin.Long?, parentType: kotlin.String?, actionCategory: kotlin.String?, subject: kotlin.String?, customMessage: kotlin.String?, friendOnlyAPNS: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun sendCustomNotificationsRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, receiverAccountIds: kotlin.String?, includeFriendGroup: kotlin.Boolean?, appKey: kotlin.String?, gameType: kotlin.String?, conduit: kotlin.String?, contentId: kotlin.Long?, contentName: kotlin.String?, contentType: kotlin.String?, parentId: kotlin.Long?, parentType: kotlin.String?, actionCategory: kotlin.String?, subject: kotlin.String?, customMessage: kotlin.String?, friendOnlyAPNS: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1652,7 +1616,7 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/notification/custom".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/notification/custom",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1661,10 +1625,9 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/notification/template/update
+     * POST /notification/template/update
      * Update Notification Template
      * Update a notification template. Developers will only be able to update notification templates for their own applications.
-     * @param version 
      * @param accountId The account ID of the user.
      * @param notificationTemplateId The notification template ID to update.
      * @param title The title of the message (this would become the subject title for emails). There is a 191 character limit. (optional)
@@ -1679,8 +1642,8 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateNotificationTemplate(version: java.math.BigDecimal, accountId: kotlin.Long, notificationTemplateId: kotlin.Long, title: kotlin.String? = null, body: kotlin.String? = null, tags: kotlin.String? = null) : NotificationTemplateResponse {
-        val localVarResponse = updateNotificationTemplateWithHttpInfo(version = version, accountId = accountId, notificationTemplateId = notificationTemplateId, title = title, body = body, tags = tags)
+    fun updateNotificationTemplate(accountId: kotlin.Long, notificationTemplateId: kotlin.Long, title: kotlin.String? = null, body: kotlin.String? = null, tags: kotlin.String? = null) : NotificationTemplateResponse {
+        val localVarResponse = updateNotificationTemplateWithHttpInfo(accountId = accountId, notificationTemplateId = notificationTemplateId, title = title, body = body, tags = tags)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as NotificationTemplateResponse
@@ -1698,10 +1661,9 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/notification/template/update
+     * POST /notification/template/update
      * Update Notification Template
      * Update a notification template. Developers will only be able to update notification templates for their own applications.
-     * @param version 
      * @param accountId The account ID of the user.
      * @param notificationTemplateId The notification template ID to update.
      * @param title The title of the message (this would become the subject title for emails). There is a 191 character limit. (optional)
@@ -1713,8 +1675,8 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateNotificationTemplateWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, notificationTemplateId: kotlin.Long, title: kotlin.String?, body: kotlin.String?, tags: kotlin.String?) : ApiResponse<NotificationTemplateResponse?> {
-        val localVariableConfig = updateNotificationTemplateRequestConfig(version = version, accountId = accountId, notificationTemplateId = notificationTemplateId, title = title, body = body, tags = tags)
+    fun updateNotificationTemplateWithHttpInfo(accountId: kotlin.Long, notificationTemplateId: kotlin.Long, title: kotlin.String?, body: kotlin.String?, tags: kotlin.String?) : ApiResponse<NotificationTemplateResponse?> {
+        val localVariableConfig = updateNotificationTemplateRequestConfig(accountId = accountId, notificationTemplateId = notificationTemplateId, title = title, body = body, tags = tags)
 
         return request<Unit, NotificationTemplateResponse>(
             localVariableConfig
@@ -1724,7 +1686,6 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation updateNotificationTemplate
      *
-     * @param version 
      * @param accountId The account ID of the user.
      * @param notificationTemplateId The notification template ID to update.
      * @param title The title of the message (this would become the subject title for emails). There is a 191 character limit. (optional)
@@ -1732,7 +1693,7 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tags The search tags on the template used during search queries. (optional)
      * @return RequestConfig
      */
-    fun updateNotificationTemplateRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, notificationTemplateId: kotlin.Long, title: kotlin.String?, body: kotlin.String?, tags: kotlin.String?) : RequestConfig<Unit> {
+    fun updateNotificationTemplateRequestConfig(accountId: kotlin.Long, notificationTemplateId: kotlin.Long, title: kotlin.String?, body: kotlin.String?, tags: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1752,7 +1713,7 @@ open class NotificationApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/notification/template/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/notification/template/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

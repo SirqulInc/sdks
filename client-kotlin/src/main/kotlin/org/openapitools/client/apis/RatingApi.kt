@@ -43,15 +43,14 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/rating/create
+     * POST /rating/create
      * Create Rating
      * This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
-     * @param version 
      * @param ratableType The ratable object type {RETAILER_LOCATION}
      * @param ratableId The id of the ratable object
      * @param ratingValue The integer value of 0-100
@@ -72,8 +71,8 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createRating(version: java.math.BigDecimal, ratableType: kotlin.String, ratableId: kotlin.Long, ratingValue: kotlin.Int, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, categoryId: kotlin.Long? = null, display: kotlin.String? = null, description: kotlin.String? = null, locationDescription: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : RatingResponse {
-        val localVarResponse = createRatingWithHttpInfo(version = version, ratableType = ratableType, ratableId = ratableId, ratingValue = ratingValue, deviceId = deviceId, accountId = accountId, categoryId = categoryId, display = display, description = description, locationDescription = locationDescription, latitude = latitude, longitude = longitude)
+    fun createRating(ratableType: kotlin.String, ratableId: kotlin.Long, ratingValue: kotlin.Int, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, categoryId: kotlin.Long? = null, display: kotlin.String? = null, description: kotlin.String? = null, locationDescription: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : RatingResponse {
+        val localVarResponse = createRatingWithHttpInfo(ratableType = ratableType, ratableId = ratableId, ratingValue = ratingValue, deviceId = deviceId, accountId = accountId, categoryId = categoryId, display = display, description = description, locationDescription = locationDescription, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as RatingResponse
@@ -91,10 +90,9 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/rating/create
+     * POST /rating/create
      * Create Rating
      * This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
-     * @param version 
      * @param ratableType The ratable object type {RETAILER_LOCATION}
      * @param ratableId The id of the ratable object
      * @param ratingValue The integer value of 0-100
@@ -112,8 +110,8 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createRatingWithHttpInfo(version: java.math.BigDecimal, ratableType: kotlin.String, ratableId: kotlin.Long, ratingValue: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, categoryId: kotlin.Long?, display: kotlin.String?, description: kotlin.String?, locationDescription: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<RatingResponse?> {
-        val localVariableConfig = createRatingRequestConfig(version = version, ratableType = ratableType, ratableId = ratableId, ratingValue = ratingValue, deviceId = deviceId, accountId = accountId, categoryId = categoryId, display = display, description = description, locationDescription = locationDescription, latitude = latitude, longitude = longitude)
+    fun createRatingWithHttpInfo(ratableType: kotlin.String, ratableId: kotlin.Long, ratingValue: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, categoryId: kotlin.Long?, display: kotlin.String?, description: kotlin.String?, locationDescription: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<RatingResponse?> {
+        val localVariableConfig = createRatingRequestConfig(ratableType = ratableType, ratableId = ratableId, ratingValue = ratingValue, deviceId = deviceId, accountId = accountId, categoryId = categoryId, display = display, description = description, locationDescription = locationDescription, latitude = latitude, longitude = longitude)
 
         return request<Unit, RatingResponse>(
             localVariableConfig
@@ -123,7 +121,6 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation createRating
      *
-     * @param version 
      * @param ratableType The ratable object type {RETAILER_LOCATION}
      * @param ratableId The id of the ratable object
      * @param ratingValue The integer value of 0-100
@@ -137,7 +134,7 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param longitude The current location of the user (optional)
      * @return RequestConfig
      */
-    fun createRatingRequestConfig(version: java.math.BigDecimal, ratableType: kotlin.String, ratableId: kotlin.Long, ratingValue: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, categoryId: kotlin.Long?, display: kotlin.String?, description: kotlin.String?, locationDescription: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun createRatingRequestConfig(ratableType: kotlin.String, ratableId: kotlin.Long, ratingValue: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, categoryId: kotlin.Long?, display: kotlin.String?, description: kotlin.String?, locationDescription: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -173,7 +170,7 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/rating/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/rating/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -182,10 +179,9 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/rating/delete
+     * POST /rating/delete
      * Delete Rating
      * Sets a rating as deleted.
-     * @param version 
      * @param ratingId The ID of the rating to delete
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -198,8 +194,8 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteRating(version: java.math.BigDecimal, ratingId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = deleteRatingWithHttpInfo(version = version, ratingId = ratingId, deviceId = deviceId, accountId = accountId)
+    fun deleteRating(ratingId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = deleteRatingWithHttpInfo(ratingId = ratingId, deviceId = deviceId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -217,10 +213,9 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/rating/delete
+     * POST /rating/delete
      * Delete Rating
      * Sets a rating as deleted.
-     * @param version 
      * @param ratingId The ID of the rating to delete
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -230,8 +225,8 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteRatingWithHttpInfo(version: java.math.BigDecimal, ratingId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteRatingRequestConfig(version = version, ratingId = ratingId, deviceId = deviceId, accountId = accountId)
+    fun deleteRatingWithHttpInfo(ratingId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteRatingRequestConfig(ratingId = ratingId, deviceId = deviceId, accountId = accountId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -241,13 +236,12 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation deleteRating
      *
-     * @param version 
      * @param ratingId The ID of the rating to delete
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @return RequestConfig
      */
-    fun deleteRatingRequestConfig(version: java.math.BigDecimal, ratingId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun deleteRatingRequestConfig(ratingId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -263,7 +257,7 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/rating/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/rating/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -321,10 +315,9 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      }
 
     /**
-     * GET /api/{version}/location/rating/index/search
+     * GET /location/rating/index/search
      * Search Location Rating Indexes
      * Search for retailer locations by averages near you.
-     * @param version 
      * @param categoryIds Comma separated list of category ids to filter the results by (optional)
      * @param keyword The keyword used to search (optional)
      * @param locationType The type of location to filter the results by (optional)
@@ -351,8 +344,8 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchLocationRatingIndexes(version: java.math.BigDecimal, categoryIds: kotlin.String? = null, keyword: kotlin.String? = null, locationType: kotlin.String? = null, sortField: SortFieldSearchLocationRatingIndexes? = null, descending: kotlin.Boolean? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null, searchRange: kotlin.Double? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, returnOverallRating: kotlin.Boolean? = null, distanceUnit: DistanceUnitSearchLocationRatingIndexes? = null, returnRetailer: kotlin.Boolean? = null, returnAssets: kotlin.Boolean? = null, returnOffers: kotlin.Boolean? = null, returnCategories: kotlin.Boolean? = null, returnFilters: kotlin.Boolean? = null) : kotlin.collections.List<RatingIndexResponse> {
-        val localVarResponse = searchLocationRatingIndexesWithHttpInfo(version = version, categoryIds = categoryIds, keyword = keyword, locationType = locationType, sortField = sortField, descending = descending, start = start, limit = limit, searchRange = searchRange, latitude = latitude, longitude = longitude, returnOverallRating = returnOverallRating, distanceUnit = distanceUnit, returnRetailer = returnRetailer, returnAssets = returnAssets, returnOffers = returnOffers, returnCategories = returnCategories, returnFilters = returnFilters)
+    fun searchLocationRatingIndexes(categoryIds: kotlin.String? = null, keyword: kotlin.String? = null, locationType: kotlin.String? = null, sortField: SortFieldSearchLocationRatingIndexes? = null, descending: kotlin.Boolean? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null, searchRange: kotlin.Double? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, returnOverallRating: kotlin.Boolean? = null, distanceUnit: DistanceUnitSearchLocationRatingIndexes? = null, returnRetailer: kotlin.Boolean? = null, returnAssets: kotlin.Boolean? = null, returnOffers: kotlin.Boolean? = null, returnCategories: kotlin.Boolean? = null, returnFilters: kotlin.Boolean? = null) : kotlin.collections.List<RatingIndexResponse> {
+        val localVarResponse = searchLocationRatingIndexesWithHttpInfo(categoryIds = categoryIds, keyword = keyword, locationType = locationType, sortField = sortField, descending = descending, start = start, limit = limit, searchRange = searchRange, latitude = latitude, longitude = longitude, returnOverallRating = returnOverallRating, distanceUnit = distanceUnit, returnRetailer = returnRetailer, returnAssets = returnAssets, returnOffers = returnOffers, returnCategories = returnCategories, returnFilters = returnFilters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<RatingIndexResponse>
@@ -370,10 +363,9 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * GET /api/{version}/location/rating/index/search
+     * GET /location/rating/index/search
      * Search Location Rating Indexes
      * Search for retailer locations by averages near you.
-     * @param version 
      * @param categoryIds Comma separated list of category ids to filter the results by (optional)
      * @param keyword The keyword used to search (optional)
      * @param locationType The type of location to filter the results by (optional)
@@ -397,8 +389,8 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchLocationRatingIndexesWithHttpInfo(version: java.math.BigDecimal, categoryIds: kotlin.String?, keyword: kotlin.String?, locationType: kotlin.String?, sortField: SortFieldSearchLocationRatingIndexes?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, searchRange: kotlin.Double?, latitude: kotlin.Double?, longitude: kotlin.Double?, returnOverallRating: kotlin.Boolean?, distanceUnit: DistanceUnitSearchLocationRatingIndexes?, returnRetailer: kotlin.Boolean?, returnAssets: kotlin.Boolean?, returnOffers: kotlin.Boolean?, returnCategories: kotlin.Boolean?, returnFilters: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<RatingIndexResponse>?> {
-        val localVariableConfig = searchLocationRatingIndexesRequestConfig(version = version, categoryIds = categoryIds, keyword = keyword, locationType = locationType, sortField = sortField, descending = descending, start = start, limit = limit, searchRange = searchRange, latitude = latitude, longitude = longitude, returnOverallRating = returnOverallRating, distanceUnit = distanceUnit, returnRetailer = returnRetailer, returnAssets = returnAssets, returnOffers = returnOffers, returnCategories = returnCategories, returnFilters = returnFilters)
+    fun searchLocationRatingIndexesWithHttpInfo(categoryIds: kotlin.String?, keyword: kotlin.String?, locationType: kotlin.String?, sortField: SortFieldSearchLocationRatingIndexes?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, searchRange: kotlin.Double?, latitude: kotlin.Double?, longitude: kotlin.Double?, returnOverallRating: kotlin.Boolean?, distanceUnit: DistanceUnitSearchLocationRatingIndexes?, returnRetailer: kotlin.Boolean?, returnAssets: kotlin.Boolean?, returnOffers: kotlin.Boolean?, returnCategories: kotlin.Boolean?, returnFilters: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<RatingIndexResponse>?> {
+        val localVariableConfig = searchLocationRatingIndexesRequestConfig(categoryIds = categoryIds, keyword = keyword, locationType = locationType, sortField = sortField, descending = descending, start = start, limit = limit, searchRange = searchRange, latitude = latitude, longitude = longitude, returnOverallRating = returnOverallRating, distanceUnit = distanceUnit, returnRetailer = returnRetailer, returnAssets = returnAssets, returnOffers = returnOffers, returnCategories = returnCategories, returnFilters = returnFilters)
 
         return request<Unit, kotlin.collections.List<RatingIndexResponse>>(
             localVariableConfig
@@ -408,7 +400,6 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation searchLocationRatingIndexes
      *
-     * @param version 
      * @param categoryIds Comma separated list of category ids to filter the results by (optional)
      * @param keyword The keyword used to search (optional)
      * @param locationType The type of location to filter the results by (optional)
@@ -428,7 +419,7 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param returnFilters whether to return the filters or not (optional)
      * @return RequestConfig
      */
-    fun searchLocationRatingIndexesRequestConfig(version: java.math.BigDecimal, categoryIds: kotlin.String?, keyword: kotlin.String?, locationType: kotlin.String?, sortField: SortFieldSearchLocationRatingIndexes?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, searchRange: kotlin.Double?, latitude: kotlin.Double?, longitude: kotlin.Double?, returnOverallRating: kotlin.Boolean?, distanceUnit: DistanceUnitSearchLocationRatingIndexes?, returnRetailer: kotlin.Boolean?, returnAssets: kotlin.Boolean?, returnOffers: kotlin.Boolean?, returnCategories: kotlin.Boolean?, returnFilters: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchLocationRatingIndexesRequestConfig(categoryIds: kotlin.String?, keyword: kotlin.String?, locationType: kotlin.String?, sortField: SortFieldSearchLocationRatingIndexes?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, searchRange: kotlin.Double?, latitude: kotlin.Double?, longitude: kotlin.Double?, returnOverallRating: kotlin.Boolean?, distanceUnit: DistanceUnitSearchLocationRatingIndexes?, returnRetailer: kotlin.Boolean?, returnAssets: kotlin.Boolean?, returnOffers: kotlin.Boolean?, returnCategories: kotlin.Boolean?, returnFilters: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -488,7 +479,7 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/location/rating/index/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/location/rating/index/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -582,10 +573,9 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      }
 
     /**
-     * GET /api/{version}/rating/index/search
+     * GET /rating/index/search
      * Search Rating Indexes
      * Search for ratable items by averages.
-     * @param version 
      * @param ratableType Filter results by a ratable type {RETAILER_LOCATION}
      * @param ratableIds Comma separated list of ratable ids to filter the resuts by (optional)
      * @param categoryIds Comma separated list of category ids to filter the results by (optional)
@@ -608,8 +598,8 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchRatingIndexes(version: java.math.BigDecimal, ratableType: RatableTypeSearchRatingIndexes, ratableIds: kotlin.String? = null, categoryIds: kotlin.String? = null, secondaryType: kotlin.String? = null, keyword: kotlin.String? = null, sortField: SortFieldSearchRatingIndexes? = null, descending: kotlin.Boolean? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, returnRatable: kotlin.Boolean? = null, returnOverallRating: kotlin.Boolean? = null) : kotlin.collections.List<RatingIndexResponse> {
-        val localVarResponse = searchRatingIndexesWithHttpInfo(version = version, ratableType = ratableType, ratableIds = ratableIds, categoryIds = categoryIds, secondaryType = secondaryType, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit, latitude = latitude, longitude = longitude, returnRatable = returnRatable, returnOverallRating = returnOverallRating)
+    fun searchRatingIndexes(ratableType: RatableTypeSearchRatingIndexes, ratableIds: kotlin.String? = null, categoryIds: kotlin.String? = null, secondaryType: kotlin.String? = null, keyword: kotlin.String? = null, sortField: SortFieldSearchRatingIndexes? = null, descending: kotlin.Boolean? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, returnRatable: kotlin.Boolean? = null, returnOverallRating: kotlin.Boolean? = null) : kotlin.collections.List<RatingIndexResponse> {
+        val localVarResponse = searchRatingIndexesWithHttpInfo(ratableType = ratableType, ratableIds = ratableIds, categoryIds = categoryIds, secondaryType = secondaryType, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit, latitude = latitude, longitude = longitude, returnRatable = returnRatable, returnOverallRating = returnOverallRating)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<RatingIndexResponse>
@@ -627,10 +617,9 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * GET /api/{version}/rating/index/search
+     * GET /rating/index/search
      * Search Rating Indexes
      * Search for ratable items by averages.
-     * @param version 
      * @param ratableType Filter results by a ratable type {RETAILER_LOCATION}
      * @param ratableIds Comma separated list of ratable ids to filter the resuts by (optional)
      * @param categoryIds Comma separated list of category ids to filter the results by (optional)
@@ -650,8 +639,8 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchRatingIndexesWithHttpInfo(version: java.math.BigDecimal, ratableType: RatableTypeSearchRatingIndexes, ratableIds: kotlin.String?, categoryIds: kotlin.String?, secondaryType: kotlin.String?, keyword: kotlin.String?, sortField: SortFieldSearchRatingIndexes?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?, returnRatable: kotlin.Boolean?, returnOverallRating: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<RatingIndexResponse>?> {
-        val localVariableConfig = searchRatingIndexesRequestConfig(version = version, ratableType = ratableType, ratableIds = ratableIds, categoryIds = categoryIds, secondaryType = secondaryType, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit, latitude = latitude, longitude = longitude, returnRatable = returnRatable, returnOverallRating = returnOverallRating)
+    fun searchRatingIndexesWithHttpInfo(ratableType: RatableTypeSearchRatingIndexes, ratableIds: kotlin.String?, categoryIds: kotlin.String?, secondaryType: kotlin.String?, keyword: kotlin.String?, sortField: SortFieldSearchRatingIndexes?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?, returnRatable: kotlin.Boolean?, returnOverallRating: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<RatingIndexResponse>?> {
+        val localVariableConfig = searchRatingIndexesRequestConfig(ratableType = ratableType, ratableIds = ratableIds, categoryIds = categoryIds, secondaryType = secondaryType, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit, latitude = latitude, longitude = longitude, returnRatable = returnRatable, returnOverallRating = returnOverallRating)
 
         return request<Unit, kotlin.collections.List<RatingIndexResponse>>(
             localVariableConfig
@@ -661,7 +650,6 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation searchRatingIndexes
      *
-     * @param version 
      * @param ratableType Filter results by a ratable type {RETAILER_LOCATION}
      * @param ratableIds Comma separated list of ratable ids to filter the resuts by (optional)
      * @param categoryIds Comma separated list of category ids to filter the results by (optional)
@@ -677,7 +665,7 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param returnOverallRating Determines whether to return the overall rating record instead (optional)
      * @return RequestConfig
      */
-    fun searchRatingIndexesRequestConfig(version: java.math.BigDecimal, ratableType: RatableTypeSearchRatingIndexes, ratableIds: kotlin.String?, categoryIds: kotlin.String?, secondaryType: kotlin.String?, keyword: kotlin.String?, sortField: SortFieldSearchRatingIndexes?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?, returnRatable: kotlin.Boolean?, returnOverallRating: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchRatingIndexesRequestConfig(ratableType: RatableTypeSearchRatingIndexes, ratableIds: kotlin.String?, categoryIds: kotlin.String?, secondaryType: kotlin.String?, keyword: kotlin.String?, sortField: SortFieldSearchRatingIndexes?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, latitude: kotlin.Double?, longitude: kotlin.Double?, returnRatable: kotlin.Boolean?, returnOverallRating: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -723,7 +711,7 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/rating/index/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/rating/index/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -762,10 +750,9 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      }
 
     /**
-     * GET /api/{version}/rating/search
+     * GET /rating/search
      * Search Ratings
      * Search for ratings on a ratable object.
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param filterAccountId Filter results for a particular account (optional)
@@ -786,8 +773,8 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchRatings(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, filterAccountId: kotlin.Long? = null, ratableType: kotlin.String? = null, ratableId: kotlin.Long? = null, categoryIds: kotlin.String? = null, keyword: kotlin.String? = null, sortField: SortFieldSearchRatings? = null, descending: kotlin.Boolean? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null) : kotlin.collections.List<RatingResponse> {
-        val localVarResponse = searchRatingsWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, filterAccountId = filterAccountId, ratableType = ratableType, ratableId = ratableId, categoryIds = categoryIds, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit)
+    fun searchRatings(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, filterAccountId: kotlin.Long? = null, ratableType: kotlin.String? = null, ratableId: kotlin.Long? = null, categoryIds: kotlin.String? = null, keyword: kotlin.String? = null, sortField: SortFieldSearchRatings? = null, descending: kotlin.Boolean? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null) : kotlin.collections.List<RatingResponse> {
+        val localVarResponse = searchRatingsWithHttpInfo(deviceId = deviceId, accountId = accountId, filterAccountId = filterAccountId, ratableType = ratableType, ratableId = ratableId, categoryIds = categoryIds, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<RatingResponse>
@@ -805,10 +792,9 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * GET /api/{version}/rating/search
+     * GET /rating/search
      * Search Ratings
      * Search for ratings on a ratable object.
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param filterAccountId Filter results for a particular account (optional)
@@ -826,8 +812,8 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchRatingsWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, filterAccountId: kotlin.Long?, ratableType: kotlin.String?, ratableId: kotlin.Long?, categoryIds: kotlin.String?, keyword: kotlin.String?, sortField: SortFieldSearchRatings?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<RatingResponse>?> {
-        val localVariableConfig = searchRatingsRequestConfig(version = version, deviceId = deviceId, accountId = accountId, filterAccountId = filterAccountId, ratableType = ratableType, ratableId = ratableId, categoryIds = categoryIds, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit)
+    fun searchRatingsWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, filterAccountId: kotlin.Long?, ratableType: kotlin.String?, ratableId: kotlin.Long?, categoryIds: kotlin.String?, keyword: kotlin.String?, sortField: SortFieldSearchRatings?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<RatingResponse>?> {
+        val localVariableConfig = searchRatingsRequestConfig(deviceId = deviceId, accountId = accountId, filterAccountId = filterAccountId, ratableType = ratableType, ratableId = ratableId, categoryIds = categoryIds, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit)
 
         return request<Unit, kotlin.collections.List<RatingResponse>>(
             localVariableConfig
@@ -837,7 +823,6 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation searchRatings
      *
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param filterAccountId Filter results for a particular account (optional)
@@ -851,7 +836,7 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param limit The number of records to return (optional)
      * @return RequestConfig
      */
-    fun searchRatingsRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, filterAccountId: kotlin.Long?, ratableType: kotlin.String?, ratableId: kotlin.Long?, categoryIds: kotlin.String?, keyword: kotlin.String?, sortField: SortFieldSearchRatings?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchRatingsRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, filterAccountId: kotlin.Long?, ratableType: kotlin.String?, ratableId: kotlin.Long?, categoryIds: kotlin.String?, keyword: kotlin.String?, sortField: SortFieldSearchRatings?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -893,7 +878,7 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/rating/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/rating/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -902,10 +887,9 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/rating/update
+     * POST /rating/update
      * Update Rating
      * Update an existing rating. Only the creator of the rating have permission to update.
-     * @param version 
      * @param ratingId The id of the rating (Note: this is not the ratable object id)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -925,8 +909,8 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateRating(version: java.math.BigDecimal, ratingId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, ratingValue: kotlin.Int? = null, categoryId: kotlin.Long? = null, display: kotlin.String? = null, description: kotlin.String? = null, locationDescription: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : RatingResponse {
-        val localVarResponse = updateRatingWithHttpInfo(version = version, ratingId = ratingId, deviceId = deviceId, accountId = accountId, ratingValue = ratingValue, categoryId = categoryId, display = display, description = description, locationDescription = locationDescription, latitude = latitude, longitude = longitude)
+    fun updateRating(ratingId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, ratingValue: kotlin.Int? = null, categoryId: kotlin.Long? = null, display: kotlin.String? = null, description: kotlin.String? = null, locationDescription: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : RatingResponse {
+        val localVarResponse = updateRatingWithHttpInfo(ratingId = ratingId, deviceId = deviceId, accountId = accountId, ratingValue = ratingValue, categoryId = categoryId, display = display, description = description, locationDescription = locationDescription, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as RatingResponse
@@ -944,10 +928,9 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/rating/update
+     * POST /rating/update
      * Update Rating
      * Update an existing rating. Only the creator of the rating have permission to update.
-     * @param version 
      * @param ratingId The id of the rating (Note: this is not the ratable object id)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -964,8 +947,8 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateRatingWithHttpInfo(version: java.math.BigDecimal, ratingId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, ratingValue: kotlin.Int?, categoryId: kotlin.Long?, display: kotlin.String?, description: kotlin.String?, locationDescription: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<RatingResponse?> {
-        val localVariableConfig = updateRatingRequestConfig(version = version, ratingId = ratingId, deviceId = deviceId, accountId = accountId, ratingValue = ratingValue, categoryId = categoryId, display = display, description = description, locationDescription = locationDescription, latitude = latitude, longitude = longitude)
+    fun updateRatingWithHttpInfo(ratingId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, ratingValue: kotlin.Int?, categoryId: kotlin.Long?, display: kotlin.String?, description: kotlin.String?, locationDescription: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<RatingResponse?> {
+        val localVariableConfig = updateRatingRequestConfig(ratingId = ratingId, deviceId = deviceId, accountId = accountId, ratingValue = ratingValue, categoryId = categoryId, display = display, description = description, locationDescription = locationDescription, latitude = latitude, longitude = longitude)
 
         return request<Unit, RatingResponse>(
             localVariableConfig
@@ -975,7 +958,6 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation updateRating
      *
-     * @param version 
      * @param ratingId The id of the rating (Note: this is not the ratable object id)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -988,7 +970,7 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param longitude The current location of the user (optional)
      * @return RequestConfig
      */
-    fun updateRatingRequestConfig(version: java.math.BigDecimal, ratingId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, ratingValue: kotlin.Int?, categoryId: kotlin.Long?, display: kotlin.String?, description: kotlin.String?, locationDescription: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun updateRatingRequestConfig(ratingId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, ratingValue: kotlin.Int?, categoryId: kotlin.Long?, display: kotlin.String?, description: kotlin.String?, locationDescription: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1025,7 +1007,7 @@ open class RatingApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/rating/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/rating/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

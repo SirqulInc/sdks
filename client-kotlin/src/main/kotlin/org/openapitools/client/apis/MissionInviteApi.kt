@@ -42,15 +42,14 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/mission/invite/create
+     * POST /mission/invite/create
      * Create Mission Invite
      * Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-     * @param version 
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param missionId The mission to find the invite for. (optional)
@@ -65,8 +64,8 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createMissionInvite(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, missionId: kotlin.Long? = null, joinCode: kotlin.String? = null, includeGameData: kotlin.Boolean? = null) : MissionResponse {
-        val localVarResponse = createMissionInviteWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, missionId = missionId, joinCode = joinCode, includeGameData = includeGameData)
+    fun createMissionInvite(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, missionId: kotlin.Long? = null, joinCode: kotlin.String? = null, includeGameData: kotlin.Boolean? = null) : MissionResponse {
+        val localVarResponse = createMissionInviteWithHttpInfo(deviceId = deviceId, accountId = accountId, missionId = missionId, joinCode = joinCode, includeGameData = includeGameData)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MissionResponse
@@ -84,10 +83,9 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * POST /api/{version}/mission/invite/create
+     * POST /mission/invite/create
      * Create Mission Invite
      * Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-     * @param version 
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param missionId The mission to find the invite for. (optional)
@@ -99,8 +97,8 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createMissionInviteWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, missionId: kotlin.Long?, joinCode: kotlin.String?, includeGameData: kotlin.Boolean?) : ApiResponse<MissionResponse?> {
-        val localVariableConfig = createMissionInviteRequestConfig(version = version, deviceId = deviceId, accountId = accountId, missionId = missionId, joinCode = joinCode, includeGameData = includeGameData)
+    fun createMissionInviteWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, missionId: kotlin.Long?, joinCode: kotlin.String?, includeGameData: kotlin.Boolean?) : ApiResponse<MissionResponse?> {
+        val localVariableConfig = createMissionInviteRequestConfig(deviceId = deviceId, accountId = accountId, missionId = missionId, joinCode = joinCode, includeGameData = includeGameData)
 
         return request<Unit, MissionResponse>(
             localVariableConfig
@@ -110,7 +108,6 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
     /**
      * To obtain the request config of the operation createMissionInvite
      *
-     * @param version 
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param missionId The mission to find the invite for. (optional)
@@ -118,7 +115,7 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param includeGameData Include the game level data with the mission. (optional)
      * @return RequestConfig
      */
-    fun createMissionInviteRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, missionId: kotlin.Long?, joinCode: kotlin.String?, includeGameData: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun createMissionInviteRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, missionId: kotlin.Long?, joinCode: kotlin.String?, includeGameData: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -142,7 +139,7 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/mission/invite/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/mission/invite/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -151,10 +148,9 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * POST /api/{version}/mission/invite/delete
+     * POST /mission/invite/delete
      * Delete Mission Invite
      * Update the mission invite status to quit.
-     * @param version 
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param missionId The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -169,8 +165,8 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteMissionInvite(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, missionId: kotlin.Long? = null, missionInviteId: kotlin.Long? = null, includeGameData: kotlin.Boolean? = null) : SirqulResponse {
-        val localVarResponse = deleteMissionInviteWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, missionId = missionId, missionInviteId = missionInviteId, includeGameData = includeGameData)
+    fun deleteMissionInvite(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, missionId: kotlin.Long? = null, missionInviteId: kotlin.Long? = null, includeGameData: kotlin.Boolean? = null) : SirqulResponse {
+        val localVarResponse = deleteMissionInviteWithHttpInfo(deviceId = deviceId, accountId = accountId, missionId = missionId, missionInviteId = missionInviteId, includeGameData = includeGameData)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -188,10 +184,9 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * POST /api/{version}/mission/invite/delete
+     * POST /mission/invite/delete
      * Delete Mission Invite
      * Update the mission invite status to quit.
-     * @param version 
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param missionId The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -203,8 +198,8 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteMissionInviteWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, missionId: kotlin.Long?, missionInviteId: kotlin.Long?, includeGameData: kotlin.Boolean?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteMissionInviteRequestConfig(version = version, deviceId = deviceId, accountId = accountId, missionId = missionId, missionInviteId = missionInviteId, includeGameData = includeGameData)
+    fun deleteMissionInviteWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, missionId: kotlin.Long?, missionInviteId: kotlin.Long?, includeGameData: kotlin.Boolean?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteMissionInviteRequestConfig(deviceId = deviceId, accountId = accountId, missionId = missionId, missionInviteId = missionInviteId, includeGameData = includeGameData)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -214,7 +209,6 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
     /**
      * To obtain the request config of the operation deleteMissionInvite
      *
-     * @param version 
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param missionId The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -222,7 +216,7 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param includeGameData Include the game level data with the mission. (optional)
      * @return RequestConfig
      */
-    fun deleteMissionInviteRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, missionId: kotlin.Long?, missionInviteId: kotlin.Long?, includeGameData: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun deleteMissionInviteRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, missionId: kotlin.Long?, missionInviteId: kotlin.Long?, includeGameData: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -246,7 +240,7 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/mission/invite/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/mission/invite/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -255,10 +249,9 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * GET /api/{version}/mission/invite/get
+     * GET /mission/invite/get
      * Get Mission Invite
      * Get the mission invite. An account can only be invited to a mission one time.
-     * @param version 
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param missionId The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -274,8 +267,8 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMissionInvite(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, missionId: kotlin.Long? = null, missionInviteId: kotlin.Long? = null, includeGameData: kotlin.Boolean? = null, includeScores: kotlin.String? = null) : MissionResponse {
-        val localVarResponse = getMissionInviteWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, missionId = missionId, missionInviteId = missionInviteId, includeGameData = includeGameData, includeScores = includeScores)
+    fun getMissionInvite(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, missionId: kotlin.Long? = null, missionInviteId: kotlin.Long? = null, includeGameData: kotlin.Boolean? = null, includeScores: kotlin.String? = null) : MissionResponse {
+        val localVarResponse = getMissionInviteWithHttpInfo(deviceId = deviceId, accountId = accountId, missionId = missionId, missionInviteId = missionInviteId, includeGameData = includeGameData, includeScores = includeScores)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MissionResponse
@@ -293,10 +286,9 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * GET /api/{version}/mission/invite/get
+     * GET /mission/invite/get
      * Get Mission Invite
      * Get the mission invite. An account can only be invited to a mission one time.
-     * @param version 
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param missionId The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -309,8 +301,8 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMissionInviteWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, missionId: kotlin.Long?, missionInviteId: kotlin.Long?, includeGameData: kotlin.Boolean?, includeScores: kotlin.String?) : ApiResponse<MissionResponse?> {
-        val localVariableConfig = getMissionInviteRequestConfig(version = version, deviceId = deviceId, accountId = accountId, missionId = missionId, missionInviteId = missionInviteId, includeGameData = includeGameData, includeScores = includeScores)
+    fun getMissionInviteWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, missionId: kotlin.Long?, missionInviteId: kotlin.Long?, includeGameData: kotlin.Boolean?, includeScores: kotlin.String?) : ApiResponse<MissionResponse?> {
+        val localVariableConfig = getMissionInviteRequestConfig(deviceId = deviceId, accountId = accountId, missionId = missionId, missionInviteId = missionInviteId, includeGameData = includeGameData, includeScores = includeScores)
 
         return request<Unit, MissionResponse>(
             localVariableConfig
@@ -320,7 +312,6 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
     /**
      * To obtain the request config of the operation getMissionInvite
      *
-     * @param version 
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param missionId The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -329,7 +320,7 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param includeScores include the scores with the mission (optional)
      * @return RequestConfig
      */
-    fun getMissionInviteRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, missionId: kotlin.Long?, missionInviteId: kotlin.Long?, includeGameData: kotlin.Boolean?, includeScores: kotlin.String?) : RequestConfig<Unit> {
+    fun getMissionInviteRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, missionId: kotlin.Long?, missionInviteId: kotlin.Long?, includeGameData: kotlin.Boolean?, includeScores: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -356,7 +347,7 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/mission/invite/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/mission/invite/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -365,10 +356,9 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * GET /api/{version}/mission/invite/search
+     * GET /mission/invite/search
      * Search Mission Invites
      * Get a list of mission invites that the account has.
-     * @param version 
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param appKey the app to retrieve the data for, use your application key. (optional)
@@ -391,8 +381,8 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchMissionInvites(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, appVersion: kotlin.String? = null, missionId: kotlin.Long? = null, status: kotlin.String? = null, lastUpdated: kotlin.Long? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null, keyword: kotlin.String? = null, missionTypes: kotlin.String? = null, filterByBillable: kotlin.Boolean? = null, includeGameData: kotlin.Boolean? = null) : kotlin.collections.List<MissionResponse> {
-        val localVarResponse = searchMissionInvitesWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, appKey = appKey, appVersion = appVersion, missionId = missionId, status = status, lastUpdated = lastUpdated, start = start, limit = limit, keyword = keyword, missionTypes = missionTypes, filterByBillable = filterByBillable, includeGameData = includeGameData)
+    fun searchMissionInvites(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, appVersion: kotlin.String? = null, missionId: kotlin.Long? = null, status: kotlin.String? = null, lastUpdated: kotlin.Long? = null, start: kotlin.Int? = null, limit: kotlin.Int? = null, keyword: kotlin.String? = null, missionTypes: kotlin.String? = null, filterByBillable: kotlin.Boolean? = null, includeGameData: kotlin.Boolean? = null) : kotlin.collections.List<MissionResponse> {
+        val localVarResponse = searchMissionInvitesWithHttpInfo(deviceId = deviceId, accountId = accountId, appKey = appKey, appVersion = appVersion, missionId = missionId, status = status, lastUpdated = lastUpdated, start = start, limit = limit, keyword = keyword, missionTypes = missionTypes, filterByBillable = filterByBillable, includeGameData = includeGameData)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<MissionResponse>
@@ -410,10 +400,9 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * GET /api/{version}/mission/invite/search
+     * GET /mission/invite/search
      * Search Mission Invites
      * Get a list of mission invites that the account has.
-     * @param version 
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param appKey the app to retrieve the data for, use your application key. (optional)
@@ -433,8 +422,8 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchMissionInvitesWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, appVersion: kotlin.String?, missionId: kotlin.Long?, status: kotlin.String?, lastUpdated: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?, keyword: kotlin.String?, missionTypes: kotlin.String?, filterByBillable: kotlin.Boolean?, includeGameData: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<MissionResponse>?> {
-        val localVariableConfig = searchMissionInvitesRequestConfig(version = version, deviceId = deviceId, accountId = accountId, appKey = appKey, appVersion = appVersion, missionId = missionId, status = status, lastUpdated = lastUpdated, start = start, limit = limit, keyword = keyword, missionTypes = missionTypes, filterByBillable = filterByBillable, includeGameData = includeGameData)
+    fun searchMissionInvitesWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, appVersion: kotlin.String?, missionId: kotlin.Long?, status: kotlin.String?, lastUpdated: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?, keyword: kotlin.String?, missionTypes: kotlin.String?, filterByBillable: kotlin.Boolean?, includeGameData: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<MissionResponse>?> {
+        val localVariableConfig = searchMissionInvitesRequestConfig(deviceId = deviceId, accountId = accountId, appKey = appKey, appVersion = appVersion, missionId = missionId, status = status, lastUpdated = lastUpdated, start = start, limit = limit, keyword = keyword, missionTypes = missionTypes, filterByBillable = filterByBillable, includeGameData = includeGameData)
 
         return request<Unit, kotlin.collections.List<MissionResponse>>(
             localVariableConfig
@@ -444,7 +433,6 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
     /**
      * To obtain the request config of the operation searchMissionInvites
      *
-     * @param version 
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param appKey the app to retrieve the data for, use your application key. (optional)
@@ -460,7 +448,7 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param includeGameData Include the game level data with the mission. (optional)
      * @return RequestConfig
      */
-    fun searchMissionInvitesRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, appVersion: kotlin.String?, missionId: kotlin.Long?, status: kotlin.String?, lastUpdated: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?, keyword: kotlin.String?, missionTypes: kotlin.String?, filterByBillable: kotlin.Boolean?, includeGameData: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchMissionInvitesRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, appVersion: kotlin.String?, missionId: kotlin.Long?, status: kotlin.String?, lastUpdated: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?, keyword: kotlin.String?, missionTypes: kotlin.String?, filterByBillable: kotlin.Boolean?, includeGameData: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -508,7 +496,7 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/mission/invite/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/mission/invite/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -517,10 +505,9 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * POST /api/{version}/mission/invite/update
+     * POST /mission/invite/update
      * Update Mission Invite
      * Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-     * @param version 
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param appKey the application key (optional)
@@ -541,8 +528,8 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateMissionInvite(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, missionId: kotlin.Long? = null, missionInviteId: kotlin.Long? = null, packId: kotlin.Long? = null, gameLevelId: kotlin.Long? = null, status: kotlin.String? = null, permissionableType: kotlin.String? = null, permissionableId: kotlin.Long? = null, includeGameData: kotlin.Boolean? = null) : MissionResponse {
-        val localVarResponse = updateMissionInviteWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, appKey = appKey, missionId = missionId, missionInviteId = missionInviteId, packId = packId, gameLevelId = gameLevelId, status = status, permissionableType = permissionableType, permissionableId = permissionableId, includeGameData = includeGameData)
+    fun updateMissionInvite(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, missionId: kotlin.Long? = null, missionInviteId: kotlin.Long? = null, packId: kotlin.Long? = null, gameLevelId: kotlin.Long? = null, status: kotlin.String? = null, permissionableType: kotlin.String? = null, permissionableId: kotlin.Long? = null, includeGameData: kotlin.Boolean? = null) : MissionResponse {
+        val localVarResponse = updateMissionInviteWithHttpInfo(deviceId = deviceId, accountId = accountId, appKey = appKey, missionId = missionId, missionInviteId = missionInviteId, packId = packId, gameLevelId = gameLevelId, status = status, permissionableType = permissionableType, permissionableId = permissionableId, includeGameData = includeGameData)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MissionResponse
@@ -560,10 +547,9 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * POST /api/{version}/mission/invite/update
+     * POST /mission/invite/update
      * Update Mission Invite
      * Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-     * @param version 
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param appKey the application key (optional)
@@ -581,8 +567,8 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateMissionInviteWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, missionId: kotlin.Long?, missionInviteId: kotlin.Long?, packId: kotlin.Long?, gameLevelId: kotlin.Long?, status: kotlin.String?, permissionableType: kotlin.String?, permissionableId: kotlin.Long?, includeGameData: kotlin.Boolean?) : ApiResponse<MissionResponse?> {
-        val localVariableConfig = updateMissionInviteRequestConfig(version = version, deviceId = deviceId, accountId = accountId, appKey = appKey, missionId = missionId, missionInviteId = missionInviteId, packId = packId, gameLevelId = gameLevelId, status = status, permissionableType = permissionableType, permissionableId = permissionableId, includeGameData = includeGameData)
+    fun updateMissionInviteWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, missionId: kotlin.Long?, missionInviteId: kotlin.Long?, packId: kotlin.Long?, gameLevelId: kotlin.Long?, status: kotlin.String?, permissionableType: kotlin.String?, permissionableId: kotlin.Long?, includeGameData: kotlin.Boolean?) : ApiResponse<MissionResponse?> {
+        val localVariableConfig = updateMissionInviteRequestConfig(deviceId = deviceId, accountId = accountId, appKey = appKey, missionId = missionId, missionInviteId = missionInviteId, packId = packId, gameLevelId = gameLevelId, status = status, permissionableType = permissionableType, permissionableId = permissionableId, includeGameData = includeGameData)
 
         return request<Unit, MissionResponse>(
             localVariableConfig
@@ -592,7 +578,6 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
     /**
      * To obtain the request config of the operation updateMissionInvite
      *
-     * @param version 
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param appKey the application key (optional)
@@ -606,7 +591,7 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param includeGameData Include the game level data with the mission. (optional)
      * @return RequestConfig
      */
-    fun updateMissionInviteRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, missionId: kotlin.Long?, missionInviteId: kotlin.Long?, packId: kotlin.Long?, gameLevelId: kotlin.Long?, status: kotlin.String?, permissionableType: kotlin.String?, permissionableId: kotlin.Long?, includeGameData: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun updateMissionInviteRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, appKey: kotlin.String?, missionId: kotlin.Long?, missionInviteId: kotlin.Long?, packId: kotlin.Long?, gameLevelId: kotlin.Long?, status: kotlin.String?, permissionableType: kotlin.String?, permissionableId: kotlin.Long?, includeGameData: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -648,7 +633,7 @@ open class MissionInviteApi(basePath: kotlin.String = defaultBasePath, client: C
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/mission/invite/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/mission/invite/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

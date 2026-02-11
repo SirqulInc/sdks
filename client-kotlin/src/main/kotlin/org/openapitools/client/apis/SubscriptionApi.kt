@@ -44,15 +44,14 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/subscription/create
+     * POST /subscription/create
      * Create Subscription
      * Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
-     * @param version 
      * @param accountId The account used to perform the create, must be the responsible manager
      * @param planId The plan to subscribe to, if null use default plan (optional)
      * @param promoCode Set a promo code for a discount. (optional)
@@ -65,8 +64,8 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createSubscription(version: java.math.BigDecimal, accountId: kotlin.Long, planId: kotlin.Long? = null, promoCode: kotlin.String? = null) : SubscriptionResponse {
-        val localVarResponse = createSubscriptionWithHttpInfo(version = version, accountId = accountId, planId = planId, promoCode = promoCode)
+    fun createSubscription(accountId: kotlin.Long, planId: kotlin.Long? = null, promoCode: kotlin.String? = null) : SubscriptionResponse {
+        val localVarResponse = createSubscriptionWithHttpInfo(accountId = accountId, planId = planId, promoCode = promoCode)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SubscriptionResponse
@@ -84,10 +83,9 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/subscription/create
+     * POST /subscription/create
      * Create Subscription
      * Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
-     * @param version 
      * @param accountId The account used to perform the create, must be the responsible manager
      * @param planId The plan to subscribe to, if null use default plan (optional)
      * @param promoCode Set a promo code for a discount. (optional)
@@ -97,8 +95,8 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createSubscriptionWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, planId: kotlin.Long?, promoCode: kotlin.String?) : ApiResponse<SubscriptionResponse?> {
-        val localVariableConfig = createSubscriptionRequestConfig(version = version, accountId = accountId, planId = planId, promoCode = promoCode)
+    fun createSubscriptionWithHttpInfo(accountId: kotlin.Long, planId: kotlin.Long?, promoCode: kotlin.String?) : ApiResponse<SubscriptionResponse?> {
+        val localVariableConfig = createSubscriptionRequestConfig(accountId = accountId, planId = planId, promoCode = promoCode)
 
         return request<Unit, SubscriptionResponse>(
             localVariableConfig
@@ -108,13 +106,12 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation createSubscription
      *
-     * @param version 
      * @param accountId The account used to perform the create, must be the responsible manager
      * @param planId The plan to subscribe to, if null use default plan (optional)
      * @param promoCode Set a promo code for a discount. (optional)
      * @return RequestConfig
      */
-    fun createSubscriptionRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, planId: kotlin.Long?, promoCode: kotlin.String?) : RequestConfig<Unit> {
+    fun createSubscriptionRequestConfig(accountId: kotlin.Long, planId: kotlin.Long?, promoCode: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -130,7 +127,7 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/subscription/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/subscription/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -139,10 +136,9 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/subscription/delete
+     * POST /subscription/delete
      * Delete Subscription
      * Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
-     * @param version 
      * @param accountId The account used to perform the delete, must be the responsible manager
      * @return SirqulResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -153,8 +149,8 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteSubscription(version: java.math.BigDecimal, accountId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = deleteSubscriptionWithHttpInfo(version = version, accountId = accountId)
+    fun deleteSubscription(accountId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = deleteSubscriptionWithHttpInfo(accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -172,10 +168,9 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/subscription/delete
+     * POST /subscription/delete
      * Delete Subscription
      * Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
-     * @param version 
      * @param accountId The account used to perform the delete, must be the responsible manager
      * @return ApiResponse<SirqulResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -183,8 +178,8 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteSubscriptionWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteSubscriptionRequestConfig(version = version, accountId = accountId)
+    fun deleteSubscriptionWithHttpInfo(accountId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteSubscriptionRequestConfig(accountId = accountId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -194,11 +189,10 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation deleteSubscription
      *
-     * @param version 
      * @param accountId The account used to perform the delete, must be the responsible manager
      * @return RequestConfig
      */
-    fun deleteSubscriptionRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteSubscriptionRequestConfig(accountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -208,7 +202,7 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/subscription/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/subscription/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -217,10 +211,9 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/subscription/get
+     * GET /subscription/get
      * Get Subscription
      * Use the accountId to determine the associated BillableEntity.  Then get the subscription.
-     * @param version 
      * @param accountId The account used to perform the lookup
      * @return SubscriptionResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -231,8 +224,8 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSubscription(version: java.math.BigDecimal, accountId: kotlin.Long) : SubscriptionResponse {
-        val localVarResponse = getSubscriptionWithHttpInfo(version = version, accountId = accountId)
+    fun getSubscription(accountId: kotlin.Long) : SubscriptionResponse {
+        val localVarResponse = getSubscriptionWithHttpInfo(accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SubscriptionResponse
@@ -250,10 +243,9 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/subscription/get
+     * GET /subscription/get
      * Get Subscription
      * Use the accountId to determine the associated BillableEntity.  Then get the subscription.
-     * @param version 
      * @param accountId The account used to perform the lookup
      * @return ApiResponse<SubscriptionResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -261,8 +253,8 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSubscriptionWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long) : ApiResponse<SubscriptionResponse?> {
-        val localVariableConfig = getSubscriptionRequestConfig(version = version, accountId = accountId)
+    fun getSubscriptionWithHttpInfo(accountId: kotlin.Long) : ApiResponse<SubscriptionResponse?> {
+        val localVariableConfig = getSubscriptionRequestConfig(accountId = accountId)
 
         return request<Unit, SubscriptionResponse>(
             localVariableConfig
@@ -272,11 +264,10 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation getSubscription
      *
-     * @param version 
      * @param accountId The account used to perform the lookup
      * @return RequestConfig
      */
-    fun getSubscriptionRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long) : RequestConfig<Unit> {
+    fun getSubscriptionRequestConfig(accountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -286,7 +277,7 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/subscription/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/subscription/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -295,10 +286,9 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/subscription/plan/get
+     * GET /subscription/plan/get
      * Get Subscription Plan
      * Get the matched subscription plan
-     * @param version 
      * @param planId The ID of the plan to get
      * @return SubscriptionPlanResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -309,8 +299,8 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSubscriptionPlan(version: java.math.BigDecimal, planId: kotlin.Long) : SubscriptionPlanResponse {
-        val localVarResponse = getSubscriptionPlanWithHttpInfo(version = version, planId = planId)
+    fun getSubscriptionPlan(planId: kotlin.Long) : SubscriptionPlanResponse {
+        val localVarResponse = getSubscriptionPlanWithHttpInfo(planId = planId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SubscriptionPlanResponse
@@ -328,10 +318,9 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/subscription/plan/get
+     * GET /subscription/plan/get
      * Get Subscription Plan
      * Get the matched subscription plan
-     * @param version 
      * @param planId The ID of the plan to get
      * @return ApiResponse<SubscriptionPlanResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -339,8 +328,8 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSubscriptionPlanWithHttpInfo(version: java.math.BigDecimal, planId: kotlin.Long) : ApiResponse<SubscriptionPlanResponse?> {
-        val localVariableConfig = getSubscriptionPlanRequestConfig(version = version, planId = planId)
+    fun getSubscriptionPlanWithHttpInfo(planId: kotlin.Long) : ApiResponse<SubscriptionPlanResponse?> {
+        val localVariableConfig = getSubscriptionPlanRequestConfig(planId = planId)
 
         return request<Unit, SubscriptionPlanResponse>(
             localVariableConfig
@@ -350,11 +339,10 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation getSubscriptionPlan
      *
-     * @param version 
      * @param planId The ID of the plan to get
      * @return RequestConfig
      */
-    fun getSubscriptionPlanRequestConfig(version: java.math.BigDecimal, planId: kotlin.Long) : RequestConfig<Unit> {
+    fun getSubscriptionPlanRequestConfig(planId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -364,7 +352,7 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/subscription/plan/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/subscription/plan/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -373,10 +361,9 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/subscription/plan/list
+     * GET /subscription/plan/list
      * List Subscription Plans
      * Get the matched subscription plan
-     * @param version 
      * @param visible Include visible only (true), hidden only (false), or all (null) (optional)
      * @param role The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER (optional)
      * @return kotlin.collections.List<SubscriptionPlanResponse>
@@ -388,8 +375,8 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSubscriptionPlans(version: java.math.BigDecimal, visible: kotlin.Boolean? = null, role: kotlin.String? = null) : kotlin.collections.List<SubscriptionPlanResponse> {
-        val localVarResponse = getSubscriptionPlansWithHttpInfo(version = version, visible = visible, role = role)
+    fun getSubscriptionPlans(visible: kotlin.Boolean? = null, role: kotlin.String? = null) : kotlin.collections.List<SubscriptionPlanResponse> {
+        val localVarResponse = getSubscriptionPlansWithHttpInfo(visible = visible, role = role)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<SubscriptionPlanResponse>
@@ -407,10 +394,9 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/subscription/plan/list
+     * GET /subscription/plan/list
      * List Subscription Plans
      * Get the matched subscription plan
-     * @param version 
      * @param visible Include visible only (true), hidden only (false), or all (null) (optional)
      * @param role The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER (optional)
      * @return ApiResponse<kotlin.collections.List<SubscriptionPlanResponse>?>
@@ -419,8 +405,8 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSubscriptionPlansWithHttpInfo(version: java.math.BigDecimal, visible: kotlin.Boolean?, role: kotlin.String?) : ApiResponse<kotlin.collections.List<SubscriptionPlanResponse>?> {
-        val localVariableConfig = getSubscriptionPlansRequestConfig(version = version, visible = visible, role = role)
+    fun getSubscriptionPlansWithHttpInfo(visible: kotlin.Boolean?, role: kotlin.String?) : ApiResponse<kotlin.collections.List<SubscriptionPlanResponse>?> {
+        val localVariableConfig = getSubscriptionPlansRequestConfig(visible = visible, role = role)
 
         return request<Unit, kotlin.collections.List<SubscriptionPlanResponse>>(
             localVariableConfig
@@ -430,12 +416,11 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation getSubscriptionPlans
      *
-     * @param version 
      * @param visible Include visible only (true), hidden only (false), or all (null) (optional)
      * @param role The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER (optional)
      * @return RequestConfig
      */
-    fun getSubscriptionPlansRequestConfig(version: java.math.BigDecimal, visible: kotlin.Boolean?, role: kotlin.String?) : RequestConfig<Unit> {
+    fun getSubscriptionPlansRequestConfig(visible: kotlin.Boolean?, role: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -450,7 +435,7 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/subscription/plan/list".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/subscription/plan/list",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -459,10 +444,9 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/subscription/usage/get
+     * GET /subscription/usage/get
      * Get Subscription Usage
      * Use the accountId to determine the associated BillableEntity.  Then get the application usage.
-     * @param version 
      * @param accountId The account used to perform the lookup
      * @param applicationId Get for just 1 application instead of the BillableEntity (optional)
      * @param start The start time frame (optional)
@@ -476,8 +460,8 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSubscriptionUsage(version: java.math.BigDecimal, accountId: kotlin.Long, applicationId: kotlin.Long? = null, start: kotlin.Long? = null, end: kotlin.Long? = null) : ApplicationUsageResponse {
-        val localVarResponse = getSubscriptionUsageWithHttpInfo(version = version, accountId = accountId, applicationId = applicationId, start = start, end = end)
+    fun getSubscriptionUsage(accountId: kotlin.Long, applicationId: kotlin.Long? = null, start: kotlin.Long? = null, end: kotlin.Long? = null) : ApplicationUsageResponse {
+        val localVarResponse = getSubscriptionUsageWithHttpInfo(accountId = accountId, applicationId = applicationId, start = start, end = end)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ApplicationUsageResponse
@@ -495,10 +479,9 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * GET /api/{version}/subscription/usage/get
+     * GET /subscription/usage/get
      * Get Subscription Usage
      * Use the accountId to determine the associated BillableEntity.  Then get the application usage.
-     * @param version 
      * @param accountId The account used to perform the lookup
      * @param applicationId Get for just 1 application instead of the BillableEntity (optional)
      * @param start The start time frame (optional)
@@ -509,8 +492,8 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSubscriptionUsageWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, applicationId: kotlin.Long?, start: kotlin.Long?, end: kotlin.Long?) : ApiResponse<ApplicationUsageResponse?> {
-        val localVariableConfig = getSubscriptionUsageRequestConfig(version = version, accountId = accountId, applicationId = applicationId, start = start, end = end)
+    fun getSubscriptionUsageWithHttpInfo(accountId: kotlin.Long, applicationId: kotlin.Long?, start: kotlin.Long?, end: kotlin.Long?) : ApiResponse<ApplicationUsageResponse?> {
+        val localVariableConfig = getSubscriptionUsageRequestConfig(accountId = accountId, applicationId = applicationId, start = start, end = end)
 
         return request<Unit, ApplicationUsageResponse>(
             localVariableConfig
@@ -520,14 +503,13 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation getSubscriptionUsage
      *
-     * @param version 
      * @param accountId The account used to perform the lookup
      * @param applicationId Get for just 1 application instead of the BillableEntity (optional)
      * @param start The start time frame (optional)
      * @param end The end time frame (optional)
      * @return RequestConfig
      */
-    fun getSubscriptionUsageRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, applicationId: kotlin.Long?, start: kotlin.Long?, end: kotlin.Long?) : RequestConfig<Unit> {
+    fun getSubscriptionUsageRequestConfig(accountId: kotlin.Long, applicationId: kotlin.Long?, start: kotlin.Long?, end: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -546,7 +528,7 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/subscription/usage/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/subscription/usage/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -555,10 +537,9 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/subscription/update
+     * POST /subscription/update
      * Update Subscription
      * Updates the subscription for the billable entity for an account
-     * @param version 
      * @param accountId The account used to perform the update, must be the responsible manager
      * @param planId The plan to subscribe to (optional)
      * @param promoCode Set a promo code for a discount. (optional)
@@ -572,8 +553,8 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateSubscription(version: java.math.BigDecimal, accountId: kotlin.Long, planId: kotlin.Long? = null, promoCode: kotlin.String? = null, active: kotlin.Boolean? = null) : SubscriptionResponse {
-        val localVarResponse = updateSubscriptionWithHttpInfo(version = version, accountId = accountId, planId = planId, promoCode = promoCode, active = active)
+    fun updateSubscription(accountId: kotlin.Long, planId: kotlin.Long? = null, promoCode: kotlin.String? = null, active: kotlin.Boolean? = null) : SubscriptionResponse {
+        val localVarResponse = updateSubscriptionWithHttpInfo(accountId = accountId, planId = planId, promoCode = promoCode, active = active)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SubscriptionResponse
@@ -591,10 +572,9 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * POST /api/{version}/subscription/update
+     * POST /subscription/update
      * Update Subscription
      * Updates the subscription for the billable entity for an account
-     * @param version 
      * @param accountId The account used to perform the update, must be the responsible manager
      * @param planId The plan to subscribe to (optional)
      * @param promoCode Set a promo code for a discount. (optional)
@@ -605,8 +585,8 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateSubscriptionWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, planId: kotlin.Long?, promoCode: kotlin.String?, active: kotlin.Boolean?) : ApiResponse<SubscriptionResponse?> {
-        val localVariableConfig = updateSubscriptionRequestConfig(version = version, accountId = accountId, planId = planId, promoCode = promoCode, active = active)
+    fun updateSubscriptionWithHttpInfo(accountId: kotlin.Long, planId: kotlin.Long?, promoCode: kotlin.String?, active: kotlin.Boolean?) : ApiResponse<SubscriptionResponse?> {
+        val localVariableConfig = updateSubscriptionRequestConfig(accountId = accountId, planId = planId, promoCode = promoCode, active = active)
 
         return request<Unit, SubscriptionResponse>(
             localVariableConfig
@@ -616,14 +596,13 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation updateSubscription
      *
-     * @param version 
      * @param accountId The account used to perform the update, must be the responsible manager
      * @param planId The plan to subscribe to (optional)
      * @param promoCode Set a promo code for a discount. (optional)
      * @param active Set active status (optional)
      * @return RequestConfig
      */
-    fun updateSubscriptionRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, planId: kotlin.Long?, promoCode: kotlin.String?, active: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun updateSubscriptionRequestConfig(accountId: kotlin.Long, planId: kotlin.Long?, promoCode: kotlin.String?, active: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -642,7 +621,7 @@ open class SubscriptionApi(basePath: kotlin.String = defaultBasePath, client: Ca
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/subscription/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/subscription/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

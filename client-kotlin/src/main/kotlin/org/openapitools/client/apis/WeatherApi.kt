@@ -41,15 +41,14 @@ open class WeatherApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * GET /api/{version}/weather/search
+     * GET /weather/search
      * Search Weather
      * Search the weather forcast for the next 5 days
-     * @param version 
      * @param regionId Region Id (optional)
      * @param latitude Latitude (optional)
      * @param longitude Longitude (optional)
@@ -63,8 +62,8 @@ open class WeatherApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchWeather(version: java.math.BigDecimal, regionId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, timezoneOffset: kotlin.Long? = -6L) : WeatherResponse {
-        val localVarResponse = searchWeatherWithHttpInfo(version = version, regionId = regionId, latitude = latitude, longitude = longitude, timezoneOffset = timezoneOffset)
+    fun searchWeather(regionId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, timezoneOffset: kotlin.Long? = -6L) : WeatherResponse {
+        val localVarResponse = searchWeatherWithHttpInfo(regionId = regionId, latitude = latitude, longitude = longitude, timezoneOffset = timezoneOffset)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as WeatherResponse
@@ -82,10 +81,9 @@ open class WeatherApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/weather/search
+     * GET /weather/search
      * Search Weather
      * Search the weather forcast for the next 5 days
-     * @param version 
      * @param regionId Region Id (optional)
      * @param latitude Latitude (optional)
      * @param longitude Longitude (optional)
@@ -96,8 +94,8 @@ open class WeatherApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchWeatherWithHttpInfo(version: java.math.BigDecimal, regionId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, timezoneOffset: kotlin.Long?) : ApiResponse<WeatherResponse?> {
-        val localVariableConfig = searchWeatherRequestConfig(version = version, regionId = regionId, latitude = latitude, longitude = longitude, timezoneOffset = timezoneOffset)
+    fun searchWeatherWithHttpInfo(regionId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, timezoneOffset: kotlin.Long?) : ApiResponse<WeatherResponse?> {
+        val localVariableConfig = searchWeatherRequestConfig(regionId = regionId, latitude = latitude, longitude = longitude, timezoneOffset = timezoneOffset)
 
         return request<Unit, WeatherResponse>(
             localVariableConfig
@@ -107,14 +105,13 @@ open class WeatherApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation searchWeather
      *
-     * @param version 
      * @param regionId Region Id (optional)
      * @param latitude Latitude (optional)
      * @param longitude Longitude (optional)
      * @param timezoneOffset Timezone Offset (optional, default to -6L)
      * @return RequestConfig
      */
-    fun searchWeatherRequestConfig(version: java.math.BigDecimal, regionId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, timezoneOffset: kotlin.Long?) : RequestConfig<Unit> {
+    fun searchWeatherRequestConfig(regionId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, timezoneOffset: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -135,7 +132,7 @@ open class WeatherApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/weather/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/weather/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

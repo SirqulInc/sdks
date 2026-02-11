@@ -43,7 +43,7 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
@@ -66,10 +66,9 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
      }
 
     /**
-     * POST /api/{version}/consumer/theme
+     * POST /consumer/theme
      * Create/Update Theme
      * Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
-     * @param version 
      * @param publicRead determines whether the theme&#39;s participants have read permissions
      * @param publicWrite determines whether the theme&#39;s participants have write permissions
      * @param publicDelete determines whether the theme&#39;s participants have delete permissions
@@ -106,8 +105,8 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun addOrUpdateThemeDescriptor(version: java.math.BigDecimal, publicRead: kotlin.Boolean, publicWrite: kotlin.Boolean, publicDelete: kotlin.Boolean, publicAdd: kotlin.Boolean, visibility: VisibilityAddOrUpdateThemeDescriptor, includeFriendGroup: kotlin.Boolean, completeWithDefaultValues: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, themeDescriptorId: kotlin.Long? = null, title: kotlin.String? = null, description: kotlin.String? = null, connectionIdsToAdd: kotlin.String? = null, connectionGroupIdsToAdd: kotlin.String? = null, appVersion: kotlin.String? = null, colorValueJson: kotlin.String? = null, stringReplacerJson: kotlin.String? = null, customJsonObjects: kotlin.String? = null, iconImage: java.io.File? = null, sceneAtlasImage: java.io.File? = null, bgImage: java.io.File? = null, bgSound: java.io.File? = null, musicSelection: kotlin.String? = null, locationDescription: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : ThemeDescriptorResponse {
-        val localVarResponse = addOrUpdateThemeDescriptorWithHttpInfo(version = version, publicRead = publicRead, publicWrite = publicWrite, publicDelete = publicDelete, publicAdd = publicAdd, visibility = visibility, includeFriendGroup = includeFriendGroup, completeWithDefaultValues = completeWithDefaultValues, deviceId = deviceId, accountId = accountId, gameType = gameType, themeDescriptorId = themeDescriptorId, title = title, description = description, connectionIdsToAdd = connectionIdsToAdd, connectionGroupIdsToAdd = connectionGroupIdsToAdd, appVersion = appVersion, colorValueJson = colorValueJson, stringReplacerJson = stringReplacerJson, customJsonObjects = customJsonObjects, iconImage = iconImage, sceneAtlasImage = sceneAtlasImage, bgImage = bgImage, bgSound = bgSound, musicSelection = musicSelection, locationDescription = locationDescription, latitude = latitude, longitude = longitude)
+    fun addOrUpdateThemeDescriptor(publicRead: kotlin.Boolean, publicWrite: kotlin.Boolean, publicDelete: kotlin.Boolean, publicAdd: kotlin.Boolean, visibility: VisibilityAddOrUpdateThemeDescriptor, includeFriendGroup: kotlin.Boolean, completeWithDefaultValues: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, themeDescriptorId: kotlin.Long? = null, title: kotlin.String? = null, description: kotlin.String? = null, connectionIdsToAdd: kotlin.String? = null, connectionGroupIdsToAdd: kotlin.String? = null, appVersion: kotlin.String? = null, colorValueJson: kotlin.String? = null, stringReplacerJson: kotlin.String? = null, customJsonObjects: kotlin.String? = null, iconImage: java.io.File? = null, sceneAtlasImage: java.io.File? = null, bgImage: java.io.File? = null, bgSound: java.io.File? = null, musicSelection: kotlin.String? = null, locationDescription: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : ThemeDescriptorResponse {
+        val localVarResponse = addOrUpdateThemeDescriptorWithHttpInfo(publicRead = publicRead, publicWrite = publicWrite, publicDelete = publicDelete, publicAdd = publicAdd, visibility = visibility, includeFriendGroup = includeFriendGroup, completeWithDefaultValues = completeWithDefaultValues, deviceId = deviceId, accountId = accountId, gameType = gameType, themeDescriptorId = themeDescriptorId, title = title, description = description, connectionIdsToAdd = connectionIdsToAdd, connectionGroupIdsToAdd = connectionGroupIdsToAdd, appVersion = appVersion, colorValueJson = colorValueJson, stringReplacerJson = stringReplacerJson, customJsonObjects = customJsonObjects, iconImage = iconImage, sceneAtlasImage = sceneAtlasImage, bgImage = bgImage, bgSound = bgSound, musicSelection = musicSelection, locationDescription = locationDescription, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ThemeDescriptorResponse
@@ -125,10 +124,9 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
     }
 
     /**
-     * POST /api/{version}/consumer/theme
+     * POST /consumer/theme
      * Create/Update Theme
      * Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
-     * @param version 
      * @param publicRead determines whether the theme&#39;s participants have read permissions
      * @param publicWrite determines whether the theme&#39;s participants have write permissions
      * @param publicDelete determines whether the theme&#39;s participants have delete permissions
@@ -162,8 +160,8 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun addOrUpdateThemeDescriptorWithHttpInfo(version: java.math.BigDecimal, publicRead: kotlin.Boolean, publicWrite: kotlin.Boolean, publicDelete: kotlin.Boolean, publicAdd: kotlin.Boolean, visibility: VisibilityAddOrUpdateThemeDescriptor, includeFriendGroup: kotlin.Boolean, completeWithDefaultValues: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, themeDescriptorId: kotlin.Long?, title: kotlin.String?, description: kotlin.String?, connectionIdsToAdd: kotlin.String?, connectionGroupIdsToAdd: kotlin.String?, appVersion: kotlin.String?, colorValueJson: kotlin.String?, stringReplacerJson: kotlin.String?, customJsonObjects: kotlin.String?, iconImage: java.io.File?, sceneAtlasImage: java.io.File?, bgImage: java.io.File?, bgSound: java.io.File?, musicSelection: kotlin.String?, locationDescription: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<ThemeDescriptorResponse?> {
-        val localVariableConfig = addOrUpdateThemeDescriptorRequestConfig(version = version, publicRead = publicRead, publicWrite = publicWrite, publicDelete = publicDelete, publicAdd = publicAdd, visibility = visibility, includeFriendGroup = includeFriendGroup, completeWithDefaultValues = completeWithDefaultValues, deviceId = deviceId, accountId = accountId, gameType = gameType, themeDescriptorId = themeDescriptorId, title = title, description = description, connectionIdsToAdd = connectionIdsToAdd, connectionGroupIdsToAdd = connectionGroupIdsToAdd, appVersion = appVersion, colorValueJson = colorValueJson, stringReplacerJson = stringReplacerJson, customJsonObjects = customJsonObjects, iconImage = iconImage, sceneAtlasImage = sceneAtlasImage, bgImage = bgImage, bgSound = bgSound, musicSelection = musicSelection, locationDescription = locationDescription, latitude = latitude, longitude = longitude)
+    fun addOrUpdateThemeDescriptorWithHttpInfo(publicRead: kotlin.Boolean, publicWrite: kotlin.Boolean, publicDelete: kotlin.Boolean, publicAdd: kotlin.Boolean, visibility: VisibilityAddOrUpdateThemeDescriptor, includeFriendGroup: kotlin.Boolean, completeWithDefaultValues: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, themeDescriptorId: kotlin.Long?, title: kotlin.String?, description: kotlin.String?, connectionIdsToAdd: kotlin.String?, connectionGroupIdsToAdd: kotlin.String?, appVersion: kotlin.String?, colorValueJson: kotlin.String?, stringReplacerJson: kotlin.String?, customJsonObjects: kotlin.String?, iconImage: java.io.File?, sceneAtlasImage: java.io.File?, bgImage: java.io.File?, bgSound: java.io.File?, musicSelection: kotlin.String?, locationDescription: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<ThemeDescriptorResponse?> {
+        val localVariableConfig = addOrUpdateThemeDescriptorRequestConfig(publicRead = publicRead, publicWrite = publicWrite, publicDelete = publicDelete, publicAdd = publicAdd, visibility = visibility, includeFriendGroup = includeFriendGroup, completeWithDefaultValues = completeWithDefaultValues, deviceId = deviceId, accountId = accountId, gameType = gameType, themeDescriptorId = themeDescriptorId, title = title, description = description, connectionIdsToAdd = connectionIdsToAdd, connectionGroupIdsToAdd = connectionGroupIdsToAdd, appVersion = appVersion, colorValueJson = colorValueJson, stringReplacerJson = stringReplacerJson, customJsonObjects = customJsonObjects, iconImage = iconImage, sceneAtlasImage = sceneAtlasImage, bgImage = bgImage, bgSound = bgSound, musicSelection = musicSelection, locationDescription = locationDescription, latitude = latitude, longitude = longitude)
 
         return request<Unit, ThemeDescriptorResponse>(
             localVariableConfig
@@ -173,7 +171,6 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
     /**
      * To obtain the request config of the operation addOrUpdateThemeDescriptor
      *
-     * @param version 
      * @param publicRead determines whether the theme&#39;s participants have read permissions
      * @param publicWrite determines whether the theme&#39;s participants have write permissions
      * @param publicDelete determines whether the theme&#39;s participants have delete permissions
@@ -203,7 +200,7 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
      * @param longitude the current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun addOrUpdateThemeDescriptorRequestConfig(version: java.math.BigDecimal, publicRead: kotlin.Boolean, publicWrite: kotlin.Boolean, publicDelete: kotlin.Boolean, publicAdd: kotlin.Boolean, visibility: VisibilityAddOrUpdateThemeDescriptor, includeFriendGroup: kotlin.Boolean, completeWithDefaultValues: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, themeDescriptorId: kotlin.Long?, title: kotlin.String?, description: kotlin.String?, connectionIdsToAdd: kotlin.String?, connectionGroupIdsToAdd: kotlin.String?, appVersion: kotlin.String?, colorValueJson: kotlin.String?, stringReplacerJson: kotlin.String?, customJsonObjects: kotlin.String?, iconImage: java.io.File?, sceneAtlasImage: java.io.File?, bgImage: java.io.File?, bgSound: java.io.File?, musicSelection: kotlin.String?, locationDescription: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun addOrUpdateThemeDescriptorRequestConfig(publicRead: kotlin.Boolean, publicWrite: kotlin.Boolean, publicDelete: kotlin.Boolean, publicAdd: kotlin.Boolean, visibility: VisibilityAddOrUpdateThemeDescriptor, includeFriendGroup: kotlin.Boolean, completeWithDefaultValues: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, themeDescriptorId: kotlin.Long?, title: kotlin.String?, description: kotlin.String?, connectionIdsToAdd: kotlin.String?, connectionGroupIdsToAdd: kotlin.String?, appVersion: kotlin.String?, colorValueJson: kotlin.String?, stringReplacerJson: kotlin.String?, customJsonObjects: kotlin.String?, iconImage: java.io.File?, sceneAtlasImage: java.io.File?, bgImage: java.io.File?, bgSound: java.io.File?, musicSelection: kotlin.String?, locationDescription: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -279,7 +276,7 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/consumer/theme".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/theme",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -288,10 +285,9 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
     }
 
     /**
-     * GET /api/{version}/consumer/theme/get
+     * GET /consumer/theme/get
      * Get Theme
      * Gets a theme.
-     * @param version 
      * @param themeDescriptorId the theme id
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -307,8 +303,8 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getThemeDescriptor(version: java.math.BigDecimal, themeDescriptorId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : PurchaseItemListResponse {
-        val localVarResponse = getThemeDescriptorWithHttpInfo(version = version, themeDescriptorId = themeDescriptorId, deviceId = deviceId, accountId = accountId, gameType = gameType, latitude = latitude, longitude = longitude)
+    fun getThemeDescriptor(themeDescriptorId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : PurchaseItemListResponse {
+        val localVarResponse = getThemeDescriptorWithHttpInfo(themeDescriptorId = themeDescriptorId, deviceId = deviceId, accountId = accountId, gameType = gameType, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PurchaseItemListResponse
@@ -326,10 +322,9 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
     }
 
     /**
-     * GET /api/{version}/consumer/theme/get
+     * GET /consumer/theme/get
      * Get Theme
      * Gets a theme.
-     * @param version 
      * @param themeDescriptorId the theme id
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -342,8 +337,8 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getThemeDescriptorWithHttpInfo(version: java.math.BigDecimal, themeDescriptorId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<PurchaseItemListResponse?> {
-        val localVariableConfig = getThemeDescriptorRequestConfig(version = version, themeDescriptorId = themeDescriptorId, deviceId = deviceId, accountId = accountId, gameType = gameType, latitude = latitude, longitude = longitude)
+    fun getThemeDescriptorWithHttpInfo(themeDescriptorId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<PurchaseItemListResponse?> {
+        val localVariableConfig = getThemeDescriptorRequestConfig(themeDescriptorId = themeDescriptorId, deviceId = deviceId, accountId = accountId, gameType = gameType, latitude = latitude, longitude = longitude)
 
         return request<Unit, PurchaseItemListResponse>(
             localVariableConfig
@@ -353,7 +348,6 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
     /**
      * To obtain the request config of the operation getThemeDescriptor
      *
-     * @param version 
      * @param themeDescriptorId the theme id
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -362,7 +356,7 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
      * @param longitude longitude used to update the user&#39;s current location (optional)
      * @return RequestConfig
      */
-    fun getThemeDescriptorRequestConfig(version: java.math.BigDecimal, themeDescriptorId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun getThemeDescriptorRequestConfig(themeDescriptorId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -387,7 +381,7 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/consumer/theme/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/theme/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -396,10 +390,9 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
     }
 
     /**
-     * GET /api/{version}/consumer/theme/search
+     * GET /consumer/theme/search
      * Search Themes
      * Searches for themes.
-     * @param version 
      * @param filter a comma separated list of Ownership
      * @param sortField the field to sort by. See ThemeDescriptorApiMap
      * @param descending determines whether the sorted list is in descending or ascending order
@@ -427,8 +420,8 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getThemeDescriptors(version: java.math.BigDecimal, filter: kotlin.String, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, contestType: kotlin.String? = null, ownerId: kotlin.Long? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, i: kotlin.Int? = null, l: kotlin.Int? = null, dateCreated: kotlin.Long? = null, appVersion: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : PurchaseItemListResponse {
-        val localVarResponse = getThemeDescriptorsWithHttpInfo(version = version, filter = filter, sortField = sortField, descending = descending, start = start, limit = limit, deviceId = deviceId, accountId = accountId, gameType = gameType, contestType = contestType, ownerId = ownerId, q = q, keyword = keyword, i = i, l = l, dateCreated = dateCreated, appVersion = appVersion, latitude = latitude, longitude = longitude)
+    fun getThemeDescriptors(filter: kotlin.String, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, contestType: kotlin.String? = null, ownerId: kotlin.Long? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, i: kotlin.Int? = null, l: kotlin.Int? = null, dateCreated: kotlin.Long? = null, appVersion: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : PurchaseItemListResponse {
+        val localVarResponse = getThemeDescriptorsWithHttpInfo(filter = filter, sortField = sortField, descending = descending, start = start, limit = limit, deviceId = deviceId, accountId = accountId, gameType = gameType, contestType = contestType, ownerId = ownerId, q = q, keyword = keyword, i = i, l = l, dateCreated = dateCreated, appVersion = appVersion, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PurchaseItemListResponse
@@ -446,10 +439,9 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
     }
 
     /**
-     * GET /api/{version}/consumer/theme/search
+     * GET /consumer/theme/search
      * Search Themes
      * Searches for themes.
-     * @param version 
      * @param filter a comma separated list of Ownership
      * @param sortField the field to sort by. See ThemeDescriptorApiMap
      * @param descending determines whether the sorted list is in descending or ascending order
@@ -474,8 +466,8 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getThemeDescriptorsWithHttpInfo(version: java.math.BigDecimal, filter: kotlin.String, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, contestType: kotlin.String?, ownerId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, i: kotlin.Int?, l: kotlin.Int?, dateCreated: kotlin.Long?, appVersion: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<PurchaseItemListResponse?> {
-        val localVariableConfig = getThemeDescriptorsRequestConfig(version = version, filter = filter, sortField = sortField, descending = descending, start = start, limit = limit, deviceId = deviceId, accountId = accountId, gameType = gameType, contestType = contestType, ownerId = ownerId, q = q, keyword = keyword, i = i, l = l, dateCreated = dateCreated, appVersion = appVersion, latitude = latitude, longitude = longitude)
+    fun getThemeDescriptorsWithHttpInfo(filter: kotlin.String, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, contestType: kotlin.String?, ownerId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, i: kotlin.Int?, l: kotlin.Int?, dateCreated: kotlin.Long?, appVersion: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<PurchaseItemListResponse?> {
+        val localVariableConfig = getThemeDescriptorsRequestConfig(filter = filter, sortField = sortField, descending = descending, start = start, limit = limit, deviceId = deviceId, accountId = accountId, gameType = gameType, contestType = contestType, ownerId = ownerId, q = q, keyword = keyword, i = i, l = l, dateCreated = dateCreated, appVersion = appVersion, latitude = latitude, longitude = longitude)
 
         return request<Unit, PurchaseItemListResponse>(
             localVariableConfig
@@ -485,7 +477,6 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
     /**
      * To obtain the request config of the operation getThemeDescriptors
      *
-     * @param version 
      * @param filter a comma separated list of Ownership
      * @param sortField the field to sort by. See ThemeDescriptorApiMap
      * @param descending determines whether the sorted list is in descending or ascending order
@@ -506,7 +497,7 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
      * @param longitude longitude used to update the user&#39;s current location (optional)
      * @return RequestConfig
      */
-    fun getThemeDescriptorsRequestConfig(version: java.math.BigDecimal, filter: kotlin.String, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, contestType: kotlin.String?, ownerId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, i: kotlin.Int?, l: kotlin.Int?, dateCreated: kotlin.Long?, appVersion: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun getThemeDescriptorsRequestConfig(filter: kotlin.String, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, contestType: kotlin.String?, ownerId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, i: kotlin.Int?, l: kotlin.Int?, dateCreated: kotlin.Long?, appVersion: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -559,7 +550,7 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/consumer/theme/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/theme/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -568,10 +559,9 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
     }
 
     /**
-     * POST /api/{version}/consumer/theme/remove
+     * POST /consumer/theme/remove
      * Delete Theme
      * Removes a theme.
-     * @param version 
      * @param themeDescriptorId the theme id to remove
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -587,8 +577,8 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun removeThemeDescriptor(version: java.math.BigDecimal, themeDescriptorId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
-        val localVarResponse = removeThemeDescriptorWithHttpInfo(version = version, themeDescriptorId = themeDescriptorId, deviceId = deviceId, accountId = accountId, gameType = gameType, latitude = latitude, longitude = longitude)
+    fun removeThemeDescriptor(themeDescriptorId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
+        val localVarResponse = removeThemeDescriptorWithHttpInfo(themeDescriptorId = themeDescriptorId, deviceId = deviceId, accountId = accountId, gameType = gameType, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -606,10 +596,9 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
     }
 
     /**
-     * POST /api/{version}/consumer/theme/remove
+     * POST /consumer/theme/remove
      * Delete Theme
      * Removes a theme.
-     * @param version 
      * @param themeDescriptorId the theme id to remove
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -622,8 +611,8 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun removeThemeDescriptorWithHttpInfo(version: java.math.BigDecimal, themeDescriptorId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = removeThemeDescriptorRequestConfig(version = version, themeDescriptorId = themeDescriptorId, deviceId = deviceId, accountId = accountId, gameType = gameType, latitude = latitude, longitude = longitude)
+    fun removeThemeDescriptorWithHttpInfo(themeDescriptorId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = removeThemeDescriptorRequestConfig(themeDescriptorId = themeDescriptorId, deviceId = deviceId, accountId = accountId, gameType = gameType, latitude = latitude, longitude = longitude)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -633,7 +622,6 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
     /**
      * To obtain the request config of the operation removeThemeDescriptor
      *
-     * @param version 
      * @param themeDescriptorId the theme id to remove
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -642,7 +630,7 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
      * @param longitude longitude used to update the user&#39;s current location (optional)
      * @return RequestConfig
      */
-    fun removeThemeDescriptorRequestConfig(version: java.math.BigDecimal, themeDescriptorId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun removeThemeDescriptorRequestConfig(themeDescriptorId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -667,7 +655,7 @@ open class ThemeDescriptorApi(basePath: kotlin.String = defaultBasePath, client:
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/consumer/theme/remove".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/theme/remove",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

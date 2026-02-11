@@ -47,15 +47,14 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * GET /api/{version}/account/search
+     * GET /account/search
      * Search Accounts by Location
      * Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts.
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param q Deprecated - legacy query parameter (optional)
@@ -99,8 +98,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun accountLocationSearch(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, postalCode: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, appKey: kotlin.String? = null, range: kotlin.Double? = 10.0, locationLastUpdated: kotlin.Long? = null, gender: kotlin.String? = null, minAge: kotlin.Int? = null, maxAge: kotlin.Int? = null, companionshipIndex: kotlin.Int? = null, i: kotlin.Int? = null, start: kotlin.Int? = 0, l: kotlin.Int? = null, limit: kotlin.Int? = 100, searchMode: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null, roles: kotlin.String? = null, tags: kotlin.String? = null, experience: kotlin.String? = null, categoryIds: kotlin.String? = null, audienceIds: kotlin.String? = null, audienceOperator: kotlin.String? = "AND", updateCurrentLocation: kotlin.Boolean? = false, updatePreferredSettings: kotlin.Boolean? = false, showExactLocations: kotlin.Boolean? = true, showConnectionToSearcher: kotlin.Boolean? = false, flagCountMinimum: kotlin.Long? = null, verifiedUserOnly: kotlin.Boolean? = null, contentAdminOnly: kotlin.Boolean? = null) : UserLocationSearchResponse {
-        val localVarResponse = accountLocationSearchWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, q = q, keyword = keyword, postalCode = postalCode, latitude = latitude, longitude = longitude, appKey = appKey, range = range, locationLastUpdated = locationLastUpdated, gender = gender, minAge = minAge, maxAge = maxAge, companionshipIndex = companionshipIndex, i = i, start = start, l = l, limit = limit, searchMode = searchMode, sortField = sortField, descending = descending, roles = roles, tags = tags, experience = experience, categoryIds = categoryIds, audienceIds = audienceIds, audienceOperator = audienceOperator, updateCurrentLocation = updateCurrentLocation, updatePreferredSettings = updatePreferredSettings, showExactLocations = showExactLocations, showConnectionToSearcher = showConnectionToSearcher, flagCountMinimum = flagCountMinimum, verifiedUserOnly = verifiedUserOnly, contentAdminOnly = contentAdminOnly)
+    fun accountLocationSearch(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, postalCode: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, appKey: kotlin.String? = null, range: kotlin.Double? = 10.0, locationLastUpdated: kotlin.Long? = null, gender: kotlin.String? = null, minAge: kotlin.Int? = null, maxAge: kotlin.Int? = null, companionshipIndex: kotlin.Int? = null, i: kotlin.Int? = null, start: kotlin.Int? = 0, l: kotlin.Int? = null, limit: kotlin.Int? = 100, searchMode: kotlin.String? = null, sortField: kotlin.String? = null, descending: kotlin.Boolean? = null, roles: kotlin.String? = null, tags: kotlin.String? = null, experience: kotlin.String? = null, categoryIds: kotlin.String? = null, audienceIds: kotlin.String? = null, audienceOperator: kotlin.String? = "AND", updateCurrentLocation: kotlin.Boolean? = false, updatePreferredSettings: kotlin.Boolean? = false, showExactLocations: kotlin.Boolean? = true, showConnectionToSearcher: kotlin.Boolean? = false, flagCountMinimum: kotlin.Long? = null, verifiedUserOnly: kotlin.Boolean? = null, contentAdminOnly: kotlin.Boolean? = null) : UserLocationSearchResponse {
+        val localVarResponse = accountLocationSearchWithHttpInfo(deviceId = deviceId, accountId = accountId, q = q, keyword = keyword, postalCode = postalCode, latitude = latitude, longitude = longitude, appKey = appKey, range = range, locationLastUpdated = locationLastUpdated, gender = gender, minAge = minAge, maxAge = maxAge, companionshipIndex = companionshipIndex, i = i, start = start, l = l, limit = limit, searchMode = searchMode, sortField = sortField, descending = descending, roles = roles, tags = tags, experience = experience, categoryIds = categoryIds, audienceIds = audienceIds, audienceOperator = audienceOperator, updateCurrentLocation = updateCurrentLocation, updatePreferredSettings = updatePreferredSettings, showExactLocations = showExactLocations, showConnectionToSearcher = showConnectionToSearcher, flagCountMinimum = flagCountMinimum, verifiedUserOnly = verifiedUserOnly, contentAdminOnly = contentAdminOnly)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as UserLocationSearchResponse
@@ -118,10 +117,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/account/search
+     * GET /account/search
      * Search Accounts by Location
      * Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts.
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param q Deprecated - legacy query parameter (optional)
@@ -162,8 +160,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun accountLocationSearchWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, postalCode: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, appKey: kotlin.String?, range: kotlin.Double?, locationLastUpdated: kotlin.Long?, gender: kotlin.String?, minAge: kotlin.Int?, maxAge: kotlin.Int?, companionshipIndex: kotlin.Int?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?, searchMode: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, roles: kotlin.String?, tags: kotlin.String?, experience: kotlin.String?, categoryIds: kotlin.String?, audienceIds: kotlin.String?, audienceOperator: kotlin.String?, updateCurrentLocation: kotlin.Boolean?, updatePreferredSettings: kotlin.Boolean?, showExactLocations: kotlin.Boolean?, showConnectionToSearcher: kotlin.Boolean?, flagCountMinimum: kotlin.Long?, verifiedUserOnly: kotlin.Boolean?, contentAdminOnly: kotlin.Boolean?) : ApiResponse<UserLocationSearchResponse?> {
-        val localVariableConfig = accountLocationSearchRequestConfig(version = version, deviceId = deviceId, accountId = accountId, q = q, keyword = keyword, postalCode = postalCode, latitude = latitude, longitude = longitude, appKey = appKey, range = range, locationLastUpdated = locationLastUpdated, gender = gender, minAge = minAge, maxAge = maxAge, companionshipIndex = companionshipIndex, i = i, start = start, l = l, limit = limit, searchMode = searchMode, sortField = sortField, descending = descending, roles = roles, tags = tags, experience = experience, categoryIds = categoryIds, audienceIds = audienceIds, audienceOperator = audienceOperator, updateCurrentLocation = updateCurrentLocation, updatePreferredSettings = updatePreferredSettings, showExactLocations = showExactLocations, showConnectionToSearcher = showConnectionToSearcher, flagCountMinimum = flagCountMinimum, verifiedUserOnly = verifiedUserOnly, contentAdminOnly = contentAdminOnly)
+    fun accountLocationSearchWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, postalCode: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, appKey: kotlin.String?, range: kotlin.Double?, locationLastUpdated: kotlin.Long?, gender: kotlin.String?, minAge: kotlin.Int?, maxAge: kotlin.Int?, companionshipIndex: kotlin.Int?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?, searchMode: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, roles: kotlin.String?, tags: kotlin.String?, experience: kotlin.String?, categoryIds: kotlin.String?, audienceIds: kotlin.String?, audienceOperator: kotlin.String?, updateCurrentLocation: kotlin.Boolean?, updatePreferredSettings: kotlin.Boolean?, showExactLocations: kotlin.Boolean?, showConnectionToSearcher: kotlin.Boolean?, flagCountMinimum: kotlin.Long?, verifiedUserOnly: kotlin.Boolean?, contentAdminOnly: kotlin.Boolean?) : ApiResponse<UserLocationSearchResponse?> {
+        val localVariableConfig = accountLocationSearchRequestConfig(deviceId = deviceId, accountId = accountId, q = q, keyword = keyword, postalCode = postalCode, latitude = latitude, longitude = longitude, appKey = appKey, range = range, locationLastUpdated = locationLastUpdated, gender = gender, minAge = minAge, maxAge = maxAge, companionshipIndex = companionshipIndex, i = i, start = start, l = l, limit = limit, searchMode = searchMode, sortField = sortField, descending = descending, roles = roles, tags = tags, experience = experience, categoryIds = categoryIds, audienceIds = audienceIds, audienceOperator = audienceOperator, updateCurrentLocation = updateCurrentLocation, updatePreferredSettings = updatePreferredSettings, showExactLocations = showExactLocations, showConnectionToSearcher = showConnectionToSearcher, flagCountMinimum = flagCountMinimum, verifiedUserOnly = verifiedUserOnly, contentAdminOnly = contentAdminOnly)
 
         return request<Unit, UserLocationSearchResponse>(
             localVariableConfig
@@ -173,7 +171,6 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation accountLocationSearch
      *
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param q Deprecated - legacy query parameter (optional)
@@ -210,7 +207,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param contentAdminOnly Returns only content admin users (optional)
      * @return RequestConfig
      */
-    fun accountLocationSearchRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, postalCode: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, appKey: kotlin.String?, range: kotlin.Double?, locationLastUpdated: kotlin.Long?, gender: kotlin.String?, minAge: kotlin.Int?, maxAge: kotlin.Int?, companionshipIndex: kotlin.Int?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?, searchMode: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, roles: kotlin.String?, tags: kotlin.String?, experience: kotlin.String?, categoryIds: kotlin.String?, audienceIds: kotlin.String?, audienceOperator: kotlin.String?, updateCurrentLocation: kotlin.Boolean?, updatePreferredSettings: kotlin.Boolean?, showExactLocations: kotlin.Boolean?, showConnectionToSearcher: kotlin.Boolean?, flagCountMinimum: kotlin.Long?, verifiedUserOnly: kotlin.Boolean?, contentAdminOnly: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun accountLocationSearchRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, postalCode: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, appKey: kotlin.String?, range: kotlin.Double?, locationLastUpdated: kotlin.Long?, gender: kotlin.String?, minAge: kotlin.Int?, maxAge: kotlin.Int?, companionshipIndex: kotlin.Int?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?, searchMode: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, roles: kotlin.String?, tags: kotlin.String?, experience: kotlin.String?, categoryIds: kotlin.String?, audienceIds: kotlin.String?, audienceOperator: kotlin.String?, updateCurrentLocation: kotlin.Boolean?, updatePreferredSettings: kotlin.Boolean?, showExactLocations: kotlin.Boolean?, showConnectionToSearcher: kotlin.Boolean?, flagCountMinimum: kotlin.Long?, verifiedUserOnly: kotlin.Boolean?, contentAdminOnly: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -321,7 +318,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/account/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -330,10 +327,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/block
+     * POST /account/block
      * Block Account
      * Moves or removes an account into the user&#39;s blocked group.
-     * @param version 
      * @param accountIdBeingBlocked The id of the account to be blocked/unblocked
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -350,8 +346,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun blockAccount(version: java.math.BigDecimal, accountIdBeingBlocked: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, blockFlagValue: kotlin.Boolean? = true, removeFromGroupsIfBlocked: kotlin.Boolean? = false, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
-        val localVarResponse = blockAccountWithHttpInfo(version = version, accountIdBeingBlocked = accountIdBeingBlocked, deviceId = deviceId, accountId = accountId, blockFlagValue = blockFlagValue, removeFromGroupsIfBlocked = removeFromGroupsIfBlocked, latitude = latitude, longitude = longitude)
+    fun blockAccount(accountIdBeingBlocked: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, blockFlagValue: kotlin.Boolean? = true, removeFromGroupsIfBlocked: kotlin.Boolean? = false, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
+        val localVarResponse = blockAccountWithHttpInfo(accountIdBeingBlocked = accountIdBeingBlocked, deviceId = deviceId, accountId = accountId, blockFlagValue = blockFlagValue, removeFromGroupsIfBlocked = removeFromGroupsIfBlocked, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -369,10 +365,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/block
+     * POST /account/block
      * Block Account
      * Moves or removes an account into the user&#39;s blocked group.
-     * @param version 
      * @param accountIdBeingBlocked The id of the account to be blocked/unblocked
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -386,8 +381,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun blockAccountWithHttpInfo(version: java.math.BigDecimal, accountIdBeingBlocked: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, blockFlagValue: kotlin.Boolean?, removeFromGroupsIfBlocked: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = blockAccountRequestConfig(version = version, accountIdBeingBlocked = accountIdBeingBlocked, deviceId = deviceId, accountId = accountId, blockFlagValue = blockFlagValue, removeFromGroupsIfBlocked = removeFromGroupsIfBlocked, latitude = latitude, longitude = longitude)
+    fun blockAccountWithHttpInfo(accountIdBeingBlocked: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, blockFlagValue: kotlin.Boolean?, removeFromGroupsIfBlocked: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = blockAccountRequestConfig(accountIdBeingBlocked = accountIdBeingBlocked, deviceId = deviceId, accountId = accountId, blockFlagValue = blockFlagValue, removeFromGroupsIfBlocked = removeFromGroupsIfBlocked, latitude = latitude, longitude = longitude)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -397,7 +392,6 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation blockAccount
      *
-     * @param version 
      * @param accountIdBeingBlocked The id of the account to be blocked/unblocked
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -407,7 +401,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param longitude The current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun blockAccountRequestConfig(version: java.math.BigDecimal, accountIdBeingBlocked: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, blockFlagValue: kotlin.Boolean?, removeFromGroupsIfBlocked: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun blockAccountRequestConfig(accountIdBeingBlocked: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, blockFlagValue: kotlin.Boolean?, removeFromGroupsIfBlocked: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -435,7 +429,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/account/block".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/block",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -444,10 +438,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/create
+     * POST /account/create
      * Create Account
      * Create a new account by role.
-     * @param version 
      * @param username The access token to authenticate with (ex: username)
      * @param password The secret to authenticate with (ex: password)
      * @param name The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName (optional)
@@ -529,8 +522,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createAccount(version: java.math.BigDecimal, username: kotlin.String, password: kotlin.String, name: kotlin.String? = null, prefixName: kotlin.String? = null, firstName: kotlin.String? = null, middleName: kotlin.String? = null, lastName: kotlin.String? = null, suffixName: kotlin.String? = null, title: kotlin.String? = null, deviceId: kotlin.String? = null, deviceIdType: kotlin.String? = null, emailAddress: kotlin.String? = null, assetId: kotlin.Long? = null, streetAddress: kotlin.String? = null, zipcode: kotlin.String? = null, gender: kotlin.String? = null, birthday: kotlin.Long? = null, homePhone: kotlin.String? = null, cellPhone: kotlin.String? = null, cellPhoneCarrier: kotlin.String? = null, businessPhone: kotlin.String? = null, role: kotlin.String? = null, platforms: kotlin.String? = null, tags: kotlin.String? = null, aboutUs: kotlin.String? = null, gameExperience: kotlin.String? = null, categoryIds: kotlin.String? = null, hometown: kotlin.String? = null, height: kotlin.String? = null, heightIndex: kotlin.Int? = null, ethnicity: kotlin.String? = null, bodyType: kotlin.String? = null, maritalStatus: kotlin.String? = null, children: kotlin.String? = null, religion: kotlin.String? = null, education: kotlin.String? = null, educationIndex: kotlin.Int? = null, smoke: kotlin.String? = null, drink: kotlin.String? = null, companionship: kotlin.String? = null, companionshipIndex: kotlin.Int? = null, preferredMinAge: kotlin.Int? = null, preferredMaxAge: kotlin.Int? = null, preferredMinHeight: kotlin.Int? = null, preferredMaxHeight: kotlin.Int? = null, preferredGender: kotlin.String? = null, preferredEducation: kotlin.String? = null, preferredEducationIndex: kotlin.Int? = null, preferredBodyType: kotlin.String? = null, preferredEthnicity: kotlin.String? = null, preferredLocation: kotlin.String? = null, preferredLocationRange: kotlin.Double? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, acceptedTerms: kotlin.Boolean? = null, inviteToken: kotlin.String? = null, referralAccountId: kotlin.Long? = null, sendValidation: kotlin.Boolean? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, appVersion: kotlin.String? = null, responseType: kotlin.String? = null, audienceIdsToAdd: kotlin.String? = null, appBlob: kotlin.String? = null, appEnablePush: kotlin.Boolean? = null, appEnableSMS: kotlin.Boolean? = null, appEnableEmail: kotlin.Boolean? = null, locationVisibility: kotlin.String? = null, homeLatitude: kotlin.Double? = null, homeLongitude: kotlin.Double? = null, appNickname: kotlin.String? = null, personalAudienceId: kotlin.Long? = null) : AccountLoginResponse {
-        val localVarResponse = createAccountWithHttpInfo(version = version, username = username, password = password, name = name, prefixName = prefixName, firstName = firstName, middleName = middleName, lastName = lastName, suffixName = suffixName, title = title, deviceId = deviceId, deviceIdType = deviceIdType, emailAddress = emailAddress, assetId = assetId, streetAddress = streetAddress, zipcode = zipcode, gender = gender, birthday = birthday, homePhone = homePhone, cellPhone = cellPhone, cellPhoneCarrier = cellPhoneCarrier, businessPhone = businessPhone, role = role, platforms = platforms, tags = tags, aboutUs = aboutUs, gameExperience = gameExperience, categoryIds = categoryIds, hometown = hometown, height = height, heightIndex = heightIndex, ethnicity = ethnicity, bodyType = bodyType, maritalStatus = maritalStatus, children = children, religion = religion, education = education, educationIndex = educationIndex, smoke = smoke, drink = drink, companionship = companionship, companionshipIndex = companionshipIndex, preferredMinAge = preferredMinAge, preferredMaxAge = preferredMaxAge, preferredMinHeight = preferredMinHeight, preferredMaxHeight = preferredMaxHeight, preferredGender = preferredGender, preferredEducation = preferredEducation, preferredEducationIndex = preferredEducationIndex, preferredBodyType = preferredBodyType, preferredEthnicity = preferredEthnicity, preferredLocation = preferredLocation, preferredLocationRange = preferredLocationRange, latitude = latitude, longitude = longitude, acceptedTerms = acceptedTerms, inviteToken = inviteToken, referralAccountId = referralAccountId, sendValidation = sendValidation, gameType = gameType, appKey = appKey, appVersion = appVersion, responseType = responseType, audienceIdsToAdd = audienceIdsToAdd, appBlob = appBlob, appEnablePush = appEnablePush, appEnableSMS = appEnableSMS, appEnableEmail = appEnableEmail, locationVisibility = locationVisibility, homeLatitude = homeLatitude, homeLongitude = homeLongitude, appNickname = appNickname, personalAudienceId = personalAudienceId)
+    fun createAccount(username: kotlin.String, password: kotlin.String, name: kotlin.String? = null, prefixName: kotlin.String? = null, firstName: kotlin.String? = null, middleName: kotlin.String? = null, lastName: kotlin.String? = null, suffixName: kotlin.String? = null, title: kotlin.String? = null, deviceId: kotlin.String? = null, deviceIdType: kotlin.String? = null, emailAddress: kotlin.String? = null, assetId: kotlin.Long? = null, streetAddress: kotlin.String? = null, zipcode: kotlin.String? = null, gender: kotlin.String? = null, birthday: kotlin.Long? = null, homePhone: kotlin.String? = null, cellPhone: kotlin.String? = null, cellPhoneCarrier: kotlin.String? = null, businessPhone: kotlin.String? = null, role: kotlin.String? = null, platforms: kotlin.String? = null, tags: kotlin.String? = null, aboutUs: kotlin.String? = null, gameExperience: kotlin.String? = null, categoryIds: kotlin.String? = null, hometown: kotlin.String? = null, height: kotlin.String? = null, heightIndex: kotlin.Int? = null, ethnicity: kotlin.String? = null, bodyType: kotlin.String? = null, maritalStatus: kotlin.String? = null, children: kotlin.String? = null, religion: kotlin.String? = null, education: kotlin.String? = null, educationIndex: kotlin.Int? = null, smoke: kotlin.String? = null, drink: kotlin.String? = null, companionship: kotlin.String? = null, companionshipIndex: kotlin.Int? = null, preferredMinAge: kotlin.Int? = null, preferredMaxAge: kotlin.Int? = null, preferredMinHeight: kotlin.Int? = null, preferredMaxHeight: kotlin.Int? = null, preferredGender: kotlin.String? = null, preferredEducation: kotlin.String? = null, preferredEducationIndex: kotlin.Int? = null, preferredBodyType: kotlin.String? = null, preferredEthnicity: kotlin.String? = null, preferredLocation: kotlin.String? = null, preferredLocationRange: kotlin.Double? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, acceptedTerms: kotlin.Boolean? = null, inviteToken: kotlin.String? = null, referralAccountId: kotlin.Long? = null, sendValidation: kotlin.Boolean? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, appVersion: kotlin.String? = null, responseType: kotlin.String? = null, audienceIdsToAdd: kotlin.String? = null, appBlob: kotlin.String? = null, appEnablePush: kotlin.Boolean? = null, appEnableSMS: kotlin.Boolean? = null, appEnableEmail: kotlin.Boolean? = null, locationVisibility: kotlin.String? = null, homeLatitude: kotlin.Double? = null, homeLongitude: kotlin.Double? = null, appNickname: kotlin.String? = null, personalAudienceId: kotlin.Long? = null) : AccountLoginResponse {
+        val localVarResponse = createAccountWithHttpInfo(username = username, password = password, name = name, prefixName = prefixName, firstName = firstName, middleName = middleName, lastName = lastName, suffixName = suffixName, title = title, deviceId = deviceId, deviceIdType = deviceIdType, emailAddress = emailAddress, assetId = assetId, streetAddress = streetAddress, zipcode = zipcode, gender = gender, birthday = birthday, homePhone = homePhone, cellPhone = cellPhone, cellPhoneCarrier = cellPhoneCarrier, businessPhone = businessPhone, role = role, platforms = platforms, tags = tags, aboutUs = aboutUs, gameExperience = gameExperience, categoryIds = categoryIds, hometown = hometown, height = height, heightIndex = heightIndex, ethnicity = ethnicity, bodyType = bodyType, maritalStatus = maritalStatus, children = children, religion = religion, education = education, educationIndex = educationIndex, smoke = smoke, drink = drink, companionship = companionship, companionshipIndex = companionshipIndex, preferredMinAge = preferredMinAge, preferredMaxAge = preferredMaxAge, preferredMinHeight = preferredMinHeight, preferredMaxHeight = preferredMaxHeight, preferredGender = preferredGender, preferredEducation = preferredEducation, preferredEducationIndex = preferredEducationIndex, preferredBodyType = preferredBodyType, preferredEthnicity = preferredEthnicity, preferredLocation = preferredLocation, preferredLocationRange = preferredLocationRange, latitude = latitude, longitude = longitude, acceptedTerms = acceptedTerms, inviteToken = inviteToken, referralAccountId = referralAccountId, sendValidation = sendValidation, gameType = gameType, appKey = appKey, appVersion = appVersion, responseType = responseType, audienceIdsToAdd = audienceIdsToAdd, appBlob = appBlob, appEnablePush = appEnablePush, appEnableSMS = appEnableSMS, appEnableEmail = appEnableEmail, locationVisibility = locationVisibility, homeLatitude = homeLatitude, homeLongitude = homeLongitude, appNickname = appNickname, personalAudienceId = personalAudienceId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AccountLoginResponse
@@ -548,10 +541,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/create
+     * POST /account/create
      * Create Account
      * Create a new account by role.
-     * @param version 
      * @param username The access token to authenticate with (ex: username)
      * @param password The secret to authenticate with (ex: password)
      * @param name The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName (optional)
@@ -630,8 +622,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createAccountWithHttpInfo(version: java.math.BigDecimal, username: kotlin.String, password: kotlin.String, name: kotlin.String?, prefixName: kotlin.String?, firstName: kotlin.String?, middleName: kotlin.String?, lastName: kotlin.String?, suffixName: kotlin.String?, title: kotlin.String?, deviceId: kotlin.String?, deviceIdType: kotlin.String?, emailAddress: kotlin.String?, assetId: kotlin.Long?, streetAddress: kotlin.String?, zipcode: kotlin.String?, gender: kotlin.String?, birthday: kotlin.Long?, homePhone: kotlin.String?, cellPhone: kotlin.String?, cellPhoneCarrier: kotlin.String?, businessPhone: kotlin.String?, role: kotlin.String?, platforms: kotlin.String?, tags: kotlin.String?, aboutUs: kotlin.String?, gameExperience: kotlin.String?, categoryIds: kotlin.String?, hometown: kotlin.String?, height: kotlin.String?, heightIndex: kotlin.Int?, ethnicity: kotlin.String?, bodyType: kotlin.String?, maritalStatus: kotlin.String?, children: kotlin.String?, religion: kotlin.String?, education: kotlin.String?, educationIndex: kotlin.Int?, smoke: kotlin.String?, drink: kotlin.String?, companionship: kotlin.String?, companionshipIndex: kotlin.Int?, preferredMinAge: kotlin.Int?, preferredMaxAge: kotlin.Int?, preferredMinHeight: kotlin.Int?, preferredMaxHeight: kotlin.Int?, preferredGender: kotlin.String?, preferredEducation: kotlin.String?, preferredEducationIndex: kotlin.Int?, preferredBodyType: kotlin.String?, preferredEthnicity: kotlin.String?, preferredLocation: kotlin.String?, preferredLocationRange: kotlin.Double?, latitude: kotlin.Double?, longitude: kotlin.Double?, acceptedTerms: kotlin.Boolean?, inviteToken: kotlin.String?, referralAccountId: kotlin.Long?, sendValidation: kotlin.Boolean?, gameType: kotlin.String?, appKey: kotlin.String?, appVersion: kotlin.String?, responseType: kotlin.String?, audienceIdsToAdd: kotlin.String?, appBlob: kotlin.String?, appEnablePush: kotlin.Boolean?, appEnableSMS: kotlin.Boolean?, appEnableEmail: kotlin.Boolean?, locationVisibility: kotlin.String?, homeLatitude: kotlin.Double?, homeLongitude: kotlin.Double?, appNickname: kotlin.String?, personalAudienceId: kotlin.Long?) : ApiResponse<AccountLoginResponse?> {
-        val localVariableConfig = createAccountRequestConfig(version = version, username = username, password = password, name = name, prefixName = prefixName, firstName = firstName, middleName = middleName, lastName = lastName, suffixName = suffixName, title = title, deviceId = deviceId, deviceIdType = deviceIdType, emailAddress = emailAddress, assetId = assetId, streetAddress = streetAddress, zipcode = zipcode, gender = gender, birthday = birthday, homePhone = homePhone, cellPhone = cellPhone, cellPhoneCarrier = cellPhoneCarrier, businessPhone = businessPhone, role = role, platforms = platforms, tags = tags, aboutUs = aboutUs, gameExperience = gameExperience, categoryIds = categoryIds, hometown = hometown, height = height, heightIndex = heightIndex, ethnicity = ethnicity, bodyType = bodyType, maritalStatus = maritalStatus, children = children, religion = religion, education = education, educationIndex = educationIndex, smoke = smoke, drink = drink, companionship = companionship, companionshipIndex = companionshipIndex, preferredMinAge = preferredMinAge, preferredMaxAge = preferredMaxAge, preferredMinHeight = preferredMinHeight, preferredMaxHeight = preferredMaxHeight, preferredGender = preferredGender, preferredEducation = preferredEducation, preferredEducationIndex = preferredEducationIndex, preferredBodyType = preferredBodyType, preferredEthnicity = preferredEthnicity, preferredLocation = preferredLocation, preferredLocationRange = preferredLocationRange, latitude = latitude, longitude = longitude, acceptedTerms = acceptedTerms, inviteToken = inviteToken, referralAccountId = referralAccountId, sendValidation = sendValidation, gameType = gameType, appKey = appKey, appVersion = appVersion, responseType = responseType, audienceIdsToAdd = audienceIdsToAdd, appBlob = appBlob, appEnablePush = appEnablePush, appEnableSMS = appEnableSMS, appEnableEmail = appEnableEmail, locationVisibility = locationVisibility, homeLatitude = homeLatitude, homeLongitude = homeLongitude, appNickname = appNickname, personalAudienceId = personalAudienceId)
+    fun createAccountWithHttpInfo(username: kotlin.String, password: kotlin.String, name: kotlin.String?, prefixName: kotlin.String?, firstName: kotlin.String?, middleName: kotlin.String?, lastName: kotlin.String?, suffixName: kotlin.String?, title: kotlin.String?, deviceId: kotlin.String?, deviceIdType: kotlin.String?, emailAddress: kotlin.String?, assetId: kotlin.Long?, streetAddress: kotlin.String?, zipcode: kotlin.String?, gender: kotlin.String?, birthday: kotlin.Long?, homePhone: kotlin.String?, cellPhone: kotlin.String?, cellPhoneCarrier: kotlin.String?, businessPhone: kotlin.String?, role: kotlin.String?, platforms: kotlin.String?, tags: kotlin.String?, aboutUs: kotlin.String?, gameExperience: kotlin.String?, categoryIds: kotlin.String?, hometown: kotlin.String?, height: kotlin.String?, heightIndex: kotlin.Int?, ethnicity: kotlin.String?, bodyType: kotlin.String?, maritalStatus: kotlin.String?, children: kotlin.String?, religion: kotlin.String?, education: kotlin.String?, educationIndex: kotlin.Int?, smoke: kotlin.String?, drink: kotlin.String?, companionship: kotlin.String?, companionshipIndex: kotlin.Int?, preferredMinAge: kotlin.Int?, preferredMaxAge: kotlin.Int?, preferredMinHeight: kotlin.Int?, preferredMaxHeight: kotlin.Int?, preferredGender: kotlin.String?, preferredEducation: kotlin.String?, preferredEducationIndex: kotlin.Int?, preferredBodyType: kotlin.String?, preferredEthnicity: kotlin.String?, preferredLocation: kotlin.String?, preferredLocationRange: kotlin.Double?, latitude: kotlin.Double?, longitude: kotlin.Double?, acceptedTerms: kotlin.Boolean?, inviteToken: kotlin.String?, referralAccountId: kotlin.Long?, sendValidation: kotlin.Boolean?, gameType: kotlin.String?, appKey: kotlin.String?, appVersion: kotlin.String?, responseType: kotlin.String?, audienceIdsToAdd: kotlin.String?, appBlob: kotlin.String?, appEnablePush: kotlin.Boolean?, appEnableSMS: kotlin.Boolean?, appEnableEmail: kotlin.Boolean?, locationVisibility: kotlin.String?, homeLatitude: kotlin.Double?, homeLongitude: kotlin.Double?, appNickname: kotlin.String?, personalAudienceId: kotlin.Long?) : ApiResponse<AccountLoginResponse?> {
+        val localVariableConfig = createAccountRequestConfig(username = username, password = password, name = name, prefixName = prefixName, firstName = firstName, middleName = middleName, lastName = lastName, suffixName = suffixName, title = title, deviceId = deviceId, deviceIdType = deviceIdType, emailAddress = emailAddress, assetId = assetId, streetAddress = streetAddress, zipcode = zipcode, gender = gender, birthday = birthday, homePhone = homePhone, cellPhone = cellPhone, cellPhoneCarrier = cellPhoneCarrier, businessPhone = businessPhone, role = role, platforms = platforms, tags = tags, aboutUs = aboutUs, gameExperience = gameExperience, categoryIds = categoryIds, hometown = hometown, height = height, heightIndex = heightIndex, ethnicity = ethnicity, bodyType = bodyType, maritalStatus = maritalStatus, children = children, religion = religion, education = education, educationIndex = educationIndex, smoke = smoke, drink = drink, companionship = companionship, companionshipIndex = companionshipIndex, preferredMinAge = preferredMinAge, preferredMaxAge = preferredMaxAge, preferredMinHeight = preferredMinHeight, preferredMaxHeight = preferredMaxHeight, preferredGender = preferredGender, preferredEducation = preferredEducation, preferredEducationIndex = preferredEducationIndex, preferredBodyType = preferredBodyType, preferredEthnicity = preferredEthnicity, preferredLocation = preferredLocation, preferredLocationRange = preferredLocationRange, latitude = latitude, longitude = longitude, acceptedTerms = acceptedTerms, inviteToken = inviteToken, referralAccountId = referralAccountId, sendValidation = sendValidation, gameType = gameType, appKey = appKey, appVersion = appVersion, responseType = responseType, audienceIdsToAdd = audienceIdsToAdd, appBlob = appBlob, appEnablePush = appEnablePush, appEnableSMS = appEnableSMS, appEnableEmail = appEnableEmail, locationVisibility = locationVisibility, homeLatitude = homeLatitude, homeLongitude = homeLongitude, appNickname = appNickname, personalAudienceId = personalAudienceId)
 
         return request<Unit, AccountLoginResponse>(
             localVariableConfig
@@ -641,7 +633,6 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation createAccount
      *
-     * @param version 
      * @param username The access token to authenticate with (ex: username)
      * @param password The secret to authenticate with (ex: password)
      * @param name The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName (optional)
@@ -716,7 +707,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param personalAudienceId Personal audience id to associate with this account (optional)
      * @return RequestConfig
      */
-    fun createAccountRequestConfig(version: java.math.BigDecimal, username: kotlin.String, password: kotlin.String, name: kotlin.String?, prefixName: kotlin.String?, firstName: kotlin.String?, middleName: kotlin.String?, lastName: kotlin.String?, suffixName: kotlin.String?, title: kotlin.String?, deviceId: kotlin.String?, deviceIdType: kotlin.String?, emailAddress: kotlin.String?, assetId: kotlin.Long?, streetAddress: kotlin.String?, zipcode: kotlin.String?, gender: kotlin.String?, birthday: kotlin.Long?, homePhone: kotlin.String?, cellPhone: kotlin.String?, cellPhoneCarrier: kotlin.String?, businessPhone: kotlin.String?, role: kotlin.String?, platforms: kotlin.String?, tags: kotlin.String?, aboutUs: kotlin.String?, gameExperience: kotlin.String?, categoryIds: kotlin.String?, hometown: kotlin.String?, height: kotlin.String?, heightIndex: kotlin.Int?, ethnicity: kotlin.String?, bodyType: kotlin.String?, maritalStatus: kotlin.String?, children: kotlin.String?, religion: kotlin.String?, education: kotlin.String?, educationIndex: kotlin.Int?, smoke: kotlin.String?, drink: kotlin.String?, companionship: kotlin.String?, companionshipIndex: kotlin.Int?, preferredMinAge: kotlin.Int?, preferredMaxAge: kotlin.Int?, preferredMinHeight: kotlin.Int?, preferredMaxHeight: kotlin.Int?, preferredGender: kotlin.String?, preferredEducation: kotlin.String?, preferredEducationIndex: kotlin.Int?, preferredBodyType: kotlin.String?, preferredEthnicity: kotlin.String?, preferredLocation: kotlin.String?, preferredLocationRange: kotlin.Double?, latitude: kotlin.Double?, longitude: kotlin.Double?, acceptedTerms: kotlin.Boolean?, inviteToken: kotlin.String?, referralAccountId: kotlin.Long?, sendValidation: kotlin.Boolean?, gameType: kotlin.String?, appKey: kotlin.String?, appVersion: kotlin.String?, responseType: kotlin.String?, audienceIdsToAdd: kotlin.String?, appBlob: kotlin.String?, appEnablePush: kotlin.Boolean?, appEnableSMS: kotlin.Boolean?, appEnableEmail: kotlin.Boolean?, locationVisibility: kotlin.String?, homeLatitude: kotlin.Double?, homeLongitude: kotlin.Double?, appNickname: kotlin.String?, personalAudienceId: kotlin.Long?) : RequestConfig<Unit> {
+    fun createAccountRequestConfig(username: kotlin.String, password: kotlin.String, name: kotlin.String?, prefixName: kotlin.String?, firstName: kotlin.String?, middleName: kotlin.String?, lastName: kotlin.String?, suffixName: kotlin.String?, title: kotlin.String?, deviceId: kotlin.String?, deviceIdType: kotlin.String?, emailAddress: kotlin.String?, assetId: kotlin.Long?, streetAddress: kotlin.String?, zipcode: kotlin.String?, gender: kotlin.String?, birthday: kotlin.Long?, homePhone: kotlin.String?, cellPhone: kotlin.String?, cellPhoneCarrier: kotlin.String?, businessPhone: kotlin.String?, role: kotlin.String?, platforms: kotlin.String?, tags: kotlin.String?, aboutUs: kotlin.String?, gameExperience: kotlin.String?, categoryIds: kotlin.String?, hometown: kotlin.String?, height: kotlin.String?, heightIndex: kotlin.Int?, ethnicity: kotlin.String?, bodyType: kotlin.String?, maritalStatus: kotlin.String?, children: kotlin.String?, religion: kotlin.String?, education: kotlin.String?, educationIndex: kotlin.Int?, smoke: kotlin.String?, drink: kotlin.String?, companionship: kotlin.String?, companionshipIndex: kotlin.Int?, preferredMinAge: kotlin.Int?, preferredMaxAge: kotlin.Int?, preferredMinHeight: kotlin.Int?, preferredMaxHeight: kotlin.Int?, preferredGender: kotlin.String?, preferredEducation: kotlin.String?, preferredEducationIndex: kotlin.Int?, preferredBodyType: kotlin.String?, preferredEthnicity: kotlin.String?, preferredLocation: kotlin.String?, preferredLocationRange: kotlin.Double?, latitude: kotlin.Double?, longitude: kotlin.Double?, acceptedTerms: kotlin.Boolean?, inviteToken: kotlin.String?, referralAccountId: kotlin.Long?, sendValidation: kotlin.Boolean?, gameType: kotlin.String?, appKey: kotlin.String?, appVersion: kotlin.String?, responseType: kotlin.String?, audienceIdsToAdd: kotlin.String?, appBlob: kotlin.String?, appEnablePush: kotlin.Boolean?, appEnableSMS: kotlin.Boolean?, appEnableEmail: kotlin.Boolean?, locationVisibility: kotlin.String?, homeLatitude: kotlin.Double?, homeLongitude: kotlin.Double?, appNickname: kotlin.String?, personalAudienceId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -937,7 +928,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/account/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -946,10 +937,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/profile/update
+     * POST /account/profile/update
      * Update Account
      * Edit the user&#39;s profile information
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId The account id used to edit another person&#39;s account (optional)
@@ -1041,8 +1031,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun editAccount(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionAccountId: kotlin.Long? = null, role: kotlin.String? = null, assetId: kotlin.Long? = null, name: kotlin.String? = null, prefixName: kotlin.String? = null, firstName: kotlin.String? = null, middleName: kotlin.String? = null, lastName: kotlin.String? = null, suffixName: kotlin.String? = null, title: kotlin.String? = null, gender: kotlin.String? = null, age: kotlin.Int? = null, birthday: kotlin.Long? = null, homePhone: kotlin.String? = null, cellPhone: kotlin.String? = null, cellPhoneCarrier: kotlin.String? = null, businessPhone: kotlin.String? = null, emailAddress: kotlin.String? = null, streetAddress: kotlin.String? = null, streetAddress2: kotlin.String? = null, city: kotlin.String? = null, state: kotlin.String? = null, zipcode: kotlin.String? = null, country: kotlin.String? = null, makeProfileInfoPublic: kotlin.Boolean? = null, makeGameInfoPublic: kotlin.Boolean? = null, makeFriendsInfoPublic: kotlin.Boolean? = null, hometown: kotlin.String? = null, height: kotlin.String? = null, heightIndex: kotlin.Int? = null, ethnicity: kotlin.String? = null, bodyType: kotlin.String? = null, maritalStatus: kotlin.String? = null, children: kotlin.String? = null, religion: kotlin.String? = null, education: kotlin.String? = null, educationIndex: kotlin.Int? = null, smoke: kotlin.String? = null, drink: kotlin.String? = null, companionship: kotlin.String? = null, companionshipIndex: kotlin.Int? = null, preferredMinAge: kotlin.Int? = null, preferredMaxAge: kotlin.Int? = null, preferredMinHeight: kotlin.Int? = null, preferredMaxHeight: kotlin.Int? = null, preferredGender: kotlin.String? = null, preferredEducation: kotlin.String? = null, preferredEducationIndex: kotlin.Int? = null, preferredBodyType: kotlin.String? = null, preferredEthnicity: kotlin.String? = null, preferredLocation: kotlin.String? = null, preferredLocationRange: kotlin.Double? = null, platforms: kotlin.String? = null, tags: kotlin.String? = null, aboutUs: kotlin.String? = null, matchToken: kotlin.String? = null, gameExperience: kotlin.String? = null, categories: kotlin.String? = null, categoryIds: kotlin.String? = null, responseFilters: kotlin.String? = "PROFILE,PROFILE_CONTACT", showAsZipcode: kotlin.Boolean? = null, showExactLocation: kotlin.Boolean? = null, showOthersExactLocation: kotlin.Boolean? = null, acceptedTerms: kotlin.Boolean? = null, locationVisibility: kotlin.String? = null, appBlob: kotlin.String? = null, appEnablePush: kotlin.Boolean? = null, appEnableSMS: kotlin.Boolean? = null, appEnableEmail: kotlin.Boolean? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, returnProfile: kotlin.Boolean? = null, audienceIdsToAdd: kotlin.String? = null, audienceIdsToRemove: kotlin.String? = null, referralAccountId: kotlin.Long? = null, appNickname: kotlin.String? = null, personalAudienceId: kotlin.Long? = null, nonGuestUsername: kotlin.String? = null) : ProfileInfoResponse {
-        val localVarResponse = editAccountWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, role = role, assetId = assetId, name = name, prefixName = prefixName, firstName = firstName, middleName = middleName, lastName = lastName, suffixName = suffixName, title = title, gender = gender, age = age, birthday = birthday, homePhone = homePhone, cellPhone = cellPhone, cellPhoneCarrier = cellPhoneCarrier, businessPhone = businessPhone, emailAddress = emailAddress, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, zipcode = zipcode, country = country, makeProfileInfoPublic = makeProfileInfoPublic, makeGameInfoPublic = makeGameInfoPublic, makeFriendsInfoPublic = makeFriendsInfoPublic, hometown = hometown, height = height, heightIndex = heightIndex, ethnicity = ethnicity, bodyType = bodyType, maritalStatus = maritalStatus, children = children, religion = religion, education = education, educationIndex = educationIndex, smoke = smoke, drink = drink, companionship = companionship, companionshipIndex = companionshipIndex, preferredMinAge = preferredMinAge, preferredMaxAge = preferredMaxAge, preferredMinHeight = preferredMinHeight, preferredMaxHeight = preferredMaxHeight, preferredGender = preferredGender, preferredEducation = preferredEducation, preferredEducationIndex = preferredEducationIndex, preferredBodyType = preferredBodyType, preferredEthnicity = preferredEthnicity, preferredLocation = preferredLocation, preferredLocationRange = preferredLocationRange, platforms = platforms, tags = tags, aboutUs = aboutUs, matchToken = matchToken, gameExperience = gameExperience, categories = categories, categoryIds = categoryIds, responseFilters = responseFilters, showAsZipcode = showAsZipcode, showExactLocation = showExactLocation, showOthersExactLocation = showOthersExactLocation, acceptedTerms = acceptedTerms, locationVisibility = locationVisibility, appBlob = appBlob, appEnablePush = appEnablePush, appEnableSMS = appEnableSMS, appEnableEmail = appEnableEmail, gameType = gameType, appKey = appKey, latitude = latitude, longitude = longitude, returnProfile = returnProfile, audienceIdsToAdd = audienceIdsToAdd, audienceIdsToRemove = audienceIdsToRemove, referralAccountId = referralAccountId, appNickname = appNickname, personalAudienceId = personalAudienceId, nonGuestUsername = nonGuestUsername)
+    fun editAccount(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionAccountId: kotlin.Long? = null, role: kotlin.String? = null, assetId: kotlin.Long? = null, name: kotlin.String? = null, prefixName: kotlin.String? = null, firstName: kotlin.String? = null, middleName: kotlin.String? = null, lastName: kotlin.String? = null, suffixName: kotlin.String? = null, title: kotlin.String? = null, gender: kotlin.String? = null, age: kotlin.Int? = null, birthday: kotlin.Long? = null, homePhone: kotlin.String? = null, cellPhone: kotlin.String? = null, cellPhoneCarrier: kotlin.String? = null, businessPhone: kotlin.String? = null, emailAddress: kotlin.String? = null, streetAddress: kotlin.String? = null, streetAddress2: kotlin.String? = null, city: kotlin.String? = null, state: kotlin.String? = null, zipcode: kotlin.String? = null, country: kotlin.String? = null, makeProfileInfoPublic: kotlin.Boolean? = null, makeGameInfoPublic: kotlin.Boolean? = null, makeFriendsInfoPublic: kotlin.Boolean? = null, hometown: kotlin.String? = null, height: kotlin.String? = null, heightIndex: kotlin.Int? = null, ethnicity: kotlin.String? = null, bodyType: kotlin.String? = null, maritalStatus: kotlin.String? = null, children: kotlin.String? = null, religion: kotlin.String? = null, education: kotlin.String? = null, educationIndex: kotlin.Int? = null, smoke: kotlin.String? = null, drink: kotlin.String? = null, companionship: kotlin.String? = null, companionshipIndex: kotlin.Int? = null, preferredMinAge: kotlin.Int? = null, preferredMaxAge: kotlin.Int? = null, preferredMinHeight: kotlin.Int? = null, preferredMaxHeight: kotlin.Int? = null, preferredGender: kotlin.String? = null, preferredEducation: kotlin.String? = null, preferredEducationIndex: kotlin.Int? = null, preferredBodyType: kotlin.String? = null, preferredEthnicity: kotlin.String? = null, preferredLocation: kotlin.String? = null, preferredLocationRange: kotlin.Double? = null, platforms: kotlin.String? = null, tags: kotlin.String? = null, aboutUs: kotlin.String? = null, matchToken: kotlin.String? = null, gameExperience: kotlin.String? = null, categories: kotlin.String? = null, categoryIds: kotlin.String? = null, responseFilters: kotlin.String? = "PROFILE,PROFILE_CONTACT", showAsZipcode: kotlin.Boolean? = null, showExactLocation: kotlin.Boolean? = null, showOthersExactLocation: kotlin.Boolean? = null, acceptedTerms: kotlin.Boolean? = null, locationVisibility: kotlin.String? = null, appBlob: kotlin.String? = null, appEnablePush: kotlin.Boolean? = null, appEnableSMS: kotlin.Boolean? = null, appEnableEmail: kotlin.Boolean? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, returnProfile: kotlin.Boolean? = null, audienceIdsToAdd: kotlin.String? = null, audienceIdsToRemove: kotlin.String? = null, referralAccountId: kotlin.Long? = null, appNickname: kotlin.String? = null, personalAudienceId: kotlin.Long? = null, nonGuestUsername: kotlin.String? = null) : ProfileInfoResponse {
+        val localVarResponse = editAccountWithHttpInfo(deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, role = role, assetId = assetId, name = name, prefixName = prefixName, firstName = firstName, middleName = middleName, lastName = lastName, suffixName = suffixName, title = title, gender = gender, age = age, birthday = birthday, homePhone = homePhone, cellPhone = cellPhone, cellPhoneCarrier = cellPhoneCarrier, businessPhone = businessPhone, emailAddress = emailAddress, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, zipcode = zipcode, country = country, makeProfileInfoPublic = makeProfileInfoPublic, makeGameInfoPublic = makeGameInfoPublic, makeFriendsInfoPublic = makeFriendsInfoPublic, hometown = hometown, height = height, heightIndex = heightIndex, ethnicity = ethnicity, bodyType = bodyType, maritalStatus = maritalStatus, children = children, religion = religion, education = education, educationIndex = educationIndex, smoke = smoke, drink = drink, companionship = companionship, companionshipIndex = companionshipIndex, preferredMinAge = preferredMinAge, preferredMaxAge = preferredMaxAge, preferredMinHeight = preferredMinHeight, preferredMaxHeight = preferredMaxHeight, preferredGender = preferredGender, preferredEducation = preferredEducation, preferredEducationIndex = preferredEducationIndex, preferredBodyType = preferredBodyType, preferredEthnicity = preferredEthnicity, preferredLocation = preferredLocation, preferredLocationRange = preferredLocationRange, platforms = platforms, tags = tags, aboutUs = aboutUs, matchToken = matchToken, gameExperience = gameExperience, categories = categories, categoryIds = categoryIds, responseFilters = responseFilters, showAsZipcode = showAsZipcode, showExactLocation = showExactLocation, showOthersExactLocation = showOthersExactLocation, acceptedTerms = acceptedTerms, locationVisibility = locationVisibility, appBlob = appBlob, appEnablePush = appEnablePush, appEnableSMS = appEnableSMS, appEnableEmail = appEnableEmail, gameType = gameType, appKey = appKey, latitude = latitude, longitude = longitude, returnProfile = returnProfile, audienceIdsToAdd = audienceIdsToAdd, audienceIdsToRemove = audienceIdsToRemove, referralAccountId = referralAccountId, appNickname = appNickname, personalAudienceId = personalAudienceId, nonGuestUsername = nonGuestUsername)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ProfileInfoResponse
@@ -1060,10 +1050,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/profile/update
+     * POST /account/profile/update
      * Update Account
      * Edit the user&#39;s profile information
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId The account id used to edit another person&#39;s account (optional)
@@ -1152,8 +1141,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun editAccountWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, role: kotlin.String?, assetId: kotlin.Long?, name: kotlin.String?, prefixName: kotlin.String?, firstName: kotlin.String?, middleName: kotlin.String?, lastName: kotlin.String?, suffixName: kotlin.String?, title: kotlin.String?, gender: kotlin.String?, age: kotlin.Int?, birthday: kotlin.Long?, homePhone: kotlin.String?, cellPhone: kotlin.String?, cellPhoneCarrier: kotlin.String?, businessPhone: kotlin.String?, emailAddress: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, zipcode: kotlin.String?, country: kotlin.String?, makeProfileInfoPublic: kotlin.Boolean?, makeGameInfoPublic: kotlin.Boolean?, makeFriendsInfoPublic: kotlin.Boolean?, hometown: kotlin.String?, height: kotlin.String?, heightIndex: kotlin.Int?, ethnicity: kotlin.String?, bodyType: kotlin.String?, maritalStatus: kotlin.String?, children: kotlin.String?, religion: kotlin.String?, education: kotlin.String?, educationIndex: kotlin.Int?, smoke: kotlin.String?, drink: kotlin.String?, companionship: kotlin.String?, companionshipIndex: kotlin.Int?, preferredMinAge: kotlin.Int?, preferredMaxAge: kotlin.Int?, preferredMinHeight: kotlin.Int?, preferredMaxHeight: kotlin.Int?, preferredGender: kotlin.String?, preferredEducation: kotlin.String?, preferredEducationIndex: kotlin.Int?, preferredBodyType: kotlin.String?, preferredEthnicity: kotlin.String?, preferredLocation: kotlin.String?, preferredLocationRange: kotlin.Double?, platforms: kotlin.String?, tags: kotlin.String?, aboutUs: kotlin.String?, matchToken: kotlin.String?, gameExperience: kotlin.String?, categories: kotlin.String?, categoryIds: kotlin.String?, responseFilters: kotlin.String?, showAsZipcode: kotlin.Boolean?, showExactLocation: kotlin.Boolean?, showOthersExactLocation: kotlin.Boolean?, acceptedTerms: kotlin.Boolean?, locationVisibility: kotlin.String?, appBlob: kotlin.String?, appEnablePush: kotlin.Boolean?, appEnableSMS: kotlin.Boolean?, appEnableEmail: kotlin.Boolean?, gameType: kotlin.String?, appKey: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, returnProfile: kotlin.Boolean?, audienceIdsToAdd: kotlin.String?, audienceIdsToRemove: kotlin.String?, referralAccountId: kotlin.Long?, appNickname: kotlin.String?, personalAudienceId: kotlin.Long?, nonGuestUsername: kotlin.String?) : ApiResponse<ProfileInfoResponse?> {
-        val localVariableConfig = editAccountRequestConfig(version = version, deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, role = role, assetId = assetId, name = name, prefixName = prefixName, firstName = firstName, middleName = middleName, lastName = lastName, suffixName = suffixName, title = title, gender = gender, age = age, birthday = birthday, homePhone = homePhone, cellPhone = cellPhone, cellPhoneCarrier = cellPhoneCarrier, businessPhone = businessPhone, emailAddress = emailAddress, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, zipcode = zipcode, country = country, makeProfileInfoPublic = makeProfileInfoPublic, makeGameInfoPublic = makeGameInfoPublic, makeFriendsInfoPublic = makeFriendsInfoPublic, hometown = hometown, height = height, heightIndex = heightIndex, ethnicity = ethnicity, bodyType = bodyType, maritalStatus = maritalStatus, children = children, religion = religion, education = education, educationIndex = educationIndex, smoke = smoke, drink = drink, companionship = companionship, companionshipIndex = companionshipIndex, preferredMinAge = preferredMinAge, preferredMaxAge = preferredMaxAge, preferredMinHeight = preferredMinHeight, preferredMaxHeight = preferredMaxHeight, preferredGender = preferredGender, preferredEducation = preferredEducation, preferredEducationIndex = preferredEducationIndex, preferredBodyType = preferredBodyType, preferredEthnicity = preferredEthnicity, preferredLocation = preferredLocation, preferredLocationRange = preferredLocationRange, platforms = platforms, tags = tags, aboutUs = aboutUs, matchToken = matchToken, gameExperience = gameExperience, categories = categories, categoryIds = categoryIds, responseFilters = responseFilters, showAsZipcode = showAsZipcode, showExactLocation = showExactLocation, showOthersExactLocation = showOthersExactLocation, acceptedTerms = acceptedTerms, locationVisibility = locationVisibility, appBlob = appBlob, appEnablePush = appEnablePush, appEnableSMS = appEnableSMS, appEnableEmail = appEnableEmail, gameType = gameType, appKey = appKey, latitude = latitude, longitude = longitude, returnProfile = returnProfile, audienceIdsToAdd = audienceIdsToAdd, audienceIdsToRemove = audienceIdsToRemove, referralAccountId = referralAccountId, appNickname = appNickname, personalAudienceId = personalAudienceId, nonGuestUsername = nonGuestUsername)
+    fun editAccountWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, role: kotlin.String?, assetId: kotlin.Long?, name: kotlin.String?, prefixName: kotlin.String?, firstName: kotlin.String?, middleName: kotlin.String?, lastName: kotlin.String?, suffixName: kotlin.String?, title: kotlin.String?, gender: kotlin.String?, age: kotlin.Int?, birthday: kotlin.Long?, homePhone: kotlin.String?, cellPhone: kotlin.String?, cellPhoneCarrier: kotlin.String?, businessPhone: kotlin.String?, emailAddress: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, zipcode: kotlin.String?, country: kotlin.String?, makeProfileInfoPublic: kotlin.Boolean?, makeGameInfoPublic: kotlin.Boolean?, makeFriendsInfoPublic: kotlin.Boolean?, hometown: kotlin.String?, height: kotlin.String?, heightIndex: kotlin.Int?, ethnicity: kotlin.String?, bodyType: kotlin.String?, maritalStatus: kotlin.String?, children: kotlin.String?, religion: kotlin.String?, education: kotlin.String?, educationIndex: kotlin.Int?, smoke: kotlin.String?, drink: kotlin.String?, companionship: kotlin.String?, companionshipIndex: kotlin.Int?, preferredMinAge: kotlin.Int?, preferredMaxAge: kotlin.Int?, preferredMinHeight: kotlin.Int?, preferredMaxHeight: kotlin.Int?, preferredGender: kotlin.String?, preferredEducation: kotlin.String?, preferredEducationIndex: kotlin.Int?, preferredBodyType: kotlin.String?, preferredEthnicity: kotlin.String?, preferredLocation: kotlin.String?, preferredLocationRange: kotlin.Double?, platforms: kotlin.String?, tags: kotlin.String?, aboutUs: kotlin.String?, matchToken: kotlin.String?, gameExperience: kotlin.String?, categories: kotlin.String?, categoryIds: kotlin.String?, responseFilters: kotlin.String?, showAsZipcode: kotlin.Boolean?, showExactLocation: kotlin.Boolean?, showOthersExactLocation: kotlin.Boolean?, acceptedTerms: kotlin.Boolean?, locationVisibility: kotlin.String?, appBlob: kotlin.String?, appEnablePush: kotlin.Boolean?, appEnableSMS: kotlin.Boolean?, appEnableEmail: kotlin.Boolean?, gameType: kotlin.String?, appKey: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, returnProfile: kotlin.Boolean?, audienceIdsToAdd: kotlin.String?, audienceIdsToRemove: kotlin.String?, referralAccountId: kotlin.Long?, appNickname: kotlin.String?, personalAudienceId: kotlin.Long?, nonGuestUsername: kotlin.String?) : ApiResponse<ProfileInfoResponse?> {
+        val localVariableConfig = editAccountRequestConfig(deviceId = deviceId, accountId = accountId, connectionAccountId = connectionAccountId, role = role, assetId = assetId, name = name, prefixName = prefixName, firstName = firstName, middleName = middleName, lastName = lastName, suffixName = suffixName, title = title, gender = gender, age = age, birthday = birthday, homePhone = homePhone, cellPhone = cellPhone, cellPhoneCarrier = cellPhoneCarrier, businessPhone = businessPhone, emailAddress = emailAddress, streetAddress = streetAddress, streetAddress2 = streetAddress2, city = city, state = state, zipcode = zipcode, country = country, makeProfileInfoPublic = makeProfileInfoPublic, makeGameInfoPublic = makeGameInfoPublic, makeFriendsInfoPublic = makeFriendsInfoPublic, hometown = hometown, height = height, heightIndex = heightIndex, ethnicity = ethnicity, bodyType = bodyType, maritalStatus = maritalStatus, children = children, religion = religion, education = education, educationIndex = educationIndex, smoke = smoke, drink = drink, companionship = companionship, companionshipIndex = companionshipIndex, preferredMinAge = preferredMinAge, preferredMaxAge = preferredMaxAge, preferredMinHeight = preferredMinHeight, preferredMaxHeight = preferredMaxHeight, preferredGender = preferredGender, preferredEducation = preferredEducation, preferredEducationIndex = preferredEducationIndex, preferredBodyType = preferredBodyType, preferredEthnicity = preferredEthnicity, preferredLocation = preferredLocation, preferredLocationRange = preferredLocationRange, platforms = platforms, tags = tags, aboutUs = aboutUs, matchToken = matchToken, gameExperience = gameExperience, categories = categories, categoryIds = categoryIds, responseFilters = responseFilters, showAsZipcode = showAsZipcode, showExactLocation = showExactLocation, showOthersExactLocation = showOthersExactLocation, acceptedTerms = acceptedTerms, locationVisibility = locationVisibility, appBlob = appBlob, appEnablePush = appEnablePush, appEnableSMS = appEnableSMS, appEnableEmail = appEnableEmail, gameType = gameType, appKey = appKey, latitude = latitude, longitude = longitude, returnProfile = returnProfile, audienceIdsToAdd = audienceIdsToAdd, audienceIdsToRemove = audienceIdsToRemove, referralAccountId = referralAccountId, appNickname = appNickname, personalAudienceId = personalAudienceId, nonGuestUsername = nonGuestUsername)
 
         return request<Unit, ProfileInfoResponse>(
             localVariableConfig
@@ -1163,7 +1152,6 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation editAccount
      *
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId The account id used to edit another person&#39;s account (optional)
@@ -1248,7 +1236,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param nonGuestUsername The user&#39;s username to update with if they currently have a guest username (optional)
      * @return RequestConfig
      */
-    fun editAccountRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, role: kotlin.String?, assetId: kotlin.Long?, name: kotlin.String?, prefixName: kotlin.String?, firstName: kotlin.String?, middleName: kotlin.String?, lastName: kotlin.String?, suffixName: kotlin.String?, title: kotlin.String?, gender: kotlin.String?, age: kotlin.Int?, birthday: kotlin.Long?, homePhone: kotlin.String?, cellPhone: kotlin.String?, cellPhoneCarrier: kotlin.String?, businessPhone: kotlin.String?, emailAddress: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, zipcode: kotlin.String?, country: kotlin.String?, makeProfileInfoPublic: kotlin.Boolean?, makeGameInfoPublic: kotlin.Boolean?, makeFriendsInfoPublic: kotlin.Boolean?, hometown: kotlin.String?, height: kotlin.String?, heightIndex: kotlin.Int?, ethnicity: kotlin.String?, bodyType: kotlin.String?, maritalStatus: kotlin.String?, children: kotlin.String?, religion: kotlin.String?, education: kotlin.String?, educationIndex: kotlin.Int?, smoke: kotlin.String?, drink: kotlin.String?, companionship: kotlin.String?, companionshipIndex: kotlin.Int?, preferredMinAge: kotlin.Int?, preferredMaxAge: kotlin.Int?, preferredMinHeight: kotlin.Int?, preferredMaxHeight: kotlin.Int?, preferredGender: kotlin.String?, preferredEducation: kotlin.String?, preferredEducationIndex: kotlin.Int?, preferredBodyType: kotlin.String?, preferredEthnicity: kotlin.String?, preferredLocation: kotlin.String?, preferredLocationRange: kotlin.Double?, platforms: kotlin.String?, tags: kotlin.String?, aboutUs: kotlin.String?, matchToken: kotlin.String?, gameExperience: kotlin.String?, categories: kotlin.String?, categoryIds: kotlin.String?, responseFilters: kotlin.String?, showAsZipcode: kotlin.Boolean?, showExactLocation: kotlin.Boolean?, showOthersExactLocation: kotlin.Boolean?, acceptedTerms: kotlin.Boolean?, locationVisibility: kotlin.String?, appBlob: kotlin.String?, appEnablePush: kotlin.Boolean?, appEnableSMS: kotlin.Boolean?, appEnableEmail: kotlin.Boolean?, gameType: kotlin.String?, appKey: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, returnProfile: kotlin.Boolean?, audienceIdsToAdd: kotlin.String?, audienceIdsToRemove: kotlin.String?, referralAccountId: kotlin.Long?, appNickname: kotlin.String?, personalAudienceId: kotlin.Long?, nonGuestUsername: kotlin.String?) : RequestConfig<Unit> {
+    fun editAccountRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountId: kotlin.Long?, role: kotlin.String?, assetId: kotlin.Long?, name: kotlin.String?, prefixName: kotlin.String?, firstName: kotlin.String?, middleName: kotlin.String?, lastName: kotlin.String?, suffixName: kotlin.String?, title: kotlin.String?, gender: kotlin.String?, age: kotlin.Int?, birthday: kotlin.Long?, homePhone: kotlin.String?, cellPhone: kotlin.String?, cellPhoneCarrier: kotlin.String?, businessPhone: kotlin.String?, emailAddress: kotlin.String?, streetAddress: kotlin.String?, streetAddress2: kotlin.String?, city: kotlin.String?, state: kotlin.String?, zipcode: kotlin.String?, country: kotlin.String?, makeProfileInfoPublic: kotlin.Boolean?, makeGameInfoPublic: kotlin.Boolean?, makeFriendsInfoPublic: kotlin.Boolean?, hometown: kotlin.String?, height: kotlin.String?, heightIndex: kotlin.Int?, ethnicity: kotlin.String?, bodyType: kotlin.String?, maritalStatus: kotlin.String?, children: kotlin.String?, religion: kotlin.String?, education: kotlin.String?, educationIndex: kotlin.Int?, smoke: kotlin.String?, drink: kotlin.String?, companionship: kotlin.String?, companionshipIndex: kotlin.Int?, preferredMinAge: kotlin.Int?, preferredMaxAge: kotlin.Int?, preferredMinHeight: kotlin.Int?, preferredMaxHeight: kotlin.Int?, preferredGender: kotlin.String?, preferredEducation: kotlin.String?, preferredEducationIndex: kotlin.Int?, preferredBodyType: kotlin.String?, preferredEthnicity: kotlin.String?, preferredLocation: kotlin.String?, preferredLocationRange: kotlin.Double?, platforms: kotlin.String?, tags: kotlin.String?, aboutUs: kotlin.String?, matchToken: kotlin.String?, gameExperience: kotlin.String?, categories: kotlin.String?, categoryIds: kotlin.String?, responseFilters: kotlin.String?, showAsZipcode: kotlin.Boolean?, showExactLocation: kotlin.Boolean?, showOthersExactLocation: kotlin.Boolean?, acceptedTerms: kotlin.Boolean?, locationVisibility: kotlin.String?, appBlob: kotlin.String?, appEnablePush: kotlin.Boolean?, appEnableSMS: kotlin.Boolean?, appEnableEmail: kotlin.Boolean?, gameType: kotlin.String?, appKey: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, returnProfile: kotlin.Boolean?, audienceIdsToAdd: kotlin.String?, audienceIdsToRemove: kotlin.String?, referralAccountId: kotlin.Long?, appNickname: kotlin.String?, personalAudienceId: kotlin.Long?, nonGuestUsername: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1503,7 +1491,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/account/profile/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/profile/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1512,10 +1500,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/username/update
+     * POST /account/username/update
      * Update Username and Email
      * Update account&#39;s own username and/or emailAddress
-     * @param version 
      * @param deviceId The device id (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param emailAddress the user&#39;s contact email address (NOT the username) which is also used for email validation (optional)
@@ -1529,8 +1516,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun editUsername(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, emailAddress: kotlin.String? = null, username: kotlin.String? = null) : SirqulResponse {
-        val localVarResponse = editUsernameWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, emailAddress = emailAddress, username = username)
+    fun editUsername(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, emailAddress: kotlin.String? = null, username: kotlin.String? = null) : SirqulResponse {
+        val localVarResponse = editUsernameWithHttpInfo(deviceId = deviceId, accountId = accountId, emailAddress = emailAddress, username = username)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -1548,10 +1535,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/username/update
+     * POST /account/username/update
      * Update Username and Email
      * Update account&#39;s own username and/or emailAddress
-     * @param version 
      * @param deviceId The device id (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param emailAddress the user&#39;s contact email address (NOT the username) which is also used for email validation (optional)
@@ -1562,8 +1548,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun editUsernameWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, emailAddress: kotlin.String?, username: kotlin.String?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = editUsernameRequestConfig(version = version, deviceId = deviceId, accountId = accountId, emailAddress = emailAddress, username = username)
+    fun editUsernameWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, emailAddress: kotlin.String?, username: kotlin.String?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = editUsernameRequestConfig(deviceId = deviceId, accountId = accountId, emailAddress = emailAddress, username = username)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -1573,14 +1559,13 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation editUsername
      *
-     * @param version 
      * @param deviceId The device id (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param emailAddress the user&#39;s contact email address (NOT the username) which is also used for email validation (optional)
      * @param username the user&#39;s username to update with if they currently have a guest username (optional)
      * @return RequestConfig
      */
-    fun editUsernameRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, emailAddress: kotlin.String?, username: kotlin.String?) : RequestConfig<Unit> {
+    fun editUsernameRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, emailAddress: kotlin.String?, username: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1601,7 +1586,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/account/username/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/username/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1610,10 +1595,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/account/profile/get
+     * GET /account/profile/get
      * Get Account
      * Gets a user&#39;s account profile. Application settings and account settings will also be returned for the owner of the account.
-     * @param version 
      * @param returnNulls Return Nulls (optional, default to false)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1635,8 +1619,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAccount(version: java.math.BigDecimal, returnNulls: kotlin.Boolean? = false, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionAccountEmail: kotlin.String? = null, connectionAccountId: kotlin.Long? = 0L, responseFilters: kotlin.String? = "PROFILE", gameType: kotlin.String? = null, appKey: kotlin.String? = null, purchaseType: kotlin.String? = "SIRQUL", updateViewedDate: kotlin.Boolean? = false, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : ProfileResponse {
-        val localVarResponse = getAccountWithHttpInfo(version = version, returnNulls = returnNulls, deviceId = deviceId, accountId = accountId, connectionAccountEmail = connectionAccountEmail, connectionAccountId = connectionAccountId, responseFilters = responseFilters, gameType = gameType, appKey = appKey, purchaseType = purchaseType, updateViewedDate = updateViewedDate, latitude = latitude, longitude = longitude)
+    fun getAccount(returnNulls: kotlin.Boolean? = false, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, connectionAccountEmail: kotlin.String? = null, connectionAccountId: kotlin.Long? = 0L, responseFilters: kotlin.String? = "PROFILE", gameType: kotlin.String? = null, appKey: kotlin.String? = null, purchaseType: kotlin.String? = "SIRQUL", updateViewedDate: kotlin.Boolean? = false, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : ProfileResponse {
+        val localVarResponse = getAccountWithHttpInfo(returnNulls = returnNulls, deviceId = deviceId, accountId = accountId, connectionAccountEmail = connectionAccountEmail, connectionAccountId = connectionAccountId, responseFilters = responseFilters, gameType = gameType, appKey = appKey, purchaseType = purchaseType, updateViewedDate = updateViewedDate, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ProfileResponse
@@ -1654,10 +1638,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/account/profile/get
+     * GET /account/profile/get
      * Get Account
      * Gets a user&#39;s account profile. Application settings and account settings will also be returned for the owner of the account.
-     * @param version 
      * @param returnNulls Return Nulls (optional, default to false)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1676,8 +1659,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAccountWithHttpInfo(version: java.math.BigDecimal, returnNulls: kotlin.Boolean?, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountEmail: kotlin.String?, connectionAccountId: kotlin.Long?, responseFilters: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?, purchaseType: kotlin.String?, updateViewedDate: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<ProfileResponse?> {
-        val localVariableConfig = getAccountRequestConfig(version = version, returnNulls = returnNulls, deviceId = deviceId, accountId = accountId, connectionAccountEmail = connectionAccountEmail, connectionAccountId = connectionAccountId, responseFilters = responseFilters, gameType = gameType, appKey = appKey, purchaseType = purchaseType, updateViewedDate = updateViewedDate, latitude = latitude, longitude = longitude)
+    fun getAccountWithHttpInfo(returnNulls: kotlin.Boolean?, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountEmail: kotlin.String?, connectionAccountId: kotlin.Long?, responseFilters: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?, purchaseType: kotlin.String?, updateViewedDate: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<ProfileResponse?> {
+        val localVariableConfig = getAccountRequestConfig(returnNulls = returnNulls, deviceId = deviceId, accountId = accountId, connectionAccountEmail = connectionAccountEmail, connectionAccountId = connectionAccountId, responseFilters = responseFilters, gameType = gameType, appKey = appKey, purchaseType = purchaseType, updateViewedDate = updateViewedDate, latitude = latitude, longitude = longitude)
 
         return request<Unit, ProfileResponse>(
             localVariableConfig
@@ -1687,7 +1670,6 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation getAccount
      *
-     * @param version 
      * @param returnNulls Return Nulls (optional, default to false)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1702,7 +1684,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param longitude Longitude used to update the user&#39;s current location (optional)
      * @return RequestConfig
      */
-    fun getAccountRequestConfig(version: java.math.BigDecimal, returnNulls: kotlin.Boolean?, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountEmail: kotlin.String?, connectionAccountId: kotlin.Long?, responseFilters: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?, purchaseType: kotlin.String?, updateViewedDate: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun getAccountRequestConfig(returnNulls: kotlin.Boolean?, deviceId: kotlin.String?, accountId: kotlin.Long?, connectionAccountEmail: kotlin.String?, connectionAccountId: kotlin.Long?, responseFilters: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?, purchaseType: kotlin.String?, updateViewedDate: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1747,7 +1729,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/account/profile/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/profile/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1756,10 +1738,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/account/profile/assets
+     * GET /account/profile/assets
      * Get Profile Assets
      * Get a list of assets a person has ever uploaded. Filters the list based on parameters.
-     * @param version 
      * @param returnNulls Determines whether to return null fields in the response (optional, default to false)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1783,8 +1764,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getProfileAssets(version: java.math.BigDecimal, returnNulls: kotlin.Boolean? = false, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, ownerId: kotlin.Long? = null, mediaTypes: kotlin.String? = null, mimeTypes: kotlin.String? = null, sortField: kotlin.String? = "CREATED", descending: kotlin.Boolean? = true, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, i: kotlin.Int? = null, start: kotlin.Int? = 0, l: kotlin.Int? = null, limit: kotlin.Int? = 0) : AssetListResponse {
-        val localVarResponse = getProfileAssetsWithHttpInfo(version = version, returnNulls = returnNulls, deviceId = deviceId, accountId = accountId, ownerId = ownerId, mediaTypes = mediaTypes, mimeTypes = mimeTypes, sortField = sortField, descending = descending, latitude = latitude, longitude = longitude, i = i, start = start, l = l, limit = limit)
+    fun getProfileAssets(returnNulls: kotlin.Boolean? = false, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, ownerId: kotlin.Long? = null, mediaTypes: kotlin.String? = null, mimeTypes: kotlin.String? = null, sortField: kotlin.String? = "CREATED", descending: kotlin.Boolean? = true, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, i: kotlin.Int? = null, start: kotlin.Int? = 0, l: kotlin.Int? = null, limit: kotlin.Int? = 0) : AssetListResponse {
+        val localVarResponse = getProfileAssetsWithHttpInfo(returnNulls = returnNulls, deviceId = deviceId, accountId = accountId, ownerId = ownerId, mediaTypes = mediaTypes, mimeTypes = mimeTypes, sortField = sortField, descending = descending, latitude = latitude, longitude = longitude, i = i, start = start, l = l, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AssetListResponse
@@ -1802,10 +1783,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/account/profile/assets
+     * GET /account/profile/assets
      * Get Profile Assets
      * Get a list of assets a person has ever uploaded. Filters the list based on parameters.
-     * @param version 
      * @param returnNulls Determines whether to return null fields in the response (optional, default to false)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1826,8 +1806,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getProfileAssetsWithHttpInfo(version: java.math.BigDecimal, returnNulls: kotlin.Boolean?, deviceId: kotlin.String?, accountId: kotlin.Long?, ownerId: kotlin.Long?, mediaTypes: kotlin.String?, mimeTypes: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<AssetListResponse?> {
-        val localVariableConfig = getProfileAssetsRequestConfig(version = version, returnNulls = returnNulls, deviceId = deviceId, accountId = accountId, ownerId = ownerId, mediaTypes = mediaTypes, mimeTypes = mimeTypes, sortField = sortField, descending = descending, latitude = latitude, longitude = longitude, i = i, start = start, l = l, limit = limit)
+    fun getProfileAssetsWithHttpInfo(returnNulls: kotlin.Boolean?, deviceId: kotlin.String?, accountId: kotlin.Long?, ownerId: kotlin.Long?, mediaTypes: kotlin.String?, mimeTypes: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?) : ApiResponse<AssetListResponse?> {
+        val localVariableConfig = getProfileAssetsRequestConfig(returnNulls = returnNulls, deviceId = deviceId, accountId = accountId, ownerId = ownerId, mediaTypes = mediaTypes, mimeTypes = mimeTypes, sortField = sortField, descending = descending, latitude = latitude, longitude = longitude, i = i, start = start, l = l, limit = limit)
 
         return request<Unit, AssetListResponse>(
             localVariableConfig
@@ -1837,7 +1817,6 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation getProfileAssets
      *
-     * @param version 
      * @param returnNulls Determines whether to return null fields in the response (optional, default to false)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1854,7 +1833,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param limit Limit of the pagination (optional, default to 0)
      * @return RequestConfig
      */
-    fun getProfileAssetsRequestConfig(version: java.math.BigDecimal, returnNulls: kotlin.Boolean?, deviceId: kotlin.String?, accountId: kotlin.Long?, ownerId: kotlin.Long?, mediaTypes: kotlin.String?, mimeTypes: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun getProfileAssetsRequestConfig(returnNulls: kotlin.Boolean?, deviceId: kotlin.String?, accountId: kotlin.Long?, ownerId: kotlin.Long?, mediaTypes: kotlin.String?, mimeTypes: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, latitude: kotlin.Double?, longitude: kotlin.Double?, i: kotlin.Int?, start: kotlin.Int?, l: kotlin.Int?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1905,7 +1884,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/account/profile/assets".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/profile/assets",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1914,10 +1893,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/account/referral/list
+     * GET /account/referral/list
      * Search Accounts
      * Gets a user&#39;s account profile and their referral List.
-     * @param version 
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param appKey The application key (optional)
      * @param retrieveType one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it&#39;s parents, recursively - GET_ALL will get all of the above (optional)
@@ -1937,8 +1915,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getReferralList(version: java.math.BigDecimal, accountId: kotlin.Long? = null, appKey: kotlin.String? = null, retrieveType: kotlin.String? = null, levelLimit: java.math.BigDecimal? = null, ancestorLevelLimit: java.math.BigDecimal? = null, childrenLevelLimit: java.math.BigDecimal? = null, ancestorListStart: java.math.BigDecimal? = null, ancestorListLimit: java.math.BigDecimal? = null, childrenListStart: java.math.BigDecimal? = null, childrenListLimit: java.math.BigDecimal? = null, childrenChildren: kotlin.Boolean? = true) : Unit {
-        val localVarResponse = getReferralListWithHttpInfo(version = version, accountId = accountId, appKey = appKey, retrieveType = retrieveType, levelLimit = levelLimit, ancestorLevelLimit = ancestorLevelLimit, childrenLevelLimit = childrenLevelLimit, ancestorListStart = ancestorListStart, ancestorListLimit = ancestorListLimit, childrenListStart = childrenListStart, childrenListLimit = childrenListLimit, childrenChildren = childrenChildren)
+    fun getReferralList(accountId: kotlin.Long? = null, appKey: kotlin.String? = null, retrieveType: kotlin.String? = null, levelLimit: java.math.BigDecimal? = null, ancestorLevelLimit: java.math.BigDecimal? = null, childrenLevelLimit: java.math.BigDecimal? = null, ancestorListStart: java.math.BigDecimal? = null, ancestorListLimit: java.math.BigDecimal? = null, childrenListStart: java.math.BigDecimal? = null, childrenListLimit: java.math.BigDecimal? = null, childrenChildren: kotlin.Boolean? = true) : Unit {
+        val localVarResponse = getReferralListWithHttpInfo(accountId = accountId, appKey = appKey, retrieveType = retrieveType, levelLimit = levelLimit, ancestorLevelLimit = ancestorLevelLimit, childrenLevelLimit = childrenLevelLimit, ancestorListStart = ancestorListStart, ancestorListLimit = ancestorListLimit, childrenListStart = childrenListStart, childrenListLimit = childrenListLimit, childrenChildren = childrenChildren)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -1956,10 +1934,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/account/referral/list
+     * GET /account/referral/list
      * Search Accounts
      * Gets a user&#39;s account profile and their referral List.
-     * @param version 
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param appKey The application key (optional)
      * @param retrieveType one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it&#39;s parents, recursively - GET_ALL will get all of the above (optional)
@@ -1976,8 +1953,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun getReferralListWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long?, appKey: kotlin.String?, retrieveType: kotlin.String?, levelLimit: java.math.BigDecimal?, ancestorLevelLimit: java.math.BigDecimal?, childrenLevelLimit: java.math.BigDecimal?, ancestorListStart: java.math.BigDecimal?, ancestorListLimit: java.math.BigDecimal?, childrenListStart: java.math.BigDecimal?, childrenListLimit: java.math.BigDecimal?, childrenChildren: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = getReferralListRequestConfig(version = version, accountId = accountId, appKey = appKey, retrieveType = retrieveType, levelLimit = levelLimit, ancestorLevelLimit = ancestorLevelLimit, childrenLevelLimit = childrenLevelLimit, ancestorListStart = ancestorListStart, ancestorListLimit = ancestorListLimit, childrenListStart = childrenListStart, childrenListLimit = childrenListLimit, childrenChildren = childrenChildren)
+    fun getReferralListWithHttpInfo(accountId: kotlin.Long?, appKey: kotlin.String?, retrieveType: kotlin.String?, levelLimit: java.math.BigDecimal?, ancestorLevelLimit: java.math.BigDecimal?, childrenLevelLimit: java.math.BigDecimal?, ancestorListStart: java.math.BigDecimal?, ancestorListLimit: java.math.BigDecimal?, childrenListStart: java.math.BigDecimal?, childrenListLimit: java.math.BigDecimal?, childrenChildren: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = getReferralListRequestConfig(accountId = accountId, appKey = appKey, retrieveType = retrieveType, levelLimit = levelLimit, ancestorLevelLimit = ancestorLevelLimit, childrenLevelLimit = childrenLevelLimit, ancestorListStart = ancestorListStart, ancestorListLimit = ancestorListLimit, childrenListStart = childrenListStart, childrenListLimit = childrenListLimit, childrenChildren = childrenChildren)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -1987,7 +1964,6 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation getReferralList
      *
-     * @param version 
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param appKey The application key (optional)
      * @param retrieveType one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it&#39;s parents, recursively - GET_ALL will get all of the above (optional)
@@ -2001,7 +1977,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param childrenChildren if true, on each item in ancestor and children list, return the childrenTotalNumber and ancestorTotalNumber for that item (optional, default to true)
      * @return RequestConfig
      */
-    fun getReferralListRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long?, appKey: kotlin.String?, retrieveType: kotlin.String?, levelLimit: java.math.BigDecimal?, ancestorLevelLimit: java.math.BigDecimal?, childrenLevelLimit: java.math.BigDecimal?, ancestorListStart: java.math.BigDecimal?, ancestorListLimit: java.math.BigDecimal?, childrenListStart: java.math.BigDecimal?, childrenListLimit: java.math.BigDecimal?, childrenChildren: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getReferralListRequestConfig(accountId: kotlin.Long?, appKey: kotlin.String?, retrieveType: kotlin.String?, levelLimit: java.math.BigDecimal?, ancestorLevelLimit: java.math.BigDecimal?, childrenLevelLimit: java.math.BigDecimal?, ancestorListStart: java.math.BigDecimal?, ancestorListLimit: java.math.BigDecimal?, childrenListStart: java.math.BigDecimal?, childrenListLimit: java.math.BigDecimal?, childrenChildren: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2043,7 +2019,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/account/referral/list".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/referral/list",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2052,10 +2028,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/account/settings/get
+     * GET /account/settings/get
      * Get Account Settings
      * Get the account settings for a user
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude The current latitude of the user (optional)
@@ -2069,8 +2044,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSettings(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : UserSettingsResponse {
-        val localVarResponse = getSettingsWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun getSettings(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : UserSettingsResponse {
+        val localVarResponse = getSettingsWithHttpInfo(deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as UserSettingsResponse
@@ -2088,10 +2063,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/account/settings/get
+     * GET /account/settings/get
      * Get Account Settings
      * Get the account settings for a user
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude The current latitude of the user (optional)
@@ -2102,8 +2076,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSettingsWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<UserSettingsResponse?> {
-        val localVariableConfig = getSettingsRequestConfig(version = version, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun getSettingsWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<UserSettingsResponse?> {
+        val localVariableConfig = getSettingsRequestConfig(deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return request<Unit, UserSettingsResponse>(
             localVariableConfig
@@ -2113,14 +2087,13 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation getSettings
      *
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude The current latitude of the user (optional)
      * @param longitude The current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun getSettingsRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun getSettingsRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2141,7 +2114,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/account/settings/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/settings/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2150,10 +2123,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/login/delegate
+     * POST /account/login/delegate
      * Login as Account
      * A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now.
-     * @param version 
      * @param accessToken 
      * @param appKey 
      * @param deviceId  (optional)
@@ -2174,8 +2146,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun loginDelegate(version: java.math.BigDecimal, accessToken: kotlin.String, appKey: kotlin.String, deviceId: kotlin.String? = null, accessTokenSecret: kotlin.String? = null, delegatedAccountId: kotlin.Long? = null, delegatedUsername: kotlin.String? = null, networkUID: kotlin.String? = "USERNAME", ageRestriction: kotlin.Int? = 0, responseFilters: kotlin.String? = "PROFILE", latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : ProfileResponse {
-        val localVarResponse = loginDelegateWithHttpInfo(version = version, accessToken = accessToken, appKey = appKey, deviceId = deviceId, accessTokenSecret = accessTokenSecret, delegatedAccountId = delegatedAccountId, delegatedUsername = delegatedUsername, networkUID = networkUID, ageRestriction = ageRestriction, responseFilters = responseFilters, latitude = latitude, longitude = longitude)
+    fun loginDelegate(accessToken: kotlin.String, appKey: kotlin.String, deviceId: kotlin.String? = null, accessTokenSecret: kotlin.String? = null, delegatedAccountId: kotlin.Long? = null, delegatedUsername: kotlin.String? = null, networkUID: kotlin.String? = "USERNAME", ageRestriction: kotlin.Int? = 0, responseFilters: kotlin.String? = "PROFILE", latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : ProfileResponse {
+        val localVarResponse = loginDelegateWithHttpInfo(accessToken = accessToken, appKey = appKey, deviceId = deviceId, accessTokenSecret = accessTokenSecret, delegatedAccountId = delegatedAccountId, delegatedUsername = delegatedUsername, networkUID = networkUID, ageRestriction = ageRestriction, responseFilters = responseFilters, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ProfileResponse
@@ -2193,10 +2165,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/login/delegate
+     * POST /account/login/delegate
      * Login as Account
      * A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now.
-     * @param version 
      * @param accessToken 
      * @param appKey 
      * @param deviceId  (optional)
@@ -2214,8 +2185,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun loginDelegateWithHttpInfo(version: java.math.BigDecimal, accessToken: kotlin.String, appKey: kotlin.String, deviceId: kotlin.String?, accessTokenSecret: kotlin.String?, delegatedAccountId: kotlin.Long?, delegatedUsername: kotlin.String?, networkUID: kotlin.String?, ageRestriction: kotlin.Int?, responseFilters: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<ProfileResponse?> {
-        val localVariableConfig = loginDelegateRequestConfig(version = version, accessToken = accessToken, appKey = appKey, deviceId = deviceId, accessTokenSecret = accessTokenSecret, delegatedAccountId = delegatedAccountId, delegatedUsername = delegatedUsername, networkUID = networkUID, ageRestriction = ageRestriction, responseFilters = responseFilters, latitude = latitude, longitude = longitude)
+    fun loginDelegateWithHttpInfo(accessToken: kotlin.String, appKey: kotlin.String, deviceId: kotlin.String?, accessTokenSecret: kotlin.String?, delegatedAccountId: kotlin.Long?, delegatedUsername: kotlin.String?, networkUID: kotlin.String?, ageRestriction: kotlin.Int?, responseFilters: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<ProfileResponse?> {
+        val localVariableConfig = loginDelegateRequestConfig(accessToken = accessToken, appKey = appKey, deviceId = deviceId, accessTokenSecret = accessTokenSecret, delegatedAccountId = delegatedAccountId, delegatedUsername = delegatedUsername, networkUID = networkUID, ageRestriction = ageRestriction, responseFilters = responseFilters, latitude = latitude, longitude = longitude)
 
         return request<Unit, ProfileResponse>(
             localVariableConfig
@@ -2225,7 +2196,6 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation loginDelegate
      *
-     * @param version 
      * @param accessToken 
      * @param appKey 
      * @param deviceId  (optional)
@@ -2239,7 +2209,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param longitude  (optional)
      * @return RequestConfig
      */
-    fun loginDelegateRequestConfig(version: java.math.BigDecimal, accessToken: kotlin.String, appKey: kotlin.String, deviceId: kotlin.String?, accessTokenSecret: kotlin.String?, delegatedAccountId: kotlin.Long?, delegatedUsername: kotlin.String?, networkUID: kotlin.String?, ageRestriction: kotlin.Int?, responseFilters: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun loginDelegateRequestConfig(accessToken: kotlin.String, appKey: kotlin.String, deviceId: kotlin.String?, accessTokenSecret: kotlin.String?, delegatedAccountId: kotlin.Long?, delegatedUsername: kotlin.String?, networkUID: kotlin.String?, ageRestriction: kotlin.Int?, responseFilters: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2277,7 +2247,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/account/login/delegate".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/login/delegate",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2286,10 +2256,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/login
+     * POST /account/login
      * Login Account
      * General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}
-     * @param version 
      * @param accessToken The access token to authenticate with (ex: username or fb token)
      * @param networkUID The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE  (default to "USERNAME")
      * @param appKey The application key
@@ -2312,8 +2281,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun loginGeneral(version: java.math.BigDecimal, accessToken: kotlin.String, networkUID: kotlin.String = "USERNAME", appKey: kotlin.String, deviceId: kotlin.String? = null, deviceIdType: kotlin.String? = null, accessTokenSecret: kotlin.String? = null, ageRestriction: kotlin.Int? = 0, responseFilters: kotlin.String? = "PROFILE", latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, emailMatch: kotlin.Boolean? = false, chosenAccountId: kotlin.Long? = 0L, thirdPartyCredentialId: kotlin.Long? = 0L) : ProfileResponse {
-        val localVarResponse = loginGeneralWithHttpInfo(version = version, accessToken = accessToken, networkUID = networkUID, appKey = appKey, deviceId = deviceId, deviceIdType = deviceIdType, accessTokenSecret = accessTokenSecret, ageRestriction = ageRestriction, responseFilters = responseFilters, latitude = latitude, longitude = longitude, emailMatch = emailMatch, chosenAccountId = chosenAccountId, thirdPartyCredentialId = thirdPartyCredentialId)
+    fun loginGeneral(accessToken: kotlin.String, networkUID: kotlin.String = "USERNAME", appKey: kotlin.String, deviceId: kotlin.String? = null, deviceIdType: kotlin.String? = null, accessTokenSecret: kotlin.String? = null, ageRestriction: kotlin.Int? = 0, responseFilters: kotlin.String? = "PROFILE", latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, emailMatch: kotlin.Boolean? = false, chosenAccountId: kotlin.Long? = 0L, thirdPartyCredentialId: kotlin.Long? = 0L) : ProfileResponse {
+        val localVarResponse = loginGeneralWithHttpInfo(accessToken = accessToken, networkUID = networkUID, appKey = appKey, deviceId = deviceId, deviceIdType = deviceIdType, accessTokenSecret = accessTokenSecret, ageRestriction = ageRestriction, responseFilters = responseFilters, latitude = latitude, longitude = longitude, emailMatch = emailMatch, chosenAccountId = chosenAccountId, thirdPartyCredentialId = thirdPartyCredentialId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ProfileResponse
@@ -2331,10 +2300,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/login
+     * POST /account/login
      * Login Account
      * General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}
-     * @param version 
      * @param accessToken The access token to authenticate with (ex: username or fb token)
      * @param networkUID The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE  (default to "USERNAME")
      * @param appKey The application key
@@ -2354,8 +2322,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun loginGeneralWithHttpInfo(version: java.math.BigDecimal, accessToken: kotlin.String, networkUID: kotlin.String, appKey: kotlin.String, deviceId: kotlin.String?, deviceIdType: kotlin.String?, accessTokenSecret: kotlin.String?, ageRestriction: kotlin.Int?, responseFilters: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, emailMatch: kotlin.Boolean?, chosenAccountId: kotlin.Long?, thirdPartyCredentialId: kotlin.Long?) : ApiResponse<ProfileResponse?> {
-        val localVariableConfig = loginGeneralRequestConfig(version = version, accessToken = accessToken, networkUID = networkUID, appKey = appKey, deviceId = deviceId, deviceIdType = deviceIdType, accessTokenSecret = accessTokenSecret, ageRestriction = ageRestriction, responseFilters = responseFilters, latitude = latitude, longitude = longitude, emailMatch = emailMatch, chosenAccountId = chosenAccountId, thirdPartyCredentialId = thirdPartyCredentialId)
+    fun loginGeneralWithHttpInfo(accessToken: kotlin.String, networkUID: kotlin.String, appKey: kotlin.String, deviceId: kotlin.String?, deviceIdType: kotlin.String?, accessTokenSecret: kotlin.String?, ageRestriction: kotlin.Int?, responseFilters: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, emailMatch: kotlin.Boolean?, chosenAccountId: kotlin.Long?, thirdPartyCredentialId: kotlin.Long?) : ApiResponse<ProfileResponse?> {
+        val localVariableConfig = loginGeneralRequestConfig(accessToken = accessToken, networkUID = networkUID, appKey = appKey, deviceId = deviceId, deviceIdType = deviceIdType, accessTokenSecret = accessTokenSecret, ageRestriction = ageRestriction, responseFilters = responseFilters, latitude = latitude, longitude = longitude, emailMatch = emailMatch, chosenAccountId = chosenAccountId, thirdPartyCredentialId = thirdPartyCredentialId)
 
         return request<Unit, ProfileResponse>(
             localVariableConfig
@@ -2365,7 +2333,6 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation loginGeneral
      *
-     * @param version 
      * @param accessToken The access token to authenticate with (ex: username or fb token)
      * @param networkUID The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE  (default to "USERNAME")
      * @param appKey The application key
@@ -2381,7 +2348,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param thirdPartyCredentialId Third-party credential Id, pass in the 2nd request to choose an account from multiple accounts matching the email - use the id from the previous call ThirdPartyCredential object (optional, default to 0L)
      * @return RequestConfig
      */
-    fun loginGeneralRequestConfig(version: java.math.BigDecimal, accessToken: kotlin.String, networkUID: kotlin.String, appKey: kotlin.String, deviceId: kotlin.String?, deviceIdType: kotlin.String?, accessTokenSecret: kotlin.String?, ageRestriction: kotlin.Int?, responseFilters: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, emailMatch: kotlin.Boolean?, chosenAccountId: kotlin.Long?, thirdPartyCredentialId: kotlin.Long?) : RequestConfig<Unit> {
+    fun loginGeneralRequestConfig(accessToken: kotlin.String, networkUID: kotlin.String, appKey: kotlin.String, deviceId: kotlin.String?, deviceIdType: kotlin.String?, accessTokenSecret: kotlin.String?, ageRestriction: kotlin.Int?, responseFilters: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, emailMatch: kotlin.Boolean?, chosenAccountId: kotlin.Long?, thirdPartyCredentialId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2423,7 +2390,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/account/login".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/login",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2432,10 +2399,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/get
+     * POST /account/get
      * Login Account (Username)
      * Login to system with an account
-     * @param version 
      * @param username the user&#39;s email address they used to sign-up
      * @param password the password
      * @param deviceId the device id (optional)
@@ -2455,8 +2421,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun loginUsername(version: java.math.BigDecimal, username: kotlin.String, password: kotlin.String, deviceId: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, app: kotlin.String? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, returnProfile: kotlin.Boolean? = null, responseFilters: kotlin.String? = null) : ProfileResponse {
-        val localVarResponse = loginUsernameWithHttpInfo(version = version, username = username, password = password, deviceId = deviceId, latitude = latitude, longitude = longitude, app = app, gameType = gameType, appKey = appKey, returnProfile = returnProfile, responseFilters = responseFilters)
+    fun loginUsername(username: kotlin.String, password: kotlin.String, deviceId: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, app: kotlin.String? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, returnProfile: kotlin.Boolean? = null, responseFilters: kotlin.String? = null) : ProfileResponse {
+        val localVarResponse = loginUsernameWithHttpInfo(username = username, password = password, deviceId = deviceId, latitude = latitude, longitude = longitude, app = app, gameType = gameType, appKey = appKey, returnProfile = returnProfile, responseFilters = responseFilters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ProfileResponse
@@ -2474,10 +2440,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/get
+     * POST /account/get
      * Login Account (Username)
      * Login to system with an account
-     * @param version 
      * @param username the user&#39;s email address they used to sign-up
      * @param password the password
      * @param deviceId the device id (optional)
@@ -2494,8 +2459,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun loginUsernameWithHttpInfo(version: java.math.BigDecimal, username: kotlin.String, password: kotlin.String, deviceId: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, app: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?, returnProfile: kotlin.Boolean?, responseFilters: kotlin.String?) : ApiResponse<ProfileResponse?> {
-        val localVariableConfig = loginUsernameRequestConfig(version = version, username = username, password = password, deviceId = deviceId, latitude = latitude, longitude = longitude, app = app, gameType = gameType, appKey = appKey, returnProfile = returnProfile, responseFilters = responseFilters)
+    fun loginUsernameWithHttpInfo(username: kotlin.String, password: kotlin.String, deviceId: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, app: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?, returnProfile: kotlin.Boolean?, responseFilters: kotlin.String?) : ApiResponse<ProfileResponse?> {
+        val localVariableConfig = loginUsernameRequestConfig(username = username, password = password, deviceId = deviceId, latitude = latitude, longitude = longitude, app = app, gameType = gameType, appKey = appKey, returnProfile = returnProfile, responseFilters = responseFilters)
 
         return request<Unit, ProfileResponse>(
             localVariableConfig
@@ -2505,7 +2470,6 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation loginUsername
      *
-     * @param version 
      * @param username the user&#39;s email address they used to sign-up
      * @param password the password
      * @param deviceId the device id (optional)
@@ -2518,7 +2482,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param responseFilters a comma separated list of ProfileFilters for filtering the returned response data (optional)
      * @return RequestConfig
      */
-    fun loginUsernameRequestConfig(version: java.math.BigDecimal, username: kotlin.String, password: kotlin.String, deviceId: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, app: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?, returnProfile: kotlin.Boolean?, responseFilters: kotlin.String?) : RequestConfig<Unit> {
+    fun loginUsernameRequestConfig(username: kotlin.String, password: kotlin.String, deviceId: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, app: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?, returnProfile: kotlin.Boolean?, responseFilters: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2553,7 +2517,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/account/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2562,10 +2526,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/logout
+     * POST /account/logout
      * Logout Account
      * Cleans up the users data for logging out.
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param deviceIdType Device Id Type (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -2580,8 +2543,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun logout(version: java.math.BigDecimal, deviceId: kotlin.String? = null, deviceIdType: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
-        val localVarResponse = logoutWithHttpInfo(version = version, deviceId = deviceId, deviceIdType = deviceIdType, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun logout(deviceId: kotlin.String? = null, deviceIdType: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
+        val localVarResponse = logoutWithHttpInfo(deviceId = deviceId, deviceIdType = deviceIdType, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -2599,10 +2562,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/logout
+     * POST /account/logout
      * Logout Account
      * Cleans up the users data for logging out.
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param deviceIdType Device Id Type (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -2614,8 +2576,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun logoutWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, deviceIdType: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = logoutRequestConfig(version = version, deviceId = deviceId, deviceIdType = deviceIdType, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun logoutWithHttpInfo(deviceId: kotlin.String?, deviceIdType: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = logoutRequestConfig(deviceId = deviceId, deviceIdType = deviceIdType, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -2625,7 +2587,6 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation logout
      *
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param deviceIdType Device Id Type (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -2633,7 +2594,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param longitude The current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun logoutRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, deviceIdType: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun logoutRequestConfig(deviceId: kotlin.String?, deviceIdType: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2657,7 +2618,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/account/logout".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/logout",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2666,10 +2627,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/merge
+     * POST /account/merge
      * Merge Account
      * Merges the analytics, achievements, leaderboards of two accounts.
-     * @param version 
      * @param mergeAccountId The id of the account to being merged
      * @param appKey The application key
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -2683,8 +2643,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun mergeAccount(version: java.math.BigDecimal, mergeAccountId: kotlin.Long, appKey: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = mergeAccountWithHttpInfo(version = version, mergeAccountId = mergeAccountId, appKey = appKey, deviceId = deviceId, accountId = accountId)
+    fun mergeAccount(mergeAccountId: kotlin.Long, appKey: kotlin.String, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = mergeAccountWithHttpInfo(mergeAccountId = mergeAccountId, appKey = appKey, deviceId = deviceId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -2702,10 +2662,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/merge
+     * POST /account/merge
      * Merge Account
      * Merges the analytics, achievements, leaderboards of two accounts.
-     * @param version 
      * @param mergeAccountId The id of the account to being merged
      * @param appKey The application key
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -2716,8 +2675,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun mergeAccountWithHttpInfo(version: java.math.BigDecimal, mergeAccountId: kotlin.Long, appKey: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = mergeAccountRequestConfig(version = version, mergeAccountId = mergeAccountId, appKey = appKey, deviceId = deviceId, accountId = accountId)
+    fun mergeAccountWithHttpInfo(mergeAccountId: kotlin.Long, appKey: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = mergeAccountRequestConfig(mergeAccountId = mergeAccountId, appKey = appKey, deviceId = deviceId, accountId = accountId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -2727,14 +2686,13 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation mergeAccount
      *
-     * @param version 
      * @param mergeAccountId The id of the account to being merged
      * @param appKey The application key
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @return RequestConfig
      */
-    fun mergeAccountRequestConfig(version: java.math.BigDecimal, mergeAccountId: kotlin.Long, appKey: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun mergeAccountRequestConfig(mergeAccountId: kotlin.Long, appKey: kotlin.String, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2751,7 +2709,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/account/merge".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/merge",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2760,10 +2718,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/passwordchange
+     * POST /account/passwordchange
      * Update Password
      * Update the account password.
-     * @param version 
      * @param accountId The account to update
      * @param oldPassword The current password, used to validate access
      * @param newPassword The new password to set, cannot be empty
@@ -2777,8 +2734,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun passwordChange(version: java.math.BigDecimal, accountId: kotlin.Long, oldPassword: kotlin.String, newPassword: kotlin.String, confirmPassword: kotlin.String) : SirqulResponse {
-        val localVarResponse = passwordChangeWithHttpInfo(version = version, accountId = accountId, oldPassword = oldPassword, newPassword = newPassword, confirmPassword = confirmPassword)
+    fun passwordChange(accountId: kotlin.Long, oldPassword: kotlin.String, newPassword: kotlin.String, confirmPassword: kotlin.String) : SirqulResponse {
+        val localVarResponse = passwordChangeWithHttpInfo(accountId = accountId, oldPassword = oldPassword, newPassword = newPassword, confirmPassword = confirmPassword)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -2796,10 +2753,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/passwordchange
+     * POST /account/passwordchange
      * Update Password
      * Update the account password.
-     * @param version 
      * @param accountId The account to update
      * @param oldPassword The current password, used to validate access
      * @param newPassword The new password to set, cannot be empty
@@ -2810,8 +2766,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun passwordChangeWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, oldPassword: kotlin.String, newPassword: kotlin.String, confirmPassword: kotlin.String) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = passwordChangeRequestConfig(version = version, accountId = accountId, oldPassword = oldPassword, newPassword = newPassword, confirmPassword = confirmPassword)
+    fun passwordChangeWithHttpInfo(accountId: kotlin.Long, oldPassword: kotlin.String, newPassword: kotlin.String, confirmPassword: kotlin.String) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = passwordChangeRequestConfig(accountId = accountId, oldPassword = oldPassword, newPassword = newPassword, confirmPassword = confirmPassword)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -2821,14 +2777,13 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation passwordChange
      *
-     * @param version 
      * @param accountId The account to update
      * @param oldPassword The current password, used to validate access
      * @param newPassword The new password to set, cannot be empty
      * @param confirmPassword The new password to confirm, must match newPassword
      * @return RequestConfig
      */
-    fun passwordChangeRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, oldPassword: kotlin.String, newPassword: kotlin.String, confirmPassword: kotlin.String) : RequestConfig<Unit> {
+    fun passwordChangeRequestConfig(accountId: kotlin.Long, oldPassword: kotlin.String, newPassword: kotlin.String, confirmPassword: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2841,7 +2796,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/account/passwordchange".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/passwordchange",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2850,10 +2805,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/passwordreset
+     * POST /account/passwordreset
      * Reset Password
      * Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token.
-     * @param version 
      * @param token The token associated with the account to update, good for 24 hours
      * @param password The new password to set, cannot be empty
      * @param confirm The new password to confirm, must match newPassword
@@ -2866,8 +2820,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun passwordReset(version: java.math.BigDecimal, token: kotlin.String, password: kotlin.String, confirm: kotlin.String) : SirqulResponse {
-        val localVarResponse = passwordResetWithHttpInfo(version = version, token = token, password = password, confirm = confirm)
+    fun passwordReset(token: kotlin.String, password: kotlin.String, confirm: kotlin.String) : SirqulResponse {
+        val localVarResponse = passwordResetWithHttpInfo(token = token, password = password, confirm = confirm)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -2885,10 +2839,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/passwordreset
+     * POST /account/passwordreset
      * Reset Password
      * Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token.
-     * @param version 
      * @param token The token associated with the account to update, good for 24 hours
      * @param password The new password to set, cannot be empty
      * @param confirm The new password to confirm, must match newPassword
@@ -2898,8 +2851,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun passwordResetWithHttpInfo(version: java.math.BigDecimal, token: kotlin.String, password: kotlin.String, confirm: kotlin.String) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = passwordResetRequestConfig(version = version, token = token, password = password, confirm = confirm)
+    fun passwordResetWithHttpInfo(token: kotlin.String, password: kotlin.String, confirm: kotlin.String) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = passwordResetRequestConfig(token = token, password = password, confirm = confirm)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -2909,13 +2862,12 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation passwordReset
      *
-     * @param version 
      * @param token The token associated with the account to update, good for 24 hours
      * @param password The new password to set, cannot be empty
      * @param confirm The new password to confirm, must match newPassword
      * @return RequestConfig
      */
-    fun passwordResetRequestConfig(version: java.math.BigDecimal, token: kotlin.String, password: kotlin.String, confirm: kotlin.String) : RequestConfig<Unit> {
+    fun passwordResetRequestConfig(token: kotlin.String, password: kotlin.String, confirm: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2927,7 +2879,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/account/passwordreset".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/passwordreset",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2936,10 +2888,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/requestpasswordreset
+     * POST /account/requestpasswordreset
      * Request Password Reset
      * Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours.
-     * @param version 
      * @param email The email/username of the account
      * @param from this is the sender email (optional, default to "Sirqul")
      * @param domain this is the domain (like dev.sirqul.com) used to generate the password reset link (optional)
@@ -2954,8 +2905,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun requestPasswordReset(version: java.math.BigDecimal, email: kotlin.String, from: kotlin.String? = "Sirqul", domain: kotlin.String? = null, subUrl: kotlin.String? = null, referer: kotlin.String? = "http://dev.sirqul.com/resetpassword") : SirqulResponse {
-        val localVarResponse = requestPasswordResetWithHttpInfo(version = version, email = email, from = from, domain = domain, subUrl = subUrl, referer = referer)
+    fun requestPasswordReset(email: kotlin.String, from: kotlin.String? = "Sirqul", domain: kotlin.String? = null, subUrl: kotlin.String? = null, referer: kotlin.String? = "http://dev.sirqul.com/resetpassword") : SirqulResponse {
+        val localVarResponse = requestPasswordResetWithHttpInfo(email = email, from = from, domain = domain, subUrl = subUrl, referer = referer)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -2973,10 +2924,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/requestpasswordreset
+     * POST /account/requestpasswordreset
      * Request Password Reset
      * Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours.
-     * @param version 
      * @param email The email/username of the account
      * @param from this is the sender email (optional, default to "Sirqul")
      * @param domain this is the domain (like dev.sirqul.com) used to generate the password reset link (optional)
@@ -2988,8 +2938,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun requestPasswordResetWithHttpInfo(version: java.math.BigDecimal, email: kotlin.String, from: kotlin.String?, domain: kotlin.String?, subUrl: kotlin.String?, referer: kotlin.String?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = requestPasswordResetRequestConfig(version = version, email = email, from = from, domain = domain, subUrl = subUrl, referer = referer)
+    fun requestPasswordResetWithHttpInfo(email: kotlin.String, from: kotlin.String?, domain: kotlin.String?, subUrl: kotlin.String?, referer: kotlin.String?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = requestPasswordResetRequestConfig(email = email, from = from, domain = domain, subUrl = subUrl, referer = referer)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -2999,7 +2949,6 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation requestPasswordReset
      *
-     * @param version 
      * @param email The email/username of the account
      * @param from this is the sender email (optional, default to "Sirqul")
      * @param domain this is the domain (like dev.sirqul.com) used to generate the password reset link (optional)
@@ -3007,7 +2956,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param referer this is used to generate a password reset link (optional, default to "http://dev.sirqul.com/resetpassword")
      * @return RequestConfig
      */
-    fun requestPasswordResetRequestConfig(version: java.math.BigDecimal, email: kotlin.String, from: kotlin.String?, domain: kotlin.String?, subUrl: kotlin.String?, referer: kotlin.String?) : RequestConfig<Unit> {
+    fun requestPasswordResetRequestConfig(email: kotlin.String, from: kotlin.String?, domain: kotlin.String?, subUrl: kotlin.String?, referer: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -3029,7 +2978,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/account/requestpasswordreset".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/requestpasswordreset",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -3038,10 +2987,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/requestValidateAccount
+     * POST /account/requestValidateAccount
      * Send Validation Request
      * Send an email to validate a user&#39;s account.
-     * @param version 
      * @param accountId The account id of the user
      * @return SirqulResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -3052,8 +3000,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun requestValidateAccount(version: java.math.BigDecimal, accountId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = requestValidateAccountWithHttpInfo(version = version, accountId = accountId)
+    fun requestValidateAccount(accountId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = requestValidateAccountWithHttpInfo(accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -3071,10 +3019,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/requestValidateAccount
+     * POST /account/requestValidateAccount
      * Send Validation Request
      * Send an email to validate a user&#39;s account.
-     * @param version 
      * @param accountId The account id of the user
      * @return ApiResponse<SirqulResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -3082,8 +3029,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun requestValidateAccountWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = requestValidateAccountRequestConfig(version = version, accountId = accountId)
+    fun requestValidateAccountWithHttpInfo(accountId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = requestValidateAccountRequestConfig(accountId = accountId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -3093,11 +3040,10 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation requestValidateAccount
      *
-     * @param version 
      * @param accountId The account id of the user
      * @return RequestConfig
      */
-    fun requestValidateAccountRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long) : RequestConfig<Unit> {
+    fun requestValidateAccountRequestConfig(accountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -3107,7 +3053,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/account/requestValidateAccount".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/requestValidateAccount",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -3154,10 +3100,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      }
 
     /**
-     * GET /api/{version}/account/profile/search
+     * GET /account/profile/search
      * Search Accounts
      * Search for account profiles.
-     * @param version 
      * @param accountId The id of the account requesting
      * @param appKey The application key
      * @param keyword The keyword for for querying the account (optional)
@@ -3185,8 +3130,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchAccounts(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, keyword: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, radius: kotlin.Double? = 5.0, gender: GenderSearchAccounts? = null, gameExperience: GameExperienceSearchAccounts? = null, age: kotlin.Int? = null, categoryIds: kotlin.String? = null, returnNulls: kotlin.Boolean? = true, responseFilters: kotlin.String? = "PROFILE", purchaseType: kotlin.String? = "SIRQUL", sortField: kotlin.String? = "id", descending: kotlin.Boolean? = false, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, activeOnly: kotlin.Boolean? = false) : kotlin.collections.List<ProfileResponse> {
-        val localVarResponse = searchAccountsWithHttpInfo(version = version, accountId = accountId, appKey = appKey, keyword = keyword, latitude = latitude, longitude = longitude, radius = radius, gender = gender, gameExperience = gameExperience, age = age, categoryIds = categoryIds, returnNulls = returnNulls, responseFilters = responseFilters, purchaseType = purchaseType, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
+    fun searchAccounts(accountId: kotlin.Long, appKey: kotlin.String, keyword: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, radius: kotlin.Double? = 5.0, gender: GenderSearchAccounts? = null, gameExperience: GameExperienceSearchAccounts? = null, age: kotlin.Int? = null, categoryIds: kotlin.String? = null, returnNulls: kotlin.Boolean? = true, responseFilters: kotlin.String? = "PROFILE", purchaseType: kotlin.String? = "SIRQUL", sortField: kotlin.String? = "id", descending: kotlin.Boolean? = false, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, activeOnly: kotlin.Boolean? = false) : kotlin.collections.List<ProfileResponse> {
+        val localVarResponse = searchAccountsWithHttpInfo(accountId = accountId, appKey = appKey, keyword = keyword, latitude = latitude, longitude = longitude, radius = radius, gender = gender, gameExperience = gameExperience, age = age, categoryIds = categoryIds, returnNulls = returnNulls, responseFilters = responseFilters, purchaseType = purchaseType, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<ProfileResponse>
@@ -3204,10 +3149,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/account/profile/search
+     * GET /account/profile/search
      * Search Accounts
      * Search for account profiles.
-     * @param version 
      * @param accountId The id of the account requesting
      * @param appKey The application key
      * @param keyword The keyword for for querying the account (optional)
@@ -3232,8 +3176,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchAccountsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, keyword: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, radius: kotlin.Double?, gender: GenderSearchAccounts?, gameExperience: GameExperienceSearchAccounts?, age: kotlin.Int?, categoryIds: kotlin.String?, returnNulls: kotlin.Boolean?, responseFilters: kotlin.String?, purchaseType: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<ProfileResponse>?> {
-        val localVariableConfig = searchAccountsRequestConfig(version = version, accountId = accountId, appKey = appKey, keyword = keyword, latitude = latitude, longitude = longitude, radius = radius, gender = gender, gameExperience = gameExperience, age = age, categoryIds = categoryIds, returnNulls = returnNulls, responseFilters = responseFilters, purchaseType = purchaseType, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
+    fun searchAccountsWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, keyword: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, radius: kotlin.Double?, gender: GenderSearchAccounts?, gameExperience: GameExperienceSearchAccounts?, age: kotlin.Int?, categoryIds: kotlin.String?, returnNulls: kotlin.Boolean?, responseFilters: kotlin.String?, purchaseType: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<ProfileResponse>?> {
+        val localVariableConfig = searchAccountsRequestConfig(accountId = accountId, appKey = appKey, keyword = keyword, latitude = latitude, longitude = longitude, radius = radius, gender = gender, gameExperience = gameExperience, age = age, categoryIds = categoryIds, returnNulls = returnNulls, responseFilters = responseFilters, purchaseType = purchaseType, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
 
         return request<Unit, kotlin.collections.List<ProfileResponse>>(
             localVariableConfig
@@ -3243,7 +3187,6 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation searchAccounts
      *
-     * @param version 
      * @param accountId The id of the account requesting
      * @param appKey The application key
      * @param keyword The keyword for for querying the account (optional)
@@ -3264,7 +3207,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param activeOnly Determines whether to return only active results. Default is false. (optional, default to false)
      * @return RequestConfig
      */
-    fun searchAccountsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, keyword: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, radius: kotlin.Double?, gender: GenderSearchAccounts?, gameExperience: GameExperienceSearchAccounts?, age: kotlin.Int?, categoryIds: kotlin.String?, returnNulls: kotlin.Boolean?, responseFilters: kotlin.String?, purchaseType: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchAccountsRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, keyword: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, radius: kotlin.Double?, gender: GenderSearchAccounts?, gameExperience: GameExperienceSearchAccounts?, age: kotlin.Int?, categoryIds: kotlin.String?, returnNulls: kotlin.Boolean?, responseFilters: kotlin.String?, purchaseType: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -3323,7 +3266,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/account/profile/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/profile/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -3332,10 +3275,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/login/validate
+     * POST /account/login/validate
      * Login Account (Encrypted Username)
      * ogin with encrypted user-name and password.
-     * @param version 
      * @param username The user&#39;s encrypted email address they used to sign-up
      * @param password The encrypted password
      * @param gameType The application key
@@ -3354,8 +3296,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun secureLogin(version: java.math.BigDecimal, username: kotlin.String, password: kotlin.String, gameType: kotlin.String, deviceId: kotlin.String? = null, charsetName: kotlin.String? = "UTF-8", latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, returnProfile: kotlin.Boolean? = false, responseFilters: kotlin.String? = "PROFILE") : ProfileResponse {
-        val localVarResponse = secureLoginWithHttpInfo(version = version, username = username, password = password, gameType = gameType, deviceId = deviceId, charsetName = charsetName, latitude = latitude, longitude = longitude, returnProfile = returnProfile, responseFilters = responseFilters)
+    fun secureLogin(username: kotlin.String, password: kotlin.String, gameType: kotlin.String, deviceId: kotlin.String? = null, charsetName: kotlin.String? = "UTF-8", latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, returnProfile: kotlin.Boolean? = false, responseFilters: kotlin.String? = "PROFILE") : ProfileResponse {
+        val localVarResponse = secureLoginWithHttpInfo(username = username, password = password, gameType = gameType, deviceId = deviceId, charsetName = charsetName, latitude = latitude, longitude = longitude, returnProfile = returnProfile, responseFilters = responseFilters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ProfileResponse
@@ -3373,10 +3315,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/login/validate
+     * POST /account/login/validate
      * Login Account (Encrypted Username)
      * ogin with encrypted user-name and password.
-     * @param version 
      * @param username The user&#39;s encrypted email address they used to sign-up
      * @param password The encrypted password
      * @param gameType The application key
@@ -3392,8 +3333,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun secureLoginWithHttpInfo(version: java.math.BigDecimal, username: kotlin.String, password: kotlin.String, gameType: kotlin.String, deviceId: kotlin.String?, charsetName: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, returnProfile: kotlin.Boolean?, responseFilters: kotlin.String?) : ApiResponse<ProfileResponse?> {
-        val localVariableConfig = secureLoginRequestConfig(version = version, username = username, password = password, gameType = gameType, deviceId = deviceId, charsetName = charsetName, latitude = latitude, longitude = longitude, returnProfile = returnProfile, responseFilters = responseFilters)
+    fun secureLoginWithHttpInfo(username: kotlin.String, password: kotlin.String, gameType: kotlin.String, deviceId: kotlin.String?, charsetName: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, returnProfile: kotlin.Boolean?, responseFilters: kotlin.String?) : ApiResponse<ProfileResponse?> {
+        val localVariableConfig = secureLoginRequestConfig(username = username, password = password, gameType = gameType, deviceId = deviceId, charsetName = charsetName, latitude = latitude, longitude = longitude, returnProfile = returnProfile, responseFilters = responseFilters)
 
         return request<Unit, ProfileResponse>(
             localVariableConfig
@@ -3403,7 +3344,6 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation secureLogin
      *
-     * @param version 
      * @param username The user&#39;s encrypted email address they used to sign-up
      * @param password The encrypted password
      * @param gameType The application key
@@ -3415,7 +3355,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param responseFilters A comma separated list of ProfileFilters for filtering the returned response data (optional, default to "PROFILE")
      * @return RequestConfig
      */
-    fun secureLoginRequestConfig(version: java.math.BigDecimal, username: kotlin.String, password: kotlin.String, gameType: kotlin.String, deviceId: kotlin.String?, charsetName: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, returnProfile: kotlin.Boolean?, responseFilters: kotlin.String?) : RequestConfig<Unit> {
+    fun secureLoginRequestConfig(username: kotlin.String, password: kotlin.String, gameType: kotlin.String, deviceId: kotlin.String?, charsetName: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?, returnProfile: kotlin.Boolean?, responseFilters: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -3445,7 +3385,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/account/login/validate".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/login/validate",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -3454,10 +3394,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/create/validate
+     * POST /account/create/validate
      * Create Account (Encrypted Username)
      * Create a new account by role (with encrypted user-name and password)
-     * @param version 
      * @param deviceId The device id
      * @param username The encrypted email of the user, this is what will be used when they login
      * @param password The encrypted password of the user
@@ -3528,8 +3467,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun secureSignup(version: java.math.BigDecimal, deviceId: kotlin.String, username: kotlin.String, password: kotlin.String, name: kotlin.String? = null, inviteToken: kotlin.String? = null, prefixName: kotlin.String? = null, firstName: kotlin.String? = null, middleName: kotlin.String? = null, lastName: kotlin.String? = null, suffixName: kotlin.String? = null, title: kotlin.String? = null, deviceIdType: kotlin.String? = null, emailAddress: kotlin.String? = null, assetId: kotlin.Long? = null, address: kotlin.String? = null, zipcode: kotlin.String? = null, gender: kotlin.String? = null, birthday: kotlin.Long? = null, homePhone: kotlin.String? = null, cellPhone: kotlin.String? = null, cellPhoneCarrier: kotlin.String? = null, businessPhone: kotlin.String? = null, role: kotlin.String? = "MEMBER", platforms: kotlin.String? = null, tags: kotlin.String? = null, aboutUs: kotlin.String? = null, gameExperience: kotlin.String? = null, categoryIds: kotlin.String? = null, hometown: kotlin.String? = null, height: kotlin.String? = null, heightIndex: kotlin.Int? = null, ethnicity: kotlin.String? = null, bodyType: kotlin.String? = null, maritalStatus: kotlin.String? = null, children: kotlin.String? = null, religion: kotlin.String? = null, education: kotlin.String? = null, educationIndex: kotlin.Int? = null, smoke: kotlin.String? = null, drink: kotlin.String? = null, companionship: kotlin.String? = null, companionshipIndex: kotlin.Int? = null, preferredMinAge: kotlin.Int? = null, preferredMaxAge: kotlin.Int? = null, preferredMinHeight: kotlin.Int? = null, preferredMaxHeight: kotlin.Int? = null, preferredGender: kotlin.String? = null, preferredEducation: kotlin.String? = null, preferredEducationIndex: kotlin.Int? = null, preferredBodyType: kotlin.String? = null, preferredEthnicity: kotlin.String? = null, preferredLocation: kotlin.String? = null, preferredLocationRange: kotlin.Double? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, acceptedTerms: kotlin.Boolean? = true, charsetName: kotlin.String? = "UTF-8", gameType: kotlin.String? = null, appKey: kotlin.String? = null, appVersion: kotlin.String? = null, responseType: kotlin.String? = null) : ProfileInfoResponse {
-        val localVarResponse = secureSignupWithHttpInfo(version = version, deviceId = deviceId, username = username, password = password, name = name, inviteToken = inviteToken, prefixName = prefixName, firstName = firstName, middleName = middleName, lastName = lastName, suffixName = suffixName, title = title, deviceIdType = deviceIdType, emailAddress = emailAddress, assetId = assetId, address = address, zipcode = zipcode, gender = gender, birthday = birthday, homePhone = homePhone, cellPhone = cellPhone, cellPhoneCarrier = cellPhoneCarrier, businessPhone = businessPhone, role = role, platforms = platforms, tags = tags, aboutUs = aboutUs, gameExperience = gameExperience, categoryIds = categoryIds, hometown = hometown, height = height, heightIndex = heightIndex, ethnicity = ethnicity, bodyType = bodyType, maritalStatus = maritalStatus, children = children, religion = religion, education = education, educationIndex = educationIndex, smoke = smoke, drink = drink, companionship = companionship, companionshipIndex = companionshipIndex, preferredMinAge = preferredMinAge, preferredMaxAge = preferredMaxAge, preferredMinHeight = preferredMinHeight, preferredMaxHeight = preferredMaxHeight, preferredGender = preferredGender, preferredEducation = preferredEducation, preferredEducationIndex = preferredEducationIndex, preferredBodyType = preferredBodyType, preferredEthnicity = preferredEthnicity, preferredLocation = preferredLocation, preferredLocationRange = preferredLocationRange, latitude = latitude, longitude = longitude, acceptedTerms = acceptedTerms, charsetName = charsetName, gameType = gameType, appKey = appKey, appVersion = appVersion, responseType = responseType)
+    fun secureSignup(deviceId: kotlin.String, username: kotlin.String, password: kotlin.String, name: kotlin.String? = null, inviteToken: kotlin.String? = null, prefixName: kotlin.String? = null, firstName: kotlin.String? = null, middleName: kotlin.String? = null, lastName: kotlin.String? = null, suffixName: kotlin.String? = null, title: kotlin.String? = null, deviceIdType: kotlin.String? = null, emailAddress: kotlin.String? = null, assetId: kotlin.Long? = null, address: kotlin.String? = null, zipcode: kotlin.String? = null, gender: kotlin.String? = null, birthday: kotlin.Long? = null, homePhone: kotlin.String? = null, cellPhone: kotlin.String? = null, cellPhoneCarrier: kotlin.String? = null, businessPhone: kotlin.String? = null, role: kotlin.String? = "MEMBER", platforms: kotlin.String? = null, tags: kotlin.String? = null, aboutUs: kotlin.String? = null, gameExperience: kotlin.String? = null, categoryIds: kotlin.String? = null, hometown: kotlin.String? = null, height: kotlin.String? = null, heightIndex: kotlin.Int? = null, ethnicity: kotlin.String? = null, bodyType: kotlin.String? = null, maritalStatus: kotlin.String? = null, children: kotlin.String? = null, religion: kotlin.String? = null, education: kotlin.String? = null, educationIndex: kotlin.Int? = null, smoke: kotlin.String? = null, drink: kotlin.String? = null, companionship: kotlin.String? = null, companionshipIndex: kotlin.Int? = null, preferredMinAge: kotlin.Int? = null, preferredMaxAge: kotlin.Int? = null, preferredMinHeight: kotlin.Int? = null, preferredMaxHeight: kotlin.Int? = null, preferredGender: kotlin.String? = null, preferredEducation: kotlin.String? = null, preferredEducationIndex: kotlin.Int? = null, preferredBodyType: kotlin.String? = null, preferredEthnicity: kotlin.String? = null, preferredLocation: kotlin.String? = null, preferredLocationRange: kotlin.Double? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, acceptedTerms: kotlin.Boolean? = true, charsetName: kotlin.String? = "UTF-8", gameType: kotlin.String? = null, appKey: kotlin.String? = null, appVersion: kotlin.String? = null, responseType: kotlin.String? = null) : ProfileInfoResponse {
+        val localVarResponse = secureSignupWithHttpInfo(deviceId = deviceId, username = username, password = password, name = name, inviteToken = inviteToken, prefixName = prefixName, firstName = firstName, middleName = middleName, lastName = lastName, suffixName = suffixName, title = title, deviceIdType = deviceIdType, emailAddress = emailAddress, assetId = assetId, address = address, zipcode = zipcode, gender = gender, birthday = birthday, homePhone = homePhone, cellPhone = cellPhone, cellPhoneCarrier = cellPhoneCarrier, businessPhone = businessPhone, role = role, platforms = platforms, tags = tags, aboutUs = aboutUs, gameExperience = gameExperience, categoryIds = categoryIds, hometown = hometown, height = height, heightIndex = heightIndex, ethnicity = ethnicity, bodyType = bodyType, maritalStatus = maritalStatus, children = children, religion = religion, education = education, educationIndex = educationIndex, smoke = smoke, drink = drink, companionship = companionship, companionshipIndex = companionshipIndex, preferredMinAge = preferredMinAge, preferredMaxAge = preferredMaxAge, preferredMinHeight = preferredMinHeight, preferredMaxHeight = preferredMaxHeight, preferredGender = preferredGender, preferredEducation = preferredEducation, preferredEducationIndex = preferredEducationIndex, preferredBodyType = preferredBodyType, preferredEthnicity = preferredEthnicity, preferredLocation = preferredLocation, preferredLocationRange = preferredLocationRange, latitude = latitude, longitude = longitude, acceptedTerms = acceptedTerms, charsetName = charsetName, gameType = gameType, appKey = appKey, appVersion = appVersion, responseType = responseType)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ProfileInfoResponse
@@ -3547,10 +3486,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/create/validate
+     * POST /account/create/validate
      * Create Account (Encrypted Username)
      * Create a new account by role (with encrypted user-name and password)
-     * @param version 
      * @param deviceId The device id
      * @param username The encrypted email of the user, this is what will be used when they login
      * @param password The encrypted password of the user
@@ -3618,8 +3556,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun secureSignupWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String, username: kotlin.String, password: kotlin.String, name: kotlin.String?, inviteToken: kotlin.String?, prefixName: kotlin.String?, firstName: kotlin.String?, middleName: kotlin.String?, lastName: kotlin.String?, suffixName: kotlin.String?, title: kotlin.String?, deviceIdType: kotlin.String?, emailAddress: kotlin.String?, assetId: kotlin.Long?, address: kotlin.String?, zipcode: kotlin.String?, gender: kotlin.String?, birthday: kotlin.Long?, homePhone: kotlin.String?, cellPhone: kotlin.String?, cellPhoneCarrier: kotlin.String?, businessPhone: kotlin.String?, role: kotlin.String?, platforms: kotlin.String?, tags: kotlin.String?, aboutUs: kotlin.String?, gameExperience: kotlin.String?, categoryIds: kotlin.String?, hometown: kotlin.String?, height: kotlin.String?, heightIndex: kotlin.Int?, ethnicity: kotlin.String?, bodyType: kotlin.String?, maritalStatus: kotlin.String?, children: kotlin.String?, religion: kotlin.String?, education: kotlin.String?, educationIndex: kotlin.Int?, smoke: kotlin.String?, drink: kotlin.String?, companionship: kotlin.String?, companionshipIndex: kotlin.Int?, preferredMinAge: kotlin.Int?, preferredMaxAge: kotlin.Int?, preferredMinHeight: kotlin.Int?, preferredMaxHeight: kotlin.Int?, preferredGender: kotlin.String?, preferredEducation: kotlin.String?, preferredEducationIndex: kotlin.Int?, preferredBodyType: kotlin.String?, preferredEthnicity: kotlin.String?, preferredLocation: kotlin.String?, preferredLocationRange: kotlin.Double?, latitude: kotlin.Double?, longitude: kotlin.Double?, acceptedTerms: kotlin.Boolean?, charsetName: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?, appVersion: kotlin.String?, responseType: kotlin.String?) : ApiResponse<ProfileInfoResponse?> {
-        val localVariableConfig = secureSignupRequestConfig(version = version, deviceId = deviceId, username = username, password = password, name = name, inviteToken = inviteToken, prefixName = prefixName, firstName = firstName, middleName = middleName, lastName = lastName, suffixName = suffixName, title = title, deviceIdType = deviceIdType, emailAddress = emailAddress, assetId = assetId, address = address, zipcode = zipcode, gender = gender, birthday = birthday, homePhone = homePhone, cellPhone = cellPhone, cellPhoneCarrier = cellPhoneCarrier, businessPhone = businessPhone, role = role, platforms = platforms, tags = tags, aboutUs = aboutUs, gameExperience = gameExperience, categoryIds = categoryIds, hometown = hometown, height = height, heightIndex = heightIndex, ethnicity = ethnicity, bodyType = bodyType, maritalStatus = maritalStatus, children = children, religion = religion, education = education, educationIndex = educationIndex, smoke = smoke, drink = drink, companionship = companionship, companionshipIndex = companionshipIndex, preferredMinAge = preferredMinAge, preferredMaxAge = preferredMaxAge, preferredMinHeight = preferredMinHeight, preferredMaxHeight = preferredMaxHeight, preferredGender = preferredGender, preferredEducation = preferredEducation, preferredEducationIndex = preferredEducationIndex, preferredBodyType = preferredBodyType, preferredEthnicity = preferredEthnicity, preferredLocation = preferredLocation, preferredLocationRange = preferredLocationRange, latitude = latitude, longitude = longitude, acceptedTerms = acceptedTerms, charsetName = charsetName, gameType = gameType, appKey = appKey, appVersion = appVersion, responseType = responseType)
+    fun secureSignupWithHttpInfo(deviceId: kotlin.String, username: kotlin.String, password: kotlin.String, name: kotlin.String?, inviteToken: kotlin.String?, prefixName: kotlin.String?, firstName: kotlin.String?, middleName: kotlin.String?, lastName: kotlin.String?, suffixName: kotlin.String?, title: kotlin.String?, deviceIdType: kotlin.String?, emailAddress: kotlin.String?, assetId: kotlin.Long?, address: kotlin.String?, zipcode: kotlin.String?, gender: kotlin.String?, birthday: kotlin.Long?, homePhone: kotlin.String?, cellPhone: kotlin.String?, cellPhoneCarrier: kotlin.String?, businessPhone: kotlin.String?, role: kotlin.String?, platforms: kotlin.String?, tags: kotlin.String?, aboutUs: kotlin.String?, gameExperience: kotlin.String?, categoryIds: kotlin.String?, hometown: kotlin.String?, height: kotlin.String?, heightIndex: kotlin.Int?, ethnicity: kotlin.String?, bodyType: kotlin.String?, maritalStatus: kotlin.String?, children: kotlin.String?, religion: kotlin.String?, education: kotlin.String?, educationIndex: kotlin.Int?, smoke: kotlin.String?, drink: kotlin.String?, companionship: kotlin.String?, companionshipIndex: kotlin.Int?, preferredMinAge: kotlin.Int?, preferredMaxAge: kotlin.Int?, preferredMinHeight: kotlin.Int?, preferredMaxHeight: kotlin.Int?, preferredGender: kotlin.String?, preferredEducation: kotlin.String?, preferredEducationIndex: kotlin.Int?, preferredBodyType: kotlin.String?, preferredEthnicity: kotlin.String?, preferredLocation: kotlin.String?, preferredLocationRange: kotlin.Double?, latitude: kotlin.Double?, longitude: kotlin.Double?, acceptedTerms: kotlin.Boolean?, charsetName: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?, appVersion: kotlin.String?, responseType: kotlin.String?) : ApiResponse<ProfileInfoResponse?> {
+        val localVariableConfig = secureSignupRequestConfig(deviceId = deviceId, username = username, password = password, name = name, inviteToken = inviteToken, prefixName = prefixName, firstName = firstName, middleName = middleName, lastName = lastName, suffixName = suffixName, title = title, deviceIdType = deviceIdType, emailAddress = emailAddress, assetId = assetId, address = address, zipcode = zipcode, gender = gender, birthday = birthday, homePhone = homePhone, cellPhone = cellPhone, cellPhoneCarrier = cellPhoneCarrier, businessPhone = businessPhone, role = role, platforms = platforms, tags = tags, aboutUs = aboutUs, gameExperience = gameExperience, categoryIds = categoryIds, hometown = hometown, height = height, heightIndex = heightIndex, ethnicity = ethnicity, bodyType = bodyType, maritalStatus = maritalStatus, children = children, religion = religion, education = education, educationIndex = educationIndex, smoke = smoke, drink = drink, companionship = companionship, companionshipIndex = companionshipIndex, preferredMinAge = preferredMinAge, preferredMaxAge = preferredMaxAge, preferredMinHeight = preferredMinHeight, preferredMaxHeight = preferredMaxHeight, preferredGender = preferredGender, preferredEducation = preferredEducation, preferredEducationIndex = preferredEducationIndex, preferredBodyType = preferredBodyType, preferredEthnicity = preferredEthnicity, preferredLocation = preferredLocation, preferredLocationRange = preferredLocationRange, latitude = latitude, longitude = longitude, acceptedTerms = acceptedTerms, charsetName = charsetName, gameType = gameType, appKey = appKey, appVersion = appVersion, responseType = responseType)
 
         return request<Unit, ProfileInfoResponse>(
             localVariableConfig
@@ -3629,7 +3567,6 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation secureSignup
      *
-     * @param version 
      * @param deviceId The device id
      * @param username The encrypted email of the user, this is what will be used when they login
      * @param password The encrypted password of the user
@@ -3693,7 +3630,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param responseType Response Type (optional)
      * @return RequestConfig
      */
-    fun secureSignupRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String, username: kotlin.String, password: kotlin.String, name: kotlin.String?, inviteToken: kotlin.String?, prefixName: kotlin.String?, firstName: kotlin.String?, middleName: kotlin.String?, lastName: kotlin.String?, suffixName: kotlin.String?, title: kotlin.String?, deviceIdType: kotlin.String?, emailAddress: kotlin.String?, assetId: kotlin.Long?, address: kotlin.String?, zipcode: kotlin.String?, gender: kotlin.String?, birthday: kotlin.Long?, homePhone: kotlin.String?, cellPhone: kotlin.String?, cellPhoneCarrier: kotlin.String?, businessPhone: kotlin.String?, role: kotlin.String?, platforms: kotlin.String?, tags: kotlin.String?, aboutUs: kotlin.String?, gameExperience: kotlin.String?, categoryIds: kotlin.String?, hometown: kotlin.String?, height: kotlin.String?, heightIndex: kotlin.Int?, ethnicity: kotlin.String?, bodyType: kotlin.String?, maritalStatus: kotlin.String?, children: kotlin.String?, religion: kotlin.String?, education: kotlin.String?, educationIndex: kotlin.Int?, smoke: kotlin.String?, drink: kotlin.String?, companionship: kotlin.String?, companionshipIndex: kotlin.Int?, preferredMinAge: kotlin.Int?, preferredMaxAge: kotlin.Int?, preferredMinHeight: kotlin.Int?, preferredMaxHeight: kotlin.Int?, preferredGender: kotlin.String?, preferredEducation: kotlin.String?, preferredEducationIndex: kotlin.Int?, preferredBodyType: kotlin.String?, preferredEthnicity: kotlin.String?, preferredLocation: kotlin.String?, preferredLocationRange: kotlin.Double?, latitude: kotlin.Double?, longitude: kotlin.Double?, acceptedTerms: kotlin.Boolean?, charsetName: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?, appVersion: kotlin.String?, responseType: kotlin.String?) : RequestConfig<Unit> {
+    fun secureSignupRequestConfig(deviceId: kotlin.String, username: kotlin.String, password: kotlin.String, name: kotlin.String?, inviteToken: kotlin.String?, prefixName: kotlin.String?, firstName: kotlin.String?, middleName: kotlin.String?, lastName: kotlin.String?, suffixName: kotlin.String?, title: kotlin.String?, deviceIdType: kotlin.String?, emailAddress: kotlin.String?, assetId: kotlin.Long?, address: kotlin.String?, zipcode: kotlin.String?, gender: kotlin.String?, birthday: kotlin.Long?, homePhone: kotlin.String?, cellPhone: kotlin.String?, cellPhoneCarrier: kotlin.String?, businessPhone: kotlin.String?, role: kotlin.String?, platforms: kotlin.String?, tags: kotlin.String?, aboutUs: kotlin.String?, gameExperience: kotlin.String?, categoryIds: kotlin.String?, hometown: kotlin.String?, height: kotlin.String?, heightIndex: kotlin.Int?, ethnicity: kotlin.String?, bodyType: kotlin.String?, maritalStatus: kotlin.String?, children: kotlin.String?, religion: kotlin.String?, education: kotlin.String?, educationIndex: kotlin.Int?, smoke: kotlin.String?, drink: kotlin.String?, companionship: kotlin.String?, companionshipIndex: kotlin.Int?, preferredMinAge: kotlin.Int?, preferredMaxAge: kotlin.Int?, preferredMinHeight: kotlin.Int?, preferredMaxHeight: kotlin.Int?, preferredGender: kotlin.String?, preferredEducation: kotlin.String?, preferredEducationIndex: kotlin.Int?, preferredBodyType: kotlin.String?, preferredEthnicity: kotlin.String?, preferredLocation: kotlin.String?, preferredLocationRange: kotlin.Double?, latitude: kotlin.Double?, longitude: kotlin.Double?, acceptedTerms: kotlin.Boolean?, charsetName: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?, appVersion: kotlin.String?, responseType: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -3879,7 +3816,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/account/create/validate".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/create/validate",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -3888,10 +3825,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/consumer/profile/matchToken
+     * POST /consumer/profile/matchToken
      * Save Match Token
      * Save user&#39;s match token to be used for profile match making
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param matchToken A string of numbers (optional)
@@ -3908,8 +3844,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun setMatchToken(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, matchToken: kotlin.String? = null, gameType: kotlin.String? = "BOOPY", appKey: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
-        val localVarResponse = setMatchTokenWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, matchToken = matchToken, gameType = gameType, appKey = appKey, latitude = latitude, longitude = longitude)
+    fun setMatchToken(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, matchToken: kotlin.String? = null, gameType: kotlin.String? = "BOOPY", appKey: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
+        val localVarResponse = setMatchTokenWithHttpInfo(deviceId = deviceId, accountId = accountId, matchToken = matchToken, gameType = gameType, appKey = appKey, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -3927,10 +3863,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/consumer/profile/matchToken
+     * POST /consumer/profile/matchToken
      * Save Match Token
      * Save user&#39;s match token to be used for profile match making
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param matchToken A string of numbers (optional)
@@ -3944,8 +3879,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun setMatchTokenWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, matchToken: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = setMatchTokenRequestConfig(version = version, deviceId = deviceId, accountId = accountId, matchToken = matchToken, gameType = gameType, appKey = appKey, latitude = latitude, longitude = longitude)
+    fun setMatchTokenWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, matchToken: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = setMatchTokenRequestConfig(deviceId = deviceId, accountId = accountId, matchToken = matchToken, gameType = gameType, appKey = appKey, latitude = latitude, longitude = longitude)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -3955,7 +3890,6 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation setMatchToken
      *
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param matchToken A string of numbers (optional)
@@ -3965,7 +3899,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param longitude The current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun setMatchTokenRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, matchToken: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun setMatchTokenRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, matchToken: kotlin.String?, gameType: kotlin.String?, appKey: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -3995,7 +3929,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/consumer/profile/matchToken".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/profile/matchToken",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -4004,10 +3938,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/active/update
+     * POST /account/active/update
      * Update Account Active Status
      * Activate or deactivate an account (requires appropriate permissions).
-     * @param version 
      * @param accountId the account id of the user (deviceId or accountId required)
      * @param connectionAccountId The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead)
      * @param active true will activate the user and false will deactivate
@@ -4022,8 +3955,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateActveStatus(version: java.math.BigDecimal, accountId: kotlin.Long, connectionAccountId: kotlin.Long, active: kotlin.Boolean, deviceId: kotlin.String? = null, appKey: kotlin.String? = null) : SirqulResponse {
-        val localVarResponse = updateActveStatusWithHttpInfo(version = version, accountId = accountId, connectionAccountId = connectionAccountId, active = active, deviceId = deviceId, appKey = appKey)
+    fun updateActveStatus(accountId: kotlin.Long, connectionAccountId: kotlin.Long, active: kotlin.Boolean, deviceId: kotlin.String? = null, appKey: kotlin.String? = null) : SirqulResponse {
+        val localVarResponse = updateActveStatusWithHttpInfo(accountId = accountId, connectionAccountId = connectionAccountId, active = active, deviceId = deviceId, appKey = appKey)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -4041,10 +3974,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/active/update
+     * POST /account/active/update
      * Update Account Active Status
      * Activate or deactivate an account (requires appropriate permissions).
-     * @param version 
      * @param accountId the account id of the user (deviceId or accountId required)
      * @param connectionAccountId The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead)
      * @param active true will activate the user and false will deactivate
@@ -4056,8 +3988,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateActveStatusWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, connectionAccountId: kotlin.Long, active: kotlin.Boolean, deviceId: kotlin.String?, appKey: kotlin.String?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = updateActveStatusRequestConfig(version = version, accountId = accountId, connectionAccountId = connectionAccountId, active = active, deviceId = deviceId, appKey = appKey)
+    fun updateActveStatusWithHttpInfo(accountId: kotlin.Long, connectionAccountId: kotlin.Long, active: kotlin.Boolean, deviceId: kotlin.String?, appKey: kotlin.String?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = updateActveStatusRequestConfig(accountId = accountId, connectionAccountId = connectionAccountId, active = active, deviceId = deviceId, appKey = appKey)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -4067,7 +3999,6 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation updateActveStatus
      *
-     * @param version 
      * @param accountId the account id of the user (deviceId or accountId required)
      * @param connectionAccountId The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead)
      * @param active true will activate the user and false will deactivate
@@ -4075,7 +4006,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param appKey the application key that the user belongs to (optional)
      * @return RequestConfig
      */
-    fun updateActveStatusRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, connectionAccountId: kotlin.Long, active: kotlin.Boolean, deviceId: kotlin.String?, appKey: kotlin.String?) : RequestConfig<Unit> {
+    fun updateActveStatusRequestConfig(accountId: kotlin.Long, connectionAccountId: kotlin.Long, active: kotlin.Boolean, deviceId: kotlin.String?, appKey: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -4093,7 +4024,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/account/active/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/active/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -4102,10 +4033,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/location/update
+     * POST /account/location/update
      * Update Location
      * Update the account location
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude The current latitude of the user (optional)
@@ -4120,8 +4050,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateLocation(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, clientTime: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = updateLocationWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, clientTime = clientTime)
+    fun updateLocation(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null, clientTime: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = updateLocationWithHttpInfo(deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, clientTime = clientTime)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -4139,10 +4069,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/location/update
+     * POST /account/location/update
      * Update Location
      * Update the account location
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude The current latitude of the user (optional)
@@ -4154,8 +4083,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateLocationWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, clientTime: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = updateLocationRequestConfig(version = version, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, clientTime = clientTime)
+    fun updateLocationWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, clientTime: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = updateLocationRequestConfig(deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude, clientTime = clientTime)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -4165,7 +4094,6 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation updateLocation
      *
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude The current latitude of the user (optional)
@@ -4173,7 +4101,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param clientTime The time of the update (optional)
      * @return RequestConfig
      */
-    fun updateLocationRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, clientTime: kotlin.Long?) : RequestConfig<Unit> {
+    fun updateLocationRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?, clientTime: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -4197,7 +4125,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/account/location/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/location/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -4206,10 +4134,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/settings/update
+     * POST /account/settings/update
      * Update Account Settings
      * Update the account settings for a user
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param blockedNotifications The notifications to be blocked (optional)
@@ -4231,8 +4158,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateSettings(version: java.math.BigDecimal, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, blockedNotifications: kotlin.String? = null, suggestionMethod: kotlin.String? = null, suggestionCount: kotlin.Int? = null, suggestionTimeFrame: kotlin.Int? = null, showOthersExactLocation: kotlin.Boolean? = null, showAsZipcode: kotlin.Boolean? = null, showExactLocation: kotlin.Boolean? = null, favoriteVisibility: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : UserSettingsResponse {
-        val localVarResponse = updateSettingsWithHttpInfo(version = version, deviceId = deviceId, accountId = accountId, blockedNotifications = blockedNotifications, suggestionMethod = suggestionMethod, suggestionCount = suggestionCount, suggestionTimeFrame = suggestionTimeFrame, showOthersExactLocation = showOthersExactLocation, showAsZipcode = showAsZipcode, showExactLocation = showExactLocation, favoriteVisibility = favoriteVisibility, latitude = latitude, longitude = longitude)
+    fun updateSettings(deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, blockedNotifications: kotlin.String? = null, suggestionMethod: kotlin.String? = null, suggestionCount: kotlin.Int? = null, suggestionTimeFrame: kotlin.Int? = null, showOthersExactLocation: kotlin.Boolean? = null, showAsZipcode: kotlin.Boolean? = null, showExactLocation: kotlin.Boolean? = null, favoriteVisibility: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : UserSettingsResponse {
+        val localVarResponse = updateSettingsWithHttpInfo(deviceId = deviceId, accountId = accountId, blockedNotifications = blockedNotifications, suggestionMethod = suggestionMethod, suggestionCount = suggestionCount, suggestionTimeFrame = suggestionTimeFrame, showOthersExactLocation = showOthersExactLocation, showAsZipcode = showAsZipcode, showExactLocation = showExactLocation, favoriteVisibility = favoriteVisibility, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as UserSettingsResponse
@@ -4250,10 +4177,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/settings/update
+     * POST /account/settings/update
      * Update Account Settings
      * Update the account settings for a user
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param blockedNotifications The notifications to be blocked (optional)
@@ -4272,8 +4198,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateSettingsWithHttpInfo(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, blockedNotifications: kotlin.String?, suggestionMethod: kotlin.String?, suggestionCount: kotlin.Int?, suggestionTimeFrame: kotlin.Int?, showOthersExactLocation: kotlin.Boolean?, showAsZipcode: kotlin.Boolean?, showExactLocation: kotlin.Boolean?, favoriteVisibility: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<UserSettingsResponse?> {
-        val localVariableConfig = updateSettingsRequestConfig(version = version, deviceId = deviceId, accountId = accountId, blockedNotifications = blockedNotifications, suggestionMethod = suggestionMethod, suggestionCount = suggestionCount, suggestionTimeFrame = suggestionTimeFrame, showOthersExactLocation = showOthersExactLocation, showAsZipcode = showAsZipcode, showExactLocation = showExactLocation, favoriteVisibility = favoriteVisibility, latitude = latitude, longitude = longitude)
+    fun updateSettingsWithHttpInfo(deviceId: kotlin.String?, accountId: kotlin.Long?, blockedNotifications: kotlin.String?, suggestionMethod: kotlin.String?, suggestionCount: kotlin.Int?, suggestionTimeFrame: kotlin.Int?, showOthersExactLocation: kotlin.Boolean?, showAsZipcode: kotlin.Boolean?, showExactLocation: kotlin.Boolean?, favoriteVisibility: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<UserSettingsResponse?> {
+        val localVariableConfig = updateSettingsRequestConfig(deviceId = deviceId, accountId = accountId, blockedNotifications = blockedNotifications, suggestionMethod = suggestionMethod, suggestionCount = suggestionCount, suggestionTimeFrame = suggestionTimeFrame, showOthersExactLocation = showOthersExactLocation, showAsZipcode = showAsZipcode, showExactLocation = showExactLocation, favoriteVisibility = favoriteVisibility, latitude = latitude, longitude = longitude)
 
         return request<Unit, UserSettingsResponse>(
             localVariableConfig
@@ -4283,7 +4209,6 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation updateSettings
      *
-     * @param version 
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param blockedNotifications The notifications to be blocked (optional)
@@ -4298,7 +4223,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param longitude The current longitude of the user (optional)
      * @return RequestConfig
      */
-    fun updateSettingsRequestConfig(version: java.math.BigDecimal, deviceId: kotlin.String?, accountId: kotlin.Long?, blockedNotifications: kotlin.String?, suggestionMethod: kotlin.String?, suggestionCount: kotlin.Int?, suggestionTimeFrame: kotlin.Int?, showOthersExactLocation: kotlin.Boolean?, showAsZipcode: kotlin.Boolean?, showExactLocation: kotlin.Boolean?, favoriteVisibility: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun updateSettingsRequestConfig(deviceId: kotlin.String?, accountId: kotlin.Long?, blockedNotifications: kotlin.String?, suggestionMethod: kotlin.String?, suggestionCount: kotlin.Int?, suggestionTimeFrame: kotlin.Int?, showOthersExactLocation: kotlin.Boolean?, showAsZipcode: kotlin.Boolean?, showExactLocation: kotlin.Boolean?, favoriteVisibility: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -4343,7 +4268,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/account/settings/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/settings/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -4352,10 +4277,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/validateAccountSignup
+     * POST /account/validateAccountSignup
      * Save Validation Status
      * Validate the account&#39;s email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token.
-     * @param version 
      * @param token The token associated with the account to update, good for 24 hours
      * @return AccountLoginResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -4366,8 +4290,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun validateAccountSignup(version: java.math.BigDecimal, token: kotlin.String) : AccountLoginResponse {
-        val localVarResponse = validateAccountSignupWithHttpInfo(version = version, token = token)
+    fun validateAccountSignup(token: kotlin.String) : AccountLoginResponse {
+        val localVarResponse = validateAccountSignupWithHttpInfo(token = token)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AccountLoginResponse
@@ -4385,10 +4309,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/validateAccountSignup
+     * POST /account/validateAccountSignup
      * Save Validation Status
      * Validate the account&#39;s email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token.
-     * @param version 
      * @param token The token associated with the account to update, good for 24 hours
      * @return ApiResponse<AccountLoginResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -4396,8 +4319,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun validateAccountSignupWithHttpInfo(version: java.math.BigDecimal, token: kotlin.String) : ApiResponse<AccountLoginResponse?> {
-        val localVariableConfig = validateAccountSignupRequestConfig(version = version, token = token)
+    fun validateAccountSignupWithHttpInfo(token: kotlin.String) : ApiResponse<AccountLoginResponse?> {
+        val localVariableConfig = validateAccountSignupRequestConfig(token = token)
 
         return request<Unit, AccountLoginResponse>(
             localVariableConfig
@@ -4407,11 +4330,10 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation validateAccountSignup
      *
-     * @param version 
      * @param token The token associated with the account to update, good for 24 hours
      * @return RequestConfig
      */
-    fun validateAccountSignupRequestConfig(version: java.math.BigDecimal, token: kotlin.String) : RequestConfig<Unit> {
+    fun validateAccountSignupRequestConfig(token: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -4421,7 +4343,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/account/validateAccountSignup".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/validateAccountSignup",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -4430,10 +4352,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/validatepasswordreset
+     * POST /account/validatepasswordreset
      * Validate Password Reset Token
      * Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password.
-     * @param version 
      * @param token The token associated with the account to update, good for 24 hours
      * @return SirqulResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -4444,8 +4365,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun validatePasswordReset(version: java.math.BigDecimal, token: kotlin.String) : SirqulResponse {
-        val localVarResponse = validatePasswordResetWithHttpInfo(version = version, token = token)
+    fun validatePasswordReset(token: kotlin.String) : SirqulResponse {
+        val localVarResponse = validatePasswordResetWithHttpInfo(token = token)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -4463,10 +4384,9 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/account/validatepasswordreset
+     * POST /account/validatepasswordreset
      * Validate Password Reset Token
      * Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password.
-     * @param version 
      * @param token The token associated with the account to update, good for 24 hours
      * @return ApiResponse<SirqulResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -4474,8 +4394,8 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun validatePasswordResetWithHttpInfo(version: java.math.BigDecimal, token: kotlin.String) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = validatePasswordResetRequestConfig(version = version, token = token)
+    fun validatePasswordResetWithHttpInfo(token: kotlin.String) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = validatePasswordResetRequestConfig(token = token)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -4485,11 +4405,10 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation validatePasswordReset
      *
-     * @param version 
      * @param token The token associated with the account to update, good for 24 hours
      * @return RequestConfig
      */
-    fun validatePasswordResetRequestConfig(version: java.math.BigDecimal, token: kotlin.String) : RequestConfig<Unit> {
+    fun validatePasswordResetRequestConfig(token: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -4499,7 +4418,7 @@ open class AccountApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/account/validatepasswordreset".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/account/validatepasswordreset",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

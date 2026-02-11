@@ -42,7 +42,7 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
@@ -65,10 +65,9 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      }
 
     /**
-     * POST /api/{version}/trigger/create
+     * POST /trigger/create
      * Create Trigger
      * Create a trigger
-     * @param version 
      * @param accountId The logged in user
      * @param name The name of the trigger
      * @param appKey The application to target (optional)
@@ -91,8 +90,8 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createTrigger(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, appKey: kotlin.String? = null, groupingId: kotlin.String? = null, endpointURL: kotlin.String? = null, payload: kotlin.String? = null, scheduledDate: kotlin.Long? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, cronExpression: kotlin.String? = null, conditionalInput: kotlin.String? = null, visibility: VisibilityCreateTrigger? = null, active: kotlin.Boolean? = true) : TriggerResponse {
-        val localVarResponse = createTriggerWithHttpInfo(version = version, accountId = accountId, name = name, appKey = appKey, groupingId = groupingId, endpointURL = endpointURL, payload = payload, scheduledDate = scheduledDate, startDate = startDate, endDate = endDate, cronExpression = cronExpression, conditionalInput = conditionalInput, visibility = visibility, active = active)
+    fun createTrigger(accountId: kotlin.Long, name: kotlin.String, appKey: kotlin.String? = null, groupingId: kotlin.String? = null, endpointURL: kotlin.String? = null, payload: kotlin.String? = null, scheduledDate: kotlin.Long? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, cronExpression: kotlin.String? = null, conditionalInput: kotlin.String? = null, visibility: VisibilityCreateTrigger? = null, active: kotlin.Boolean? = true) : TriggerResponse {
+        val localVarResponse = createTriggerWithHttpInfo(accountId = accountId, name = name, appKey = appKey, groupingId = groupingId, endpointURL = endpointURL, payload = payload, scheduledDate = scheduledDate, startDate = startDate, endDate = endDate, cronExpression = cronExpression, conditionalInput = conditionalInput, visibility = visibility, active = active)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TriggerResponse
@@ -110,10 +109,9 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/trigger/create
+     * POST /trigger/create
      * Create Trigger
      * Create a trigger
-     * @param version 
      * @param accountId The logged in user
      * @param name The name of the trigger
      * @param appKey The application to target (optional)
@@ -133,8 +131,8 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createTriggerWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, appKey: kotlin.String?, groupingId: kotlin.String?, endpointURL: kotlin.String?, payload: kotlin.String?, scheduledDate: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, cronExpression: kotlin.String?, conditionalInput: kotlin.String?, visibility: VisibilityCreateTrigger?, active: kotlin.Boolean?) : ApiResponse<TriggerResponse?> {
-        val localVariableConfig = createTriggerRequestConfig(version = version, accountId = accountId, name = name, appKey = appKey, groupingId = groupingId, endpointURL = endpointURL, payload = payload, scheduledDate = scheduledDate, startDate = startDate, endDate = endDate, cronExpression = cronExpression, conditionalInput = conditionalInput, visibility = visibility, active = active)
+    fun createTriggerWithHttpInfo(accountId: kotlin.Long, name: kotlin.String, appKey: kotlin.String?, groupingId: kotlin.String?, endpointURL: kotlin.String?, payload: kotlin.String?, scheduledDate: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, cronExpression: kotlin.String?, conditionalInput: kotlin.String?, visibility: VisibilityCreateTrigger?, active: kotlin.Boolean?) : ApiResponse<TriggerResponse?> {
+        val localVariableConfig = createTriggerRequestConfig(accountId = accountId, name = name, appKey = appKey, groupingId = groupingId, endpointURL = endpointURL, payload = payload, scheduledDate = scheduledDate, startDate = startDate, endDate = endDate, cronExpression = cronExpression, conditionalInput = conditionalInput, visibility = visibility, active = active)
 
         return request<Unit, TriggerResponse>(
             localVariableConfig
@@ -144,7 +142,6 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation createTrigger
      *
-     * @param version 
      * @param accountId The logged in user
      * @param name The name of the trigger
      * @param appKey The application to target (optional)
@@ -160,7 +157,7 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param active Sets whether the Trigger is active or not (inactive Triggers are not processed) (optional, default to true)
      * @return RequestConfig
      */
-    fun createTriggerRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, name: kotlin.String, appKey: kotlin.String?, groupingId: kotlin.String?, endpointURL: kotlin.String?, payload: kotlin.String?, scheduledDate: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, cronExpression: kotlin.String?, conditionalInput: kotlin.String?, visibility: VisibilityCreateTrigger?, active: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun createTriggerRequestConfig(accountId: kotlin.Long, name: kotlin.String, appKey: kotlin.String?, groupingId: kotlin.String?, endpointURL: kotlin.String?, payload: kotlin.String?, scheduledDate: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, cronExpression: kotlin.String?, conditionalInput: kotlin.String?, visibility: VisibilityCreateTrigger?, active: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -204,7 +201,7 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/trigger/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/trigger/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -213,10 +210,9 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/trigger/delete
+     * POST /trigger/delete
      * Delete Trigger
      * Mark a trigger as deleted.
-     * @param version 
      * @param accountId The logged in user.
      * @param triggerId The id of the trigger to delete.
      * @return SirqulResponse
@@ -228,8 +224,8 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteTrigger(version: java.math.BigDecimal, accountId: kotlin.Long, triggerId: kotlin.Long) : SirqulResponse {
-        val localVarResponse = deleteTriggerWithHttpInfo(version = version, accountId = accountId, triggerId = triggerId)
+    fun deleteTrigger(accountId: kotlin.Long, triggerId: kotlin.Long) : SirqulResponse {
+        val localVarResponse = deleteTriggerWithHttpInfo(accountId = accountId, triggerId = triggerId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -247,10 +243,9 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/trigger/delete
+     * POST /trigger/delete
      * Delete Trigger
      * Mark a trigger as deleted.
-     * @param version 
      * @param accountId The logged in user.
      * @param triggerId The id of the trigger to delete.
      * @return ApiResponse<SirqulResponse?>
@@ -259,8 +254,8 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteTriggerWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, triggerId: kotlin.Long) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteTriggerRequestConfig(version = version, accountId = accountId, triggerId = triggerId)
+    fun deleteTriggerWithHttpInfo(accountId: kotlin.Long, triggerId: kotlin.Long) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteTriggerRequestConfig(accountId = accountId, triggerId = triggerId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -270,12 +265,11 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation deleteTrigger
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param triggerId The id of the trigger to delete.
      * @return RequestConfig
      */
-    fun deleteTriggerRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, triggerId: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteTriggerRequestConfig(accountId: kotlin.Long, triggerId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -286,7 +280,7 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/trigger/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/trigger/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -295,10 +289,9 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/trigger/get
+     * GET /trigger/get
      * Get Trigger
      * Get a trigger
-     * @param version 
      * @param accountId The logged in user.
      * @param triggerId The id of the Trigger to return.
      * @return TriggerResponse
@@ -310,8 +303,8 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTrigger(version: java.math.BigDecimal, accountId: kotlin.Long, triggerId: kotlin.Long) : TriggerResponse {
-        val localVarResponse = getTriggerWithHttpInfo(version = version, accountId = accountId, triggerId = triggerId)
+    fun getTrigger(accountId: kotlin.Long, triggerId: kotlin.Long) : TriggerResponse {
+        val localVarResponse = getTriggerWithHttpInfo(accountId = accountId, triggerId = triggerId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TriggerResponse
@@ -329,10 +322,9 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/trigger/get
+     * GET /trigger/get
      * Get Trigger
      * Get a trigger
-     * @param version 
      * @param accountId The logged in user.
      * @param triggerId The id of the Trigger to return.
      * @return ApiResponse<TriggerResponse?>
@@ -341,8 +333,8 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTriggerWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, triggerId: kotlin.Long) : ApiResponse<TriggerResponse?> {
-        val localVariableConfig = getTriggerRequestConfig(version = version, accountId = accountId, triggerId = triggerId)
+    fun getTriggerWithHttpInfo(accountId: kotlin.Long, triggerId: kotlin.Long) : ApiResponse<TriggerResponse?> {
+        val localVariableConfig = getTriggerRequestConfig(accountId = accountId, triggerId = triggerId)
 
         return request<Unit, TriggerResponse>(
             localVariableConfig
@@ -352,12 +344,11 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation getTrigger
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param triggerId The id of the Trigger to return.
      * @return RequestConfig
      */
-    fun getTriggerRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, triggerId: kotlin.Long) : RequestConfig<Unit> {
+    fun getTriggerRequestConfig(accountId: kotlin.Long, triggerId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -368,7 +359,7 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/trigger/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/trigger/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -377,10 +368,9 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/trigger/search
+     * GET /trigger/search
      * Search Triggers
      * Search for triggers
-     * @param version 
      * @param accountId The logged in user.
      * @param groupingId Filter results by a grouping identifier defined by the client (optional)
      * @param filter A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers  (optional, default to "MINE")
@@ -402,8 +392,8 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchTriggers(version: java.math.BigDecimal, accountId: kotlin.Long, groupingId: kotlin.String? = null, filter: kotlin.String? = "MINE", statuses: kotlin.String? = "NEW,ERROR,COMPLETE,PROCESSING", templateTypes: kotlin.String? = null, appKey: kotlin.String? = null, keyword: kotlin.String? = null, sortField: kotlin.String? = "CREATED", descending: kotlin.Boolean? = true, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, activeOnly: kotlin.Boolean? = true) : kotlin.collections.List<TriggerResponse> {
-        val localVarResponse = searchTriggersWithHttpInfo(version = version, accountId = accountId, groupingId = groupingId, filter = filter, statuses = statuses, templateTypes = templateTypes, appKey = appKey, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
+    fun searchTriggers(accountId: kotlin.Long, groupingId: kotlin.String? = null, filter: kotlin.String? = "MINE", statuses: kotlin.String? = "NEW,ERROR,COMPLETE,PROCESSING", templateTypes: kotlin.String? = null, appKey: kotlin.String? = null, keyword: kotlin.String? = null, sortField: kotlin.String? = "CREATED", descending: kotlin.Boolean? = true, start: kotlin.Int? = 0, limit: kotlin.Int? = 20, activeOnly: kotlin.Boolean? = true) : kotlin.collections.List<TriggerResponse> {
+        val localVarResponse = searchTriggersWithHttpInfo(accountId = accountId, groupingId = groupingId, filter = filter, statuses = statuses, templateTypes = templateTypes, appKey = appKey, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<TriggerResponse>
@@ -421,10 +411,9 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/trigger/search
+     * GET /trigger/search
      * Search Triggers
      * Search for triggers
-     * @param version 
      * @param accountId The logged in user.
      * @param groupingId Filter results by a grouping identifier defined by the client (optional)
      * @param filter A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers  (optional, default to "MINE")
@@ -443,8 +432,8 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchTriggersWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, groupingId: kotlin.String?, filter: kotlin.String?, statuses: kotlin.String?, templateTypes: kotlin.String?, appKey: kotlin.String?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<TriggerResponse>?> {
-        val localVariableConfig = searchTriggersRequestConfig(version = version, accountId = accountId, groupingId = groupingId, filter = filter, statuses = statuses, templateTypes = templateTypes, appKey = appKey, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
+    fun searchTriggersWithHttpInfo(accountId: kotlin.Long, groupingId: kotlin.String?, filter: kotlin.String?, statuses: kotlin.String?, templateTypes: kotlin.String?, appKey: kotlin.String?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<TriggerResponse>?> {
+        val localVariableConfig = searchTriggersRequestConfig(accountId = accountId, groupingId = groupingId, filter = filter, statuses = statuses, templateTypes = templateTypes, appKey = appKey, keyword = keyword, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly)
 
         return request<Unit, kotlin.collections.List<TriggerResponse>>(
             localVariableConfig
@@ -454,7 +443,6 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation searchTriggers
      *
-     * @param version 
      * @param accountId The logged in user.
      * @param groupingId Filter results by a grouping identifier defined by the client (optional)
      * @param filter A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers  (optional, default to "MINE")
@@ -469,7 +457,7 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param activeOnly Determines whether to return only active results (optional, default to true)
      * @return RequestConfig
      */
-    fun searchTriggersRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, groupingId: kotlin.String?, filter: kotlin.String?, statuses: kotlin.String?, templateTypes: kotlin.String?, appKey: kotlin.String?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchTriggersRequestConfig(accountId: kotlin.Long, groupingId: kotlin.String?, filter: kotlin.String?, statuses: kotlin.String?, templateTypes: kotlin.String?, appKey: kotlin.String?, keyword: kotlin.String?, sortField: kotlin.String?, descending: kotlin.Boolean?, start: kotlin.Int?, limit: kotlin.Int?, activeOnly: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -512,7 +500,7 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/trigger/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/trigger/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -539,10 +527,9 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      }
 
     /**
-     * POST /api/{version}/trigger/update
+     * POST /trigger/update
      * Update Trigger
      * Update a trigger
-     * @param version 
      * @param triggerId The trigger to update
      * @param accountId The logged in user
      * @param name The name of the trigger (optional)
@@ -566,8 +553,8 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateTrigger(version: java.math.BigDecimal, triggerId: kotlin.Long, accountId: kotlin.Long, name: kotlin.String? = null, appKey: kotlin.String? = null, groupingId: kotlin.String? = null, endpointURL: kotlin.String? = null, payload: kotlin.String? = null, scheduledDate: kotlin.Long? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, cronExpression: kotlin.String? = null, conditionalInput: kotlin.String? = null, visibility: VisibilityUpdateTrigger? = null, active: kotlin.Boolean? = null) : TriggerResponse {
-        val localVarResponse = updateTriggerWithHttpInfo(version = version, triggerId = triggerId, accountId = accountId, name = name, appKey = appKey, groupingId = groupingId, endpointURL = endpointURL, payload = payload, scheduledDate = scheduledDate, startDate = startDate, endDate = endDate, cronExpression = cronExpression, conditionalInput = conditionalInput, visibility = visibility, active = active)
+    fun updateTrigger(triggerId: kotlin.Long, accountId: kotlin.Long, name: kotlin.String? = null, appKey: kotlin.String? = null, groupingId: kotlin.String? = null, endpointURL: kotlin.String? = null, payload: kotlin.String? = null, scheduledDate: kotlin.Long? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, cronExpression: kotlin.String? = null, conditionalInput: kotlin.String? = null, visibility: VisibilityUpdateTrigger? = null, active: kotlin.Boolean? = null) : TriggerResponse {
+        val localVarResponse = updateTriggerWithHttpInfo(triggerId = triggerId, accountId = accountId, name = name, appKey = appKey, groupingId = groupingId, endpointURL = endpointURL, payload = payload, scheduledDate = scheduledDate, startDate = startDate, endDate = endDate, cronExpression = cronExpression, conditionalInput = conditionalInput, visibility = visibility, active = active)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TriggerResponse
@@ -585,10 +572,9 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/trigger/update
+     * POST /trigger/update
      * Update Trigger
      * Update a trigger
-     * @param version 
      * @param triggerId The trigger to update
      * @param accountId The logged in user
      * @param name The name of the trigger (optional)
@@ -609,8 +595,8 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateTriggerWithHttpInfo(version: java.math.BigDecimal, triggerId: kotlin.Long, accountId: kotlin.Long, name: kotlin.String?, appKey: kotlin.String?, groupingId: kotlin.String?, endpointURL: kotlin.String?, payload: kotlin.String?, scheduledDate: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, cronExpression: kotlin.String?, conditionalInput: kotlin.String?, visibility: VisibilityUpdateTrigger?, active: kotlin.Boolean?) : ApiResponse<TriggerResponse?> {
-        val localVariableConfig = updateTriggerRequestConfig(version = version, triggerId = triggerId, accountId = accountId, name = name, appKey = appKey, groupingId = groupingId, endpointURL = endpointURL, payload = payload, scheduledDate = scheduledDate, startDate = startDate, endDate = endDate, cronExpression = cronExpression, conditionalInput = conditionalInput, visibility = visibility, active = active)
+    fun updateTriggerWithHttpInfo(triggerId: kotlin.Long, accountId: kotlin.Long, name: kotlin.String?, appKey: kotlin.String?, groupingId: kotlin.String?, endpointURL: kotlin.String?, payload: kotlin.String?, scheduledDate: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, cronExpression: kotlin.String?, conditionalInput: kotlin.String?, visibility: VisibilityUpdateTrigger?, active: kotlin.Boolean?) : ApiResponse<TriggerResponse?> {
+        val localVariableConfig = updateTriggerRequestConfig(triggerId = triggerId, accountId = accountId, name = name, appKey = appKey, groupingId = groupingId, endpointURL = endpointURL, payload = payload, scheduledDate = scheduledDate, startDate = startDate, endDate = endDate, cronExpression = cronExpression, conditionalInput = conditionalInput, visibility = visibility, active = active)
 
         return request<Unit, TriggerResponse>(
             localVariableConfig
@@ -620,7 +606,6 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation updateTrigger
      *
-     * @param version 
      * @param triggerId The trigger to update
      * @param accountId The logged in user
      * @param name The name of the trigger (optional)
@@ -637,7 +622,7 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param active Sets whether the Trigger is active or not (inactive Triggers are not processed) (optional)
      * @return RequestConfig
      */
-    fun updateTriggerRequestConfig(version: java.math.BigDecimal, triggerId: kotlin.Long, accountId: kotlin.Long, name: kotlin.String?, appKey: kotlin.String?, groupingId: kotlin.String?, endpointURL: kotlin.String?, payload: kotlin.String?, scheduledDate: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, cronExpression: kotlin.String?, conditionalInput: kotlin.String?, visibility: VisibilityUpdateTrigger?, active: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun updateTriggerRequestConfig(triggerId: kotlin.Long, accountId: kotlin.Long, name: kotlin.String?, appKey: kotlin.String?, groupingId: kotlin.String?, endpointURL: kotlin.String?, payload: kotlin.String?, scheduledDate: kotlin.Long?, startDate: kotlin.Long?, endDate: kotlin.Long?, cronExpression: kotlin.String?, conditionalInput: kotlin.String?, visibility: VisibilityUpdateTrigger?, active: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -684,7 +669,7 @@ open class TriggerApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/trigger/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/trigger/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

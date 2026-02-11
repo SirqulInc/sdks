@@ -41,15 +41,14 @@ open class StripeApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/stripe/checkout/session/create
+     * POST /stripe/checkout/session/create
      * Create Stripe Checkout Session
      * Create a Stripe checkout session
-     * @param version 
      * @param appKey Sirqul Application Key
      * @param stripeParameters Stripe Parameters
      * @return SirqulResponse
@@ -61,8 +60,8 @@ open class StripeApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createStripeCheckoutSession(version: java.math.BigDecimal, appKey: kotlin.String, stripeParameters: kotlin.String) : SirqulResponse {
-        val localVarResponse = createStripeCheckoutSessionWithHttpInfo(version = version, appKey = appKey, stripeParameters = stripeParameters)
+    fun createStripeCheckoutSession(appKey: kotlin.String, stripeParameters: kotlin.String) : SirqulResponse {
+        val localVarResponse = createStripeCheckoutSessionWithHttpInfo(appKey = appKey, stripeParameters = stripeParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -80,10 +79,9 @@ open class StripeApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * POST /api/{version}/stripe/checkout/session/create
+     * POST /stripe/checkout/session/create
      * Create Stripe Checkout Session
      * Create a Stripe checkout session
-     * @param version 
      * @param appKey Sirqul Application Key
      * @param stripeParameters Stripe Parameters
      * @return ApiResponse<SirqulResponse?>
@@ -92,8 +90,8 @@ open class StripeApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createStripeCheckoutSessionWithHttpInfo(version: java.math.BigDecimal, appKey: kotlin.String, stripeParameters: kotlin.String) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = createStripeCheckoutSessionRequestConfig(version = version, appKey = appKey, stripeParameters = stripeParameters)
+    fun createStripeCheckoutSessionWithHttpInfo(appKey: kotlin.String, stripeParameters: kotlin.String) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = createStripeCheckoutSessionRequestConfig(appKey = appKey, stripeParameters = stripeParameters)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -103,12 +101,11 @@ open class StripeApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * To obtain the request config of the operation createStripeCheckoutSession
      *
-     * @param version 
      * @param appKey Sirqul Application Key
      * @param stripeParameters Stripe Parameters
      * @return RequestConfig
      */
-    fun createStripeCheckoutSessionRequestConfig(version: java.math.BigDecimal, appKey: kotlin.String, stripeParameters: kotlin.String) : RequestConfig<Unit> {
+    fun createStripeCheckoutSessionRequestConfig(appKey: kotlin.String, stripeParameters: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -119,7 +116,7 @@ open class StripeApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/stripe/checkout/session/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/stripe/checkout/session/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

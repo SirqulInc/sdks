@@ -40,15 +40,14 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/vatom/me/rels/following/create
+     * POST /vatom/me/rels/following/create
      * Create following
      * Create following.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomParameters Vatom Parameters
      * @param returnRawResponse Return raw response (optional)
@@ -60,8 +59,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createFollowing(version: java.math.BigDecimal, accountId: kotlin.Long, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = createFollowingWithHttpInfo(version = version, accountId = accountId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun createFollowing(accountId: kotlin.Long, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = createFollowingWithHttpInfo(accountId = accountId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -79,10 +78,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/me/rels/following/create
+     * POST /vatom/me/rels/following/create
      * Create following
      * Create following.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomParameters Vatom Parameters
      * @param returnRawResponse Return raw response (optional)
@@ -91,8 +89,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun createFollowingWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = createFollowingRequestConfig(version = version, accountId = accountId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun createFollowingWithHttpInfo(accountId: kotlin.Long, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = createFollowingRequestConfig(accountId = accountId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -102,13 +100,12 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation createFollowing
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomParameters Vatom Parameters
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun createFollowingRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun createFollowingRequestConfig(accountId: kotlin.Long, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -122,7 +119,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/vatom/me/rels/following/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/me/rels/following/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -131,10 +128,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/spaces/create
+     * POST /vatom/b/spaces/create
      * Create Vatom Space
      * Create a Vatom space.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters
@@ -147,8 +143,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createSpace(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = createSpaceWithHttpInfo(version = version, accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun createSpace(accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = createSpaceWithHttpInfo(accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -166,10 +162,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/spaces/create
+     * POST /vatom/b/spaces/create
      * Create Vatom Space
      * Create a Vatom space.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters
@@ -179,8 +174,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun createSpaceWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = createSpaceRequestConfig(version = version, accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun createSpaceWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = createSpaceRequestConfig(accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -190,14 +185,13 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation createSpace
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun createSpaceRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun createSpaceRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -212,7 +206,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/vatom/b/spaces/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/spaces/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -221,10 +215,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/events/create
+     * POST /vatom/b/events/create
      * Create Vatom Event
      * Create a Vatom event.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters
@@ -237,8 +230,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createVatomEvent(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = createVatomEventWithHttpInfo(version = version, accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun createVatomEvent(accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = createVatomEventWithHttpInfo(accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -256,10 +249,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/events/create
+     * POST /vatom/b/events/create
      * Create Vatom Event
      * Create a Vatom event.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters
@@ -269,8 +261,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun createVatomEventWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = createVatomEventRequestConfig(version = version, accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun createVatomEventWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = createVatomEventRequestConfig(accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -280,14 +272,13 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation createVatomEvent
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun createVatomEventRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun createVatomEventRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -302,7 +293,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/vatom/b/events/create".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/events/create",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -311,10 +302,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/me/rels/following/delete
+     * POST /vatom/me/rels/following/delete
      * Delete following
      * Delete following.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomRelsKey Vatom Rels Key
      * @param returnRawResponse Return raw response (optional)
@@ -326,8 +316,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteFollowing(version: java.math.BigDecimal, accountId: kotlin.Long, vatomRelsKey: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = deleteFollowingWithHttpInfo(version = version, accountId = accountId, vatomRelsKey = vatomRelsKey, returnRawResponse = returnRawResponse)
+    fun deleteFollowing(accountId: kotlin.Long, vatomRelsKey: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = deleteFollowingWithHttpInfo(accountId = accountId, vatomRelsKey = vatomRelsKey, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -345,10 +335,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/me/rels/following/delete
+     * POST /vatom/me/rels/following/delete
      * Delete following
      * Delete following.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomRelsKey Vatom Rels Key
      * @param returnRawResponse Return raw response (optional)
@@ -357,8 +346,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteFollowingWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, vatomRelsKey: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = deleteFollowingRequestConfig(version = version, accountId = accountId, vatomRelsKey = vatomRelsKey, returnRawResponse = returnRawResponse)
+    fun deleteFollowingWithHttpInfo(accountId: kotlin.Long, vatomRelsKey: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = deleteFollowingRequestConfig(accountId = accountId, vatomRelsKey = vatomRelsKey, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -368,13 +357,12 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation deleteFollowing
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomRelsKey Vatom Rels Key
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun deleteFollowingRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, vatomRelsKey: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun deleteFollowingRequestConfig(accountId: kotlin.Long, vatomRelsKey: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -388,7 +376,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/vatom/me/rels/following/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/me/rels/following/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -397,10 +385,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/campaign/points/delete
+     * POST /vatom/b/campaign/points/delete
      * Reset All Points Balance
      * Reset All Points Balance.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomCampaignId Vatom Campaign Id
@@ -413,8 +400,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deletePointsBalance(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = deletePointsBalanceWithHttpInfo(version = version, accountId = accountId, appKey = appKey, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
+    fun deletePointsBalance(accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = deletePointsBalanceWithHttpInfo(accountId = accountId, appKey = appKey, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -432,10 +419,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/campaign/points/delete
+     * POST /vatom/b/campaign/points/delete
      * Reset All Points Balance
      * Reset All Points Balance.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomCampaignId Vatom Campaign Id
@@ -445,8 +431,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun deletePointsBalanceWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = deletePointsBalanceRequestConfig(version = version, accountId = accountId, appKey = appKey, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
+    fun deletePointsBalanceWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = deletePointsBalanceRequestConfig(accountId = accountId, appKey = appKey, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -456,14 +442,13 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation deletePointsBalance
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomCampaignId Vatom Campaign Id
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun deletePointsBalanceRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun deletePointsBalanceRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -478,7 +463,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/vatom/b/campaign/points/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/campaign/points/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -487,10 +472,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/spaces/delete
+     * POST /vatom/b/spaces/delete
      * Delete Vatom Space
      * Delete a Vatom space.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomSpaceId Vatom Space Id
@@ -503,8 +487,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteSpace(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomSpaceId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = deleteSpaceWithHttpInfo(version = version, accountId = accountId, appKey = appKey, vatomSpaceId = vatomSpaceId, returnRawResponse = returnRawResponse)
+    fun deleteSpace(accountId: kotlin.Long, appKey: kotlin.String, vatomSpaceId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = deleteSpaceWithHttpInfo(accountId = accountId, appKey = appKey, vatomSpaceId = vatomSpaceId, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -522,10 +506,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/spaces/delete
+     * POST /vatom/b/spaces/delete
      * Delete Vatom Space
      * Delete a Vatom space.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomSpaceId Vatom Space Id
@@ -535,8 +518,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteSpaceWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomSpaceId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = deleteSpaceRequestConfig(version = version, accountId = accountId, appKey = appKey, vatomSpaceId = vatomSpaceId, returnRawResponse = returnRawResponse)
+    fun deleteSpaceWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, vatomSpaceId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = deleteSpaceRequestConfig(accountId = accountId, appKey = appKey, vatomSpaceId = vatomSpaceId, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -546,14 +529,13 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation deleteSpace
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomSpaceId Vatom Space Id
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun deleteSpaceRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomSpaceId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun deleteSpaceRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, vatomSpaceId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -568,7 +550,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/vatom/b/spaces/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/spaces/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -577,10 +559,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/events/delete
+     * POST /vatom/b/events/delete
      * Delete Vatom Event
      * Delete a Vatom event.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomEventId Vatom Event Id
@@ -593,8 +574,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteVatomEvent(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = deleteVatomEventWithHttpInfo(version = version, accountId = accountId, appKey = appKey, vatomEventId = vatomEventId, returnRawResponse = returnRawResponse)
+    fun deleteVatomEvent(accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = deleteVatomEventWithHttpInfo(accountId = accountId, appKey = appKey, vatomEventId = vatomEventId, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -612,10 +593,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/events/delete
+     * POST /vatom/b/events/delete
      * Delete Vatom Event
      * Delete a Vatom event.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomEventId Vatom Event Id
@@ -625,8 +605,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteVatomEventWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = deleteVatomEventRequestConfig(version = version, accountId = accountId, appKey = appKey, vatomEventId = vatomEventId, returnRawResponse = returnRawResponse)
+    fun deleteVatomEventWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = deleteVatomEventRequestConfig(accountId = accountId, appKey = appKey, vatomEventId = vatomEventId, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -636,14 +616,13 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation deleteVatomEvent
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomEventId Vatom Event Id
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun deleteVatomEventRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun deleteVatomEventRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -658,7 +637,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/vatom/b/events/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/events/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -667,10 +646,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/vatoms/delete
+     * POST /vatom/vatoms/delete
      * Delete Vatom NFT
      * Delete Vatom NFT
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomId Vatom NFT Id
      * @param returnRawResponse Return raw response (optional)
@@ -682,8 +660,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteVatomNFT(version: java.math.BigDecimal, accountId: kotlin.Long, vatomId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = deleteVatomNFTWithHttpInfo(version = version, accountId = accountId, vatomId = vatomId, returnRawResponse = returnRawResponse)
+    fun deleteVatomNFT(accountId: kotlin.Long, vatomId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = deleteVatomNFTWithHttpInfo(accountId = accountId, vatomId = vatomId, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -701,10 +679,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/vatoms/delete
+     * POST /vatom/vatoms/delete
      * Delete Vatom NFT
      * Delete Vatom NFT
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomId Vatom NFT Id
      * @param returnRawResponse Return raw response (optional)
@@ -713,8 +690,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteVatomNFTWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, vatomId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = deleteVatomNFTRequestConfig(version = version, accountId = accountId, vatomId = vatomId, returnRawResponse = returnRawResponse)
+    fun deleteVatomNFTWithHttpInfo(accountId: kotlin.Long, vatomId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = deleteVatomNFTRequestConfig(accountId = accountId, vatomId = vatomId, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -724,13 +701,12 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation deleteVatomNFT
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomId Vatom NFT Id
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun deleteVatomNFTRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, vatomId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun deleteVatomNFTRequestConfig(accountId: kotlin.Long, vatomId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -744,7 +720,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/vatom/vatoms/delete".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/vatoms/delete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -753,10 +729,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/vatoms/execute-action
+     * POST /vatom/vatoms/execute-action
      * Execute Action on NFT
      * Execute Action on NFT.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomId Vatom NFT Id
      * @param vatomParameters Vatom Parameters
@@ -769,8 +744,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun executeActionOnNFT(version: java.math.BigDecimal, accountId: kotlin.Long, vatomId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = executeActionOnNFTWithHttpInfo(version = version, accountId = accountId, vatomId = vatomId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun executeActionOnNFT(accountId: kotlin.Long, vatomId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = executeActionOnNFTWithHttpInfo(accountId = accountId, vatomId = vatomId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -788,10 +763,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/vatoms/execute-action
+     * POST /vatom/vatoms/execute-action
      * Execute Action on NFT
      * Execute Action on NFT.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomId Vatom NFT Id
      * @param vatomParameters Vatom Parameters
@@ -801,8 +775,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun executeActionOnNFTWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, vatomId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = executeActionOnNFTRequestConfig(version = version, accountId = accountId, vatomId = vatomId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun executeActionOnNFTWithHttpInfo(accountId: kotlin.Long, vatomId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = executeActionOnNFTRequestConfig(accountId = accountId, vatomId = vatomId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -812,14 +786,13 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation executeActionOnNFT
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomId Vatom NFT Id
      * @param vatomParameters Vatom Parameters
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun executeActionOnNFTRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, vatomId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun executeActionOnNFTRequestConfig(accountId: kotlin.Long, vatomId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -834,7 +807,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/vatom/vatoms/execute-action".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/vatoms/execute-action",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -843,10 +816,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/vatoms/geo-map/search
+     * GET /vatom/vatoms/geo-map/search
      * Search Vatom Geo Map
      * Search Vatom Geo Map
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomParameters Vatom Parameters
      * @param returnRawResponse Return raw response (optional)
@@ -858,8 +830,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun geomapSearch(version: java.math.BigDecimal, accountId: kotlin.Long, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = geomapSearchWithHttpInfo(version = version, accountId = accountId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun geomapSearch(accountId: kotlin.Long, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = geomapSearchWithHttpInfo(accountId = accountId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -877,10 +849,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/vatoms/geo-map/search
+     * GET /vatom/vatoms/geo-map/search
      * Search Vatom Geo Map
      * Search Vatom Geo Map
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomParameters Vatom Parameters
      * @param returnRawResponse Return raw response (optional)
@@ -889,8 +860,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun geomapSearchWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = geomapSearchRequestConfig(version = version, accountId = accountId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun geomapSearchWithHttpInfo(accountId: kotlin.Long, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = geomapSearchRequestConfig(accountId = accountId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -900,13 +871,12 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation geomapSearch
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomParameters Vatom Parameters
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun geomapSearchRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun geomapSearchRequestConfig(accountId: kotlin.Long, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -920,7 +890,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/vatoms/geo-map/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/vatoms/geo-map/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -929,10 +899,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/behaviors
+     * GET /vatom/b/behaviors
      * Get Vatom Business Behaviors
      * Gets the behaviors of a business.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param returnRawResponse Return raw response (optional)
@@ -944,8 +913,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBusinessBehaviors(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = getBusinessBehaviorsWithHttpInfo(version = version, accountId = accountId, appKey = appKey, returnRawResponse = returnRawResponse)
+    fun getBusinessBehaviors(accountId: kotlin.Long, appKey: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = getBusinessBehaviorsWithHttpInfo(accountId = accountId, appKey = appKey, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -963,10 +932,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/behaviors
+     * GET /vatom/b/behaviors
      * Get Vatom Business Behaviors
      * Gets the behaviors of a business.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param returnRawResponse Return raw response (optional)
@@ -975,8 +943,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBusinessBehaviorsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = getBusinessBehaviorsRequestConfig(version = version, accountId = accountId, appKey = appKey, returnRawResponse = returnRawResponse)
+    fun getBusinessBehaviorsWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = getBusinessBehaviorsRequestConfig(accountId = accountId, appKey = appKey, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -986,13 +954,12 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getBusinessBehaviors
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun getBusinessBehaviorsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getBusinessBehaviorsRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1006,7 +973,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/b/behaviors".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/behaviors",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1015,10 +982,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/coins/get
+     * GET /vatom/b/coins/get
      * Get the coins for a Business
      * Get the coins for a Businesss.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param returnRawResponse Return raw response (optional)
@@ -1030,8 +996,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBusinessCoinsBalance(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = getBusinessCoinsBalanceWithHttpInfo(version = version, accountId = accountId, appKey = appKey, returnRawResponse = returnRawResponse)
+    fun getBusinessCoinsBalance(accountId: kotlin.Long, appKey: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = getBusinessCoinsBalanceWithHttpInfo(accountId = accountId, appKey = appKey, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -1049,10 +1015,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/coins/get
+     * GET /vatom/b/coins/get
      * Get the coins for a Business
      * Get the coins for a Businesss.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param returnRawResponse Return raw response (optional)
@@ -1061,8 +1026,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBusinessCoinsBalanceWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = getBusinessCoinsBalanceRequestConfig(version = version, accountId = accountId, appKey = appKey, returnRawResponse = returnRawResponse)
+    fun getBusinessCoinsBalanceWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = getBusinessCoinsBalanceRequestConfig(accountId = accountId, appKey = appKey, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -1072,13 +1037,12 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getBusinessCoinsBalance
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun getBusinessCoinsBalanceRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getBusinessCoinsBalanceRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1092,7 +1056,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/b/coins/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/coins/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1101,10 +1065,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/me/businesses
+     * GET /vatom/me/businesses
      * Get the user business ids
      * Get the business ids the logged in user has access to.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param returnRawResponse Return raw response (optional)
      * @return void
@@ -1115,8 +1078,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBusinessIds(version: java.math.BigDecimal, accountId: kotlin.Long, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = getBusinessIdsWithHttpInfo(version = version, accountId = accountId, returnRawResponse = returnRawResponse)
+    fun getBusinessIds(accountId: kotlin.Long, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = getBusinessIdsWithHttpInfo(accountId = accountId, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -1134,10 +1097,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/me/businesses
+     * GET /vatom/me/businesses
      * Get the user business ids
      * Get the business ids the logged in user has access to.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param returnRawResponse Return raw response (optional)
      * @return ApiResponse<Unit?>
@@ -1145,8 +1107,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBusinessIdsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = getBusinessIdsRequestConfig(version = version, accountId = accountId, returnRawResponse = returnRawResponse)
+    fun getBusinessIdsWithHttpInfo(accountId: kotlin.Long, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = getBusinessIdsRequestConfig(accountId = accountId, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -1156,12 +1118,11 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getBusinessIds
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun getBusinessIdsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getBusinessIdsRequestConfig(accountId: kotlin.Long, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1174,7 +1135,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/me/businesses".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/me/businesses",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1183,10 +1144,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/get
+     * GET /vatom/b/get
      * Get Vatom Business Info
      * Gets the business info tied to this account.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters (optional)
@@ -1199,8 +1159,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBusinessInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String? = null, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = getBusinessInfoWithHttpInfo(version = version, accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun getBusinessInfo(accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String? = null, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = getBusinessInfoWithHttpInfo(accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -1218,10 +1178,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/get
+     * GET /vatom/b/get
      * Get Vatom Business Info
      * Gets the business info tied to this account.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters (optional)
@@ -1231,8 +1190,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBusinessInfoWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = getBusinessInfoRequestConfig(version = version, accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun getBusinessInfoWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = getBusinessInfoRequestConfig(accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -1242,14 +1201,13 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getBusinessInfo
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters (optional)
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun getBusinessInfoRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getBusinessInfoRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1266,7 +1224,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/b/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1275,10 +1233,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/users
+     * GET /vatom/b/users
      * Get Vatom Business Users
      * Gets the users of a business.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param returnRawResponse Return raw response (optional)
@@ -1290,8 +1247,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBusinessUsers(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = getBusinessUsersWithHttpInfo(version = version, accountId = accountId, appKey = appKey, returnRawResponse = returnRawResponse)
+    fun getBusinessUsers(accountId: kotlin.Long, appKey: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = getBusinessUsersWithHttpInfo(accountId = accountId, appKey = appKey, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -1309,10 +1266,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/users
+     * GET /vatom/b/users
      * Get Vatom Business Users
      * Gets the users of a business.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param returnRawResponse Return raw response (optional)
@@ -1321,8 +1277,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBusinessUsersWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = getBusinessUsersRequestConfig(version = version, accountId = accountId, appKey = appKey, returnRawResponse = returnRawResponse)
+    fun getBusinessUsersWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = getBusinessUsersRequestConfig(accountId = accountId, appKey = appKey, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -1332,13 +1288,12 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getBusinessUsers
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun getBusinessUsersRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getBusinessUsersRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1352,7 +1307,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/b/users".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/users",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1361,10 +1316,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/campaign-groups/entities
+     * GET /vatom/b/campaign-groups/entities
      * Get Campaign Group Entities
      * Get campaign group entities.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomCampaignId Vatom Campaign Id
@@ -1377,8 +1331,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCampaignGroupEntities(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = getCampaignGroupEntitiesWithHttpInfo(version = version, accountId = accountId, appKey = appKey, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
+    fun getCampaignGroupEntities(accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = getCampaignGroupEntitiesWithHttpInfo(accountId = accountId, appKey = appKey, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -1396,10 +1350,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/campaign-groups/entities
+     * GET /vatom/b/campaign-groups/entities
      * Get Campaign Group Entities
      * Get campaign group entities.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomCampaignId Vatom Campaign Id
@@ -1409,8 +1362,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCampaignGroupEntitiesWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = getCampaignGroupEntitiesRequestConfig(version = version, accountId = accountId, appKey = appKey, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
+    fun getCampaignGroupEntitiesWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = getCampaignGroupEntitiesRequestConfig(accountId = accountId, appKey = appKey, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -1420,14 +1373,13 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getCampaignGroupEntities
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomCampaignId Vatom Campaign Id
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun getCampaignGroupEntitiesRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getCampaignGroupEntitiesRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1442,7 +1394,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/b/campaign-groups/entities".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/campaign-groups/entities",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1451,10 +1403,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/campaign-groups/rules
+     * GET /vatom/b/campaign-groups/rules
      * Get Campaign Group Rules
      * Get campaign group rules.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomCampaignId Vatom Campaign Id
@@ -1467,8 +1418,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCampaignGroupRules(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = getCampaignGroupRulesWithHttpInfo(version = version, accountId = accountId, appKey = appKey, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
+    fun getCampaignGroupRules(accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = getCampaignGroupRulesWithHttpInfo(accountId = accountId, appKey = appKey, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -1486,10 +1437,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/campaign-groups/rules
+     * GET /vatom/b/campaign-groups/rules
      * Get Campaign Group Rules
      * Get campaign group rules.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomCampaignId Vatom Campaign Id
@@ -1499,8 +1449,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCampaignGroupRulesWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = getCampaignGroupRulesRequestConfig(version = version, accountId = accountId, appKey = appKey, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
+    fun getCampaignGroupRulesWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = getCampaignGroupRulesRequestConfig(accountId = accountId, appKey = appKey, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -1510,14 +1460,13 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getCampaignGroupRules
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomCampaignId Vatom Campaign Id
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun getCampaignGroupRulesRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getCampaignGroupRulesRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1532,7 +1481,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/b/campaign-groups/rules".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/campaign-groups/rules",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1541,10 +1490,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/campaign-groups/stats
+     * GET /vatom/b/campaign-groups/stats
      * Get Campaign Group Stats
      * Get campaign group stats.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomCampaignId Vatom Campaign Id
@@ -1557,8 +1505,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCampaignGroupStats(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = getCampaignGroupStatsWithHttpInfo(version = version, accountId = accountId, appKey = appKey, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
+    fun getCampaignGroupStats(accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = getCampaignGroupStatsWithHttpInfo(accountId = accountId, appKey = appKey, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -1576,10 +1524,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/campaign-groups/stats
+     * GET /vatom/b/campaign-groups/stats
      * Get Campaign Group Stats
      * Get campaign group stats.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomCampaignId Vatom Campaign Id
@@ -1589,8 +1536,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCampaignGroupStatsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = getCampaignGroupStatsRequestConfig(version = version, accountId = accountId, appKey = appKey, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
+    fun getCampaignGroupStatsWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = getCampaignGroupStatsRequestConfig(accountId = accountId, appKey = appKey, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -1600,14 +1547,13 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getCampaignGroupStats
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomCampaignId Vatom Campaign Id
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun getCampaignGroupStatsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getCampaignGroupStatsRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1622,7 +1568,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/b/campaign-groups/stats".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/campaign-groups/stats",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1631,10 +1577,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/campaign-groups/get
+     * GET /vatom/b/campaign-groups/get
      * Get Campaign Info
      * Gets the info on a campaign.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomCampaignId Vatom Campaign Id
@@ -1647,8 +1592,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCampaignInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = getCampaignInfoWithHttpInfo(version = version, accountId = accountId, appKey = appKey, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
+    fun getCampaignInfo(accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = getCampaignInfoWithHttpInfo(accountId = accountId, appKey = appKey, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -1666,10 +1611,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/campaign-groups/get
+     * GET /vatom/b/campaign-groups/get
      * Get Campaign Info
      * Gets the info on a campaign.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomCampaignId Vatom Campaign Id
@@ -1679,8 +1623,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCampaignInfoWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = getCampaignInfoRequestConfig(version = version, accountId = accountId, appKey = appKey, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
+    fun getCampaignInfoWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = getCampaignInfoRequestConfig(accountId = accountId, appKey = appKey, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -1690,14 +1634,13 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getCampaignInfo
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomCampaignId Vatom Campaign Id
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun getCampaignInfoRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getCampaignInfoRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1712,7 +1655,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/b/campaign-groups/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/campaign-groups/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1721,10 +1664,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/events/guests/get
+     * GET /vatom/b/events/guests/get
      * Get Vatom Event Guest List
      * Gets the guest list of an event.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomEventId Vatom Event Id
@@ -1737,8 +1679,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getEventGuestList(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = getEventGuestListWithHttpInfo(version = version, accountId = accountId, appKey = appKey, vatomEventId = vatomEventId, returnRawResponse = returnRawResponse)
+    fun getEventGuestList(accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = getEventGuestListWithHttpInfo(accountId = accountId, appKey = appKey, vatomEventId = vatomEventId, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -1756,10 +1698,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/events/guests/get
+     * GET /vatom/b/events/guests/get
      * Get Vatom Event Guest List
      * Gets the guest list of an event.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomEventId Vatom Event Id
@@ -1769,8 +1710,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun getEventGuestListWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = getEventGuestListRequestConfig(version = version, accountId = accountId, appKey = appKey, vatomEventId = vatomEventId, returnRawResponse = returnRawResponse)
+    fun getEventGuestListWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = getEventGuestListRequestConfig(accountId = accountId, appKey = appKey, vatomEventId = vatomEventId, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -1780,14 +1721,13 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getEventGuestList
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomEventId Vatom Event Id
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun getEventGuestListRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getEventGuestListRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1802,7 +1742,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/b/events/guests/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/events/guests/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1811,10 +1751,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/me/inventory
+     * GET /vatom/me/inventory
      * Get Vatom User&#39;s Inventory
      * Gets the logged in user&#39;s Vatom Inventory.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomParameters Vatom Parameters
      * @param returnRawResponse Return raw response (optional)
@@ -1826,8 +1765,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getInventory(version: java.math.BigDecimal, accountId: kotlin.Long, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = getInventoryWithHttpInfo(version = version, accountId = accountId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun getInventory(accountId: kotlin.Long, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = getInventoryWithHttpInfo(accountId = accountId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -1845,10 +1784,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/me/inventory
+     * GET /vatom/me/inventory
      * Get Vatom User&#39;s Inventory
      * Gets the logged in user&#39;s Vatom Inventory.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomParameters Vatom Parameters
      * @param returnRawResponse Return raw response (optional)
@@ -1857,8 +1795,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun getInventoryWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = getInventoryRequestConfig(version = version, accountId = accountId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun getInventoryWithHttpInfo(accountId: kotlin.Long, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = getInventoryRequestConfig(accountId = accountId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -1868,13 +1806,12 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getInventory
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomParameters Vatom Parameters
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun getInventoryRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getInventoryRequestConfig(accountId: kotlin.Long, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1888,7 +1825,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/me/inventory".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/me/inventory",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1897,10 +1834,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/me/rels/following
+     * GET /vatom/me/rels/following
      * Get following
      * Get following.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param returnRawResponse Return raw response (optional)
      * @return void
@@ -1911,8 +1847,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMyFollowing(version: java.math.BigDecimal, accountId: kotlin.Long, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = getMyFollowingWithHttpInfo(version = version, accountId = accountId, returnRawResponse = returnRawResponse)
+    fun getMyFollowing(accountId: kotlin.Long, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = getMyFollowingWithHttpInfo(accountId = accountId, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -1930,10 +1866,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/me/rels/following
+     * GET /vatom/me/rels/following
      * Get following
      * Get following.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param returnRawResponse Return raw response (optional)
      * @return ApiResponse<Unit?>
@@ -1941,8 +1876,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMyFollowingWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = getMyFollowingRequestConfig(version = version, accountId = accountId, returnRawResponse = returnRawResponse)
+    fun getMyFollowingWithHttpInfo(accountId: kotlin.Long, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = getMyFollowingRequestConfig(accountId = accountId, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -1952,12 +1887,11 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getMyFollowing
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun getMyFollowingRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getMyFollowingRequestConfig(accountId: kotlin.Long, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1970,7 +1904,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/me/rels/following".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/me/rels/following",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1979,10 +1913,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/u/campaign/points/get
+     * GET /vatom/u/campaign/points/get
      * Get Points Balance
      * Gets the points balance of a Vatom user.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param vatomCampaignId Vatom Campaign Id
@@ -1995,8 +1928,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getPointsBalance(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = getPointsBalanceWithHttpInfo(version = version, accountId = accountId, vatomUserId = vatomUserId, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
+    fun getPointsBalance(accountId: kotlin.Long, vatomUserId: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = getPointsBalanceWithHttpInfo(accountId = accountId, vatomUserId = vatomUserId, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -2014,10 +1947,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/u/campaign/points/get
+     * GET /vatom/u/campaign/points/get
      * Get Points Balance
      * Gets the points balance of a Vatom user.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param vatomCampaignId Vatom Campaign Id
@@ -2027,8 +1959,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun getPointsBalanceWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = getPointsBalanceRequestConfig(version = version, accountId = accountId, vatomUserId = vatomUserId, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
+    fun getPointsBalanceWithHttpInfo(accountId: kotlin.Long, vatomUserId: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = getPointsBalanceRequestConfig(accountId = accountId, vatomUserId = vatomUserId, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -2038,14 +1970,13 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getPointsBalance
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param vatomCampaignId Vatom Campaign Id
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun getPointsBalanceRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getPointsBalanceRequestConfig(accountId: kotlin.Long, vatomUserId: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2060,7 +1991,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/u/campaign/points/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/u/campaign/points/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2069,10 +2000,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/campaign/u/points/get
+     * GET /vatom/b/campaign/u/points/get
      * Get Points Balance as Business
      * Gets the points balance of a Vatom user.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomUserId Vatom User Id
@@ -2086,8 +2016,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getPointsBalanceAsBusiness(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomUserId: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = getPointsBalanceAsBusinessWithHttpInfo(version = version, accountId = accountId, appKey = appKey, vatomUserId = vatomUserId, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
+    fun getPointsBalanceAsBusiness(accountId: kotlin.Long, appKey: kotlin.String, vatomUserId: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = getPointsBalanceAsBusinessWithHttpInfo(accountId = accountId, appKey = appKey, vatomUserId = vatomUserId, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -2105,10 +2035,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/campaign/u/points/get
+     * GET /vatom/b/campaign/u/points/get
      * Get Points Balance as Business
      * Gets the points balance of a Vatom user.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomUserId Vatom User Id
@@ -2119,8 +2048,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun getPointsBalanceAsBusinessWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomUserId: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = getPointsBalanceAsBusinessRequestConfig(version = version, accountId = accountId, appKey = appKey, vatomUserId = vatomUserId, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
+    fun getPointsBalanceAsBusinessWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, vatomUserId: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = getPointsBalanceAsBusinessRequestConfig(accountId = accountId, appKey = appKey, vatomUserId = vatomUserId, vatomCampaignId = vatomCampaignId, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -2130,7 +2059,6 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getPointsBalanceAsBusiness
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomUserId Vatom User Id
@@ -2138,7 +2066,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun getPointsBalanceAsBusinessRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomUserId: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getPointsBalanceAsBusinessRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, vatomUserId: kotlin.String, vatomCampaignId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2154,7 +2082,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/b/campaign/u/points/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/campaign/u/points/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2163,10 +2091,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/spaces/get
+     * GET /vatom/b/spaces/get
      * Get Vatom Space
      * Gets the details of a space.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomSpaceId Vatom Space Id
@@ -2179,8 +2106,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSpace(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomSpaceId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = getSpaceWithHttpInfo(version = version, accountId = accountId, appKey = appKey, vatomSpaceId = vatomSpaceId, returnRawResponse = returnRawResponse)
+    fun getSpace(accountId: kotlin.Long, appKey: kotlin.String, vatomSpaceId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = getSpaceWithHttpInfo(accountId = accountId, appKey = appKey, vatomSpaceId = vatomSpaceId, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -2198,10 +2125,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/spaces/get
+     * GET /vatom/b/spaces/get
      * Get Vatom Space
      * Gets the details of a space.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomSpaceId Vatom Space Id
@@ -2211,8 +2137,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSpaceWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomSpaceId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = getSpaceRequestConfig(version = version, accountId = accountId, appKey = appKey, vatomSpaceId = vatomSpaceId, returnRawResponse = returnRawResponse)
+    fun getSpaceWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, vatomSpaceId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = getSpaceRequestConfig(accountId = accountId, appKey = appKey, vatomSpaceId = vatomSpaceId, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -2222,14 +2148,13 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getSpace
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomSpaceId Vatom Space Id
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun getSpaceRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomSpaceId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getSpaceRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, vatomSpaceId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2244,7 +2169,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/b/spaces/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/spaces/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2253,10 +2178,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/users/coins/get
+     * GET /vatom/b/users/coins/get
      * Get the coins for a user (as a Business)
      * Get the coins for a user (as a Business).
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param appKey Sirqul Application Key
@@ -2269,8 +2193,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getUserCoinsAsBusiness(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, appKey: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = getUserCoinsAsBusinessWithHttpInfo(version = version, accountId = accountId, vatomUserId = vatomUserId, appKey = appKey, returnRawResponse = returnRawResponse)
+    fun getUserCoinsAsBusiness(accountId: kotlin.Long, vatomUserId: kotlin.String, appKey: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = getUserCoinsAsBusinessWithHttpInfo(accountId = accountId, vatomUserId = vatomUserId, appKey = appKey, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -2288,10 +2212,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/users/coins/get
+     * GET /vatom/b/users/coins/get
      * Get the coins for a user (as a Business)
      * Get the coins for a user (as a Business).
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param appKey Sirqul Application Key
@@ -2301,8 +2224,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun getUserCoinsAsBusinessWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, appKey: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = getUserCoinsAsBusinessRequestConfig(version = version, accountId = accountId, vatomUserId = vatomUserId, appKey = appKey, returnRawResponse = returnRawResponse)
+    fun getUserCoinsAsBusinessWithHttpInfo(accountId: kotlin.Long, vatomUserId: kotlin.String, appKey: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = getUserCoinsAsBusinessRequestConfig(accountId = accountId, vatomUserId = vatomUserId, appKey = appKey, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -2312,14 +2235,13 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getUserCoinsAsBusiness
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param appKey Sirqul Application Key
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun getUserCoinsAsBusinessRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, appKey: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getUserCoinsAsBusinessRequestConfig(accountId: kotlin.Long, vatomUserId: kotlin.String, appKey: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2334,7 +2256,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/b/users/coins/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/users/coins/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2343,10 +2265,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/u/coins/get
+     * GET /vatom/u/coins/get
      * Gets the coins balance for a Vatom User
      * Gets the coins balance for a Vatom User.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param vatomParameters Vatom Parameters (optional)
@@ -2359,8 +2280,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getUserCoinsBalance(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, vatomParameters: kotlin.String? = null, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = getUserCoinsBalanceWithHttpInfo(version = version, accountId = accountId, vatomUserId = vatomUserId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun getUserCoinsBalance(accountId: kotlin.Long, vatomUserId: kotlin.String, vatomParameters: kotlin.String? = null, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = getUserCoinsBalanceWithHttpInfo(accountId = accountId, vatomUserId = vatomUserId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -2378,10 +2299,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/u/coins/get
+     * GET /vatom/u/coins/get
      * Gets the coins balance for a Vatom User
      * Gets the coins balance for a Vatom User.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param vatomParameters Vatom Parameters (optional)
@@ -2391,8 +2311,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun getUserCoinsBalanceWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = getUserCoinsBalanceRequestConfig(version = version, accountId = accountId, vatomUserId = vatomUserId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun getUserCoinsBalanceWithHttpInfo(accountId: kotlin.Long, vatomUserId: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = getUserCoinsBalanceRequestConfig(accountId = accountId, vatomUserId = vatomUserId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -2402,14 +2322,13 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getUserCoinsBalance
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param vatomParameters Vatom Parameters (optional)
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun getUserCoinsBalanceRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getUserCoinsBalanceRequestConfig(accountId: kotlin.Long, vatomUserId: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2426,7 +2345,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/u/coins/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/u/coins/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2435,10 +2354,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/users/rels/followers
+     * GET /vatom/users/rels/followers
      * Get user followers
      * Get user followers.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param returnRawResponse Return raw response (optional)
@@ -2450,8 +2368,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getUserFollowers(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = getUserFollowersWithHttpInfo(version = version, accountId = accountId, vatomUserId = vatomUserId, returnRawResponse = returnRawResponse)
+    fun getUserFollowers(accountId: kotlin.Long, vatomUserId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = getUserFollowersWithHttpInfo(accountId = accountId, vatomUserId = vatomUserId, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -2469,10 +2387,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/users/rels/followers
+     * GET /vatom/users/rels/followers
      * Get user followers
      * Get user followers.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param returnRawResponse Return raw response (optional)
@@ -2481,8 +2398,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun getUserFollowersWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = getUserFollowersRequestConfig(version = version, accountId = accountId, vatomUserId = vatomUserId, returnRawResponse = returnRawResponse)
+    fun getUserFollowersWithHttpInfo(accountId: kotlin.Long, vatomUserId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = getUserFollowersRequestConfig(accountId = accountId, vatomUserId = vatomUserId, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -2492,13 +2409,12 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getUserFollowers
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun getUserFollowersRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getUserFollowersRequestConfig(accountId: kotlin.Long, vatomUserId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2512,7 +2428,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/users/rels/followers".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/users/rels/followers",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2521,10 +2437,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/users/rels/following
+     * GET /vatom/users/rels/following
      * Get user following
      * Get user following.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param returnRawResponse Return raw response (optional)
@@ -2536,8 +2451,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getUserFollowing(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = getUserFollowingWithHttpInfo(version = version, accountId = accountId, vatomUserId = vatomUserId, returnRawResponse = returnRawResponse)
+    fun getUserFollowing(accountId: kotlin.Long, vatomUserId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = getUserFollowingWithHttpInfo(accountId = accountId, vatomUserId = vatomUserId, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -2555,10 +2470,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/users/rels/following
+     * GET /vatom/users/rels/following
      * Get user following
      * Get user following.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param returnRawResponse Return raw response (optional)
@@ -2567,8 +2481,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun getUserFollowingWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = getUserFollowingRequestConfig(version = version, accountId = accountId, vatomUserId = vatomUserId, returnRawResponse = returnRawResponse)
+    fun getUserFollowingWithHttpInfo(accountId: kotlin.Long, vatomUserId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = getUserFollowingRequestConfig(accountId = accountId, vatomUserId = vatomUserId, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -2578,13 +2492,12 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getUserFollowing
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun getUserFollowingRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getUserFollowingRequestConfig(accountId: kotlin.Long, vatomUserId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2598,7 +2511,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/users/rels/following".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/users/rels/following",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2607,10 +2520,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/user/get
+     * GET /vatom/user/get
      * Get User Info
      * Get a User&#39;s Info.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param returnRawResponse Return raw response (optional)
@@ -2622,8 +2534,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getUserInfo(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = getUserInfoWithHttpInfo(version = version, accountId = accountId, vatomUserId = vatomUserId, returnRawResponse = returnRawResponse)
+    fun getUserInfo(accountId: kotlin.Long, vatomUserId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = getUserInfoWithHttpInfo(accountId = accountId, vatomUserId = vatomUserId, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -2641,10 +2553,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/user/get
+     * GET /vatom/user/get
      * Get User Info
      * Get a User&#39;s Info.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param returnRawResponse Return raw response (optional)
@@ -2653,8 +2564,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun getUserInfoWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = getUserInfoRequestConfig(version = version, accountId = accountId, vatomUserId = vatomUserId, returnRawResponse = returnRawResponse)
+    fun getUserInfoWithHttpInfo(accountId: kotlin.Long, vatomUserId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = getUserInfoRequestConfig(accountId = accountId, vatomUserId = vatomUserId, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -2664,13 +2575,12 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getUserInfo
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun getUserInfoRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getUserInfoRequestConfig(accountId: kotlin.Long, vatomUserId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2684,7 +2594,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/user/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/user/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2693,10 +2603,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/me/get
+     * GET /vatom/me/get
      * Get Vatom User Profile
      * Gets the logged in user&#39;s profile in Vatom.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param returnRawResponse Return raw response (optional)
      * @return void
@@ -2707,8 +2616,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getUserProfile(version: java.math.BigDecimal, accountId: kotlin.Long, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = getUserProfileWithHttpInfo(version = version, accountId = accountId, returnRawResponse = returnRawResponse)
+    fun getUserProfile(accountId: kotlin.Long, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = getUserProfileWithHttpInfo(accountId = accountId, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -2726,10 +2635,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/me/get
+     * GET /vatom/me/get
      * Get Vatom User Profile
      * Gets the logged in user&#39;s profile in Vatom.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param returnRawResponse Return raw response (optional)
      * @return ApiResponse<Unit?>
@@ -2737,8 +2645,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun getUserProfileWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = getUserProfileRequestConfig(version = version, accountId = accountId, returnRawResponse = returnRawResponse)
+    fun getUserProfileWithHttpInfo(accountId: kotlin.Long, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = getUserProfileRequestConfig(accountId = accountId, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -2748,12 +2656,11 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getUserProfile
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun getUserProfileRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getUserProfileRequestConfig(accountId: kotlin.Long, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2766,7 +2673,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/me/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/me/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2775,10 +2682,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/events/get
+     * GET /vatom/b/events/get
      * Get Vatom Event
      * Gets the details of a event.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomEventId Vatom Event Id
@@ -2791,8 +2697,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getVatomEvent(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = getVatomEventWithHttpInfo(version = version, accountId = accountId, appKey = appKey, vatomEventId = vatomEventId, returnRawResponse = returnRawResponse)
+    fun getVatomEvent(accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = getVatomEventWithHttpInfo(accountId = accountId, appKey = appKey, vatomEventId = vatomEventId, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -2810,10 +2716,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/events/get
+     * GET /vatom/b/events/get
      * Get Vatom Event
      * Gets the details of a event.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomEventId Vatom Event Id
@@ -2823,8 +2728,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun getVatomEventWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = getVatomEventRequestConfig(version = version, accountId = accountId, appKey = appKey, vatomEventId = vatomEventId, returnRawResponse = returnRawResponse)
+    fun getVatomEventWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = getVatomEventRequestConfig(accountId = accountId, appKey = appKey, vatomEventId = vatomEventId, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -2834,14 +2739,13 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getVatomEvent
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomEventId Vatom Event Id
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun getVatomEventRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getVatomEventRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2856,7 +2760,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/b/events/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/events/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2865,10 +2769,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/vatoms/get
+     * GET /vatom/vatoms/get
      * Get Vatom NFT Details
      * Get Vatom NFT Details
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomId Vatom NFT Id
      * @param returnRawResponse Return raw response (optional)
@@ -2880,8 +2783,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getVatomNFT(version: java.math.BigDecimal, accountId: kotlin.Long, vatomId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = getVatomNFTWithHttpInfo(version = version, accountId = accountId, vatomId = vatomId, returnRawResponse = returnRawResponse)
+    fun getVatomNFT(accountId: kotlin.Long, vatomId: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = getVatomNFTWithHttpInfo(accountId = accountId, vatomId = vatomId, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -2899,10 +2802,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/vatoms/get
+     * GET /vatom/vatoms/get
      * Get Vatom NFT Details
      * Get Vatom NFT Details
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomId Vatom NFT Id
      * @param returnRawResponse Return raw response (optional)
@@ -2911,8 +2813,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun getVatomNFTWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, vatomId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = getVatomNFTRequestConfig(version = version, accountId = accountId, vatomId = vatomId, returnRawResponse = returnRawResponse)
+    fun getVatomNFTWithHttpInfo(accountId: kotlin.Long, vatomId: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = getVatomNFTRequestConfig(accountId = accountId, vatomId = vatomId, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -2922,13 +2824,12 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getVatomNFT
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomId Vatom NFT Id
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun getVatomNFTRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, vatomId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getVatomNFTRequestConfig(accountId: kotlin.Long, vatomId: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2942,7 +2843,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/vatoms/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/vatoms/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2951,10 +2852,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/communities/search
+     * GET /vatom/b/communities/search
      * List Vatom Communities
      * Gets the communities tied to a business.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters (optional)
@@ -2967,8 +2867,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listCommunities(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String? = null, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = listCommunitiesWithHttpInfo(version = version, accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun listCommunities(accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String? = null, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = listCommunitiesWithHttpInfo(accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -2986,10 +2886,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/communities/search
+     * GET /vatom/b/communities/search
      * List Vatom Communities
      * Gets the communities tied to a business.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters (optional)
@@ -2999,8 +2898,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun listCommunitiesWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = listCommunitiesRequestConfig(version = version, accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun listCommunitiesWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = listCommunitiesRequestConfig(accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -3010,14 +2909,13 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation listCommunities
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters (optional)
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun listCommunitiesRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun listCommunitiesRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -3034,7 +2932,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/b/communities/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/communities/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -3043,10 +2941,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/events/search
+     * GET /vatom/b/events/search
      * List Vatom Events
      * Gets the events tied to a business.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters (optional)
@@ -3059,8 +2956,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listEvents(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String? = null, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = listEventsWithHttpInfo(version = version, accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun listEvents(accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String? = null, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = listEventsWithHttpInfo(accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -3078,10 +2975,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/events/search
+     * GET /vatom/b/events/search
      * List Vatom Events
      * Gets the events tied to a business.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters (optional)
@@ -3091,8 +2987,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun listEventsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = listEventsRequestConfig(version = version, accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun listEventsWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = listEventsRequestConfig(accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -3102,14 +2998,13 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation listEvents
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters (optional)
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun listEventsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun listEventsRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -3126,7 +3021,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/b/events/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/events/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -3135,10 +3030,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/spaces/search
+     * GET /vatom/b/spaces/search
      * List Vatom Spaces
      * Gets the spaces tied to a business.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters (optional)
@@ -3151,8 +3045,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listSpaces(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String? = null, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = listSpacesWithHttpInfo(version = version, accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun listSpaces(accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String? = null, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = listSpacesWithHttpInfo(accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -3170,10 +3064,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/spaces/search
+     * GET /vatom/b/spaces/search
      * List Vatom Spaces
      * Gets the spaces tied to a business.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters (optional)
@@ -3183,8 +3076,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun listSpacesWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = listSpacesRequestConfig(version = version, accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun listSpacesWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = listSpacesRequestConfig(accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -3194,14 +3087,13 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation listSpaces
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters (optional)
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun listSpacesRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun listSpacesRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -3218,7 +3110,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/b/spaces/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/spaces/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -3227,10 +3119,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/u/coins/txns/search
+     * GET /vatom/u/coins/txns/search
      * List Coin Transactions for a Vatom User
      * Gets the logged in user&#39;s Vatom coin transactions.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param vatomParameters Vatom Parameters (optional)
@@ -3243,8 +3134,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listUserCoinTransactions(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, vatomParameters: kotlin.String? = null, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = listUserCoinTransactionsWithHttpInfo(version = version, accountId = accountId, vatomUserId = vatomUserId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun listUserCoinTransactions(accountId: kotlin.Long, vatomUserId: kotlin.String, vatomParameters: kotlin.String? = null, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = listUserCoinTransactionsWithHttpInfo(accountId = accountId, vatomUserId = vatomUserId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -3262,10 +3153,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/u/coins/txns/search
+     * GET /vatom/u/coins/txns/search
      * List Coin Transactions for a Vatom User
      * Gets the logged in user&#39;s Vatom coin transactions.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param vatomParameters Vatom Parameters (optional)
@@ -3275,8 +3165,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun listUserCoinTransactionsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = listUserCoinTransactionsRequestConfig(version = version, accountId = accountId, vatomUserId = vatomUserId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun listUserCoinTransactionsWithHttpInfo(accountId: kotlin.Long, vatomUserId: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = listUserCoinTransactionsRequestConfig(accountId = accountId, vatomUserId = vatomUserId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -3286,14 +3176,13 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation listUserCoinTransactions
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param vatomParameters Vatom Parameters (optional)
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun listUserCoinTransactionsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun listUserCoinTransactionsRequestConfig(accountId: kotlin.Long, vatomUserId: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -3310,7 +3199,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/u/coins/txns/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/u/coins/txns/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -3319,10 +3208,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/users/coins/txns/search
+     * GET /vatom/b/users/coins/txns/search
      * List coin transactions for a user (as a Business)
      * List coin transactions for a user (as a Business).
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param appKey Sirqul Application Key
@@ -3336,8 +3224,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listUserCoinTransactionsAsBusiness(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, appKey: kotlin.String, vatomParameters: kotlin.String? = null, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = listUserCoinTransactionsAsBusinessWithHttpInfo(version = version, accountId = accountId, vatomUserId = vatomUserId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun listUserCoinTransactionsAsBusiness(accountId: kotlin.Long, vatomUserId: kotlin.String, appKey: kotlin.String, vatomParameters: kotlin.String? = null, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = listUserCoinTransactionsAsBusinessWithHttpInfo(accountId = accountId, vatomUserId = vatomUserId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -3355,10 +3243,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/users/coins/txns/search
+     * GET /vatom/b/users/coins/txns/search
      * List coin transactions for a user (as a Business)
      * List coin transactions for a user (as a Business).
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param appKey Sirqul Application Key
@@ -3369,8 +3256,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun listUserCoinTransactionsAsBusinessWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, appKey: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = listUserCoinTransactionsAsBusinessRequestConfig(version = version, accountId = accountId, vatomUserId = vatomUserId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun listUserCoinTransactionsAsBusinessWithHttpInfo(accountId: kotlin.Long, vatomUserId: kotlin.String, appKey: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = listUserCoinTransactionsAsBusinessRequestConfig(accountId = accountId, vatomUserId = vatomUserId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -3380,7 +3267,6 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation listUserCoinTransactionsAsBusiness
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param appKey Sirqul Application Key
@@ -3388,7 +3274,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun listUserCoinTransactionsAsBusinessRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, appKey: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun listUserCoinTransactionsAsBusinessRequestConfig(accountId: kotlin.Long, vatomUserId: kotlin.String, appKey: kotlin.String, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -3406,7 +3292,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/b/users/coins/txns/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/users/coins/txns/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -3415,10 +3301,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/me/vatoms/actions
+     * POST /vatom/me/vatoms/actions
      * Perform Action on NFT
      * Perform Action on NFT.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomId Vatom NFT Id
      * @param vatomAction Vatom Action
@@ -3432,8 +3317,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun performActionOnNFT(version: java.math.BigDecimal, accountId: kotlin.Long, vatomId: kotlin.String, vatomAction: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = performActionOnNFTWithHttpInfo(version = version, accountId = accountId, vatomId = vatomId, vatomAction = vatomAction, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun performActionOnNFT(accountId: kotlin.Long, vatomId: kotlin.String, vatomAction: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = performActionOnNFTWithHttpInfo(accountId = accountId, vatomId = vatomId, vatomAction = vatomAction, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -3451,10 +3336,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/me/vatoms/actions
+     * POST /vatom/me/vatoms/actions
      * Perform Action on NFT
      * Perform Action on NFT.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomId Vatom NFT Id
      * @param vatomAction Vatom Action
@@ -3465,8 +3349,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun performActionOnNFTWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, vatomId: kotlin.String, vatomAction: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = performActionOnNFTRequestConfig(version = version, accountId = accountId, vatomId = vatomId, vatomAction = vatomAction, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun performActionOnNFTWithHttpInfo(accountId: kotlin.Long, vatomId: kotlin.String, vatomAction: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = performActionOnNFTRequestConfig(accountId = accountId, vatomId = vatomId, vatomAction = vatomAction, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -3476,7 +3360,6 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation performActionOnNFT
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomId Vatom NFT Id
      * @param vatomAction Vatom Action
@@ -3484,7 +3367,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun performActionOnNFTRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, vatomId: kotlin.String, vatomAction: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun performActionOnNFTRequestConfig(accountId: kotlin.Long, vatomId: kotlin.String, vatomAction: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -3500,7 +3383,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/vatom/me/vatoms/actions".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/me/vatoms/actions",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -3509,10 +3392,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/redemptions
+     * POST /vatom/b/redemptions
      * Redeem NFT
      * Redeem an NFT.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters
@@ -3525,8 +3407,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun redeemNFT(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = redeemNFTWithHttpInfo(version = version, accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun redeemNFT(accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = redeemNFTWithHttpInfo(accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -3544,10 +3426,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/redemptions
+     * POST /vatom/b/redemptions
      * Redeem NFT
      * Redeem an NFT.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters
@@ -3557,8 +3438,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun redeemNFTWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = redeemNFTRequestConfig(version = version, accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun redeemNFTWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = redeemNFTRequestConfig(accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -3568,14 +3449,13 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation redeemNFT
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun redeemNFTRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun redeemNFTRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -3590,7 +3470,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/vatom/b/redemptions".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/redemptions",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -3599,10 +3479,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/users/coins/redeem
+     * POST /vatom/b/users/coins/redeem
      * Redeem the coins for a user (as a Business)
      * Redeem the coins for a user (as a Business).
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param appKey Sirqul Application Key
@@ -3616,8 +3495,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun redeemUserCoinsAsBusiness(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = redeemUserCoinsAsBusinessWithHttpInfo(version = version, accountId = accountId, vatomUserId = vatomUserId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun redeemUserCoinsAsBusiness(accountId: kotlin.Long, vatomUserId: kotlin.String, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = redeemUserCoinsAsBusinessWithHttpInfo(accountId = accountId, vatomUserId = vatomUserId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -3635,10 +3514,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/users/coins/redeem
+     * POST /vatom/b/users/coins/redeem
      * Redeem the coins for a user (as a Business)
      * Redeem the coins for a user (as a Business).
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param appKey Sirqul Application Key
@@ -3649,8 +3527,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun redeemUserCoinsAsBusinessWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = redeemUserCoinsAsBusinessRequestConfig(version = version, accountId = accountId, vatomUserId = vatomUserId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun redeemUserCoinsAsBusinessWithHttpInfo(accountId: kotlin.Long, vatomUserId: kotlin.String, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = redeemUserCoinsAsBusinessRequestConfig(accountId = accountId, vatomUserId = vatomUserId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -3660,7 +3538,6 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation redeemUserCoinsAsBusiness
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param appKey Sirqul Application Key
@@ -3668,7 +3545,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun redeemUserCoinsAsBusinessRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun redeemUserCoinsAsBusinessRequestConfig(accountId: kotlin.Long, vatomUserId: kotlin.String, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -3684,7 +3561,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/vatom/b/users/coins/redeem".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/users/coins/redeem",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -3693,10 +3570,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/search
+     * GET /vatom/b/search
      * Search for Vatom Businesses
      * Searches for Vatom businesses.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomParameters Vatom Parameters (optional)
      * @param returnRawResponse Return raw response (optional)
@@ -3708,8 +3584,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchBusinesses(version: java.math.BigDecimal, accountId: kotlin.Long, vatomParameters: kotlin.String? = null, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = searchBusinessesWithHttpInfo(version = version, accountId = accountId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun searchBusinesses(accountId: kotlin.Long, vatomParameters: kotlin.String? = null, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = searchBusinessesWithHttpInfo(accountId = accountId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -3727,10 +3603,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/search
+     * GET /vatom/b/search
      * Search for Vatom Businesses
      * Searches for Vatom businesses.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomParameters Vatom Parameters (optional)
      * @param returnRawResponse Return raw response (optional)
@@ -3739,8 +3614,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchBusinessesWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = searchBusinessesRequestConfig(version = version, accountId = accountId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun searchBusinessesWithHttpInfo(accountId: kotlin.Long, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = searchBusinessesRequestConfig(accountId = accountId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -3750,13 +3625,12 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation searchBusinesses
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomParameters Vatom Parameters (optional)
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun searchBusinessesRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchBusinessesRequestConfig(accountId: kotlin.Long, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -3772,7 +3646,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/b/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -3781,10 +3655,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/campaign-groups/search
+     * GET /vatom/b/campaign-groups/search
      * Search Campaign Groups
      * Search campaign groups.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param returnRawResponse Return raw response (optional)
@@ -3796,8 +3669,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchCampaignGroups(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = searchCampaignGroupsWithHttpInfo(version = version, accountId = accountId, appKey = appKey, returnRawResponse = returnRawResponse)
+    fun searchCampaignGroups(accountId: kotlin.Long, appKey: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = searchCampaignGroupsWithHttpInfo(accountId = accountId, appKey = appKey, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -3815,10 +3688,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/b/campaign-groups/search
+     * GET /vatom/b/campaign-groups/search
      * Search Campaign Groups
      * Search campaign groups.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param returnRawResponse Return raw response (optional)
@@ -3827,8 +3699,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchCampaignGroupsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = searchCampaignGroupsRequestConfig(version = version, accountId = accountId, appKey = appKey, returnRawResponse = returnRawResponse)
+    fun searchCampaignGroupsWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = searchCampaignGroupsRequestConfig(accountId = accountId, appKey = appKey, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -3838,13 +3710,12 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation searchCampaignGroups
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun searchCampaignGroupsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchCampaignGroupsRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -3858,7 +3729,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/b/campaign-groups/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/campaign-groups/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -3867,10 +3738,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/me/identities/search
+     * GET /vatom/me/identities/search
      * Search User Identities
      * Search User Identities.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param returnRawResponse Return raw response (optional)
      * @return void
@@ -3881,8 +3751,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchIdentities(version: java.math.BigDecimal, accountId: kotlin.Long, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = searchIdentitiesWithHttpInfo(version = version, accountId = accountId, returnRawResponse = returnRawResponse)
+    fun searchIdentities(accountId: kotlin.Long, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = searchIdentitiesWithHttpInfo(accountId = accountId, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -3900,10 +3770,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/me/identities/search
+     * GET /vatom/me/identities/search
      * Search User Identities
      * Search User Identities.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param returnRawResponse Return raw response (optional)
      * @return ApiResponse<Unit?>
@@ -3911,8 +3780,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchIdentitiesWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = searchIdentitiesRequestConfig(version = version, accountId = accountId, returnRawResponse = returnRawResponse)
+    fun searchIdentitiesWithHttpInfo(accountId: kotlin.Long, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = searchIdentitiesRequestConfig(accountId = accountId, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -3922,12 +3791,11 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation searchIdentities
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun searchIdentitiesRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchIdentitiesRequestConfig(accountId: kotlin.Long, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -3940,7 +3808,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/me/identities/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/me/identities/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -3949,10 +3817,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/user-inventory/search
+     * GET /vatom/user-inventory/search
      * Search Vatom User&#39;s Inventory
      * Searches the logged in user&#39;s Vatom Inventory.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomParameters Vatom Parameters (optional)
      * @param returnRawResponse Return raw response (optional)
@@ -3964,8 +3831,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchInventory(version: java.math.BigDecimal, accountId: kotlin.Long, vatomParameters: kotlin.String? = null, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = searchInventoryWithHttpInfo(version = version, accountId = accountId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun searchInventory(accountId: kotlin.Long, vatomParameters: kotlin.String? = null, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = searchInventoryWithHttpInfo(accountId = accountId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -3983,10 +3850,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * GET /api/{version}/vatom/user-inventory/search
+     * GET /vatom/user-inventory/search
      * Search Vatom User&#39;s Inventory
      * Searches the logged in user&#39;s Vatom Inventory.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomParameters Vatom Parameters (optional)
      * @param returnRawResponse Return raw response (optional)
@@ -3995,8 +3861,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchInventoryWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = searchInventoryRequestConfig(version = version, accountId = accountId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun searchInventoryWithHttpInfo(accountId: kotlin.Long, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = searchInventoryRequestConfig(accountId = accountId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -4006,13 +3872,12 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation searchInventory
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomParameters Vatom Parameters (optional)
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun searchInventoryRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchInventoryRequestConfig(accountId: kotlin.Long, vatomParameters: kotlin.String?, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -4028,7 +3893,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/vatom/user-inventory/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/user-inventory/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -4037,10 +3902,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/campaigns/send
+     * POST /vatom/b/campaigns/send
      * Send NFT
      * Send an NFT.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomCampaignId Vatom Campaign Id
@@ -4054,8 +3918,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun sendNFT(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = sendNFTWithHttpInfo(version = version, accountId = accountId, appKey = appKey, vatomCampaignId = vatomCampaignId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun sendNFT(accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = sendNFTWithHttpInfo(accountId = accountId, appKey = appKey, vatomCampaignId = vatomCampaignId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -4073,10 +3937,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/campaigns/send
+     * POST /vatom/b/campaigns/send
      * Send NFT
      * Send an NFT.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomCampaignId Vatom Campaign Id
@@ -4087,8 +3950,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun sendNFTWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = sendNFTRequestConfig(version = version, accountId = accountId, appKey = appKey, vatomCampaignId = vatomCampaignId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun sendNFTWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = sendNFTRequestConfig(accountId = accountId, appKey = appKey, vatomCampaignId = vatomCampaignId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -4098,7 +3961,6 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation sendNFT
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomCampaignId Vatom Campaign Id
@@ -4106,7 +3968,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun sendNFTRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun sendNFTRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, vatomCampaignId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -4122,7 +3984,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/vatom/b/campaigns/send".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/campaigns/send",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -4131,10 +3993,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/campaign/u/points/update
+     * POST /vatom/b/campaign/u/points/update
      * Set Points Balance as Business
      * Sets the points balance of a Vatom user.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomUserId Vatom User Id
@@ -4149,8 +4010,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun setPointsBalanceAsBusiness(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomUserId: kotlin.String, vatomCampaignId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = setPointsBalanceAsBusinessWithHttpInfo(version = version, accountId = accountId, appKey = appKey, vatomUserId = vatomUserId, vatomCampaignId = vatomCampaignId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun setPointsBalanceAsBusiness(accountId: kotlin.Long, appKey: kotlin.String, vatomUserId: kotlin.String, vatomCampaignId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = setPointsBalanceAsBusinessWithHttpInfo(accountId = accountId, appKey = appKey, vatomUserId = vatomUserId, vatomCampaignId = vatomCampaignId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -4168,10 +4029,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/campaign/u/points/update
+     * POST /vatom/b/campaign/u/points/update
      * Set Points Balance as Business
      * Sets the points balance of a Vatom user.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomUserId Vatom User Id
@@ -4183,8 +4043,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun setPointsBalanceAsBusinessWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomUserId: kotlin.String, vatomCampaignId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = setPointsBalanceAsBusinessRequestConfig(version = version, accountId = accountId, appKey = appKey, vatomUserId = vatomUserId, vatomCampaignId = vatomCampaignId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun setPointsBalanceAsBusinessWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, vatomUserId: kotlin.String, vatomCampaignId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = setPointsBalanceAsBusinessRequestConfig(accountId = accountId, appKey = appKey, vatomUserId = vatomUserId, vatomCampaignId = vatomCampaignId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -4194,7 +4054,6 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation setPointsBalanceAsBusiness
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomUserId Vatom User Id
@@ -4203,7 +4062,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun setPointsBalanceAsBusinessRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomUserId: kotlin.String, vatomCampaignId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun setPointsBalanceAsBusinessRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, vatomUserId: kotlin.String, vatomCampaignId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -4220,7 +4079,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/vatom/b/campaign/u/points/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/campaign/u/points/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -4229,10 +4088,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/u/coins/transfer
+     * POST /vatom/u/coins/transfer
      * Transfer coins from Vatom Users
      * Transfer coins from Vatom Users.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param vatomParameters Vatom Parameters
@@ -4245,8 +4103,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun transferUserCoins(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = transferUserCoinsWithHttpInfo(version = version, accountId = accountId, vatomUserId = vatomUserId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun transferUserCoins(accountId: kotlin.Long, vatomUserId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = transferUserCoinsWithHttpInfo(accountId = accountId, vatomUserId = vatomUserId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -4264,10 +4122,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/u/coins/transfer
+     * POST /vatom/u/coins/transfer
      * Transfer coins from Vatom Users
      * Transfer coins from Vatom Users.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param vatomParameters Vatom Parameters
@@ -4277,8 +4134,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun transferUserCoinsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = transferUserCoinsRequestConfig(version = version, accountId = accountId, vatomUserId = vatomUserId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun transferUserCoinsWithHttpInfo(accountId: kotlin.Long, vatomUserId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = transferUserCoinsRequestConfig(accountId = accountId, vatomUserId = vatomUserId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -4288,14 +4145,13 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation transferUserCoins
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param vatomParameters Vatom Parameters
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun transferUserCoinsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun transferUserCoinsRequestConfig(accountId: kotlin.Long, vatomUserId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -4310,7 +4166,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/vatom/u/coins/transfer".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/u/coins/transfer",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -4319,10 +4175,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/coins/update
+     * POST /vatom/b/coins/update
      * Fund coins for a Business
      * Fund/update coins for a Businesss.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters
@@ -4335,8 +4190,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateBusinessCoins(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = updateBusinessCoinsWithHttpInfo(version = version, accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun updateBusinessCoins(accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = updateBusinessCoinsWithHttpInfo(accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -4354,10 +4209,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/coins/update
+     * POST /vatom/b/coins/update
      * Fund coins for a Business
      * Fund/update coins for a Businesss.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters
@@ -4367,8 +4221,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateBusinessCoinsWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = updateBusinessCoinsRequestConfig(version = version, accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun updateBusinessCoinsWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = updateBusinessCoinsRequestConfig(accountId = accountId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -4378,14 +4232,13 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation updateBusinessCoins
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun updateBusinessCoinsRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun updateBusinessCoinsRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -4400,7 +4253,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/vatom/b/coins/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/coins/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -4409,10 +4262,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/events/guests/update
+     * POST /vatom/b/events/guests/update
      * Update Vatom Event Guest List
      * Update the guest list of an event.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomEventId Vatom Event Id
@@ -4426,8 +4278,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateEventGuestList(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = updateEventGuestListWithHttpInfo(version = version, accountId = accountId, appKey = appKey, vatomEventId = vatomEventId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun updateEventGuestList(accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = updateEventGuestListWithHttpInfo(accountId = accountId, appKey = appKey, vatomEventId = vatomEventId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -4445,10 +4297,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/events/guests/update
+     * POST /vatom/b/events/guests/update
      * Update Vatom Event Guest List
      * Update the guest list of an event.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomEventId Vatom Event Id
@@ -4459,8 +4310,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateEventGuestListWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = updateEventGuestListRequestConfig(version = version, accountId = accountId, appKey = appKey, vatomEventId = vatomEventId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun updateEventGuestListWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = updateEventGuestListRequestConfig(accountId = accountId, appKey = appKey, vatomEventId = vatomEventId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -4470,7 +4321,6 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation updateEventGuestList
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomEventId Vatom Event Id
@@ -4478,7 +4328,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun updateEventGuestListRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun updateEventGuestListRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -4494,7 +4344,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/vatom/b/events/guests/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/events/guests/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -4503,10 +4353,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/spaces/update
+     * POST /vatom/b/spaces/update
      * Update Vatom Space
      * Update a Vatom space.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomSpaceId Vatom Space Id
@@ -4520,8 +4369,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateSpace(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomSpaceId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = updateSpaceWithHttpInfo(version = version, accountId = accountId, appKey = appKey, vatomSpaceId = vatomSpaceId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun updateSpace(accountId: kotlin.Long, appKey: kotlin.String, vatomSpaceId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = updateSpaceWithHttpInfo(accountId = accountId, appKey = appKey, vatomSpaceId = vatomSpaceId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -4539,10 +4388,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/spaces/update
+     * POST /vatom/b/spaces/update
      * Update Vatom Space
      * Update a Vatom space.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomSpaceId Vatom Space Id
@@ -4553,8 +4401,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateSpaceWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomSpaceId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = updateSpaceRequestConfig(version = version, accountId = accountId, appKey = appKey, vatomSpaceId = vatomSpaceId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun updateSpaceWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, vatomSpaceId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = updateSpaceRequestConfig(accountId = accountId, appKey = appKey, vatomSpaceId = vatomSpaceId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -4564,7 +4412,6 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation updateSpace
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomSpaceId Vatom Space Id
@@ -4572,7 +4419,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun updateSpaceRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomSpaceId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun updateSpaceRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, vatomSpaceId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -4588,7 +4435,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/vatom/b/spaces/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/spaces/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -4597,10 +4444,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/users/coins/update
+     * POST /vatom/b/users/coins/update
      * Update the coins for a user (as a Business)
      * Update the coins for a user (as a Business).
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param appKey Sirqul Application Key
@@ -4614,8 +4460,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateUserCoinsAsBusiness(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = updateUserCoinsAsBusinessWithHttpInfo(version = version, accountId = accountId, vatomUserId = vatomUserId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun updateUserCoinsAsBusiness(accountId: kotlin.Long, vatomUserId: kotlin.String, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = updateUserCoinsAsBusinessWithHttpInfo(accountId = accountId, vatomUserId = vatomUserId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -4633,10 +4479,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/users/coins/update
+     * POST /vatom/b/users/coins/update
      * Update the coins for a user (as a Business)
      * Update the coins for a user (as a Business).
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param appKey Sirqul Application Key
@@ -4647,8 +4492,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateUserCoinsAsBusinessWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = updateUserCoinsAsBusinessRequestConfig(version = version, accountId = accountId, vatomUserId = vatomUserId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun updateUserCoinsAsBusinessWithHttpInfo(accountId: kotlin.Long, vatomUserId: kotlin.String, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = updateUserCoinsAsBusinessRequestConfig(accountId = accountId, vatomUserId = vatomUserId, appKey = appKey, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -4658,7 +4503,6 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation updateUserCoinsAsBusiness
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param appKey Sirqul Application Key
@@ -4666,7 +4510,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun updateUserCoinsAsBusinessRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, vatomUserId: kotlin.String, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun updateUserCoinsAsBusinessRequestConfig(accountId: kotlin.Long, vatomUserId: kotlin.String, appKey: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -4682,7 +4526,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/vatom/b/users/coins/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/users/coins/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -4691,10 +4535,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/me/update
+     * POST /vatom/me/update
      * Update Vatom User Profile
      * Gets the logged in user&#39;s profile in Vatom.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomParameters Vatom Parameters
      * @param returnRawResponse Return raw response (optional)
@@ -4706,8 +4549,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateUserProfile(version: java.math.BigDecimal, accountId: kotlin.Long, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = updateUserProfileWithHttpInfo(version = version, accountId = accountId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun updateUserProfile(accountId: kotlin.Long, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = updateUserProfileWithHttpInfo(accountId = accountId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -4725,10 +4568,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/me/update
+     * POST /vatom/me/update
      * Update Vatom User Profile
      * Gets the logged in user&#39;s profile in Vatom.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomParameters Vatom Parameters
      * @param returnRawResponse Return raw response (optional)
@@ -4737,8 +4579,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateUserProfileWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = updateUserProfileRequestConfig(version = version, accountId = accountId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun updateUserProfileWithHttpInfo(accountId: kotlin.Long, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = updateUserProfileRequestConfig(accountId = accountId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -4748,13 +4590,12 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation updateUserProfile
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param vatomParameters Vatom Parameters
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun updateUserProfileRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun updateUserProfileRequestConfig(accountId: kotlin.Long, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -4768,7 +4609,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/vatom/me/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/me/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -4777,10 +4618,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/events/update
+     * POST /vatom/b/events/update
      * Update Vatom Event
      * Update a Vatom event.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomEventId Vatom Event Id
@@ -4794,8 +4634,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateVatomEvent(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = updateVatomEventWithHttpInfo(version = version, accountId = accountId, appKey = appKey, vatomEventId = vatomEventId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun updateVatomEvent(accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = updateVatomEventWithHttpInfo(accountId = accountId, appKey = appKey, vatomEventId = vatomEventId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -4813,10 +4653,9 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * POST /api/{version}/vatom/b/events/update
+     * POST /vatom/b/events/update
      * Update Vatom Event
      * Update a Vatom event.
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomEventId Vatom Event Id
@@ -4827,8 +4666,8 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateVatomEventWithHttpInfo(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = updateVatomEventRequestConfig(version = version, accountId = accountId, appKey = appKey, vatomEventId = vatomEventId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
+    fun updateVatomEventWithHttpInfo(accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = updateVatomEventRequestConfig(accountId = accountId, appKey = appKey, vatomEventId = vatomEventId, vatomParameters = vatomParameters, returnRawResponse = returnRawResponse)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -4838,7 +4677,6 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation updateVatomEvent
      *
-     * @param version 
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomEventId Vatom Event Id
@@ -4846,7 +4684,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param returnRawResponse Return raw response (optional)
      * @return RequestConfig
      */
-    fun updateVatomEventRequestConfig(version: java.math.BigDecimal, accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun updateVatomEventRequestConfig(accountId: kotlin.Long, appKey: kotlin.String, vatomEventId: kotlin.String, vatomParameters: kotlin.String, returnRawResponse: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -4862,7 +4700,7 @@ open class VatomApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/vatom/b/events/update".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/vatom/b/events/update",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

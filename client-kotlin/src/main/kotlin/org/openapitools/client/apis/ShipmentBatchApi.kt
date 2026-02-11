@@ -42,15 +42,14 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/shipment/batch
+     * POST /shipment/batch
      * Create Shipment Batch
      * Create a new shipment batch
-     * @param version 
      * @param body  (optional)
      * @return ShipmentBatch
      * @throws IllegalStateException If the request is not correctly configured
@@ -61,8 +60,8 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createShipmentBatch(version: java.math.BigDecimal, body: ShipmentBatch? = null) : ShipmentBatch {
-        val localVarResponse = createShipmentBatchWithHttpInfo(version = version, body = body)
+    fun createShipmentBatch(body: ShipmentBatch? = null) : ShipmentBatch {
+        val localVarResponse = createShipmentBatchWithHttpInfo(body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ShipmentBatch
@@ -80,10 +79,9 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * POST /api/{version}/shipment/batch
+     * POST /shipment/batch
      * Create Shipment Batch
      * Create a new shipment batch
-     * @param version 
      * @param body  (optional)
      * @return ApiResponse<ShipmentBatch?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -91,8 +89,8 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createShipmentBatchWithHttpInfo(version: java.math.BigDecimal, body: ShipmentBatch?) : ApiResponse<ShipmentBatch?> {
-        val localVariableConfig = createShipmentBatchRequestConfig(version = version, body = body)
+    fun createShipmentBatchWithHttpInfo(body: ShipmentBatch?) : ApiResponse<ShipmentBatch?> {
+        val localVariableConfig = createShipmentBatchRequestConfig(body = body)
 
         return request<ShipmentBatch, ShipmentBatch>(
             localVariableConfig
@@ -102,18 +100,17 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
     /**
      * To obtain the request config of the operation createShipmentBatch
      *
-     * @param version 
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun createShipmentBatchRequestConfig(version: java.math.BigDecimal, body: ShipmentBatch?) : RequestConfig<ShipmentBatch> {
+    fun createShipmentBatchRequestConfig(body: ShipmentBatch?) : RequestConfig<ShipmentBatch> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/shipment/batch".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/shipment/batch",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -122,10 +119,9 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * DELETE /api/{version}/shipment/batch/{batchId}
+     * DELETE /shipment/batch/{batchId}
      * Delete Shipment Batch
      * Search for shipment batches
-     * @param version 
      * @param batchId the id of the shipment batch to delete
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
@@ -135,8 +131,8 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteShipmentBatch(version: java.math.BigDecimal, batchId: kotlin.Long) : Unit {
-        val localVarResponse = deleteShipmentBatchWithHttpInfo(version = version, batchId = batchId)
+    fun deleteShipmentBatch(batchId: kotlin.Long) : Unit {
+        val localVarResponse = deleteShipmentBatchWithHttpInfo(batchId = batchId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -154,18 +150,17 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * DELETE /api/{version}/shipment/batch/{batchId}
+     * DELETE /shipment/batch/{batchId}
      * Delete Shipment Batch
      * Search for shipment batches
-     * @param version 
      * @param batchId the id of the shipment batch to delete
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteShipmentBatchWithHttpInfo(version: java.math.BigDecimal, batchId: kotlin.Long) : ApiResponse<Unit?> {
-        val localVariableConfig = deleteShipmentBatchRequestConfig(version = version, batchId = batchId)
+    fun deleteShipmentBatchWithHttpInfo(batchId: kotlin.Long) : ApiResponse<Unit?> {
+        val localVariableConfig = deleteShipmentBatchRequestConfig(batchId = batchId)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -175,18 +170,17 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
     /**
      * To obtain the request config of the operation deleteShipmentBatch
      *
-     * @param version 
      * @param batchId the id of the shipment batch to delete
      * @return RequestConfig
      */
-    fun deleteShipmentBatchRequestConfig(version: java.math.BigDecimal, batchId: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteShipmentBatchRequestConfig(batchId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.DELETE,
-            path = "/api/{version}/shipment/batch/{batchId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"batchId"+"}", encodeURIComponent(batchId.toString())),
+            path = "/shipment/batch/{batchId}".replace("{"+"batchId"+"}", encodeURIComponent(batchId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -195,10 +189,9 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * GET /api/{version}/shipment/batch/{batchId}
+     * GET /shipment/batch/{batchId}
      * Get Shipment Batch
      * Get an existing shipment batch
-     * @param version 
      * @param batchId the id of the shipment batch to get
      * @return ShipmentBatch
      * @throws IllegalStateException If the request is not correctly configured
@@ -209,8 +202,8 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getShipmentBatch(version: java.math.BigDecimal, batchId: kotlin.Long) : ShipmentBatch {
-        val localVarResponse = getShipmentBatchWithHttpInfo(version = version, batchId = batchId)
+    fun getShipmentBatch(batchId: kotlin.Long) : ShipmentBatch {
+        val localVarResponse = getShipmentBatchWithHttpInfo(batchId = batchId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ShipmentBatch
@@ -228,10 +221,9 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * GET /api/{version}/shipment/batch/{batchId}
+     * GET /shipment/batch/{batchId}
      * Get Shipment Batch
      * Get an existing shipment batch
-     * @param version 
      * @param batchId the id of the shipment batch to get
      * @return ApiResponse<ShipmentBatch?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -239,8 +231,8 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getShipmentBatchWithHttpInfo(version: java.math.BigDecimal, batchId: kotlin.Long) : ApiResponse<ShipmentBatch?> {
-        val localVariableConfig = getShipmentBatchRequestConfig(version = version, batchId = batchId)
+    fun getShipmentBatchWithHttpInfo(batchId: kotlin.Long) : ApiResponse<ShipmentBatch?> {
+        val localVariableConfig = getShipmentBatchRequestConfig(batchId = batchId)
 
         return request<Unit, ShipmentBatch>(
             localVariableConfig
@@ -250,18 +242,17 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
     /**
      * To obtain the request config of the operation getShipmentBatch
      *
-     * @param version 
      * @param batchId the id of the shipment batch to get
      * @return RequestConfig
      */
-    fun getShipmentBatchRequestConfig(version: java.math.BigDecimal, batchId: kotlin.Long) : RequestConfig<Unit> {
+    fun getShipmentBatchRequestConfig(batchId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/shipment/batch/{batchId}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"batchId"+"}", encodeURIComponent(batchId.toString())),
+            path = "/shipment/batch/{batchId}".replace("{"+"batchId"+"}", encodeURIComponent(batchId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -270,10 +261,9 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * GET /api/{version}/shipment/batch/{batchId}/status
+     * GET /shipment/batch/{batchId}/status
      * Get Shipment Batch Status
      * Get the import status list of the import shipment batch
-     * @param version 
      * @param batchId The id of the requested shipment batch
      * @param accountId the id of the logged in user
      * @param sortField The field to sort by
@@ -295,8 +285,8 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getShipmentBatchStatus(version: java.math.BigDecimal, batchId: kotlin.Long, accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, valid: kotlin.Boolean? = null, started: kotlin.Boolean? = null, completed: kotlin.Boolean? = null, hasShipment: kotlin.Boolean? = null, hasRoute: kotlin.Boolean? = null, keyword: kotlin.String? = null) : kotlin.collections.List<ShipmentImportStatus> {
-        val localVarResponse = getShipmentBatchStatusWithHttpInfo(version = version, batchId = batchId, accountId = accountId, sortField = sortField, descending = descending, start = start, limit = limit, valid = valid, started = started, completed = completed, hasShipment = hasShipment, hasRoute = hasRoute, keyword = keyword)
+    fun getShipmentBatchStatus(batchId: kotlin.Long, accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, valid: kotlin.Boolean? = null, started: kotlin.Boolean? = null, completed: kotlin.Boolean? = null, hasShipment: kotlin.Boolean? = null, hasRoute: kotlin.Boolean? = null, keyword: kotlin.String? = null) : kotlin.collections.List<ShipmentImportStatus> {
+        val localVarResponse = getShipmentBatchStatusWithHttpInfo(batchId = batchId, accountId = accountId, sortField = sortField, descending = descending, start = start, limit = limit, valid = valid, started = started, completed = completed, hasShipment = hasShipment, hasRoute = hasRoute, keyword = keyword)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<ShipmentImportStatus>
@@ -314,10 +304,9 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * GET /api/{version}/shipment/batch/{batchId}/status
+     * GET /shipment/batch/{batchId}/status
      * Get Shipment Batch Status
      * Get the import status list of the import shipment batch
-     * @param version 
      * @param batchId The id of the requested shipment batch
      * @param accountId the id of the logged in user
      * @param sortField The field to sort by
@@ -336,8 +325,8 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getShipmentBatchStatusWithHttpInfo(version: java.math.BigDecimal, batchId: kotlin.Long, accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, valid: kotlin.Boolean?, started: kotlin.Boolean?, completed: kotlin.Boolean?, hasShipment: kotlin.Boolean?, hasRoute: kotlin.Boolean?, keyword: kotlin.String?) : ApiResponse<kotlin.collections.List<ShipmentImportStatus>?> {
-        val localVariableConfig = getShipmentBatchStatusRequestConfig(version = version, batchId = batchId, accountId = accountId, sortField = sortField, descending = descending, start = start, limit = limit, valid = valid, started = started, completed = completed, hasShipment = hasShipment, hasRoute = hasRoute, keyword = keyword)
+    fun getShipmentBatchStatusWithHttpInfo(batchId: kotlin.Long, accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, valid: kotlin.Boolean?, started: kotlin.Boolean?, completed: kotlin.Boolean?, hasShipment: kotlin.Boolean?, hasRoute: kotlin.Boolean?, keyword: kotlin.String?) : ApiResponse<kotlin.collections.List<ShipmentImportStatus>?> {
+        val localVariableConfig = getShipmentBatchStatusRequestConfig(batchId = batchId, accountId = accountId, sortField = sortField, descending = descending, start = start, limit = limit, valid = valid, started = started, completed = completed, hasShipment = hasShipment, hasRoute = hasRoute, keyword = keyword)
 
         return request<Unit, kotlin.collections.List<ShipmentImportStatus>>(
             localVariableConfig
@@ -347,7 +336,6 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
     /**
      * To obtain the request config of the operation getShipmentBatchStatus
      *
-     * @param version 
      * @param batchId The id of the requested shipment batch
      * @param accountId the id of the logged in user
      * @param sortField The field to sort by
@@ -362,7 +350,7 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param keyword The keyword to search for (optional)
      * @return RequestConfig
      */
-    fun getShipmentBatchStatusRequestConfig(version: java.math.BigDecimal, batchId: kotlin.Long, accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, valid: kotlin.Boolean?, started: kotlin.Boolean?, completed: kotlin.Boolean?, hasShipment: kotlin.Boolean?, hasRoute: kotlin.Boolean?, keyword: kotlin.String?) : RequestConfig<Unit> {
+    fun getShipmentBatchStatusRequestConfig(batchId: kotlin.Long, accountId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, valid: kotlin.Boolean?, started: kotlin.Boolean?, completed: kotlin.Boolean?, hasShipment: kotlin.Boolean?, hasRoute: kotlin.Boolean?, keyword: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -394,7 +382,7 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/shipment/batch/{batchId}/status".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"batchId"+"}", encodeURIComponent(batchId.toString())),
+            path = "/shipment/batch/{batchId}/status".replace("{"+"batchId"+"}", encodeURIComponent(batchId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -403,10 +391,9 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * GET /api/{version}/shipment/batch
+     * GET /shipment/batch
      * Search Shipment Batch
      * Search for shipment batches
-     * @param version 
      * @param hubId The associated service hub
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
@@ -421,8 +408,8 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchShipmentBatch(version: java.math.BigDecimal, hubId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int) : kotlin.collections.List<ShipmentBatch> {
-        val localVarResponse = searchShipmentBatchWithHttpInfo(version = version, hubId = hubId, sortField = sortField, descending = descending, start = start, limit = limit)
+    fun searchShipmentBatch(hubId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int) : kotlin.collections.List<ShipmentBatch> {
+        val localVarResponse = searchShipmentBatchWithHttpInfo(hubId = hubId, sortField = sortField, descending = descending, start = start, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<ShipmentBatch>
@@ -440,10 +427,9 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * GET /api/{version}/shipment/batch
+     * GET /shipment/batch
      * Search Shipment Batch
      * Search for shipment batches
-     * @param version 
      * @param hubId The associated service hub
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
@@ -455,8 +441,8 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchShipmentBatchWithHttpInfo(version: java.math.BigDecimal, hubId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int) : ApiResponse<kotlin.collections.List<ShipmentBatch>?> {
-        val localVariableConfig = searchShipmentBatchRequestConfig(version = version, hubId = hubId, sortField = sortField, descending = descending, start = start, limit = limit)
+    fun searchShipmentBatchWithHttpInfo(hubId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int) : ApiResponse<kotlin.collections.List<ShipmentBatch>?> {
+        val localVariableConfig = searchShipmentBatchRequestConfig(hubId = hubId, sortField = sortField, descending = descending, start = start, limit = limit)
 
         return request<Unit, kotlin.collections.List<ShipmentBatch>>(
             localVariableConfig
@@ -466,7 +452,6 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
     /**
      * To obtain the request config of the operation searchShipmentBatch
      *
-     * @param version 
      * @param hubId The associated service hub
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
@@ -474,7 +459,7 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param limit The limit for pagination
      * @return RequestConfig
      */
-    fun searchShipmentBatchRequestConfig(version: java.math.BigDecimal, hubId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int) : RequestConfig<Unit> {
+    fun searchShipmentBatchRequestConfig(hubId: kotlin.Long, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -488,7 +473,7 @@ open class ShipmentBatchApi(basePath: kotlin.String = defaultBasePath, client: C
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/shipment/batch".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/shipment/batch",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

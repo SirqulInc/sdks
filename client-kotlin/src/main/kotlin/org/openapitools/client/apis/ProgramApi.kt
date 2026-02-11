@@ -41,15 +41,14 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
     /**
-     * POST /api/{version}/program
+     * POST /program
      * Create Program
      * Create a new program
-     * @param version 
      * @param body  (optional)
      * @return Program
      * @throws IllegalStateException If the request is not correctly configured
@@ -60,8 +59,8 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createProgram(version: java.math.BigDecimal, body: Program? = null) : Program {
-        val localVarResponse = createProgramWithHttpInfo(version = version, body = body)
+    fun createProgram(body: Program? = null) : Program {
+        val localVarResponse = createProgramWithHttpInfo(body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Program
@@ -79,10 +78,9 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/program
+     * POST /program
      * Create Program
      * Create a new program
-     * @param version 
      * @param body  (optional)
      * @return ApiResponse<Program?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -90,8 +88,8 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createProgramWithHttpInfo(version: java.math.BigDecimal, body: Program?) : ApiResponse<Program?> {
-        val localVariableConfig = createProgramRequestConfig(version = version, body = body)
+    fun createProgramWithHttpInfo(body: Program?) : ApiResponse<Program?> {
+        val localVariableConfig = createProgramRequestConfig(body = body)
 
         return request<Program, Program>(
             localVariableConfig
@@ -101,18 +99,17 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation createProgram
      *
-     * @param version 
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun createProgramRequestConfig(version: java.math.BigDecimal, body: Program?) : RequestConfig<Program> {
+    fun createProgramRequestConfig(body: Program?) : RequestConfig<Program> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/program".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/program",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -121,10 +118,9 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * DELETE /api/{version}/program/{id}
+     * DELETE /program/{id}
      * Delete Program
      * Delete an existing program
-     * @param version 
      * @param id the id of the program
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
@@ -134,8 +130,8 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteProgram(version: java.math.BigDecimal, id: kotlin.Long) : Unit {
-        val localVarResponse = deleteProgramWithHttpInfo(version = version, id = id)
+    fun deleteProgram(id: kotlin.Long) : Unit {
+        val localVarResponse = deleteProgramWithHttpInfo(id = id)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -153,18 +149,17 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * DELETE /api/{version}/program/{id}
+     * DELETE /program/{id}
      * Delete Program
      * Delete an existing program
-     * @param version 
      * @param id the id of the program
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteProgramWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long) : ApiResponse<Unit?> {
-        val localVariableConfig = deleteProgramRequestConfig(version = version, id = id)
+    fun deleteProgramWithHttpInfo(id: kotlin.Long) : ApiResponse<Unit?> {
+        val localVariableConfig = deleteProgramRequestConfig(id = id)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -174,18 +169,17 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation deleteProgram
      *
-     * @param version 
      * @param id the id of the program
      * @return RequestConfig
      */
-    fun deleteProgramRequestConfig(version: java.math.BigDecimal, id: kotlin.Long) : RequestConfig<Unit> {
+    fun deleteProgramRequestConfig(id: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.DELETE,
-            path = "/api/{version}/program/{id}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/program/{id}".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -194,10 +188,9 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/program/{id}
+     * GET /program/{id}
      * Get Program
      * Get an existing program
-     * @param version 
      * @param id the id of the program
      * @return Program
      * @throws IllegalStateException If the request is not correctly configured
@@ -208,8 +201,8 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getProgram(version: java.math.BigDecimal, id: kotlin.Long) : Program {
-        val localVarResponse = getProgramWithHttpInfo(version = version, id = id)
+    fun getProgram(id: kotlin.Long) : Program {
+        val localVarResponse = getProgramWithHttpInfo(id = id)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Program
@@ -227,10 +220,9 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/program/{id}
+     * GET /program/{id}
      * Get Program
      * Get an existing program
-     * @param version 
      * @param id the id of the program
      * @return ApiResponse<Program?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -238,8 +230,8 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getProgramWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long) : ApiResponse<Program?> {
-        val localVariableConfig = getProgramRequestConfig(version = version, id = id)
+    fun getProgramWithHttpInfo(id: kotlin.Long) : ApiResponse<Program?> {
+        val localVariableConfig = getProgramRequestConfig(id = id)
 
         return request<Unit, Program>(
             localVariableConfig
@@ -249,18 +241,17 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation getProgram
      *
-     * @param version 
      * @param id the id of the program
      * @return RequestConfig
      */
-    fun getProgramRequestConfig(version: java.math.BigDecimal, id: kotlin.Long) : RequestConfig<Unit> {
+    fun getProgramRequestConfig(id: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/program/{id}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/program/{id}".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -269,10 +260,9 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/program/{id}
+     * POST /program/{id}
      * Update Program
      * Update an existing program
-     * @param version 
      * @param id the id of the program
      * @param body  (optional)
      * @return Program
@@ -284,8 +274,8 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun postProgram(version: java.math.BigDecimal, id: kotlin.Long, body: Program? = null) : Program {
-        val localVarResponse = postProgramWithHttpInfo(version = version, id = id, body = body)
+    fun postProgram(id: kotlin.Long, body: Program? = null) : Program {
+        val localVarResponse = postProgramWithHttpInfo(id = id, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Program
@@ -303,10 +293,9 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/program/{id}
+     * POST /program/{id}
      * Update Program
      * Update an existing program
-     * @param version 
      * @param id the id of the program
      * @param body  (optional)
      * @return ApiResponse<Program?>
@@ -315,8 +304,8 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun postProgramWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long, body: Program?) : ApiResponse<Program?> {
-        val localVariableConfig = postProgramRequestConfig(version = version, id = id, body = body)
+    fun postProgramWithHttpInfo(id: kotlin.Long, body: Program?) : ApiResponse<Program?> {
+        val localVariableConfig = postProgramRequestConfig(id = id, body = body)
 
         return request<Program, Program>(
             localVariableConfig
@@ -326,19 +315,18 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation postProgram
      *
-     * @param version 
      * @param id the id of the program
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun postProgramRequestConfig(version: java.math.BigDecimal, id: kotlin.Long, body: Program?) : RequestConfig<Program> {
+    fun postProgramRequestConfig(id: kotlin.Long, body: Program?) : RequestConfig<Program> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/program/{id}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/program/{id}".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -347,10 +335,9 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * PUT /api/{version}/program/{id}
+     * PUT /program/{id}
      * Update Program
      * Update an existing program
-     * @param version 
      * @param id the id of the program
      * @param body  (optional)
      * @return Program
@@ -362,8 +349,8 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun putProgram(version: java.math.BigDecimal, id: kotlin.Long, body: Program? = null) : Program {
-        val localVarResponse = putProgramWithHttpInfo(version = version, id = id, body = body)
+    fun putProgram(id: kotlin.Long, body: Program? = null) : Program {
+        val localVarResponse = putProgramWithHttpInfo(id = id, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Program
@@ -381,10 +368,9 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * PUT /api/{version}/program/{id}
+     * PUT /program/{id}
      * Update Program
      * Update an existing program
-     * @param version 
      * @param id the id of the program
      * @param body  (optional)
      * @return ApiResponse<Program?>
@@ -393,8 +379,8 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun putProgramWithHttpInfo(version: java.math.BigDecimal, id: kotlin.Long, body: Program?) : ApiResponse<Program?> {
-        val localVariableConfig = putProgramRequestConfig(version = version, id = id, body = body)
+    fun putProgramWithHttpInfo(id: kotlin.Long, body: Program?) : ApiResponse<Program?> {
+        val localVariableConfig = putProgramRequestConfig(id = id, body = body)
 
         return request<Program, Program>(
             localVariableConfig
@@ -404,19 +390,18 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation putProgram
      *
-     * @param version 
      * @param id the id of the program
      * @param body  (optional)
      * @return RequestConfig
      */
-    fun putProgramRequestConfig(version: java.math.BigDecimal, id: kotlin.Long, body: Program?) : RequestConfig<Program> {
+    fun putProgramRequestConfig(id: kotlin.Long, body: Program?) : RequestConfig<Program> {
         val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.PUT,
-            path = "/api/{version}/program/{id}".replace("{"+"version"+"}", encodeURIComponent(version.toString())).replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/program/{id}".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -425,10 +410,9 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/program
+     * GET /program
      * Search Programs
      * Search for programs
-     * @param version 
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
      * @param start The start index for pagination
@@ -444,8 +428,8 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchPrograms(version: java.math.BigDecimal, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, keyword: kotlin.String? = null) : kotlin.collections.List<Program> {
-        val localVarResponse = searchProgramsWithHttpInfo(version = version, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, keyword = keyword)
+    fun searchPrograms(sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, keyword: kotlin.String? = null) : kotlin.collections.List<Program> {
+        val localVarResponse = searchProgramsWithHttpInfo(sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, keyword = keyword)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<Program>
@@ -463,10 +447,9 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/program
+     * GET /program
      * Search Programs
      * Search for programs
-     * @param version 
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
      * @param start The start index for pagination
@@ -479,8 +462,8 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchProgramsWithHttpInfo(version: java.math.BigDecimal, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, keyword: kotlin.String?) : ApiResponse<kotlin.collections.List<Program>?> {
-        val localVariableConfig = searchProgramsRequestConfig(version = version, sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, keyword = keyword)
+    fun searchProgramsWithHttpInfo(sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, keyword: kotlin.String?) : ApiResponse<kotlin.collections.List<Program>?> {
+        val localVariableConfig = searchProgramsRequestConfig(sortField = sortField, descending = descending, start = start, limit = limit, activeOnly = activeOnly, keyword = keyword)
 
         return request<Unit, kotlin.collections.List<Program>>(
             localVariableConfig
@@ -490,7 +473,6 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation searchPrograms
      *
-     * @param version 
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
      * @param start The start index for pagination
@@ -499,7 +481,7 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param keyword The keyword to filter results by (optional)
      * @return RequestConfig
      */
-    fun searchProgramsRequestConfig(version: java.math.BigDecimal, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, keyword: kotlin.String?) : RequestConfig<Unit> {
+    fun searchProgramsRequestConfig(sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, activeOnly: kotlin.Boolean, keyword: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -516,7 +498,7 @@ open class ProgramApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/program".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/program",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

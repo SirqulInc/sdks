@@ -43,7 +43,7 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://dev.sirqul.com/api/3.18")
         }
     }
 
@@ -66,10 +66,9 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      }
 
     /**
-     * POST /api/{version}/consumer/album/contest
+     * POST /consumer/album/contest
      * Create or Update Contest
      * Creates or updates a contest.
-     * @param version 
      * @param publicRead determines whether the contest&#39;s participants has read permissions
      * @param publicWrite determines whether the contest&#39;s participants has write permissions
      * @param publicDelete determines whether the contest&#39;s participants has delete permissions
@@ -104,8 +103,8 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun addOrUpdateAlbumContest(version: java.math.BigDecimal, publicRead: kotlin.Boolean, publicWrite: kotlin.Boolean, publicDelete: kotlin.Boolean, publicAdd: kotlin.Boolean, visibility: VisibilityAddOrUpdateAlbumContest, includeFriendGroup: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, contestType: kotlin.String? = null, albumContestId: kotlin.Long? = null, title: kotlin.String? = null, description: kotlin.String? = null, albumId1: kotlin.Long? = null, removeAlbum1: kotlin.Boolean? = null, albumId2: kotlin.Long? = null, removeAlbum2: kotlin.Boolean? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, locationDescription: kotlin.String? = null, connectionIdsToAdd: kotlin.String? = null, connectionGroupIdsToAdd: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : AlbumContestResponse {
-        val localVarResponse = addOrUpdateAlbumContestWithHttpInfo(version = version, publicRead = publicRead, publicWrite = publicWrite, publicDelete = publicDelete, publicAdd = publicAdd, visibility = visibility, includeFriendGroup = includeFriendGroup, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, contestType = contestType, albumContestId = albumContestId, title = title, description = description, albumId1 = albumId1, removeAlbum1 = removeAlbum1, albumId2 = albumId2, removeAlbum2 = removeAlbum2, startDate = startDate, endDate = endDate, locationDescription = locationDescription, connectionIdsToAdd = connectionIdsToAdd, connectionGroupIdsToAdd = connectionGroupIdsToAdd, latitude = latitude, longitude = longitude)
+    fun addOrUpdateAlbumContest(publicRead: kotlin.Boolean, publicWrite: kotlin.Boolean, publicDelete: kotlin.Boolean, publicAdd: kotlin.Boolean, visibility: VisibilityAddOrUpdateAlbumContest, includeFriendGroup: kotlin.Boolean, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, contestType: kotlin.String? = null, albumContestId: kotlin.Long? = null, title: kotlin.String? = null, description: kotlin.String? = null, albumId1: kotlin.Long? = null, removeAlbum1: kotlin.Boolean? = null, albumId2: kotlin.Long? = null, removeAlbum2: kotlin.Boolean? = null, startDate: kotlin.Long? = null, endDate: kotlin.Long? = null, locationDescription: kotlin.String? = null, connectionIdsToAdd: kotlin.String? = null, connectionGroupIdsToAdd: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : AlbumContestResponse {
+        val localVarResponse = addOrUpdateAlbumContestWithHttpInfo(publicRead = publicRead, publicWrite = publicWrite, publicDelete = publicDelete, publicAdd = publicAdd, visibility = visibility, includeFriendGroup = includeFriendGroup, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, contestType = contestType, albumContestId = albumContestId, title = title, description = description, albumId1 = albumId1, removeAlbum1 = removeAlbum1, albumId2 = albumId2, removeAlbum2 = removeAlbum2, startDate = startDate, endDate = endDate, locationDescription = locationDescription, connectionIdsToAdd = connectionIdsToAdd, connectionGroupIdsToAdd = connectionGroupIdsToAdd, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AlbumContestResponse
@@ -123,10 +122,9 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/consumer/album/contest
+     * POST /consumer/album/contest
      * Create or Update Contest
      * Creates or updates a contest.
-     * @param version 
      * @param publicRead determines whether the contest&#39;s participants has read permissions
      * @param publicWrite determines whether the contest&#39;s participants has write permissions
      * @param publicDelete determines whether the contest&#39;s participants has delete permissions
@@ -158,8 +156,8 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun addOrUpdateAlbumContestWithHttpInfo(version: java.math.BigDecimal, publicRead: kotlin.Boolean, publicWrite: kotlin.Boolean, publicDelete: kotlin.Boolean, publicAdd: kotlin.Boolean, visibility: VisibilityAddOrUpdateAlbumContest, includeFriendGroup: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, contestType: kotlin.String?, albumContestId: kotlin.Long?, title: kotlin.String?, description: kotlin.String?, albumId1: kotlin.Long?, removeAlbum1: kotlin.Boolean?, albumId2: kotlin.Long?, removeAlbum2: kotlin.Boolean?, startDate: kotlin.Long?, endDate: kotlin.Long?, locationDescription: kotlin.String?, connectionIdsToAdd: kotlin.String?, connectionGroupIdsToAdd: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<AlbumContestResponse?> {
-        val localVariableConfig = addOrUpdateAlbumContestRequestConfig(version = version, publicRead = publicRead, publicWrite = publicWrite, publicDelete = publicDelete, publicAdd = publicAdd, visibility = visibility, includeFriendGroup = includeFriendGroup, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, contestType = contestType, albumContestId = albumContestId, title = title, description = description, albumId1 = albumId1, removeAlbum1 = removeAlbum1, albumId2 = albumId2, removeAlbum2 = removeAlbum2, startDate = startDate, endDate = endDate, locationDescription = locationDescription, connectionIdsToAdd = connectionIdsToAdd, connectionGroupIdsToAdd = connectionGroupIdsToAdd, latitude = latitude, longitude = longitude)
+    fun addOrUpdateAlbumContestWithHttpInfo(publicRead: kotlin.Boolean, publicWrite: kotlin.Boolean, publicDelete: kotlin.Boolean, publicAdd: kotlin.Boolean, visibility: VisibilityAddOrUpdateAlbumContest, includeFriendGroup: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, contestType: kotlin.String?, albumContestId: kotlin.Long?, title: kotlin.String?, description: kotlin.String?, albumId1: kotlin.Long?, removeAlbum1: kotlin.Boolean?, albumId2: kotlin.Long?, removeAlbum2: kotlin.Boolean?, startDate: kotlin.Long?, endDate: kotlin.Long?, locationDescription: kotlin.String?, connectionIdsToAdd: kotlin.String?, connectionGroupIdsToAdd: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<AlbumContestResponse?> {
+        val localVariableConfig = addOrUpdateAlbumContestRequestConfig(publicRead = publicRead, publicWrite = publicWrite, publicDelete = publicDelete, publicAdd = publicAdd, visibility = visibility, includeFriendGroup = includeFriendGroup, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, contestType = contestType, albumContestId = albumContestId, title = title, description = description, albumId1 = albumId1, removeAlbum1 = removeAlbum1, albumId2 = albumId2, removeAlbum2 = removeAlbum2, startDate = startDate, endDate = endDate, locationDescription = locationDescription, connectionIdsToAdd = connectionIdsToAdd, connectionGroupIdsToAdd = connectionGroupIdsToAdd, latitude = latitude, longitude = longitude)
 
         return request<Unit, AlbumContestResponse>(
             localVariableConfig
@@ -169,7 +167,6 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation addOrUpdateAlbumContest
      *
-     * @param version 
      * @param publicRead determines whether the contest&#39;s participants has read permissions
      * @param publicWrite determines whether the contest&#39;s participants has write permissions
      * @param publicDelete determines whether the contest&#39;s participants has delete permissions
@@ -197,7 +194,7 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param longitude longitude used to update the user&#39;s current location (optional)
      * @return RequestConfig
      */
-    fun addOrUpdateAlbumContestRequestConfig(version: java.math.BigDecimal, publicRead: kotlin.Boolean, publicWrite: kotlin.Boolean, publicDelete: kotlin.Boolean, publicAdd: kotlin.Boolean, visibility: VisibilityAddOrUpdateAlbumContest, includeFriendGroup: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, contestType: kotlin.String?, albumContestId: kotlin.Long?, title: kotlin.String?, description: kotlin.String?, albumId1: kotlin.Long?, removeAlbum1: kotlin.Boolean?, albumId2: kotlin.Long?, removeAlbum2: kotlin.Boolean?, startDate: kotlin.Long?, endDate: kotlin.Long?, locationDescription: kotlin.String?, connectionIdsToAdd: kotlin.String?, connectionGroupIdsToAdd: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun addOrUpdateAlbumContestRequestConfig(publicRead: kotlin.Boolean, publicWrite: kotlin.Boolean, publicDelete: kotlin.Boolean, publicAdd: kotlin.Boolean, visibility: VisibilityAddOrUpdateAlbumContest, includeFriendGroup: kotlin.Boolean, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, contestType: kotlin.String?, albumContestId: kotlin.Long?, title: kotlin.String?, description: kotlin.String?, albumId1: kotlin.Long?, removeAlbum1: kotlin.Boolean?, albumId2: kotlin.Long?, removeAlbum2: kotlin.Boolean?, startDate: kotlin.Long?, endDate: kotlin.Long?, locationDescription: kotlin.String?, connectionIdsToAdd: kotlin.String?, connectionGroupIdsToAdd: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -269,7 +266,7 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/consumer/album/contest".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/album/contest",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -297,10 +294,9 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      }
 
     /**
-     * POST /api/{version}/consumer/album/contest/approve
+     * POST /consumer/album/contest/approve
      * Approve Contest
      * Sets the approval status of a contest.
-     * @param version 
      * @param albumContestId The ID of the album contest
      * @param approvalStatus The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -314,8 +310,8 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun approveAlbumContest(version: java.math.BigDecimal, albumContestId: kotlin.Long, approvalStatus: ApprovalStatusApproveAlbumContest, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
-        val localVarResponse = approveAlbumContestWithHttpInfo(version = version, albumContestId = albumContestId, approvalStatus = approvalStatus, deviceId = deviceId, accountId = accountId)
+    fun approveAlbumContest(albumContestId: kotlin.Long, approvalStatus: ApprovalStatusApproveAlbumContest, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null) : SirqulResponse {
+        val localVarResponse = approveAlbumContestWithHttpInfo(albumContestId = albumContestId, approvalStatus = approvalStatus, deviceId = deviceId, accountId = accountId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -333,10 +329,9 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/consumer/album/contest/approve
+     * POST /consumer/album/contest/approve
      * Approve Contest
      * Sets the approval status of a contest.
-     * @param version 
      * @param albumContestId The ID of the album contest
      * @param approvalStatus The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -347,8 +342,8 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun approveAlbumContestWithHttpInfo(version: java.math.BigDecimal, albumContestId: kotlin.Long, approvalStatus: ApprovalStatusApproveAlbumContest, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = approveAlbumContestRequestConfig(version = version, albumContestId = albumContestId, approvalStatus = approvalStatus, deviceId = deviceId, accountId = accountId)
+    fun approveAlbumContestWithHttpInfo(albumContestId: kotlin.Long, approvalStatus: ApprovalStatusApproveAlbumContest, deviceId: kotlin.String?, accountId: kotlin.Long?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = approveAlbumContestRequestConfig(albumContestId = albumContestId, approvalStatus = approvalStatus, deviceId = deviceId, accountId = accountId)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -358,14 +353,13 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation approveAlbumContest
      *
-     * @param version 
      * @param albumContestId The ID of the album contest
      * @param approvalStatus The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
      * @return RequestConfig
      */
-    fun approveAlbumContestRequestConfig(version: java.math.BigDecimal, albumContestId: kotlin.Long, approvalStatus: ApprovalStatusApproveAlbumContest, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
+    fun approveAlbumContestRequestConfig(albumContestId: kotlin.Long, approvalStatus: ApprovalStatusApproveAlbumContest, deviceId: kotlin.String?, accountId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -382,7 +376,7 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/consumer/album/contest/approve".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/album/contest/approve",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -391,10 +385,9 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/consumer/album/contest/remove
+     * POST /consumer/album/contest/remove
      * Delete Contest
      * Deletes a contest.
-     * @param version 
      * @param albumContestId the album contest ID
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -409,8 +402,8 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteContest(version: java.math.BigDecimal, albumContestId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
-        val localVarResponse = deleteContestWithHttpInfo(version = version, albumContestId = albumContestId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun deleteContest(albumContestId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : SirqulResponse {
+        val localVarResponse = deleteContestWithHttpInfo(albumContestId = albumContestId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SirqulResponse
@@ -428,10 +421,9 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/consumer/album/contest/remove
+     * POST /consumer/album/contest/remove
      * Delete Contest
      * Deletes a contest.
-     * @param version 
      * @param albumContestId the album contest ID
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -443,8 +435,8 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteContestWithHttpInfo(version: java.math.BigDecimal, albumContestId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
-        val localVariableConfig = deleteContestRequestConfig(version = version, albumContestId = albumContestId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun deleteContestWithHttpInfo(albumContestId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<SirqulResponse?> {
+        val localVariableConfig = deleteContestRequestConfig(albumContestId = albumContestId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return request<Unit, SirqulResponse>(
             localVariableConfig
@@ -454,7 +446,6 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation deleteContest
      *
-     * @param version 
      * @param albumContestId the album contest ID
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -462,7 +453,7 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param longitude longitude used to update the user&#39;s current location (optional)
      * @return RequestConfig
      */
-    fun deleteContestRequestConfig(version: java.math.BigDecimal, albumContestId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun deleteContestRequestConfig(albumContestId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -484,7 +475,7 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/consumer/album/contest/remove".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/album/contest/remove",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -493,10 +484,9 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/consumer/album/contest/get
+     * GET /consumer/album/contest/get
      * Get Contest
      * Gets the contest object including the likes and notes
-     * @param version 
      * @param albumContestId the album contest ID
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -511,8 +501,8 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAlbumContest(version: java.math.BigDecimal, albumContestId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : AlbumContestResponse {
-        val localVarResponse = getAlbumContestWithHttpInfo(version = version, albumContestId = albumContestId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun getAlbumContest(albumContestId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : AlbumContestResponse {
+        val localVarResponse = getAlbumContestWithHttpInfo(albumContestId = albumContestId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AlbumContestResponse
@@ -530,10 +520,9 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/consumer/album/contest/get
+     * GET /consumer/album/contest/get
      * Get Contest
      * Gets the contest object including the likes and notes
-     * @param version 
      * @param albumContestId the album contest ID
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -545,8 +534,8 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAlbumContestWithHttpInfo(version: java.math.BigDecimal, albumContestId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<AlbumContestResponse?> {
-        val localVariableConfig = getAlbumContestRequestConfig(version = version, albumContestId = albumContestId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
+    fun getAlbumContestWithHttpInfo(albumContestId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<AlbumContestResponse?> {
+        val localVariableConfig = getAlbumContestRequestConfig(albumContestId = albumContestId, deviceId = deviceId, accountId = accountId, latitude = latitude, longitude = longitude)
 
         return request<Unit, AlbumContestResponse>(
             localVariableConfig
@@ -556,7 +545,6 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation getAlbumContest
      *
-     * @param version 
      * @param albumContestId the album contest ID
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -564,7 +552,7 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param longitude longitude used to update the user&#39;s current location (optional)
      * @return RequestConfig
      */
-    fun getAlbumContestRequestConfig(version: java.math.BigDecimal, albumContestId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun getAlbumContestRequestConfig(albumContestId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -586,7 +574,7 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/consumer/album/contest/get".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/album/contest/get",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -595,10 +583,9 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/consumer/album/contest/search
+     * GET /consumer/album/contest/search
      * Search Contests
      * Searches on contests.
-     * @param version 
      * @param filter a comma separated list of Ownership
      * @param sortField the field to sort by. See AlbumContestApiMap
      * @param descending determines whether the sorted list is in descending or ascending order
@@ -627,8 +614,8 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAlbumContests(version: java.math.BigDecimal, filter: kotlin.String, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, appType: kotlin.String? = null, contestType: kotlin.String? = null, ownerId: kotlin.Long? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, i: kotlin.Int? = null, l: kotlin.Int? = null, dateCreated: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : AlbumContestListResponse {
-        val localVarResponse = getAlbumContestsWithHttpInfo(version = version, filter = filter, sortField = sortField, descending = descending, start = start, limit = limit, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, appType = appType, contestType = contestType, ownerId = ownerId, q = q, keyword = keyword, i = i, l = l, dateCreated = dateCreated, latitude = latitude, longitude = longitude)
+    fun getAlbumContests(filter: kotlin.String, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, gameType: kotlin.String? = null, appKey: kotlin.String? = null, appType: kotlin.String? = null, contestType: kotlin.String? = null, ownerId: kotlin.Long? = null, q: kotlin.String? = null, keyword: kotlin.String? = null, i: kotlin.Int? = null, l: kotlin.Int? = null, dateCreated: kotlin.Long? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : AlbumContestListResponse {
+        val localVarResponse = getAlbumContestsWithHttpInfo(filter = filter, sortField = sortField, descending = descending, start = start, limit = limit, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, appType = appType, contestType = contestType, ownerId = ownerId, q = q, keyword = keyword, i = i, l = l, dateCreated = dateCreated, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AlbumContestListResponse
@@ -646,10 +633,9 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /api/{version}/consumer/album/contest/search
+     * GET /consumer/album/contest/search
      * Search Contests
      * Searches on contests.
-     * @param version 
      * @param filter a comma separated list of Ownership
      * @param sortField the field to sort by. See AlbumContestApiMap
      * @param descending determines whether the sorted list is in descending or ascending order
@@ -675,8 +661,8 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAlbumContestsWithHttpInfo(version: java.math.BigDecimal, filter: kotlin.String, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, appType: kotlin.String?, contestType: kotlin.String?, ownerId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, i: kotlin.Int?, l: kotlin.Int?, dateCreated: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<AlbumContestListResponse?> {
-        val localVariableConfig = getAlbumContestsRequestConfig(version = version, filter = filter, sortField = sortField, descending = descending, start = start, limit = limit, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, appType = appType, contestType = contestType, ownerId = ownerId, q = q, keyword = keyword, i = i, l = l, dateCreated = dateCreated, latitude = latitude, longitude = longitude)
+    fun getAlbumContestsWithHttpInfo(filter: kotlin.String, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, appType: kotlin.String?, contestType: kotlin.String?, ownerId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, i: kotlin.Int?, l: kotlin.Int?, dateCreated: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<AlbumContestListResponse?> {
+        val localVariableConfig = getAlbumContestsRequestConfig(filter = filter, sortField = sortField, descending = descending, start = start, limit = limit, deviceId = deviceId, accountId = accountId, gameType = gameType, appKey = appKey, appType = appType, contestType = contestType, ownerId = ownerId, q = q, keyword = keyword, i = i, l = l, dateCreated = dateCreated, latitude = latitude, longitude = longitude)
 
         return request<Unit, AlbumContestListResponse>(
             localVariableConfig
@@ -686,7 +672,6 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation getAlbumContests
      *
-     * @param version 
      * @param filter a comma separated list of Ownership
      * @param sortField the field to sort by. See AlbumContestApiMap
      * @param descending determines whether the sorted list is in descending or ascending order
@@ -708,7 +693,7 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param longitude longitude used to update the user&#39;s current location (optional)
      * @return RequestConfig
      */
-    fun getAlbumContestsRequestConfig(version: java.math.BigDecimal, filter: kotlin.String, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, appType: kotlin.String?, contestType: kotlin.String?, ownerId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, i: kotlin.Int?, l: kotlin.Int?, dateCreated: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun getAlbumContestsRequestConfig(filter: kotlin.String, sortField: kotlin.String, descending: kotlin.Boolean, start: kotlin.Int, limit: kotlin.Int, deviceId: kotlin.String?, accountId: kotlin.Long?, gameType: kotlin.String?, appKey: kotlin.String?, appType: kotlin.String?, contestType: kotlin.String?, ownerId: kotlin.Long?, q: kotlin.String?, keyword: kotlin.String?, i: kotlin.Int?, l: kotlin.Int?, dateCreated: kotlin.Long?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -764,7 +749,7 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/{version}/consumer/album/contest/search".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/album/contest/search",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -773,10 +758,9 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/consumer/album/contest/vote
+     * POST /consumer/album/contest/vote
      * Vote on Contest
      * Vote on a collection in a contest.
-     * @param version 
      * @param albumContestId the album contest ID
      * @param albumId the ID of the album to vote on
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -793,8 +777,8 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun voteOnAlbumContest(version: java.math.BigDecimal, albumContestId: kotlin.Long, albumId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, contestType: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : AlbumContestResponse {
-        val localVarResponse = voteOnAlbumContestWithHttpInfo(version = version, albumContestId = albumContestId, albumId = albumId, deviceId = deviceId, accountId = accountId, contestType = contestType, latitude = latitude, longitude = longitude)
+    fun voteOnAlbumContest(albumContestId: kotlin.Long, albumId: kotlin.Long, deviceId: kotlin.String? = null, accountId: kotlin.Long? = null, contestType: kotlin.String? = null, latitude: kotlin.Double? = null, longitude: kotlin.Double? = null) : AlbumContestResponse {
+        val localVarResponse = voteOnAlbumContestWithHttpInfo(albumContestId = albumContestId, albumId = albumId, deviceId = deviceId, accountId = accountId, contestType = contestType, latitude = latitude, longitude = longitude)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AlbumContestResponse
@@ -812,10 +796,9 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * POST /api/{version}/consumer/album/contest/vote
+     * POST /consumer/album/contest/vote
      * Vote on Contest
      * Vote on a collection in a contest.
-     * @param version 
      * @param albumContestId the album contest ID
      * @param albumId the ID of the album to vote on
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -829,8 +812,8 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun voteOnAlbumContestWithHttpInfo(version: java.math.BigDecimal, albumContestId: kotlin.Long, albumId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, contestType: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<AlbumContestResponse?> {
-        val localVariableConfig = voteOnAlbumContestRequestConfig(version = version, albumContestId = albumContestId, albumId = albumId, deviceId = deviceId, accountId = accountId, contestType = contestType, latitude = latitude, longitude = longitude)
+    fun voteOnAlbumContestWithHttpInfo(albumContestId: kotlin.Long, albumId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, contestType: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : ApiResponse<AlbumContestResponse?> {
+        val localVariableConfig = voteOnAlbumContestRequestConfig(albumContestId = albumContestId, albumId = albumId, deviceId = deviceId, accountId = accountId, contestType = contestType, latitude = latitude, longitude = longitude)
 
         return request<Unit, AlbumContestResponse>(
             localVariableConfig
@@ -840,7 +823,6 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation voteOnAlbumContest
      *
-     * @param version 
      * @param albumContestId the album contest ID
      * @param albumId the ID of the album to vote on
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -850,7 +832,7 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param longitude longitude used to update the user&#39;s current location (optional)
      * @return RequestConfig
      */
-    fun voteOnAlbumContestRequestConfig(version: java.math.BigDecimal, albumContestId: kotlin.Long, albumId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, contestType: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
+    fun voteOnAlbumContestRequestConfig(albumContestId: kotlin.Long, albumId: kotlin.Long, deviceId: kotlin.String?, accountId: kotlin.Long?, contestType: kotlin.String?, latitude: kotlin.Double?, longitude: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -876,7 +858,7 @@ open class ContestApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/{version}/consumer/album/contest/vote".replace("{"+"version"+"}", encodeURIComponent(version.toString())),
+            path = "/consumer/album/contest/vote",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
